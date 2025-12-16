@@ -31,7 +31,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SourceConfiguration_AppIntegrations_AppIntegrationArn" NewName="AppIntegrations_AppIntegrationArn" />
+                <Param Name="SourceConfiguration_AppIntegrations_ObjectFields" NewName="AppIntegrations_ObjectField" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateQuickResponse" OutputProperty="QuickResponse" Verb="New" Noun="QuickResponse" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -147,7 +150,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchQuickResponses" OutputProperty="Results" Verb="Search" Noun="QuickResponse" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchExpression_OrderOnField_Name" NewName="OrderOnField_Name" />
+                <Param Name="SearchExpression_OrderOnField_Order" NewName="OrderOnField_Order" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchSessions" OutputProperty="SessionSummaries" Verb="Search" Noun="Session" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -159,7 +165,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartImportJob" OutputProperty="ImportJob" Verb="Start" Noun="ImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExternalSourceConfiguration_Configuration_ConnectConfiguration_InstanceId" NewName="ConnectConfiguration_InstanceId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">

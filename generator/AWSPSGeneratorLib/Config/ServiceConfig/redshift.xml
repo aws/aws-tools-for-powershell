@@ -132,7 +132,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateScheduledAction" OutputProperty="*" Verb="New" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TargetAction_PauseCluster_ClusterIdentifier" NewName="PauseCluster_ClusterIdentifier" />
+                <Param Name="TargetAction_ResizeCluster_Classic" NewName="ResizeCluster_Classic" />
+                <Param Name="TargetAction_ResizeCluster_ClusterIdentifier" NewName="ResizeCluster_ClusterIdentifier" />
+                <Param Name="TargetAction_ResizeCluster_ClusterType" NewName="ResizeCluster_ClusterType" />
+                <Param Name="TargetAction_ResizeCluster_NodeType" NewName="ResizeCluster_NodeType" />
+                <Param Name="TargetAction_ResizeCluster_NumberOfNodes" NewName="ResizeCluster_NumberOfNode" />
+                <Param Name="TargetAction_ResizeCluster_ReservedNodeId" NewName="ResizeCluster_ReservedNodeId" />
+                <Param Name="TargetAction_ResizeCluster_TargetReservedNodeOfferingId" NewName="ResizeCluster_TargetReservedNodeOfferingId" />
+                <Param Name="TargetAction_ResumeCluster_ClusterIdentifier" NewName="ResumeCluster_ClusterIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSnapshotCopyGrant" OutputProperty="SnapshotCopyGrant" Verb="New" Noun="SnapshotCopyGrant" ShouldProcessTarget="SnapshotCopyGrantName" PipelineParameter="Tags" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -236,7 +246,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeregisterNamespace" OutputProperty="Status" Verb="Unregister" Noun="Namespace" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NamespaceIdentifier_ProvisionedIdentifier_ClusterIdentifier" NewName="ProvisionedIdentifier_ClusterIdentifier" />
+                <Param Name="NamespaceIdentifier_ServerlessIdentifier_NamespaceIdentifier" NewName="ServerlessIdentifier_NamespaceIdentifier" />
+                <Param Name="NamespaceIdentifier_ServerlessIdentifier_WorkgroupIdentifier" NewName="ServerlessIdentifier_WorkgroupIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="AccountAttributes" Verb="Get" Noun="AccountAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -524,7 +538,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyScheduledAction" OutputProperty="*" Verb="Edit" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TargetAction_PauseCluster_ClusterIdentifier" NewName="PauseCluster_ClusterIdentifier" />
+                <Param Name="TargetAction_ResizeCluster_Classic" NewName="ResizeCluster_Classic" />
+                <Param Name="TargetAction_ResizeCluster_ClusterIdentifier" NewName="ResizeCluster_ClusterIdentifier" />
+                <Param Name="TargetAction_ResizeCluster_ClusterType" NewName="ResizeCluster_ClusterType" />
+                <Param Name="TargetAction_ResizeCluster_NodeType" NewName="ResizeCluster_NodeType" />
+                <Param Name="TargetAction_ResizeCluster_NumberOfNodes" NewName="ResizeCluster_NumberOfNode" />
+                <Param Name="TargetAction_ResizeCluster_ReservedNodeId" NewName="ResizeCluster_ReservedNodeId" />
+                <Param Name="TargetAction_ResizeCluster_TargetReservedNodeOfferingId" NewName="ResizeCluster_TargetReservedNodeOfferingId" />
+                <Param Name="TargetAction_ResumeCluster_ClusterIdentifier" NewName="ResumeCluster_ClusterIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifySnapshotCopyRetentionPeriod" OutputProperty="Cluster" Verb="Edit" Noun="SnapshotCopyRetentionPeriod" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -556,7 +580,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterNamespace" OutputProperty="Status" Verb="Register" Noun="Namespace" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NamespaceIdentifier_ProvisionedIdentifier_ClusterIdentifier" NewName="ProvisionedIdentifier_ClusterIdentifier" />
+                <Param Name="NamespaceIdentifier_ServerlessIdentifier_NamespaceIdentifier" NewName="ServerlessIdentifier_NamespaceIdentifier" />
+                <Param Name="NamespaceIdentifier_ServerlessIdentifier_WorkgroupIdentifier" NewName="ServerlessIdentifier_WorkgroupIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RejectDataShare" OutputProperty="*" Verb="Deny" Noun="DataShare" ShouldProcessTarget="DataShareArn" PipelineParameter="DataShareArn" NoPipelineParameter="false" LegacyV4Pagination="true">

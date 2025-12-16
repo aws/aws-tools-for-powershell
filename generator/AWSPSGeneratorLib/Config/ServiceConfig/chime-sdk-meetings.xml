@@ -32,11 +32,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMeeting" OutputProperty="Meeting" Verb="New" Noun="Meeting" ShouldProcessTarget="ExternalMeetingId" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MeetingFeatures_Attendee_MaxCount" NewName="Attendee_MaxCount" />
+                <Param Name="MeetingFeatures_Audio_EchoReduction" NewName="Audio_EchoReduction" />
+                <Param Name="MeetingFeatures_Content_MaxResolution" NewName="Content_MaxResolution" />
+                <Param Name="MeetingFeatures_Video_MaxResolution" NewName="Video_MaxResolution" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMeetingWithAttendees" OutputProperty="*" Verb="New" Noun="MeetingWithAttendee" ShouldProcessTarget="ExternalMeetingId" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MeetingFeatures_Attendee_MaxCount" NewName="Attendee_MaxCount" />
+                <Param Name="MeetingFeatures_Audio_EchoReduction" NewName="Audio_EchoReduction" />
+                <Param Name="MeetingFeatures_Content_MaxResolution" NewName="Content_MaxResolution" />
+                <Param Name="MeetingFeatures_Video_MaxResolution" NewName="Video_MaxResolution" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAttendee" Verb="Remove" Noun="Attendee" ShouldProcessTarget="AttendeeId" PipelineParameter="AttendeeId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -67,6 +77,26 @@
             <Params>
                 <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames" NewName="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames" Alias="EngineTranscribeSettings_VocabularyNames" />
                 <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames" NewName="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames" Alias="EngineTranscribeSettings_VocabularyFilterNames" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType" NewName="EngineTranscribeMedicalSettings_ContentIdentificationType" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode" NewName="EngineTranscribeMedicalSettings_LanguageCode" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region" NewName="EngineTranscribeMedicalSettings_Region" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeMedicalSettings_Specialty" NewName="EngineTranscribeMedicalSettings_Specialty" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeMedicalSettings_Type" NewName="EngineTranscribeMedicalSettings_Type" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeMedicalSettings_VocabularyName" NewName="EngineTranscribeMedicalSettings_VocabularyName" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_ContentIdentificationType" NewName="EngineTranscribeSettings_ContentIdentificationType" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_ContentRedactionType" NewName="EngineTranscribeSettings_ContentRedactionType" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_EnablePartialResultsStabilization" NewName="EngineTranscribeSettings_EnablePartialResultsStabilization" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_IdentifyLanguage" NewName="EngineTranscribeSettings_IdentifyLanguage" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode" NewName="EngineTranscribeSettings_LanguageCode" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_LanguageModelName" NewName="EngineTranscribeSettings_LanguageModelName" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_LanguageOptions" NewName="EngineTranscribeSettings_LanguageOption" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_PartialResultsStability" NewName="EngineTranscribeSettings_PartialResultsStability" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_PiiEntityTypes" NewName="EngineTranscribeSettings_PiiEntityType" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage" NewName="EngineTranscribeSettings_PreferredLanguage" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_Region" NewName="EngineTranscribeSettings_Region" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod" NewName="EngineTranscribeSettings_VocabularyFilterMethod" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterName" NewName="EngineTranscribeSettings_VocabularyFilterName" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyName" NewName="EngineTranscribeSettings_VocabularyName" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

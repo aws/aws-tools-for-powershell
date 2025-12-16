@@ -57,7 +57,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetGroupId" OutputProperty="GroupId" Verb="Get" Noun="GroupId" PipelineParameter="IdentityStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AlternateIdentifier_ExternalId_Id" NewName="ExternalId_Id" />
+                <Param Name="AlternateIdentifier_ExternalId_Issuer" NewName="ExternalId_Issuer" />
+                <Param Name="AlternateIdentifier_UniqueAttribute_AttributePath" NewName="UniqueAttribute_AttributePath" />
+                <Param Name="AlternateIdentifier_UniqueAttribute_AttributeValue" NewName="UniqueAttribute_AttributeValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetGroupMembershipId" OutputProperty="MembershipId" Verb="Get" Noun="GroupMembershipId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -65,7 +70,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetUserId" OutputProperty="UserId" Verb="Get" Noun="UserId" PipelineParameter="IdentityStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AlternateIdentifier_ExternalId_Id" NewName="ExternalId_Id" />
+                <Param Name="AlternateIdentifier_ExternalId_Issuer" NewName="ExternalId_Issuer" />
+                <Param Name="AlternateIdentifier_UniqueAttribute_AttributePath" NewName="UniqueAttribute_AttributePath" />
+                <Param Name="AlternateIdentifier_UniqueAttribute_AttributeValue" NewName="UniqueAttribute_AttributeValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="IsMemberInGroups" OutputProperty="Results" Verb="Assert" Noun="MemberInGroup" ShouldProcessTarget="IdentityStoreId" PipelineParameter="IdentityStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">

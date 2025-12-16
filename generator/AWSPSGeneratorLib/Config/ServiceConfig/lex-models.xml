@@ -75,7 +75,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBotAliases" OutputProperty="BotAliases" Verb="Get" Noun="BotAliasList" PipelineParameter="BotName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBotAliases" OutputProperty="BotAliases" Verb="Get" Noun="BotAliasList" PipelineParameter="BotName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,15 +83,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBotChannelAssociations" OutputProperty="BotChannelAssociations" Verb="Get" Noun="BotChannelAssociationList" PipelineParameter="BotName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBotChannelAssociations" OutputProperty="BotChannelAssociations" Verb="Get" Noun="BotChannelAssociationList" PipelineParameter="BotName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBotVersions" OutputProperty="Bots" Verb="Get" Noun="BotVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBotVersions" OutputProperty="Bots" Verb="Get" Noun="BotVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,11 +99,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBuiltinIntents" OutputProperty="Intents" Verb="Get" Noun="BuiltinIntentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBuiltinIntents" OutputProperty="Intents" Verb="Get" Noun="BuiltinIntentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBuiltinSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="BuiltinSlotType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBuiltinSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="BuiltinSlotType" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,11 +119,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntents" OutputProperty="Intents" Verb="Get" Noun="IntentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIntents" OutputProperty="Intents" Verb="Get" Noun="IntentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntentVersions" OutputProperty="Intents" Verb="Get" Noun="IntentVersion" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIntentVersions" OutputProperty="Intents" Verb="Get" Noun="IntentVersion" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,11 +139,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSlotTypeVersions" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSlotTypeVersions" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,7 +164,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutIntent" OutputProperty="*" Verb="Write" Noun="Intent" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FollowUpPrompt_Prompt_MaxAttempts" NewName="Prompt_MaxAttempt" />
+                <Param Name="FollowUpPrompt_Prompt_Messages" NewName="Prompt_Message" />
+                <Param Name="FollowUpPrompt_Prompt_ResponseCard" NewName="Prompt_ResponseCard" />
+                <Param Name="FulfillmentActivity_CodeHook_MessageVersion" NewName="CodeHook_MessageVersion" />
+                <Param Name="FulfillmentActivity_CodeHook_Uri" NewName="CodeHook_Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutSlotType" OutputProperty="*" Verb="Write" Noun="SlotType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">

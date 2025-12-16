@@ -23,7 +23,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataIntegrationFlow" OutputProperty="*" Verb="New" Noun="DataIntegrationFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Target_DatasetTarget_DatasetIdentifier" NewName="DatasetTarget_DatasetIdentifier" />
+                <Param Name="Target_DatasetTarget_Options_DedupeRecords" NewName="Options_DedupeRecord" />
+                <Param Name="Target_DatasetTarget_Options_DedupeStrategy_FieldPriority_Fields" NewName="FieldPriority_Field" />
+                <Param Name="Target_DatasetTarget_Options_DedupeStrategy_Type" NewName="DedupeStrategy_Type" />
+                <Param Name="Target_DatasetTarget_Options_LoadType" NewName="Options_LoadType" />
+                <Param Name="Target_S3Target_BucketName" NewName="S3Target_BucketName" />
+                <Param Name="Target_S3Target_Options_FileType" NewName="Options_FileType" />
+                <Param Name="Target_S3Target_Prefix" NewName="S3Target_Prefix" />
+                <Param Name="Transformation_SqlTransformation_Query" NewName="SqlTransformation_Query" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataLakeDataset" OutputProperty="Dataset" Verb="New" Noun="DataLakeDataset" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -123,7 +133,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataIntegrationFlow" OutputProperty="Flow" Verb="Update" Noun="DataIntegrationFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Target_DatasetTarget_DatasetIdentifier" NewName="DatasetTarget_DatasetIdentifier" />
+                <Param Name="Target_DatasetTarget_Options_DedupeRecords" NewName="Options_DedupeRecord" />
+                <Param Name="Target_DatasetTarget_Options_DedupeStrategy_FieldPriority_Fields" NewName="FieldPriority_Field" />
+                <Param Name="Target_DatasetTarget_Options_DedupeStrategy_Type" NewName="DedupeStrategy_Type" />
+                <Param Name="Target_DatasetTarget_Options_LoadType" NewName="Options_LoadType" />
+                <Param Name="Target_S3Target_BucketName" NewName="S3Target_BucketName" />
+                <Param Name="Target_S3Target_Options_FileType" NewName="Options_FileType" />
+                <Param Name="Target_S3Target_Prefix" NewName="S3Target_Prefix" />
+                <Param Name="Transformation_SqlTransformation_Query" NewName="SqlTransformation_Query" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataLakeDataset" OutputProperty="Dataset" Verb="Update" Noun="DataLakeDataset" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">

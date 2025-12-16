@@ -19,7 +19,15 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateCampaign" OutputProperty="*" Verb="New" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DialerConfig_AgentlessDialerConfig_DialingCapacity" NewName="AgentlessDialerConfig_DialingCapacity" />
+                <Param Name="DialerConfig_PredictiveDialerConfig_BandwidthAllocation" NewName="PredictiveDialerConfig_BandwidthAllocation" />
+                <Param Name="DialerConfig_PredictiveDialerConfig_DialingCapacity" NewName="PredictiveDialerConfig_DialingCapacity" />
+                <Param Name="DialerConfig_ProgressiveDialerConfig_BandwidthAllocation" NewName="ProgressiveDialerConfig_BandwidthAllocation" />
+                <Param Name="DialerConfig_ProgressiveDialerConfig_DialingCapacity" NewName="ProgressiveDialerConfig_DialingCapacity" />
+                <Param Name="OutboundCallConfig_AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt" NewName="AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt" />
+                <Param Name="OutboundCallConfig_AnswerMachineDetectionConfig_EnableAnswerMachineDetection" NewName="AnswerMachineDetectionConfig_EnableAnswerMachineDetection" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCampaign" Verb="Remove" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -55,7 +63,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCampaigns" OutputProperty="CampaignSummaryList" Verb="Get" Noun="CampaignList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filters_InstanceIdFilter_Operator" NewName="InstanceIdFilter_Operator" />
+                <Param Name="Filters_InstanceIdFilter_Value" NewName="InstanceIdFilter_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -95,7 +106,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCampaignDialerConfig" Verb="Update" Noun="CampaignDialerConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DialerConfig_AgentlessDialerConfig_DialingCapacity" NewName="AgentlessDialerConfig_DialingCapacity" />
+                <Param Name="DialerConfig_PredictiveDialerConfig_BandwidthAllocation" NewName="PredictiveDialerConfig_BandwidthAllocation" />
+                <Param Name="DialerConfig_PredictiveDialerConfig_DialingCapacity" NewName="PredictiveDialerConfig_DialingCapacity" />
+                <Param Name="DialerConfig_ProgressiveDialerConfig_BandwidthAllocation" NewName="ProgressiveDialerConfig_BandwidthAllocation" />
+                <Param Name="DialerConfig_ProgressiveDialerConfig_DialingCapacity" NewName="ProgressiveDialerConfig_DialingCapacity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCampaignName" Verb="Update" Noun="CampaignName" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">

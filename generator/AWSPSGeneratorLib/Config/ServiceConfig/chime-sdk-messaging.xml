@@ -27,7 +27,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ChannelFlowCallback" OutputProperty="*" Verb="Send" Noun="ChannelFlowCallback" ShouldProcessTarget="ChannelMessage_MessageId" PipelineParameter="ChannelMessage_MessageId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ChannelMessage_PushNotification_Body" NewName="PushNotification_Body" />
+                <Param Name="ChannelMessage_PushNotification_Title" NewName="PushNotification_Title" />
+                <Param Name="ChannelMessage_PushNotification_Type" NewName="PushNotification_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateChannel" OutputProperty="ChannelArn" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -179,7 +183,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutChannelMembershipPreferences" OutputProperty="*" Verb="Write" Noun="ChannelMembershipPreference" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Preferences_PushNotifications_AllowNotifications" NewName="PushNotifications_AllowNotification" />
+                <Param Name="Preferences_PushNotifications_FilterRule" NewName="PushNotifications_FilterRule" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutMessagingStreamingConfigurations" OutputProperty="StreamingConfigurations" Verb="Write" Noun="MessagingStreamingConfiguration" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">

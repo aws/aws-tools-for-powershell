@@ -23,11 +23,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApprovalTeam" OutputProperty="*" Verb="New" Noun="ApprovalTeam" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="ApprovalStrategy_MofN_MinApprovalsRequired" NewName="MofN_MinApprovalsRequired" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIdentitySource" OutputProperty="*" Verb="New" Noun="IdentitySource" ShouldProcessTarget="IdentitySourceParameters_IamIdentityCenter_InstanceArn" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="IdentitySourceParameters_IamIdentityCenter_InstanceArn" NewName="IamIdentityCenter_InstanceArn" />
+                <Param Name="IdentitySourceParameters_IamIdentityCenter_Region" NewName="IamIdentityCenter_Region" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteIdentitySource" Verb="Remove" Noun="IdentitySource" ShouldProcessTarget="IdentitySourceArn" PipelineParameter="IdentitySourceArn" NoPipelineParameter="false">
@@ -99,7 +104,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApprovalTeam" OutputProperty="VersionId" Verb="Update" Noun="ApprovalTeam" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ApprovalStrategy_MofN_MinApprovalsRequired" NewName="MofN_MinApprovalsRequired" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -38,7 +38,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ChatSync" OutputProperty="*" Verb="Set" Noun="ChatSync" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ChatModeConfiguration_PluginConfiguration_PluginId" NewName="PluginConfiguration_PluginId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CheckDocumentAccess" OutputProperty="*" Verb="Get" Noun="DocumentAccess" PipelineParameter="DocumentId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -58,7 +60,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataAccessor" OutputProperty="*" Verb="New" Noun="DataAccessor" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AuthenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn" NewName="IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -75,6 +79,15 @@
                 <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_StringListValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_StringListValue" />
                 <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_StringValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_StringValue" />
                 <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_StringValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_StringValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_LambdaArn" NewName="PostExtractionHookConfiguration_LambdaArn" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_RoleArn" NewName="PostExtractionHookConfiguration_RoleArn" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_S3BucketName" NewName="PostExtractionHookConfiguration_S3BucketName" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_LambdaArn" NewName="PreExtractionHookConfiguration_LambdaArn" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_RoleArn" NewName="PreExtractionHookConfiguration_RoleArn" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_S3BucketName" NewName="PreExtractionHookConfiguration_S3BucketName" />
+                <Param Name="MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus" NewName="AudioExtractionConfiguration_AudioExtractionStatus" />
+                <Param Name="MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus" NewName="ImageExtractionConfiguration_ImageExtractionStatus" />
+                <Param Name="MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus" NewName="VideoExtractionConfiguration_VideoExtractionStatus" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,11 +96,28 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePlugin" OutputProperty="*" Verb="New" Noun="Plugin" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AuthConfiguration_BasicAuthConfiguration_RoleArn" NewName="BasicAuthConfiguration_RoleArn" />
+                <Param Name="AuthConfiguration_BasicAuthConfiguration_SecretArn" NewName="BasicAuthConfiguration_SecretArn" />
+                <Param Name="AuthConfiguration_IdcAuthConfiguration_IdcApplicationArn" NewName="IdcAuthConfiguration_IdcApplicationArn" />
+                <Param Name="AuthConfiguration_IdcAuthConfiguration_RoleArn" NewName="IdcAuthConfiguration_RoleArn" />
+                <Param Name="AuthConfiguration_OAuth2ClientCredentialConfiguration_AuthorizationUrl" NewName="OAuth2ClientCredentialConfiguration_AuthorizationUrl" />
+                <Param Name="AuthConfiguration_OAuth2ClientCredentialConfiguration_RoleArn" NewName="OAuth2ClientCredentialConfiguration_RoleArn" />
+                <Param Name="AuthConfiguration_OAuth2ClientCredentialConfiguration_SecretArn" NewName="OAuth2ClientCredentialConfiguration_SecretArn" />
+                <Param Name="AuthConfiguration_OAuth2ClientCredentialConfiguration_TokenUrl" NewName="OAuth2ClientCredentialConfiguration_TokenUrl" />
+                <Param Name="CustomPluginConfiguration_ApiSchema_Payload" NewName="ApiSchema_Payload" />
+                <Param Name="CustomPluginConfiguration_ApiSchema_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="CustomPluginConfiguration_ApiSchema_S3_Key" NewName="S3_Key" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRetriever" OutputProperty="*" Verb="New" Noun="Retriever" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_KendraIndexConfiguration_IndexId" NewName="KendraIndexConfiguration_IndexId" />
+                <Param Name="Configuration_NativeIndexConfiguration_BoostingOverride" NewName="NativeIndexConfiguration_BoostingOverride" />
+                <Param Name="Configuration_NativeIndexConfiguration_IndexId" NewName="NativeIndexConfiguration_IndexId" />
+                <Param Name="Configuration_NativeIndexConfiguration_Version" NewName="NativeIndexConfiguration_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSubscription" OutputProperty="*" Verb="New" Noun="Subscription" ShouldProcessTarget="ApplicationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -99,7 +129,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWebExperience" OutputProperty="*" Verb="New" Noun="WebExperience" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProviderConfiguration_OpenIDConnectConfiguration_SecretsArn" NewName="OpenIDConnectConfiguration_SecretsArn" />
+                <Param Name="IdentityProviderConfiguration_OpenIDConnectConfiguration_SecretsRole" NewName="OpenIDConnectConfiguration_SecretsRole" />
+                <Param Name="IdentityProviderConfiguration_SamlConfiguration_AuthenticationUrl" NewName="SamlConfiguration_AuthenticationUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -295,11 +329,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutGroup" Verb="Write" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GroupMembers_S3PathForGroupMembers_Bucket" NewName="S3PathForGroupMembers_Bucket" />
+                <Param Name="GroupMembers_S3PathForGroupMembers_Key" NewName="S3PathForGroupMembers_Key" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchRelevantContent" OutputProperty="RelevantContent" Verb="Search" Noun="RelevantContent" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ContentSource_Retriever_RetrieverId" NewName="Retriever_RetrieverId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDataSourceSyncJob" OutputProperty="ExecutionId" Verb="Start" Noun="DataSourceSyncJob" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -331,7 +370,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataAccessor" Verb="Update" Noun="DataAccessor" ShouldProcessTarget="DataAccessorId" PipelineParameter="DataAccessorId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AuthenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn" NewName="IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -348,6 +389,15 @@
                 <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_StringListValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_StringListValue" />
                 <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_StringValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_StringValue" />
                 <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_StringValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_StringValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_LambdaArn" NewName="PostExtractionHookConfiguration_LambdaArn" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_RoleArn" NewName="PostExtractionHookConfiguration_RoleArn" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_S3BucketName" NewName="PostExtractionHookConfiguration_S3BucketName" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_LambdaArn" NewName="PreExtractionHookConfiguration_LambdaArn" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_RoleArn" NewName="PreExtractionHookConfiguration_RoleArn" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_S3BucketName" NewName="PreExtractionHookConfiguration_S3BucketName" />
+                <Param Name="MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus" NewName="AudioExtractionConfiguration_AudioExtractionStatus" />
+                <Param Name="MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus" NewName="ImageExtractionConfiguration_ImageExtractionStatus" />
+                <Param Name="MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus" NewName="VideoExtractionConfiguration_VideoExtractionStatus" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -356,11 +406,28 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePlugin" Verb="Update" Noun="Plugin" ShouldProcessTarget="PluginId" PipelineParameter="PluginId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AuthConfiguration_BasicAuthConfiguration_RoleArn" NewName="BasicAuthConfiguration_RoleArn" />
+                <Param Name="AuthConfiguration_BasicAuthConfiguration_SecretArn" NewName="BasicAuthConfiguration_SecretArn" />
+                <Param Name="AuthConfiguration_IdcAuthConfiguration_IdcApplicationArn" NewName="IdcAuthConfiguration_IdcApplicationArn" />
+                <Param Name="AuthConfiguration_IdcAuthConfiguration_RoleArn" NewName="IdcAuthConfiguration_RoleArn" />
+                <Param Name="AuthConfiguration_OAuth2ClientCredentialConfiguration_AuthorizationUrl" NewName="OAuth2ClientCredentialConfiguration_AuthorizationUrl" />
+                <Param Name="AuthConfiguration_OAuth2ClientCredentialConfiguration_RoleArn" NewName="OAuth2ClientCredentialConfiguration_RoleArn" />
+                <Param Name="AuthConfiguration_OAuth2ClientCredentialConfiguration_SecretArn" NewName="OAuth2ClientCredentialConfiguration_SecretArn" />
+                <Param Name="AuthConfiguration_OAuth2ClientCredentialConfiguration_TokenUrl" NewName="OAuth2ClientCredentialConfiguration_TokenUrl" />
+                <Param Name="CustomPluginConfiguration_ApiSchema_Payload" NewName="ApiSchema_Payload" />
+                <Param Name="CustomPluginConfiguration_ApiSchema_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="CustomPluginConfiguration_ApiSchema_S3_Key" NewName="S3_Key" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRetriever" Verb="Update" Noun="Retriever" ShouldProcessTarget="RetrieverId" PipelineParameter="RetrieverId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_KendraIndexConfiguration_IndexId" NewName="KendraIndexConfiguration_IndexId" />
+                <Param Name="Configuration_NativeIndexConfiguration_BoostingOverride" NewName="NativeIndexConfiguration_BoostingOverride" />
+                <Param Name="Configuration_NativeIndexConfiguration_IndexId" NewName="NativeIndexConfiguration_IndexId" />
+                <Param Name="Configuration_NativeIndexConfiguration_Version" NewName="NativeIndexConfiguration_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSubscription" OutputProperty="*" Verb="Update" Noun="Subscription" ShouldProcessTarget="SubscriptionId" PipelineParameter="SubscriptionId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -372,7 +439,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWebExperience" Verb="Update" Noun="WebExperience" ShouldProcessTarget="WebExperienceId" PipelineParameter="WebExperienceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AuthenticationConfiguration_SamlConfiguration_MetadataXML" NewName="SamlConfiguration_MetadataXML" />
+                <Param Name="AuthenticationConfiguration_SamlConfiguration_RoleArn" NewName="SamlConfiguration_RoleArn" />
+                <Param Name="AuthenticationConfiguration_SamlConfiguration_UserGroupAttribute" NewName="SamlConfiguration_UserGroupAttribute" />
+                <Param Name="AuthenticationConfiguration_SamlConfiguration_UserIdAttribute" NewName="SamlConfiguration_UserIdAttribute" />
+                <Param Name="IdentityProviderConfiguration_OpenIDConnectConfiguration_SecretsArn" NewName="OpenIDConnectConfiguration_SecretsArn" />
+                <Param Name="IdentityProviderConfiguration_OpenIDConnectConfiguration_SecretsRole" NewName="OpenIDConnectConfiguration_SecretsRole" />
+                <Param Name="IdentityProviderConfiguration_SamlConfiguration_AuthenticationUrl" NewName="SamlConfiguration_AuthenticationUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

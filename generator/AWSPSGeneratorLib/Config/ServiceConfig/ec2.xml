@@ -216,7 +216,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AttachNetworkInterface" OutputProperty="AttachmentId" Verb="Add" Noun="NetworkInterface" ShouldProcessTarget="InstanceId" PositionalParameters="NetworkInterfaceId;DeviceIndex" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EnaSrdSpecification_EnaSrdUdpSpecification_EnaSrdUdpEnabled" NewName="EnaSrdUdpSpecification_EnaSrdUdpEnabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AttachVerifiedAccessTrustProvider" OutputProperty="*" Verb="Mount" Noun="VerifiedAccessTrustProvider" ShouldProcessTarget="VerifiedAccessInstanceId" PipelineParameter="VerifiedAccessTrustProviderId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -244,7 +246,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BundleInstance" OutputProperty="BundleTask" Verb="New" Noun="InstanceBundle" ShouldProcessTarget="InstanceId" PositionalParameters="Storage_S3_Bucket;Storage_S3_Prefix" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Storage_S3_AWSAccessKeyId" NewName="S3_AWSAccessKeyId" />
+                <Param Name="Storage_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="Storage_S3_Prefix" NewName="S3_Prefix" />
+                <Param Name="Storage_S3_UploadPolicy" NewName="S3_UploadPolicy" />
+                <Param Name="Storage_S3_UploadPolicySignature" NewName="S3_UploadPolicySignature" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CancelBundleTask" OutputProperty="BundleTask" Verb="Stop" Noun="BundleTask" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -372,7 +380,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFleet" OutputProperty="*" Verb="New" Noun="Fleet" ShouldProcessTarget="LaunchTemplateConfigs" PipelineParameter="LaunchTemplateConfigs" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OnDemandOptions_CapacityReservationOptions_UsageStrategy" NewName="CapacityReservationOptions_UsageStrategy" />
+                <Param Name="SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy" NewName="CapacityRebalance_ReplacementStrategy" />
+                <Param Name="SpotOptions_MaintenanceStrategies_CapacityRebalance_TerminationDelay" NewName="CapacityRebalance_TerminationDelay" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFlowLogs" OutputProperty="*" Verb="New" Noun="FlowLog" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="New-EC2FlowLogs">
@@ -2277,8 +2289,28 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceTypesFromInstanceRequirements" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceTypesFromInstanceRequirement" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="GetInstanceTypesFromInstanceRequirements" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceTypesFromInstanceRequirement" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="InstanceRequirements_AcceleratorCount_Max" NewName="AcceleratorCount_Max" />
+                <Param Name="InstanceRequirements_AcceleratorCount_Min" NewName="AcceleratorCount_Min" />
+                <Param Name="InstanceRequirements_AcceleratorTotalMemoryMiB_Max" NewName="AcceleratorTotalMemoryMiB_Max" />
+                <Param Name="InstanceRequirements_AcceleratorTotalMemoryMiB_Min" NewName="AcceleratorTotalMemoryMiB_Min" />
+                <Param Name="InstanceRequirements_BaselineEbsBandwidthMbps_Max" NewName="BaselineEbsBandwidthMbps_Max" />
+                <Param Name="InstanceRequirements_BaselineEbsBandwidthMbps_Min" NewName="BaselineEbsBandwidthMbps_Min" />
+                <Param Name="InstanceRequirements_BaselinePerformanceFactors_Cpu_References" NewName="Cpu_Reference" />
+                <Param Name="InstanceRequirements_MemoryGiBPerVCpu_Max" NewName="MemoryGiBPerVCpu_Max" />
+                <Param Name="InstanceRequirements_MemoryGiBPerVCpu_Min" NewName="MemoryGiBPerVCpu_Min" />
+                <Param Name="InstanceRequirements_MemoryMiB_Max" NewName="MemoryMiB_Max" />
+                <Param Name="InstanceRequirements_MemoryMiB_Min" NewName="MemoryMiB_Min" />
+                <Param Name="InstanceRequirements_NetworkBandwidthGbps_Max" NewName="NetworkBandwidthGbps_Max" />
+                <Param Name="InstanceRequirements_NetworkBandwidthGbps_Min" NewName="NetworkBandwidthGbps_Min" />
+                <Param Name="InstanceRequirements_NetworkInterfaceCount_Max" NewName="NetworkInterfaceCount_Max" />
+                <Param Name="InstanceRequirements_NetworkInterfaceCount_Min" NewName="NetworkInterfaceCount_Min" />
+                <Param Name="InstanceRequirements_TotalLocalStorageGB_Max" NewName="TotalLocalStorageGB_Max" />
+                <Param Name="InstanceRequirements_TotalLocalStorageGB_Min" NewName="TotalLocalStorageGB_Min" />
+                <Param Name="InstanceRequirements_VCpuCount_Max" NewName="VCpuCount_Max" />
+                <Param Name="InstanceRequirements_VCpuCount_Min" NewName="VCpuCount_Min" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetInstanceUefiData" OutputProperty="*" Verb="Get" Noun="InstanceUefiData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -2385,8 +2417,44 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSpotPlacementScores" OutputProperty="SpotPlacementScores" Verb="Get" Noun="SpotPlacementScore" PipelineParameter="TargetCapacity" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="GetSpotPlacementScores" OutputProperty="SpotPlacementScores" Verb="Get" Noun="SpotPlacementScore" AnonymousShouldProcessTarget="true" PipelineParameter="TargetCapacity" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_AcceleratorCount_Max" NewName="AcceleratorCount_Max" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_AcceleratorCount_Min" NewName="AcceleratorCount_Min" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_AcceleratorManufacturers" NewName="InstanceRequirements_AcceleratorManufacturer" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_AcceleratorNames" NewName="InstanceRequirements_AcceleratorName" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_AcceleratorTotalMemoryMiB_Max" NewName="AcceleratorTotalMemoryMiB_Max" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_AcceleratorTotalMemoryMiB_Min" NewName="AcceleratorTotalMemoryMiB_Min" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_AcceleratorTypes" NewName="InstanceRequirements_AcceleratorType" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_AllowedInstanceTypes" NewName="InstanceRequirements_AllowedInstanceType" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_BareMetal" NewName="InstanceRequirements_BareMetal" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_BaselineEbsBandwidthMbps_Max" NewName="BaselineEbsBandwidthMbps_Max" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_BaselineEbsBandwidthMbps_Min" NewName="BaselineEbsBandwidthMbps_Min" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_BaselinePerformanceFactors_Cpu_References" NewName="Cpu_Reference" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_BurstablePerformance" NewName="InstanceRequirements_BurstablePerformance" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_CpuManufacturers" NewName="InstanceRequirements_CpuManufacturer" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_ExcludedInstanceTypes" NewName="InstanceRequirements_ExcludedInstanceType" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_InstanceGenerations" NewName="InstanceRequirements_InstanceGeneration" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_LocalStorage" NewName="InstanceRequirements_LocalStorage" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_LocalStorageTypes" NewName="InstanceRequirements_LocalStorageType" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" NewName="InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_MemoryGiBPerVCpu_Max" NewName="MemoryGiBPerVCpu_Max" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_MemoryGiBPerVCpu_Min" NewName="MemoryGiBPerVCpu_Min" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_MemoryMiB_Max" NewName="MemoryMiB_Max" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_MemoryMiB_Min" NewName="MemoryMiB_Min" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_NetworkBandwidthGbps_Max" NewName="NetworkBandwidthGbps_Max" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_NetworkBandwidthGbps_Min" NewName="NetworkBandwidthGbps_Min" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_NetworkInterfaceCount_Max" NewName="NetworkInterfaceCount_Max" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_NetworkInterfaceCount_Min" NewName="NetworkInterfaceCount_Min" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice" NewName="InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_RequireEncryptionInTransit" NewName="InstanceRequirements_RequireEncryptionInTransit" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_RequireHibernateSupport" NewName="InstanceRequirements_RequireHibernateSupport" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_SpotMaxPricePercentageOverLowestPrice" NewName="InstanceRequirements_SpotMaxPricePercentageOverLowestPrice" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_TotalLocalStorageGB_Max" NewName="TotalLocalStorageGB_Max" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_TotalLocalStorageGB_Min" NewName="TotalLocalStorageGB_Min" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_VCpuCount_Max" NewName="VCpuCount_Max" />
+                <Param Name="InstanceRequirementsWithMetadata_InstanceRequirements_VCpuCount_Min" NewName="VCpuCount_Min" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSubnetCidrReservations" OutputProperty="*" Verb="Get" Noun="SubnetCidrReservation" PipelineParameter="SubnetId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -2557,7 +2625,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstanceCapacityReservationAttributes" OutputProperty="Return" Verb="Edit" Noun="InstanceCapacityReservationAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationId" NewName="CapacityReservationTarget_CapacityReservationId" />
+                <Param Name="CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArn" NewName="CapacityReservationTarget_CapacityReservationResourceGroupArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstanceConnectEndpoint" OutputProperty="Return" Verb="Edit" Noun="InstanceConnectEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
@@ -2647,6 +2718,7 @@
         <ServiceOperation MethodName="ModifyNetworkInterfaceAttribute" Verb="Edit" Noun="NetworkInterfaceAttribute" ShouldProcessTarget="NetworkInterfaceId" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Groups" NewName="Group" Alias="GroupId" />
+                <Param Name="EnaSrdSpecification_EnaSrdUdpSpecification_EnaSrdUdpEnabled" NewName="EnaSrdUdpSpecification_EnaSrdUdpEnabled" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2737,7 +2809,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyVerifiedAccessInstanceLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Edit" Noun="VerifiedAccessInstanceLoggingConfiguration" ShouldProcessTarget="VerifiedAccessInstanceId" PipelineParameter="VerifiedAccessInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AccessLogs_CloudWatchLogs_Enabled" NewName="CloudWatchLogs_Enabled" />
+                <Param Name="AccessLogs_CloudWatchLogs_LogGroup" NewName="CloudWatchLogs_LogGroup" />
+                <Param Name="AccessLogs_KinesisDataFirehose_DeliveryStream" NewName="KinesisDataFirehose_DeliveryStream" />
+                <Param Name="AccessLogs_KinesisDataFirehose_Enabled" NewName="KinesisDataFirehose_Enabled" />
+                <Param Name="AccessLogs_S3_BucketName" NewName="S3_BucketName" />
+                <Param Name="AccessLogs_S3_BucketOwner" NewName="S3_BucketOwner" />
+                <Param Name="AccessLogs_S3_Enabled" NewName="S3_Enabled" />
+                <Param Name="AccessLogs_S3_Prefix" NewName="S3_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyVerifiedAccessTrustProvider" OutputProperty="VerifiedAccessTrustProvider" Verb="Edit" Noun="VerifiedAccessTrustProvider" ShouldProcessTarget="VerifiedAccessTrustProviderId" PipelineParameter="VerifiedAccessTrustProviderId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -2813,7 +2894,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyVpnTunnelOptions" OutputProperty="VpnConnection" Verb="Edit" Noun="VpnTunnelOption" ShouldProcessTarget="VpnConnectionId" PipelineParameter="VpnConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TunnelOptions_LogOptions_CloudWatchLogOptions_BgpLogEnabled" NewName="CloudWatchLogOptions_BgpLogEnabled" />
+                <Param Name="TunnelOptions_LogOptions_CloudWatchLogOptions_BgpLogGroupArn" NewName="CloudWatchLogOptions_BgpLogGroupArn" />
+                <Param Name="TunnelOptions_LogOptions_CloudWatchLogOptions_BgpLogOutputFormat" NewName="CloudWatchLogOptions_BgpLogOutputFormat" />
+                <Param Name="TunnelOptions_LogOptions_CloudWatchLogOptions_LogEnabled" NewName="CloudWatchLogOptions_LogEnabled" />
+                <Param Name="TunnelOptions_LogOptions_CloudWatchLogOptions_LogGroupArn" NewName="CloudWatchLogOptions_LogGroupArn" />
+                <Param Name="TunnelOptions_LogOptions_CloudWatchLogOptions_LogOutputFormat" NewName="CloudWatchLogOptions_LogOutputFormat" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="MonitorInstances" OutputProperty="InstanceMonitorings" Verb="Start" Noun="InstanceMonitoring" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -2966,11 +3054,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RequestSpotFleet" OutputProperty="*" Verb="Request" Noun="SpotFleet" ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice" PipelineParameter="SpotFleetRequestConfig_SpotPrice" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SpotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_ClassicLoadBalancers" NewName="ClassicLoadBalancersConfig_ClassicLoadBalancer" />
+                <Param Name="SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups" NewName="TargetGroupsConfig_TargetGroup" />
+                <Param Name="SpotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_ReplacementStrategy" NewName="CapacityRebalance_ReplacementStrategy" />
+                <Param Name="SpotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_TerminationDelay" NewName="CapacityRebalance_TerminationDelay" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RequestSpotInstances" OutputProperty="SpotInstanceRequests" Verb="Request" Noun="SpotInstance" ShouldProcessTarget="SpotPrice" PipelineParameter="SpotPrice" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LaunchSpecification_IamInstanceProfile_Arn" NewName="IamInstanceProfile_Arn" />
+                <Param Name="LaunchSpecification_IamInstanceProfile_Name" NewName="IamInstanceProfile_Name" />
+                <Param Name="LaunchSpecification_Placement_AvailabilityZone" NewName="Placement_AvailabilityZone" />
+                <Param Name="LaunchSpecification_Placement_GroupName" NewName="Placement_GroupName" />
+                <Param Name="LaunchSpecification_Placement_Tenancy" NewName="Placement_Tenancy" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResetAddressAttribute" OutputProperty="Address" Verb="Reset" Noun="AddressAttribute" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -3052,6 +3151,8 @@
                 <Param Name="Monitoring" Alias="Monitoring_Enabled" />
                 <Param Name="NetworkInterfaces" NewName="NetworkInterface" Alias="NetworkInterfaceSet" />
                 <Param Name="UserData" ParameterReplacementDocumentation="The base64-encoded MIME user data for the instances. If the -EncodeUserData switch is also set, the value for this parameter can be supplied as normal ASCII text and will be base64-encoded by the cmdlet." />
+                <Param Name="CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationId" NewName="CapacityReservationTarget_CapacityReservationId" />
+                <Param Name="CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArn" NewName="CapacityReservationTarget_CapacityReservationResourceGroupArn" />
             </Params>
             <TypesNotToFlatten>
                 <Type>Amazon.EC2.Model.CpuOptionsRequest</Type>
@@ -3061,7 +3162,13 @@
             </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="RunScheduledInstances" OutputProperty="InstanceIdSet" Verb="New" Noun="ScheduledInstance" ShouldProcessTarget="ScheduledInstanceId" PipelineParameter="ScheduledInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LaunchSpecification_IamInstanceProfile_Arn" NewName="IamInstanceProfile_Arn" />
+                <Param Name="LaunchSpecification_IamInstanceProfile_Name" NewName="IamInstanceProfile_Name" />
+                <Param Name="LaunchSpecification_Monitoring_Enabled" NewName="Monitoring_Enabled" />
+                <Param Name="LaunchSpecification_Placement_AvailabilityZone" NewName="Placement_AvailabilityZone" />
+                <Param Name="LaunchSpecification_Placement_GroupName" NewName="Placement_GroupName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchLocalGatewayRoutes" OutputProperty="Routes" Verb="Search" Noun="LocalGatewayRoute" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">

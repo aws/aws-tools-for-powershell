@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>elastictranscoder</C2jFilename>
     <AssemblyName>ElasticTranscoder</AssemblyName>
@@ -18,7 +19,6 @@
         <Map From="Pipelines" To="Pipeline" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -40,6 +40,24 @@
                 <Param Name="Output_Encryption_KeyMd5" NewName="OutputEncryptionKeyMd5" />
                 <Param Name="Input_Encryption_Mode" NewName="InputEncryptionMode" />
                 <Param Name="Output_Encryption_Mode" NewName="OutputEncryptionMode" />
+                <Param Name="Input_DetectedProperties_DurationMillis" NewName="DetectedProperties_DurationMilli" />
+                <Param Name="Input_DetectedProperties_FileSize" NewName="DetectedProperties_FileSize" />
+                <Param Name="Input_DetectedProperties_FrameRate" NewName="DetectedProperties_FrameRate" />
+                <Param Name="Input_DetectedProperties_Height" NewName="DetectedProperties_Height" />
+                <Param Name="Input_DetectedProperties_Width" NewName="DetectedProperties_Width" />
+                <Param Name="Input_InputCaptions_CaptionSources" NewName="InputCaptions_CaptionSource" />
+                <Param Name="Input_InputCaptions_MergePolicy" NewName="InputCaptions_MergePolicy" />
+                <Param Name="Input_TimeSpan_Duration" NewName="TimeSpan_Duration" />
+                <Param Name="Input_TimeSpan_StartTime" NewName="TimeSpan_StartTime" />
+                <Param Name="Output_AlbumArt_Artwork" NewName="AlbumArt_Artwork" />
+                <Param Name="Output_AlbumArt_MergePolicy" NewName="AlbumArt_MergePolicy" />
+                <Param Name="Output_Captions_CaptionFormats" NewName="Captions_CaptionFormat" />
+                <Param Name="Output_Captions_CaptionSources" NewName="Captions_CaptionSource" />
+                <Param Name="Output_Captions_MergePolicy" NewName="Captions_MergePolicy" />
+                <Param Name="Output_ThumbnailEncryption_InitializationVector" NewName="ThumbnailEncryption_InitializationVector" />
+                <Param Name="Output_ThumbnailEncryption_Key" NewName="ThumbnailEncryption_Key" />
+                <Param Name="Output_ThumbnailEncryption_KeyMd5" NewName="ThumbnailEncryption_KeyMd5" />
+                <Param Name="Output_ThumbnailEncryption_Mode" NewName="ThumbnailEncryption_Mode" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,7 +66,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePreset" OutputProperty="*" Verb="New" Noun="Preset" ShouldProcessTarget="Name" PositionalParameters="Description;Container" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Audio_CodecOptions_BitDepth" NewName="CodecOptions_BitDepth" />
+                <Param Name="Audio_CodecOptions_BitOrder" NewName="CodecOptions_BitOrder" />
+                <Param Name="Audio_CodecOptions_Profile" NewName="CodecOptions_Profile" />
+                <Param Name="Audio_CodecOptions_Signed" NewName="CodecOptions_Signed" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePipeline" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -95,7 +118,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePipelineNotifications" OutputProperty="Pipeline" Verb="Update" Noun="PipelineNotification" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyAlias="Update-ETSPipelineNotifications" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePipelineNotifications" OutputProperty="Pipeline" Verb="Update" Noun="PipelineNotification" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Update-ETSPipelineNotifications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -104,7 +127,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

@@ -20,13 +20,37 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AssociateRepository" OutputProperty="RepositoryAssociation" Verb="Register" Noun="Repository" ShouldProcessTarget="Repository_CodeCommit_Name" PipelineParameter="Repository_CodeCommit_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Repository_Bitbucket_ConnectionArn" NewName="Bitbucket_ConnectionArn" />
+                <Param Name="Repository_Bitbucket_Name" NewName="Bitbucket_Name" />
+                <Param Name="Repository_Bitbucket_Owner" NewName="Bitbucket_Owner" />
+                <Param Name="Repository_CodeCommit_Name" NewName="CodeCommit_Name" />
+                <Param Name="Repository_GitHubEnterpriseServer_ConnectionArn" NewName="GitHubEnterpriseServer_ConnectionArn" />
+                <Param Name="Repository_GitHubEnterpriseServer_Name" NewName="GitHubEnterpriseServer_Name" />
+                <Param Name="Repository_GitHubEnterpriseServer_Owner" NewName="GitHubEnterpriseServer_Owner" />
+                <Param Name="Repository_S3Bucket_BucketName" NewName="S3Bucket_BucketName" />
+                <Param Name="Repository_S3Bucket_Name" NewName="S3Bucket_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeReview" OutputProperty="CodeReview" Verb="New" Noun="CodeReview" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Type_RepositoryAnalysis_RepositoryHead_BranchName" NewName="Type_RepositoryAnalysis_RepositoryHead_BranchName" Alias="RepositoryHead_BranchName" />
                 <Param Name="Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName" NewName="Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName" Alias="SourceCodeType_RepositoryHead_BranchName" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_BranchDiff_DestinationBranchName" NewName="BranchDiff_DestinationBranchName" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_BranchDiff_SourceBranchName" NewName="BranchDiff_SourceBranchName" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_CommitDiff_DestinationCommit" NewName="CommitDiff_DestinationCommit" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_CommitDiff_MergeBaseCommit" NewName="CommitDiff_MergeBaseCommit" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_CommitDiff_SourceCommit" NewName="CommitDiff_SourceCommit" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_RequestMetadata_EventInfo_Name" NewName="EventInfo_Name" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_RequestMetadata_EventInfo_State" NewName="EventInfo_State" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_RequestMetadata_Requester" NewName="RequestMetadata_Requester" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_RequestMetadata_RequestId" NewName="RequestMetadata_RequestId" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_RequestMetadata_VendorName" NewName="RequestMetadata_VendorName" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_S3BucketRepository_Details_BucketName" NewName="Details_BucketName" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_S3BucketRepository_Details_CodeArtifacts_BuildArtifactsObjectKey" NewName="CodeArtifacts_BuildArtifactsObjectKey" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_S3BucketRepository_Details_CodeArtifacts_SourceCodeArtifactsObjectKey" NewName="CodeArtifacts_SourceCodeArtifactsObjectKey" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_S3BucketRepository_Name" NewName="S3BucketRepository_Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

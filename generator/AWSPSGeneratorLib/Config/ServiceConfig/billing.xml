@@ -24,7 +24,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBillingView" OutputProperty="*" Verb="New" Noun="BillingView" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataFilterExpression_Dimensions_Key" NewName="Dimensions_Key" />
+                <Param Name="DataFilterExpression_Dimensions_Values" NewName="Dimensions_Value" />
+                <Param Name="DataFilterExpression_Tags_Key" NewName="Tags_Key" />
+                <Param Name="DataFilterExpression_Tags_Values" NewName="Tags_Value" />
+                <Param Name="DataFilterExpression_TimeRange_BeginDateInclusive" NewName="TimeRange_BeginDateInclusive" />
+                <Param Name="DataFilterExpression_TimeRange_EndDateInclusive" NewName="TimeRange_EndDateInclusive" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBillingView" OutputProperty="Arn" Verb="Remove" Noun="BillingView" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -66,7 +73,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBillingView" OutputProperty="*" Verb="Update" Noun="BillingView" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataFilterExpression_Dimensions_Key" NewName="Dimensions_Key" />
+                <Param Name="DataFilterExpression_Dimensions_Values" NewName="Dimensions_Value" />
+                <Param Name="DataFilterExpression_Tags_Key" NewName="Tags_Key" />
+                <Param Name="DataFilterExpression_Tags_Values" NewName="Tags_Value" />
+                <Param Name="DataFilterExpression_TimeRange_BeginDateInclusive" NewName="TimeRange_BeginDateInclusive" />
+                <Param Name="DataFilterExpression_TimeRange_EndDateInclusive" NewName="TimeRange_EndDateInclusive" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

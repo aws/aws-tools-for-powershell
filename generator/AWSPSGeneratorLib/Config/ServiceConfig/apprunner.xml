@@ -36,7 +36,30 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NetworkConfiguration_EgressConfiguration_EgressType" NewName="EgressConfiguration_EgressType" />
+                <Param Name="NetworkConfiguration_EgressConfiguration_VpcConnectorArn" NewName="EgressConfiguration_VpcConnectorArn" />
+                <Param Name="NetworkConfiguration_IngressConfiguration_IsPubliclyAccessible" NewName="IngressConfiguration_IsPubliclyAccessible" />
+                <Param Name="SourceConfiguration_AuthenticationConfiguration_AccessRoleArn" NewName="AuthenticationConfiguration_AccessRoleArn" />
+                <Param Name="SourceConfiguration_AuthenticationConfiguration_ConnectionArn" NewName="AuthenticationConfiguration_ConnectionArn" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_BuildCommand" NewName="CodeConfigurationValues_BuildCommand" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Port" NewName="CodeConfigurationValues_Port" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime" NewName="CodeConfigurationValues_Runtime" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_RuntimeEnvironmentSecrets" NewName="CodeConfigurationValues_RuntimeEnvironmentSecret" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_RuntimeEnvironmentVariables" NewName="CodeConfigurationValues_RuntimeEnvironmentVariable" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_StartCommand" NewName="CodeConfigurationValues_StartCommand" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource" NewName="CodeConfiguration_ConfigurationSource" />
+                <Param Name="SourceConfiguration_CodeRepository_RepositoryUrl" NewName="CodeRepository_RepositoryUrl" />
+                <Param Name="SourceConfiguration_CodeRepository_SourceCodeVersion_Type" NewName="SourceCodeVersion_Type" />
+                <Param Name="SourceConfiguration_CodeRepository_SourceCodeVersion_Value" NewName="SourceCodeVersion_Value" />
+                <Param Name="SourceConfiguration_CodeRepository_SourceDirectory" NewName="CodeRepository_SourceDirectory" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageConfiguration_Port" NewName="ImageConfiguration_Port" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageConfiguration_RuntimeEnvironmentSecrets" NewName="ImageConfiguration_RuntimeEnvironmentSecret" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageConfiguration_RuntimeEnvironmentVariables" NewName="ImageConfiguration_RuntimeEnvironmentVariable" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageConfiguration_StartCommand" NewName="ImageConfiguration_StartCommand" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageIdentifier" NewName="ImageRepository_ImageIdentifier" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageRepositoryType" NewName="ImageRepository_ImageRepositoryType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcConnector" OutputProperty="VpcConnector" Verb="New" Noun="VpcConnector" ShouldProcessTarget="VpcConnectorName" PipelineParameter="VpcConnectorName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -160,7 +183,30 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateService" OutputProperty="*" Verb="Update" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NetworkConfiguration_EgressConfiguration_EgressType" NewName="EgressConfiguration_EgressType" />
+                <Param Name="NetworkConfiguration_EgressConfiguration_VpcConnectorArn" NewName="EgressConfiguration_VpcConnectorArn" />
+                <Param Name="NetworkConfiguration_IngressConfiguration_IsPubliclyAccessible" NewName="IngressConfiguration_IsPubliclyAccessible" />
+                <Param Name="SourceConfiguration_AuthenticationConfiguration_AccessRoleArn" NewName="AuthenticationConfiguration_AccessRoleArn" />
+                <Param Name="SourceConfiguration_AuthenticationConfiguration_ConnectionArn" NewName="AuthenticationConfiguration_ConnectionArn" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_BuildCommand" NewName="CodeConfigurationValues_BuildCommand" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Port" NewName="CodeConfigurationValues_Port" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime" NewName="CodeConfigurationValues_Runtime" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_RuntimeEnvironmentSecrets" NewName="CodeConfigurationValues_RuntimeEnvironmentSecret" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_RuntimeEnvironmentVariables" NewName="CodeConfigurationValues_RuntimeEnvironmentVariable" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_StartCommand" NewName="CodeConfigurationValues_StartCommand" />
+                <Param Name="SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource" NewName="CodeConfiguration_ConfigurationSource" />
+                <Param Name="SourceConfiguration_CodeRepository_RepositoryUrl" NewName="CodeRepository_RepositoryUrl" />
+                <Param Name="SourceConfiguration_CodeRepository_SourceCodeVersion_Type" NewName="SourceCodeVersion_Type" />
+                <Param Name="SourceConfiguration_CodeRepository_SourceCodeVersion_Value" NewName="SourceCodeVersion_Value" />
+                <Param Name="SourceConfiguration_CodeRepository_SourceDirectory" NewName="CodeRepository_SourceDirectory" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageConfiguration_Port" NewName="ImageConfiguration_Port" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageConfiguration_RuntimeEnvironmentSecrets" NewName="ImageConfiguration_RuntimeEnvironmentSecret" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageConfiguration_RuntimeEnvironmentVariables" NewName="ImageConfiguration_RuntimeEnvironmentVariable" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageConfiguration_StartCommand" NewName="ImageConfiguration_StartCommand" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageIdentifier" NewName="ImageRepository_ImageIdentifier" />
+                <Param Name="SourceConfiguration_ImageRepository_ImageRepositoryType" NewName="ImageRepository_ImageRepositoryType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Update" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionArn" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false" LegacyV4Pagination="true">

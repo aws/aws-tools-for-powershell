@@ -20,7 +20,19 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateCentralizationRuleForOrganization" OutputProperty="RuleArn" Verb="New" Noun="CentralizationRuleForOrganization" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Rule_Destination_Account" NewName="Destination_Account" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_BackupConfiguration_KmsKeyArn" NewName="BackupConfiguration_KmsKeyArn" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_BackupConfiguration_Region" NewName="BackupConfiguration_Region" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy" NewName="LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionStrategy" NewName="LogsEncryptionConfiguration_EncryptionStrategy" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_KmsKeyArn" NewName="LogsEncryptionConfiguration_KmsKeyArn" />
+                <Param Name="Rule_Destination_Region" NewName="Destination_Region" />
+                <Param Name="Rule_Source_Regions" NewName="Source_Region" />
+                <Param Name="Rule_Source_Scope" NewName="Source_Scope" />
+                <Param Name="Rule_Source_SourceLogsConfiguration_EncryptedLogGroupStrategy" NewName="SourceLogsConfiguration_EncryptedLogGroupStrategy" />
+                <Param Name="Rule_Source_SourceLogsConfiguration_LogGroupSelectionCriteria" NewName="SourceLogsConfiguration_LogGroupSelectionCriterion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateS3TableIntegration" OutputProperty="Arn" Verb="New" Noun="S3TableIntegration" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
@@ -32,11 +44,41 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTelemetryRule" OutputProperty="RuleArn" Verb="New" Noun="TelemetryRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Rule_DestinationConfiguration_CloudtrailParameters_AdvancedEventSelectors" NewName="CloudtrailParameters_AdvancedEventSelector" />
+                <Param Name="Rule_DestinationConfiguration_DestinationPattern" NewName="DestinationConfiguration_DestinationPattern" />
+                <Param Name="Rule_DestinationConfiguration_DestinationType" NewName="DestinationConfiguration_DestinationType" />
+                <Param Name="Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_FieldDelimiter" NewName="ELBLoadBalancerLoggingParameters_FieldDelimiter" />
+                <Param Name="Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_OutputFormat" NewName="ELBLoadBalancerLoggingParameters_OutputFormat" />
+                <Param Name="Rule_DestinationConfiguration_LogDeliveryParameters_LogTypes" NewName="LogDeliveryParameters_LogType" />
+                <Param Name="Rule_DestinationConfiguration_RetentionInDays" NewName="DestinationConfiguration_RetentionInDay" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_LogFormat" NewName="VPCFlowLogParameters_LogFormat" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_MaxAggregationInterval" NewName="VPCFlowLogParameters_MaxAggregationInterval" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_TrafficType" NewName="VPCFlowLogParameters_TrafficType" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_DefaultBehavior" NewName="LoggingFilter_DefaultBehavior" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_Filters" NewName="LoggingFilter_Filter" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LogType" NewName="WAFLoggingParameters_LogType" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_RedactedFields" NewName="WAFLoggingParameters_RedactedField" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTelemetryRuleForOrganization" OutputProperty="RuleArn" Verb="New" Noun="TelemetryRuleForOrganization" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Rule_DestinationConfiguration_CloudtrailParameters_AdvancedEventSelectors" NewName="CloudtrailParameters_AdvancedEventSelector" />
+                <Param Name="Rule_DestinationConfiguration_DestinationPattern" NewName="DestinationConfiguration_DestinationPattern" />
+                <Param Name="Rule_DestinationConfiguration_DestinationType" NewName="DestinationConfiguration_DestinationType" />
+                <Param Name="Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_FieldDelimiter" NewName="ELBLoadBalancerLoggingParameters_FieldDelimiter" />
+                <Param Name="Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_OutputFormat" NewName="ELBLoadBalancerLoggingParameters_OutputFormat" />
+                <Param Name="Rule_DestinationConfiguration_LogDeliveryParameters_LogTypes" NewName="LogDeliveryParameters_LogType" />
+                <Param Name="Rule_DestinationConfiguration_RetentionInDays" NewName="DestinationConfiguration_RetentionInDay" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_LogFormat" NewName="VPCFlowLogParameters_LogFormat" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_MaxAggregationInterval" NewName="VPCFlowLogParameters_MaxAggregationInterval" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_TrafficType" NewName="VPCFlowLogParameters_TrafficType" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_DefaultBehavior" NewName="LoggingFilter_DefaultBehavior" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_Filters" NewName="LoggingFilter_Filter" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LogType" NewName="WAFLoggingParameters_LogType" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_RedactedFields" NewName="WAFLoggingParameters_RedactedField" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCentralizationRuleForOrganization" Verb="Remove" Noun="CentralizationRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
@@ -160,7 +202,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCentralizationRuleForOrganization" OutputProperty="RuleArn" Verb="Update" Noun="CentralizationRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Rule_Destination_Account" NewName="Destination_Account" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_BackupConfiguration_KmsKeyArn" NewName="BackupConfiguration_KmsKeyArn" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_BackupConfiguration_Region" NewName="BackupConfiguration_Region" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy" NewName="LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionStrategy" NewName="LogsEncryptionConfiguration_EncryptionStrategy" />
+                <Param Name="Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_KmsKeyArn" NewName="LogsEncryptionConfiguration_KmsKeyArn" />
+                <Param Name="Rule_Destination_Region" NewName="Destination_Region" />
+                <Param Name="Rule_Source_Regions" NewName="Source_Region" />
+                <Param Name="Rule_Source_Scope" NewName="Source_Scope" />
+                <Param Name="Rule_Source_SourceLogsConfiguration_EncryptedLogGroupStrategy" NewName="SourceLogsConfiguration_EncryptedLogGroupStrategy" />
+                <Param Name="Rule_Source_SourceLogsConfiguration_LogGroupSelectionCriteria" NewName="SourceLogsConfiguration_LogGroupSelectionCriterion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTelemetryPipeline" Verb="Update" Noun="TelemetryPipeline" ShouldProcessTarget="PipelineIdentifier" PipelineParameter="PipelineIdentifier" NoPipelineParameter="false">
@@ -168,11 +222,41 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTelemetryRule" OutputProperty="RuleArn" Verb="Update" Noun="TelemetryRule" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Rule_DestinationConfiguration_CloudtrailParameters_AdvancedEventSelectors" NewName="CloudtrailParameters_AdvancedEventSelector" />
+                <Param Name="Rule_DestinationConfiguration_DestinationPattern" NewName="DestinationConfiguration_DestinationPattern" />
+                <Param Name="Rule_DestinationConfiguration_DestinationType" NewName="DestinationConfiguration_DestinationType" />
+                <Param Name="Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_FieldDelimiter" NewName="ELBLoadBalancerLoggingParameters_FieldDelimiter" />
+                <Param Name="Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_OutputFormat" NewName="ELBLoadBalancerLoggingParameters_OutputFormat" />
+                <Param Name="Rule_DestinationConfiguration_LogDeliveryParameters_LogTypes" NewName="LogDeliveryParameters_LogType" />
+                <Param Name="Rule_DestinationConfiguration_RetentionInDays" NewName="DestinationConfiguration_RetentionInDay" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_LogFormat" NewName="VPCFlowLogParameters_LogFormat" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_MaxAggregationInterval" NewName="VPCFlowLogParameters_MaxAggregationInterval" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_TrafficType" NewName="VPCFlowLogParameters_TrafficType" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_DefaultBehavior" NewName="LoggingFilter_DefaultBehavior" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_Filters" NewName="LoggingFilter_Filter" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LogType" NewName="WAFLoggingParameters_LogType" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_RedactedFields" NewName="WAFLoggingParameters_RedactedField" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTelemetryRuleForOrganization" OutputProperty="RuleArn" Verb="Update" Noun="TelemetryRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Rule_DestinationConfiguration_CloudtrailParameters_AdvancedEventSelectors" NewName="CloudtrailParameters_AdvancedEventSelector" />
+                <Param Name="Rule_DestinationConfiguration_DestinationPattern" NewName="DestinationConfiguration_DestinationPattern" />
+                <Param Name="Rule_DestinationConfiguration_DestinationType" NewName="DestinationConfiguration_DestinationType" />
+                <Param Name="Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_FieldDelimiter" NewName="ELBLoadBalancerLoggingParameters_FieldDelimiter" />
+                <Param Name="Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_OutputFormat" NewName="ELBLoadBalancerLoggingParameters_OutputFormat" />
+                <Param Name="Rule_DestinationConfiguration_LogDeliveryParameters_LogTypes" NewName="LogDeliveryParameters_LogType" />
+                <Param Name="Rule_DestinationConfiguration_RetentionInDays" NewName="DestinationConfiguration_RetentionInDay" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_LogFormat" NewName="VPCFlowLogParameters_LogFormat" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_MaxAggregationInterval" NewName="VPCFlowLogParameters_MaxAggregationInterval" />
+                <Param Name="Rule_DestinationConfiguration_VPCFlowLogParameters_TrafficType" NewName="VPCFlowLogParameters_TrafficType" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_DefaultBehavior" NewName="LoggingFilter_DefaultBehavior" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_Filters" NewName="LoggingFilter_Filter" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_LogType" NewName="WAFLoggingParameters_LogType" />
+                <Param Name="Rule_DestinationConfiguration_WAFLoggingParameters_RedactedFields" NewName="WAFLoggingParameters_RedactedField" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ValidateTelemetryPipelineConfiguration" OutputProperty="Errors" Verb="Test" Noun="TelemetryPipelineConfiguration" PipelineParameter="Configuration_Body" NoPipelineParameter="false">

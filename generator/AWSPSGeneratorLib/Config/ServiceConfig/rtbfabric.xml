@@ -19,19 +19,31 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AcceptLink" OutputProperty="*" Verb="Approve" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="LogSettings_ApplicationLogs_Sampling_ErrorLog" NewName="Sampling_ErrorLog" />
+                <Param Name="LogSettings_ApplicationLogs_Sampling_FilterLog" NewName="Sampling_FilterLog" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateInboundExternalLink" OutputProperty="*" Verb="New" Noun="InboundExternalLink" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="LogSettings_ApplicationLogs_Sampling_ErrorLog" NewName="Sampling_ErrorLog" />
+                <Param Name="LogSettings_ApplicationLogs_Sampling_FilterLog" NewName="Sampling_FilterLog" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLink" OutputProperty="*" Verb="New" Noun="Link" ShouldProcessTarget="GatewayId,PeerGatewayId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="LogSettings_ApplicationLogs_Sampling_ErrorLog" NewName="Sampling_ErrorLog" />
+                <Param Name="LogSettings_ApplicationLogs_Sampling_FilterLog" NewName="Sampling_FilterLog" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOutboundExternalLink" OutputProperty="*" Verb="New" Noun="OutboundExternalLink" ShouldProcessTarget="GatewayId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="LogSettings_ApplicationLogs_Sampling_ErrorLog" NewName="Sampling_ErrorLog" />
+                <Param Name="LogSettings_ApplicationLogs_Sampling_FilterLog" NewName="Sampling_FilterLog" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRequesterGateway" OutputProperty="*" Verb="New" Noun="RequesterGateway" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="VpcId" NoPipelineParameter="false">
@@ -39,7 +51,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateResponderGateway" OutputProperty="*" Verb="New" Noun="ResponderGateway" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="ManagedEndpointConfiguration_AutoScalingGroups_AutoScalingGroupNames" NewName="AutoScalingGroups_AutoScalingGroupName" />
+                <Param Name="ManagedEndpointConfiguration_AutoScalingGroups_RoleArn" NewName="AutoScalingGroups_RoleArn" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_ClusterApiServerCaCertificateChain" NewName="EksEndpoints_ClusterApiServerCaCertificateChain" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_ClusterApiServerEndpointUri" NewName="EksEndpoints_ClusterApiServerEndpointUri" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_ClusterName" NewName="EksEndpoints_ClusterName" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_EndpointsResourceName" NewName="EksEndpoints_EndpointsResourceName" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_EndpointsResourceNamespace" NewName="EksEndpoints_EndpointsResourceNamespace" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_RoleArn" NewName="EksEndpoints_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInboundExternalLink" OutputProperty="*" Verb="Remove" Noun="InboundExternalLink" ShouldProcessTarget="GatewayId,LinkId" PipelineParameter="" NoPipelineParameter="true">
@@ -111,7 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLink" OutputProperty="*" Verb="Update" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="LogSettings_ApplicationLogs_Sampling_ErrorLog" NewName="Sampling_ErrorLog" />
+                <Param Name="LogSettings_ApplicationLogs_Sampling_FilterLog" NewName="Sampling_FilterLog" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLinkModuleFlow" OutputProperty="*" Verb="Update" Noun="LinkModuleFlow" ShouldProcessTarget="GatewayId,LinkId" PipelineParameter="" NoPipelineParameter="true">
@@ -123,7 +147,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResponderGateway" OutputProperty="*" Verb="Update" Noun="ResponderGateway" ShouldProcessTarget="GatewayId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="ManagedEndpointConfiguration_AutoScalingGroups_AutoScalingGroupNames" NewName="AutoScalingGroups_AutoScalingGroupName" />
+                <Param Name="ManagedEndpointConfiguration_AutoScalingGroups_RoleArn" NewName="AutoScalingGroups_RoleArn" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_ClusterApiServerCaCertificateChain" NewName="EksEndpoints_ClusterApiServerCaCertificateChain" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_ClusterApiServerEndpointUri" NewName="EksEndpoints_ClusterApiServerEndpointUri" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_ClusterName" NewName="EksEndpoints_ClusterName" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_EndpointsResourceName" NewName="EksEndpoints_EndpointsResourceName" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_EndpointsResourceNamespace" NewName="EksEndpoints_EndpointsResourceNamespace" />
+                <Param Name="ManagedEndpointConfiguration_EksEndpoints_RoleArn" NewName="EksEndpoints_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

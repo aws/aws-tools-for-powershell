@@ -44,7 +44,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCachePolicy" OutputProperty="*" Verb="New" Noun="CachePolicy" ShouldProcessTarget="CachePolicyConfig_Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior" NewName="CookiesConfig_CookieBehavior" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_Cookies_Items" NewName="Cookies_Item" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_Cookies_Quantity" NewName="Cookies_Quantity" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_EnableAcceptEncodingBrotli" NewName="ParametersInCacheKeyAndForwardedToOrigin_EnableAcceptEncodingBrotli" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_EnableAcceptEncodingGzip" NewName="ParametersInCacheKeyAndForwardedToOrigin_EnableAcceptEncodingGzip" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior" NewName="HeadersConfig_HeaderBehavior" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_Headers_Items" NewName="Headers_Item" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_Headers_Quantity" NewName="Headers_Quantity" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior" NewName="QueryStringsConfig_QueryStringBehavior" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStrings_Items" NewName="QueryStrings_Item" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStrings_Quantity" NewName="QueryStrings_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCloudFrontOriginAccessIdentity" OutputProperty="*" Verb="New" Noun="CloudFrontOriginAccessIdentity" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -52,7 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConnectionFunction" OutputProperty="*" Verb="New" Noun="ConnectionFunction" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ConnectionFunctionConfig_KeyValueStoreAssociations_Items" NewName="KeyValueStoreAssociations_Item" />
+                <Param Name="ConnectionFunctionConfig_KeyValueStoreAssociations_Quantity" NewName="KeyValueStoreAssociations_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConnectionGroup" OutputProperty="ConnectionGroup" Verb="New" Noun="ConnectionGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -60,19 +75,179 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContinuousDeploymentPolicy" OutputProperty="*" Verb="New" Noun="ContinuousDeploymentPolicy" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ContinuousDeploymentPolicyConfig_StagingDistributionDnsNames_Items" NewName="StagingDistributionDnsNames_Item" />
+                <Param Name="ContinuousDeploymentPolicyConfig_StagingDistributionDnsNames_Quantity" NewName="StagingDistributionDnsNames_Quantity" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleHeaderConfig_Header" NewName="SingleHeaderConfig_Header" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleHeaderConfig_Value" NewName="SingleHeaderConfig_Value" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleWeightConfig_SessionStickinessConfig_IdleTTL" NewName="SessionStickinessConfig_IdleTTL" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleWeightConfig_SessionStickinessConfig_MaximumTTL" NewName="SessionStickinessConfig_MaximumTTL" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleWeightConfig_Weight" NewName="SingleWeightConfig_Weight" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_Type" NewName="TrafficConfig_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDistribution" OutputProperty="*" Verb="New" Noun="Distribution" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DistributionConfig_Aliases_Items" NewName="Aliases_Item" />
+                <Param Name="DistributionConfig_Aliases_Quantity" NewName="Aliases_Quantity" />
+                <Param Name="DistributionConfig_CacheBehaviors_Items" NewName="CacheBehaviors_Item" />
+                <Param Name="DistributionConfig_CacheBehaviors_Quantity" NewName="CacheBehaviors_Quantity" />
+                <Param Name="DistributionConfig_ConnectionFunctionAssociation_Id" NewName="ConnectionFunctionAssociation_Id" />
+                <Param Name="DistributionConfig_CustomErrorResponses_Items" NewName="CustomErrorResponses_Item" />
+                <Param Name="DistributionConfig_CustomErrorResponses_Quantity" NewName="CustomErrorResponses_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items" NewName="CachedMethods_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity" NewName="CachedMethods_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items" NewName="AllowedMethods_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity" NewName="AllowedMethods_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_CachePolicyId" NewName="DefaultCacheBehavior_CachePolicyId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_Compress" NewName="DefaultCacheBehavior_Compress" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_DefaultTTL" NewName="DefaultCacheBehavior_DefaultTTL" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_FieldLevelEncryptionId" NewName="DefaultCacheBehavior_FieldLevelEncryptionId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward" NewName="Cookies_Forward" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items" NewName="WhitelistedNames_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity" NewName="WhitelistedNames_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items" NewName="Headers_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity" NewName="Headers_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString" NewName="ForwardedValues_QueryString" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items" NewName="QueryStringCacheKeys_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity" NewName="QueryStringCacheKeys_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_FunctionAssociations_Items" NewName="FunctionAssociations_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_FunctionAssociations_Quantity" NewName="FunctionAssociations_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_GrpcConfig_Enabled" NewName="GrpcConfig_Enabled" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Items" NewName="LambdaFunctionAssociations_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Quantity" NewName="LambdaFunctionAssociations_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_MaxTTL" NewName="DefaultCacheBehavior_MaxTTL" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_MinTTL" NewName="DefaultCacheBehavior_MinTTL" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_OriginRequestPolicyId" NewName="DefaultCacheBehavior_OriginRequestPolicyId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_RealtimeLogConfigArn" NewName="DefaultCacheBehavior_RealtimeLogConfigArn" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ResponseHeadersPolicyId" NewName="DefaultCacheBehavior_ResponseHeadersPolicyId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_SmoothStreaming" NewName="DefaultCacheBehavior_SmoothStreaming" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TargetOriginId" NewName="DefaultCacheBehavior_TargetOriginId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Enabled" NewName="TrustedKeyGroups_Enabled" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Items" NewName="TrustedKeyGroups_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Quantity" NewName="TrustedKeyGroups_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled" NewName="TrustedSigners_Enabled" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items" NewName="TrustedSigners_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity" NewName="TrustedSigners_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy" NewName="DefaultCacheBehavior_ViewerProtocolPolicy" />
+                <Param Name="DistributionConfig_Logging_Bucket" NewName="Logging_Bucket" />
+                <Param Name="DistributionConfig_Logging_Enabled" NewName="Logging_Enabled" />
+                <Param Name="DistributionConfig_Logging_IncludeCookies" NewName="Logging_IncludeCookie" />
+                <Param Name="DistributionConfig_Logging_Prefix" NewName="Logging_Prefix" />
+                <Param Name="DistributionConfig_OriginGroups_Items" NewName="OriginGroups_Item" />
+                <Param Name="DistributionConfig_OriginGroups_Quantity" NewName="OriginGroups_Quantity" />
+                <Param Name="DistributionConfig_Origins_Items" NewName="Origins_Item" />
+                <Param Name="DistributionConfig_Origins_Quantity" NewName="Origins_Quantity" />
+                <Param Name="DistributionConfig_Restrictions_GeoRestriction_Items" NewName="GeoRestriction_Item" />
+                <Param Name="DistributionConfig_Restrictions_GeoRestriction_Quantity" NewName="GeoRestriction_Quantity" />
+                <Param Name="DistributionConfig_Restrictions_GeoRestriction_RestrictionType" NewName="GeoRestriction_RestrictionType" />
+                <Param Name="DistributionConfig_TenantConfig_ParameterDefinitions" NewName="TenantConfig_ParameterDefinition" />
+                <Param Name="DistributionConfig_ViewerCertificate_ACMCertificateArn" NewName="ViewerCertificate_ACMCertificateArn" />
+                <Param Name="DistributionConfig_ViewerCertificate_Certificate" NewName="ViewerCertificate_Certificate" />
+                <Param Name="DistributionConfig_ViewerCertificate_CertificateSource" NewName="ViewerCertificate_CertificateSource" />
+                <Param Name="DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate" NewName="ViewerCertificate_CloudFrontDefaultCertificate" />
+                <Param Name="DistributionConfig_ViewerCertificate_IAMCertificateId" NewName="ViewerCertificate_IAMCertificateId" />
+                <Param Name="DistributionConfig_ViewerCertificate_MinimumProtocolVersion" NewName="ViewerCertificate_MinimumProtocolVersion" />
+                <Param Name="DistributionConfig_ViewerCertificate_SSLSupportMethod" NewName="ViewerCertificate_SSLSupportMethod" />
+                <Param Name="DistributionConfig_ViewerMtlsConfig_Mode" NewName="ViewerMtlsConfig_Mode" />
+                <Param Name="DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_AdvertiseTrustStoreCaNames" NewName="TrustStoreConfig_AdvertiseTrustStoreCaName" />
+                <Param Name="DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_IgnoreCertificateExpiry" NewName="TrustStoreConfig_IgnoreCertificateExpiry" />
+                <Param Name="DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_TrustStoreId" NewName="TrustStoreConfig_TrustStoreId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDistributionTenant" OutputProperty="DistributionTenant" Verb="New" Noun="DistributionTenant" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Customizations_Certificate_Arn" NewName="Certificate_Arn" />
+                <Param Name="Customizations_GeoRestrictions_Locations" NewName="GeoRestrictions_Location" />
+                <Param Name="Customizations_GeoRestrictions_RestrictionType" NewName="GeoRestrictions_RestrictionType" />
+                <Param Name="Customizations_WebAcl_Action" NewName="WebAcl_Action" />
+                <Param Name="Customizations_WebAcl_Arn" NewName="WebAcl_Arn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDistributionWithTags" OutputProperty="*" Verb="New" Noun="DistributionWithTag" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Aliases_Items" NewName="Aliases_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Aliases_Quantity" NewName="Aliases_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_AnycastIpListId" NewName="DistributionConfig_AnycastIpListId" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_CacheBehaviors_Items" NewName="CacheBehaviors_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_CacheBehaviors_Quantity" NewName="CacheBehaviors_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_CallerReference" NewName="DistributionConfig_CallerReference" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Comment" NewName="DistributionConfig_Comment" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation_Id" NewName="ConnectionFunctionAssociation_Id" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ConnectionMode" NewName="DistributionConfig_ConnectionMode" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ContinuousDeploymentPolicyId" NewName="DistributionConfig_ContinuousDeploymentPolicyId" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_CustomErrorResponses_Items" NewName="CustomErrorResponses_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_CustomErrorResponses_Quantity" NewName="CustomErrorResponses_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items" NewName="CachedMethods_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity" NewName="CachedMethods_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items" NewName="AllowedMethods_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity" NewName="AllowedMethods_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_CachePolicyId" NewName="DefaultCacheBehavior_CachePolicyId" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_Compress" NewName="DefaultCacheBehavior_Compress" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_DefaultTTL" NewName="DefaultCacheBehavior_DefaultTTL" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_FieldLevelEncryptionId" NewName="DefaultCacheBehavior_FieldLevelEncryptionId" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward" NewName="Cookies_Forward" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items" NewName="WhitelistedNames_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity" NewName="WhitelistedNames_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items" NewName="Headers_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity" NewName="Headers_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString" NewName="ForwardedValues_QueryString" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items" NewName="QueryStringCacheKeys_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity" NewName="QueryStringCacheKeys_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_FunctionAssociations_Items" NewName="FunctionAssociations_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_FunctionAssociations_Quantity" NewName="FunctionAssociations_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig_Enabled" NewName="GrpcConfig_Enabled" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Items" NewName="LambdaFunctionAssociations_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Quantity" NewName="LambdaFunctionAssociations_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_MaxTTL" NewName="DefaultCacheBehavior_MaxTTL" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_MinTTL" NewName="DefaultCacheBehavior_MinTTL" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_OriginRequestPolicyId" NewName="DefaultCacheBehavior_OriginRequestPolicyId" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_RealtimeLogConfigArn" NewName="DefaultCacheBehavior_RealtimeLogConfigArn" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ResponseHeadersPolicyId" NewName="DefaultCacheBehavior_ResponseHeadersPolicyId" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_SmoothStreaming" NewName="DefaultCacheBehavior_SmoothStreaming" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TargetOriginId" NewName="DefaultCacheBehavior_TargetOriginId" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Enabled" NewName="TrustedKeyGroups_Enabled" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Items" NewName="TrustedKeyGroups_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Quantity" NewName="TrustedKeyGroups_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled" NewName="TrustedSigners_Enabled" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items" NewName="TrustedSigners_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity" NewName="TrustedSigners_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy" NewName="DefaultCacheBehavior_ViewerProtocolPolicy" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_DefaultRootObject" NewName="DistributionConfig_DefaultRootObject" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Enabled" NewName="DistributionConfig_Enabled" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_HttpVersion" NewName="DistributionConfig_HttpVersion" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_IsIPV6Enabled" NewName="DistributionConfig_IsIPV6Enabled" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Logging_Bucket" NewName="Logging_Bucket" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Logging_Enabled" NewName="Logging_Enabled" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Logging_IncludeCookies" NewName="Logging_IncludeCookie" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Logging_Prefix" NewName="Logging_Prefix" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_OriginGroups_Items" NewName="OriginGroups_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_OriginGroups_Quantity" NewName="OriginGroups_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Origins_Items" NewName="Origins_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Origins_Quantity" NewName="Origins_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_PriceClass" NewName="DistributionConfig_PriceClass" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_Items" NewName="GeoRestriction_Item" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_Quantity" NewName="GeoRestriction_Quantity" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_RestrictionType" NewName="GeoRestriction_RestrictionType" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_Staging" NewName="DistributionConfig_Staging" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_TenantConfig_ParameterDefinitions" NewName="TenantConfig_ParameterDefinition" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerCertificate_ACMCertificateArn" NewName="ViewerCertificate_ACMCertificateArn" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerCertificate_Certificate" NewName="ViewerCertificate_Certificate" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource" NewName="ViewerCertificate_CertificateSource" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate" NewName="ViewerCertificate_CloudFrontDefaultCertificate" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerCertificate_IAMCertificateId" NewName="ViewerCertificate_IAMCertificateId" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion" NewName="ViewerCertificate_MinimumProtocolVersion" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerCertificate_SSLSupportMethod" NewName="ViewerCertificate_SSLSupportMethod" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_Mode" NewName="ViewerMtlsConfig_Mode" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_AdvertiseTrustStoreCaNames" NewName="TrustStoreConfig_AdvertiseTrustStoreCaName" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_IgnoreCertificateExpiry" NewName="TrustStoreConfig_IgnoreCertificateExpiry" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_TrustStoreId" NewName="TrustStoreConfig_TrustStoreId" />
+                <Param Name="DistributionConfigWithTags_DistributionConfig_WebACLId" NewName="DistributionConfig_WebACLId" />
+                <Param Name="DistributionConfigWithTags_Tags_Items" NewName="Tags_Item" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFieldLevelEncryptionConfig" OutputProperty="*" Verb="New" Noun="FieldLevelEncryptionConfig" AnonymousShouldProcessTarget="true" PipelineParameter="FieldLevelEncryptionConfig" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -80,19 +255,31 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFieldLevelEncryptionProfile" OutputProperty="*" Verb="New" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="FieldLevelEncryptionProfileConfig_Name" PipelineParameter="FieldLevelEncryptionProfileConfig_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FieldLevelEncryptionProfileConfig_EncryptionEntities_Items" NewName="EncryptionEntities_Item" />
+                <Param Name="FieldLevelEncryptionProfileConfig_EncryptionEntities_Quantity" NewName="EncryptionEntities_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFunction" OutputProperty="*" Verb="New" Noun="Function" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FunctionConfig_KeyValueStoreAssociations_Items" NewName="KeyValueStoreAssociations_Item" />
+                <Param Name="FunctionConfig_KeyValueStoreAssociations_Quantity" NewName="KeyValueStoreAssociations_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateInvalidation" OutputProperty="*" Verb="New" Noun="Invalidation" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InvalidationBatch_Paths_Items" NewName="Paths_Item" />
+                <Param Name="InvalidationBatch_Paths_Quantity" NewName="Paths_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateInvalidationForDistributionTenant" OutputProperty="*" Verb="New" Noun="InvalidationForDistributionTenant" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InvalidationBatch_Paths_Items" NewName="Paths_Item" />
+                <Param Name="InvalidationBatch_Paths_Quantity" NewName="Paths_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateKeyGroup" OutputProperty="*" Verb="New" Noun="KeyGroup" ShouldProcessTarget="KeyGroupConfig_Name" PipelineParameter="KeyGroupConfig_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -104,7 +291,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMonitoringSubscription" OutputProperty="MonitoringSubscription" Verb="New" Noun="MonitoringSubscription" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MonitoringSubscription_RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus" NewName="RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOriginAccessControl" OutputProperty="*" Verb="New" Noun="OriginAccessControl" ShouldProcessTarget="OriginAccessControlConfig_Name" PipelineParameter="OriginAccessControlConfig_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -112,7 +301,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOriginRequestPolicy" OutputProperty="*" Verb="New" Noun="OriginRequestPolicy" ShouldProcessTarget="OriginRequestPolicyConfig_Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OriginRequestPolicyConfig_CookiesConfig_CookieBehavior" NewName="CookiesConfig_CookieBehavior" />
+                <Param Name="OriginRequestPolicyConfig_CookiesConfig_Cookies_Items" NewName="Cookies_Item" />
+                <Param Name="OriginRequestPolicyConfig_CookiesConfig_Cookies_Quantity" NewName="Cookies_Quantity" />
+                <Param Name="OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior" NewName="HeadersConfig_HeaderBehavior" />
+                <Param Name="OriginRequestPolicyConfig_HeadersConfig_Headers_Items" NewName="Headers_Item" />
+                <Param Name="OriginRequestPolicyConfig_HeadersConfig_Headers_Quantity" NewName="Headers_Quantity" />
+                <Param Name="OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior" NewName="QueryStringsConfig_QueryStringBehavior" />
+                <Param Name="OriginRequestPolicyConfig_QueryStringsConfig_QueryStrings_Items" NewName="QueryStrings_Item" />
+                <Param Name="OriginRequestPolicyConfig_QueryStringsConfig_QueryStrings_Quantity" NewName="QueryStrings_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePublicKey" OutputProperty="*" Verb="New" Noun="PublicKey" ShouldProcessTarget="PublicKeyConfig_Name" PipelineParameter="PublicKeyConfig_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -124,23 +323,91 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateResponseHeadersPolicy" OutputProperty="*" Verb="New" Noun="ResponseHeadersPolicy" ShouldProcessTarget="ResponseHeadersPolicyConfig_Name" PipelineParameter="ResponseHeadersPolicyConfig_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowCredentials" NewName="CorsConfig_AccessControlAllowCredential" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowHeaders_Items" NewName="AccessControlAllowHeaders_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowHeaders_Quantity" NewName="AccessControlAllowHeaders_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowMethods_Items" NewName="AccessControlAllowMethods_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowMethods_Quantity" NewName="AccessControlAllowMethods_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowOrigins_Items" NewName="AccessControlAllowOrigins_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowOrigins_Quantity" NewName="AccessControlAllowOrigins_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlExposeHeaders_Items" NewName="AccessControlExposeHeaders_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlExposeHeaders_Quantity" NewName="AccessControlExposeHeaders_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlMaxAgeSec" NewName="CorsConfig_AccessControlMaxAgeSec" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_OriginOverride" NewName="CorsConfig_OriginOverride" />
+                <Param Name="ResponseHeadersPolicyConfig_CustomHeadersConfig_Items" NewName="CustomHeadersConfig_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CustomHeadersConfig_Quantity" NewName="CustomHeadersConfig_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_RemoveHeadersConfig_Items" NewName="RemoveHeadersConfig_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_RemoveHeadersConfig_Quantity" NewName="RemoveHeadersConfig_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ContentSecurityPolicy_ContentSecurityPolicy" NewName="ContentSecurityPolicy_ContentSecurityPolicy" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ContentSecurityPolicy_Override" NewName="ContentSecurityPolicy_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ContentTypeOptions_Override" NewName="ContentTypeOptions_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_FrameOptions_FrameOption" NewName="FrameOptions_FrameOption" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_FrameOptions_Override" NewName="FrameOptions_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ReferrerPolicy_Override" NewName="ReferrerPolicy_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ReferrerPolicy_ReferrerPolicy" NewName="ReferrerPolicy_ReferrerPolicy" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_StrictTransportSecurity_AccessControlMaxAgeSec" NewName="StrictTransportSecurity_AccessControlMaxAgeSec" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_StrictTransportSecurity_IncludeSubdomains" NewName="StrictTransportSecurity_IncludeSubdomain" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_StrictTransportSecurity_Override" NewName="StrictTransportSecurity_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_StrictTransportSecurity_Preload" NewName="StrictTransportSecurity_Preload" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_XSSProtection_ModeBlock" NewName="XSSProtection_ModeBlock" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_XSSProtection_Override" NewName="XSSProtection_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_XSSProtection_Protection" NewName="XSSProtection_Protection" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_XSSProtection_ReportUri" NewName="XSSProtection_ReportUri" />
+                <Param Name="ResponseHeadersPolicyConfig_ServerTimingHeadersConfig_Enabled" NewName="ServerTimingHeadersConfig_Enabled" />
+                <Param Name="ResponseHeadersPolicyConfig_ServerTimingHeadersConfig_SamplingRate" NewName="ServerTimingHeadersConfig_SamplingRate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStreamingDistribution" OutputProperty="*" Verb="New" Noun="StreamingDistribution" ShouldProcessTarget="StreamingDistributionConfig_S3Origin_DomainName" PipelineParameter="StreamingDistributionConfig_S3Origin_DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="StreamingDistributionConfig_Aliases_Items" NewName="Aliases_Item" />
+                <Param Name="StreamingDistributionConfig_Aliases_Quantity" NewName="Aliases_Quantity" />
+                <Param Name="StreamingDistributionConfig_Logging_Bucket" NewName="Logging_Bucket" />
+                <Param Name="StreamingDistributionConfig_Logging_Enabled" NewName="Logging_Enabled" />
+                <Param Name="StreamingDistributionConfig_Logging_Prefix" NewName="Logging_Prefix" />
+                <Param Name="StreamingDistributionConfig_S3Origin_DomainName" NewName="S3Origin_DomainName" />
+                <Param Name="StreamingDistributionConfig_S3Origin_OriginAccessIdentity" NewName="S3Origin_OriginAccessIdentity" />
+                <Param Name="StreamingDistributionConfig_TrustedSigners_Enabled" NewName="TrustedSigners_Enabled" />
+                <Param Name="StreamingDistributionConfig_TrustedSigners_Items" NewName="TrustedSigners_Item" />
+                <Param Name="StreamingDistributionConfig_TrustedSigners_Quantity" NewName="TrustedSigners_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStreamingDistributionWithTags" OutputProperty="*" Verb="New" Noun="StreamingDistributionWithTag" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_Aliases_Items" NewName="Aliases_Item" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_Aliases_Quantity" NewName="Aliases_Quantity" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_CallerReference" NewName="StreamingDistributionConfig_CallerReference" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_Comment" NewName="StreamingDistributionConfig_Comment" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_Enabled" NewName="StreamingDistributionConfig_Enabled" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_Logging_Bucket" NewName="Logging_Bucket" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_Logging_Enabled" NewName="Logging_Enabled" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_Logging_Prefix" NewName="Logging_Prefix" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_PriceClass" NewName="StreamingDistributionConfig_PriceClass" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_S3Origin_DomainName" NewName="S3Origin_DomainName" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_S3Origin_OriginAccessIdentity" NewName="S3Origin_OriginAccessIdentity" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_TrustedSigners_Enabled" NewName="TrustedSigners_Enabled" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_TrustedSigners_Items" NewName="TrustedSigners_Item" />
+                <Param Name="StreamingDistributionConfigWithTags_StreamingDistributionConfig_TrustedSigners_Quantity" NewName="TrustedSigners_Quantity" />
+                <Param Name="StreamingDistributionConfigWithTags_Tags_Items" NewName="Tags_Item" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrustStore" OutputProperty="TrustStore" Verb="New" Noun="TrustStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="CaCertificatesBundleSource_CaCertificatesBundleS3Location_Bucket" NewName="CaCertificatesBundleS3Location_Bucket" />
+                <Param Name="CaCertificatesBundleSource_CaCertificatesBundleS3Location_Key" NewName="CaCertificatesBundleS3Location_Key" />
+                <Param Name="CaCertificatesBundleSource_CaCertificatesBundleS3Location_Region" NewName="CaCertificatesBundleS3Location_Region" />
+                <Param Name="CaCertificatesBundleSource_CaCertificatesBundleS3Location_Version" NewName="CaCertificatesBundleS3Location_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcOrigin" OutputProperty="*" Verb="New" Noun="VpcOrigin" ShouldProcessTarget="VpcOriginEndpointConfig_Name" PipelineParameter="VpcOriginEndpointConfig_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="VpcOriginEndpointConfig_OriginSslProtocols_Items" NewName="OriginSslProtocols_Item" />
+                <Param Name="VpcOriginEndpointConfig_OriginSslProtocols_Quantity" NewName="OriginSslProtocols_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAnycastIpList" Verb="Remove" Noun="AnycastIpList" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -604,7 +871,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCachePolicy" OutputProperty="CachePolicy" Verb="Update" Noun="CachePolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior" NewName="CookiesConfig_CookieBehavior" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_Cookies_Items" NewName="Cookies_Item" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_Cookies_Quantity" NewName="Cookies_Quantity" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_EnableAcceptEncodingBrotli" NewName="ParametersInCacheKeyAndForwardedToOrigin_EnableAcceptEncodingBrotli" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_EnableAcceptEncodingGzip" NewName="ParametersInCacheKeyAndForwardedToOrigin_EnableAcceptEncodingGzip" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior" NewName="HeadersConfig_HeaderBehavior" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_Headers_Items" NewName="Headers_Item" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_Headers_Quantity" NewName="Headers_Quantity" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior" NewName="QueryStringsConfig_QueryStringBehavior" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStrings_Items" NewName="QueryStrings_Item" />
+                <Param Name="CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStrings_Quantity" NewName="QueryStrings_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCloudFrontOriginAccessIdentity" OutputProperty="CloudFrontOriginAccessIdentity" Verb="Update" Noun="CloudFrontOriginAccessIdentity" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -612,7 +891,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnectionFunction" OutputProperty="ConnectionFunctionSummary" Verb="Update" Noun="ConnectionFunction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ConnectionFunctionConfig_KeyValueStoreAssociations_Items" NewName="KeyValueStoreAssociations_Item" />
+                <Param Name="ConnectionFunctionConfig_KeyValueStoreAssociations_Quantity" NewName="KeyValueStoreAssociations_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnectionGroup" OutputProperty="ConnectionGroup" Verb="Update" Noun="ConnectionGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -620,15 +902,96 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContinuousDeploymentPolicy" OutputProperty="ContinuousDeploymentPolicy" Verb="Update" Noun="ContinuousDeploymentPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ContinuousDeploymentPolicyConfig_StagingDistributionDnsNames_Items" NewName="StagingDistributionDnsNames_Item" />
+                <Param Name="ContinuousDeploymentPolicyConfig_StagingDistributionDnsNames_Quantity" NewName="StagingDistributionDnsNames_Quantity" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleHeaderConfig_Header" NewName="SingleHeaderConfig_Header" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleHeaderConfig_Value" NewName="SingleHeaderConfig_Value" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleWeightConfig_SessionStickinessConfig_IdleTTL" NewName="SessionStickinessConfig_IdleTTL" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleWeightConfig_SessionStickinessConfig_MaximumTTL" NewName="SessionStickinessConfig_MaximumTTL" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_SingleWeightConfig_Weight" NewName="SingleWeightConfig_Weight" />
+                <Param Name="ContinuousDeploymentPolicyConfig_TrafficConfig_Type" NewName="TrafficConfig_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDistribution" OutputProperty="Distribution" Verb="Update" Noun="Distribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DistributionConfig_Aliases_Items" NewName="Aliases_Item" />
+                <Param Name="DistributionConfig_Aliases_Quantity" NewName="Aliases_Quantity" />
+                <Param Name="DistributionConfig_CacheBehaviors_Items" NewName="CacheBehaviors_Item" />
+                <Param Name="DistributionConfig_CacheBehaviors_Quantity" NewName="CacheBehaviors_Quantity" />
+                <Param Name="DistributionConfig_ConnectionFunctionAssociation_Id" NewName="ConnectionFunctionAssociation_Id" />
+                <Param Name="DistributionConfig_CustomErrorResponses_Items" NewName="CustomErrorResponses_Item" />
+                <Param Name="DistributionConfig_CustomErrorResponses_Quantity" NewName="CustomErrorResponses_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items" NewName="CachedMethods_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity" NewName="CachedMethods_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items" NewName="AllowedMethods_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity" NewName="AllowedMethods_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_CachePolicyId" NewName="DefaultCacheBehavior_CachePolicyId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_Compress" NewName="DefaultCacheBehavior_Compress" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_DefaultTTL" NewName="DefaultCacheBehavior_DefaultTTL" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_FieldLevelEncryptionId" NewName="DefaultCacheBehavior_FieldLevelEncryptionId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward" NewName="Cookies_Forward" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items" NewName="WhitelistedNames_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity" NewName="WhitelistedNames_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items" NewName="Headers_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity" NewName="Headers_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString" NewName="ForwardedValues_QueryString" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items" NewName="QueryStringCacheKeys_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity" NewName="QueryStringCacheKeys_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_FunctionAssociations_Items" NewName="FunctionAssociations_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_FunctionAssociations_Quantity" NewName="FunctionAssociations_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_GrpcConfig_Enabled" NewName="GrpcConfig_Enabled" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Items" NewName="LambdaFunctionAssociations_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Quantity" NewName="LambdaFunctionAssociations_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_MaxTTL" NewName="DefaultCacheBehavior_MaxTTL" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_MinTTL" NewName="DefaultCacheBehavior_MinTTL" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_OriginRequestPolicyId" NewName="DefaultCacheBehavior_OriginRequestPolicyId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_RealtimeLogConfigArn" NewName="DefaultCacheBehavior_RealtimeLogConfigArn" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ResponseHeadersPolicyId" NewName="DefaultCacheBehavior_ResponseHeadersPolicyId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_SmoothStreaming" NewName="DefaultCacheBehavior_SmoothStreaming" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TargetOriginId" NewName="DefaultCacheBehavior_TargetOriginId" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Enabled" NewName="TrustedKeyGroups_Enabled" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Items" NewName="TrustedKeyGroups_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Quantity" NewName="TrustedKeyGroups_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled" NewName="TrustedSigners_Enabled" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items" NewName="TrustedSigners_Item" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity" NewName="TrustedSigners_Quantity" />
+                <Param Name="DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy" NewName="DefaultCacheBehavior_ViewerProtocolPolicy" />
+                <Param Name="DistributionConfig_Logging_Bucket" NewName="Logging_Bucket" />
+                <Param Name="DistributionConfig_Logging_Enabled" NewName="Logging_Enabled" />
+                <Param Name="DistributionConfig_Logging_IncludeCookies" NewName="Logging_IncludeCookie" />
+                <Param Name="DistributionConfig_Logging_Prefix" NewName="Logging_Prefix" />
+                <Param Name="DistributionConfig_OriginGroups_Items" NewName="OriginGroups_Item" />
+                <Param Name="DistributionConfig_OriginGroups_Quantity" NewName="OriginGroups_Quantity" />
+                <Param Name="DistributionConfig_Origins_Items" NewName="Origins_Item" />
+                <Param Name="DistributionConfig_Origins_Quantity" NewName="Origins_Quantity" />
+                <Param Name="DistributionConfig_Restrictions_GeoRestriction_Items" NewName="GeoRestriction_Item" />
+                <Param Name="DistributionConfig_Restrictions_GeoRestriction_Quantity" NewName="GeoRestriction_Quantity" />
+                <Param Name="DistributionConfig_Restrictions_GeoRestriction_RestrictionType" NewName="GeoRestriction_RestrictionType" />
+                <Param Name="DistributionConfig_TenantConfig_ParameterDefinitions" NewName="TenantConfig_ParameterDefinition" />
+                <Param Name="DistributionConfig_ViewerCertificate_ACMCertificateArn" NewName="ViewerCertificate_ACMCertificateArn" />
+                <Param Name="DistributionConfig_ViewerCertificate_Certificate" NewName="ViewerCertificate_Certificate" />
+                <Param Name="DistributionConfig_ViewerCertificate_CertificateSource" NewName="ViewerCertificate_CertificateSource" />
+                <Param Name="DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate" NewName="ViewerCertificate_CloudFrontDefaultCertificate" />
+                <Param Name="DistributionConfig_ViewerCertificate_IAMCertificateId" NewName="ViewerCertificate_IAMCertificateId" />
+                <Param Name="DistributionConfig_ViewerCertificate_MinimumProtocolVersion" NewName="ViewerCertificate_MinimumProtocolVersion" />
+                <Param Name="DistributionConfig_ViewerCertificate_SSLSupportMethod" NewName="ViewerCertificate_SSLSupportMethod" />
+                <Param Name="DistributionConfig_ViewerMtlsConfig_Mode" NewName="ViewerMtlsConfig_Mode" />
+                <Param Name="DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_AdvertiseTrustStoreCaNames" NewName="TrustStoreConfig_AdvertiseTrustStoreCaName" />
+                <Param Name="DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_IgnoreCertificateExpiry" NewName="TrustStoreConfig_IgnoreCertificateExpiry" />
+                <Param Name="DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_TrustStoreId" NewName="TrustStoreConfig_TrustStoreId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDistributionTenant" OutputProperty="DistributionTenant" Verb="Update" Noun="DistributionTenant" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Customizations_Certificate_Arn" NewName="Certificate_Arn" />
+                <Param Name="Customizations_GeoRestrictions_Locations" NewName="GeoRestrictions_Location" />
+                <Param Name="Customizations_GeoRestrictions_RestrictionType" NewName="GeoRestrictions_RestrictionType" />
+                <Param Name="Customizations_WebAcl_Action" NewName="WebAcl_Action" />
+                <Param Name="Customizations_WebAcl_Arn" NewName="WebAcl_Arn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDistributionWithStagingConfig" OutputProperty="Distribution" Verb="Update" Noun="DistributionWithStagingConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -644,11 +1007,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFieldLevelEncryptionProfile" OutputProperty="FieldLevelEncryptionProfile" Verb="Update" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FieldLevelEncryptionProfileConfig_EncryptionEntities_Items" NewName="EncryptionEntities_Item" />
+                <Param Name="FieldLevelEncryptionProfileConfig_EncryptionEntities_Quantity" NewName="EncryptionEntities_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFunction" OutputProperty="FunctionSummary" Verb="Update" Noun="Function" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FunctionConfig_KeyValueStoreAssociations_Items" NewName="KeyValueStoreAssociations_Item" />
+                <Param Name="FunctionConfig_KeyValueStoreAssociations_Quantity" NewName="KeyValueStoreAssociations_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKeyGroup" OutputProperty="KeyGroup" Verb="Update" Noun="KeyGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -664,7 +1033,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOriginRequestPolicy" OutputProperty="OriginRequestPolicy" Verb="Update" Noun="OriginRequestPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OriginRequestPolicyConfig_CookiesConfig_CookieBehavior" NewName="CookiesConfig_CookieBehavior" />
+                <Param Name="OriginRequestPolicyConfig_CookiesConfig_Cookies_Items" NewName="Cookies_Item" />
+                <Param Name="OriginRequestPolicyConfig_CookiesConfig_Cookies_Quantity" NewName="Cookies_Quantity" />
+                <Param Name="OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior" NewName="HeadersConfig_HeaderBehavior" />
+                <Param Name="OriginRequestPolicyConfig_HeadersConfig_Headers_Items" NewName="Headers_Item" />
+                <Param Name="OriginRequestPolicyConfig_HeadersConfig_Headers_Quantity" NewName="Headers_Quantity" />
+                <Param Name="OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior" NewName="QueryStringsConfig_QueryStringBehavior" />
+                <Param Name="OriginRequestPolicyConfig_QueryStringsConfig_QueryStrings_Items" NewName="QueryStrings_Item" />
+                <Param Name="OriginRequestPolicyConfig_QueryStringsConfig_QueryStrings_Quantity" NewName="QueryStrings_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePublicKey" OutputProperty="PublicKey" Verb="Update" Noun="PublicKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -676,19 +1055,71 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResponseHeadersPolicy" OutputProperty="ResponseHeadersPolicy" Verb="Update" Noun="ResponseHeadersPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowCredentials" NewName="CorsConfig_AccessControlAllowCredential" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowHeaders_Items" NewName="AccessControlAllowHeaders_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowHeaders_Quantity" NewName="AccessControlAllowHeaders_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowMethods_Items" NewName="AccessControlAllowMethods_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowMethods_Quantity" NewName="AccessControlAllowMethods_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowOrigins_Items" NewName="AccessControlAllowOrigins_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlAllowOrigins_Quantity" NewName="AccessControlAllowOrigins_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlExposeHeaders_Items" NewName="AccessControlExposeHeaders_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlExposeHeaders_Quantity" NewName="AccessControlExposeHeaders_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_AccessControlMaxAgeSec" NewName="CorsConfig_AccessControlMaxAgeSec" />
+                <Param Name="ResponseHeadersPolicyConfig_CorsConfig_OriginOverride" NewName="CorsConfig_OriginOverride" />
+                <Param Name="ResponseHeadersPolicyConfig_CustomHeadersConfig_Items" NewName="CustomHeadersConfig_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_CustomHeadersConfig_Quantity" NewName="CustomHeadersConfig_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_RemoveHeadersConfig_Items" NewName="RemoveHeadersConfig_Item" />
+                <Param Name="ResponseHeadersPolicyConfig_RemoveHeadersConfig_Quantity" NewName="RemoveHeadersConfig_Quantity" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ContentSecurityPolicy_ContentSecurityPolicy" NewName="ContentSecurityPolicy_ContentSecurityPolicy" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ContentSecurityPolicy_Override" NewName="ContentSecurityPolicy_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ContentTypeOptions_Override" NewName="ContentTypeOptions_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_FrameOptions_FrameOption" NewName="FrameOptions_FrameOption" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_FrameOptions_Override" NewName="FrameOptions_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ReferrerPolicy_Override" NewName="ReferrerPolicy_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_ReferrerPolicy_ReferrerPolicy" NewName="ReferrerPolicy_ReferrerPolicy" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_StrictTransportSecurity_AccessControlMaxAgeSec" NewName="StrictTransportSecurity_AccessControlMaxAgeSec" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_StrictTransportSecurity_IncludeSubdomains" NewName="StrictTransportSecurity_IncludeSubdomain" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_StrictTransportSecurity_Override" NewName="StrictTransportSecurity_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_StrictTransportSecurity_Preload" NewName="StrictTransportSecurity_Preload" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_XSSProtection_ModeBlock" NewName="XSSProtection_ModeBlock" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_XSSProtection_Override" NewName="XSSProtection_Override" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_XSSProtection_Protection" NewName="XSSProtection_Protection" />
+                <Param Name="ResponseHeadersPolicyConfig_SecurityHeadersConfig_XSSProtection_ReportUri" NewName="XSSProtection_ReportUri" />
+                <Param Name="ResponseHeadersPolicyConfig_ServerTimingHeadersConfig_Enabled" NewName="ServerTimingHeadersConfig_Enabled" />
+                <Param Name="ResponseHeadersPolicyConfig_ServerTimingHeadersConfig_SamplingRate" NewName="ServerTimingHeadersConfig_SamplingRate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStreamingDistribution" OutputProperty="StreamingDistribution" Verb="Update" Noun="StreamingDistribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="StreamingDistributionConfig_Aliases_Items" NewName="Aliases_Item" />
+                <Param Name="StreamingDistributionConfig_Aliases_Quantity" NewName="Aliases_Quantity" />
+                <Param Name="StreamingDistributionConfig_Logging_Bucket" NewName="Logging_Bucket" />
+                <Param Name="StreamingDistributionConfig_Logging_Enabled" NewName="Logging_Enabled" />
+                <Param Name="StreamingDistributionConfig_Logging_Prefix" NewName="Logging_Prefix" />
+                <Param Name="StreamingDistributionConfig_S3Origin_DomainName" NewName="S3Origin_DomainName" />
+                <Param Name="StreamingDistributionConfig_S3Origin_OriginAccessIdentity" NewName="S3Origin_OriginAccessIdentity" />
+                <Param Name="StreamingDistributionConfig_TrustedSigners_Enabled" NewName="TrustedSigners_Enabled" />
+                <Param Name="StreamingDistributionConfig_TrustedSigners_Items" NewName="TrustedSigners_Item" />
+                <Param Name="StreamingDistributionConfig_TrustedSigners_Quantity" NewName="TrustedSigners_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTrustStore" OutputProperty="TrustStore" Verb="Update" Noun="TrustStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="CaCertificatesBundleSource_CaCertificatesBundleS3Location_Bucket" NewName="CaCertificatesBundleS3Location_Bucket" />
+                <Param Name="CaCertificatesBundleSource_CaCertificatesBundleS3Location_Key" NewName="CaCertificatesBundleS3Location_Key" />
+                <Param Name="CaCertificatesBundleSource_CaCertificatesBundleS3Location_Region" NewName="CaCertificatesBundleS3Location_Region" />
+                <Param Name="CaCertificatesBundleSource_CaCertificatesBundleS3Location_Version" NewName="CaCertificatesBundleS3Location_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVpcOrigin" OutputProperty="VpcOrigin" Verb="Update" Noun="VpcOrigin" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="VpcOriginEndpointConfig_OriginSslProtocols_Items" NewName="OriginSslProtocols_Item" />
+                <Param Name="VpcOriginEndpointConfig_OriginSslProtocols_Quantity" NewName="OriginSslProtocols_Quantity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="VerifyDnsConfiguration" OutputProperty="DnsConfigurationList" Verb="Test" Noun="DnsConfiguration" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">

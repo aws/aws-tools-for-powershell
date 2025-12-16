@@ -27,7 +27,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCanary" OutputProperty="Canary" Verb="New" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ArtifactConfig_S3Encryption_EncryptionMode" NewName="S3Encryption_EncryptionMode" />
+                <Param Name="ArtifactConfig_S3Encryption_KmsKeyArn" NewName="S3Encryption_KmsKeyArn" />
+                <Param Name="Schedule_RetryConfig_MaxRetries" NewName="RetryConfig_MaxRetry" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -91,7 +95,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCanaryDryRun" OutputProperty="DryRunConfig" Verb="Start" Noun="CanaryDryRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ArtifactConfig_S3Encryption_EncryptionMode" NewName="S3Encryption_EncryptionMode" />
+                <Param Name="ArtifactConfig_S3Encryption_KmsKeyArn" NewName="S3Encryption_KmsKeyArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopCanary" Verb="Stop" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -107,7 +114,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCanary" Verb="Update" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ArtifactConfig_S3Encryption_EncryptionMode" NewName="S3Encryption_EncryptionMode" />
+                <Param Name="ArtifactConfig_S3Encryption_KmsKeyArn" NewName="S3Encryption_KmsKeyArn" />
+                <Param Name="Schedule_RetryConfig_MaxRetries" NewName="RetryConfig_MaxRetry" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

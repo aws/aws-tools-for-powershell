@@ -24,7 +24,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAnomalyDetector" OutputProperty="*" Verb="New" Noun="AnomalyDetector" ShouldProcessTarget="WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_RandomCutForest_IgnoreNearExpectedFromAbove_Amount" NewName="IgnoreNearExpectedFromAbove_Amount" />
+                <Param Name="Configuration_RandomCutForest_IgnoreNearExpectedFromAbove_Ratio" NewName="IgnoreNearExpectedFromAbove_Ratio" />
+                <Param Name="Configuration_RandomCutForest_IgnoreNearExpectedFromBelow_Amount" NewName="IgnoreNearExpectedFromBelow_Amount" />
+                <Param Name="Configuration_RandomCutForest_IgnoreNearExpectedFromBelow_Ratio" NewName="IgnoreNearExpectedFromBelow_Ratio" />
+                <Param Name="Configuration_RandomCutForest_Query" NewName="RandomCutForest_Query" />
+                <Param Name="Configuration_RandomCutForest_SampleSize" NewName="RandomCutForest_SampleSize" />
+                <Param Name="Configuration_RandomCutForest_ShingleSize" NewName="RandomCutForest_ShingleSize" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLoggingConfiguration" OutputProperty="Status" Verb="New" Noun="LoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -39,8 +47,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateScraper" OutputProperty="*" Verb="New" Noun="Scraper" ShouldProcessTarget="" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="CreateScraper" OutputProperty="*" Verb="New" Noun="Scraper" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="Destination_AmpConfiguration_WorkspaceArn" NewName="AmpConfiguration_WorkspaceArn" />
+                <Param Name="Source_EksConfiguration_ClusterArn" NewName="EksConfiguration_ClusterArn" />
+                <Param Name="Source_EksConfiguration_SecurityGroupIds" NewName="EksConfiguration_SecurityGroupId" />
+                <Param Name="Source_EksConfiguration_SubnetIds" NewName="EksConfiguration_SubnetId" />
+                <Param Name="Source_VpcConfiguration_SecurityGroupIds" NewName="VpcConfiguration_SecurityGroupId" />
+                <Param Name="Source_VpcConfiguration_SubnetIds" NewName="VpcConfiguration_SubnetId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspace" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -152,7 +167,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAnomalyDetector" OutputProperty="*" Verb="Write" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_RandomCutForest_IgnoreNearExpectedFromAbove_Amount" NewName="IgnoreNearExpectedFromAbove_Amount" />
+                <Param Name="Configuration_RandomCutForest_IgnoreNearExpectedFromAbove_Ratio" NewName="IgnoreNearExpectedFromAbove_Ratio" />
+                <Param Name="Configuration_RandomCutForest_IgnoreNearExpectedFromBelow_Amount" NewName="IgnoreNearExpectedFromBelow_Amount" />
+                <Param Name="Configuration_RandomCutForest_IgnoreNearExpectedFromBelow_Ratio" NewName="IgnoreNearExpectedFromBelow_Ratio" />
+                <Param Name="Configuration_RandomCutForest_Query" NewName="RandomCutForest_Query" />
+                <Param Name="Configuration_RandomCutForest_SampleSize" NewName="RandomCutForest_SampleSize" />
+                <Param Name="Configuration_RandomCutForest_ShingleSize" NewName="RandomCutForest_ShingleSize" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="PolicyStatus" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
@@ -180,11 +203,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateScraper" OutputProperty="*" Verb="Update" Noun="Scraper" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Destination_AmpConfiguration_WorkspaceArn" NewName="AmpConfiguration_WorkspaceArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateScraperLoggingConfiguration" OutputProperty="Status" Verb="Update" Noun="ScraperLoggingConfiguration" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="LoggingDestination_CloudWatchLogs_LogGroupArn" NewName="CloudWatchLogs_LogGroupArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkspaceAlias" Verb="Update" Noun="WorkspaceAlias" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">

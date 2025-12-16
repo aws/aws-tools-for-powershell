@@ -32,7 +32,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOriginEndpoint" OutputProperty="*" Verb="New" Noun="OriginEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CmafPackage_Encryption_ConstantInitializationVector" NewName="Encryption_ConstantInitializationVector" />
+                <Param Name="CmafPackage_Encryption_EncryptionMethod" NewName="Encryption_EncryptionMethod" />
+                <Param Name="CmafPackage_Encryption_KeyRotationIntervalSeconds" NewName="Encryption_KeyRotationIntervalSecond" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_CertificateArn" NewName="SpekeKeyProvider_CertificateArn" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio" NewName="EncryptionContractConfiguration_PresetSpeke20Audio" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video" NewName="EncryptionContractConfiguration_PresetSpeke20Video" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_ResourceId" NewName="SpekeKeyProvider_ResourceId" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_RoleArn" NewName="SpekeKeyProvider_RoleArn" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_SystemIds" NewName="SpekeKeyProvider_SystemId" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_Url" NewName="SpekeKeyProvider_Url" />
+                <Param Name="CmafPackage_StreamSelection_MaxVideoBitsPerSecond" NewName="StreamSelection_MaxVideoBitsPerSecond" />
+                <Param Name="CmafPackage_StreamSelection_MinVideoBitsPerSecond" NewName="StreamSelection_MinVideoBitsPerSecond" />
+                <Param Name="CmafPackage_StreamSelection_StreamOrder" NewName="StreamSelection_StreamOrder" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -55,15 +69,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHarvestJobs" OutputProperty="HarvestJobs" Verb="Get" Noun="HarvestJobList" PipelineParameter="IncludeChannelId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListHarvestJobs" OutputProperty="HarvestJobs" Verb="Get" Noun="HarvestJobList" PipelineParameter="IncludeChannelId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOriginEndpoints" OutputProperty="OriginEndpoints" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOriginEndpoints" OutputProperty="OriginEndpoints" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,7 +106,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOriginEndpoint" OutputProperty="*" Verb="Update" Noun="OriginEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CmafPackage_Encryption_ConstantInitializationVector" NewName="Encryption_ConstantInitializationVector" />
+                <Param Name="CmafPackage_Encryption_EncryptionMethod" NewName="Encryption_EncryptionMethod" />
+                <Param Name="CmafPackage_Encryption_KeyRotationIntervalSeconds" NewName="Encryption_KeyRotationIntervalSecond" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_CertificateArn" NewName="SpekeKeyProvider_CertificateArn" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio" NewName="EncryptionContractConfiguration_PresetSpeke20Audio" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video" NewName="EncryptionContractConfiguration_PresetSpeke20Video" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_ResourceId" NewName="SpekeKeyProvider_ResourceId" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_RoleArn" NewName="SpekeKeyProvider_RoleArn" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_SystemIds" NewName="SpekeKeyProvider_SystemId" />
+                <Param Name="CmafPackage_Encryption_SpekeKeyProvider_Url" NewName="SpekeKeyProvider_Url" />
+                <Param Name="CmafPackage_StreamSelection_MaxVideoBitsPerSecond" NewName="StreamSelection_MaxVideoBitsPerSecond" />
+                <Param Name="CmafPackage_StreamSelection_MinVideoBitsPerSecond" NewName="StreamSelection_MinVideoBitsPerSecond" />
+                <Param Name="CmafPackage_StreamSelection_StreamOrder" NewName="StreamSelection_StreamOrder" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

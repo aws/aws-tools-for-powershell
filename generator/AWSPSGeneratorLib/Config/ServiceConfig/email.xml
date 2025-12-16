@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>email</C2jFilename>
     <AssemblyName>SimpleEmail</AssemblyName>
@@ -23,7 +24,6 @@
         <Map From="VerifiedEmailAddresses" To="VerifiedEmailAddress" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -38,7 +38,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Verb="New" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EventDestination_CloudWatchDestination_DimensionConfigurations" NewName="CloudWatchDestination_DimensionConfiguration" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_DeliveryStreamARN" NewName="KinesisFirehoseDestination_DeliveryStreamARN" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_IAMRoleARN" NewName="KinesisFirehoseDestination_IAMRoleARN" />
+                <Param Name="EventDestination_SNSDestination_TopicARN" NewName="SNSDestination_TopicARN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfigurationSetTrackingOptions" Verb="New" Noun="ConfigurationSetTrackingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="TrackingOptions" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -50,7 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateReceiptFilter" Verb="New" Noun="ReceiptFilter" ShouldProcessTarget="Filter_Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filter_IpFilter_Cidr" NewName="IpFilter_Cidr" />
+                <Param Name="Filter_IpFilter_Policy" NewName="IpFilter_Policy" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateReceiptRule" Verb="New" Noun="ReceiptRule" ShouldProcessTarget="Rule_Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -137,7 +145,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityMailFromDomainAttributes" OutputProperty="MailFromDomainAttributes" Verb="Get" Noun="IdentityMailFromDomainAttribute" PipelineParameter="Identities" NoPipelineParameter="false" LegacyAlias="Get-SESIdentityMailFromDomainAttributes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIdentityMailFromDomainAttributes" OutputProperty="MailFromDomainAttributes" Verb="Get" Noun="IdentityMailFromDomainAttribute" PipelineParameter="Identities" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-SESIdentityMailFromDomainAttributes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -157,7 +165,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSendStatistics" OutputProperty="SendDataPoints" Verb="Get" Noun="SendStatistic" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SESSendStatistics" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSendStatistics" OutputProperty="SendDataPoints" Verb="Get" Noun="SendStatistic" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-SESSendStatistics">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -165,16 +173,16 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomVerificationEmailTemplates" OutputProperty="CustomVerificationEmailTemplates" Verb="Get" Noun="CustomVerificationEmailTemplateList" PipelineParameter="MaxResults" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCustomVerificationEmailTemplates" OutputProperty="CustomVerificationEmailTemplates" Verb="Get" Noun="CustomVerificationEmailTemplateList" PipelineParameter="MaxResults" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentities" OutputProperty="Identities" Verb="Get" Noun="Identity" PipelineParameter="IdentityType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIdentities" OutputProperty="Identities" Verb="Get" Noun="Identity" PipelineParameter="IdentityType" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -182,15 +190,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReceiptFilters" OutputProperty="Filters" Verb="Get" Noun="ReceiptFilterList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SESReceiptFilters" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListReceiptFilters" OutputProperty="Filters" Verb="Get" Noun="ReceiptFilterList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-SESReceiptFilters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReceiptRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="ReceiptRuleSetList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SESReceiptRuleSets" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListReceiptRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="ReceiptRuleSetList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-SESReceiptRuleSets">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplatesMetadata" Verb="Get" Noun="TemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplatesMetadata" Verb="Get" Noun="TemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -223,7 +231,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendEmail" OutputProperty="MessageId" Verb="Send" Noun="Email" ShouldProcessTarget="Source" PositionalParameters="Destination_ToAddresses" PipelineParameter="Source" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Message_Body_Html_Charset" NewName="Html_Charset" />
+                <Param Name="Message_Body_Html_Data" NewName="Html_Data" />
+                <Param Name="Message_Body_Text_Charset" NewName="Text_Charset" />
+                <Param Name="Message_Body_Text_Data" NewName="Text_Data" />
+                <Param Name="Message_Subject_Charset" NewName="Subject_Charset" />
+                <Param Name="Message_Subject_Data" NewName="Subject_Data" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendRawEmail" OutputProperty="MessageId" Verb="Send" Noun="RawEmail" ShouldProcessTarget="Source" PositionalParameters="Destinations" PipelineParameter="Source" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -271,7 +286,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Verb="Update" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EventDestination_CloudWatchDestination_DimensionConfigurations" NewName="CloudWatchDestination_DimensionConfiguration" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_DeliveryStreamARN" NewName="KinesisFirehoseDestination_DeliveryStreamARN" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_IAMRoleARN" NewName="KinesisFirehoseDestination_IAMRoleARN" />
+                <Param Name="EventDestination_SNSDestination_TopicARN" NewName="SNSDestination_TopicARN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfigurationSetReputationMetricsEnabled" Verb="Update" Noun="ConfigurationSetReputationMetricsEnabled" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="Enabled" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -315,8 +335,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.SimpleEmail.Model.TrackingOptions</Type>
         <Type>Amazon.SimpleEmail.Model.Template</Type>

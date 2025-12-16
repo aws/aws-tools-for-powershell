@@ -311,7 +311,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutVoiceConnectorStreamingConfiguration" OutputProperty="StreamingConfiguration" Verb="Write" Noun="VoiceConnectorStreamingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="StreamingConfiguration_MediaInsightsConfiguration_ConfigurationArn" NewName="MediaInsightsConfiguration_ConfigurationArn" />
+                <Param Name="StreamingConfiguration_MediaInsightsConfiguration_Disabled" NewName="MediaInsightsConfiguration_Disabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutVoiceConnectorTermination" OutputProperty="Termination" Verb="Write" Noun="VoiceConnectorTermination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">

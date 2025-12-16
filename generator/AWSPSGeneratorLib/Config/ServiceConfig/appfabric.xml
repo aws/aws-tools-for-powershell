@@ -27,7 +27,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAppAuthorization" OutputProperty="AppAuthorization" Verb="New" Noun="AppAuthorization" ShouldProcessTarget="AppBundleIdentifier" PipelineParameter="AppBundleIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Credential_ApiKeyCredential_ApiKey" NewName="ApiKeyCredential_ApiKey" />
+                <Param Name="Credential_Oauth2Credential_ClientId" NewName="Oauth2Credential_ClientId" />
+                <Param Name="Credential_Oauth2Credential_ClientSecret" NewName="Oauth2Credential_ClientSecret" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAppBundle" OutputProperty="AppBundle" Verb="New" Noun="AppBundle" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -39,7 +43,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIngestionDestination" OutputProperty="IngestionDestination" Verb="New" Noun="IngestionDestination" ShouldProcessTarget="IngestionIdentifier" PipelineParameter="IngestionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfiguration_AuditLog_Destination_FirehoseStream_StreamName" NewName="FirehoseStream_StreamName" />
+                <Param Name="DestinationConfiguration_AuditLog_Destination_S3Bucket_BucketName" NewName="S3Bucket_BucketName" />
+                <Param Name="DestinationConfiguration_AuditLog_Destination_S3Bucket_Prefix" NewName="S3Bucket_Prefix" />
+                <Param Name="ProcessingConfiguration_AuditLog_Format" NewName="AuditLog_Format" />
+                <Param Name="ProcessingConfiguration_AuditLog_Schema" NewName="AuditLog_Schema" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAppAuthorization" Verb="Remove" Noun="AppAuthorization" ShouldProcessTarget="AppAuthorizationIdentifier" PipelineParameter="AppAuthorizationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -115,11 +125,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAppAuthorization" OutputProperty="AppAuthorization" Verb="Update" Noun="AppAuthorization" ShouldProcessTarget="AppAuthorizationIdentifier" PipelineParameter="AppAuthorizationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Credential_ApiKeyCredential_ApiKey" NewName="ApiKeyCredential_ApiKey" />
+                <Param Name="Credential_Oauth2Credential_ClientId" NewName="Oauth2Credential_ClientId" />
+                <Param Name="Credential_Oauth2Credential_ClientSecret" NewName="Oauth2Credential_ClientSecret" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIngestionDestination" OutputProperty="IngestionDestination" Verb="Update" Noun="IngestionDestination" ShouldProcessTarget="IngestionDestinationIdentifier" PipelineParameter="IngestionDestinationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfiguration_AuditLog_Destination_FirehoseStream_StreamName" NewName="FirehoseStream_StreamName" />
+                <Param Name="DestinationConfiguration_AuditLog_Destination_S3Bucket_BucketName" NewName="S3Bucket_BucketName" />
+                <Param Name="DestinationConfiguration_AuditLog_Destination_S3Bucket_Prefix" NewName="S3Bucket_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

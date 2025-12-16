@@ -111,7 +111,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkspaceAuthentication" OutputProperty="Authentication" Verb="Update" Noun="WorkspaceAuthentication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SamlConfiguration_AssertionAttributes_Email" NewName="AssertionAttributes_Email" />
+                <Param Name="SamlConfiguration_AssertionAttributes_Groups" NewName="AssertionAttributes_Group" />
+                <Param Name="SamlConfiguration_AssertionAttributes_Login" NewName="AssertionAttributes_Login" />
+                <Param Name="SamlConfiguration_AssertionAttributes_Name" NewName="AssertionAttributes_Name" />
+                <Param Name="SamlConfiguration_AssertionAttributes_Org" NewName="AssertionAttributes_Org" />
+                <Param Name="SamlConfiguration_AssertionAttributes_Role" NewName="AssertionAttributes_Role" />
+                <Param Name="SamlConfiguration_IdpMetadata_Url" NewName="IdpMetadata_Url" />
+                <Param Name="SamlConfiguration_IdpMetadata_Xml" NewName="IdpMetadata_Xml" />
+                <Param Name="SamlConfiguration_RoleValues_Admin" NewName="RoleValues_Admin" />
+                <Param Name="SamlConfiguration_RoleValues_Editor" NewName="RoleValues_Editor" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkspaceConfiguration" Verb="Update" Noun="WorkspaceConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">

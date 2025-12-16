@@ -52,7 +52,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInvoiceSummaries" OutputProperty="InvoiceSummaries" Verb="Get" Noun="InvoiceSummaryList" PipelineParameter="Selector_Value" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Filter_BillingPeriod_Month" NewName="BillingPeriod_Month" />
+                <Param Name="Filter_BillingPeriod_Year" NewName="BillingPeriod_Year" />
+                <Param Name="Filter_TimeInterval_EndDate" NewName="TimeInterval_EndDate" />
+                <Param Name="Filter_TimeInterval_StartDate" NewName="TimeInterval_StartDate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInvoiceUnits" OutputProperty="InvoiceUnits" Verb="Get" Noun="InvoiceUnitList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

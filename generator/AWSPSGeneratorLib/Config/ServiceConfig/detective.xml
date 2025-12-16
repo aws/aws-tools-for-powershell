@@ -84,7 +84,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInvestigations" OutputProperty="InvestigationDetails" Verb="Get" Noun="InvestigationList" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FilterCriteria_CreatedTime_EndInclusive" NewName="CreatedTime_EndInclusive" />
+                <Param Name="FilterCriteria_CreatedTime_StartInclusive" NewName="CreatedTime_StartInclusive" />
+                <Param Name="FilterCriteria_EntityArn_Value" NewName="EntityArn_Value" />
+                <Param Name="FilterCriteria_Severity_Value" NewName="Severity_Value" />
+                <Param Name="FilterCriteria_State_Value" NewName="State_Value" />
+                <Param Name="FilterCriteria_Status_Value" NewName="Status_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">

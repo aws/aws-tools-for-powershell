@@ -34,11 +34,28 @@
             <Params>
                 <Param Name="Configuration_OpenIdConnectConfiguration_GroupConfiguration_GroupEntityType" NewName="OpenIdConnectConfiguration_GroupEntityType" Alias="Configuration_OpenIdConnectConfiguration_GroupConfiguration_GroupEntityType" />
                 <Param Name="Configuration_OpenIdConnectConfiguration_GroupConfiguration_GroupClaim" NewName="OpenIdConnectConfiguration_GroupClaim" Alias="Configuration_OpenIdConnectConfiguration_GroupConfiguration_GroupClaim" />
+                <Param Name="Configuration_CognitoUserPoolConfiguration_ClientIds" NewName="CognitoUserPoolConfiguration_ClientId" />
+                <Param Name="Configuration_CognitoUserPoolConfiguration_GroupConfiguration_GroupEntityType" NewName="GroupConfiguration_GroupEntityType" />
+                <Param Name="Configuration_CognitoUserPoolConfiguration_UserPoolArn" NewName="CognitoUserPoolConfiguration_UserPoolArn" />
+                <Param Name="Configuration_OpenIdConnectConfiguration_EntityIdPrefix" NewName="OpenIdConnectConfiguration_EntityIdPrefix" />
+                <Param Name="Configuration_OpenIdConnectConfiguration_Issuer" NewName="OpenIdConnectConfiguration_Issuer" />
+                <Param Name="Configuration_OpenIdConnectConfiguration_TokenSelection_AccessTokenOnly_Audiences" NewName="AccessTokenOnly_Audience" />
+                <Param Name="Configuration_OpenIdConnectConfiguration_TokenSelection_AccessTokenOnly_PrincipalIdClaim" NewName="AccessTokenOnly_PrincipalIdClaim" />
+                <Param Name="Configuration_OpenIdConnectConfiguration_TokenSelection_IdentityTokenOnly_ClientIds" NewName="IdentityTokenOnly_ClientId" />
+                <Param Name="Configuration_OpenIdConnectConfiguration_TokenSelection_IdentityTokenOnly_PrincipalIdClaim" NewName="IdentityTokenOnly_PrincipalIdClaim" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Definition_Static_Description" NewName="Static_Description" />
+                <Param Name="Definition_Static_Statement" NewName="Static_Statement" />
+                <Param Name="Definition_TemplateLinked_PolicyTemplateId" NewName="TemplateLinked_PolicyTemplateId" />
+                <Param Name="Definition_TemplateLinked_Principal_EntityId" NewName="Principal_EntityId" />
+                <Param Name="Definition_TemplateLinked_Principal_EntityType" NewName="Principal_EntityType" />
+                <Param Name="Definition_TemplateLinked_Resource_EntityId" NewName="Resource_EntityId" />
+                <Param Name="Definition_TemplateLinked_Resource_EntityType" NewName="Resource_EntityType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicyStore" OutputProperty="*" Verb="New" Noun="PolicyStore" ShouldProcessTarget="ValidationSettings_Mode" PipelineParameter="ValidationSettings_Mode" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -103,6 +120,8 @@
                 <Param Name="Filter_Resource_Identifier_EntityId" NewName="Filter_Resource_Identifier_EntityId" Alias="Resource_EntityId" />
                 <Param Name="Filter_Principal_Identifier_EntityType" NewName="Filter_Principal_Identifier_EntityType" Alias="Principal_EntityType" />
                 <Param Name="Filter_Resource_Identifier_EntityType" NewName="Filter_Resource_Identifier_EntityType" Alias="Resource_EntityType" />
+                <Param Name="Filter_Principal_Unspecified" NewName="Principal_Unspecified" />
+                <Param Name="Filter_Resource_Unspecified" NewName="Resource_Unspecified" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -134,11 +153,23 @@
             <Params>
                 <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_GroupConfiguration_GroupEntityType" NewName="OpenIdConnectConfiguration_GroupEntityType" Alias="UpdateConfiguration_OpenIdConnectConfiguration_GroupConfiguration_GroupEntityType" />
                 <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_GroupConfiguration_GroupClaim" NewName="OpenIdConnectConfiguration_GroupClaim" Alias="UpdateConfiguration_OpenIdConnectConfiguration_GroupConfiguration_GroupClaim" />
+                <Param Name="UpdateConfiguration_CognitoUserPoolConfiguration_ClientIds" NewName="CognitoUserPoolConfiguration_ClientId" />
+                <Param Name="UpdateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration_GroupEntityType" NewName="GroupConfiguration_GroupEntityType" />
+                <Param Name="UpdateConfiguration_CognitoUserPoolConfiguration_UserPoolArn" NewName="CognitoUserPoolConfiguration_UserPoolArn" />
+                <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_EntityIdPrefix" NewName="OpenIdConnectConfiguration_EntityIdPrefix" />
+                <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_Issuer" NewName="OpenIdConnectConfiguration_Issuer" />
+                <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_TokenSelection_AccessTokenOnly_Audiences" NewName="AccessTokenOnly_Audience" />
+                <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_TokenSelection_AccessTokenOnly_PrincipalIdClaim" NewName="AccessTokenOnly_PrincipalIdClaim" />
+                <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_TokenSelection_IdentityTokenOnly_ClientIds" NewName="IdentityTokenOnly_ClientId" />
+                <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_TokenSelection_IdentityTokenOnly_PrincipalIdClaim" NewName="IdentityTokenOnly_PrincipalIdClaim" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePolicy" OutputProperty="*" Verb="Update" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Definition_Static_Description" NewName="Static_Description" />
+                <Param Name="Definition_Static_Statement" NewName="Static_Statement" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePolicyStore" OutputProperty="*" Verb="Update" Noun="PolicyStore" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">

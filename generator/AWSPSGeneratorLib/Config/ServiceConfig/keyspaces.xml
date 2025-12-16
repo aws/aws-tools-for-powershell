@@ -32,6 +32,12 @@
                 <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
                 <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" />
                 <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_AutoScalingDisabled" NewName="ReadCapacityAutoScaling_AutoScalingDisabled" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_MaximumUnits" NewName="ReadCapacityAutoScaling_MaximumUnit" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_MinimumUnits" NewName="ReadCapacityAutoScaling_MinimumUnit" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_AutoScalingDisabled" NewName="WriteCapacityAutoScaling_AutoScalingDisabled" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_MaximumUnits" NewName="WriteCapacityAutoScaling_MaximumUnit" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_MinimumUnits" NewName="WriteCapacityAutoScaling_MinimumUnit" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -93,6 +99,12 @@
                 <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
                 <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" />
                 <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_AutoScalingDisabled" NewName="ReadCapacityAutoScaling_AutoScalingDisabled" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_MaximumUnits" NewName="ReadCapacityAutoScaling_MaximumUnit" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_MinimumUnits" NewName="ReadCapacityAutoScaling_MinimumUnit" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_AutoScalingDisabled" NewName="WriteCapacityAutoScaling_AutoScalingDisabled" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_MaximumUnits" NewName="WriteCapacityAutoScaling_MaximumUnit" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_MinimumUnits" NewName="WriteCapacityAutoScaling_MinimumUnit" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -118,6 +130,12 @@
                 <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
                 <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" />
                 <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_AutoScalingDisabled" NewName="ReadCapacityAutoScaling_AutoScalingDisabled" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_MaximumUnits" NewName="ReadCapacityAutoScaling_MaximumUnit" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_MinimumUnits" NewName="ReadCapacityAutoScaling_MinimumUnit" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_AutoScalingDisabled" NewName="WriteCapacityAutoScaling_AutoScalingDisabled" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_MaximumUnits" NewName="WriteCapacityAutoScaling_MaximumUnit" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_MinimumUnits" NewName="WriteCapacityAutoScaling_MinimumUnit" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

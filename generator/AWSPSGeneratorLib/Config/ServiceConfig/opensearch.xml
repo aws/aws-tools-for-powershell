@@ -24,11 +24,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddDataSource" OutputProperty="Message" Verb="Add" Noun="DataSource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSourceType_S3GlueDataCatalog_RoleArn" NewName="S3GlueDataCatalog_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddDirectQueryDataSource" OutputProperty="DataSourceArn" Verb="Add" Noun="DirectQueryDataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSourceType_CloudWatchLog_RoleArn" NewName="CloudWatchLog_RoleArn" />
+                <Param Name="DataSourceType_SecurityLake_RoleArn" NewName="SecurityLake_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-ESTag">
@@ -36,7 +41,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="AssociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AssociationConfiguration_KeyStoreAccessOption_KeyAccessRoleArn" NewName="KeyStoreAccessOption_KeyAccessRoleArn" />
+                <Param Name="AssociationConfiguration_KeyStoreAccessOption_KeyStoreAccessEnabled" NewName="KeyStoreAccessOption_KeyStoreAccessEnabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociatePackages" OutputProperty="DomainPackageDetailsList" Verb="Start" Noun="OSAssociatePackageList" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -60,14 +68,40 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="DomainStatus" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AdvancedSecurityOptions_IAMFederationOptions_Enabled" NewName="IAMFederationOptions_Enabled" />
+                <Param Name="AdvancedSecurityOptions_IAMFederationOptions_RolesKey" NewName="IAMFederationOptions_RolesKey" />
+                <Param Name="AdvancedSecurityOptions_IAMFederationOptions_SubjectKey" NewName="IAMFederationOptions_SubjectKey" />
+                <Param Name="AdvancedSecurityOptions_JWTOptions_Enabled" NewName="JWTOptions_Enabled" />
+                <Param Name="AdvancedSecurityOptions_JWTOptions_PublicKey" NewName="JWTOptions_PublicKey" />
+                <Param Name="AdvancedSecurityOptions_JWTOptions_RolesKey" NewName="JWTOptions_RolesKey" />
+                <Param Name="AdvancedSecurityOptions_JWTOptions_SubjectKey" NewName="JWTOptions_SubjectKey" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserARN" NewName="MasterUserOptions_MasterUserARN" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserName" NewName="MasterUserOptions_MasterUserName" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserPassword" NewName="MasterUserOptions_MasterUserPassword" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Enabled" NewName="SAMLOptions_Enabled" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Idp_EntityId" NewName="Idp_EntityId" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Idp_MetadataContent" NewName="Idp_MetadataContent" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_MasterBackendRole" NewName="SAMLOptions_MasterBackendRole" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_MasterUserName" NewName="SAMLOptions_MasterUserName" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_RolesKey" NewName="SAMLOptions_RolesKey" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_SessionTimeoutMinutes" NewName="SAMLOptions_SessionTimeoutMinute" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_SubjectKey" NewName="SAMLOptions_SubjectKey" />
+                <Param Name="AIMLOptions_NaturalLanguageQueryGenerationOptions_DesiredState" NewName="NaturalLanguageQueryGenerationOptions_DesiredState" />
+                <Param Name="AIMLOptions_S3VectorsEngine_Enabled" NewName="S3VectorsEngine_Enabled" />
+                <Param Name="AIMLOptions_ServerlessVectorAcceleration_Enabled" NewName="ServerlessVectorAcceleration_Enabled" />
+                <Param Name="ClusterConfig_ColdStorageOptions_Enabled" NewName="ColdStorageOptions_Enabled" />
+                <Param Name="ClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount" NewName="ZoneAwarenessConfig_AvailabilityZoneCount" />
+                <Param Name="OffPeakWindowOptions_OffPeakWindow_WindowStartTime_Hours" NewName="WindowStartTime_Hour" />
+                <Param Name="OffPeakWindowOptions_OffPeakWindow_WindowStartTime_Minutes" NewName="WindowStartTime_Minute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIndex" OutputProperty="Status" Verb="New" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOutboundConnection" OutputProperty="*" Verb="New" Noun="OutboundConnection" ShouldProcessTarget="" PipelineParameter="ConnectionAlias" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateOutboundConnection" OutputProperty="*" Verb="New" Noun="OutboundConnection" ShouldProcessTarget="ConnectionAlias" PipelineParameter="ConnectionAlias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="LocalDomainInfo_AWSDomainInformation_DomainName" NewName="LocalDomainInfo_AWSDomainInformation_DomainName" />
                 <Param Name="LocalDomainInfo_AWSDomainInformation_OwnerId" NewName="LocalDomainInfo_AWSDomainInformation_OwnerId" />
@@ -75,6 +109,7 @@
                 <Param Name="RemoteDomainInfo_AWSDomainInformation_DomainName" NewName="RemoteDomainInfo_AWSDomainInformation_DomainName" />
                 <Param Name="RemoteDomainInfo_AWSDomainInformation_OwnerId" NewName="RemoteDomainInfo_AWSDomainInformation_OwnerId" />
                 <Param Name="RemoteDomainInfo_AWSDomainInformation_Region" NewName="RemoteDomainInfo_AWSDomainInformation_Region" />
+                <Param Name="ConnectionProperties_CrossClusterSearch_SkipUnavailable" NewName="CrossClusterSearch_SkipUnavailable" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -319,15 +354,46 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSource" OutputProperty="Message" Verb="Update" Noun="DataSource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSourceType_S3GlueDataCatalog_RoleArn" NewName="S3GlueDataCatalog_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDirectQueryDataSource" OutputProperty="DataSourceArn" Verb="Update" Noun="DirectQueryDataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSourceType_CloudWatchLog_RoleArn" NewName="CloudWatchLog_RoleArn" />
+                <Param Name="DataSourceType_SecurityLake_RoleArn" NewName="SecurityLake_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomainConfig" OutputProperty="DomainConfig" Verb="Update" Noun="DomainConfig" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AdvancedSecurityOptions_IAMFederationOptions_Enabled" NewName="IAMFederationOptions_Enabled" />
+                <Param Name="AdvancedSecurityOptions_IAMFederationOptions_RolesKey" NewName="IAMFederationOptions_RolesKey" />
+                <Param Name="AdvancedSecurityOptions_IAMFederationOptions_SubjectKey" NewName="IAMFederationOptions_SubjectKey" />
+                <Param Name="AdvancedSecurityOptions_JWTOptions_Enabled" NewName="JWTOptions_Enabled" />
+                <Param Name="AdvancedSecurityOptions_JWTOptions_PublicKey" NewName="JWTOptions_PublicKey" />
+                <Param Name="AdvancedSecurityOptions_JWTOptions_RolesKey" NewName="JWTOptions_RolesKey" />
+                <Param Name="AdvancedSecurityOptions_JWTOptions_SubjectKey" NewName="JWTOptions_SubjectKey" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserARN" NewName="MasterUserOptions_MasterUserARN" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserName" NewName="MasterUserOptions_MasterUserName" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserPassword" NewName="MasterUserOptions_MasterUserPassword" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Enabled" NewName="SAMLOptions_Enabled" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Idp_EntityId" NewName="Idp_EntityId" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Idp_MetadataContent" NewName="Idp_MetadataContent" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_MasterBackendRole" NewName="SAMLOptions_MasterBackendRole" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_MasterUserName" NewName="SAMLOptions_MasterUserName" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_RolesKey" NewName="SAMLOptions_RolesKey" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_SessionTimeoutMinutes" NewName="SAMLOptions_SessionTimeoutMinute" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_SubjectKey" NewName="SAMLOptions_SubjectKey" />
+                <Param Name="AIMLOptions_NaturalLanguageQueryGenerationOptions_DesiredState" NewName="NaturalLanguageQueryGenerationOptions_DesiredState" />
+                <Param Name="AIMLOptions_S3VectorsEngine_Enabled" NewName="S3VectorsEngine_Enabled" />
+                <Param Name="AIMLOptions_ServerlessVectorAcceleration_Enabled" NewName="ServerlessVectorAcceleration_Enabled" />
+                <Param Name="ClusterConfig_ColdStorageOptions_Enabled" NewName="ColdStorageOptions_Enabled" />
+                <Param Name="ClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount" NewName="ZoneAwarenessConfig_AvailabilityZoneCount" />
+                <Param Name="OffPeakWindowOptions_OffPeakWindow_WindowStartTime_Hours" NewName="WindowStartTime_Hour" />
+                <Param Name="OffPeakWindowOptions_OffPeakWindow_WindowStartTime_Minutes" NewName="WindowStartTime_Minute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIndex" OutputProperty="Status" Verb="Update" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="" NoPipelineParameter="true">

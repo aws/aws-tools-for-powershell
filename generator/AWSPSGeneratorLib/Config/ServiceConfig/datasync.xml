@@ -43,6 +43,9 @@
             <Params>
                 <Param Name="Protocol_NFS_MountOptions_Version" NewName="Protocol_NFS_MountOptions_Version" />
                 <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
+                <Param Name="Protocol_SMB_Domain" NewName="SMB_Domain" />
+                <Param Name="Protocol_SMB_Password" NewName="SMB_Password" />
+                <Param Name="Protocol_SMB_User" NewName="SMB_User" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -50,6 +53,9 @@
             <Params>
                 <Param Name="Protocol_NFS_MountOptions_Version" NewName="MountOptions_Version" />
                 <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
+                <Param Name="Protocol_SMB_Domain" NewName="SMB_Domain" />
+                <Param Name="Protocol_SMB_Password" NewName="SMB_Password" />
+                <Param Name="Protocol_SMB_User" NewName="SMB_User" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -86,6 +92,13 @@
                 <Param Name="TaskReportConfig_Destination_S3_S3BucketArn" NewName="TaskReportConfig_Destination_S3_S3BucketArn" />
                 <Param Name="ManifestConfig_Source_S3_BucketAccessRoleArn" NewName="ManifestConfig_Source_S3_BucketAccessRoleArn" />
                 <Param Name="TaskReportConfig_Destination_S3_BucketAccessRoleArn" NewName="TaskReportConfig_Destination_S3_BucketAccessRoleArn" />
+                <Param Name="ManifestConfig_Source_S3_ManifestObjectPath" NewName="S3_ManifestObjectPath" />
+                <Param Name="ManifestConfig_Source_S3_ManifestObjectVersionId" NewName="S3_ManifestObjectVersionId" />
+                <Param Name="TaskReportConfig_Destination_S3_Subdirectory" NewName="S3_Subdirectory" />
+                <Param Name="TaskReportConfig_Overrides_Deleted_ReportLevel" NewName="Deleted_ReportLevel" />
+                <Param Name="TaskReportConfig_Overrides_Skipped_ReportLevel" NewName="Skipped_ReportLevel" />
+                <Param Name="TaskReportConfig_Overrides_Transferred_ReportLevel" NewName="Transferred_ReportLevel" />
+                <Param Name="TaskReportConfig_Overrides_Verified_ReportLevel" NewName="Verified_ReportLevel" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -183,6 +196,13 @@
                 <Param Name="TaskReportConfig_Destination_S3_S3BucketArn" NewName="TaskReportConfig_Destination_S3_S3BucketArn" />
                 <Param Name="ManifestConfig_Source_S3_BucketAccessRoleArn" NewName="ManifestConfig_Source_S3_BucketAccessRoleArn" />
                 <Param Name="TaskReportConfig_Destination_S3_BucketAccessRoleArn" NewName="TaskReportConfig_Destination_S3_BucketAccessRoleArn" />
+                <Param Name="ManifestConfig_Source_S3_ManifestObjectPath" NewName="S3_ManifestObjectPath" />
+                <Param Name="ManifestConfig_Source_S3_ManifestObjectVersionId" NewName="S3_ManifestObjectVersionId" />
+                <Param Name="TaskReportConfig_Destination_S3_Subdirectory" NewName="S3_Subdirectory" />
+                <Param Name="TaskReportConfig_Overrides_Deleted_ReportLevel" NewName="Deleted_ReportLevel" />
+                <Param Name="TaskReportConfig_Overrides_Skipped_ReportLevel" NewName="Skipped_ReportLevel" />
+                <Param Name="TaskReportConfig_Overrides_Transferred_ReportLevel" NewName="Transferred_ReportLevel" />
+                <Param Name="TaskReportConfig_Overrides_Verified_ReportLevel" NewName="Verified_ReportLevel" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -214,6 +234,9 @@
             <Params>
                 <Param Name="Protocol_NFS_MountOptions_Version" NewName="Protocol_NFS_MountOptions_Version" />
                 <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
+                <Param Name="Protocol_SMB_Domain" NewName="SMB_Domain" />
+                <Param Name="Protocol_SMB_Password" NewName="SMB_Password" />
+                <Param Name="Protocol_SMB_User" NewName="SMB_User" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -221,6 +244,9 @@
             <Params>
                 <Param Name="Protocol_NFS_MountOptions_Version" NewName="Protocol_NFS_MountOptions_Version" />
                 <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
+                <Param Name="Protocol_SMB_Domain" NewName="SMB_Domain" />
+                <Param Name="Protocol_SMB_Password" NewName="SMB_Password" />
+                <Param Name="Protocol_SMB_User" NewName="SMB_User" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -257,6 +283,13 @@
                 <Param Name="TaskReportConfig_Destination_S3_S3BucketArn" NewName="TaskReportConfig_Destination_S3_S3BucketArn" />
                 <Param Name="ManifestConfig_Source_S3_BucketAccessRoleArn" NewName="ManifestConfig_Source_S3_BucketAccessRoleArn" />
                 <Param Name="TaskReportConfig_Destination_S3_BucketAccessRoleArn" NewName="TaskReportConfig_Destination_S3_BucketAccessRoleArn" />
+                <Param Name="ManifestConfig_Source_S3_ManifestObjectPath" NewName="S3_ManifestObjectPath" />
+                <Param Name="ManifestConfig_Source_S3_ManifestObjectVersionId" NewName="S3_ManifestObjectVersionId" />
+                <Param Name="TaskReportConfig_Destination_S3_Subdirectory" NewName="S3_Subdirectory" />
+                <Param Name="TaskReportConfig_Overrides_Deleted_ReportLevel" NewName="Deleted_ReportLevel" />
+                <Param Name="TaskReportConfig_Overrides_Skipped_ReportLevel" NewName="Skipped_ReportLevel" />
+                <Param Name="TaskReportConfig_Overrides_Transferred_ReportLevel" NewName="Transferred_ReportLevel" />
+                <Param Name="TaskReportConfig_Overrides_Verified_ReportLevel" NewName="Verified_ReportLevel" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

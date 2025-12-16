@@ -297,11 +297,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyStreamingProperties" Verb="Edit" Noun="StreamingProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="StreamingProperties_GlobalAccelerator_Mode" NewName="GlobalAccelerator_Mode" />
+                <Param Name="StreamingProperties_GlobalAccelerator_PreferredProtocol" NewName="GlobalAccelerator_PreferredProtocol" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyWorkspaceAccessProperties" Verb="Edit" Noun="WorkspaceAccessProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WorkspaceAccessProperties_AccessEndpointConfig_AccessEndpoints" NewName="AccessEndpointConfig_AccessEndpoint" />
+                <Param Name="WorkspaceAccessProperties_AccessEndpointConfig_InternetFallbackProtocols" NewName="AccessEndpointConfig_InternetFallbackProtocol" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyWorkspaceCreationProperties" Verb="Edit" Noun="WorkspaceCreationProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -309,7 +315,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyWorkspaceProperties" Verb="Edit" Noun="WorkspaceProperty" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WorkspaceProperties_GlobalAccelerator_Mode" NewName="GlobalAccelerator_Mode" />
+                <Param Name="WorkspaceProperties_GlobalAccelerator_PreferredProtocol" NewName="GlobalAccelerator_PreferredProtocol" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyWorkspaceState" Verb="Edit" Noun="WorkspaceState" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">

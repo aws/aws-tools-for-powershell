@@ -19,7 +19,21 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateAgentRuntime" OutputProperty="*" Verb="New" Noun="AgentRuntime" ShouldProcessTarget="AgentRuntimeName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_Code_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_Code_S3_Prefix" NewName="S3_Prefix" />
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_Code_S3_VersionId" NewName="S3_VersionId" />
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_EntryPoint" NewName="CodeConfiguration_EntryPoint" />
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_Runtime" NewName="CodeConfiguration_Runtime" />
+                <Param Name="AgentRuntimeArtifact_ContainerConfiguration_ContainerUri" NewName="ContainerConfiguration_ContainerUri" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience" NewName="CustomJWTAuthorizer_AllowedAudience" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClients" NewName="CustomJWTAuthorizer_AllowedClient" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScopes" NewName="CustomJWTAuthorizer_AllowedScope" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaims" NewName="CustomJWTAuthorizer_CustomClaim" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl" NewName="CustomJWTAuthorizer_DiscoveryUrl" />
+                <Param Name="NetworkConfiguration_NetworkModeConfig_SecurityGroups" NewName="NetworkModeConfig_SecurityGroup" />
+                <Param Name="NetworkConfiguration_NetworkModeConfig_Subnets" NewName="NetworkModeConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAgentRuntimeEndpoint" OutputProperty="*" Verb="New" Noun="AgentRuntimeEndpoint" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
@@ -31,19 +45,47 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBrowser" OutputProperty="*" Verb="New" Noun="Browser" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="NetworkConfiguration_VpcConfig_SecurityGroups" NewName="VpcConfig_SecurityGroup" />
+                <Param Name="NetworkConfiguration_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+                <Param Name="Recording_S3Location_Bucket" NewName="S3Location_Bucket" />
+                <Param Name="Recording_S3Location_Prefix" NewName="S3Location_Prefix" />
+                <Param Name="Recording_S3Location_VersionId" NewName="S3Location_VersionId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeInterpreter" OutputProperty="*" Verb="New" Noun="CodeInterpreter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="NetworkConfiguration_VpcConfig_SecurityGroups" NewName="VpcConfig_SecurityGroup" />
+                <Param Name="NetworkConfiguration_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEvaluator" OutputProperty="*" Verb="New" Noun="Evaluator" ShouldProcessTarget="EvaluatorName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="EvaluatorConfig_LlmAsAJudge_Instructions" NewName="LlmAsAJudge_Instruction" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_AdditionalModelRequestFields" NewName="BedrockEvaluatorModelConfig_AdditionalModelRequestField" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_MaxTokens" NewName="InferenceConfig_MaxToken" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_StopSequences" NewName="InferenceConfig_StopSequence" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_Temperature" NewName="InferenceConfig_Temperature" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_TopP" NewName="InferenceConfig_TopP" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_ModelId" NewName="BedrockEvaluatorModelConfig_ModelId" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_RatingScale_Categorical" NewName="RatingScale_Categorical" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_RatingScale_Numerical" NewName="RatingScale_Numerical" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGateway" OutputProperty="*" Verb="New" Noun="Gateway" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience" NewName="CustomJWTAuthorizer_AllowedAudience" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClients" NewName="CustomJWTAuthorizer_AllowedClient" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScopes" NewName="CustomJWTAuthorizer_AllowedScope" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaims" NewName="CustomJWTAuthorizer_CustomClaim" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl" NewName="CustomJWTAuthorizer_DiscoveryUrl" />
+                <Param Name="ProtocolConfiguration_Mcp_Instructions" NewName="Mcp_Instruction" />
+                <Param Name="ProtocolConfiguration_Mcp_SearchType" NewName="Mcp_SearchType" />
+                <Param Name="ProtocolConfiguration_Mcp_SupportedVersions" NewName="Mcp_SupportedVersion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGatewayTarget" OutputProperty="*" Verb="New" Noun="GatewayTarget" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
@@ -54,6 +96,15 @@
                 <Param Name="TargetConfiguration_Mcp_Lambda_ToolSchema_S3_Uri" NewName="Lambda_ToolSchema_S3_Uri" />
                 <Param Name="TargetConfiguration_Mcp_OpenApiSchema_S3_Uri" NewName="OpenApiSchema_S3_Uri" />
                 <Param Name="TargetConfiguration_Mcp_SmithyModel_S3_Uri" NewName="SmithyModel_S3_Uri" />
+                <Param Name="TargetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_ToolFilters" NewName="ApiGatewayToolConfiguration_ToolFilter" />
+                <Param Name="TargetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_ToolOverrides" NewName="ApiGatewayToolConfiguration_ToolOverride" />
+                <Param Name="TargetConfiguration_Mcp_ApiGateway_RestApiId" NewName="ApiGateway_RestApiId" />
+                <Param Name="TargetConfiguration_Mcp_ApiGateway_Stage" NewName="ApiGateway_Stage" />
+                <Param Name="TargetConfiguration_Mcp_Lambda_LambdaArn" NewName="Lambda_LambdaArn" />
+                <Param Name="TargetConfiguration_Mcp_Lambda_ToolSchema_InlinePayload" NewName="ToolSchema_InlinePayload" />
+                <Param Name="TargetConfiguration_Mcp_McpServer_Endpoint" NewName="McpServer_Endpoint" />
+                <Param Name="TargetConfiguration_Mcp_OpenApiSchema_InlinePayload" NewName="OpenApiSchema_InlinePayload" />
+                <Param Name="TargetConfiguration_Mcp_SmithyModel_InlinePayload" NewName="SmithyModel_InlinePayload" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -62,15 +113,51 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOauth2CredentialProvider" OutputProperty="*" Verb="New" Noun="Oauth2CredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientId" NewName="AtlassianOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecret" NewName="AtlassianOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientId" NewName="CustomOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecret" NewName="CustomOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_AuthorizationEndpoint" NewName="AuthorizationServerMetadata_AuthorizationEndpoint" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_Issuer" NewName="AuthorizationServerMetadata_Issuer" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_ResponseTypes" NewName="AuthorizationServerMetadata_ResponseType" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_TokenEndpoint" NewName="AuthorizationServerMetadata_TokenEndpoint" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_TokenEndpointAuthMethods" NewName="AuthorizationServerMetadata_TokenEndpointAuthMethod" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_DiscoveryUrl" NewName="OauthDiscovery_DiscoveryUrl" />
+                <Param Name="Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientId" NewName="GithubOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecret" NewName="GithubOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientId" NewName="GoogleOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecret" NewName="GoogleOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_AuthorizationEndpoint" NewName="IncludedOauth2ProviderConfig_AuthorizationEndpoint" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientId" NewName="IncludedOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecret" NewName="IncludedOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_Issuer" NewName="IncludedOauth2ProviderConfig_Issuer" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_TokenEndpoint" NewName="IncludedOauth2ProviderConfig_TokenEndpoint" />
+                <Param Name="Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientId" NewName="LinkedinOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecret" NewName="LinkedinOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientId" NewName="MicrosoftOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecret" NewName="MicrosoftOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_TenantId" NewName="MicrosoftOauth2ProviderConfig_TenantId" />
+                <Param Name="Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientId" NewName="SalesforceOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecret" NewName="SalesforceOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientId" NewName="SlackOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecret" NewName="SlackOauth2ProviderConfig_ClientSecret" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOnlineEvaluationConfig" OutputProperty="*" Verb="New" Noun="OnlineEvaluationConfig" ShouldProcessTarget="OnlineEvaluationConfigName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="DataSourceConfig_CloudWatchLogs_LogGroupNames" NewName="CloudWatchLogs_LogGroupName" />
+                <Param Name="DataSourceConfig_CloudWatchLogs_ServiceNames" NewName="CloudWatchLogs_ServiceName" />
+                <Param Name="Rule_SamplingConfig_SamplingPercentage" NewName="SamplingConfig_SamplingPercentage" />
+                <Param Name="Rule_SessionConfig_SessionTimeoutMinutes" NewName="SessionConfig_SessionTimeoutMinute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyEngineId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Definition_Cedar_Statement" NewName="Cedar_Statement" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicyEngine" OutputProperty="*" Verb="New" Noun="PolicyEngine" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
@@ -306,7 +393,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentRuntime" OutputProperty="*" Verb="Update" Noun="AgentRuntime" ShouldProcessTarget="AgentRuntimeId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_Code_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_Code_S3_Prefix" NewName="S3_Prefix" />
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_Code_S3_VersionId" NewName="S3_VersionId" />
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_EntryPoint" NewName="CodeConfiguration_EntryPoint" />
+                <Param Name="AgentRuntimeArtifact_CodeConfiguration_Runtime" NewName="CodeConfiguration_Runtime" />
+                <Param Name="AgentRuntimeArtifact_ContainerConfiguration_ContainerUri" NewName="ContainerConfiguration_ContainerUri" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience" NewName="CustomJWTAuthorizer_AllowedAudience" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClients" NewName="CustomJWTAuthorizer_AllowedClient" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScopes" NewName="CustomJWTAuthorizer_AllowedScope" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaims" NewName="CustomJWTAuthorizer_CustomClaim" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl" NewName="CustomJWTAuthorizer_DiscoveryUrl" />
+                <Param Name="NetworkConfiguration_NetworkModeConfig_SecurityGroups" NewName="NetworkModeConfig_SecurityGroup" />
+                <Param Name="NetworkConfiguration_NetworkModeConfig_Subnets" NewName="NetworkModeConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentRuntimeEndpoint" OutputProperty="*" Verb="Update" Noun="AgentRuntimeEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="" NoPipelineParameter="true">
@@ -318,11 +419,30 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEvaluator" OutputProperty="*" Verb="Update" Noun="Evaluator" ShouldProcessTarget="EvaluatorId" PipelineParameter="EvaluatorId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="EvaluatorConfig_LlmAsAJudge_Instructions" NewName="LlmAsAJudge_Instruction" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_AdditionalModelRequestFields" NewName="BedrockEvaluatorModelConfig_AdditionalModelRequestField" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_MaxTokens" NewName="InferenceConfig_MaxToken" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_StopSequences" NewName="InferenceConfig_StopSequence" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_Temperature" NewName="InferenceConfig_Temperature" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_TopP" NewName="InferenceConfig_TopP" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_ModelId" NewName="BedrockEvaluatorModelConfig_ModelId" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_RatingScale_Categorical" NewName="RatingScale_Categorical" />
+                <Param Name="EvaluatorConfig_LlmAsAJudge_RatingScale_Numerical" NewName="RatingScale_Numerical" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGateway" OutputProperty="*" Verb="Update" Noun="Gateway" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience" NewName="CustomJWTAuthorizer_AllowedAudience" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClients" NewName="CustomJWTAuthorizer_AllowedClient" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScopes" NewName="CustomJWTAuthorizer_AllowedScope" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaims" NewName="CustomJWTAuthorizer_CustomClaim" />
+                <Param Name="AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl" NewName="CustomJWTAuthorizer_DiscoveryUrl" />
+                <Param Name="ProtocolConfiguration_Mcp_Instructions" NewName="Mcp_Instruction" />
+                <Param Name="ProtocolConfiguration_Mcp_SearchType" NewName="Mcp_SearchType" />
+                <Param Name="ProtocolConfiguration_Mcp_SupportedVersions" NewName="Mcp_SupportedVersion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGatewayTarget" OutputProperty="*" Verb="Update" Noun="GatewayTarget" ShouldProcessTarget="TargetId" PipelineParameter="" NoPipelineParameter="true">
@@ -333,6 +453,15 @@
                 <Param Name="TargetConfiguration_Mcp_Lambda_ToolSchema_S3_Uri" NewName="Lambda_ToolSchema_S3_Uri" />
                 <Param Name="TargetConfiguration_Mcp_OpenApiSchema_S3_Uri" NewName="OpenApiSchema_S3_Uri" />
                 <Param Name="TargetConfiguration_Mcp_SmithyModel_S3_Uri" NewName="SmithyModel_S3_Uri" />
+                <Param Name="TargetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_ToolFilters" NewName="ApiGatewayToolConfiguration_ToolFilter" />
+                <Param Name="TargetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_ToolOverrides" NewName="ApiGatewayToolConfiguration_ToolOverride" />
+                <Param Name="TargetConfiguration_Mcp_ApiGateway_RestApiId" NewName="ApiGateway_RestApiId" />
+                <Param Name="TargetConfiguration_Mcp_ApiGateway_Stage" NewName="ApiGateway_Stage" />
+                <Param Name="TargetConfiguration_Mcp_Lambda_LambdaArn" NewName="Lambda_LambdaArn" />
+                <Param Name="TargetConfiguration_Mcp_Lambda_ToolSchema_InlinePayload" NewName="ToolSchema_InlinePayload" />
+                <Param Name="TargetConfiguration_Mcp_McpServer_Endpoint" NewName="McpServer_Endpoint" />
+                <Param Name="TargetConfiguration_Mcp_OpenApiSchema_InlinePayload" NewName="OpenApiSchema_InlinePayload" />
+                <Param Name="TargetConfiguration_Mcp_SmithyModel_InlinePayload" NewName="SmithyModel_InlinePayload" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -341,15 +470,51 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOauth2CredentialProvider" OutputProperty="*" Verb="Update" Noun="Oauth2CredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientId" NewName="AtlassianOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecret" NewName="AtlassianOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientId" NewName="CustomOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecret" NewName="CustomOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_AuthorizationEndpoint" NewName="AuthorizationServerMetadata_AuthorizationEndpoint" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_Issuer" NewName="AuthorizationServerMetadata_Issuer" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_ResponseTypes" NewName="AuthorizationServerMetadata_ResponseType" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_TokenEndpoint" NewName="AuthorizationServerMetadata_TokenEndpoint" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_TokenEndpointAuthMethods" NewName="AuthorizationServerMetadata_TokenEndpointAuthMethod" />
+                <Param Name="Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_DiscoveryUrl" NewName="OauthDiscovery_DiscoveryUrl" />
+                <Param Name="Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientId" NewName="GithubOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecret" NewName="GithubOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientId" NewName="GoogleOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecret" NewName="GoogleOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_AuthorizationEndpoint" NewName="IncludedOauth2ProviderConfig_AuthorizationEndpoint" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientId" NewName="IncludedOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecret" NewName="IncludedOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_Issuer" NewName="IncludedOauth2ProviderConfig_Issuer" />
+                <Param Name="Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_TokenEndpoint" NewName="IncludedOauth2ProviderConfig_TokenEndpoint" />
+                <Param Name="Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientId" NewName="LinkedinOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecret" NewName="LinkedinOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientId" NewName="MicrosoftOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecret" NewName="MicrosoftOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_TenantId" NewName="MicrosoftOauth2ProviderConfig_TenantId" />
+                <Param Name="Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientId" NewName="SalesforceOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecret" NewName="SalesforceOauth2ProviderConfig_ClientSecret" />
+                <Param Name="Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientId" NewName="SlackOauth2ProviderConfig_ClientId" />
+                <Param Name="Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecret" NewName="SlackOauth2ProviderConfig_ClientSecret" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOnlineEvaluationConfig" OutputProperty="*" Verb="Update" Noun="OnlineEvaluationConfig" ShouldProcessTarget="OnlineEvaluationConfigId" PipelineParameter="OnlineEvaluationConfigId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DataSourceConfig_CloudWatchLogs_LogGroupNames" NewName="CloudWatchLogs_LogGroupName" />
+                <Param Name="DataSourceConfig_CloudWatchLogs_ServiceNames" NewName="CloudWatchLogs_ServiceName" />
+                <Param Name="Rule_SamplingConfig_SamplingPercentage" NewName="SamplingConfig_SamplingPercentage" />
+                <Param Name="Rule_SessionConfig_SessionTimeoutMinutes" NewName="SessionConfig_SessionTimeoutMinute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePolicy" OutputProperty="*" Verb="Update" Noun="Policy" ShouldProcessTarget="PolicyEngineId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Definition_Cedar_Statement" NewName="Cedar_Statement" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePolicyEngine" OutputProperty="*" Verb="Update" Noun="PolicyEngine" ShouldProcessTarget="PolicyEngineId" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">

@@ -23,7 +23,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRawMessageContent" Verb="Write" Noun="RawMessageContent" ShouldProcessTarget="MessageId" PipelineParameter="MessageId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Content_S3Reference_Bucket" NewName="S3Reference_Bucket" />
+                <Param Name="Content_S3Reference_Key" NewName="S3Reference_Key" />
+                <Param Name="Content_S3Reference_ObjectVersion" NewName="S3Reference_ObjectVersion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

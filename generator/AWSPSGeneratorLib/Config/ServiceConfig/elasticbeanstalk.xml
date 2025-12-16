@@ -59,7 +59,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="Application" Verb="New" Noun="Application" ShouldProcessTarget="ApplicationName" PositionalParameters="Description" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxAgeRule_DeleteSourceFromS3" NewName="MaxAgeRule_DeleteSourceFromS3" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxAgeRule_Enabled" NewName="MaxAgeRule_Enabled" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxAgeRule_MaxAgeInDays" NewName="MaxAgeRule_MaxAgeInDay" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_DeleteSourceFromS3" NewName="MaxCountRule_DeleteSourceFromS3" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_Enabled" NewName="MaxCountRule_Enabled" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_MaxCount" NewName="MaxCountRule_MaxCount" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApplicationVersion" OutputProperty="ApplicationVersion" Verb="New" Noun="ApplicationVersion" ShouldProcessTarget="ApplicationName" PositionalParameters="VersionLabel;Description" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -106,19 +113,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplications" OutputProperty="Applications" Verb="Get" Noun="Application" PipelineParameter="ApplicationNames" NoPipelineParameter="false" LegacyAlias="Get-EBApplications" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeApplications" OutputProperty="Applications" Verb="Get" Noun="Application" PipelineParameter="ApplicationNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EBApplications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplicationVersions" OutputProperty="ApplicationVersions" Verb="Get" Noun="ApplicationVersion" PositionalParameters="VersionLabels" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EBApplicationVersions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeApplicationVersions" OutputProperty="ApplicationVersions" Verb="Get" Noun="ApplicationVersion" PositionalParameters="VersionLabels" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EBApplicationVersions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationOptions" OutputProperty="*" Verb="Get" Noun="ConfigurationOption" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyAlias="Get-EBConfigurationOptions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConfigurationOptions" OutputProperty="*" Verb="Get" Noun="ConfigurationOption" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EBConfigurationOptions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationSettings" OutputProperty="ConfigurationSettings" Verb="Get" Noun="ConfigurationSetting" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyAlias="Get-EBConfigurationSettings" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConfigurationSettings" OutputProperty="ConfigurationSettings" Verb="Get" Noun="ConfigurationSetting" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EBConfigurationSettings">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,7 +133,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" OutputProperty="ManagedActionHistoryItems" Verb="Get" Noun="EnvironmentManagedActionHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" OutputProperty="ManagedActionHistoryItems" Verb="Get" Noun="EnvironmentManagedActionHistory" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" ServicePageSize="100" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
@@ -135,16 +142,16 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEnvironmentResources" OutputProperty="EnvironmentResources" Verb="Get" Noun="EnvironmentResource" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyAlias="Get-EBEnvironmentResources" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEnvironmentResources" OutputProperty="EnvironmentResources" Verb="Get" Noun="EnvironmentResource" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EBEnvironmentResources">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEnvironments" OutputProperty="Environments" Verb="Get" Noun="Environment" PositionalParameters="EnvironmentIds;VersionLabel" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-			<Params />
+        <ServiceOperation MethodName="DescribeEnvironments" OutputProperty="Environments" Verb="Get" Noun="Environment" PositionalParameters="EnvironmentIds;VersionLabel" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-			<Params />
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstancesHealth" OutputProperty="InstanceHealthList" Verb="Get" Noun="InstanceHealth" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -159,7 +166,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableSolutionStacks" OutputProperty="*" Verb="Get" Noun="AvailableSolutionStackList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-EBAvailableSolutionStack" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAvailableSolutionStacks" OutputProperty="*" Verb="Get" Noun="AvailableSolutionStackList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EBAvailableSolutionStack">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -167,7 +174,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPlatformVersions" OutputProperty="PlatformSummaryList" Verb="Get" Noun="PlatformVersion" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPlatformVersions" OutputProperty="PlatformSummaryList" Verb="Get" Noun="PlatformVersion" PipelineParameter="Filters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,7 +198,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SwapEnvironmentCNAMEs" Verb="Set" Noun="EnvironmentCNAME" ShouldProcessTarget="SourceEnvironmentId" PositionalParameters="SourceEnvironmentName;DestinationEnvironmentId;DestinationEnvironmentName" PipelineParameter="SourceEnvironmentId" NoPipelineParameter="false" LegacyAlias="Set-EBEnvironmentCNAMEs" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SwapEnvironmentCNAMEs" Verb="Set" Noun="EnvironmentCNAME" ShouldProcessTarget="SourceEnvironmentId" PositionalParameters="SourceEnvironmentName;DestinationEnvironmentId;DestinationEnvironmentName" PipelineParameter="SourceEnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Set-EBEnvironmentCNAMEs">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -204,7 +211,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApplicationResourceLifecycle" OutputProperty="*" Verb="Update" Noun="ApplicationResourceLifecycle" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxAgeRule_DeleteSourceFromS3" NewName="MaxAgeRule_DeleteSourceFromS3" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxAgeRule_Enabled" NewName="MaxAgeRule_Enabled" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxAgeRule_MaxAgeInDays" NewName="MaxAgeRule_MaxAgeInDay" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_DeleteSourceFromS3" NewName="MaxCountRule_DeleteSourceFromS3" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_Enabled" NewName="MaxCountRule_Enabled" />
+                <Param Name="ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_MaxCount" NewName="MaxCountRule_MaxCount" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApplicationVersion" OutputProperty="ApplicationVersion" Verb="Update" Noun="ApplicationVersion" ShouldProcessTarget="ApplicationName" PositionalParameters="VersionLabel;Description" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -223,7 +237,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidateConfigurationSettings" OutputProperty="Messages" Verb="Test" Noun="ConfigurationSetting" PositionalParameters="OptionSettings" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyAlias="Test-EBConfigurationSettings" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ValidateConfigurationSettings" OutputProperty="Messages" Verb="Test" Noun="ConfigurationSetting" PositionalParameters="OptionSettings" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Test-EBConfigurationSettings">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -40,7 +40,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomModel" OutputProperty="ModelArn" Verb="New" Noun="CustomModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ModelSourceConfig_S3DataSource_S3Uri" NewName="S3DataSource_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomModelDeployment" OutputProperty="CustomModelDeploymentArn" Verb="New" Noun="CustomModelDeployment" ShouldProcessTarget="ModelDeploymentName" PipelineParameter="ModelDeploymentName" NoPipelineParameter="false">
@@ -50,6 +52,13 @@
         <ServiceOperation MethodName="CreateEvaluationJob" OutputProperty="JobArn" Verb="New" Noun="EvaluationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels" NewName="EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels" Alias="EvaluatorModelConfig_CustomMetricConfig_BedrockEvaluatorModel" />
+                <Param Name="EvaluationConfig_Automated_CustomMetricConfig_CustomMetrics" NewName="CustomMetricConfig_CustomMetric" />
+                <Param Name="EvaluationConfig_Automated_DatasetMetricConfigs" NewName="Automated_DatasetMetricConfig" />
+                <Param Name="EvaluationConfig_Automated_EvaluatorModelConfig_BedrockEvaluatorModels" NewName="EvaluatorModelConfig_BedrockEvaluatorModel" />
+                <Param Name="EvaluationConfig_Human_CustomMetrics" NewName="Human_CustomMetric" />
+                <Param Name="EvaluationConfig_Human_DatasetMetricConfigs" NewName="Human_DatasetMetricConfig" />
+                <Param Name="EvaluationConfig_Human_HumanWorkflowConfig_FlowDefinitionArn" NewName="HumanWorkflowConfig_FlowDefinitionArn" />
+                <Param Name="EvaluationConfig_Human_HumanWorkflowConfig_Instructions" NewName="HumanWorkflowConfig_Instruction" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -73,7 +82,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="New" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EndpointConfig_SageMaker_ExecutionRole" NewName="SageMaker_ExecutionRole" />
+                <Param Name="EndpointConfig_SageMaker_InitialInstanceCount" NewName="SageMaker_InitialInstanceCount" />
+                <Param Name="EndpointConfig_SageMaker_InstanceType" NewName="SageMaker_InstanceType" />
+                <Param Name="EndpointConfig_SageMaker_KmsEncryptionKey" NewName="SageMaker_KmsEncryptionKey" />
+                <Param Name="EndpointConfig_SageMaker_Vpc_SecurityGroupIds" NewName="Vpc_SecurityGroupId" />
+                <Param Name="EndpointConfig_SageMaker_Vpc_SubnetIds" NewName="Vpc_SubnetId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelCopyJob" OutputProperty="JobArn" Verb="New" Noun="ModelCopyJob" ShouldProcessTarget="SourceModelArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -81,15 +97,42 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelCustomizationJob" OutputProperty="JobArn" Verb="New" Noun="ModelCustomizationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CustomizationConfig_DistillationConfig_TeacherModelConfig_MaxResponseLengthForInference" NewName="TeacherModelConfig_MaxResponseLengthForInference" />
+                <Param Name="CustomizationConfig_DistillationConfig_TeacherModelConfig_TeacherModelIdentifier" NewName="TeacherModelConfig_TeacherModelIdentifier" />
+                <Param Name="CustomizationConfig_RftConfig_GraderConfig_LambdaGrader_LambdaArn" NewName="LambdaGrader_LambdaArn" />
+                <Param Name="CustomizationConfig_RftConfig_HyperParameters_BatchSize" NewName="HyperParameters_BatchSize" />
+                <Param Name="CustomizationConfig_RftConfig_HyperParameters_EpochCount" NewName="HyperParameters_EpochCount" />
+                <Param Name="CustomizationConfig_RftConfig_HyperParameters_EvalInterval" NewName="HyperParameters_EvalInterval" />
+                <Param Name="CustomizationConfig_RftConfig_HyperParameters_InferenceMaxTokens" NewName="HyperParameters_InferenceMaxToken" />
+                <Param Name="CustomizationConfig_RftConfig_HyperParameters_LearningRate" NewName="HyperParameters_LearningRate" />
+                <Param Name="CustomizationConfig_RftConfig_HyperParameters_MaxPromptLength" NewName="HyperParameters_MaxPromptLength" />
+                <Param Name="CustomizationConfig_RftConfig_HyperParameters_ReasoningEffort" NewName="HyperParameters_ReasoningEffort" />
+                <Param Name="CustomizationConfig_RftConfig_HyperParameters_TrainingSamplePerPrompt" NewName="HyperParameters_TrainingSamplePerPrompt" />
+                <Param Name="TrainingDataConfig_InvocationLogsConfig_InvocationLogSource_S3Uri" NewName="InvocationLogSource_S3Uri" />
+                <Param Name="TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_AndAll" NewName="RequestMetadataFilters_AndAll" />
+                <Param Name="TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_Equals" NewName="RequestMetadataFilters_Equal" />
+                <Param Name="TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_NotEquals" NewName="RequestMetadataFilters_NotEqual" />
+                <Param Name="TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_OrAll" NewName="RequestMetadataFilters_OrAll" />
+                <Param Name="TrainingDataConfig_InvocationLogsConfig_UsePromptResponse" NewName="InvocationLogsConfig_UsePromptResponse" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelImportJob" OutputProperty="JobArn" Verb="New" Noun="ModelImportJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ModelDataSource_S3DataSource_S3Uri" NewName="S3DataSource_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelInvocationJob" OutputProperty="JobArn" Verb="New" Noun="ModelInvocationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputDataConfig_S3InputDataConfig_S3BucketOwner" NewName="S3InputDataConfig_S3BucketOwner" />
+                <Param Name="InputDataConfig_S3InputDataConfig_S3InputFormat" NewName="S3InputDataConfig_S3InputFormat" />
+                <Param Name="InputDataConfig_S3InputDataConfig_S3Uri" NewName="S3InputDataConfig_S3Uri" />
+                <Param Name="OutputDataConfig_S3OutputDataConfig_S3BucketOwner" NewName="S3OutputDataConfig_S3BucketOwner" />
+                <Param Name="OutputDataConfig_S3OutputDataConfig_S3EncryptionKeyId" NewName="S3OutputDataConfig_S3EncryptionKeyId" />
+                <Param Name="OutputDataConfig_S3OutputDataConfig_S3Uri" NewName="S3OutputDataConfig_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePromptRouter" OutputProperty="PromptRouterArn" Verb="New" Noun="PromptRouter" ShouldProcessTarget="PromptRouterName" PipelineParameter="PromptRouterName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -351,7 +394,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutModelInvocationLoggingConfiguration" Verb="Write" Noun="ModelInvocationLoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LoggingConfig_CloudWatchConfig_LargeDataDeliveryS3Config_BucketName" NewName="LargeDataDeliveryS3Config_BucketName" />
+                <Param Name="LoggingConfig_CloudWatchConfig_LargeDataDeliveryS3Config_KeyPrefix" NewName="LargeDataDeliveryS3Config_KeyPrefix" />
+                <Param Name="LoggingConfig_CloudWatchConfig_LogGroupName" NewName="CloudWatchConfig_LogGroupName" />
+                <Param Name="LoggingConfig_CloudWatchConfig_RoleArn" NewName="CloudWatchConfig_RoleArn" />
+                <Param Name="LoggingConfig_S3Config_BucketName" NewName="S3Config_BucketName" />
+                <Param Name="LoggingConfig_S3Config_KeyPrefix" NewName="S3Config_KeyPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutUseCaseForModelAccess" Verb="Write" Noun="UseCaseForModelAccess" ShouldProcessTarget="FormData" PipelineParameter="FormData" NoPipelineParameter="false">
@@ -363,7 +413,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAutomatedReasoningPolicyBuildWorkflow" OutputProperty="*" Verb="Start" Noun="AutomatedReasoningPolicyBuildWorkflow" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="SourceContent_PolicyDefinition_Rules" NewName="PolicyDefinition_Rule" />
+                <Param Name="SourceContent_PolicyDefinition_Types" NewName="PolicyDefinition_Type" />
+                <Param Name="SourceContent_PolicyDefinition_Variables" NewName="PolicyDefinition_Variable" />
+                <Param Name="SourceContent_PolicyDefinition_Version" NewName="PolicyDefinition_Version" />
+                <Param Name="SourceContent_WorkflowContent_Documents" NewName="WorkflowContent_Document" />
+                <Param Name="SourceContent_WorkflowContent_PolicyRepairAssets_Annotations" NewName="PolicyRepairAssets_Annotation" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAutomatedReasoningPolicyTestWorkflow" OutputProperty="PolicyArn" Verb="Start" Noun="AutomatedReasoningPolicyTestWorkflow" ShouldProcessTarget="BuildWorkflowId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
@@ -414,7 +471,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Update" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EndpointConfig_SageMaker_ExecutionRole" NewName="SageMaker_ExecutionRole" />
+                <Param Name="EndpointConfig_SageMaker_InitialInstanceCount" NewName="SageMaker_InitialInstanceCount" />
+                <Param Name="EndpointConfig_SageMaker_InstanceType" NewName="SageMaker_InstanceType" />
+                <Param Name="EndpointConfig_SageMaker_KmsEncryptionKey" NewName="SageMaker_KmsEncryptionKey" />
+                <Param Name="EndpointConfig_SageMaker_Vpc_SecurityGroupIds" NewName="Vpc_SecurityGroupId" />
+                <Param Name="EndpointConfig_SageMaker_Vpc_SubnetIds" NewName="Vpc_SubnetId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProvisionedModelThroughput" Verb="Update" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ProvisionedModelId" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false" LegacyV4Pagination="true">

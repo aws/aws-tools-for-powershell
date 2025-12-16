@@ -47,7 +47,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateSbomWithPackageVersion" OutputProperty="*" Verb="Add" Noun="SbomWithPackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Sbom_S3Location_Bucket" NewName="S3Location_Bucket" />
+                <Param Name="Sbom_S3Location_Key" NewName="S3Location_Key" />
+                <Param Name="Sbom_S3Location_Version" NewName="S3Location_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateTargetsWithJob" OutputProperty="*" Verb="Add" Noun="TargetsWithJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -107,7 +111,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAuditSuppression" Verb="New" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSerialNumber" NewName="IssuerCertificateIdentifier_IssuerCertificateSerialNumber" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSubject" NewName="IssuerCertificateIdentifier_IssuerCertificateSubject" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerId" NewName="IssuerCertificateIdentifier_IssuerId" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyName" NewName="PolicyVersionIdentifier_PolicyName" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyVersionId" NewName="PolicyVersionIdentifier_PolicyVersionId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAuthorizer" OutputProperty="*" Verb="New" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -163,11 +173,25 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMitigationAction" OutputProperty="*" Verb="New" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ActionParams_AddThingsToThingGroupParams_OverrideDynamicGroups" NewName="AddThingsToThingGroupParams_OverrideDynamicGroup" />
+                <Param Name="ActionParams_AddThingsToThingGroupParams_ThingGroupNames" NewName="AddThingsToThingGroupParams_ThingGroupName" />
+                <Param Name="ActionParams_EnableIoTLoggingParams_LogLevel" NewName="EnableIoTLoggingParams_LogLevel" />
+                <Param Name="ActionParams_EnableIoTLoggingParams_RoleArnForLogging" NewName="EnableIoTLoggingParams_RoleArnForLogging" />
+                <Param Name="ActionParams_PublishFindingToSnsParams_TopicArn" NewName="PublishFindingToSnsParams_TopicArn" />
+                <Param Name="ActionParams_ReplaceDefaultPolicyVersionParams_TemplateName" NewName="ReplaceDefaultPolicyVersionParams_TemplateName" />
+                <Param Name="ActionParams_UpdateCACertificateParams_Action" NewName="UpdateCACertificateParams_Action" />
+                <Param Name="ActionParams_UpdateDeviceCertificateParams_Action" NewName="UpdateDeviceCertificateParams_Action" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOTAUpdate" OutputProperty="*" Verb="New" Noun="OTAUpdate" ShouldProcessTarget="OtaUpdateId" PipelineParameter="OtaUpdateId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AwsJobExecutionsRolloutConfig_ExponentialRate_BaseRatePerMinute" NewName="ExponentialRate_BaseRatePerMinute" />
+                <Param Name="AwsJobExecutionsRolloutConfig_ExponentialRate_IncrementFactor" NewName="ExponentialRate_IncrementFactor" />
+                <Param Name="AwsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_NumberOfNotifiedThings" NewName="RateIncreaseCriteria_NumberOfNotifiedThing" />
+                <Param Name="AwsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_NumberOfSucceededThings" NewName="RateIncreaseCriteria_NumberOfSucceededThing" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePackage" OutputProperty="*" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -175,7 +199,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePackageVersion" OutputProperty="*" Verb="New" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Artifact_S3Location_Bucket" NewName="S3Location_Bucket" />
+                <Param Name="Artifact_S3Location_Key" NewName="S3Location_Key" />
+                <Param Name="Artifact_S3Location_Version" NewName="S3Location_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -228,6 +256,7 @@
                 <Param Name="Mqtt5Configuration_PropagatingAttributes_ThingAttributes" NewName="Mqtt5Configuration_PropagatingAttributes_ThingAttributes" />
                 <Param Name="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes_ConnectionAttributes" NewName="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes_ConnectionAttributes" />
                 <Param Name="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes_ThingAttributes" NewName="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes_ThingAttributes" />
+                <Param Name="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes" NewName="Mqtt5Configuration_PropagatingAttribute" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -237,11 +266,115 @@
                 <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Value" NewName="Timestamp_Value" />
                 <Param Name="TopicRulePayload_ErrorAction_Location_Timestamp_Unit" NewName="TopicRulePayload_ErrorAction_Location_Timestamp_Unit" />
                 <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Unit" NewName="Timestamp_Unit" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchAlarm_AlarmName" NewName="CloudwatchAlarm_AlarmName" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchAlarm_RoleArn" NewName="CloudwatchAlarm_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchAlarm_StateReason" NewName="CloudwatchAlarm_StateReason" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchAlarm_StateValue" NewName="CloudwatchAlarm_StateValue" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchLogs_BatchMode" NewName="CloudwatchLogs_BatchMode" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchLogs_LogGroupName" NewName="CloudwatchLogs_LogGroupName" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchLogs_RoleArn" NewName="CloudwatchLogs_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricName" NewName="CloudwatchMetric_MetricName" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricNamespace" NewName="CloudwatchMetric_MetricNamespace" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricTimestamp" NewName="CloudwatchMetric_MetricTimestamp" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricUnit" NewName="CloudwatchMetric_MetricUnit" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricValue" NewName="CloudwatchMetric_MetricValue" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_RoleArn" NewName="CloudwatchMetric_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_HashKeyField" NewName="DynamoDB_HashKeyField" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_HashKeyType" NewName="DynamoDB_HashKeyType" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_HashKeyValue" NewName="DynamoDB_HashKeyValue" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_Operation" NewName="DynamoDB_Operation" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_PayloadField" NewName="DynamoDB_PayloadField" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_RangeKeyField" NewName="DynamoDB_RangeKeyField" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_RangeKeyType" NewName="DynamoDB_RangeKeyType" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_RangeKeyValue" NewName="DynamoDB_RangeKeyValue" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_RoleArn" NewName="DynamoDB_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_TableName" NewName="DynamoDB_TableName" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDBv2_PutItem_TableName" NewName="PutItem_TableName" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDBv2_RoleArn" NewName="DynamoDBv2_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_Endpoint" NewName="Elasticsearch_Endpoint" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_Id" NewName="Elasticsearch_Id" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_Index" NewName="Elasticsearch_Index" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_RoleArn" NewName="Elasticsearch_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_Type" NewName="Elasticsearch_Type" />
+                <Param Name="TopicRulePayload_ErrorAction_Firehose_BatchMode" NewName="Firehose_BatchMode" />
+                <Param Name="TopicRulePayload_ErrorAction_Firehose_DeliveryStreamName" NewName="Firehose_DeliveryStreamName" />
+                <Param Name="TopicRulePayload_ErrorAction_Firehose_RoleArn" NewName="Firehose_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Firehose_Separator" NewName="Firehose_Separator" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Auth_Sigv4_RoleArn" NewName="Sigv4_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Auth_Sigv4_ServiceName" NewName="Sigv4_ServiceName" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Auth_Sigv4_SigningRegion" NewName="Sigv4_SigningRegion" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_ConfirmationUrl" NewName="Http_ConfirmationUrl" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Headers" NewName="Http_Header" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Url" NewName="Http_Url" />
+                <Param Name="TopicRulePayload_ErrorAction_IotAnalytics_BatchMode" NewName="IotAnalytics_BatchMode" />
+                <Param Name="TopicRulePayload_ErrorAction_IotAnalytics_ChannelArn" NewName="IotAnalytics_ChannelArn" />
+                <Param Name="TopicRulePayload_ErrorAction_IotAnalytics_ChannelName" NewName="IotAnalytics_ChannelName" />
+                <Param Name="TopicRulePayload_ErrorAction_IotAnalytics_RoleArn" NewName="IotAnalytics_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_IotEvents_BatchMode" NewName="IotEvents_BatchMode" />
+                <Param Name="TopicRulePayload_ErrorAction_IotEvents_InputName" NewName="IotEvents_InputName" />
+                <Param Name="TopicRulePayload_ErrorAction_IotEvents_MessageId" NewName="IotEvents_MessageId" />
+                <Param Name="TopicRulePayload_ErrorAction_IotEvents_RoleArn" NewName="IotEvents_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_IotSiteWise_PutAssetPropertyValueEntries" NewName="IotSiteWise_PutAssetPropertyValueEntry" />
+                <Param Name="TopicRulePayload_ErrorAction_IotSiteWise_RoleArn" NewName="IotSiteWise_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_ClientProperties" NewName="Kafka_ClientProperty" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_DestinationArn" NewName="Kafka_DestinationArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_Headers" NewName="Kafka_Header" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_Key" NewName="Kafka_Key" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_Partition" NewName="Kafka_Partition" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_Topic" NewName="Kafka_Topic" />
+                <Param Name="TopicRulePayload_ErrorAction_Kinesis_PartitionKey" NewName="Kinesis_PartitionKey" />
+                <Param Name="TopicRulePayload_ErrorAction_Kinesis_RoleArn" NewName="Kinesis_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Kinesis_StreamName" NewName="Kinesis_StreamName" />
+                <Param Name="TopicRulePayload_ErrorAction_Lambda_FunctionArn" NewName="Lambda_FunctionArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_DeviceId" NewName="Location_DeviceId" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_Latitude" NewName="Location_Latitude" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_Longitude" NewName="Location_Longitude" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_RoleArn" NewName="Location_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_TrackerName" NewName="Location_TrackerName" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_Endpoint" NewName="OpenSearch_Endpoint" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_Id" NewName="OpenSearch_Id" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_Index" NewName="OpenSearch_Index" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_RoleArn" NewName="OpenSearch_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_Type" NewName="OpenSearch_Type" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_ContentType" NewName="Headers_ContentType" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_CorrelationData" NewName="Headers_CorrelationData" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_MessageExpiry" NewName="Headers_MessageExpiry" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_PayloadFormatIndicator" NewName="Headers_PayloadFormatIndicator" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_ResponseTopic" NewName="Headers_ResponseTopic" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_UserProperties" NewName="Headers_UserProperty" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Qos" NewName="Republish_Qo" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_RoleArn" NewName="Republish_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Topic" NewName="Republish_Topic" />
+                <Param Name="TopicRulePayload_ErrorAction_S3_BucketName" NewName="S3_BucketName" />
+                <Param Name="TopicRulePayload_ErrorAction_S3_CannedAcl" NewName="S3_CannedAcl" />
+                <Param Name="TopicRulePayload_ErrorAction_S3_Key" NewName="S3_Key" />
+                <Param Name="TopicRulePayload_ErrorAction_S3_RoleArn" NewName="S3_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Salesforce_Token" NewName="Salesforce_Token" />
+                <Param Name="TopicRulePayload_ErrorAction_Salesforce_Url" NewName="Salesforce_Url" />
+                <Param Name="TopicRulePayload_ErrorAction_Sns_MessageFormat" NewName="Sns_MessageFormat" />
+                <Param Name="TopicRulePayload_ErrorAction_Sns_RoleArn" NewName="Sns_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Sns_TargetArn" NewName="Sns_TargetArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Sqs_QueueUrl" NewName="Sqs_QueueUrl" />
+                <Param Name="TopicRulePayload_ErrorAction_Sqs_RoleArn" NewName="Sqs_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Sqs_UseBase64" NewName="Sqs_UseBase64" />
+                <Param Name="TopicRulePayload_ErrorAction_StepFunctions_ExecutionNamePrefix" NewName="StepFunctions_ExecutionNamePrefix" />
+                <Param Name="TopicRulePayload_ErrorAction_StepFunctions_RoleArn" NewName="StepFunctions_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_StepFunctions_StateMachineName" NewName="StepFunctions_StateMachineName" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_DatabaseName" NewName="Timestream_DatabaseName" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_Dimensions" NewName="Timestream_Dimension" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_RoleArn" NewName="Timestream_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_TableName" NewName="Timestream_TableName" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTopicRuleDestination" OutputProperty="TopicRuleDestination" Verb="New" Noun="TopicRuleDestination" ShouldProcessTarget="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" PipelineParameter="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" NewName="HttpUrlConfiguration_ConfirmationUrl" />
+                <Param Name="DestinationConfiguration_VpcConfiguration_RoleArn" NewName="VpcConfiguration_RoleArn" />
+                <Param Name="DestinationConfiguration_VpcConfiguration_SecurityGroups" NewName="VpcConfiguration_SecurityGroup" />
+                <Param Name="DestinationConfiguration_VpcConfiguration_SubnetIds" NewName="VpcConfiguration_SubnetId" />
+                <Param Name="DestinationConfiguration_VpcConfiguration_VpcId" NewName="VpcConfiguration_VpcId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountAuditConfiguration" Verb="Remove" Noun="AccountAuditConfiguration" ShouldProcessTarget="DeleteScheduledAudits" PipelineParameter="DeleteScheduledAudits" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -249,7 +382,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAuditSuppression" Verb="Remove" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSerialNumber" NewName="IssuerCertificateIdentifier_IssuerCertificateSerialNumber" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSubject" NewName="IssuerCertificateIdentifier_IssuerCertificateSubject" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerId" NewName="IssuerCertificateIdentifier_IssuerId" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyName" NewName="PolicyVersionIdentifier_PolicyName" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyVersionId" NewName="PolicyVersionIdentifier_PolicyVersionId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAuthorizer" Verb="Remove" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -411,7 +550,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAuditSuppression" OutputProperty="*" Verb="Get" Noun="AuditSuppression" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSerialNumber" NewName="IssuerCertificateIdentifier_IssuerCertificateSerialNumber" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSubject" NewName="IssuerCertificateIdentifier_IssuerCertificateSubject" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerId" NewName="IssuerCertificateIdentifier_IssuerId" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyName" NewName="PolicyVersionIdentifier_PolicyName" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyVersionId" NewName="PolicyVersionIdentifier_PolicyVersionId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAuditTask" OutputProperty="*" Verb="Get" Noun="AuditTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -571,7 +716,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBucketsAggregation" OutputProperty="*" Verb="Get" Noun="BucketsAggregation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BucketsAggregationType_TermsAggregation_MaxBuckets" NewName="TermsAggregation_MaxBucket" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCardinality" OutputProperty="Cardinality" Verb="Get" Noun="Cardinality" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -665,7 +812,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAuditFindings" OutputProperty="Findings" Verb="Get" Noun="AuditFindingList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
-            <Params />
+            <Params>
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSerialNumber" NewName="IssuerCertificateIdentifier_IssuerCertificateSerialNumber" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSubject" NewName="IssuerCertificateIdentifier_IssuerCertificateSubject" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerId" NewName="IssuerCertificateIdentifier_IssuerId" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyName" NewName="PolicyVersionIdentifier_PolicyName" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyVersionId" NewName="PolicyVersionIdentifier_PolicyVersionId" />
+            </Params>
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -678,7 +831,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAuditSuppressions" OutputProperty="Suppressions" Verb="Get" Noun="AuditSuppressionList" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSerialNumber" NewName="IssuerCertificateIdentifier_IssuerCertificateSerialNumber" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSubject" NewName="IssuerCertificateIdentifier_IssuerCertificateSubject" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerId" NewName="IssuerCertificateIdentifier_IssuerId" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyName" NewName="PolicyVersionIdentifier_PolicyName" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyVersionId" NewName="PolicyVersionIdentifier_PolicyVersionId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAuditTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
@@ -993,6 +1152,104 @@
                 <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Value" NewName="Timestamp_Value" />
                 <Param Name="TopicRulePayload_ErrorAction_Location_Timestamp_Unit" NewName="TopicRulePayload_ErrorAction_Location_Timestamp_Unit" />
                 <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Unit" NewName="Timestamp_Unit" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchAlarm_AlarmName" NewName="CloudwatchAlarm_AlarmName" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchAlarm_RoleArn" NewName="CloudwatchAlarm_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchAlarm_StateReason" NewName="CloudwatchAlarm_StateReason" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchAlarm_StateValue" NewName="CloudwatchAlarm_StateValue" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchLogs_BatchMode" NewName="CloudwatchLogs_BatchMode" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchLogs_LogGroupName" NewName="CloudwatchLogs_LogGroupName" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchLogs_RoleArn" NewName="CloudwatchLogs_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricName" NewName="CloudwatchMetric_MetricName" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricNamespace" NewName="CloudwatchMetric_MetricNamespace" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricTimestamp" NewName="CloudwatchMetric_MetricTimestamp" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricUnit" NewName="CloudwatchMetric_MetricUnit" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_MetricValue" NewName="CloudwatchMetric_MetricValue" />
+                <Param Name="TopicRulePayload_ErrorAction_CloudwatchMetric_RoleArn" NewName="CloudwatchMetric_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_HashKeyField" NewName="DynamoDB_HashKeyField" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_HashKeyType" NewName="DynamoDB_HashKeyType" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_HashKeyValue" NewName="DynamoDB_HashKeyValue" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_Operation" NewName="DynamoDB_Operation" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_PayloadField" NewName="DynamoDB_PayloadField" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_RangeKeyField" NewName="DynamoDB_RangeKeyField" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_RangeKeyType" NewName="DynamoDB_RangeKeyType" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_RangeKeyValue" NewName="DynamoDB_RangeKeyValue" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_RoleArn" NewName="DynamoDB_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDB_TableName" NewName="DynamoDB_TableName" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDBv2_PutItem_TableName" NewName="PutItem_TableName" />
+                <Param Name="TopicRulePayload_ErrorAction_DynamoDBv2_RoleArn" NewName="DynamoDBv2_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_Endpoint" NewName="Elasticsearch_Endpoint" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_Id" NewName="Elasticsearch_Id" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_Index" NewName="Elasticsearch_Index" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_RoleArn" NewName="Elasticsearch_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Elasticsearch_Type" NewName="Elasticsearch_Type" />
+                <Param Name="TopicRulePayload_ErrorAction_Firehose_BatchMode" NewName="Firehose_BatchMode" />
+                <Param Name="TopicRulePayload_ErrorAction_Firehose_DeliveryStreamName" NewName="Firehose_DeliveryStreamName" />
+                <Param Name="TopicRulePayload_ErrorAction_Firehose_RoleArn" NewName="Firehose_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Firehose_Separator" NewName="Firehose_Separator" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Auth_Sigv4_RoleArn" NewName="Sigv4_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Auth_Sigv4_ServiceName" NewName="Sigv4_ServiceName" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Auth_Sigv4_SigningRegion" NewName="Sigv4_SigningRegion" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_ConfirmationUrl" NewName="Http_ConfirmationUrl" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Headers" NewName="Http_Header" />
+                <Param Name="TopicRulePayload_ErrorAction_Http_Url" NewName="Http_Url" />
+                <Param Name="TopicRulePayload_ErrorAction_IotAnalytics_BatchMode" NewName="IotAnalytics_BatchMode" />
+                <Param Name="TopicRulePayload_ErrorAction_IotAnalytics_ChannelArn" NewName="IotAnalytics_ChannelArn" />
+                <Param Name="TopicRulePayload_ErrorAction_IotAnalytics_ChannelName" NewName="IotAnalytics_ChannelName" />
+                <Param Name="TopicRulePayload_ErrorAction_IotAnalytics_RoleArn" NewName="IotAnalytics_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_IotEvents_BatchMode" NewName="IotEvents_BatchMode" />
+                <Param Name="TopicRulePayload_ErrorAction_IotEvents_InputName" NewName="IotEvents_InputName" />
+                <Param Name="TopicRulePayload_ErrorAction_IotEvents_MessageId" NewName="IotEvents_MessageId" />
+                <Param Name="TopicRulePayload_ErrorAction_IotEvents_RoleArn" NewName="IotEvents_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_IotSiteWise_PutAssetPropertyValueEntries" NewName="IotSiteWise_PutAssetPropertyValueEntry" />
+                <Param Name="TopicRulePayload_ErrorAction_IotSiteWise_RoleArn" NewName="IotSiteWise_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_ClientProperties" NewName="Kafka_ClientProperty" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_DestinationArn" NewName="Kafka_DestinationArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_Headers" NewName="Kafka_Header" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_Key" NewName="Kafka_Key" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_Partition" NewName="Kafka_Partition" />
+                <Param Name="TopicRulePayload_ErrorAction_Kafka_Topic" NewName="Kafka_Topic" />
+                <Param Name="TopicRulePayload_ErrorAction_Kinesis_PartitionKey" NewName="Kinesis_PartitionKey" />
+                <Param Name="TopicRulePayload_ErrorAction_Kinesis_RoleArn" NewName="Kinesis_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Kinesis_StreamName" NewName="Kinesis_StreamName" />
+                <Param Name="TopicRulePayload_ErrorAction_Lambda_FunctionArn" NewName="Lambda_FunctionArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_DeviceId" NewName="Location_DeviceId" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_Latitude" NewName="Location_Latitude" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_Longitude" NewName="Location_Longitude" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_RoleArn" NewName="Location_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_TrackerName" NewName="Location_TrackerName" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_Endpoint" NewName="OpenSearch_Endpoint" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_Id" NewName="OpenSearch_Id" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_Index" NewName="OpenSearch_Index" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_RoleArn" NewName="OpenSearch_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_OpenSearch_Type" NewName="OpenSearch_Type" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_ContentType" NewName="Headers_ContentType" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_CorrelationData" NewName="Headers_CorrelationData" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_MessageExpiry" NewName="Headers_MessageExpiry" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_PayloadFormatIndicator" NewName="Headers_PayloadFormatIndicator" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_ResponseTopic" NewName="Headers_ResponseTopic" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Headers_UserProperties" NewName="Headers_UserProperty" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Qos" NewName="Republish_Qo" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_RoleArn" NewName="Republish_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Republish_Topic" NewName="Republish_Topic" />
+                <Param Name="TopicRulePayload_ErrorAction_S3_BucketName" NewName="S3_BucketName" />
+                <Param Name="TopicRulePayload_ErrorAction_S3_CannedAcl" NewName="S3_CannedAcl" />
+                <Param Name="TopicRulePayload_ErrorAction_S3_Key" NewName="S3_Key" />
+                <Param Name="TopicRulePayload_ErrorAction_S3_RoleArn" NewName="S3_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Salesforce_Token" NewName="Salesforce_Token" />
+                <Param Name="TopicRulePayload_ErrorAction_Salesforce_Url" NewName="Salesforce_Url" />
+                <Param Name="TopicRulePayload_ErrorAction_Sns_MessageFormat" NewName="Sns_MessageFormat" />
+                <Param Name="TopicRulePayload_ErrorAction_Sns_RoleArn" NewName="Sns_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Sns_TargetArn" NewName="Sns_TargetArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Sqs_QueueUrl" NewName="Sqs_QueueUrl" />
+                <Param Name="TopicRulePayload_ErrorAction_Sqs_RoleArn" NewName="Sqs_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Sqs_UseBase64" NewName="Sqs_UseBase64" />
+                <Param Name="TopicRulePayload_ErrorAction_StepFunctions_ExecutionNamePrefix" NewName="StepFunctions_ExecutionNamePrefix" />
+                <Param Name="TopicRulePayload_ErrorAction_StepFunctions_RoleArn" NewName="StepFunctions_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_StepFunctions_StateMachineName" NewName="StepFunctions_StateMachineName" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_DatabaseName" NewName="Timestream_DatabaseName" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_Dimensions" NewName="Timestream_Dimension" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_RoleArn" NewName="Timestream_RoleArn" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_TableName" NewName="Timestream_TableName" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1065,7 +1322,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAuditSuppression" Verb="Update" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSerialNumber" NewName="IssuerCertificateIdentifier_IssuerCertificateSerialNumber" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSubject" NewName="IssuerCertificateIdentifier_IssuerCertificateSubject" />
+                <Param Name="ResourceIdentifier_IssuerCertificateIdentifier_IssuerId" NewName="IssuerCertificateIdentifier_IssuerId" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyName" NewName="PolicyVersionIdentifier_PolicyName" />
+                <Param Name="ResourceIdentifier_PolicyVersionIdentifier_PolicyVersionId" NewName="PolicyVersionIdentifier_PolicyVersionId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAuthorizer" OutputProperty="*" Verb="Update" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1121,7 +1384,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIndexingConfiguration" Verb="Update" Noun="IndexingConfiguration" ShouldProcessTarget="ThingIndexingConfiguration_ThingIndexingMode" PipelineParameter="ThingIndexingConfiguration_ThingIndexingMode" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ThingIndexingConfiguration_Filter_GeoLocations" NewName="Filter_GeoLocation" />
+                <Param Name="ThingIndexingConfiguration_Filter_NamedShadowNames" NewName="Filter_NamedShadowName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateJob" Verb="Update" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1129,7 +1395,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMitigationAction" OutputProperty="*" Verb="Update" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ActionParams_AddThingsToThingGroupParams_OverrideDynamicGroups" NewName="AddThingsToThingGroupParams_OverrideDynamicGroup" />
+                <Param Name="ActionParams_AddThingsToThingGroupParams_ThingGroupNames" NewName="AddThingsToThingGroupParams_ThingGroupName" />
+                <Param Name="ActionParams_EnableIoTLoggingParams_LogLevel" NewName="EnableIoTLoggingParams_LogLevel" />
+                <Param Name="ActionParams_EnableIoTLoggingParams_RoleArnForLogging" NewName="EnableIoTLoggingParams_RoleArnForLogging" />
+                <Param Name="ActionParams_PublishFindingToSnsParams_TopicArn" NewName="PublishFindingToSnsParams_TopicArn" />
+                <Param Name="ActionParams_ReplaceDefaultPolicyVersionParams_TemplateName" NewName="ReplaceDefaultPolicyVersionParams_TemplateName" />
+                <Param Name="ActionParams_UpdateCACertificateParams_Action" NewName="UpdateCACertificateParams_Action" />
+                <Param Name="ActionParams_UpdateDeviceCertificateParams_Action" NewName="UpdateDeviceCertificateParams_Action" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePackage" Verb="Update" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1141,7 +1416,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePackageVersion" Verb="Update" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Artifact_S3Location_Bucket" NewName="S3Location_Bucket" />
+                <Param Name="Artifact_S3Location_Key" NewName="S3Location_Key" />
+                <Param Name="Artifact_S3Location_Version" NewName="S3Location_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProvisioningTemplate" Verb="Update" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1177,7 +1456,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateThingType" Verb="Update" Noun="ThingType" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes" NewName="Mqtt5Configuration_PropagatingAttribute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTopicRuleDestination" Verb="Update" Noun="TopicRuleDestination" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">

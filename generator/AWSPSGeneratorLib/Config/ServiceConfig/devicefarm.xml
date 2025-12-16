@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>devicefarm</C2jFilename>
     <AssemblyName>DeviceFarm</AssemblyName>
@@ -15,7 +16,6 @@
     </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -38,7 +38,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRemoteAccessSession" OutputProperty="RemoteAccessSession" Verb="New" Noun="RemoteAccessSession" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_DeviceProxy_Host" NewName="DeviceProxy_Host" />
+                <Param Name="Configuration_DeviceProxy_Port" NewName="DeviceProxy_Port" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTestGridProject" OutputProperty="TestGridProject" Verb="New" Noun="TestGridProject" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -110,7 +113,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDevicePoolCompatibility" OutputProperty="*" Verb="Get" Noun="DevicePoolCompatibility" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_CustomerArtifactPaths_AndroidPaths" NewName="CustomerArtifactPaths_AndroidPath" />
+                <Param Name="Configuration_CustomerArtifactPaths_DeviceHostPaths" NewName="CustomerArtifactPaths_DeviceHostPath" />
+                <Param Name="Configuration_CustomerArtifactPaths_IosPaths" NewName="CustomerArtifactPaths_IosPath" />
+                <Param Name="Configuration_DeviceProxy_Host" NewName="DeviceProxy_Host" />
+                <Param Name="Configuration_DeviceProxy_Port" NewName="DeviceProxy_Port" />
+                <Param Name="Configuration_Location_Latitude" NewName="Location_Latitude" />
+                <Param Name="Configuration_Location_Longitude" NewName="Location_Longitude" />
+                <Param Name="Configuration_Radios_Bluetooth" NewName="Radios_Bluetooth" />
+                <Param Name="Configuration_Radios_Gps" NewName="Radios_Gp" />
+                <Param Name="Configuration_Radios_Nfc" NewName="Radios_Nfc" />
+                <Param Name="Configuration_Radios_Wifi" NewName="Radios_Wifi" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetInstanceProfile" OutputProperty="InstanceProfile" Verb="Get" Noun="InstanceProfile" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -125,7 +140,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOfferingStatus" OutputProperty="*" Verb="Get" Noun="OfferingStatus" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetOfferingStatus" OutputProperty="*" Verb="Get" Noun="OfferingStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -274,7 +289,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ScheduleRun" OutputProperty="Run" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_CustomerArtifactPaths_AndroidPaths" NewName="CustomerArtifactPaths_AndroidPath" />
+                <Param Name="Configuration_CustomerArtifactPaths_DeviceHostPaths" NewName="CustomerArtifactPaths_DeviceHostPath" />
+                <Param Name="Configuration_CustomerArtifactPaths_IosPaths" NewName="CustomerArtifactPaths_IosPath" />
+                <Param Name="Configuration_DeviceProxy_Host" NewName="DeviceProxy_Host" />
+                <Param Name="Configuration_DeviceProxy_Port" NewName="DeviceProxy_Port" />
+                <Param Name="Configuration_Location_Latitude" NewName="Location_Latitude" />
+                <Param Name="Configuration_Location_Longitude" NewName="Location_Longitude" />
+                <Param Name="Configuration_Radios_Bluetooth" NewName="Radios_Bluetooth" />
+                <Param Name="Configuration_Radios_Gps" NewName="Radios_Gp" />
+                <Param Name="Configuration_Radios_Nfc" NewName="Radios_Nfc" />
+                <Param Name="Configuration_Radios_Wifi" NewName="Radios_Wifi" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopJob" OutputProperty="Job" Verb="Stop" Noun="Job" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -330,7 +357,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

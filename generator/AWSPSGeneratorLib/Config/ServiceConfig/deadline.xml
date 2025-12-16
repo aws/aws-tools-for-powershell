@@ -63,7 +63,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBudget" OutputProperty="BudgetId" Verb="New" Noun="Budget" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Schedule_Fixed_EndTime" NewName="Fixed_EndTime" />
+                <Param Name="Schedule_Fixed_StartTime" NewName="Fixed_StartTime" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFarm" OutputProperty="FarmId" Verb="New" Noun="Farm" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -80,6 +83,33 @@
                 <Param Name="Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min" NewName="Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min" Alias="WorkerCapabilities_VCpuCount_Min" />
                 <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max" NewName="Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max" Alias="InstanceCapabilities_VCpuCount_Max" />
                 <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min" NewName="Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min" Alias="InstanceCapabilities_VCpuCount_Min" />
+                <Param Name="Configuration_CustomerManaged_Mode" NewName="CustomerManaged_Mode" />
+                <Param Name="Configuration_CustomerManaged_StorageProfileId" NewName="CustomerManaged_StorageProfileId" />
+                <Param Name="Configuration_CustomerManaged_TagPropagationMode" NewName="CustomerManaged_TagPropagationMode" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_Max" NewName="AcceleratorCount_Max" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_Min" NewName="AcceleratorCount_Min" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_Max" NewName="AcceleratorTotalMemoryMiB_Max" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_Min" NewName="AcceleratorTotalMemoryMiB_Min" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorTypes" NewName="WorkerCapabilities_AcceleratorType" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_CpuArchitectureType" NewName="WorkerCapabilities_CpuArchitectureType" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_CustomAmounts" NewName="WorkerCapabilities_CustomAmount" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_CustomAttributes" NewName="WorkerCapabilities_CustomAttribute" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_OsFamily" NewName="WorkerCapabilities_OsFamily" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_Max" NewName="Count_Max" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_Min" NewName="Count_Min" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Selections" NewName="AcceleratorCapabilities_Selection" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_AllowedInstanceTypes" NewName="InstanceCapabilities_AllowedInstanceType" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_CpuArchitectureType" NewName="InstanceCapabilities_CpuArchitectureType" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_CustomAmounts" NewName="InstanceCapabilities_CustomAmount" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_CustomAttributes" NewName="InstanceCapabilities_CustomAttribute" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_ExcludedInstanceTypes" NewName="InstanceCapabilities_ExcludedInstanceType" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_OsFamily" NewName="InstanceCapabilities_OsFamily" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_RootEbsVolume_Iops" NewName="RootEbsVolume_Iops" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_RootEbsVolume_SizeGiB" NewName="RootEbsVolume_SizeGiB" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_RootEbsVolume_ThroughputMiB" NewName="RootEbsVolume_ThroughputMiB" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceMarketOptions_Type" NewName="InstanceMarketOptions_Type" />
+                <Param Name="Configuration_ServiceManagedEc2_StorageProfileId" NewName="ServiceManagedEc2_StorageProfileId" />
+                <Param Name="Configuration_ServiceManagedEc2_VpcConfiguration_ResourceConfigurationArns" NewName="VpcConfiguration_ResourceConfigurationArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -100,7 +130,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateQueue" OutputProperty="QueueId" Verb="New" Noun="Queue" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobRunAsUser_Posix_Group" NewName="Posix_Group" />
+                <Param Name="JobRunAsUser_Posix_User" NewName="Posix_User" />
+                <Param Name="JobRunAsUser_Windows_PasswordArn" NewName="Windows_PasswordArn" />
+                <Param Name="JobRunAsUser_Windows_User" NewName="Windows_User" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateQueueEnvironment" OutputProperty="QueueEnvironmentId" Verb="New" Noun="QueueEnvironment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -120,7 +155,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorker" OutputProperty="WorkerId" Verb="New" Noun="Worker" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HostProperties_IpAddresses_IpV4Addresses" NewName="IpAddresses_IpV4Address" />
+                <Param Name="HostProperties_IpAddresses_IpV6Addresses" NewName="IpAddresses_IpV6Address" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBudget" Verb="Remove" Noun="Budget" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -416,7 +454,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBudget" Verb="Update" Noun="Budget" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Schedule_Fixed_EndTime" NewName="Fixed_EndTime" />
+                <Param Name="Schedule_Fixed_StartTime" NewName="Fixed_StartTime" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFarm" Verb="Update" Noun="Farm" ShouldProcessTarget="FarmId" PipelineParameter="FarmId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -433,6 +474,33 @@
                 <Param Name="Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min" NewName="Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min" Alias="WorkerCapabilities_VCpuCount_Min" />
                 <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max" NewName="Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max" Alias="InstanceCapabilities_VCpuCount_Max" />
                 <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min" NewName="Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min" Alias="InstanceCapabilities_VCpuCount_Min" />
+                <Param Name="Configuration_CustomerManaged_Mode" NewName="CustomerManaged_Mode" />
+                <Param Name="Configuration_CustomerManaged_StorageProfileId" NewName="CustomerManaged_StorageProfileId" />
+                <Param Name="Configuration_CustomerManaged_TagPropagationMode" NewName="CustomerManaged_TagPropagationMode" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_Max" NewName="AcceleratorCount_Max" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_Min" NewName="AcceleratorCount_Min" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_Max" NewName="AcceleratorTotalMemoryMiB_Max" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_Min" NewName="AcceleratorTotalMemoryMiB_Min" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_AcceleratorTypes" NewName="WorkerCapabilities_AcceleratorType" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_CpuArchitectureType" NewName="WorkerCapabilities_CpuArchitectureType" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_CustomAmounts" NewName="WorkerCapabilities_CustomAmount" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_CustomAttributes" NewName="WorkerCapabilities_CustomAttribute" />
+                <Param Name="Configuration_CustomerManaged_WorkerCapabilities_OsFamily" NewName="WorkerCapabilities_OsFamily" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_Max" NewName="Count_Max" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_Min" NewName="Count_Min" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Selections" NewName="AcceleratorCapabilities_Selection" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_AllowedInstanceTypes" NewName="InstanceCapabilities_AllowedInstanceType" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_CpuArchitectureType" NewName="InstanceCapabilities_CpuArchitectureType" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_CustomAmounts" NewName="InstanceCapabilities_CustomAmount" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_CustomAttributes" NewName="InstanceCapabilities_CustomAttribute" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_ExcludedInstanceTypes" NewName="InstanceCapabilities_ExcludedInstanceType" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_OsFamily" NewName="InstanceCapabilities_OsFamily" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_RootEbsVolume_Iops" NewName="RootEbsVolume_Iops" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_RootEbsVolume_SizeGiB" NewName="RootEbsVolume_SizeGiB" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceCapabilities_RootEbsVolume_ThroughputMiB" NewName="RootEbsVolume_ThroughputMiB" />
+                <Param Name="Configuration_ServiceManagedEc2_InstanceMarketOptions_Type" NewName="InstanceMarketOptions_Type" />
+                <Param Name="Configuration_ServiceManagedEc2_StorageProfileId" NewName="ServiceManagedEc2_StorageProfileId" />
+                <Param Name="Configuration_ServiceManagedEc2_VpcConfiguration_ResourceConfigurationArns" NewName="VpcConfiguration_ResourceConfigurationArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -449,7 +517,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateQueue" Verb="Update" Noun="Queue" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobRunAsUser_Posix_Group" NewName="Posix_Group" />
+                <Param Name="JobRunAsUser_Posix_User" NewName="Posix_User" />
+                <Param Name="JobRunAsUser_Windows_PasswordArn" NewName="Windows_PasswordArn" />
+                <Param Name="JobRunAsUser_Windows_User" NewName="Windows_User" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateQueueEnvironment" Verb="Update" Noun="QueueEnvironment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -481,7 +554,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorker" OutputProperty="Log" Verb="Update" Noun="Worker" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HostProperties_IpAddresses_IpV4Addresses" NewName="IpAddresses_IpV4Address" />
+                <Param Name="HostProperties_IpAddresses_IpV6Addresses" NewName="IpAddresses_IpV6Address" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkerSchedule" OutputProperty="*" Verb="Update" Noun="WorkerSchedule" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

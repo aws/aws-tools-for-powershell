@@ -24,7 +24,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEnvironment" OutputProperty="Arn" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LoggingConfiguration_DagProcessingLogs_Enabled" NewName="DagProcessingLogs_Enabled" />
+                <Param Name="LoggingConfiguration_DagProcessingLogs_LogLevel" NewName="DagProcessingLogs_LogLevel" />
+                <Param Name="LoggingConfiguration_SchedulerLogs_Enabled" NewName="SchedulerLogs_Enabled" />
+                <Param Name="LoggingConfiguration_SchedulerLogs_LogLevel" NewName="SchedulerLogs_LogLevel" />
+                <Param Name="LoggingConfiguration_TaskLogs_Enabled" NewName="TaskLogs_Enabled" />
+                <Param Name="LoggingConfiguration_TaskLogs_LogLevel" NewName="TaskLogs_LogLevel" />
+                <Param Name="LoggingConfiguration_WebserverLogs_Enabled" NewName="WebserverLogs_Enabled" />
+                <Param Name="LoggingConfiguration_WebserverLogs_LogLevel" NewName="WebserverLogs_LogLevel" />
+                <Param Name="LoggingConfiguration_WorkerLogs_Enabled" NewName="WorkerLogs_Enabled" />
+                <Param Name="LoggingConfiguration_WorkerLogs_LogLevel" NewName="WorkerLogs_LogLevel" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWebLoginToken" OutputProperty="*" Verb="New" Noun="WebLoginToken" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -64,7 +75,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="Arn" Verb="Update" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LoggingConfiguration_DagProcessingLogs_Enabled" NewName="DagProcessingLogs_Enabled" />
+                <Param Name="LoggingConfiguration_DagProcessingLogs_LogLevel" NewName="DagProcessingLogs_LogLevel" />
+                <Param Name="LoggingConfiguration_SchedulerLogs_Enabled" NewName="SchedulerLogs_Enabled" />
+                <Param Name="LoggingConfiguration_SchedulerLogs_LogLevel" NewName="SchedulerLogs_LogLevel" />
+                <Param Name="LoggingConfiguration_TaskLogs_Enabled" NewName="TaskLogs_Enabled" />
+                <Param Name="LoggingConfiguration_TaskLogs_LogLevel" NewName="TaskLogs_LogLevel" />
+                <Param Name="LoggingConfiguration_WebserverLogs_Enabled" NewName="WebserverLogs_Enabled" />
+                <Param Name="LoggingConfiguration_WebserverLogs_LogLevel" NewName="WebserverLogs_LogLevel" />
+                <Param Name="LoggingConfiguration_WorkerLogs_Enabled" NewName="WorkerLogs_Enabled" />
+                <Param Name="LoggingConfiguration_WorkerLogs_LogLevel" NewName="WorkerLogs_LogLevel" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

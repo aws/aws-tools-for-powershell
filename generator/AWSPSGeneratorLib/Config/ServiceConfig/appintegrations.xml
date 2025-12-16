@@ -19,7 +19,11 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ApplicationConfig_ContactHandling_Scope" NewName="ContactHandling_Scope" />
+                <Param Name="ApplicationSourceConfig_ExternalUrlConfig_AccessUrl" NewName="ExternalUrlConfig_AccessUrl" />
+                <Param Name="ApplicationSourceConfig_ExternalUrlConfig_ApprovedOrigins" NewName="ExternalUrlConfig_ApprovedOrigin" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataIntegration" OutputProperty="Arn" Verb="New" Noun="DataIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -27,7 +31,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataIntegrationAssociation" OutputProperty="*" Verb="New" Noun="DataIntegrationAssociation" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExecutionConfiguration_OnDemandConfiguration_EndTime" NewName="OnDemandConfiguration_EndTime" />
+                <Param Name="ExecutionConfiguration_OnDemandConfiguration_StartTime" NewName="OnDemandConfiguration_StartTime" />
+                <Param Name="ExecutionConfiguration_ScheduleConfiguration_FirstExecutionFrom" NewName="ScheduleConfiguration_FirstExecutionFrom" />
+                <Param Name="ExecutionConfiguration_ScheduleConfiguration_Object" NewName="ScheduleConfiguration_Object" />
+                <Param Name="ExecutionConfiguration_ScheduleConfiguration_ScheduleExpression" NewName="ScheduleConfiguration_ScheduleExpression" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEventIntegration" OutputProperty="EventIntegrationArn" Verb="New" Noun="EventIntegration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -95,7 +105,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ApplicationConfig_ContactHandling_Scope" NewName="ContactHandling_Scope" />
+                <Param Name="ApplicationSourceConfig_ExternalUrlConfig_AccessUrl" NewName="ExternalUrlConfig_AccessUrl" />
+                <Param Name="ApplicationSourceConfig_ExternalUrlConfig_ApprovedOrigins" NewName="ExternalUrlConfig_ApprovedOrigin" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataIntegration" Verb="Update" Noun="DataIntegration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -103,7 +117,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataIntegrationAssociation" Verb="Update" Noun="DataIntegrationAssociation" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExecutionConfiguration_OnDemandConfiguration_EndTime" NewName="OnDemandConfiguration_EndTime" />
+                <Param Name="ExecutionConfiguration_OnDemandConfiguration_StartTime" NewName="OnDemandConfiguration_StartTime" />
+                <Param Name="ExecutionConfiguration_ScheduleConfiguration_FirstExecutionFrom" NewName="ScheduleConfiguration_FirstExecutionFrom" />
+                <Param Name="ExecutionConfiguration_ScheduleConfiguration_Object" NewName="ScheduleConfiguration_Object" />
+                <Param Name="ExecutionConfiguration_ScheduleConfiguration_ScheduleExpression" NewName="ScheduleConfiguration_ScheduleExpression" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEventIntegration" Verb="Update" Noun="EventIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">

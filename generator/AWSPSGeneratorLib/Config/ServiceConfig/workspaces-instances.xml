@@ -30,7 +30,44 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspaceInstance" OutputProperty="WorkspaceInstanceId" Verb="New" Noun="WorkspaceInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="ManagedInstance_CapacityReservationSpecification_CapacityReservationPreference" NewName="CapacityReservationSpecification_CapacityReservationPreference" />
+                <Param Name="ManagedInstance_CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationId" NewName="CapacityReservationTarget_CapacityReservationId" />
+                <Param Name="ManagedInstance_CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArn" NewName="CapacityReservationTarget_CapacityReservationResourceGroupArn" />
+                <Param Name="ManagedInstance_CpuOptions_AmdSevSnp" NewName="CpuOptions_AmdSevSnp" />
+                <Param Name="ManagedInstance_CpuOptions_CoreCount" NewName="CpuOptions_CoreCount" />
+                <Param Name="ManagedInstance_CpuOptions_ThreadsPerCore" NewName="CpuOptions_ThreadsPerCore" />
+                <Param Name="ManagedInstance_CreditSpecification_CpuCredits" NewName="CreditSpecification_CpuCredit" />
+                <Param Name="ManagedInstance_EnclaveOptions_Enabled" NewName="EnclaveOptions_Enabled" />
+                <Param Name="ManagedInstance_HibernationOptions_Configured" NewName="HibernationOptions_Configured" />
+                <Param Name="ManagedInstance_IamInstanceProfile_Arn" NewName="IamInstanceProfile_Arn" />
+                <Param Name="ManagedInstance_IamInstanceProfile_Name" NewName="IamInstanceProfile_Name" />
+                <Param Name="ManagedInstance_InstanceMarketOptions_MarketType" NewName="InstanceMarketOptions_MarketType" />
+                <Param Name="ManagedInstance_InstanceMarketOptions_SpotOptions_BlockDurationMinutes" NewName="SpotOptions_BlockDurationMinute" />
+                <Param Name="ManagedInstance_InstanceMarketOptions_SpotOptions_InstanceInterruptionBehavior" NewName="SpotOptions_InstanceInterruptionBehavior" />
+                <Param Name="ManagedInstance_InstanceMarketOptions_SpotOptions_MaxPrice" NewName="SpotOptions_MaxPrice" />
+                <Param Name="ManagedInstance_InstanceMarketOptions_SpotOptions_SpotInstanceType" NewName="SpotOptions_SpotInstanceType" />
+                <Param Name="ManagedInstance_InstanceMarketOptions_SpotOptions_ValidUntilUtc" NewName="SpotOptions_ValidUntilUtc" />
+                <Param Name="ManagedInstance_MaintenanceOptions_AutoRecovery" NewName="MaintenanceOptions_AutoRecovery" />
+                <Param Name="ManagedInstance_MetadataOptions_HttpEndpoint" NewName="MetadataOptions_HttpEndpoint" />
+                <Param Name="ManagedInstance_MetadataOptions_HttpProtocolIpv6" NewName="MetadataOptions_HttpProtocolIpv6" />
+                <Param Name="ManagedInstance_MetadataOptions_HttpPutResponseHopLimit" NewName="MetadataOptions_HttpPutResponseHopLimit" />
+                <Param Name="ManagedInstance_MetadataOptions_HttpTokens" NewName="MetadataOptions_HttpToken" />
+                <Param Name="ManagedInstance_MetadataOptions_InstanceMetadataTags" NewName="MetadataOptions_InstanceMetadataTag" />
+                <Param Name="ManagedInstance_Monitoring_Enabled" NewName="Monitoring_Enabled" />
+                <Param Name="ManagedInstance_NetworkPerformanceOptions_BandwidthWeighting" NewName="NetworkPerformanceOptions_BandwidthWeighting" />
+                <Param Name="ManagedInstance_Placement_Affinity" NewName="Placement_Affinity" />
+                <Param Name="ManagedInstance_Placement_AvailabilityZone" NewName="Placement_AvailabilityZone" />
+                <Param Name="ManagedInstance_Placement_GroupId" NewName="Placement_GroupId" />
+                <Param Name="ManagedInstance_Placement_GroupName" NewName="Placement_GroupName" />
+                <Param Name="ManagedInstance_Placement_HostId" NewName="Placement_HostId" />
+                <Param Name="ManagedInstance_Placement_HostResourceGroupArn" NewName="Placement_HostResourceGroupArn" />
+                <Param Name="ManagedInstance_Placement_PartitionNumber" NewName="Placement_PartitionNumber" />
+                <Param Name="ManagedInstance_Placement_Tenancy" NewName="Placement_Tenancy" />
+                <Param Name="ManagedInstance_PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord" NewName="PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord" />
+                <Param Name="ManagedInstance_PrivateDnsNameOptions_EnableResourceNameDnsARecord" NewName="PrivateDnsNameOptions_EnableResourceNameDnsARecord" />
+                <Param Name="ManagedInstance_PrivateDnsNameOptions_HostnameType" NewName="PrivateDnsNameOptions_HostnameType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVolume" Verb="Remove" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">

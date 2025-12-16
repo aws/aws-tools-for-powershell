@@ -24,7 +24,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfig" OutputProperty="*" Verb="New" Noun="Config" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConfigData_S3RecordingConfig_BucketArn" NewName="S3RecordingConfig_BucketArn" />
+                <Param Name="ConfigData_S3RecordingConfig_Prefix" NewName="S3RecordingConfig_Prefix" />
+                <Param Name="ConfigData_S3RecordingConfig_RoleArn" NewName="S3RecordingConfig_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataflowEndpointGroup" OutputProperty="DataflowEndpointGroupId" Verb="New" Noun="DataflowEndpointGroup" ShouldProcessTarget="EndpointDetails" PipelineParameter="EndpointDetails" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -43,6 +47,14 @@
                 <Param Name="Ephemeris_Tle_S3Object_Version" NewName="Ephemeris_Tle_S3Object_Version" />
                 <Param Name="Ephemeris_Oem_S3Object_Key" NewName="Ephemeris_Oem_S3Object_Key" />
                 <Param Name="Ephemeris_Tle_S3Object_Key" NewName="Ephemeris_Tle_S3Object_Key" />
+                <Param Name="Ephemeris_AzEl_Data_AzElData_AngleUnit" NewName="AzElData_AngleUnit" />
+                <Param Name="Ephemeris_AzEl_Data_AzElData_AzElSegmentList" NewName="AzElData_AzElSegmentList" />
+                <Param Name="Ephemeris_AzEl_Data_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="Ephemeris_AzEl_Data_S3Object_Key" NewName="S3Object_Key" />
+                <Param Name="Ephemeris_AzEl_Data_S3Object_Version" NewName="S3Object_Version" />
+                <Param Name="Ephemeris_AzEl_GroundStation" NewName="AzEl_GroundStation" />
+                <Param Name="Ephemeris_Oem_OemData" NewName="Oem_OemData" />
+                <Param Name="Ephemeris_Tle_TleData" NewName="Tle_TleData" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -107,7 +119,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListContacts" OutputProperty="ContactList" Verb="Get" Noun="ContactList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
-            <Params />
+            <Params>
+                <Param Name="Ephemeris_AzEl_Id" NewName="AzEl_Id" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDataflowEndpointGroups" OutputProperty="DataflowEndpointGroupList" Verb="Get" Noun="DataflowEndpointGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
@@ -139,7 +153,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ReserveContact" OutputProperty="ContactId" Verb="Add" Noun="ReservedContact" ShouldProcessTarget="MissionProfileArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId" NewName="AzEl_EphemerisId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -155,7 +171,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfig" OutputProperty="*" Verb="Update" Noun="Config" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConfigData_S3RecordingConfig_BucketArn" NewName="S3RecordingConfig_BucketArn" />
+                <Param Name="ConfigData_S3RecordingConfig_Prefix" NewName="S3RecordingConfig_Prefix" />
+                <Param Name="ConfigData_S3RecordingConfig_RoleArn" NewName="S3RecordingConfig_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEphemeris" OutputProperty="EphemerisId" Verb="Update" Noun="Ephemeris" ShouldProcessTarget="EphemerisId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

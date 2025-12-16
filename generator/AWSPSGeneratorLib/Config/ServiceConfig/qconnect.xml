@@ -23,7 +23,44 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAIAgent" OutputProperty="AiAgent" Verb="New" Noun="AIAgent" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId" NewName="AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId" NewName="AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_AssociationConfigurations" NewName="AnswerRecommendationAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId" NewName="AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_Locale" NewName="AnswerRecommendationAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId" NewName="AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_SuggestedMessages" NewName="AnswerRecommendationAIAgentConfiguration_SuggestedMessage" />
+                <Param Name="Configuration_CaseSummarizationAIAgentConfiguration_CaseSummarizationAIGuardrailId" NewName="CaseSummarizationAIAgentConfiguration_CaseSummarizationAIGuardrailId" />
+                <Param Name="Configuration_CaseSummarizationAIAgentConfiguration_CaseSummarizationAIPromptId" NewName="CaseSummarizationAIAgentConfiguration_CaseSummarizationAIPromptId" />
+                <Param Name="Configuration_CaseSummarizationAIAgentConfiguration_Locale" NewName="CaseSummarizationAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_EmailGenerativeAnswerAIAgentConfiguration_AssociationConfigurations" NewName="EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId" NewName="EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId" />
+                <Param Name="Configuration_EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId" NewName="EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId" />
+                <Param Name="Configuration_EmailGenerativeAnswerAIAgentConfiguration_Locale" NewName="EmailGenerativeAnswerAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId" NewName="EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId" />
+                <Param Name="Configuration_EmailOverviewAIAgentConfiguration_Locale" NewName="EmailOverviewAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_EmailResponseAIAgentConfiguration_AssociationConfigurations" NewName="EmailResponseAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId" NewName="EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId" />
+                <Param Name="Configuration_EmailResponseAIAgentConfiguration_EmailResponseAIPromptId" NewName="EmailResponseAIAgentConfiguration_EmailResponseAIPromptId" />
+                <Param Name="Configuration_EmailResponseAIAgentConfiguration_Locale" NewName="EmailResponseAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId" NewName="ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId" />
+                <Param Name="Configuration_ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId" NewName="ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId" />
+                <Param Name="Configuration_ManualSearchAIAgentConfiguration_AssociationConfigurations" NewName="ManualSearchAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_ManualSearchAIAgentConfiguration_Locale" NewName="ManualSearchAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_NoteTakingAIAgentConfiguration_Locale" NewName="NoteTakingAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_NoteTakingAIAgentConfiguration_NoteTakingAIGuardrailId" NewName="NoteTakingAIAgentConfiguration_NoteTakingAIGuardrailId" />
+                <Param Name="Configuration_NoteTakingAIAgentConfiguration_NoteTakingAIPromptId" NewName="NoteTakingAIAgentConfiguration_NoteTakingAIPromptId" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_ConnectInstanceArn" NewName="OrchestrationAIAgentConfiguration_ConnectInstanceArn" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_Locale" NewName="OrchestrationAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_OrchestrationAIGuardrailId" NewName="OrchestrationAIAgentConfiguration_OrchestrationAIGuardrailId" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_OrchestrationAIPromptId" NewName="OrchestrationAIAgentConfiguration_OrchestrationAIPromptId" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_ToolConfigurations" NewName="OrchestrationAIAgentConfiguration_ToolConfiguration" />
+                <Param Name="Configuration_SelfServiceAIAgentConfiguration_AssociationConfigurations" NewName="SelfServiceAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId" NewName="SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId" />
+                <Param Name="Configuration_SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId" NewName="SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId" />
+                <Param Name="Configuration_SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId" NewName="SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAIAgentVersion" OutputProperty="*" Verb="New" Noun="AIAgentVersion" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -39,7 +76,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAIPrompt" OutputProperty="AiPrompt" Verb="New" Noun="AIPrompt" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InferenceConfiguration_TextAIPromptInferenceConfiguration_MaxTokensToSample" NewName="TextAIPromptInferenceConfiguration_MaxTokensToSample" />
+                <Param Name="InferenceConfiguration_TextAIPromptInferenceConfiguration_Temperature" NewName="TextAIPromptInferenceConfiguration_Temperature" />
+                <Param Name="InferenceConfiguration_TextAIPromptInferenceConfiguration_TopK" NewName="TextAIPromptInferenceConfiguration_TopK" />
+                <Param Name="InferenceConfiguration_TextAIPromptInferenceConfiguration_TopP" NewName="TextAIPromptInferenceConfiguration_TopP" />
+                <Param Name="TemplateConfiguration_TextFullAIPromptEditTemplateConfiguration_Text" NewName="TextFullAIPromptEditTemplateConfiguration_Text" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAIPromptVersion" OutputProperty="*" Verb="New" Noun="AIPromptVersion" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -51,7 +94,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAssistantAssociation" OutputProperty="AssistantAssociation" Verb="New" Noun="AssistantAssociation" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Association_ExternalBedrockKnowledgeBaseConfig_AccessRoleArn" NewName="ExternalBedrockKnowledgeBaseConfig_AccessRoleArn" />
+                <Param Name="Association_ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn" NewName="ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContent" OutputProperty="Content" Verb="New" Noun="Content" ShouldProcessTarget="Name" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -59,11 +105,32 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContentAssociation" OutputProperty="ContentAssociation" Verb="New" Noun="ContentAssociation" ShouldProcessTarget="ContentId" PipelineParameter="ContentId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Association_AmazonConnectGuideAssociation_FlowId" NewName="AmazonConnectGuideAssociation_FlowId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="Name" PipelineParameter="KnowledgeBaseType" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SourceConfiguration_AppIntegrations_AppIntegrationArn" NewName="AppIntegrations_AppIntegrationArn" />
+                <Param Name="SourceConfiguration_AppIntegrations_ObjectFields" NewName="AppIntegrations_ObjectField" />
+                <Param Name="SourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_CrawlerLimits_RateLimit" NewName="CrawlerLimits_RateLimit" />
+                <Param Name="SourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_ExclusionFilters" NewName="WebCrawlerConfiguration_ExclusionFilter" />
+                <Param Name="SourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_InclusionFilters" NewName="WebCrawlerConfiguration_InclusionFilter" />
+                <Param Name="SourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_Scope" NewName="WebCrawlerConfiguration_Scope" />
+                <Param Name="SourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration_SeedUrls" NewName="UrlConfiguration_SeedUrl" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy" NewName="ChunkingConfiguration_ChunkingStrategy" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_FixedSizeChunkingConfiguration_MaxTokens" NewName="FixedSizeChunkingConfiguration_MaxToken" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_FixedSizeChunkingConfiguration_OverlapPercentage" NewName="FixedSizeChunkingConfiguration_OverlapPercentage" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_HierarchicalChunkingConfiguration_LevelConfigurations" NewName="HierarchicalChunkingConfiguration_LevelConfiguration" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_HierarchicalChunkingConfiguration_OverlapTokens" NewName="HierarchicalChunkingConfiguration_OverlapToken" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_SemanticChunkingConfiguration_BreakpointPercentileThreshold" NewName="SemanticChunkingConfiguration_BreakpointPercentileThreshold" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_SemanticChunkingConfiguration_BufferSize" NewName="SemanticChunkingConfiguration_BufferSize" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_SemanticChunkingConfiguration_MaxTokens" NewName="SemanticChunkingConfiguration_MaxToken" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ModelArn" NewName="BedrockFoundationModelConfiguration_ModelArn" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ParsingPrompt_ParsingPromptText" NewName="ParsingPrompt_ParsingPromptText" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_ParsingStrategy" NewName="ParsingConfiguration_ParsingStrategy" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMessageTemplate" OutputProperty="MessageTemplate" Verb="New" Noun="MessageTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -78,6 +145,102 @@
                 <Param Name="Content_Push_Apns_RawContent_Content" NewName="Content_Push_Apns_RawContent_Content" />
                 <Param Name="Content_Push_Baidu_RawContent_Content" NewName="Content_Push_Baidu_RawContent_Content" />
                 <Param Name="Content_Push_Fcm_RawContent_Content" NewName="Content_Push_Fcm_RawContent_Content" />
+                <Param Name="Content_Email_Body_Html_Content" NewName="Html_Content" />
+                <Param Name="Content_Email_Headers" NewName="Email_Header" />
+                <Param Name="Content_Email_Subject" NewName="Email_Subject" />
+                <Param Name="Content_Push_Adm_Action" NewName="Adm_Action" />
+                <Param Name="Content_Push_Adm_ImageIconUrl" NewName="Adm_ImageIconUrl" />
+                <Param Name="Content_Push_Adm_ImageUrl" NewName="Adm_ImageUrl" />
+                <Param Name="Content_Push_Adm_SmallImageIconUrl" NewName="Adm_SmallImageIconUrl" />
+                <Param Name="Content_Push_Adm_Sound" NewName="Adm_Sound" />
+                <Param Name="Content_Push_Adm_Title" NewName="Adm_Title" />
+                <Param Name="Content_Push_Adm_Url" NewName="Adm_Url" />
+                <Param Name="Content_Push_Apns_Action" NewName="Apns_Action" />
+                <Param Name="Content_Push_Apns_MediaUrl" NewName="Apns_MediaUrl" />
+                <Param Name="Content_Push_Apns_Sound" NewName="Apns_Sound" />
+                <Param Name="Content_Push_Apns_Title" NewName="Apns_Title" />
+                <Param Name="Content_Push_Apns_Url" NewName="Apns_Url" />
+                <Param Name="Content_Push_Baidu_Action" NewName="Baidu_Action" />
+                <Param Name="Content_Push_Baidu_ImageIconUrl" NewName="Baidu_ImageIconUrl" />
+                <Param Name="Content_Push_Baidu_ImageUrl" NewName="Baidu_ImageUrl" />
+                <Param Name="Content_Push_Baidu_SmallImageIconUrl" NewName="Baidu_SmallImageIconUrl" />
+                <Param Name="Content_Push_Baidu_Sound" NewName="Baidu_Sound" />
+                <Param Name="Content_Push_Baidu_Title" NewName="Baidu_Title" />
+                <Param Name="Content_Push_Baidu_Url" NewName="Baidu_Url" />
+                <Param Name="Content_Push_Fcm_Action" NewName="Fcm_Action" />
+                <Param Name="Content_Push_Fcm_ImageIconUrl" NewName="Fcm_ImageIconUrl" />
+                <Param Name="Content_Push_Fcm_ImageUrl" NewName="Fcm_ImageUrl" />
+                <Param Name="Content_Push_Fcm_SmallImageIconUrl" NewName="Fcm_SmallImageIconUrl" />
+                <Param Name="Content_Push_Fcm_Sound" NewName="Fcm_Sound" />
+                <Param Name="Content_Push_Fcm_Title" NewName="Fcm_Title" />
+                <Param Name="Content_Push_Fcm_Url" NewName="Fcm_Url" />
+                <Param Name="Content_WhatsApp_Data" NewName="WhatsApp_Data" />
+                <Param Name="DefaultAttributes_AgentAttributes_FirstName" NewName="AgentAttributes_FirstName" />
+                <Param Name="DefaultAttributes_AgentAttributes_LastName" NewName="AgentAttributes_LastName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_AccountNumber" NewName="CustomerProfileAttributes_AccountNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_AdditionalInformation" NewName="CustomerProfileAttributes_AdditionalInformation" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Address1" NewName="CustomerProfileAttributes_Address1" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Address2" NewName="CustomerProfileAttributes_Address2" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Address3" NewName="CustomerProfileAttributes_Address3" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Address4" NewName="CustomerProfileAttributes_Address4" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingAddress1" NewName="CustomerProfileAttributes_BillingAddress1" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingAddress2" NewName="CustomerProfileAttributes_BillingAddress2" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingAddress3" NewName="CustomerProfileAttributes_BillingAddress3" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingAddress4" NewName="CustomerProfileAttributes_BillingAddress4" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingCity" NewName="CustomerProfileAttributes_BillingCity" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingCountry" NewName="CustomerProfileAttributes_BillingCountry" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingCounty" NewName="CustomerProfileAttributes_BillingCounty" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingPostalCode" NewName="CustomerProfileAttributes_BillingPostalCode" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingProvince" NewName="CustomerProfileAttributes_BillingProvince" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingState" NewName="CustomerProfileAttributes_BillingState" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BirthDate" NewName="CustomerProfileAttributes_BirthDate" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BusinessEmailAddress" NewName="CustomerProfileAttributes_BusinessEmailAddress" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BusinessName" NewName="CustomerProfileAttributes_BusinessName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BusinessPhoneNumber" NewName="CustomerProfileAttributes_BusinessPhoneNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_City" NewName="CustomerProfileAttributes_City" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Country" NewName="CustomerProfileAttributes_Country" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_County" NewName="CustomerProfileAttributes_County" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Custom" NewName="CustomerProfileAttributes_Custom" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_EmailAddress" NewName="CustomerProfileAttributes_EmailAddress" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_FirstName" NewName="CustomerProfileAttributes_FirstName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Gender" NewName="CustomerProfileAttributes_Gender" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_HomePhoneNumber" NewName="CustomerProfileAttributes_HomePhoneNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_LastName" NewName="CustomerProfileAttributes_LastName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingAddress1" NewName="CustomerProfileAttributes_MailingAddress1" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingAddress2" NewName="CustomerProfileAttributes_MailingAddress2" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingAddress3" NewName="CustomerProfileAttributes_MailingAddress3" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingAddress4" NewName="CustomerProfileAttributes_MailingAddress4" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingCity" NewName="CustomerProfileAttributes_MailingCity" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingCountry" NewName="CustomerProfileAttributes_MailingCountry" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingCounty" NewName="CustomerProfileAttributes_MailingCounty" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingPostalCode" NewName="CustomerProfileAttributes_MailingPostalCode" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingProvince" NewName="CustomerProfileAttributes_MailingProvince" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingState" NewName="CustomerProfileAttributes_MailingState" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MiddleName" NewName="CustomerProfileAttributes_MiddleName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MobilePhoneNumber" NewName="CustomerProfileAttributes_MobilePhoneNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_PartyType" NewName="CustomerProfileAttributes_PartyType" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_PhoneNumber" NewName="CustomerProfileAttributes_PhoneNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_PostalCode" NewName="CustomerProfileAttributes_PostalCode" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ProfileARN" NewName="CustomerProfileAttributes_ProfileARN" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ProfileId" NewName="CustomerProfileAttributes_ProfileId" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Province" NewName="CustomerProfileAttributes_Province" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingAddress1" NewName="CustomerProfileAttributes_ShippingAddress1" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingAddress2" NewName="CustomerProfileAttributes_ShippingAddress2" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingAddress3" NewName="CustomerProfileAttributes_ShippingAddress3" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingAddress4" NewName="CustomerProfileAttributes_ShippingAddress4" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingCity" NewName="CustomerProfileAttributes_ShippingCity" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingCountry" NewName="CustomerProfileAttributes_ShippingCountry" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingCounty" NewName="CustomerProfileAttributes_ShippingCounty" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingPostalCode" NewName="CustomerProfileAttributes_ShippingPostalCode" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingProvince" NewName="CustomerProfileAttributes_ShippingProvince" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingState" NewName="CustomerProfileAttributes_ShippingState" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_State" NewName="CustomerProfileAttributes_State" />
+                <Param Name="DefaultAttributes_SystemAttributes_CustomerEndpoint_Address" NewName="CustomerEndpoint_Address" />
+                <Param Name="DefaultAttributes_SystemAttributes_Name" NewName="SystemAttributes_Name" />
+                <Param Name="DefaultAttributes_SystemAttributes_SystemEndpoint_Address" NewName="SystemEndpoint_Address" />
+                <Param Name="SourceConfiguration_WhatsApp_BusinessAccountId" NewName="WhatsApp_BusinessAccountId" />
+                <Param Name="SourceConfiguration_WhatsApp_Components" NewName="WhatsApp_Component" />
+                <Param Name="SourceConfiguration_WhatsApp_TemplateId" NewName="WhatsApp_TemplateId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -94,7 +257,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSession" OutputProperty="Session" Verb="New" Noun="Session" ShouldProcessTarget="Name" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TagFilter_TagCondition_Key" NewName="TagCondition_Key" />
+                <Param Name="TagFilter_TagCondition_Value" NewName="TagCondition_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeactivateMessageTemplate" OutputProperty="*" Verb="Disable" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -298,11 +464,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutFeedback" OutputProperty="*" Verb="Write" Noun="Feedback" ShouldProcessTarget="TargetId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ContentFeedback_GenerativeContentFeedbackData_Relevance" NewName="GenerativeContentFeedbackData_Relevance" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="QueryAssistant" OutputProperty="Results" Verb="Search" Noun="Assistant" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="QueryInputData_CaseSummarizationInputData_CaseArn" NewName="CaseSummarizationInputData_CaseArn" />
+                <Param Name="QueryInputData_IntentInputData_IntentId" NewName="IntentInputData_IntentId" />
+                <Param Name="QueryInputData_QueryTextInputData_Text" NewName="QueryTextInputData_Text" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveAssistantAIAgent" Verb="Remove" Noun="AssistantAIAgent" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -314,11 +486,101 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RenderMessageTemplate" OutputProperty="*" Verb="Invoke" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Attributes_AgentAttributes_FirstName" NewName="AgentAttributes_FirstName" />
+                <Param Name="Attributes_AgentAttributes_LastName" NewName="AgentAttributes_LastName" />
+                <Param Name="Attributes_CustomerProfileAttributes_AccountNumber" NewName="CustomerProfileAttributes_AccountNumber" />
+                <Param Name="Attributes_CustomerProfileAttributes_AdditionalInformation" NewName="CustomerProfileAttributes_AdditionalInformation" />
+                <Param Name="Attributes_CustomerProfileAttributes_Address1" NewName="CustomerProfileAttributes_Address1" />
+                <Param Name="Attributes_CustomerProfileAttributes_Address2" NewName="CustomerProfileAttributes_Address2" />
+                <Param Name="Attributes_CustomerProfileAttributes_Address3" NewName="CustomerProfileAttributes_Address3" />
+                <Param Name="Attributes_CustomerProfileAttributes_Address4" NewName="CustomerProfileAttributes_Address4" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingAddress1" NewName="CustomerProfileAttributes_BillingAddress1" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingAddress2" NewName="CustomerProfileAttributes_BillingAddress2" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingAddress3" NewName="CustomerProfileAttributes_BillingAddress3" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingAddress4" NewName="CustomerProfileAttributes_BillingAddress4" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingCity" NewName="CustomerProfileAttributes_BillingCity" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingCountry" NewName="CustomerProfileAttributes_BillingCountry" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingCounty" NewName="CustomerProfileAttributes_BillingCounty" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingPostalCode" NewName="CustomerProfileAttributes_BillingPostalCode" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingProvince" NewName="CustomerProfileAttributes_BillingProvince" />
+                <Param Name="Attributes_CustomerProfileAttributes_BillingState" NewName="CustomerProfileAttributes_BillingState" />
+                <Param Name="Attributes_CustomerProfileAttributes_BirthDate" NewName="CustomerProfileAttributes_BirthDate" />
+                <Param Name="Attributes_CustomerProfileAttributes_BusinessEmailAddress" NewName="CustomerProfileAttributes_BusinessEmailAddress" />
+                <Param Name="Attributes_CustomerProfileAttributes_BusinessName" NewName="CustomerProfileAttributes_BusinessName" />
+                <Param Name="Attributes_CustomerProfileAttributes_BusinessPhoneNumber" NewName="CustomerProfileAttributes_BusinessPhoneNumber" />
+                <Param Name="Attributes_CustomerProfileAttributes_City" NewName="CustomerProfileAttributes_City" />
+                <Param Name="Attributes_CustomerProfileAttributes_Country" NewName="CustomerProfileAttributes_Country" />
+                <Param Name="Attributes_CustomerProfileAttributes_County" NewName="CustomerProfileAttributes_County" />
+                <Param Name="Attributes_CustomerProfileAttributes_Custom" NewName="CustomerProfileAttributes_Custom" />
+                <Param Name="Attributes_CustomerProfileAttributes_EmailAddress" NewName="CustomerProfileAttributes_EmailAddress" />
+                <Param Name="Attributes_CustomerProfileAttributes_FirstName" NewName="CustomerProfileAttributes_FirstName" />
+                <Param Name="Attributes_CustomerProfileAttributes_Gender" NewName="CustomerProfileAttributes_Gender" />
+                <Param Name="Attributes_CustomerProfileAttributes_HomePhoneNumber" NewName="CustomerProfileAttributes_HomePhoneNumber" />
+                <Param Name="Attributes_CustomerProfileAttributes_LastName" NewName="CustomerProfileAttributes_LastName" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingAddress1" NewName="CustomerProfileAttributes_MailingAddress1" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingAddress2" NewName="CustomerProfileAttributes_MailingAddress2" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingAddress3" NewName="CustomerProfileAttributes_MailingAddress3" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingAddress4" NewName="CustomerProfileAttributes_MailingAddress4" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingCity" NewName="CustomerProfileAttributes_MailingCity" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingCountry" NewName="CustomerProfileAttributes_MailingCountry" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingCounty" NewName="CustomerProfileAttributes_MailingCounty" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingPostalCode" NewName="CustomerProfileAttributes_MailingPostalCode" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingProvince" NewName="CustomerProfileAttributes_MailingProvince" />
+                <Param Name="Attributes_CustomerProfileAttributes_MailingState" NewName="CustomerProfileAttributes_MailingState" />
+                <Param Name="Attributes_CustomerProfileAttributes_MiddleName" NewName="CustomerProfileAttributes_MiddleName" />
+                <Param Name="Attributes_CustomerProfileAttributes_MobilePhoneNumber" NewName="CustomerProfileAttributes_MobilePhoneNumber" />
+                <Param Name="Attributes_CustomerProfileAttributes_PartyType" NewName="CustomerProfileAttributes_PartyType" />
+                <Param Name="Attributes_CustomerProfileAttributes_PhoneNumber" NewName="CustomerProfileAttributes_PhoneNumber" />
+                <Param Name="Attributes_CustomerProfileAttributes_PostalCode" NewName="CustomerProfileAttributes_PostalCode" />
+                <Param Name="Attributes_CustomerProfileAttributes_ProfileARN" NewName="CustomerProfileAttributes_ProfileARN" />
+                <Param Name="Attributes_CustomerProfileAttributes_ProfileId" NewName="CustomerProfileAttributes_ProfileId" />
+                <Param Name="Attributes_CustomerProfileAttributes_Province" NewName="CustomerProfileAttributes_Province" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingAddress1" NewName="CustomerProfileAttributes_ShippingAddress1" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingAddress2" NewName="CustomerProfileAttributes_ShippingAddress2" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingAddress3" NewName="CustomerProfileAttributes_ShippingAddress3" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingAddress4" NewName="CustomerProfileAttributes_ShippingAddress4" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingCity" NewName="CustomerProfileAttributes_ShippingCity" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingCountry" NewName="CustomerProfileAttributes_ShippingCountry" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingCounty" NewName="CustomerProfileAttributes_ShippingCounty" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingPostalCode" NewName="CustomerProfileAttributes_ShippingPostalCode" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingProvince" NewName="CustomerProfileAttributes_ShippingProvince" />
+                <Param Name="Attributes_CustomerProfileAttributes_ShippingState" NewName="CustomerProfileAttributes_ShippingState" />
+                <Param Name="Attributes_CustomerProfileAttributes_State" NewName="CustomerProfileAttributes_State" />
+                <Param Name="Attributes_SystemAttributes_CustomerEndpoint_Address" NewName="CustomerEndpoint_Address" />
+                <Param Name="Attributes_SystemAttributes_Name" NewName="SystemAttributes_Name" />
+                <Param Name="Attributes_SystemAttributes_SystemEndpoint_Address" NewName="SystemEndpoint_Address" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Retrieve" OutputProperty="Results" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="AssistantId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="RetrievalConfiguration_Filter_AndAll" NewName="Filter_AndAll" />
+                <Param Name="RetrievalConfiguration_Filter_Equals_Key" NewName="Equals_Key" />
+                <Param Name="RetrievalConfiguration_Filter_Equals_Value" NewName="Equals_Value" />
+                <Param Name="RetrievalConfiguration_Filter_GreaterThan_Key" NewName="GreaterThan_Key" />
+                <Param Name="RetrievalConfiguration_Filter_GreaterThan_Value" NewName="GreaterThan_Value" />
+                <Param Name="RetrievalConfiguration_Filter_GreaterThanOrEquals_Key" NewName="GreaterThanOrEquals_Key" />
+                <Param Name="RetrievalConfiguration_Filter_GreaterThanOrEquals_Value" NewName="GreaterThanOrEquals_Value" />
+                <Param Name="RetrievalConfiguration_Filter_In_Key" NewName="In_Key" />
+                <Param Name="RetrievalConfiguration_Filter_In_Value" NewName="In_Value" />
+                <Param Name="RetrievalConfiguration_Filter_LessThan_Key" NewName="LessThan_Key" />
+                <Param Name="RetrievalConfiguration_Filter_LessThan_Value" NewName="LessThan_Value" />
+                <Param Name="RetrievalConfiguration_Filter_LessThanOrEquals_Key" NewName="LessThanOrEquals_Key" />
+                <Param Name="RetrievalConfiguration_Filter_LessThanOrEquals_Value" NewName="LessThanOrEquals_Value" />
+                <Param Name="RetrievalConfiguration_Filter_ListContains_Key" NewName="ListContains_Key" />
+                <Param Name="RetrievalConfiguration_Filter_ListContains_Value" NewName="ListContains_Value" />
+                <Param Name="RetrievalConfiguration_Filter_NotEquals_Key" NewName="NotEquals_Key" />
+                <Param Name="RetrievalConfiguration_Filter_NotEquals_Value" NewName="NotEquals_Value" />
+                <Param Name="RetrievalConfiguration_Filter_NotIn_Key" NewName="NotIn_Key" />
+                <Param Name="RetrievalConfiguration_Filter_NotIn_Value" NewName="NotIn_Value" />
+                <Param Name="RetrievalConfiguration_Filter_OrAll" NewName="Filter_OrAll" />
+                <Param Name="RetrievalConfiguration_Filter_StartsWith_Key" NewName="StartsWith_Key" />
+                <Param Name="RetrievalConfiguration_Filter_StartsWith_Value" NewName="StartsWith_Value" />
+                <Param Name="RetrievalConfiguration_Filter_StringContains_Key" NewName="StringContains_Key" />
+                <Param Name="RetrievalConfiguration_Filter_StringContains_Value" NewName="StringContains_Value" />
+                <Param Name="RetrievalConfiguration_KnowledgeSource_AssistantAssociationIds" NewName="KnowledgeSource_AssistantAssociationId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchContent" OutputProperty="ContentSummaries" Verb="Search" Noun="Content" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -326,11 +588,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchMessageTemplates" OutputProperty="Results" Verb="Search" Noun="MessageTemplate" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchExpression_OrderOnField_Name" NewName="OrderOnField_Name" />
+                <Param Name="SearchExpression_OrderOnField_Order" NewName="OrderOnField_Order" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchQuickResponses" OutputProperty="Results" Verb="Search" Noun="QuickResponse" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchExpression_OrderOnField_Name" NewName="OrderOnField_Name" />
+                <Param Name="SearchExpression_OrderOnField_Order" NewName="OrderOnField_Order" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchSessions" OutputProperty="SessionSummaries" Verb="Search" Noun="Session" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -338,7 +606,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Message_Value_Text_AiGuardrailAssessment_Blocked" NewName="AiGuardrailAssessment_Blocked" />
+                <Param Name="Message_Value_Text_Citations" NewName="Text_Citation" />
+                <Param Name="Message_Value_Text_Value" NewName="Text_Value" />
+                <Param Name="Message_Value_ToolUseResult_InputSchema" NewName="ToolUseResult_InputSchema" />
+                <Param Name="Message_Value_ToolUseResult_ToolName" NewName="ToolUseResult_ToolName" />
+                <Param Name="Message_Value_ToolUseResult_ToolResult" NewName="ToolUseResult_ToolResult" />
+                <Param Name="Message_Value_ToolUseResult_ToolUseId" NewName="ToolUseResult_ToolUseId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartContentUpload" OutputProperty="*" Verb="Start" Noun="ContentUpload" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -346,7 +622,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartImportJob" OutputProperty="ImportJob" Verb="Start" Noun="ImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExternalSourceConfiguration_Configuration_ConnectConfiguration_InstanceId" NewName="ConnectConfiguration_InstanceId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -358,7 +636,44 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAIAgent" OutputProperty="AiAgent" Verb="Update" Noun="AIAgent" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId" NewName="AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId" NewName="AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_AssociationConfigurations" NewName="AnswerRecommendationAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId" NewName="AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_Locale" NewName="AnswerRecommendationAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId" NewName="AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId" />
+                <Param Name="Configuration_AnswerRecommendationAIAgentConfiguration_SuggestedMessages" NewName="AnswerRecommendationAIAgentConfiguration_SuggestedMessage" />
+                <Param Name="Configuration_CaseSummarizationAIAgentConfiguration_CaseSummarizationAIGuardrailId" NewName="CaseSummarizationAIAgentConfiguration_CaseSummarizationAIGuardrailId" />
+                <Param Name="Configuration_CaseSummarizationAIAgentConfiguration_CaseSummarizationAIPromptId" NewName="CaseSummarizationAIAgentConfiguration_CaseSummarizationAIPromptId" />
+                <Param Name="Configuration_CaseSummarizationAIAgentConfiguration_Locale" NewName="CaseSummarizationAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_EmailGenerativeAnswerAIAgentConfiguration_AssociationConfigurations" NewName="EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId" NewName="EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId" />
+                <Param Name="Configuration_EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId" NewName="EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId" />
+                <Param Name="Configuration_EmailGenerativeAnswerAIAgentConfiguration_Locale" NewName="EmailGenerativeAnswerAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId" NewName="EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId" />
+                <Param Name="Configuration_EmailOverviewAIAgentConfiguration_Locale" NewName="EmailOverviewAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_EmailResponseAIAgentConfiguration_AssociationConfigurations" NewName="EmailResponseAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId" NewName="EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId" />
+                <Param Name="Configuration_EmailResponseAIAgentConfiguration_EmailResponseAIPromptId" NewName="EmailResponseAIAgentConfiguration_EmailResponseAIPromptId" />
+                <Param Name="Configuration_EmailResponseAIAgentConfiguration_Locale" NewName="EmailResponseAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId" NewName="ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId" />
+                <Param Name="Configuration_ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId" NewName="ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId" />
+                <Param Name="Configuration_ManualSearchAIAgentConfiguration_AssociationConfigurations" NewName="ManualSearchAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_ManualSearchAIAgentConfiguration_Locale" NewName="ManualSearchAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_NoteTakingAIAgentConfiguration_Locale" NewName="NoteTakingAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_NoteTakingAIAgentConfiguration_NoteTakingAIGuardrailId" NewName="NoteTakingAIAgentConfiguration_NoteTakingAIGuardrailId" />
+                <Param Name="Configuration_NoteTakingAIAgentConfiguration_NoteTakingAIPromptId" NewName="NoteTakingAIAgentConfiguration_NoteTakingAIPromptId" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_ConnectInstanceArn" NewName="OrchestrationAIAgentConfiguration_ConnectInstanceArn" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_Locale" NewName="OrchestrationAIAgentConfiguration_Locale" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_OrchestrationAIGuardrailId" NewName="OrchestrationAIAgentConfiguration_OrchestrationAIGuardrailId" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_OrchestrationAIPromptId" NewName="OrchestrationAIAgentConfiguration_OrchestrationAIPromptId" />
+                <Param Name="Configuration_OrchestrationAIAgentConfiguration_ToolConfigurations" NewName="OrchestrationAIAgentConfiguration_ToolConfiguration" />
+                <Param Name="Configuration_SelfServiceAIAgentConfiguration_AssociationConfigurations" NewName="SelfServiceAIAgentConfiguration_AssociationConfiguration" />
+                <Param Name="Configuration_SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId" NewName="SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId" />
+                <Param Name="Configuration_SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId" NewName="SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId" />
+                <Param Name="Configuration_SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId" NewName="SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAIGuardrail" OutputProperty="AiGuardrail" Verb="Update" Noun="AIGuardrail" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -366,7 +681,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAIPrompt" OutputProperty="AiPrompt" Verb="Update" Noun="AIPrompt" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InferenceConfiguration_TextAIPromptInferenceConfiguration_MaxTokensToSample" NewName="TextAIPromptInferenceConfiguration_MaxTokensToSample" />
+                <Param Name="InferenceConfiguration_TextAIPromptInferenceConfiguration_Temperature" NewName="TextAIPromptInferenceConfiguration_Temperature" />
+                <Param Name="InferenceConfiguration_TextAIPromptInferenceConfiguration_TopK" NewName="TextAIPromptInferenceConfiguration_TopK" />
+                <Param Name="InferenceConfiguration_TextAIPromptInferenceConfiguration_TopP" NewName="TextAIPromptInferenceConfiguration_TopP" />
+                <Param Name="TemplateConfiguration_TextFullAIPromptEditTemplateConfiguration_Text" NewName="TextFullAIPromptEditTemplateConfiguration_Text" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAssistantAIAgent" OutputProperty="Assistant" Verb="Update" Noun="AssistantAIAgent" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -393,6 +714,102 @@
                 <Param Name="Content_Push_Apns_RawContent_Content" NewName="Content_Push_Apns_RawContent_Content" />
                 <Param Name="Content_Push_Baidu_RawContent_Content" NewName="Content_Push_Baidu_RawContent_Content" />
                 <Param Name="Content_Push_Fcm_RawContent_Content" NewName="Content_Push_Fcm_RawContent_Content" />
+                <Param Name="Content_Email_Body_Html_Content" NewName="Html_Content" />
+                <Param Name="Content_Email_Headers" NewName="Email_Header" />
+                <Param Name="Content_Email_Subject" NewName="Email_Subject" />
+                <Param Name="Content_Push_Adm_Action" NewName="Adm_Action" />
+                <Param Name="Content_Push_Adm_ImageIconUrl" NewName="Adm_ImageIconUrl" />
+                <Param Name="Content_Push_Adm_ImageUrl" NewName="Adm_ImageUrl" />
+                <Param Name="Content_Push_Adm_SmallImageIconUrl" NewName="Adm_SmallImageIconUrl" />
+                <Param Name="Content_Push_Adm_Sound" NewName="Adm_Sound" />
+                <Param Name="Content_Push_Adm_Title" NewName="Adm_Title" />
+                <Param Name="Content_Push_Adm_Url" NewName="Adm_Url" />
+                <Param Name="Content_Push_Apns_Action" NewName="Apns_Action" />
+                <Param Name="Content_Push_Apns_MediaUrl" NewName="Apns_MediaUrl" />
+                <Param Name="Content_Push_Apns_Sound" NewName="Apns_Sound" />
+                <Param Name="Content_Push_Apns_Title" NewName="Apns_Title" />
+                <Param Name="Content_Push_Apns_Url" NewName="Apns_Url" />
+                <Param Name="Content_Push_Baidu_Action" NewName="Baidu_Action" />
+                <Param Name="Content_Push_Baidu_ImageIconUrl" NewName="Baidu_ImageIconUrl" />
+                <Param Name="Content_Push_Baidu_ImageUrl" NewName="Baidu_ImageUrl" />
+                <Param Name="Content_Push_Baidu_SmallImageIconUrl" NewName="Baidu_SmallImageIconUrl" />
+                <Param Name="Content_Push_Baidu_Sound" NewName="Baidu_Sound" />
+                <Param Name="Content_Push_Baidu_Title" NewName="Baidu_Title" />
+                <Param Name="Content_Push_Baidu_Url" NewName="Baidu_Url" />
+                <Param Name="Content_Push_Fcm_Action" NewName="Fcm_Action" />
+                <Param Name="Content_Push_Fcm_ImageIconUrl" NewName="Fcm_ImageIconUrl" />
+                <Param Name="Content_Push_Fcm_ImageUrl" NewName="Fcm_ImageUrl" />
+                <Param Name="Content_Push_Fcm_SmallImageIconUrl" NewName="Fcm_SmallImageIconUrl" />
+                <Param Name="Content_Push_Fcm_Sound" NewName="Fcm_Sound" />
+                <Param Name="Content_Push_Fcm_Title" NewName="Fcm_Title" />
+                <Param Name="Content_Push_Fcm_Url" NewName="Fcm_Url" />
+                <Param Name="Content_WhatsApp_Data" NewName="WhatsApp_Data" />
+                <Param Name="DefaultAttributes_AgentAttributes_FirstName" NewName="AgentAttributes_FirstName" />
+                <Param Name="DefaultAttributes_AgentAttributes_LastName" NewName="AgentAttributes_LastName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_AccountNumber" NewName="CustomerProfileAttributes_AccountNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_AdditionalInformation" NewName="CustomerProfileAttributes_AdditionalInformation" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Address1" NewName="CustomerProfileAttributes_Address1" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Address2" NewName="CustomerProfileAttributes_Address2" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Address3" NewName="CustomerProfileAttributes_Address3" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Address4" NewName="CustomerProfileAttributes_Address4" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingAddress1" NewName="CustomerProfileAttributes_BillingAddress1" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingAddress2" NewName="CustomerProfileAttributes_BillingAddress2" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingAddress3" NewName="CustomerProfileAttributes_BillingAddress3" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingAddress4" NewName="CustomerProfileAttributes_BillingAddress4" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingCity" NewName="CustomerProfileAttributes_BillingCity" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingCountry" NewName="CustomerProfileAttributes_BillingCountry" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingCounty" NewName="CustomerProfileAttributes_BillingCounty" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingPostalCode" NewName="CustomerProfileAttributes_BillingPostalCode" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingProvince" NewName="CustomerProfileAttributes_BillingProvince" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BillingState" NewName="CustomerProfileAttributes_BillingState" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BirthDate" NewName="CustomerProfileAttributes_BirthDate" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BusinessEmailAddress" NewName="CustomerProfileAttributes_BusinessEmailAddress" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BusinessName" NewName="CustomerProfileAttributes_BusinessName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_BusinessPhoneNumber" NewName="CustomerProfileAttributes_BusinessPhoneNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_City" NewName="CustomerProfileAttributes_City" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Country" NewName="CustomerProfileAttributes_Country" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_County" NewName="CustomerProfileAttributes_County" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Custom" NewName="CustomerProfileAttributes_Custom" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_EmailAddress" NewName="CustomerProfileAttributes_EmailAddress" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_FirstName" NewName="CustomerProfileAttributes_FirstName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Gender" NewName="CustomerProfileAttributes_Gender" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_HomePhoneNumber" NewName="CustomerProfileAttributes_HomePhoneNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_LastName" NewName="CustomerProfileAttributes_LastName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingAddress1" NewName="CustomerProfileAttributes_MailingAddress1" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingAddress2" NewName="CustomerProfileAttributes_MailingAddress2" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingAddress3" NewName="CustomerProfileAttributes_MailingAddress3" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingAddress4" NewName="CustomerProfileAttributes_MailingAddress4" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingCity" NewName="CustomerProfileAttributes_MailingCity" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingCountry" NewName="CustomerProfileAttributes_MailingCountry" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingCounty" NewName="CustomerProfileAttributes_MailingCounty" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingPostalCode" NewName="CustomerProfileAttributes_MailingPostalCode" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingProvince" NewName="CustomerProfileAttributes_MailingProvince" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MailingState" NewName="CustomerProfileAttributes_MailingState" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MiddleName" NewName="CustomerProfileAttributes_MiddleName" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_MobilePhoneNumber" NewName="CustomerProfileAttributes_MobilePhoneNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_PartyType" NewName="CustomerProfileAttributes_PartyType" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_PhoneNumber" NewName="CustomerProfileAttributes_PhoneNumber" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_PostalCode" NewName="CustomerProfileAttributes_PostalCode" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ProfileARN" NewName="CustomerProfileAttributes_ProfileARN" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ProfileId" NewName="CustomerProfileAttributes_ProfileId" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_Province" NewName="CustomerProfileAttributes_Province" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingAddress1" NewName="CustomerProfileAttributes_ShippingAddress1" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingAddress2" NewName="CustomerProfileAttributes_ShippingAddress2" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingAddress3" NewName="CustomerProfileAttributes_ShippingAddress3" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingAddress4" NewName="CustomerProfileAttributes_ShippingAddress4" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingCity" NewName="CustomerProfileAttributes_ShippingCity" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingCountry" NewName="CustomerProfileAttributes_ShippingCountry" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingCounty" NewName="CustomerProfileAttributes_ShippingCounty" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingPostalCode" NewName="CustomerProfileAttributes_ShippingPostalCode" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingProvince" NewName="CustomerProfileAttributes_ShippingProvince" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_ShippingState" NewName="CustomerProfileAttributes_ShippingState" />
+                <Param Name="DefaultAttributes_CustomerProfileAttributes_State" NewName="CustomerProfileAttributes_State" />
+                <Param Name="DefaultAttributes_SystemAttributes_CustomerEndpoint_Address" NewName="CustomerEndpoint_Address" />
+                <Param Name="DefaultAttributes_SystemAttributes_Name" NewName="SystemAttributes_Name" />
+                <Param Name="DefaultAttributes_SystemAttributes_SystemEndpoint_Address" NewName="SystemEndpoint_Address" />
+                <Param Name="SourceConfiguration_WhatsApp_BusinessAccountId" NewName="WhatsApp_BusinessAccountId" />
+                <Param Name="SourceConfiguration_WhatsApp_Components" NewName="WhatsApp_Component" />
+                <Param Name="SourceConfiguration_WhatsApp_TemplateId" NewName="WhatsApp_TemplateId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -405,7 +822,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSession" OutputProperty="Session" Verb="Update" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TagFilter_TagCondition_Key" NewName="TagCondition_Key" />
+                <Param Name="TagFilter_TagCondition_Value" NewName="TagCondition_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSessionData" OutputProperty="*" Verb="Update" Noun="SessionData" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">

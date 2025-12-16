@@ -57,6 +57,12 @@
                 <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_KeyId" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigKeyId" />
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_EncryptionType" NewName="StorageConfigS3ConfigEncryptionConfigEncryptionType" />
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_KeyId" NewName="StorageConfigS3ConfigEncryptionConfigKeyId" />
+                <Param Name="StorageConfig_KinesisFirehoseConfig_FirehoseArn" NewName="KinesisFirehoseConfig_FirehoseArn" />
+                <Param Name="StorageConfig_KinesisStreamConfig_StreamArn" NewName="KinesisStreamConfig_StreamArn" />
+                <Param Name="StorageConfig_KinesisVideoStreamConfig_Prefix" NewName="KinesisVideoStreamConfig_Prefix" />
+                <Param Name="StorageConfig_KinesisVideoStreamConfig_RetentionPeriodHours" NewName="KinesisVideoStreamConfig_RetentionPeriodHour" />
+                <Param Name="StorageConfig_S3Config_BucketName" NewName="S3Config_BucketName" />
+                <Param Name="StorageConfig_S3Config_BucketPrefix" NewName="S3Config_BucketPrefix" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,7 +183,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataTableAttribute" OutputProperty="*" Verb="New" Noun="DataTableAttribute" ShouldProcessTarget="DataTableId,InstanceId,Name" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Validation_Enum_Strict" NewName="Enum_Strict" />
+                <Param Name="Validation_Enum_Values" NewName="Enum_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEmailAddress" OutputProperty="*" Verb="New" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -205,7 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateParticipant" OutputProperty="*" Verb="New" Noun="Participant" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ParticipantDetails_ParticipantCapabilities_ScreenShare" NewName="ParticipantCapabilities_ScreenShare" />
+                <Param Name="ParticipantDetails_ParticipantCapabilities_Video" NewName="ParticipantCapabilities_Video" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePersistentContactAssociation" OutputProperty="ContinuedFromContactId" Verb="New" Noun="PersistentContactAssociation" ShouldProcessTarget="InitialContactId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -229,7 +241,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateQuickConnect" OutputProperty="*" Verb="New" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="QuickConnectConfig_FlowConfig_ContactFlowId" NewName="FlowConfig_ContactFlowId" />
+                <Param Name="QuickConnectConfig_PhoneConfig_PhoneNumber" NewName="PhoneConfig_PhoneNumber" />
+                <Param Name="QuickConnectConfig_QueueConfig_ContactFlowId" NewName="QueueConfig_ContactFlowId" />
+                <Param Name="QuickConnectConfig_QueueConfig_QueueId" NewName="QueueConfig_QueueId" />
+                <Param Name="QuickConnectConfig_UserConfig_ContactFlowId" NewName="UserConfig_ContactFlowId" />
+                <Param Name="QuickConnectConfig_UserConfig_UserId" NewName="UserConfig_UserId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRoutingProfile" OutputProperty="*" Verb="New" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -241,7 +260,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSecurityProfile" OutputProperty="*" Verb="New" Noun="SecurityProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GranularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValues" NewName="PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTaskTemplate" OutputProperty="*" Verb="New" Noun="TaskTemplate" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -678,7 +699,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCurrentUserData" OutputProperty="UserDataList" Verb="Get" Noun="CurrentUserData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filters_ContactFilter_ContactStates" NewName="ContactFilter_ContactState" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEffectiveHoursOfOperations" OutputProperty="*" Verb="Get" Noun="EffectiveHoursOfOperation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -1001,6 +1024,11 @@
                 <Param Name="SearchFilter_AttributeFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_AttributeFilter_TagCondition_TagConditionOperator" Alias="SF_AttributeFilterTagCondition_TagConditionOperator" />
                 <Param Name="SearchFilter_AttributeFilter_TagCondition_TagKey" NewName="SearchFilter_AttributeFilter_TagCondition_TagKey" Alias="SF_AttributeFilter_TagCondition_TagKey" />
                 <Param Name="SearchFilter_AttributeFilter_TagCondition_TagValue" NewName="SearchFilter_AttributeFilter_TagCondition_TagValue" Alias="SF_AttributeFilter_TagCondition_TagValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_AttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_AttributeFilter_OrConditions" NewName="AttributeFilter_OrCondition" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1009,11 +1037,41 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchContactEvaluations" OutputProperty="*" Verb="Search" Noun="ContactEvaluation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_BooleanCondition_ComparisonType" NewName="BooleanCondition_ComparisonType" />
+                <Param Name="SearchCriteria_BooleanCondition_FieldName" NewName="BooleanCondition_FieldName" />
+                <Param Name="SearchCriteria_DateTimeCondition_ComparisonType" NewName="DateTimeCondition_ComparisonType" />
+                <Param Name="SearchCriteria_DateTimeCondition_FieldName" NewName="DateTimeCondition_FieldName" />
+                <Param Name="SearchCriteria_DateTimeCondition_MaxValue" NewName="DateTimeCondition_MaxValue" />
+                <Param Name="SearchCriteria_DateTimeCondition_MinValue" NewName="DateTimeCondition_MinValue" />
+                <Param Name="SearchCriteria_DecimalCondition_ComparisonType" NewName="DecimalCondition_ComparisonType" />
+                <Param Name="SearchCriteria_DecimalCondition_FieldName" NewName="DecimalCondition_FieldName" />
+                <Param Name="SearchCriteria_DecimalCondition_MaxValue" NewName="DecimalCondition_MaxValue" />
+                <Param Name="SearchCriteria_DecimalCondition_MinValue" NewName="DecimalCondition_MinValue" />
+                <Param Name="SearchCriteria_NumberCondition_ComparisonType" NewName="NumberCondition_ComparisonType" />
+                <Param Name="SearchCriteria_NumberCondition_FieldName" NewName="NumberCondition_FieldName" />
+                <Param Name="SearchCriteria_NumberCondition_MaxValue" NewName="NumberCondition_MaxValue" />
+                <Param Name="SearchCriteria_NumberCondition_MinValue" NewName="NumberCondition_MinValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_AttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_AttributeFilter_OrConditions" NewName="AttributeFilter_OrCondition" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchContactFlowModules" OutputProperty="*" Verb="Search" Noun="ContactFlowModule" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchContactFlows" OutputProperty="*" Verb="Search" Noun="ContactFlow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1024,27 +1082,96 @@
                 <Param Name="SearchFilter_FlowAttributeFilter_TagCondition_TagKey" NewName="SearchFilter_FlowAttributeFilter_TagCondition_TagKey" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="TagCondition_TagValue" />
                 <Param Name="SearchFilter_FlowAttributeFilter_TagCondition_TagValue" NewName="SearchFilter_FlowAttributeFilter_TagCondition_TagValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_FlowAttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_FlowAttributeFilter_OrConditions" NewName="FlowAttributeFilter_OrCondition" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchContacts" OutputProperty="*" Verb="Search" Noun="Contact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_AdditionalTimeRange_Criteria" NewName="AdditionalTimeRange_Criterion" />
+                <Param Name="SearchCriteria_AdditionalTimeRange_MatchType" NewName="AdditionalTimeRange_MatchType" />
+                <Param Name="SearchCriteria_AgentHierarchyGroups_L1Ids" NewName="AgentHierarchyGroups_L1Id" />
+                <Param Name="SearchCriteria_AgentHierarchyGroups_L2Ids" NewName="AgentHierarchyGroups_L2Id" />
+                <Param Name="SearchCriteria_AgentHierarchyGroups_L3Ids" NewName="AgentHierarchyGroups_L3Id" />
+                <Param Name="SearchCriteria_AgentHierarchyGroups_L4Ids" NewName="AgentHierarchyGroups_L4Id" />
+                <Param Name="SearchCriteria_AgentHierarchyGroups_L5Ids" NewName="AgentHierarchyGroups_L5Id" />
+                <Param Name="SearchCriteria_ContactAnalysis_Transcript_Criteria" NewName="Transcript_Criterion" />
+                <Param Name="SearchCriteria_ContactAnalysis_Transcript_MatchType" NewName="Transcript_MatchType" />
+                <Param Name="SearchCriteria_Name_MatchType" NewName="Name_MatchType" />
+                <Param Name="SearchCriteria_Name_SearchText" NewName="Name_SearchText" />
+                <Param Name="SearchCriteria_RoutingCriteria_Steps" NewName="RoutingCriteria_Step" />
+                <Param Name="SearchCriteria_SearchableContactAttributes_Criteria" NewName="SearchableContactAttributes_Criterion" />
+                <Param Name="SearchCriteria_SearchableContactAttributes_MatchType" NewName="SearchableContactAttributes_MatchType" />
+                <Param Name="SearchCriteria_SearchableSegmentAttributes_Criteria" NewName="SearchableSegmentAttributes_Criterion" />
+                <Param Name="SearchCriteria_SearchableSegmentAttributes_MatchType" NewName="SearchableSegmentAttributes_MatchType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchDataTables" OutputProperty="*" Verb="Search" Noun="DataTable" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_AttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_AttributeFilter_OrConditions" NewName="AttributeFilter_OrCondition" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchEmailAddresses" OutputProperty="*" Verb="Search" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchEvaluationForms" OutputProperty="*" Verb="Search" Noun="EvaluationForm" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_BooleanCondition_ComparisonType" NewName="BooleanCondition_ComparisonType" />
+                <Param Name="SearchCriteria_BooleanCondition_FieldName" NewName="BooleanCondition_FieldName" />
+                <Param Name="SearchCriteria_DateTimeCondition_ComparisonType" NewName="DateTimeCondition_ComparisonType" />
+                <Param Name="SearchCriteria_DateTimeCondition_FieldName" NewName="DateTimeCondition_FieldName" />
+                <Param Name="SearchCriteria_DateTimeCondition_MaxValue" NewName="DateTimeCondition_MaxValue" />
+                <Param Name="SearchCriteria_DateTimeCondition_MinValue" NewName="DateTimeCondition_MinValue" />
+                <Param Name="SearchCriteria_NumberCondition_ComparisonType" NewName="NumberCondition_ComparisonType" />
+                <Param Name="SearchCriteria_NumberCondition_FieldName" NewName="NumberCondition_FieldName" />
+                <Param Name="SearchCriteria_NumberCondition_MaxValue" NewName="NumberCondition_MaxValue" />
+                <Param Name="SearchCriteria_NumberCondition_MinValue" NewName="NumberCondition_MinValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_AttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_AttributeFilter_OrConditions" NewName="AttributeFilter_OrCondition" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchHoursOfOperationOverrides" OutputProperty="*" Verb="Search" Noun="HoursOfOperationOverride" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_DateCondition_ComparisonType" NewName="DateCondition_ComparisonType" />
+                <Param Name="SearchCriteria_DateCondition_FieldName" NewName="DateCondition_FieldName" />
+                <Param Name="SearchCriteria_DateCondition_Value" NewName="DateCondition_Value" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchHoursOfOperations" OutputProperty="*" Verb="Search" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1055,11 +1182,20 @@
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchPredefinedAttributes" OutputProperty="*" Verb="Search" Noun="PredefinedAttribute" IgnoreSupportsShouldProcess="true" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchPrompts" OutputProperty="*" Verb="Search" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1070,6 +1206,11 @@
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1081,6 +1222,11 @@
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1092,11 +1238,21 @@
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchResourceTags" OutputProperty="Tags" Verb="Search" Noun="ResourceTag" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_TagSearchCondition_TagKey" NewName="TagSearchCondition_TagKey" />
+                <Param Name="SearchCriteria_TagSearchCondition_TagKeyComparisonType" NewName="TagSearchCondition_TagKeyComparisonType" />
+                <Param Name="SearchCriteria_TagSearchCondition_TagValue" NewName="TagSearchCondition_TagValue" />
+                <Param Name="SearchCriteria_TagSearchCondition_TagValueComparisonType" NewName="TagSearchCondition_TagValueComparisonType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchRoutingProfiles" OutputProperty="*" Verb="Search" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1107,6 +1263,11 @@
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1118,6 +1279,11 @@
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1131,6 +1297,11 @@
                 <Param Name="SearchFilter_AttributeFilter_TagCondition_TagValue" NewName="SearchFilter_AttributeFilter_TagCondition_TagValue" Alias="SF_AttributeFilter_TagCondition_TagValue" />
                 <Param Name="SearchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType" NewName="SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType" Alias="SF_HierarchyGroupCondition_HierarchyGroupMatchType" />
                 <Param Name="SearchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_Value" NewName="SearchFilter_HierarchyGroupCondition_Value" Alias="SF_HierarchyGroupCondition_Value" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_AttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_AttributeFilter_OrConditions" NewName="AttributeFilter_OrCondition" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1146,13 +1317,34 @@
                 <Param Name="SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType" NewName="SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType" Alias="SF_HierarchyGroupCondition_HierarchyGroupMatchType" />
                 <Param Name="SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value" NewName="SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value" Alias="SF_UA_HierarchyGroupCondition_Value" />
                 <Param Name="SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType" NewName="SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType" Alias="SF_UA_HierarchyGroupCondition_HierarchyGroupMatchType" />
+                <Param Name="SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType" NewName="HierarchyGroupCondition_HierarchyGroupMatchType" />
+                <Param Name="SearchCriteria_HierarchyGroupCondition_Value" NewName="HierarchyGroupCondition_Value" />
+                <Param Name="SearchCriteria_ListCondition_Conditions" NewName="ListCondition_Condition" />
+                <Param Name="SearchCriteria_ListCondition_TargetListType" NewName="ListCondition_TargetListType" />
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
+                <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
+                <Param Name="SearchFilter_UserAttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_UserAttributeFilter_OrConditions" NewName="UserAttributeFilter_OrCondition" />
+                <Param Name="SearchFilter_UserAttributeFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_UserAttributeFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
             </Params>
             <TypesNotToFlatten>
                 <Type>Amazon.Connect.Model.SearchUsersRequest</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="SearchViews" OutputProperty="*" Verb="Search" Noun="View" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_AttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_AttributeFilter_OrConditions" NewName="AttributeFilter_OrCondition" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchVocabularies" OutputProperty="VocabularySummaryList" Verb="Search" Noun="Vocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1160,19 +1352,46 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchWorkspaceAssociations" OutputProperty="*" Verb="Search" Noun="WorkspaceAssociation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_AttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_AttributeFilter_OrConditions" NewName="AttributeFilter_OrCondition" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchWorkspaces" OutputProperty="*" Verb="Search" Noun="Workspace" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="SearchCriteria_StringCondition_ComparisonType" NewName="StringCondition_ComparisonType" />
+                <Param Name="SearchCriteria_StringCondition_FieldName" NewName="StringCondition_FieldName" />
+                <Param Name="SearchCriteria_StringCondition_Value" NewName="StringCondition_Value" />
+                <Param Name="SearchFilter_AttributeFilter_AndCondition_TagConditions" NewName="AndCondition_TagCondition" />
+                <Param Name="SearchFilter_AttributeFilter_OrConditions" NewName="AttributeFilter_OrCondition" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagKey" NewName="TagCondition_TagKey" />
+                <Param Name="SearchFilter_AttributeFilter_TagCondition_TagValue" NewName="TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendChatIntegrationEvent" OutputProperty="*" Verb="Send" Noun="ChatIntegrationEvent" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="DestinationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NewSessionDetails_ParticipantDetails_DisplayName" NewName="ParticipantDetails_DisplayName" />
+                <Param Name="NewSessionDetails_StreamingConfiguration_StreamingEndpointArn" NewName="StreamingConfiguration_StreamingEndpointArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendOutboundEmail" Verb="Send" Noun="OutboundEmail" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EmailMessage_RawMessage_Body" NewName="RawMessage_Body" />
+                <Param Name="EmailMessage_RawMessage_ContentType" NewName="RawMessage_ContentType" />
+                <Param Name="EmailMessage_RawMessage_Subject" NewName="RawMessage_Subject" />
+                <Param Name="EmailMessage_TemplatedMessageConfig_KnowledgeBaseId" NewName="TemplatedMessageConfig_KnowledgeBaseId" />
+                <Param Name="EmailMessage_TemplatedMessageConfig_MessageTemplateId" NewName="TemplatedMessageConfig_MessageTemplateId" />
+                <Param Name="EmailMessage_TemplatedMessageConfig_TemplateAttributes_CustomAttributes" NewName="TemplateAttributes_CustomAttribute" />
+                <Param Name="EmailMessage_TemplatedMessageConfig_TemplateAttributes_CustomerProfileAttributes" NewName="TemplateAttributes_CustomerProfileAttribute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAttachedFileUpload" OutputProperty="*" Verb="Start" Noun="AttachedFileUpload" ShouldProcessTarget="AssociatedResourceArn" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1200,19 +1419,38 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartEmailContact" OutputProperty="ContactId" Verb="Start" Noun="EmailContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EmailMessage_RawMessage_Body" NewName="RawMessage_Body" />
+                <Param Name="EmailMessage_RawMessage_ContentType" NewName="RawMessage_ContentType" />
+                <Param Name="EmailMessage_RawMessage_Headers" NewName="RawMessage_Header" />
+                <Param Name="EmailMessage_RawMessage_Subject" NewName="RawMessage_Subject" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartOutboundChatContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundChatContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InitialTemplatedSystemMessage_TemplateAttributes_CustomAttributes" NewName="TemplateAttributes_CustomAttribute" />
+                <Param Name="InitialTemplatedSystemMessage_TemplateAttributes_CustomerProfileAttributes" NewName="TemplateAttributes_CustomerProfileAttribute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartOutboundEmailContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundEmailContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EmailMessage_RawMessage_Body" NewName="RawMessage_Body" />
+                <Param Name="EmailMessage_RawMessage_ContentType" NewName="RawMessage_ContentType" />
+                <Param Name="EmailMessage_RawMessage_Subject" NewName="RawMessage_Subject" />
+                <Param Name="EmailMessage_TemplatedMessageConfig_KnowledgeBaseId" NewName="TemplatedMessageConfig_KnowledgeBaseId" />
+                <Param Name="EmailMessage_TemplatedMessageConfig_MessageTemplateId" NewName="TemplatedMessageConfig_MessageTemplateId" />
+                <Param Name="EmailMessage_TemplatedMessageConfig_TemplateAttributes_CustomAttributes" NewName="TemplateAttributes_CustomAttribute" />
+                <Param Name="EmailMessage_TemplatedMessageConfig_TemplateAttributes_CustomerProfileAttributes" NewName="TemplateAttributes_CustomerProfileAttribute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartOutboundVoiceContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundVoiceContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutboundStrategy_Config_AgentFirst_Preview_AllowedUserActions" NewName="Preview_AllowedUserAction" />
+                <Param Name="OutboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig_DurationInSeconds" NewName="PostAcceptTimeoutConfig_DurationInSecond" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartScreenSharing" Verb="Start" Noun="ScreenSharing" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1224,7 +1462,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartWebRTCContact" OutputProperty="*" Verb="Start" Noun="WebRTCContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AllowedCapabilities_Agent_ScreenShare" NewName="Agent_ScreenShare" />
+                <Param Name="AllowedCapabilities_Agent_Video" NewName="Agent_Video" />
+                <Param Name="AllowedCapabilities_Customer_ScreenShare" NewName="Customer_ScreenShare" />
+                <Param Name="AllowedCapabilities_Customer_Video" NewName="Customer_Video" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopContact" Verb="Stop" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1324,7 +1567,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataTableAttribute" OutputProperty="*" Verb="Update" Noun="DataTableAttribute" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Validation_Enum_Strict" NewName="Enum_Strict" />
+                <Param Name="Validation_Enum_Values" NewName="Enum_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataTableMetadata" OutputProperty="LockVersion" Verb="Update" Noun="DataTableMetadata" ShouldProcessTarget="DataTableId,InstanceId,Name" PipelineParameter="" NoPipelineParameter="true">
@@ -1361,6 +1607,12 @@
                 <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_KeyId" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigKeyId" />
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_EncryptionType" NewName="StorageConfigS3ConfigEncryptionConfigEncryptionType" />
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_KeyId" NewName="StorageConfigS3ConfigEncryptionConfigKeyId" />
+                <Param Name="StorageConfig_KinesisFirehoseConfig_FirehoseArn" NewName="KinesisFirehoseConfig_FirehoseArn" />
+                <Param Name="StorageConfig_KinesisStreamConfig_StreamArn" NewName="KinesisStreamConfig_StreamArn" />
+                <Param Name="StorageConfig_KinesisVideoStreamConfig_Prefix" NewName="KinesisVideoStreamConfig_Prefix" />
+                <Param Name="StorageConfig_KinesisVideoStreamConfig_RetentionPeriodHours" NewName="KinesisVideoStreamConfig_RetentionPeriodHour" />
+                <Param Name="StorageConfig_S3Config_BucketName" NewName="S3Config_BucketName" />
+                <Param Name="StorageConfig_S3Config_BucketPrefix" NewName="S3Config_BucketPrefix" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1369,7 +1621,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateParticipantRoleConfig" Verb="Update" Noun="ParticipantRoleConfig" ShouldProcessTarget="ContactId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ChannelConfiguration_Chat_ParticipantTimerConfigList" NewName="Chat_ParticipantTimerConfigList" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePhoneNumber" OutputProperty="*" Verb="Update" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1413,7 +1667,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateQuickConnectConfig" Verb="Update" Noun="QuickConnectConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="QuickConnectConfig_FlowConfig_ContactFlowId" NewName="FlowConfig_ContactFlowId" />
+                <Param Name="QuickConnectConfig_PhoneConfig_PhoneNumber" NewName="PhoneConfig_PhoneNumber" />
+                <Param Name="QuickConnectConfig_QueueConfig_ContactFlowId" NewName="QueueConfig_ContactFlowId" />
+                <Param Name="QuickConnectConfig_QueueConfig_QueueId" NewName="QueueConfig_QueueId" />
+                <Param Name="QuickConnectConfig_UserConfig_ContactFlowId" NewName="UserConfig_ContactFlowId" />
+                <Param Name="QuickConnectConfig_UserConfig_UserId" NewName="UserConfig_UserId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateQuickConnectName" Verb="Update" Noun="QuickConnectName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1445,7 +1706,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSecurityProfile" Verb="Update" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileId" PipelineParameter="SecurityProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GranularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValues" NewName="PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTaskTemplate" OutputProperty="*" Verb="Update" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1465,7 +1728,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUserHierarchyStructure" Verb="Update" Noun="UserHierarchyStructure" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HierarchyStructure_LevelFive_Name" NewName="LevelFive_Name" />
+                <Param Name="HierarchyStructure_LevelFour_Name" NewName="LevelFour_Name" />
+                <Param Name="HierarchyStructure_LevelOne_Name" NewName="LevelOne_Name" />
+                <Param Name="HierarchyStructure_LevelThree_Name" NewName="LevelThree_Name" />
+                <Param Name="HierarchyStructure_LevelTwo_Name" NewName="LevelTwo_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUserIdentityInfo" Verb="Update" Noun="UserIdentityInfo" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">

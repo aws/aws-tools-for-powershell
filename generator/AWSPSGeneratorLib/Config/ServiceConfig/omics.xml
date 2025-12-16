@@ -48,11 +48,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAnnotationStore" OutputProperty="*" Verb="New" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="StoreFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="StoreOptions_TsvStoreOptions_AnnotationType" NewName="TsvStoreOptions_AnnotationType" />
+                <Param Name="StoreOptions_TsvStoreOptions_FormatToHeader" NewName="TsvStoreOptions_FormatToHeader" />
+                <Param Name="StoreOptions_TsvStoreOptions_Schema" NewName="TsvStoreOptions_Schema" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAnnotationStoreVersion" OutputProperty="*" Verb="New" Noun="AnnotationStoreVersion" ShouldProcessTarget="VersionName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="VersionOptions_TsvVersionOptions_AnnotationType" NewName="TsvVersionOptions_AnnotationType" />
+                <Param Name="VersionOptions_TsvVersionOptions_FormatToHeader" NewName="TsvVersionOptions_FormatToHeader" />
+                <Param Name="VersionOptions_TsvVersionOptions_Schema" NewName="TsvVersionOptions_Schema" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMultipartReadSetUpload" OutputProperty="*" Verb="New" Noun="MultipartReadSetUpload" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -84,11 +92,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkflow" OutputProperty="*" Verb="New" Noun="Workflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DefinitionRepository_SourceReference_Type" NewName="SourceReference_Type" />
+                <Param Name="DefinitionRepository_SourceReference_Value" NewName="SourceReference_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkflowVersion" OutputProperty="*" Verb="New" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DefinitionRepository_SourceReference_Type" NewName="SourceReference_Type" />
+                <Param Name="DefinitionRepository_SourceReference_Value" NewName="SourceReference_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAnnotationStore" OutputProperty="Status" Verb="Remove" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -338,7 +352,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAnnotationImportJob" OutputProperty="JobId" Verb="Start" Noun="AnnotationImportJob" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FormatOptions_TsvOptions_ReadOptions_Comment" NewName="ReadOptions_Comment" />
+                <Param Name="FormatOptions_TsvOptions_ReadOptions_Encoding" NewName="ReadOptions_Encoding" />
+                <Param Name="FormatOptions_TsvOptions_ReadOptions_Escape" NewName="ReadOptions_Escape" />
+                <Param Name="FormatOptions_TsvOptions_ReadOptions_EscapeQuotes" NewName="ReadOptions_EscapeQuote" />
+                <Param Name="FormatOptions_TsvOptions_ReadOptions_Header" NewName="ReadOptions_Header" />
+                <Param Name="FormatOptions_TsvOptions_ReadOptions_LineSep" NewName="ReadOptions_LineSep" />
+                <Param Name="FormatOptions_TsvOptions_ReadOptions_Quote" NewName="ReadOptions_Quote" />
+                <Param Name="FormatOptions_TsvOptions_ReadOptions_QuoteAll" NewName="ReadOptions_QuoteAll" />
+                <Param Name="FormatOptions_TsvOptions_ReadOptions_Sep" NewName="ReadOptions_Sep" />
+                <Param Name="FormatOptions_VcfOptions_IgnoreFilterField" NewName="VcfOptions_IgnoreFilterField" />
+                <Param Name="FormatOptions_VcfOptions_IgnoreQualField" NewName="VcfOptions_IgnoreQualField" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartReadSetActivationJob" OutputProperty="*" Verb="Start" Noun="ReadSetActivationJob" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -35,7 +35,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="Project" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataDelivery_CloudWatchLogs_LogGroup" NewName="CloudWatchLogs_LogGroup" />
+                <Param Name="DataDelivery_S3Destination_Bucket" NewName="S3Destination_Bucket" />
+                <Param Name="DataDelivery_S3Destination_Prefix" NewName="S3Destination_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSegment" OutputProperty="Segment" Verb="New" Noun="Segment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">

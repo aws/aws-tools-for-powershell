@@ -50,7 +50,84 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataProvider" OutputProperty="DataProvider" Verb="New" Noun="DataProvider" ShouldProcessTarget="DataProviderName" PipelineParameter="Engine" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Settings_DocDbSettings_CertificateArn" NewName="DocDbSettings_CertificateArn" />
+                <Param Name="Settings_DocDbSettings_DatabaseName" NewName="DocDbSettings_DatabaseName" />
+                <Param Name="Settings_DocDbSettings_Port" NewName="DocDbSettings_Port" />
+                <Param Name="Settings_DocDbSettings_ServerName" NewName="DocDbSettings_ServerName" />
+                <Param Name="Settings_DocDbSettings_SslMode" NewName="DocDbSettings_SslMode" />
+                <Param Name="Settings_IbmDb2LuwSettings_CertificateArn" NewName="IbmDb2LuwSettings_CertificateArn" />
+                <Param Name="Settings_IbmDb2LuwSettings_DatabaseName" NewName="IbmDb2LuwSettings_DatabaseName" />
+                <Param Name="Settings_IbmDb2LuwSettings_Port" NewName="IbmDb2LuwSettings_Port" />
+                <Param Name="Settings_IbmDb2LuwSettings_S3AccessRoleArn" NewName="IbmDb2LuwSettings_S3AccessRoleArn" />
+                <Param Name="Settings_IbmDb2LuwSettings_S3Path" NewName="IbmDb2LuwSettings_S3Path" />
+                <Param Name="Settings_IbmDb2LuwSettings_ServerName" NewName="IbmDb2LuwSettings_ServerName" />
+                <Param Name="Settings_IbmDb2LuwSettings_SslMode" NewName="IbmDb2LuwSettings_SslMode" />
+                <Param Name="Settings_IbmDb2zOsSettings_CertificateArn" NewName="IbmDb2zOsSettings_CertificateArn" />
+                <Param Name="Settings_IbmDb2zOsSettings_DatabaseName" NewName="IbmDb2zOsSettings_DatabaseName" />
+                <Param Name="Settings_IbmDb2zOsSettings_Port" NewName="IbmDb2zOsSettings_Port" />
+                <Param Name="Settings_IbmDb2zOsSettings_S3AccessRoleArn" NewName="IbmDb2zOsSettings_S3AccessRoleArn" />
+                <Param Name="Settings_IbmDb2zOsSettings_S3Path" NewName="IbmDb2zOsSettings_S3Path" />
+                <Param Name="Settings_IbmDb2zOsSettings_ServerName" NewName="IbmDb2zOsSettings_ServerName" />
+                <Param Name="Settings_IbmDb2zOsSettings_SslMode" NewName="IbmDb2zOsSettings_SslMode" />
+                <Param Name="Settings_MariaDbSettings_CertificateArn" NewName="MariaDbSettings_CertificateArn" />
+                <Param Name="Settings_MariaDbSettings_Port" NewName="MariaDbSettings_Port" />
+                <Param Name="Settings_MariaDbSettings_S3AccessRoleArn" NewName="MariaDbSettings_S3AccessRoleArn" />
+                <Param Name="Settings_MariaDbSettings_S3Path" NewName="MariaDbSettings_S3Path" />
+                <Param Name="Settings_MariaDbSettings_ServerName" NewName="MariaDbSettings_ServerName" />
+                <Param Name="Settings_MariaDbSettings_SslMode" NewName="MariaDbSettings_SslMode" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_CertificateArn" NewName="MicrosoftSqlServerSettings_CertificateArn" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_DatabaseName" NewName="MicrosoftSqlServerSettings_DatabaseName" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_Port" NewName="MicrosoftSqlServerSettings_Port" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_S3AccessRoleArn" NewName="MicrosoftSqlServerSettings_S3AccessRoleArn" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_S3Path" NewName="MicrosoftSqlServerSettings_S3Path" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_ServerName" NewName="MicrosoftSqlServerSettings_ServerName" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_SslMode" NewName="MicrosoftSqlServerSettings_SslMode" />
+                <Param Name="Settings_MongoDbSettings_AuthMechanism" NewName="MongoDbSettings_AuthMechanism" />
+                <Param Name="Settings_MongoDbSettings_AuthSource" NewName="MongoDbSettings_AuthSource" />
+                <Param Name="Settings_MongoDbSettings_AuthType" NewName="MongoDbSettings_AuthType" />
+                <Param Name="Settings_MongoDbSettings_CertificateArn" NewName="MongoDbSettings_CertificateArn" />
+                <Param Name="Settings_MongoDbSettings_DatabaseName" NewName="MongoDbSettings_DatabaseName" />
+                <Param Name="Settings_MongoDbSettings_Port" NewName="MongoDbSettings_Port" />
+                <Param Name="Settings_MongoDbSettings_ServerName" NewName="MongoDbSettings_ServerName" />
+                <Param Name="Settings_MongoDbSettings_SslMode" NewName="MongoDbSettings_SslMode" />
+                <Param Name="Settings_MySqlSettings_CertificateArn" NewName="MySqlSettings_CertificateArn" />
+                <Param Name="Settings_MySqlSettings_Port" NewName="MySqlSettings_Port" />
+                <Param Name="Settings_MySqlSettings_S3AccessRoleArn" NewName="MySqlSettings_S3AccessRoleArn" />
+                <Param Name="Settings_MySqlSettings_S3Path" NewName="MySqlSettings_S3Path" />
+                <Param Name="Settings_MySqlSettings_ServerName" NewName="MySqlSettings_ServerName" />
+                <Param Name="Settings_MySqlSettings_SslMode" NewName="MySqlSettings_SslMode" />
+                <Param Name="Settings_OracleSettings_AsmServer" NewName="OracleSettings_AsmServer" />
+                <Param Name="Settings_OracleSettings_CertificateArn" NewName="OracleSettings_CertificateArn" />
+                <Param Name="Settings_OracleSettings_DatabaseName" NewName="OracleSettings_DatabaseName" />
+                <Param Name="Settings_OracleSettings_Port" NewName="OracleSettings_Port" />
+                <Param Name="Settings_OracleSettings_S3AccessRoleArn" NewName="OracleSettings_S3AccessRoleArn" />
+                <Param Name="Settings_OracleSettings_S3Path" NewName="OracleSettings_S3Path" />
+                <Param Name="Settings_OracleSettings_SecretsManagerOracleAsmAccessRoleArn" NewName="OracleSettings_SecretsManagerOracleAsmAccessRoleArn" />
+                <Param Name="Settings_OracleSettings_SecretsManagerOracleAsmSecretId" NewName="OracleSettings_SecretsManagerOracleAsmSecretId" />
+                <Param Name="Settings_OracleSettings_SecretsManagerSecurityDbEncryptionAccessRoleArn" NewName="OracleSettings_SecretsManagerSecurityDbEncryptionAccessRoleArn" />
+                <Param Name="Settings_OracleSettings_SecretsManagerSecurityDbEncryptionSecretId" NewName="OracleSettings_SecretsManagerSecurityDbEncryptionSecretId" />
+                <Param Name="Settings_OracleSettings_ServerName" NewName="OracleSettings_ServerName" />
+                <Param Name="Settings_OracleSettings_SslMode" NewName="OracleSettings_SslMode" />
+                <Param Name="Settings_PostgreSqlSettings_CertificateArn" NewName="PostgreSqlSettings_CertificateArn" />
+                <Param Name="Settings_PostgreSqlSettings_DatabaseName" NewName="PostgreSqlSettings_DatabaseName" />
+                <Param Name="Settings_PostgreSqlSettings_Port" NewName="PostgreSqlSettings_Port" />
+                <Param Name="Settings_PostgreSqlSettings_S3AccessRoleArn" NewName="PostgreSqlSettings_S3AccessRoleArn" />
+                <Param Name="Settings_PostgreSqlSettings_S3Path" NewName="PostgreSqlSettings_S3Path" />
+                <Param Name="Settings_PostgreSqlSettings_ServerName" NewName="PostgreSqlSettings_ServerName" />
+                <Param Name="Settings_PostgreSqlSettings_SslMode" NewName="PostgreSqlSettings_SslMode" />
+                <Param Name="Settings_RedshiftSettings_DatabaseName" NewName="RedshiftSettings_DatabaseName" />
+                <Param Name="Settings_RedshiftSettings_Port" NewName="RedshiftSettings_Port" />
+                <Param Name="Settings_RedshiftSettings_S3AccessRoleArn" NewName="RedshiftSettings_S3AccessRoleArn" />
+                <Param Name="Settings_RedshiftSettings_S3Path" NewName="RedshiftSettings_S3Path" />
+                <Param Name="Settings_RedshiftSettings_ServerName" NewName="RedshiftSettings_ServerName" />
+                <Param Name="Settings_SybaseAseSettings_CertificateArn" NewName="SybaseAseSettings_CertificateArn" />
+                <Param Name="Settings_SybaseAseSettings_DatabaseName" NewName="SybaseAseSettings_DatabaseName" />
+                <Param Name="Settings_SybaseAseSettings_EncryptPassword" NewName="SybaseAseSettings_EncryptPassword" />
+                <Param Name="Settings_SybaseAseSettings_Port" NewName="SybaseAseSettings_Port" />
+                <Param Name="Settings_SybaseAseSettings_ServerName" NewName="SybaseAseSettings_ServerName" />
+                <Param Name="Settings_SybaseAseSettings_SslMode" NewName="SybaseAseSettings_SslMode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpoint" OutputProperty="Endpoint" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointIdentifier" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -362,7 +439,84 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyDataProvider" OutputProperty="DataProvider" Verb="Edit" Noun="DataProvider" ShouldProcessTarget="DataProviderIdentifier" PipelineParameter="DataProviderIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Settings_DocDbSettings_CertificateArn" NewName="DocDbSettings_CertificateArn" />
+                <Param Name="Settings_DocDbSettings_DatabaseName" NewName="DocDbSettings_DatabaseName" />
+                <Param Name="Settings_DocDbSettings_Port" NewName="DocDbSettings_Port" />
+                <Param Name="Settings_DocDbSettings_ServerName" NewName="DocDbSettings_ServerName" />
+                <Param Name="Settings_DocDbSettings_SslMode" NewName="DocDbSettings_SslMode" />
+                <Param Name="Settings_IbmDb2LuwSettings_CertificateArn" NewName="IbmDb2LuwSettings_CertificateArn" />
+                <Param Name="Settings_IbmDb2LuwSettings_DatabaseName" NewName="IbmDb2LuwSettings_DatabaseName" />
+                <Param Name="Settings_IbmDb2LuwSettings_Port" NewName="IbmDb2LuwSettings_Port" />
+                <Param Name="Settings_IbmDb2LuwSettings_S3AccessRoleArn" NewName="IbmDb2LuwSettings_S3AccessRoleArn" />
+                <Param Name="Settings_IbmDb2LuwSettings_S3Path" NewName="IbmDb2LuwSettings_S3Path" />
+                <Param Name="Settings_IbmDb2LuwSettings_ServerName" NewName="IbmDb2LuwSettings_ServerName" />
+                <Param Name="Settings_IbmDb2LuwSettings_SslMode" NewName="IbmDb2LuwSettings_SslMode" />
+                <Param Name="Settings_IbmDb2zOsSettings_CertificateArn" NewName="IbmDb2zOsSettings_CertificateArn" />
+                <Param Name="Settings_IbmDb2zOsSettings_DatabaseName" NewName="IbmDb2zOsSettings_DatabaseName" />
+                <Param Name="Settings_IbmDb2zOsSettings_Port" NewName="IbmDb2zOsSettings_Port" />
+                <Param Name="Settings_IbmDb2zOsSettings_S3AccessRoleArn" NewName="IbmDb2zOsSettings_S3AccessRoleArn" />
+                <Param Name="Settings_IbmDb2zOsSettings_S3Path" NewName="IbmDb2zOsSettings_S3Path" />
+                <Param Name="Settings_IbmDb2zOsSettings_ServerName" NewName="IbmDb2zOsSettings_ServerName" />
+                <Param Name="Settings_IbmDb2zOsSettings_SslMode" NewName="IbmDb2zOsSettings_SslMode" />
+                <Param Name="Settings_MariaDbSettings_CertificateArn" NewName="MariaDbSettings_CertificateArn" />
+                <Param Name="Settings_MariaDbSettings_Port" NewName="MariaDbSettings_Port" />
+                <Param Name="Settings_MariaDbSettings_S3AccessRoleArn" NewName="MariaDbSettings_S3AccessRoleArn" />
+                <Param Name="Settings_MariaDbSettings_S3Path" NewName="MariaDbSettings_S3Path" />
+                <Param Name="Settings_MariaDbSettings_ServerName" NewName="MariaDbSettings_ServerName" />
+                <Param Name="Settings_MariaDbSettings_SslMode" NewName="MariaDbSettings_SslMode" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_CertificateArn" NewName="MicrosoftSqlServerSettings_CertificateArn" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_DatabaseName" NewName="MicrosoftSqlServerSettings_DatabaseName" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_Port" NewName="MicrosoftSqlServerSettings_Port" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_S3AccessRoleArn" NewName="MicrosoftSqlServerSettings_S3AccessRoleArn" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_S3Path" NewName="MicrosoftSqlServerSettings_S3Path" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_ServerName" NewName="MicrosoftSqlServerSettings_ServerName" />
+                <Param Name="Settings_MicrosoftSqlServerSettings_SslMode" NewName="MicrosoftSqlServerSettings_SslMode" />
+                <Param Name="Settings_MongoDbSettings_AuthMechanism" NewName="MongoDbSettings_AuthMechanism" />
+                <Param Name="Settings_MongoDbSettings_AuthSource" NewName="MongoDbSettings_AuthSource" />
+                <Param Name="Settings_MongoDbSettings_AuthType" NewName="MongoDbSettings_AuthType" />
+                <Param Name="Settings_MongoDbSettings_CertificateArn" NewName="MongoDbSettings_CertificateArn" />
+                <Param Name="Settings_MongoDbSettings_DatabaseName" NewName="MongoDbSettings_DatabaseName" />
+                <Param Name="Settings_MongoDbSettings_Port" NewName="MongoDbSettings_Port" />
+                <Param Name="Settings_MongoDbSettings_ServerName" NewName="MongoDbSettings_ServerName" />
+                <Param Name="Settings_MongoDbSettings_SslMode" NewName="MongoDbSettings_SslMode" />
+                <Param Name="Settings_MySqlSettings_CertificateArn" NewName="MySqlSettings_CertificateArn" />
+                <Param Name="Settings_MySqlSettings_Port" NewName="MySqlSettings_Port" />
+                <Param Name="Settings_MySqlSettings_S3AccessRoleArn" NewName="MySqlSettings_S3AccessRoleArn" />
+                <Param Name="Settings_MySqlSettings_S3Path" NewName="MySqlSettings_S3Path" />
+                <Param Name="Settings_MySqlSettings_ServerName" NewName="MySqlSettings_ServerName" />
+                <Param Name="Settings_MySqlSettings_SslMode" NewName="MySqlSettings_SslMode" />
+                <Param Name="Settings_OracleSettings_AsmServer" NewName="OracleSettings_AsmServer" />
+                <Param Name="Settings_OracleSettings_CertificateArn" NewName="OracleSettings_CertificateArn" />
+                <Param Name="Settings_OracleSettings_DatabaseName" NewName="OracleSettings_DatabaseName" />
+                <Param Name="Settings_OracleSettings_Port" NewName="OracleSettings_Port" />
+                <Param Name="Settings_OracleSettings_S3AccessRoleArn" NewName="OracleSettings_S3AccessRoleArn" />
+                <Param Name="Settings_OracleSettings_S3Path" NewName="OracleSettings_S3Path" />
+                <Param Name="Settings_OracleSettings_SecretsManagerOracleAsmAccessRoleArn" NewName="OracleSettings_SecretsManagerOracleAsmAccessRoleArn" />
+                <Param Name="Settings_OracleSettings_SecretsManagerOracleAsmSecretId" NewName="OracleSettings_SecretsManagerOracleAsmSecretId" />
+                <Param Name="Settings_OracleSettings_SecretsManagerSecurityDbEncryptionAccessRoleArn" NewName="OracleSettings_SecretsManagerSecurityDbEncryptionAccessRoleArn" />
+                <Param Name="Settings_OracleSettings_SecretsManagerSecurityDbEncryptionSecretId" NewName="OracleSettings_SecretsManagerSecurityDbEncryptionSecretId" />
+                <Param Name="Settings_OracleSettings_ServerName" NewName="OracleSettings_ServerName" />
+                <Param Name="Settings_OracleSettings_SslMode" NewName="OracleSettings_SslMode" />
+                <Param Name="Settings_PostgreSqlSettings_CertificateArn" NewName="PostgreSqlSettings_CertificateArn" />
+                <Param Name="Settings_PostgreSqlSettings_DatabaseName" NewName="PostgreSqlSettings_DatabaseName" />
+                <Param Name="Settings_PostgreSqlSettings_Port" NewName="PostgreSqlSettings_Port" />
+                <Param Name="Settings_PostgreSqlSettings_S3AccessRoleArn" NewName="PostgreSqlSettings_S3AccessRoleArn" />
+                <Param Name="Settings_PostgreSqlSettings_S3Path" NewName="PostgreSqlSettings_S3Path" />
+                <Param Name="Settings_PostgreSqlSettings_ServerName" NewName="PostgreSqlSettings_ServerName" />
+                <Param Name="Settings_PostgreSqlSettings_SslMode" NewName="PostgreSqlSettings_SslMode" />
+                <Param Name="Settings_RedshiftSettings_DatabaseName" NewName="RedshiftSettings_DatabaseName" />
+                <Param Name="Settings_RedshiftSettings_Port" NewName="RedshiftSettings_Port" />
+                <Param Name="Settings_RedshiftSettings_S3AccessRoleArn" NewName="RedshiftSettings_S3AccessRoleArn" />
+                <Param Name="Settings_RedshiftSettings_S3Path" NewName="RedshiftSettings_S3Path" />
+                <Param Name="Settings_RedshiftSettings_ServerName" NewName="RedshiftSettings_ServerName" />
+                <Param Name="Settings_SybaseAseSettings_CertificateArn" NewName="SybaseAseSettings_CertificateArn" />
+                <Param Name="Settings_SybaseAseSettings_DatabaseName" NewName="SybaseAseSettings_DatabaseName" />
+                <Param Name="Settings_SybaseAseSettings_EncryptPassword" NewName="SybaseAseSettings_EncryptPassword" />
+                <Param Name="Settings_SybaseAseSettings_Port" NewName="SybaseAseSettings_Port" />
+                <Param Name="Settings_SybaseAseSettings_ServerName" NewName="SybaseAseSettings_ServerName" />
+                <Param Name="Settings_SybaseAseSettings_SslMode" NewName="SybaseAseSettings_SslMode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyEndpoint" OutputProperty="Endpoint" Verb="Edit" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -442,7 +596,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMetadataModelCreation" OutputProperty="RequestIdentifier" Verb="Start" Noun="MetadataModelCreation" ShouldProcessTarget="MetadataModelName,MigrationProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Properties_StatementProperties_Definition" NewName="StatementProperties_Definition" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMetadataModelExportAsScript" OutputProperty="RequestIdentifier" Verb="Start" Noun="MetadataModelExportAsScript" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">

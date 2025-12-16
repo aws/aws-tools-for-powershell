@@ -19,7 +19,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetTraces" OutputProperty="*" Verb="Get" Noun="TraceBatch" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetTraces" OutputProperty="*" Verb="Get" Noun="TraceBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -32,7 +32,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSamplingRule" OutputProperty="SamplingRuleRecord" Verb="New" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SamplingRule_SamplingRateBoost_CooldownWindowMinutes" NewName="SamplingRateBoost_CooldownWindowMinute" />
+                <Param Name="SamplingRule_SamplingRateBoost_MaxRate" NewName="SamplingRateBoost_MaxRate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupARN" PipelineParameter="GroupARN" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -95,7 +98,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceGraph" OutputProperty="*" Verb="Get" Noun="ServiceGraph" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServiceGraph" OutputProperty="*" Verb="Get" Noun="ServiceGraph" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -111,7 +114,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTraceSummaries" OutputProperty="*" Verb="Get" Noun="TraceSummary" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTraceSummaries" OutputProperty="*" Verb="Get" Noun="TraceSummary" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -160,11 +163,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIndexingRule" OutputProperty="IndexingRule" Verb="Update" Noun="IndexingRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Rule_Probabilistic_DesiredSamplingPercentage" NewName="Probabilistic_DesiredSamplingPercentage" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSamplingRule" OutputProperty="SamplingRuleRecord" Verb="Update" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SamplingRuleUpdate_SamplingRateBoost_CooldownWindowMinutes" NewName="SamplingRateBoost_CooldownWindowMinute" />
+                <Param Name="SamplingRuleUpdate_SamplingRateBoost_MaxRate" NewName="SamplingRateBoost_MaxRate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTraceSegmentDestination" OutputProperty="*" Verb="Update" Noun="TraceSegmentDestination" ShouldProcessTarget="Destination" PipelineParameter="Destination" NoPipelineParameter="false" LegacyV4Pagination="true">

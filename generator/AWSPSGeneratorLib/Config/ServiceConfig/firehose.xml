@@ -81,6 +81,38 @@
                 <Param Name="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_SecretARN" NewName="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_SecretARN" />
                 <Param Name="SnowflakeDestinationConfiguration_BufferingHints_IntervalInSeconds" NewName="SnowflakeDestinationConfiguration_BufferingHints_IntervalInSeconds" />
                 <Param Name="SnowflakeDestinationConfiguration_BufferingHints_SizeInMBs" NewName="SnowflakeDestinationConfiguration_BufferingHints_SizeInMBs" />
+                <Param Name="DatabaseSourceConfiguration_Columns_Exclude" NewName="Columns_Exclude" />
+                <Param Name="DatabaseSourceConfiguration_Columns_Include" NewName="Columns_Include" />
+                <Param Name="DatabaseSourceConfiguration_Databases_Exclude" NewName="Databases_Exclude" />
+                <Param Name="DatabaseSourceConfiguration_Databases_Include" NewName="Databases_Include" />
+                <Param Name="DatabaseSourceConfiguration_DatabaseSourceAuthenticationConfiguration_SecretsManagerConfiguration_Enabled" NewName="SecretsManagerConfiguration_Enabled" />
+                <Param Name="DatabaseSourceConfiguration_DatabaseSourceAuthenticationConfiguration_SecretsManagerConfiguration_RoleARN" NewName="SecretsManagerConfiguration_RoleARN" />
+                <Param Name="DatabaseSourceConfiguration_DatabaseSourceAuthenticationConfiguration_SecretsManagerConfiguration_SecretARN" NewName="SecretsManagerConfiguration_SecretARN" />
+                <Param Name="DatabaseSourceConfiguration_DatabaseSourceVPCConfiguration_VpcEndpointServiceName" NewName="DatabaseSourceVPCConfiguration_VpcEndpointServiceName" />
+                <Param Name="DatabaseSourceConfiguration_Tables_Exclude" NewName="Tables_Exclude" />
+                <Param Name="DatabaseSourceConfiguration_Tables_Include" NewName="Tables_Include" />
+                <Param Name="ElasticsearchDestinationConfiguration_BufferingHints_IntervalInSeconds" NewName="BufferingHints_IntervalInSecond" />
+                <Param Name="ElasticsearchDestinationConfiguration_BufferingHints_SizeInMBs" NewName="BufferingHints_SizeInMBs" />
+                <Param Name="ElasticsearchDestinationConfiguration_CloudWatchLoggingOptions_Enabled" NewName="CloudWatchLoggingOptions_Enabled" />
+                <Param Name="ElasticsearchDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" NewName="CloudWatchLoggingOptions_LogGroupName" />
+                <Param Name="ElasticsearchDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" NewName="CloudWatchLoggingOptions_LogStreamName" />
+                <Param Name="ElasticsearchDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat" NewName="DocumentIdOptions_DefaultDocumentIdFormat" />
+                <Param Name="ElasticsearchDestinationConfiguration_ProcessingConfiguration_Enabled" NewName="ProcessingConfiguration_Enabled" />
+                <Param Name="ElasticsearchDestinationConfiguration_ProcessingConfiguration_Processors" NewName="ProcessingConfiguration_Processor" />
+                <Param Name="ElasticsearchDestinationConfiguration_RetryOptions_DurationInSeconds" NewName="RetryOptions_DurationInSecond" />
+                <Param Name="ElasticsearchDestinationConfiguration_VpcConfiguration_RoleARN" NewName="VpcConfiguration_RoleARN" />
+                <Param Name="ElasticsearchDestinationConfiguration_VpcConfiguration_SecurityGroupIds" NewName="VpcConfiguration_SecurityGroupId" />
+                <Param Name="ElasticsearchDestinationConfiguration_VpcConfiguration_SubnetIds" NewName="VpcConfiguration_SubnetId" />
+                <Param Name="HttpEndpointDestinationConfiguration_EndpointConfiguration_Name" NewName="EndpointConfiguration_Name" />
+                <Param Name="IcebergDestinationConfiguration_CatalogConfiguration_CatalogARN" NewName="CatalogConfiguration_CatalogARN" />
+                <Param Name="IcebergDestinationConfiguration_CatalogConfiguration_WarehouseLocation" NewName="CatalogConfiguration_WarehouseLocation" />
+                <Param Name="IcebergDestinationConfiguration_SchemaEvolutionConfiguration_Enabled" NewName="SchemaEvolutionConfiguration_Enabled" />
+                <Param Name="IcebergDestinationConfiguration_TableCreationConfiguration_Enabled" NewName="TableCreationConfiguration_Enabled" />
+                <Param Name="MSKSourceConfiguration_AuthenticationConfiguration_Connectivity" NewName="AuthenticationConfiguration_Connectivity" />
+                <Param Name="MSKSourceConfiguration_AuthenticationConfiguration_RoleARN" NewName="AuthenticationConfiguration_RoleARN" />
+                <Param Name="SnowflakeDestinationConfiguration_SnowflakeRoleConfiguration_Enabled" NewName="SnowflakeRoleConfiguration_Enabled" />
+                <Param Name="SnowflakeDestinationConfiguration_SnowflakeRoleConfiguration_SnowflakeRole" NewName="SnowflakeRoleConfiguration_SnowflakeRole" />
+                <Param Name="SnowflakeDestinationConfiguration_SnowflakeVpcConfiguration_PrivateLinkVpceId" NewName="SnowflakeVpcConfiguration_PrivateLinkVpceId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -100,7 +132,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecord" OutputProperty="RecordId" Verb="Write" Noun="Record" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true" DefaultParameterSet="FromBlob" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutRecord" OutputProperty="RecordId" Verb="Write" Noun="Record" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" DefaultParameterSet="FromBlob">
             <Params>
                 <Param Name="Record_Data" Alias="Blob" ParameterSetName="FromBlob" Mandatory="true" />
                 <Param Name="DeliveryStreamName" Mandatory="true" />
@@ -184,6 +216,22 @@
                 <Param Name="SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN" NewName="SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN" />
                 <Param Name="SnowflakeDestinationUpdate_BufferingHints_IntervalInSeconds" NewName="SnowflakeDestinationUpdate_BufferingHints_IntervalInSeconds" />
                 <Param Name="SnowflakeDestinationUpdate_BufferingHints_SizeInMBs" NewName="SnowflakeDestinationUpdate_BufferingHints_SizeInMBs" />
+                <Param Name="ElasticsearchDestinationUpdate_BufferingHints_IntervalInSeconds" NewName="BufferingHints_IntervalInSecond" />
+                <Param Name="ElasticsearchDestinationUpdate_BufferingHints_SizeInMBs" NewName="BufferingHints_SizeInMBs" />
+                <Param Name="ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_Enabled" NewName="CloudWatchLoggingOptions_Enabled" />
+                <Param Name="ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogGroupName" NewName="CloudWatchLoggingOptions_LogGroupName" />
+                <Param Name="ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogStreamName" NewName="CloudWatchLoggingOptions_LogStreamName" />
+                <Param Name="ElasticsearchDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat" NewName="DocumentIdOptions_DefaultDocumentIdFormat" />
+                <Param Name="ElasticsearchDestinationUpdate_ProcessingConfiguration_Enabled" NewName="ProcessingConfiguration_Enabled" />
+                <Param Name="ElasticsearchDestinationUpdate_ProcessingConfiguration_Processors" NewName="ProcessingConfiguration_Processor" />
+                <Param Name="ElasticsearchDestinationUpdate_RetryOptions_DurationInSeconds" NewName="RetryOptions_DurationInSecond" />
+                <Param Name="HttpEndpointDestinationUpdate_EndpointConfiguration_Name" NewName="EndpointConfiguration_Name" />
+                <Param Name="IcebergDestinationUpdate_CatalogConfiguration_CatalogARN" NewName="CatalogConfiguration_CatalogARN" />
+                <Param Name="IcebergDestinationUpdate_CatalogConfiguration_WarehouseLocation" NewName="CatalogConfiguration_WarehouseLocation" />
+                <Param Name="IcebergDestinationUpdate_SchemaEvolutionConfiguration_Enabled" NewName="SchemaEvolutionConfiguration_Enabled" />
+                <Param Name="IcebergDestinationUpdate_TableCreationConfiguration_Enabled" NewName="TableCreationConfiguration_Enabled" />
+                <Param Name="SnowflakeDestinationUpdate_SnowflakeRoleConfiguration_Enabled" NewName="SnowflakeRoleConfiguration_Enabled" />
+                <Param Name="SnowflakeDestinationUpdate_SnowflakeRoleConfiguration_SnowflakeRole" NewName="SnowflakeRoleConfiguration_SnowflakeRole" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

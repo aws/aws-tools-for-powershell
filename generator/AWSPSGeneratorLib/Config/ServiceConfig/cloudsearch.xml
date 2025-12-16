@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>cloudsearch</C2jFilename>
     <AssemblyName>CloudSearch</AssemblyName>
@@ -24,7 +25,6 @@
         <Map From="Suggesters" To="Suggester" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases>
         <AliasSet Cmdlet="Set-CSIndexField">Define-CSIndexField</AliasSet>
         <AliasSet Cmdlet="Start-CSIndex">Index-CSDocuments</AliasSet>
@@ -42,7 +42,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DefineAnalysisScheme" OutputProperty="AnalysisScheme" Verb="Set" Noun="AnalysisScheme" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AnalysisScheme_AnalysisOptions_AlgorithmicStemming" NewName="AnalysisOptions_AlgorithmicStemming" />
+                <Param Name="AnalysisScheme_AnalysisOptions_JapaneseTokenizationDictionary" NewName="AnalysisOptions_JapaneseTokenizationDictionary" />
+                <Param Name="AnalysisScheme_AnalysisOptions_StemmingDictionary" NewName="AnalysisOptions_StemmingDictionary" />
+                <Param Name="AnalysisScheme_AnalysisOptions_Stopwords" NewName="AnalysisOptions_Stopword" />
+                <Param Name="AnalysisScheme_AnalysisOptions_Synonyms" NewName="AnalysisOptions_Synonym" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DefineExpression" OutputProperty="Expression" Verb="Set" Noun="Expression" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -50,11 +56,77 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DefineIndexField" OutputProperty="IndexField" Verb="Set" Noun="IndexField" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IndexField_DateArrayOptions_DefaultValue" NewName="DateArrayOptions_DefaultValue" />
+                <Param Name="IndexField_DateArrayOptions_FacetEnabled" NewName="DateArrayOptions_FacetEnabled" />
+                <Param Name="IndexField_DateArrayOptions_ReturnEnabled" NewName="DateArrayOptions_ReturnEnabled" />
+                <Param Name="IndexField_DateArrayOptions_SearchEnabled" NewName="DateArrayOptions_SearchEnabled" />
+                <Param Name="IndexField_DateArrayOptions_SourceFields" NewName="DateArrayOptions_SourceField" />
+                <Param Name="IndexField_DateOptions_DefaultValue" NewName="DateOptions_DefaultValue" />
+                <Param Name="IndexField_DateOptions_FacetEnabled" NewName="DateOptions_FacetEnabled" />
+                <Param Name="IndexField_DateOptions_ReturnEnabled" NewName="DateOptions_ReturnEnabled" />
+                <Param Name="IndexField_DateOptions_SearchEnabled" NewName="DateOptions_SearchEnabled" />
+                <Param Name="IndexField_DateOptions_SortEnabled" NewName="DateOptions_SortEnabled" />
+                <Param Name="IndexField_DateOptions_SourceField" NewName="DateOptions_SourceField" />
+                <Param Name="IndexField_DoubleArrayOptions_DefaultValue" NewName="DoubleArrayOptions_DefaultValue" />
+                <Param Name="IndexField_DoubleArrayOptions_FacetEnabled" NewName="DoubleArrayOptions_FacetEnabled" />
+                <Param Name="IndexField_DoubleArrayOptions_ReturnEnabled" NewName="DoubleArrayOptions_ReturnEnabled" />
+                <Param Name="IndexField_DoubleArrayOptions_SearchEnabled" NewName="DoubleArrayOptions_SearchEnabled" />
+                <Param Name="IndexField_DoubleArrayOptions_SourceFields" NewName="DoubleArrayOptions_SourceField" />
+                <Param Name="IndexField_DoubleOptions_DefaultValue" NewName="DoubleOptions_DefaultValue" />
+                <Param Name="IndexField_DoubleOptions_FacetEnabled" NewName="DoubleOptions_FacetEnabled" />
+                <Param Name="IndexField_DoubleOptions_ReturnEnabled" NewName="DoubleOptions_ReturnEnabled" />
+                <Param Name="IndexField_DoubleOptions_SearchEnabled" NewName="DoubleOptions_SearchEnabled" />
+                <Param Name="IndexField_DoubleOptions_SortEnabled" NewName="DoubleOptions_SortEnabled" />
+                <Param Name="IndexField_DoubleOptions_SourceField" NewName="DoubleOptions_SourceField" />
+                <Param Name="IndexField_IntArrayOptions_DefaultValue" NewName="IntArrayOptions_DefaultValue" />
+                <Param Name="IndexField_IntArrayOptions_FacetEnabled" NewName="IntArrayOptions_FacetEnabled" />
+                <Param Name="IndexField_IntArrayOptions_ReturnEnabled" NewName="IntArrayOptions_ReturnEnabled" />
+                <Param Name="IndexField_IntArrayOptions_SearchEnabled" NewName="IntArrayOptions_SearchEnabled" />
+                <Param Name="IndexField_IntArrayOptions_SourceFields" NewName="IntArrayOptions_SourceField" />
+                <Param Name="IndexField_IntOptions_DefaultValue" NewName="IntOptions_DefaultValue" />
+                <Param Name="IndexField_IntOptions_FacetEnabled" NewName="IntOptions_FacetEnabled" />
+                <Param Name="IndexField_IntOptions_ReturnEnabled" NewName="IntOptions_ReturnEnabled" />
+                <Param Name="IndexField_IntOptions_SearchEnabled" NewName="IntOptions_SearchEnabled" />
+                <Param Name="IndexField_IntOptions_SortEnabled" NewName="IntOptions_SortEnabled" />
+                <Param Name="IndexField_IntOptions_SourceField" NewName="IntOptions_SourceField" />
+                <Param Name="IndexField_LatLonOptions_DefaultValue" NewName="LatLonOptions_DefaultValue" />
+                <Param Name="IndexField_LatLonOptions_FacetEnabled" NewName="LatLonOptions_FacetEnabled" />
+                <Param Name="IndexField_LatLonOptions_ReturnEnabled" NewName="LatLonOptions_ReturnEnabled" />
+                <Param Name="IndexField_LatLonOptions_SearchEnabled" NewName="LatLonOptions_SearchEnabled" />
+                <Param Name="IndexField_LatLonOptions_SortEnabled" NewName="LatLonOptions_SortEnabled" />
+                <Param Name="IndexField_LatLonOptions_SourceField" NewName="LatLonOptions_SourceField" />
+                <Param Name="IndexField_LiteralArrayOptions_DefaultValue" NewName="LiteralArrayOptions_DefaultValue" />
+                <Param Name="IndexField_LiteralArrayOptions_FacetEnabled" NewName="LiteralArrayOptions_FacetEnabled" />
+                <Param Name="IndexField_LiteralArrayOptions_ReturnEnabled" NewName="LiteralArrayOptions_ReturnEnabled" />
+                <Param Name="IndexField_LiteralArrayOptions_SearchEnabled" NewName="LiteralArrayOptions_SearchEnabled" />
+                <Param Name="IndexField_LiteralArrayOptions_SourceFields" NewName="LiteralArrayOptions_SourceField" />
+                <Param Name="IndexField_LiteralOptions_DefaultValue" NewName="LiteralOptions_DefaultValue" />
+                <Param Name="IndexField_LiteralOptions_FacetEnabled" NewName="LiteralOptions_FacetEnabled" />
+                <Param Name="IndexField_LiteralOptions_ReturnEnabled" NewName="LiteralOptions_ReturnEnabled" />
+                <Param Name="IndexField_LiteralOptions_SearchEnabled" NewName="LiteralOptions_SearchEnabled" />
+                <Param Name="IndexField_LiteralOptions_SortEnabled" NewName="LiteralOptions_SortEnabled" />
+                <Param Name="IndexField_LiteralOptions_SourceField" NewName="LiteralOptions_SourceField" />
+                <Param Name="IndexField_TextArrayOptions_AnalysisScheme" NewName="TextArrayOptions_AnalysisScheme" />
+                <Param Name="IndexField_TextArrayOptions_DefaultValue" NewName="TextArrayOptions_DefaultValue" />
+                <Param Name="IndexField_TextArrayOptions_HighlightEnabled" NewName="TextArrayOptions_HighlightEnabled" />
+                <Param Name="IndexField_TextArrayOptions_ReturnEnabled" NewName="TextArrayOptions_ReturnEnabled" />
+                <Param Name="IndexField_TextArrayOptions_SourceFields" NewName="TextArrayOptions_SourceField" />
+                <Param Name="IndexField_TextOptions_AnalysisScheme" NewName="TextOptions_AnalysisScheme" />
+                <Param Name="IndexField_TextOptions_DefaultValue" NewName="TextOptions_DefaultValue" />
+                <Param Name="IndexField_TextOptions_HighlightEnabled" NewName="TextOptions_HighlightEnabled" />
+                <Param Name="IndexField_TextOptions_ReturnEnabled" NewName="TextOptions_ReturnEnabled" />
+                <Param Name="IndexField_TextOptions_SortEnabled" NewName="TextOptions_SortEnabled" />
+                <Param Name="IndexField_TextOptions_SourceField" NewName="TextOptions_SourceField" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DefineSuggester" OutputProperty="Suggester" Verb="Set" Noun="Suggester" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Suggester_DocumentSuggesterOptions_FuzzyMatching" NewName="DocumentSuggesterOptions_FuzzyMatching" />
+                <Param Name="Suggester_DocumentSuggesterOptions_SortExpression" NewName="DocumentSuggesterOptions_SortExpression" />
+                <Param Name="Suggester_DocumentSuggesterOptions_SourceField" NewName="DocumentSuggesterOptions_SourceField" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAnalysisScheme" OutputProperty="AnalysisScheme" Verb="Remove" Noun="AnalysisScheme" ShouldProcessTarget="AnalysisSchemeName" PositionalParameters="AnalysisSchemeName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -77,11 +149,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAnalysisSchemes" OutputProperty="AnalysisSchemes" Verb="Get" Noun="AnalysisScheme" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSAnalysisSchemes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAnalysisSchemes" OutputProperty="AnalysisSchemes" Verb="Get" Noun="AnalysisScheme" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CSAnalysisSchemes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAvailabilityOptions" OutputProperty="AvailabilityOptions" Verb="Get" Noun="AvailabilityOption" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSAvailabilityOptions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAvailabilityOptions" OutputProperty="AvailabilityOptions" Verb="Get" Noun="AvailabilityOption" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CSAvailabilityOptions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -97,15 +169,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIndexFields" OutputProperty="IndexFields" Verb="Get" Noun="IndexField" PositionalParameters="FieldNames" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSIndexFields" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIndexFields" OutputProperty="IndexFields" Verb="Get" Noun="IndexField" PositionalParameters="FieldNames" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CSIndexFields">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingParameters" OutputProperty="ScalingParameters" Verb="Get" Noun="ScalingParameter" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSScalingParameters" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeScalingParameters" OutputProperty="ScalingParameters" Verb="Get" Noun="ScalingParameter" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CSScalingParameters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceAccessPolicies" OutputProperty="AccessPolicies" Verb="Get" Noun="ServiceAccessPolicy" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSServiceAccessPolicies" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeServiceAccessPolicies" OutputProperty="AccessPolicies" Verb="Get" Noun="ServiceAccessPolicy" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CSServiceAccessPolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -117,11 +189,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CSListDomainNames" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CSListDomainNames">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAvailabilityOptions" OutputProperty="AvailabilityOptions" Verb="Update" Noun="AvailabilityOption" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSAvailabilityOptions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAvailabilityOptions" OutputProperty="AvailabilityOptions" Verb="Update" Noun="AvailabilityOption" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Update-CSAvailabilityOptions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -129,16 +201,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScalingParameters" OutputProperty="ScalingParameters" Verb="Update" Noun="ScalingParameter" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSScalingParameters" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateScalingParameters" OutputProperty="ScalingParameters" Verb="Update" Noun="ScalingParameter" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Update-CSScalingParameters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServiceAccessPolicies" OutputProperty="AccessPolicies" Verb="Update" Noun="ServiceAccessPolicy" ShouldProcessTarget="DomainName" PositionalParameters="AccessPolicies" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSServiceAccessPolicies" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateServiceAccessPolicies" OutputProperty="AccessPolicies" Verb="Update" Noun="ServiceAccessPolicy" ShouldProcessTarget="DomainName" PositionalParameters="AccessPolicies" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Update-CSServiceAccessPolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

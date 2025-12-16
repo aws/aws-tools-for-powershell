@@ -39,7 +39,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRecordingConfiguration" OutputProperty="RecordingConfiguration" Verb="New" Noun="RecordingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfiguration_S3_BucketName" NewName="S3_BucketName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStreamKey" OutputProperty="StreamKey" Verb="New" Noun="StreamKey" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">

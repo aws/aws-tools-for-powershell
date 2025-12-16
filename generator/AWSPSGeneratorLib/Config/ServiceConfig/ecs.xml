@@ -24,23 +24,104 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateCapacityProvider" OutputProperty="CapacityProvider" Verb="New" Noun="CapacityProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_InstanceWarmupPeriod" NewName="ManagedScaling_InstanceWarmupPeriod" />
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_MaximumScalingStepSize" NewName="ManagedScaling_MaximumScalingStepSize" />
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_MinimumScalingStepSize" NewName="ManagedScaling_MinimumScalingStepSize" />
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_Status" NewName="ManagedScaling_Status" />
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_TargetCapacity" NewName="ManagedScaling_TargetCapacity" />
+                <Param Name="ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter" NewName="InfrastructureOptimization_ScaleInAfter" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn" NewName="InstanceLaunchTemplate_Ec2InstanceProfileArn" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorCount_Max" NewName="AcceleratorCount_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorCount_Min" NewName="AcceleratorCount_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorManufacturers" NewName="InstanceRequirements_AcceleratorManufacturer" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorNames" NewName="InstanceRequirements_AcceleratorName" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorTotalMemoryMiB_Max" NewName="AcceleratorTotalMemoryMiB_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorTotalMemoryMiB_Min" NewName="AcceleratorTotalMemoryMiB_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorTypes" NewName="InstanceRequirements_AcceleratorType" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceTypes" NewName="InstanceRequirements_AllowedInstanceType" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_BareMetal" NewName="InstanceRequirements_BareMetal" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_BaselineEbsBandwidthMbps_Max" NewName="BaselineEbsBandwidthMbps_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_BaselineEbsBandwidthMbps_Min" NewName="BaselineEbsBandwidthMbps_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_BurstablePerformance" NewName="InstanceRequirements_BurstablePerformance" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_CpuManufacturers" NewName="InstanceRequirements_CpuManufacturer" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_ExcludedInstanceTypes" NewName="InstanceRequirements_ExcludedInstanceType" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_InstanceGenerations" NewName="InstanceRequirements_InstanceGeneration" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_LocalStorage" NewName="InstanceRequirements_LocalStorage" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_LocalStorageTypes" NewName="InstanceRequirements_LocalStorageType" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" NewName="InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MemoryGiBPerVCpu_Max" NewName="MemoryGiBPerVCpu_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MemoryGiBPerVCpu_Min" NewName="MemoryGiBPerVCpu_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MemoryMiB_Max" NewName="MemoryMiB_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MemoryMiB_Min" NewName="MemoryMiB_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_NetworkBandwidthGbps_Max" NewName="NetworkBandwidthGbps_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_NetworkBandwidthGbps_Min" NewName="NetworkBandwidthGbps_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_NetworkInterfaceCount_Max" NewName="NetworkInterfaceCount_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_NetworkInterfaceCount_Min" NewName="NetworkInterfaceCount_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice" NewName="InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_RequireHibernateSupport" NewName="InstanceRequirements_RequireHibernateSupport" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_SpotMaxPricePercentageOverLowestPrice" NewName="InstanceRequirements_SpotMaxPricePercentageOverLowestPrice" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_TotalLocalStorageGB_Max" NewName="TotalLocalStorageGB_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_TotalLocalStorageGB_Min" NewName="TotalLocalStorageGB_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_VCpuCount_Max" NewName="VCpuCount_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_VCpuCount_Min" NewName="VCpuCount_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring" NewName="InstanceLaunchTemplate_Monitoring" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroups" NewName="NetworkConfiguration_SecurityGroup" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnets" NewName="NetworkConfiguration_Subnet" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB" NewName="StorageConfiguration_StorageSizeGiB" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_ExecuteCommandConfiguration_KmsKeyId" NewName="ExecuteCommandConfiguration_KmsKeyId" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_CloudWatchEncryptionEnabled" NewName="LogConfiguration_CloudWatchEncryptionEnabled" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_CloudWatchLogGroupName" NewName="LogConfiguration_CloudWatchLogGroupName" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_S3BucketName" NewName="LogConfiguration_S3BucketName" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_S3EncryptionEnabled" NewName="LogConfiguration_S3EncryptionEnabled" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_S3KeyPrefix" NewName="LogConfiguration_S3KeyPrefix" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_Logging" NewName="ExecuteCommandConfiguration_Logging" />
+                <Param Name="Configuration_ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId" NewName="ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId" />
+                <Param Name="Configuration_ManagedStorageConfiguration_KmsKeyId" NewName="ManagedStorageConfiguration_KmsKeyId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateExpressGatewayService" OutputProperty="Service" Verb="New" Noun="ExpressGatewayService" ShouldProcessTarget="ExecutionRoleArn,InfrastructureRoleArn" PipelineParameter="Cluster" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="PrimaryContainer_AwsLogsConfiguration_LogGroup" NewName="AwsLogsConfiguration_LogGroup" />
+                <Param Name="PrimaryContainer_AwsLogsConfiguration_LogStreamPrefix" NewName="AwsLogsConfiguration_LogStreamPrefix" />
+                <Param Name="PrimaryContainer_RepositoryCredentials_CredentialsParameter" NewName="RepositoryCredentials_CredentialsParameter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateService" OutputProperty="Service" Verb="New" Noun="Service" ShouldProcessTarget="ServiceName" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeploymentConfiguration_Alarms_AlarmNames" NewName="Alarms_AlarmName" />
+                <Param Name="DeploymentConfiguration_Alarms_Enable" NewName="Alarms_Enable" />
+                <Param Name="DeploymentConfiguration_Alarms_Rollback" NewName="Alarms_Rollback" />
+                <Param Name="DeploymentConfiguration_CanaryConfiguration_CanaryBakeTimeInMinutes" NewName="CanaryConfiguration_CanaryBakeTimeInMinute" />
+                <Param Name="DeploymentConfiguration_CanaryConfiguration_CanaryPercent" NewName="CanaryConfiguration_CanaryPercent" />
+                <Param Name="DeploymentConfiguration_DeploymentCircuitBreaker_Enable" NewName="DeploymentCircuitBreaker_Enable" />
+                <Param Name="DeploymentConfiguration_DeploymentCircuitBreaker_Rollback" NewName="DeploymentCircuitBreaker_Rollback" />
+                <Param Name="DeploymentConfiguration_LinearConfiguration_StepBakeTimeInMinutes" NewName="LinearConfiguration_StepBakeTimeInMinute" />
+                <Param Name="DeploymentConfiguration_LinearConfiguration_StepPercent" NewName="LinearConfiguration_StepPercent" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp" NewName="AwsvpcConfiguration_AssignPublicIp" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_SecurityGroups" NewName="AwsvpcConfiguration_SecurityGroup" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_Subnets" NewName="AwsvpcConfiguration_Subnet" />
+                <Param Name="ServiceConnectConfiguration_AccessLogConfiguration_Format" NewName="AccessLogConfiguration_Format" />
+                <Param Name="ServiceConnectConfiguration_AccessLogConfiguration_IncludeQueryParameters" NewName="AccessLogConfiguration_IncludeQueryParameter" />
+                <Param Name="ServiceConnectConfiguration_LogConfiguration_LogDriver" NewName="LogConfiguration_LogDriver" />
+                <Param Name="ServiceConnectConfiguration_LogConfiguration_Options" NewName="LogConfiguration_Option" />
+                <Param Name="ServiceConnectConfiguration_LogConfiguration_SecretOptions" NewName="LogConfiguration_SecretOption" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTaskSet" OutputProperty="TaskSet" Verb="New" Noun="TaskSet" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp" NewName="AwsvpcConfiguration_AssignPublicIp" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_SecurityGroups" NewName="AwsvpcConfiguration_SecurityGroup" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_Subnets" NewName="AwsvpcConfiguration_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountSetting" OutputProperty="Setting" Verb="Remove" Noun="AccountSetting" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -202,11 +283,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RunTask" OutputProperty="*" Verb="New" Noun="Task" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp" NewName="AwsvpcConfiguration_AssignPublicIp" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_SecurityGroups" NewName="AwsvpcConfiguration_SecurityGroup" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_Subnets" NewName="AwsvpcConfiguration_Subnet" />
+                <Param Name="Overrides_EphemeralStorage_SizeInGiB" NewName="EphemeralStorage_SizeInGiB" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartTask" OutputProperty="*" Verb="Start" Noun="Task" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp" NewName="AwsvpcConfiguration_AssignPublicIp" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_SecurityGroups" NewName="AwsvpcConfiguration_SecurityGroup" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_Subnets" NewName="AwsvpcConfiguration_Subnet" />
+                <Param Name="Overrides_EphemeralStorage_SizeInGiB" NewName="EphemeralStorage_SizeInGiB" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopServiceDeployment" OutputProperty="*" Verb="Stop" Noun="ServiceDeployment" ShouldProcessTarget="ServiceDeploymentArn" PipelineParameter="ServiceDeploymentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -230,11 +321,66 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCapacityProvider" OutputProperty="CapacityProvider" Verb="Update" Noun="CapacityProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_InstanceWarmupPeriod" NewName="ManagedScaling_InstanceWarmupPeriod" />
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_MaximumScalingStepSize" NewName="ManagedScaling_MaximumScalingStepSize" />
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_MinimumScalingStepSize" NewName="ManagedScaling_MinimumScalingStepSize" />
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_Status" NewName="ManagedScaling_Status" />
+                <Param Name="AutoScalingGroupProvider_ManagedScaling_TargetCapacity" NewName="ManagedScaling_TargetCapacity" />
+                <Param Name="ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter" NewName="InfrastructureOptimization_ScaleInAfter" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn" NewName="InstanceLaunchTemplate_Ec2InstanceProfileArn" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorCount_Max" NewName="AcceleratorCount_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorCount_Min" NewName="AcceleratorCount_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorManufacturers" NewName="InstanceRequirements_AcceleratorManufacturer" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorNames" NewName="InstanceRequirements_AcceleratorName" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorTotalMemoryMiB_Max" NewName="AcceleratorTotalMemoryMiB_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorTotalMemoryMiB_Min" NewName="AcceleratorTotalMemoryMiB_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AcceleratorTypes" NewName="InstanceRequirements_AcceleratorType" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceTypes" NewName="InstanceRequirements_AllowedInstanceType" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_BareMetal" NewName="InstanceRequirements_BareMetal" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_BaselineEbsBandwidthMbps_Max" NewName="BaselineEbsBandwidthMbps_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_BaselineEbsBandwidthMbps_Min" NewName="BaselineEbsBandwidthMbps_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_BurstablePerformance" NewName="InstanceRequirements_BurstablePerformance" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_CpuManufacturers" NewName="InstanceRequirements_CpuManufacturer" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_ExcludedInstanceTypes" NewName="InstanceRequirements_ExcludedInstanceType" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_InstanceGenerations" NewName="InstanceRequirements_InstanceGeneration" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_LocalStorage" NewName="InstanceRequirements_LocalStorage" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_LocalStorageTypes" NewName="InstanceRequirements_LocalStorageType" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" NewName="InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MemoryGiBPerVCpu_Max" NewName="MemoryGiBPerVCpu_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MemoryGiBPerVCpu_Min" NewName="MemoryGiBPerVCpu_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MemoryMiB_Max" NewName="MemoryMiB_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_MemoryMiB_Min" NewName="MemoryMiB_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_NetworkBandwidthGbps_Max" NewName="NetworkBandwidthGbps_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_NetworkBandwidthGbps_Min" NewName="NetworkBandwidthGbps_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_NetworkInterfaceCount_Max" NewName="NetworkInterfaceCount_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_NetworkInterfaceCount_Min" NewName="NetworkInterfaceCount_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice" NewName="InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_RequireHibernateSupport" NewName="InstanceRequirements_RequireHibernateSupport" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_SpotMaxPricePercentageOverLowestPrice" NewName="InstanceRequirements_SpotMaxPricePercentageOverLowestPrice" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_TotalLocalStorageGB_Max" NewName="TotalLocalStorageGB_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_TotalLocalStorageGB_Min" NewName="TotalLocalStorageGB_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_VCpuCount_Max" NewName="VCpuCount_Max" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_VCpuCount_Min" NewName="VCpuCount_Min" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring" NewName="InstanceLaunchTemplate_Monitoring" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroups" NewName="NetworkConfiguration_SecurityGroup" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnets" NewName="NetworkConfiguration_Subnet" />
+                <Param Name="ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB" NewName="StorageConfiguration_StorageSizeGiB" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="Configuration_ExecuteCommandConfiguration_KmsKeyId" NewName="ExecuteCommandConfiguration_KmsKeyId" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_CloudWatchEncryptionEnabled" NewName="LogConfiguration_CloudWatchEncryptionEnabled" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_CloudWatchLogGroupName" NewName="LogConfiguration_CloudWatchLogGroupName" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_S3BucketName" NewName="LogConfiguration_S3BucketName" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_S3EncryptionEnabled" NewName="LogConfiguration_S3EncryptionEnabled" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_LogConfiguration_S3KeyPrefix" NewName="LogConfiguration_S3KeyPrefix" />
+                <Param Name="Configuration_ExecuteCommandConfiguration_Logging" NewName="ExecuteCommandConfiguration_Logging" />
+                <Param Name="Configuration_ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId" NewName="ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId" />
+                <Param Name="Configuration_ManagedStorageConfiguration_KmsKeyId" NewName="ManagedStorageConfiguration_KmsKeyId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterSettings" OutputProperty="Cluster" Verb="Update" Noun="ClusterSetting" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -250,11 +396,33 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateExpressGatewayService" OutputProperty="Service" Verb="Update" Noun="ExpressGatewayService" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="PrimaryContainer_AwsLogsConfiguration_LogGroup" NewName="AwsLogsConfiguration_LogGroup" />
+                <Param Name="PrimaryContainer_AwsLogsConfiguration_LogStreamPrefix" NewName="AwsLogsConfiguration_LogStreamPrefix" />
+                <Param Name="PrimaryContainer_RepositoryCredentials_CredentialsParameter" NewName="RepositoryCredentials_CredentialsParameter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateService" OutputProperty="Service" Verb="Update" Noun="Service" ShouldProcessTarget="Service" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeploymentConfiguration_Alarms_AlarmNames" NewName="Alarms_AlarmName" />
+                <Param Name="DeploymentConfiguration_Alarms_Enable" NewName="Alarms_Enable" />
+                <Param Name="DeploymentConfiguration_Alarms_Rollback" NewName="Alarms_Rollback" />
+                <Param Name="DeploymentConfiguration_CanaryConfiguration_CanaryBakeTimeInMinutes" NewName="CanaryConfiguration_CanaryBakeTimeInMinute" />
+                <Param Name="DeploymentConfiguration_CanaryConfiguration_CanaryPercent" NewName="CanaryConfiguration_CanaryPercent" />
+                <Param Name="DeploymentConfiguration_DeploymentCircuitBreaker_Enable" NewName="DeploymentCircuitBreaker_Enable" />
+                <Param Name="DeploymentConfiguration_DeploymentCircuitBreaker_Rollback" NewName="DeploymentCircuitBreaker_Rollback" />
+                <Param Name="DeploymentConfiguration_LinearConfiguration_StepBakeTimeInMinutes" NewName="LinearConfiguration_StepBakeTimeInMinute" />
+                <Param Name="DeploymentConfiguration_LinearConfiguration_StepPercent" NewName="LinearConfiguration_StepPercent" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp" NewName="AwsvpcConfiguration_AssignPublicIp" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_SecurityGroups" NewName="AwsvpcConfiguration_SecurityGroup" />
+                <Param Name="NetworkConfiguration_AwsvpcConfiguration_Subnets" NewName="AwsvpcConfiguration_Subnet" />
+                <Param Name="ServiceConnectConfiguration_AccessLogConfiguration_Format" NewName="AccessLogConfiguration_Format" />
+                <Param Name="ServiceConnectConfiguration_AccessLogConfiguration_IncludeQueryParameters" NewName="AccessLogConfiguration_IncludeQueryParameter" />
+                <Param Name="ServiceConnectConfiguration_LogConfiguration_LogDriver" NewName="LogConfiguration_LogDriver" />
+                <Param Name="ServiceConnectConfiguration_LogConfiguration_Options" NewName="LogConfiguration_Option" />
+                <Param Name="ServiceConnectConfiguration_LogConfiguration_SecretOptions" NewName="LogConfiguration_SecretOption" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateServicePrimaryTaskSet" OutputProperty="TaskSet" Verb="Update" Noun="ServicePrimaryTaskSet" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">

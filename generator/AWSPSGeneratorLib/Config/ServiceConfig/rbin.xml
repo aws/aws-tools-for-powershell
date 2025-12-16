@@ -19,7 +19,10 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="ResourceType" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LockConfiguration_UnlockDelay_UnlockDelayUnit" NewName="UnlockDelay_UnlockDelayUnit" />
+                <Param Name="LockConfiguration_UnlockDelay_UnlockDelayValue" NewName="UnlockDelay_UnlockDelayValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -39,7 +42,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="LockRule" OutputProperty="*" Verb="Lock" Noun="Rule" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LockConfiguration_UnlockDelay_UnlockDelayUnit" NewName="UnlockDelay_UnlockDelayUnit" />
+                <Param Name="LockConfiguration_UnlockDelay_UnlockDelayValue" NewName="UnlockDelay_UnlockDelayValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -19,7 +19,11 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreatePipeline" OutputProperty="Pipeline" Verb="New" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LogPublishingOptions_CloudWatchLogDestination_LogGroup" NewName="CloudWatchLogDestination_LogGroup" />
+                <Param Name="VpcOptions_VpcAttachmentOptions_AttachToVpc" NewName="VpcAttachmentOptions_AttachToVpc" />
+                <Param Name="VpcOptions_VpcAttachmentOptions_CidrBlock" NewName="VpcAttachmentOptions_CidrBlock" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePipelineEndpoint" OutputProperty="*" Verb="New" Noun="PipelineEndpoint" ShouldProcessTarget="PipelineArn" PipelineParameter="PipelineArn" NoPipelineParameter="false">
@@ -99,7 +103,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePipeline" OutputProperty="Pipeline" Verb="Update" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LogPublishingOptions_CloudWatchLogDestination_LogGroup" NewName="CloudWatchLogDestination_LogGroup" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ValidatePipeline" OutputProperty="*" Verb="Use" Noun="Pipeline" ShouldProcessTarget="PipelineConfigurationBody" PipelineParameter="PipelineConfigurationBody" NoPipelineParameter="false" LegacyV4Pagination="true">

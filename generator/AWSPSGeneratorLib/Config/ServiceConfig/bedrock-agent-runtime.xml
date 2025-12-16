@@ -39,7 +39,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GenerateQuery" OutputProperty="Queries" Verb="Invoke" Noun="GenerateQuery" ShouldProcessTarget="TransformationConfiguration_TextToSqlConfiguration_KnowledgeBaseConfiguration_KnowledgeBaseArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TransformationConfiguration_TextToSqlConfiguration_KnowledgeBaseConfiguration_KnowledgeBaseArn" NewName="KnowledgeBaseConfiguration_KnowledgeBaseArn" />
+                <Param Name="TransformationConfiguration_TextToSqlConfiguration_Type" NewName="TextToSqlConfiguration_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAgentMemory" OutputProperty="MemoryContents" Verb="Get" Noun="AgentMemory" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -63,15 +66,24 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InvokeAgent" OutputProperty="*" Verb="Invoke" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BedrockModelConfigurations_PerformanceConfig_Latency" NewName="PerformanceConfig_Latency" />
+                <Param Name="SessionState_ConversationHistory_Messages" NewName="ConversationHistory_Message" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InvokeFlow" OutputProperty="ResponseStream" Verb="Invoke" Noun="Flow" ShouldProcessTarget="FlowAliasIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ModelPerformanceConfiguration_PerformanceConfig_Latency" NewName="PerformanceConfig_Latency" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InvokeInlineAgent" OutputProperty="*" Verb="Invoke" Noun="InlineAgent" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BedrockModelConfigurations_PerformanceConfig_Latency" NewName="PerformanceConfig_Latency" />
+                <Param Name="CustomOrchestration_Executor_Lambda" NewName="Executor_Lambda" />
+                <Param Name="InlineSessionState_ConversationHistory_Messages" NewName="ConversationHistory_Message" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFlowExecutionEvents" OutputProperty="FlowExecutionEvents" Verb="Get" Noun="FlowExecutionEventList" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
@@ -99,7 +111,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="OptimizePrompt" OutputProperty="OptimizedPrompt" Verb="Get" Noun="OptimizePrompt" ShouldProcessTarget="" PipelineParameter="TargetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Input_TextPrompt_Text" NewName="TextPrompt_Text" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutInvocationStep" OutputProperty="InvocationStepId" Verb="Write" Noun="InvocationStep" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -107,11 +121,53 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Rerank" OutputProperty="*" Verb="Invoke" Noun="Rerank" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestFields" NewName="ModelConfiguration_AdditionalModelRequestField" />
+                <Param Name="RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn" NewName="ModelConfiguration_ModelArn" />
+                <Param Name="RerankingConfiguration_BedrockRerankingConfiguration_NumberOfResults" NewName="BedrockRerankingConfiguration_NumberOfResult" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_AndAll" NewName="Filter_AndAll" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_Equals_Key" NewName="Equals_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_Equals_Value" NewName="Equals_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThan_Key" NewName="GreaterThan_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThan_Value" NewName="GreaterThan_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThanOrEquals_Key" NewName="GreaterThanOrEquals_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThanOrEquals_Value" NewName="GreaterThanOrEquals_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_In_Key" NewName="In_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_In_Value" NewName="In_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThan_Key" NewName="LessThan_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThan_Value" NewName="LessThan_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThanOrEquals_Key" NewName="LessThanOrEquals_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThanOrEquals_Value" NewName="LessThanOrEquals_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_Key" NewName="ListContains_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_Value" NewName="ListContains_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_NotEquals_Key" NewName="NotEquals_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_NotEquals_Value" NewName="NotEquals_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_NotIn_Key" NewName="NotIn_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_NotIn_Value" NewName="NotIn_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_OrAll" NewName="Filter_OrAll" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_StartsWith_Key" NewName="StartsWith_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_StartsWith_Value" NewName="StartsWith_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_Key" NewName="StringContains_Key" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_Value" NewName="StringContains_Value" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_MetadataAttributes" NewName="ImplicitFilterConfiguration_MetadataAttribute" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_ModelArn" NewName="ImplicitFilterConfiguration_ModelArn" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_NumberOfResults" NewName="VectorSearchConfiguration_NumberOfResult" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_OverrideSearchType" NewName="VectorSearchConfiguration_OverrideSearchType" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode" NewName="MetadataConfiguration_SelectionMode" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude" NewName="SelectiveModeConfiguration_FieldsToExclude" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude" NewName="SelectiveModeConfiguration_FieldsToInclude" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestFields" NewName="ModelConfiguration_AdditionalModelRequestField" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn" NewName="ModelConfiguration_ModelArn" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResults" NewName="BedrockRerankingConfiguration_NumberOfRerankedResult" />
+                <Param Name="RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_Type" NewName="RerankingConfiguration_Type" />
+                <Param Name="RetrievalQuery_Image_Format" NewName="Image_Format" />
+                <Param Name="RetrievalQuery_Image_InlineContent" NewName="Image_InlineContent" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RetrieveAndGenerate" OutputProperty="*" Verb="Invoke" Noun="RetrieveAndGenerate" ShouldProcessTarget="SessionId" PipelineParameter="Input_Text" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -134,6 +190,53 @@
                 <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="ExternalSourcesConfig_PerformanceConfig_Latency" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_Latency" NewName="KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_ModelArn" NewName="ExternalSourcesConfiguration_ModelArn" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_Sources" NewName="ExternalSourcesConfiguration_Source" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_AdditionalModelRequestFields" NewName="GenerationConfiguration_AdditionalModelRequestField" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" NewName="TextInferenceConfig_MaxToken" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" NewName="TextInferenceConfig_StopSequence" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="TextInferenceConfig_Temperature" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="TextInferenceConfig_TopP" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" NewName="PromptTemplate_TextPromptTemplate" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_KnowledgeBaseId" NewName="KnowledgeBaseConfiguration_KnowledgeBaseId" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_ModelArn" NewName="KnowledgeBaseConfiguration_ModelArn" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_AdditionalModelRequestFields" NewName="OrchestrationConfiguration_AdditionalModelRequestField" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration_Type" NewName="QueryTransformationConfiguration_Type" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_AndAll" NewName="Filter_AndAll" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_Equals_Key" NewName="Equals_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_Equals_Value" NewName="Equals_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThan_Key" NewName="GreaterThan_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThan_Value" NewName="GreaterThan_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThanOrEquals_Key" NewName="GreaterThanOrEquals_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThanOrEquals_Value" NewName="GreaterThanOrEquals_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_In_Key" NewName="In_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_In_Value" NewName="In_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThan_Key" NewName="LessThan_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThan_Value" NewName="LessThan_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThanOrEquals_Key" NewName="LessThanOrEquals_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThanOrEquals_Value" NewName="LessThanOrEquals_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_Key" NewName="ListContains_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_Value" NewName="ListContains_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_NotEquals_Key" NewName="NotEquals_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_NotEquals_Value" NewName="NotEquals_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_NotIn_Key" NewName="NotIn_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_NotIn_Value" NewName="NotIn_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_OrAll" NewName="Filter_OrAll" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_StartsWith_Key" NewName="StartsWith_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_StartsWith_Value" NewName="StartsWith_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_Key" NewName="StringContains_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_Value" NewName="StringContains_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_MetadataAttributes" NewName="ImplicitFilterConfiguration_MetadataAttribute" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_ModelArn" NewName="ImplicitFilterConfiguration_ModelArn" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_NumberOfResults" NewName="VectorSearchConfiguration_NumberOfResult" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_OverrideSearchType" NewName="VectorSearchConfiguration_OverrideSearchType" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode" NewName="MetadataConfiguration_SelectionMode" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude" NewName="SelectiveModeConfiguration_FieldsToExclude" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude" NewName="SelectiveModeConfiguration_FieldsToInclude" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestFields" NewName="ModelConfiguration_AdditionalModelRequestField" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn" NewName="ModelConfiguration_ModelArn" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResults" NewName="BedrockRerankingConfiguration_NumberOfRerankedResult" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_Type" NewName="RerankingConfiguration_Type" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,11 +258,62 @@
                 <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="Stream_ExternalSourcesConfig_PerformanceConfig_Latency" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_ModelArn" NewName="ExternalSourcesConfiguration_ModelArn" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_Sources" NewName="ExternalSourcesConfiguration_Source" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_AdditionalModelRequestFields" NewName="GenerationConfiguration_AdditionalModelRequestField" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId" NewName="GuardrailConfiguration_GuardrailId" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion" NewName="GuardrailConfiguration_GuardrailVersion" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_KnowledgeBaseId" NewName="KnowledgeBaseConfiguration_KnowledgeBaseId" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_ModelArn" NewName="KnowledgeBaseConfiguration_ModelArn" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_AdditionalModelRequestFields" NewName="OrchestrationConfiguration_AdditionalModelRequestField" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" NewName="TextInferenceConfig_MaxToken" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" NewName="TextInferenceConfig_StopSequence" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="TextInferenceConfig_Temperature" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="TextInferenceConfig_TopP" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate_TextPromptTemplate" NewName="PromptTemplate_TextPromptTemplate" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration_Type" NewName="QueryTransformationConfiguration_Type" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_AndAll" NewName="Filter_AndAll" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_Equals_Key" NewName="Equals_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_Equals_Value" NewName="Equals_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThan_Key" NewName="GreaterThan_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThan_Value" NewName="GreaterThan_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThanOrEquals_Key" NewName="GreaterThanOrEquals_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_GreaterThanOrEquals_Value" NewName="GreaterThanOrEquals_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_In_Key" NewName="In_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_In_Value" NewName="In_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThan_Key" NewName="LessThan_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThan_Value" NewName="LessThan_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThanOrEquals_Key" NewName="LessThanOrEquals_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_LessThanOrEquals_Value" NewName="LessThanOrEquals_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_Key" NewName="ListContains_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_Value" NewName="ListContains_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_NotEquals_Key" NewName="NotEquals_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_NotEquals_Value" NewName="NotEquals_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_NotIn_Key" NewName="NotIn_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_NotIn_Value" NewName="NotIn_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_OrAll" NewName="Filter_OrAll" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_StartsWith_Key" NewName="StartsWith_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_StartsWith_Value" NewName="StartsWith_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_Key" NewName="StringContains_Key" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_Value" NewName="StringContains_Value" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_MetadataAttributes" NewName="ImplicitFilterConfiguration_MetadataAttribute" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_ModelArn" NewName="ImplicitFilterConfiguration_ModelArn" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_NumberOfResults" NewName="VectorSearchConfiguration_NumberOfResult" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_OverrideSearchType" NewName="VectorSearchConfiguration_OverrideSearchType" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode" NewName="MetadataConfiguration_SelectionMode" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude" NewName="SelectiveModeConfiguration_FieldsToExclude" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude" NewName="SelectiveModeConfiguration_FieldsToInclude" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestFields" NewName="ModelConfiguration_AdditionalModelRequestField" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn" NewName="ModelConfiguration_ModelArn" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResults" NewName="BedrockRerankingConfiguration_NumberOfRerankedResult" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_Type" NewName="RerankingConfiguration_Type" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartFlowExecution" OutputProperty="ExecutionArn" Verb="Start" Noun="FlowExecution" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ModelPerformanceConfiguration_PerformanceConfig_Latency" NewName="PerformanceConfig_Latency" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopFlowExecution" OutputProperty="*" Verb="Stop" Noun="FlowExecution" ShouldProcessTarget="ExecutionIdentifier" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">

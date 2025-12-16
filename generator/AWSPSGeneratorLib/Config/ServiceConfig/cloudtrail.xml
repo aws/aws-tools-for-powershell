@@ -40,7 +40,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RefreshSchedule_Frequency_Unit" NewName="Frequency_Unit" />
+                <Param Name="RefreshSchedule_Frequency_Value" NewName="Frequency_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEventDataStore" OutputProperty="*" Verb="New" Noun="EventDataStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -230,7 +233,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="Destinations" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ImportSource_S3_S3BucketAccessRoleArn" NewName="S3_S3BucketAccessRoleArn" />
+                <Param Name="ImportSource_S3_S3BucketRegion" NewName="S3_S3BucketRegion" />
+                <Param Name="ImportSource_S3_S3LocationUri" NewName="S3_S3LocationUri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartLogging" Verb="Start" Noun="Logging" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -258,7 +265,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDashboard" OutputProperty="*" Verb="Update" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RefreshSchedule_Frequency_Unit" NewName="Frequency_Unit" />
+                <Param Name="RefreshSchedule_Frequency_Value" NewName="Frequency_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEventDataStore" OutputProperty="*" Verb="Update" Noun="EventDataStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">

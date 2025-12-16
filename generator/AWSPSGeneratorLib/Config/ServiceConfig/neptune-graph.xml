@@ -39,7 +39,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGraphUsingImportTask" OutputProperty="*" Verb="New" Noun="GraphUsingImportTask" ShouldProcessTarget="GraphName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ImportOptions_Neptune_PreserveDefaultVertexLabels" NewName="Neptune_PreserveDefaultVertexLabel" />
+                <Param Name="ImportOptions_Neptune_PreserveEdgeIds" NewName="Neptune_PreserveEdgeId" />
+                <Param Name="ImportOptions_Neptune_S3ExportKmsKeyId" NewName="Neptune_S3ExportKmsKeyId" />
+                <Param Name="ImportOptions_Neptune_S3ExportPath" NewName="Neptune_S3ExportPath" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePrivateGraphEndpoint" OutputProperty="*" Verb="New" Noun="PrivateGraphEndpoint" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -135,7 +140,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartImportTask" OutputProperty="*" Verb="Start" Noun="ImportTask" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ImportOptions_Neptune_PreserveDefaultVertexLabels" NewName="Neptune_PreserveDefaultVertexLabel" />
+                <Param Name="ImportOptions_Neptune_PreserveEdgeIds" NewName="Neptune_PreserveEdgeId" />
+                <Param Name="ImportOptions_Neptune_S3ExportKmsKeyId" NewName="Neptune_S3ExportKmsKeyId" />
+                <Param Name="ImportOptions_Neptune_S3ExportPath" NewName="Neptune_S3ExportPath" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopGraph" OutputProperty="*" Verb="Stop" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">

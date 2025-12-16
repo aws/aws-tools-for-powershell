@@ -58,13 +58,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBridge" OutputProperty="Bridge" Verb="New" Noun="Bridge" ShouldProcessTarget="Name" PipelineParameter="PlacementArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SourceFailoverConfig_SourcePriority_PrimarySource" NewName="SourcePriority_PrimarySource" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFlow" OutputProperty="Flow" Verb="New" Noun="Flow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Source" Exclude="true" />
                 <Param Name="Sources" NewName="Source" />
+                <Param Name="SourceFailoverConfig_SourcePriority_PrimarySource" NewName="SourcePriority_PrimarySource" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -84,11 +87,39 @@
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_DecryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtListener_DecryptionConfiguration_EncryptionKey_RoleArn" />
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DecryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtCaller_DecryptionConfiguration_EncryptionKey_SecretArn" />
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn" />
+                <Param Name="Configuration_Failover_NetworkInterfaceArn" NewName="Failover_NetworkInterfaceArn" />
+                <Param Name="Configuration_Failover_PrimarySourceIndex" NewName="Failover_PrimarySourceIndex" />
+                <Param Name="Configuration_Failover_ProtocolConfigurations" NewName="Failover_ProtocolConfiguration" />
+                <Param Name="Configuration_Failover_SourcePriorityMode" NewName="Failover_SourcePriorityMode" />
+                <Param Name="Configuration_MediaConnectFlow_FlowArn" NewName="MediaConnectFlow_FlowArn" />
+                <Param Name="Configuration_MediaConnectFlow_FlowOutputArn" NewName="MediaConnectFlow_FlowOutputArn" />
+                <Param Name="Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyType" NewName="SourceTransitDecryption_EncryptionKeyType" />
+                <Param Name="Configuration_Merge_MergeRecoveryWindowMilliseconds" NewName="Merge_MergeRecoveryWindowMillisecond" />
+                <Param Name="Configuration_Merge_NetworkInterfaceArn" NewName="Merge_NetworkInterfaceArn" />
+                <Param Name="Configuration_Merge_ProtocolConfigurations" NewName="Merge_ProtocolConfiguration" />
+                <Param Name="Configuration_Standard_NetworkInterfaceArn" NewName="Standard_NetworkInterfaceArn" />
+                <Param Name="Configuration_Standard_Protocol" NewName="Standard_Protocol" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rist_Port" NewName="Rist_Port" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rist_RecoveryLatencyMilliseconds" NewName="Rist_RecoveryLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrection" NewName="Rtp_ForwardErrorCorrection" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_Port" NewName="Rtp_Port" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_MinimumLatencyMilliseconds" NewName="SrtCaller_MinimumLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_SourceAddress" NewName="SrtCaller_SourceAddress" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_SourcePort" NewName="SrtCaller_SourcePort" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_StreamId" NewName="SrtCaller_StreamId" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_MinimumLatencyMilliseconds" NewName="SrtListener_MinimumLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_Port" NewName="SrtListener_Port" />
+                <Param Name="MaintenanceConfiguration_PreferredDayTime_Day" NewName="PreferredDayTime_Day" />
+                <Param Name="MaintenanceConfiguration_PreferredDayTime_Time" NewName="PreferredDayTime_Time" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRouterNetworkInterface" OutputProperty="RouterNetworkInterface" Verb="New" Noun="RouterNetworkInterface" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Configuration_Public_AllowRules" NewName="Public_AllowRule" />
+                <Param Name="Configuration_Vpc_SecurityGroupIds" NewName="Vpc_SecurityGroupId" />
+                <Param Name="Configuration_Vpc_SubnetId" NewName="Vpc_SubnetId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRouterOutput" OutputProperty="RouterOutput" Verb="New" Noun="RouterOutput" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
@@ -105,6 +136,25 @@
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_EncryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtListener_EncryptionConfiguration_EncryptionKey_RoleArn" />
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_EncryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtCaller_EncryptionConfiguration_EncryptionKey_SecretArn" />
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn" />
+                <Param Name="Configuration_MediaConnectFlow_FlowArn" NewName="MediaConnectFlow_FlowArn" />
+                <Param Name="Configuration_MediaConnectFlow_FlowSourceArn" NewName="MediaConnectFlow_FlowSourceArn" />
+                <Param Name="Configuration_MediaLiveInput_MediaLiveInputArn" NewName="MediaLiveInput_MediaLiveInputArn" />
+                <Param Name="Configuration_MediaLiveInput_MediaLivePipelineId" NewName="MediaLiveInput_MediaLivePipelineId" />
+                <Param Name="Configuration_Standard_NetworkInterfaceArn" NewName="Standard_NetworkInterfaceArn" />
+                <Param Name="Configuration_Standard_Protocol" NewName="Standard_Protocol" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rist_DestinationAddress" NewName="Rist_DestinationAddress" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rist_DestinationPort" NewName="Rist_DestinationPort" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_DestinationAddress" NewName="Rtp_DestinationAddress" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_DestinationPort" NewName="Rtp_DestinationPort" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrection" NewName="Rtp_ForwardErrorCorrection" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DestinationAddress" NewName="SrtCaller_DestinationAddress" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DestinationPort" NewName="SrtCaller_DestinationPort" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_MinimumLatencyMilliseconds" NewName="SrtCaller_MinimumLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_StreamId" NewName="SrtCaller_StreamId" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_MinimumLatencyMilliseconds" NewName="SrtListener_MinimumLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_Port" NewName="SrtListener_Port" />
+                <Param Name="MaintenanceConfiguration_PreferredDayTime_Day" NewName="PreferredDayTime_Day" />
+                <Param Name="MaintenanceConfiguration_PreferredDayTime_Time" NewName="PreferredDayTime_Time" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -327,7 +377,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBridge" OutputProperty="Bridge" Verb="Update" Noun="Bridge" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SourceFailoverConfig_SourcePriority_PrimarySource" NewName="SourcePriority_PrimarySource" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBridgeOutput" OutputProperty="*" Verb="Update" Noun="BridgeOutput" ShouldProcessTarget="OutputName" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -335,7 +387,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBridgeSource" OutputProperty="*" Verb="Update" Noun="BridgeSource" ShouldProcessTarget="SourceName" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FlowSource_FlowVpcInterfaceAttachment_VpcInterfaceName" NewName="FlowVpcInterfaceAttachment_VpcInterfaceName" />
+                <Param Name="NetworkSource_MulticastSourceSettings_MulticastSourceIp" NewName="MulticastSourceSettings_MulticastSourceIp" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBridgeState" OutputProperty="*" Verb="Update" Noun="BridgeState" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -343,7 +398,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlow" OutputProperty="Flow" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SourceFailoverConfig_SourcePriority_PrimarySource" NewName="SourcePriority_PrimarySource" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlowEntitlement" OutputProperty="Entitlement" Verb="Update" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -351,15 +408,32 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlowMediaStream" OutputProperty="*" Verb="Update" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Attributes_Fmtp_ChannelOrder" NewName="Fmtp_ChannelOrder" />
+                <Param Name="Attributes_Fmtp_Colorimetry" NewName="Fmtp_Colorimetry" />
+                <Param Name="Attributes_Fmtp_ExactFramerate" NewName="Fmtp_ExactFramerate" />
+                <Param Name="Attributes_Fmtp_Par" NewName="Fmtp_Par" />
+                <Param Name="Attributes_Fmtp_Range" NewName="Fmtp_Range" />
+                <Param Name="Attributes_Fmtp_ScanMode" NewName="Fmtp_ScanMode" />
+                <Param Name="Attributes_Fmtp_Tcs" NewName="Fmtp_Tc" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlowOutput" OutputProperty="Output" Verb="Update" Noun="FlowOutput" ShouldProcessTarget="OutputArn" PipelineParameter="OutputArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RouterIntegrationTransitEncryption_EncryptionKeyConfiguration_Automatic" NewName="EncryptionKeyConfiguration_Automatic" />
+                <Param Name="RouterIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="SecretsManager_RoleArn" />
+                <Param Name="RouterIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="SecretsManager_SecretArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlowSource" OutputProperty="Source" Verb="Update" Noun="FlowSource" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GatewayBridgeSource_VpcInterfaceAttachment_VpcInterfaceName" NewName="VpcInterfaceAttachment_VpcInterfaceName" />
+                <Param Name="RouterIntegrationTransitDecryption_EncryptionKeyConfiguration_Automatic" NewName="EncryptionKeyConfiguration_Automatic" />
+                <Param Name="RouterIntegrationTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="SecretsManager_RoleArn" />
+                <Param Name="RouterIntegrationTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="SecretsManager_SecretArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGatewayInstance" OutputProperty="*" Verb="Update" Noun="GatewayInstance" ShouldProcessTarget="GatewayInstanceArn" PipelineParameter="GatewayInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -378,11 +452,39 @@
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_DecryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtListener_DecryptionConfiguration_EncryptionKey_RoleArn" />
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DecryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtCaller_DecryptionConfiguration_EncryptionKey_SecretArn" />
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn" />
+                <Param Name="Configuration_Failover_NetworkInterfaceArn" NewName="Failover_NetworkInterfaceArn" />
+                <Param Name="Configuration_Failover_PrimarySourceIndex" NewName="Failover_PrimarySourceIndex" />
+                <Param Name="Configuration_Failover_ProtocolConfigurations" NewName="Failover_ProtocolConfiguration" />
+                <Param Name="Configuration_Failover_SourcePriorityMode" NewName="Failover_SourcePriorityMode" />
+                <Param Name="Configuration_MediaConnectFlow_FlowArn" NewName="MediaConnectFlow_FlowArn" />
+                <Param Name="Configuration_MediaConnectFlow_FlowOutputArn" NewName="MediaConnectFlow_FlowOutputArn" />
+                <Param Name="Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyType" NewName="SourceTransitDecryption_EncryptionKeyType" />
+                <Param Name="Configuration_Merge_MergeRecoveryWindowMilliseconds" NewName="Merge_MergeRecoveryWindowMillisecond" />
+                <Param Name="Configuration_Merge_NetworkInterfaceArn" NewName="Merge_NetworkInterfaceArn" />
+                <Param Name="Configuration_Merge_ProtocolConfigurations" NewName="Merge_ProtocolConfiguration" />
+                <Param Name="Configuration_Standard_NetworkInterfaceArn" NewName="Standard_NetworkInterfaceArn" />
+                <Param Name="Configuration_Standard_Protocol" NewName="Standard_Protocol" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rist_Port" NewName="Rist_Port" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rist_RecoveryLatencyMilliseconds" NewName="Rist_RecoveryLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrection" NewName="Rtp_ForwardErrorCorrection" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_Port" NewName="Rtp_Port" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_MinimumLatencyMilliseconds" NewName="SrtCaller_MinimumLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_SourceAddress" NewName="SrtCaller_SourceAddress" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_SourcePort" NewName="SrtCaller_SourcePort" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_StreamId" NewName="SrtCaller_StreamId" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_MinimumLatencyMilliseconds" NewName="SrtListener_MinimumLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_Port" NewName="SrtListener_Port" />
+                <Param Name="MaintenanceConfiguration_PreferredDayTime_Day" NewName="PreferredDayTime_Day" />
+                <Param Name="MaintenanceConfiguration_PreferredDayTime_Time" NewName="PreferredDayTime_Time" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRouterNetworkInterface" OutputProperty="RouterNetworkInterface" Verb="Update" Noun="RouterNetworkInterface" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Configuration_Public_AllowRules" NewName="Public_AllowRule" />
+                <Param Name="Configuration_Vpc_SecurityGroupIds" NewName="Vpc_SecurityGroupId" />
+                <Param Name="Configuration_Vpc_SubnetId" NewName="Vpc_SubnetId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRouterOutput" OutputProperty="RouterOutput" Verb="Update" Noun="RouterOutput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
@@ -399,6 +501,25 @@
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_EncryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtListener_EncryptionConfiguration_EncryptionKey_RoleArn" />
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_EncryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtCaller_EncryptionConfiguration_EncryptionKey_SecretArn" />
                 <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn" />
+                <Param Name="Configuration_MediaConnectFlow_FlowArn" NewName="MediaConnectFlow_FlowArn" />
+                <Param Name="Configuration_MediaConnectFlow_FlowSourceArn" NewName="MediaConnectFlow_FlowSourceArn" />
+                <Param Name="Configuration_MediaLiveInput_MediaLiveInputArn" NewName="MediaLiveInput_MediaLiveInputArn" />
+                <Param Name="Configuration_MediaLiveInput_MediaLivePipelineId" NewName="MediaLiveInput_MediaLivePipelineId" />
+                <Param Name="Configuration_Standard_NetworkInterfaceArn" NewName="Standard_NetworkInterfaceArn" />
+                <Param Name="Configuration_Standard_Protocol" NewName="Standard_Protocol" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rist_DestinationAddress" NewName="Rist_DestinationAddress" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rist_DestinationPort" NewName="Rist_DestinationPort" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_DestinationAddress" NewName="Rtp_DestinationAddress" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_DestinationPort" NewName="Rtp_DestinationPort" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrection" NewName="Rtp_ForwardErrorCorrection" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DestinationAddress" NewName="SrtCaller_DestinationAddress" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DestinationPort" NewName="SrtCaller_DestinationPort" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_MinimumLatencyMilliseconds" NewName="SrtCaller_MinimumLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_StreamId" NewName="SrtCaller_StreamId" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_MinimumLatencyMilliseconds" NewName="SrtListener_MinimumLatencyMillisecond" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_Port" NewName="SrtListener_Port" />
+                <Param Name="MaintenanceConfiguration_PreferredDayTime_Day" NewName="PreferredDayTime_Day" />
+                <Param Name="MaintenanceConfiguration_PreferredDayTime_Time" NewName="PreferredDayTime_Time" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

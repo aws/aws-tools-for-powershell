@@ -19,7 +19,10 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateLink" OutputProperty="*" Verb="New" Noun="Link" ShouldProcessTarget="SinkIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LinkConfiguration_LogGroupConfiguration_Filter" NewName="LogGroupConfiguration_Filter" />
+                <Param Name="LinkConfiguration_MetricConfiguration_Filter" NewName="MetricConfiguration_Filter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSink" OutputProperty="*" Verb="New" Noun="Sink" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -75,7 +78,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLink" OutputProperty="*" Verb="Update" Noun="Link" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LinkConfiguration_LogGroupConfiguration_Filter" NewName="LogGroupConfiguration_Filter" />
+                <Param Name="LinkConfiguration_MetricConfiguration_Filter" NewName="MetricConfiguration_Filter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

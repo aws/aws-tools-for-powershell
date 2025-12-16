@@ -23,7 +23,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyAlias="Add-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -44,7 +44,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateElasticsearchDomain" OutputProperty="DomainStatus" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserARN" NewName="MasterUserOptions_MasterUserARN" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserName" NewName="MasterUserOptions_MasterUserName" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserPassword" NewName="MasterUserOptions_MasterUserPassword" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Enabled" NewName="SAMLOptions_Enabled" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Idp_EntityId" NewName="Idp_EntityId" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Idp_MetadataContent" NewName="Idp_MetadataContent" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_MasterBackendRole" NewName="SAMLOptions_MasterBackendRole" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_MasterUserName" NewName="SAMLOptions_MasterUserName" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_RolesKey" NewName="SAMLOptions_RolesKey" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_SessionTimeoutMinutes" NewName="SAMLOptions_SessionTimeoutMinute" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_SubjectKey" NewName="SAMLOptions_SubjectKey" />
+                <Param Name="ElasticsearchClusterConfig_ColdStorageOptions_Enabled" NewName="ColdStorageOptions_Enabled" />
+                <Param Name="ElasticsearchClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount" NewName="ZoneAwarenessConfig_AvailabilityZoneCount" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOutboundCrossClusterSearchConnection" OutputProperty="*" Verb="New" Noun="OutboundCrossClusterSearchConnection" ShouldProcessTarget="" PipelineParameter="ConnectionAlias" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -119,11 +133,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedElasticsearchInstanceOfferings" OutputProperty="ReservedElasticsearchInstanceOfferings" Verb="Get" Noun="ReservedElasticsearchInstanceOfferingList" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedElasticsearchInstanceOfferings" OutputProperty="ReservedElasticsearchInstanceOfferings" Verb="Get" Noun="ReservedElasticsearchInstanceOfferingList" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedElasticsearchInstances" OutputProperty="ReservedElasticsearchInstances" Verb="Get" Noun="ReservedElasticsearchInstanceList" PipelineParameter="ReservedElasticsearchInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedElasticsearchInstances" OutputProperty="ReservedElasticsearchInstances" Verb="Get" Noun="ReservedElasticsearchInstanceList" PipelineParameter="ReservedElasticsearchInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -143,7 +157,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,11 +173,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListElasticsearchInstanceTypes" OutputProperty="ElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListElasticsearchInstanceTypes" OutputProperty="ElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListElasticsearchVersions" OutputProperty="ElasticsearchVersions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListElasticsearchVersions" OutputProperty="ElasticsearchVersions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -171,7 +185,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyAlias="Get-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -195,7 +209,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ARN" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ARN" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -208,7 +222,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" OutputProperty="DomainConfig" Verb="Update" Noun="DomainConfig" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserARN" NewName="MasterUserOptions_MasterUserARN" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserName" NewName="MasterUserOptions_MasterUserName" />
+                <Param Name="AdvancedSecurityOptions_MasterUserOptions_MasterUserPassword" NewName="MasterUserOptions_MasterUserPassword" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Enabled" NewName="SAMLOptions_Enabled" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Idp_EntityId" NewName="Idp_EntityId" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_Idp_MetadataContent" NewName="Idp_MetadataContent" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_MasterBackendRole" NewName="SAMLOptions_MasterBackendRole" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_MasterUserName" NewName="SAMLOptions_MasterUserName" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_RolesKey" NewName="SAMLOptions_RolesKey" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_SessionTimeoutMinutes" NewName="SAMLOptions_SessionTimeoutMinute" />
+                <Param Name="AdvancedSecurityOptions_SAMLOptions_SubjectKey" NewName="SAMLOptions_SubjectKey" />
+                <Param Name="ElasticsearchClusterConfig_ColdStorageOptions_Enabled" NewName="ColdStorageOptions_Enabled" />
+                <Param Name="ElasticsearchClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount" NewName="ZoneAwarenessConfig_AvailabilityZoneCount" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePackage" OutputProperty="PackageDetails" Verb="Update" Noun="Package" ShouldProcessTarget="PackageSource_S3BucketName" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">

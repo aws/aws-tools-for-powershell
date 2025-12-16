@@ -31,11 +31,29 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateHarvestJob" OutputProperty="*" Verb="New" Noun="HarvestJob" ShouldProcessTarget="HarvestJobName" PipelineParameter="HarvestJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Destination_S3Destination_BucketName" NewName="S3Destination_BucketName" />
+                <Param Name="Destination_S3Destination_DestinationPath" NewName="S3Destination_DestinationPath" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOriginEndpoint" OutputProperty="*" Verb="New" Noun="OriginEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Segment_Encryption_CmafExcludeSegmentDrmMetadata" NewName="Encryption_CmafExcludeSegmentDrmMetadata" />
+                <Param Name="Segment_Encryption_ConstantInitializationVector" NewName="Encryption_ConstantInitializationVector" />
+                <Param Name="Segment_Encryption_EncryptionMethod_CmafEncryptionMethod" NewName="EncryptionMethod_CmafEncryptionMethod" />
+                <Param Name="Segment_Encryption_EncryptionMethod_IsmEncryptionMethod" NewName="EncryptionMethod_IsmEncryptionMethod" />
+                <Param Name="Segment_Encryption_EncryptionMethod_TsEncryptionMethod" NewName="EncryptionMethod_TsEncryptionMethod" />
+                <Param Name="Segment_Encryption_KeyRotationIntervalSeconds" NewName="Encryption_KeyRotationIntervalSecond" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_DrmSystems" NewName="SpekeKeyProvider_DrmSystem" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio" NewName="EncryptionContractConfiguration_PresetSpeke20Audio" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video" NewName="EncryptionContractConfiguration_PresetSpeke20Video" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_ResourceId" NewName="SpekeKeyProvider_ResourceId" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_RoleArn" NewName="SpekeKeyProvider_RoleArn" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_Url" NewName="SpekeKeyProvider_Url" />
+                <Param Name="Segment_Scte_ScteFilter" NewName="Scte_ScteFilter" />
+                <Param Name="Segment_Scte_ScteInSegments" NewName="Scte_ScteInSegment" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -135,7 +153,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOriginEndpoint" OutputProperty="*" Verb="Update" Noun="OriginEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Segment_Encryption_CmafExcludeSegmentDrmMetadata" NewName="Encryption_CmafExcludeSegmentDrmMetadata" />
+                <Param Name="Segment_Encryption_ConstantInitializationVector" NewName="Encryption_ConstantInitializationVector" />
+                <Param Name="Segment_Encryption_EncryptionMethod_CmafEncryptionMethod" NewName="EncryptionMethod_CmafEncryptionMethod" />
+                <Param Name="Segment_Encryption_EncryptionMethod_IsmEncryptionMethod" NewName="EncryptionMethod_IsmEncryptionMethod" />
+                <Param Name="Segment_Encryption_EncryptionMethod_TsEncryptionMethod" NewName="EncryptionMethod_TsEncryptionMethod" />
+                <Param Name="Segment_Encryption_KeyRotationIntervalSeconds" NewName="Encryption_KeyRotationIntervalSecond" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_DrmSystems" NewName="SpekeKeyProvider_DrmSystem" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio" NewName="EncryptionContractConfiguration_PresetSpeke20Audio" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video" NewName="EncryptionContractConfiguration_PresetSpeke20Video" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_ResourceId" NewName="SpekeKeyProvider_ResourceId" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_RoleArn" NewName="SpekeKeyProvider_RoleArn" />
+                <Param Name="Segment_Encryption_SpekeKeyProvider_Url" NewName="SpekeKeyProvider_Url" />
+                <Param Name="Segment_Scte_ScteFilter" NewName="Scte_ScteFilter" />
+                <Param Name="Segment_Scte_ScteInSegments" NewName="Scte_ScteInSegment" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

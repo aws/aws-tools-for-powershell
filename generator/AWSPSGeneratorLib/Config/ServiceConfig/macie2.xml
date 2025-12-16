@@ -31,13 +31,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAllowList" OutputProperty="*" Verb="New" Noun="AllowList" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Criteria_S3WordsList_BucketName" NewName="S3WordsList_BucketName" />
+                <Param Name="Criteria_S3WordsList_ObjectKey" NewName="S3WordsList_ObjectKey" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateClassificationJob" OutputProperty="*" Verb="New" Noun="ClassificationJob" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="S3JobDefinition_BucketCriteria_Excludes_And" NewName="S3JobDefinition_BucketCriteria_Excludes_And" AutoApplyAlias="false" />
                 <Param Name="S3JobDefinition_BucketCriteria_Includes_And" NewName="S3JobDefinition_BucketCriteria_Includes_And" AutoApplyAlias="false" />
+                <Param Name="S3JobDefinition_Scoping_Excludes_And" NewName="Excludes_And" />
+                <Param Name="S3JobDefinition_Scoping_Includes_And" NewName="Includes_And" />
+                <Param Name="ScheduleFrequency_MonthlySchedule_DayOfMonth" NewName="MonthlySchedule_DayOfMonth" />
+                <Param Name="ScheduleFrequency_WeeklySchedule_DayOfWeek" NewName="WeeklySchedule_DayOfWeek" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -274,7 +281,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutClassificationExportConfiguration" OutputProperty="Configuration" Verb="Write" Noun="ClassificationExportConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_S3Destination_BucketName" NewName="S3Destination_BucketName" />
+                <Param Name="Configuration_S3Destination_KeyPrefix" NewName="S3Destination_KeyPrefix" />
+                <Param Name="Configuration_S3Destination_KmsKeyArn" NewName="S3Destination_KmsKeyArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutFindingsPublicationConfiguration" Verb="Write" Noun="FindingsPublicationConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -282,7 +293,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchResources" OutputProperty="MatchingResources" Verb="Search" Noun="Resource" ShouldProcessTarget="SortCriteria_AttributeName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BucketCriteria_Excludes_And" NewName="Excludes_And" />
+                <Param Name="BucketCriteria_Includes_And" NewName="Includes_And" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -298,7 +312,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAllowList" OutputProperty="*" Verb="Update" Noun="AllowList" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Criteria_S3WordsList_BucketName" NewName="S3WordsList_BucketName" />
+                <Param Name="Criteria_S3WordsList_ObjectKey" NewName="S3WordsList_ObjectKey" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAutomatedDiscoveryConfiguration" Verb="Update" Noun="AutomatedDiscoveryConfiguration" ShouldProcessTarget="Status" PipelineParameter="Status" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -310,7 +327,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateClassificationScope" Verb="Update" Noun="ClassificationScope" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="S3_Excludes_BucketNames" NewName="Excludes_BucketName" />
+                <Param Name="S3_Excludes_Operation" NewName="Excludes_Operation" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFindingsFilter" OutputProperty="*" Verb="Update" Noun="FindingsFilter" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">

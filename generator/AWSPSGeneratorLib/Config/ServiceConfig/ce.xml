@@ -100,7 +100,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetReservationPurchaseRecommendation" OutputProperty="*" Verb="Get" Noun="ReservationPurchaseRecommendation" PipelineParameter="Service" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
-            <Params />
+            <Params>
+                <Param Name="ServiceSpecification_EC2Specification_OfferingClass" NewName="EC2Specification_OfferingClass" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetReservationUtilization" OutputProperty="*" Verb="Get" Noun="ReservationUtilization" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
@@ -175,7 +177,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCommitmentPurchaseAnalysis" OutputProperty="*" Verb="Start" Noun="CommitmentPurchaseAnalysis" ShouldProcessTarget="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_AccountId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_AccountId" NewName="SavingsPlansPurchaseAnalysisConfiguration_AccountId" />
+                <Param Name="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_AccountScope" NewName="SavingsPlansPurchaseAnalysisConfiguration_AccountScope" />
+                <Param Name="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_AnalysisType" NewName="SavingsPlansPurchaseAnalysisConfiguration_AnalysisType" />
+                <Param Name="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_LookBackTimePeriod" NewName="SavingsPlansPurchaseAnalysisConfiguration_LookBackTimePeriod" />
+                <Param Name="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToAdd" NewName="SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToAdd" />
+                <Param Name="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToExclude" NewName="SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToExclude" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCostAllocationTagBackfill" OutputProperty="BackfillRequest" Verb="Start" Noun="CostAllocationTagBackfill" ShouldProcessTarget="BackfillFrom" PipelineParameter="BackfillFrom" NoPipelineParameter="false" LegacyV4Pagination="true">

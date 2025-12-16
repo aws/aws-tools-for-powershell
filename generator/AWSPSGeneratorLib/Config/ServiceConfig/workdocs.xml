@@ -95,39 +95,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeActivities" OutputProperty="UserActivities" Verb="Get" Noun="Activity" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-			<Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeComments" OutputProperty="Comments" Verb="Get" Noun="Comment" PipelineParameter="VersionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeActivities" OutputProperty="UserActivities" Verb="Get" Noun="Activity" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDocumentVersions" OutputProperty="DocumentVersions" Verb="Get" Noun="DocumentVersionList" PipelineParameter="DocumentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeComments" OutputProperty="Comments" Verb="Get" Noun="Comment" PipelineParameter="VersionId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFolderContents" OutputProperty="*" Verb="Get" Noun="FolderContent" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDocumentVersions" OutputProperty="DocumentVersions" Verb="Get" Noun="DocumentVersionList" PipelineParameter="DocumentId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGroups" OutputProperty="Groups" Verb="Get" Noun="Group" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFolderContents" OutputProperty="*" Verb="Get" Noun="FolderContent" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotificationSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="NotificationSubscriptionList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeGroups" OutputProperty="Groups" Verb="Get" Noun="Group" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePermissions" OutputProperty="Principals" Verb="Get" Noun="ResourcePermissionList" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeNotificationSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="NotificationSubscriptionList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRootFolders" OutputProperty="Folders" Verb="Get" Noun="RootFolder" PipelineParameter="AuthenticationToken" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeResourcePermissions" OutputProperty="Principals" Verb="Get" Noun="ResourcePermissionList" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRootFolders" OutputProperty="Folders" Verb="Get" Noun="RootFolder" PipelineParameter="AuthenticationToken" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,7 +155,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResources" OutputProperty="*" Verb="Get" Noun="Resource" PipelineParameter="CollectionType" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResources" OutputProperty="*" Verb="Get" Noun="Resource" PipelineParameter="CollectionType" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -176,7 +176,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchResources" OutputProperty="Items" Verb="Search" Noun="Resource" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filters_CreatedRange_EndValue" NewName="CreatedRange_EndValue" />
+                <Param Name="Filters_CreatedRange_StartValue" NewName="CreatedRange_StartValue" />
+                <Param Name="Filters_ModifiedRange_EndValue" NewName="ModifiedRange_EndValue" />
+                <Param Name="Filters_ModifiedRange_StartValue" NewName="ModifiedRange_StartValue" />
+                <Param Name="Filters_SizeRange_EndValue" NewName="SizeRange_EndValue" />
+                <Param Name="Filters_SizeRange_StartValue" NewName="SizeRange_StartValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDocument" Verb="Update" Noun="Document" ShouldProcessTarget="DocumentId" PipelineParameter="DocumentId" NoPipelineParameter="false" LegacyV4Pagination="true">

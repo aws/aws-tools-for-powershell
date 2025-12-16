@@ -23,7 +23,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinition" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CURReportDefinitions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinition" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CURReportDefinitions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -32,11 +32,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyReportDefinition" Verb="Edit" Noun="ReportDefinition" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ReportDefinition_ReportStatus_LastDelivery" NewName="ReportStatus_LastDelivery" />
+                <Param Name="ReportDefinition_ReportStatus_LastStatus" NewName="ReportStatus_LastStatus" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutReportDefinition" Verb="Write" Noun="ReportDefinition" ShouldProcessTarget="ReportDefinition_ReportName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ReportDefinition_ReportStatus_LastDelivery" NewName="ReportStatus_LastDelivery" />
+                <Param Name="ReportDefinition_ReportStatus_LastStatus" NewName="ReportStatus_LastStatus" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false" LegacyV4Pagination="true">

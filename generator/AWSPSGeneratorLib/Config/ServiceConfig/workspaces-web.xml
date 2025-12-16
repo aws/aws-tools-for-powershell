@@ -75,7 +75,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSessionLogger" OutputProperty="SessionLoggerArn" Verb="New" Noun="SessionLogger" ShouldProcessTarget="DisplayName" PipelineParameter="CustomerManagedKey" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="LogConfiguration_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="LogConfiguration_S3_BucketOwner" NewName="S3_BucketOwner" />
+                <Param Name="LogConfiguration_S3_FolderStructure" NewName="S3_FolderStructure" />
+                <Param Name="LogConfiguration_S3_KeyPrefix" NewName="S3_KeyPrefix" />
+                <Param Name="LogConfiguration_S3_LogFileFormat" NewName="S3_LogFileFormat" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrustStore" OutputProperty="TrustStoreArn" Verb="New" Noun="TrustStore" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -87,7 +93,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateUserSettings" OutputProperty="UserSettingsArn" Verb="New" Noun="UserSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BrandingConfigurationInput_Favicon_Blob" NewName="Favicon_Blob" />
+                <Param Name="BrandingConfigurationInput_Favicon_S3Uri" NewName="Favicon_S3Uri" />
+                <Param Name="BrandingConfigurationInput_Logo_Blob" NewName="Logo_Blob" />
+                <Param Name="BrandingConfigurationInput_Logo_S3Uri" NewName="Logo_S3Uri" />
+                <Param Name="BrandingConfigurationInput_Wallpaper_Blob" NewName="Wallpaper_Blob" />
+                <Param Name="BrandingConfigurationInput_Wallpaper_S3Uri" NewName="Wallpaper_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBrowserSettings" Verb="Remove" Noun="BrowserSetting" ShouldProcessTarget="BrowserSettingsArn" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -303,7 +316,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSessionLogger" OutputProperty="SessionLogger" Verb="Update" Noun="SessionLogger" ShouldProcessTarget="SessionLoggerArn" PipelineParameter="SessionLoggerArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="LogConfiguration_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="LogConfiguration_S3_BucketOwner" NewName="S3_BucketOwner" />
+                <Param Name="LogConfiguration_S3_FolderStructure" NewName="S3_FolderStructure" />
+                <Param Name="LogConfiguration_S3_KeyPrefix" NewName="S3_KeyPrefix" />
+                <Param Name="LogConfiguration_S3_LogFileFormat" NewName="S3_LogFileFormat" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTrustStore" OutputProperty="TrustStoreArn" Verb="Update" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -315,7 +334,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUserSettings" OutputProperty="UserSettings" Verb="Update" Noun="UserSetting" ShouldProcessTarget="UserSettingsArn" PipelineParameter="UserSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BrandingConfigurationInput_Favicon_Blob" NewName="Favicon_Blob" />
+                <Param Name="BrandingConfigurationInput_Favicon_S3Uri" NewName="Favicon_S3Uri" />
+                <Param Name="BrandingConfigurationInput_Logo_Blob" NewName="Logo_Blob" />
+                <Param Name="BrandingConfigurationInput_Logo_S3Uri" NewName="Logo_S3Uri" />
+                <Param Name="BrandingConfigurationInput_Wallpaper_Blob" NewName="Wallpaper_Blob" />
+                <Param Name="BrandingConfigurationInput_Wallpaper_S3Uri" NewName="Wallpaper_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

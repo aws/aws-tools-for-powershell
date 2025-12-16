@@ -39,7 +39,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateScheduledAction" OutputProperty="ScheduledAction" Verb="New" Noun="ScheduledAction" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TargetAction_CreateSnapshot_NamespaceName" NewName="CreateSnapshot_NamespaceName" />
+                <Param Name="TargetAction_CreateSnapshot_RetentionPeriod" NewName="CreateSnapshot_RetentionPeriod" />
+                <Param Name="TargetAction_CreateSnapshot_SnapshotNamePrefix" NewName="CreateSnapshot_SnapshotNamePrefix" />
+                <Param Name="TargetAction_CreateSnapshot_Tags" NewName="CreateSnapshot_Tag" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -259,7 +264,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateScheduledAction" OutputProperty="ScheduledAction" Verb="Update" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TargetAction_CreateSnapshot_NamespaceName" NewName="CreateSnapshot_NamespaceName" />
+                <Param Name="TargetAction_CreateSnapshot_RetentionPeriod" NewName="CreateSnapshot_RetentionPeriod" />
+                <Param Name="TargetAction_CreateSnapshot_SnapshotNamePrefix" NewName="CreateSnapshot_SnapshotNamePrefix" />
+                <Param Name="TargetAction_CreateSnapshot_Tags" NewName="CreateSnapshot_Tag" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">

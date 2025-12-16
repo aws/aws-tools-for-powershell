@@ -92,7 +92,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutConfiguration" Verb="Write" Noun="Configuration" ShouldProcessTarget="Configuration_TagQueryConfiguration_TagKey" PipelineParameter="Configuration_TagQueryConfiguration_TagKey" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_TagQueryConfiguration_TagKey" NewName="TagQueryConfiguration_TagKey" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SyncResource" OutputProperty="*" Verb="Sync" Noun="Resource" ShouldProcessTarget="ResourceType" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">

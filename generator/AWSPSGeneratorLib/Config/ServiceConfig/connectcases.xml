@@ -37,7 +37,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCaseRule" OutputProperty="*" Verb="New" Noun="CaseRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Rule_FieldOptions_ChildFieldId" NewName="FieldOptions_ChildFieldId" />
+                <Param Name="Rule_FieldOptions_ParentChildFieldOptionsMappings" NewName="FieldOptions_ParentChildFieldOptionsMapping" />
+                <Param Name="Rule_FieldOptions_ParentFieldId" NewName="FieldOptions_ParentFieldId" />
+                <Param Name="Rule_Hidden_Conditions" NewName="Hidden_Condition" />
+                <Param Name="Rule_Hidden_DefaultValue" NewName="Hidden_DefaultValue" />
+                <Param Name="Rule_Required_Conditions" NewName="Required_Condition" />
+                <Param Name="Rule_Required_DefaultValue" NewName="Required_DefaultValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -49,11 +57,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLayout" OutputProperty="*" Verb="New" Noun="Layout" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Content_Basic_MoreInfo_Sections" NewName="MoreInfo_Section" />
+                <Param Name="Content_Basic_TopPanel_Sections" NewName="TopPanel_Section" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRelatedItem" OutputProperty="*" Verb="New" Noun="RelatedItem" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Content_Comment_Body" NewName="Comment_Body" />
+                <Param Name="Content_Comment_ContentType" NewName="Comment_ContentType" />
+                <Param Name="Content_ConnectCase_CaseId" NewName="ConnectCase_CaseId" />
+                <Param Name="Content_Contact_ContactArn" NewName="Contact_ContactArn" />
+                <Param Name="Content_Custom_Fields" NewName="Custom_Field" />
+                <Param Name="Content_File_FileArn" NewName="File_FileArn" />
+                <Param Name="Content_Sla_SlaInputConfiguration_FieldId" NewName="SlaInputConfiguration_FieldId" />
+                <Param Name="Content_Sla_SlaInputConfiguration_Name" NewName="SlaInputConfiguration_Name" />
+                <Param Name="Content_Sla_SlaInputConfiguration_TargetFieldValues" NewName="SlaInputConfiguration_TargetFieldValue" />
+                <Param Name="Content_Sla_SlaInputConfiguration_TargetSlaMinutes" NewName="SlaInputConfiguration_TargetSlaMinute" />
+                <Param Name="Content_Sla_SlaInputConfiguration_Type" NewName="SlaInputConfiguration_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -145,7 +168,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutCaseEventConfiguration" Verb="Write" Noun="CaseEventConfiguration" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EventBridge_IncludedData_CaseData_Fields" NewName="CaseData_Field" />
+                <Param Name="EventBridge_IncludedData_RelatedItemData_IncludeContent" NewName="RelatedItemData_IncludeContent" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchAllRelatedItems" OutputProperty="RelatedItems" Verb="Search" Noun="AllRelatedItem" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
@@ -173,7 +199,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCaseRule" Verb="Update" Noun="CaseRule" ShouldProcessTarget="CaseRuleId" PipelineParameter="CaseRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Rule_FieldOptions_ChildFieldId" NewName="FieldOptions_ChildFieldId" />
+                <Param Name="Rule_FieldOptions_ParentChildFieldOptionsMappings" NewName="FieldOptions_ParentChildFieldOptionsMapping" />
+                <Param Name="Rule_FieldOptions_ParentFieldId" NewName="FieldOptions_ParentFieldId" />
+                <Param Name="Rule_Hidden_Conditions" NewName="Hidden_Condition" />
+                <Param Name="Rule_Hidden_DefaultValue" NewName="Hidden_DefaultValue" />
+                <Param Name="Rule_Required_Conditions" NewName="Required_Condition" />
+                <Param Name="Rule_Required_DefaultValue" NewName="Required_DefaultValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateField" Verb="Update" Noun="Field" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -181,7 +215,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLayout" Verb="Update" Noun="Layout" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Content_Basic_MoreInfo_Sections" NewName="MoreInfo_Section" />
+                <Param Name="Content_Basic_TopPanel_Sections" NewName="TopPanel_Section" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTemplate" Verb="Update" Noun="Template" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -23,7 +23,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomLogSource" OutputProperty="*" Verb="New" Noun="CustomLogSource" ShouldProcessTarget="SourceName" PipelineParameter="EventClasses" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_CrawlerConfiguration_RoleArn" NewName="CrawlerConfiguration_RoleArn" />
+                <Param Name="Configuration_ProviderIdentity_ExternalId" NewName="ProviderIdentity_ExternalId" />
+                <Param Name="Configuration_ProviderIdentity_Principal" NewName="ProviderIdentity_Principal" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataLake" OutputProperty="DataLakes" Verb="New" Noun="DataLake" ShouldProcessTarget="MetaStoreManagerRoleArn" PipelineParameter="MetaStoreManagerRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -43,7 +47,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSubscriberNotification" OutputProperty="SubscriberEndpoint" Verb="New" Noun="SubscriberNotification" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_HttpsNotificationConfiguration_AuthorizationApiKeyName" NewName="HttpsNotificationConfiguration_AuthorizationApiKeyName" />
+                <Param Name="Configuration_HttpsNotificationConfiguration_AuthorizationApiKeyValue" NewName="HttpsNotificationConfiguration_AuthorizationApiKeyValue" />
+                <Param Name="Configuration_HttpsNotificationConfiguration_Endpoint" NewName="HttpsNotificationConfiguration_Endpoint" />
+                <Param Name="Configuration_HttpsNotificationConfiguration_HttpMethod" NewName="HttpsNotificationConfiguration_HttpMethod" />
+                <Param Name="Configuration_HttpsNotificationConfiguration_TargetRoleArn" NewName="HttpsNotificationConfiguration_TargetRoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAwsLogSource" OutputProperty="*" Verb="Remove" Noun="AwsLogSource" ShouldProcessTarget="Sources" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -147,7 +157,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSubscriberNotification" OutputProperty="SubscriberEndpoint" Verb="Update" Noun="SubscriberNotification" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_HttpsNotificationConfiguration_AuthorizationApiKeyName" NewName="HttpsNotificationConfiguration_AuthorizationApiKeyName" />
+                <Param Name="Configuration_HttpsNotificationConfiguration_AuthorizationApiKeyValue" NewName="HttpsNotificationConfiguration_AuthorizationApiKeyValue" />
+                <Param Name="Configuration_HttpsNotificationConfiguration_Endpoint" NewName="HttpsNotificationConfiguration_Endpoint" />
+                <Param Name="Configuration_HttpsNotificationConfiguration_HttpMethod" NewName="HttpsNotificationConfiguration_HttpMethod" />
+                <Param Name="Configuration_HttpsNotificationConfiguration_TargetRoleArn" NewName="HttpsNotificationConfiguration_TargetRoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -44,7 +44,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLicense" OutputProperty="*" Verb="New" Noun="License" ShouldProcessTarget="LicenseName" PipelineParameter="LicenseName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConsumptionConfiguration_BorrowConfiguration_AllowEarlyCheckIn" NewName="BorrowConfiguration_AllowEarlyCheckIn" />
+                <Param Name="ConsumptionConfiguration_BorrowConfiguration_MaxTimeToLiveInMinutes" NewName="BorrowConfiguration_MaxTimeToLiveInMinute" />
+                <Param Name="ConsumptionConfiguration_ProvisionalConfiguration_MaxTimeToLiveInMinutes" NewName="ProvisionalConfiguration_MaxTimeToLiveInMinute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLicenseAssetGroup" OutputProperty="*" Verb="New" Noun="LicenseAssetGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
@@ -68,7 +72,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLicenseVersion" OutputProperty="*" Verb="New" Noun="LicenseVersion" ShouldProcessTarget="LicenseArn" PipelineParameter="LicenseArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConsumptionConfiguration_BorrowConfiguration_AllowEarlyCheckIn" NewName="BorrowConfiguration_AllowEarlyCheckIn" />
+                <Param Name="ConsumptionConfiguration_BorrowConfiguration_MaxTimeToLiveInMinutes" NewName="BorrowConfiguration_MaxTimeToLiveInMinute" />
+                <Param Name="ConsumptionConfiguration_ProvisionalConfiguration_MaxTimeToLiveInMinutes" NewName="ProvisionalConfiguration_MaxTimeToLiveInMinute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="LicenseArn" PipelineParameter="LicenseArn" NoPipelineParameter="false" LegacyV4Pagination="true">

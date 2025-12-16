@@ -36,7 +36,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConnection" OutputProperty="*" Verb="New" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AuthParameters_ApiKeyAuthParameters_ApiKeyName" NewName="ApiKeyAuthParameters_ApiKeyName" />
+                <Param Name="AuthParameters_ApiKeyAuthParameters_ApiKeyValue" NewName="ApiKeyAuthParameters_ApiKeyValue" />
+                <Param Name="AuthParameters_BasicAuthParameters_Password" NewName="BasicAuthParameters_Password" />
+                <Param Name="AuthParameters_BasicAuthParameters_Username" NewName="BasicAuthParameters_Username" />
+                <Param Name="AuthParameters_InvocationHttpParameters_BodyParameters" NewName="InvocationHttpParameters_BodyParameter" />
+                <Param Name="AuthParameters_InvocationHttpParameters_HeaderParameters" NewName="InvocationHttpParameters_HeaderParameter" />
+                <Param Name="AuthParameters_InvocationHttpParameters_QueryStringParameters" NewName="InvocationHttpParameters_QueryStringParameter" />
+                <Param Name="AuthParameters_OAuthParameters_AuthorizationEndpoint" NewName="OAuthParameters_AuthorizationEndpoint" />
+                <Param Name="AuthParameters_OAuthParameters_ClientParameters_ClientID" NewName="ClientParameters_ClientID" />
+                <Param Name="AuthParameters_OAuthParameters_ClientParameters_ClientSecret" NewName="ClientParameters_ClientSecret" />
+                <Param Name="AuthParameters_OAuthParameters_HttpMethod" NewName="OAuthParameters_HttpMethod" />
+                <Param Name="AuthParameters_OAuthParameters_OAuthHttpParameters_BodyParameters" NewName="OAuthHttpParameters_BodyParameter" />
+                <Param Name="AuthParameters_OAuthParameters_OAuthHttpParameters_HeaderParameters" NewName="OAuthHttpParameters_HeaderParameter" />
+                <Param Name="AuthParameters_OAuthParameters_OAuthHttpParameters_QueryStringParameters" NewName="OAuthHttpParameters_QueryStringParameter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEventBus" OutputProperty="EventBusArn" Verb="New" Noun="EventBus" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -133,19 +148,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventBuses" OutputProperty="EventBuses" Verb="Get" Noun="EventBusList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventBuses" OutputProperty="EventBuses" Verb="Get" Noun="EventBusList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventSources" OutputProperty="EventSources" Verb="Get" Noun="EventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventSources" OutputProperty="EventSources" Verb="Get" Noun="EventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPartnerEventSourceAccounts" OutputProperty="PartnerEventSourceAccounts" Verb="Get" Noun="PartnerEventSourceAccountList" PipelineParameter="EventSourceName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPartnerEventSourceAccounts" OutputProperty="PartnerEventSourceAccounts" Verb="Get" Noun="PartnerEventSourceAccountList" PipelineParameter="EventSourceName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPartnerEventSources" OutputProperty="PartnerEventSources" Verb="Get" Noun="PartnerEventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPartnerEventSources" OutputProperty="PartnerEventSources" Verb="Get" Noun="PartnerEventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -153,11 +168,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuleNamesByTarget" OutputProperty="RuleNames" Verb="Get" Noun="RuleNamesByTarget" PipelineParameter="TargetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRuleNamesByTarget" OutputProperty="RuleNames" Verb="Get" Noun="RuleNamesByTarget" PipelineParameter="TargetArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -165,7 +180,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetsByRule" OutputProperty="Targets" Verb="Get" Noun="TargetsByRule" PipelineParameter="Rule" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTargetsByRule" OutputProperty="Targets" Verb="Get" Noun="TargetsByRule" PipelineParameter="Rule" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -224,7 +239,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnection" OutputProperty="*" Verb="Update" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AuthParameters_ApiKeyAuthParameters_ApiKeyName" NewName="ApiKeyAuthParameters_ApiKeyName" />
+                <Param Name="AuthParameters_ApiKeyAuthParameters_ApiKeyValue" NewName="ApiKeyAuthParameters_ApiKeyValue" />
+                <Param Name="AuthParameters_BasicAuthParameters_Password" NewName="BasicAuthParameters_Password" />
+                <Param Name="AuthParameters_BasicAuthParameters_Username" NewName="BasicAuthParameters_Username" />
+                <Param Name="AuthParameters_InvocationHttpParameters_BodyParameters" NewName="InvocationHttpParameters_BodyParameter" />
+                <Param Name="AuthParameters_InvocationHttpParameters_HeaderParameters" NewName="InvocationHttpParameters_HeaderParameter" />
+                <Param Name="AuthParameters_InvocationHttpParameters_QueryStringParameters" NewName="InvocationHttpParameters_QueryStringParameter" />
+                <Param Name="AuthParameters_OAuthParameters_AuthorizationEndpoint" NewName="OAuthParameters_AuthorizationEndpoint" />
+                <Param Name="AuthParameters_OAuthParameters_ClientParameters_ClientID" NewName="ClientParameters_ClientID" />
+                <Param Name="AuthParameters_OAuthParameters_ClientParameters_ClientSecret" NewName="ClientParameters_ClientSecret" />
+                <Param Name="AuthParameters_OAuthParameters_HttpMethod" NewName="OAuthParameters_HttpMethod" />
+                <Param Name="AuthParameters_OAuthParameters_OAuthHttpParameters_BodyParameters" NewName="OAuthHttpParameters_BodyParameter" />
+                <Param Name="AuthParameters_OAuthParameters_OAuthHttpParameters_HeaderParameters" NewName="OAuthHttpParameters_HeaderParameter" />
+                <Param Name="AuthParameters_OAuthParameters_OAuthHttpParameters_QueryStringParameters" NewName="OAuthHttpParameters_QueryStringParameter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -43,15 +43,32 @@
                 <Param Name="Retrieval_TrafficShapingTpsConfiguration_PeakTps" NewName="Retrieval_TrafficShapingTpsConfiguration_PeakTps" />
                 <Param Name="RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers" NewName="RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers" />
                 <Param Name="Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers" NewName="Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers" />
+                <Param Name="RecurringPrefetchConfiguration_RecurringConsumption_AvailMatchingCriteria" NewName="RecurringConsumption_AvailMatchingCriterion" />
+                <Param Name="RecurringPrefetchConfiguration_RecurringConsumption_RetrievedAdExpirationSeconds" NewName="RecurringConsumption_RetrievedAdExpirationSecond" />
+                <Param Name="RecurringPrefetchConfiguration_RecurringRetrieval_DelayAfterAvailEndSeconds" NewName="RecurringRetrieval_DelayAfterAvailEndSecond" />
+                <Param Name="RecurringPrefetchConfiguration_RecurringRetrieval_DynamicVariables" NewName="RecurringRetrieval_DynamicVariable" />
+                <Param Name="RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingType" NewName="RecurringRetrieval_TrafficShapingType" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProgram" OutputProperty="*" Verb="New" Noun="Program" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ScheduleConfiguration_ClipRange_EndOffsetMillis" NewName="ClipRange_EndOffsetMilli" />
+                <Param Name="ScheduleConfiguration_ClipRange_StartOffsetMillis" NewName="ClipRange_StartOffsetMilli" />
+                <Param Name="ScheduleConfiguration_Transition_DurationMillis" NewName="Transition_DurationMilli" />
+                <Param Name="ScheduleConfiguration_Transition_RelativePosition" NewName="Transition_RelativePosition" />
+                <Param Name="ScheduleConfiguration_Transition_RelativeProgram" NewName="Transition_RelativeProgram" />
+                <Param Name="ScheduleConfiguration_Transition_ScheduledStartTimeMillis" NewName="Transition_ScheduledStartTimeMilli" />
+                <Param Name="ScheduleConfiguration_Transition_Type" NewName="Transition_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSourceLocation" OutputProperty="*" Verb="New" Noun="SourceLocation" ShouldProcessTarget="SourceLocationName" PipelineParameter="SourceLocationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AccessConfiguration_SecretsManagerAccessTokenConfiguration_HeaderName" NewName="SecretsManagerAccessTokenConfiguration_HeaderName" />
+                <Param Name="AccessConfiguration_SecretsManagerAccessTokenConfiguration_SecretArn" NewName="SecretsManagerAccessTokenConfiguration_SecretArn" />
+                <Param Name="AccessConfiguration_SecretsManagerAccessTokenConfiguration_SecretStringKey" NewName="SecretsManagerAccessTokenConfiguration_SecretStringKey" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVodSource" OutputProperty="*" Verb="New" Noun="VodSource" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -163,7 +180,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutPlaybackConfiguration" OutputProperty="*" Verb="Set" Noun="PlaybackConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AdDecisionServerConfiguration_HttpRequest_Body" NewName="HttpRequest_Body" />
+                <Param Name="AdDecisionServerConfiguration_HttpRequest_CompressRequest" NewName="HttpRequest_CompressRequest" />
+                <Param Name="AdDecisionServerConfiguration_HttpRequest_Headers" NewName="HttpRequest_Header" />
+                <Param Name="AdDecisionServerConfiguration_HttpRequest_Method" NewName="HttpRequest_Method" />
+                <Param Name="ManifestProcessingRules_AdMarkerPassthrough_Enabled" NewName="AdMarkerPassthrough_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartChannel" Verb="Start" Noun="Channel" ShouldProcessTarget="ChannelName" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -191,11 +214,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProgram" OutputProperty="*" Verb="Update" Noun="Program" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ScheduleConfiguration_ClipRange_EndOffsetMillis" NewName="ClipRange_EndOffsetMilli" />
+                <Param Name="ScheduleConfiguration_ClipRange_StartOffsetMillis" NewName="ClipRange_StartOffsetMilli" />
+                <Param Name="ScheduleConfiguration_Transition_DurationMillis" NewName="Transition_DurationMilli" />
+                <Param Name="ScheduleConfiguration_Transition_ScheduledStartTimeMillis" NewName="Transition_ScheduledStartTimeMilli" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSourceLocation" OutputProperty="*" Verb="Update" Noun="SourceLocation" ShouldProcessTarget="SourceLocationName" PipelineParameter="SourceLocationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AccessConfiguration_SecretsManagerAccessTokenConfiguration_HeaderName" NewName="SecretsManagerAccessTokenConfiguration_HeaderName" />
+                <Param Name="AccessConfiguration_SecretsManagerAccessTokenConfiguration_SecretArn" NewName="SecretsManagerAccessTokenConfiguration_SecretArn" />
+                <Param Name="AccessConfiguration_SecretsManagerAccessTokenConfiguration_SecretStringKey" NewName="SecretsManagerAccessTokenConfiguration_SecretStringKey" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVodSource" OutputProperty="*" Verb="Update" Noun="VodSource" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

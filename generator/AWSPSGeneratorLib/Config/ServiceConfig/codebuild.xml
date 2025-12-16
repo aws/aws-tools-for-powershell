@@ -60,11 +60,46 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="Project" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BuildBatchConfig_Restrictions_ComputeTypesAllowed" NewName="Restrictions_ComputeTypesAllowed" />
+                <Param Name="BuildBatchConfig_Restrictions_FleetsAllowed" NewName="Restrictions_FleetsAllowed" />
+                <Param Name="BuildBatchConfig_Restrictions_MaximumBuildsAllowed" NewName="Restrictions_MaximumBuildsAllowed" />
+                <Param Name="Environment_ComputeConfiguration_Disk" NewName="ComputeConfiguration_Disk" />
+                <Param Name="Environment_ComputeConfiguration_InstanceType" NewName="ComputeConfiguration_InstanceType" />
+                <Param Name="Environment_ComputeConfiguration_MachineType" NewName="ComputeConfiguration_MachineType" />
+                <Param Name="Environment_ComputeConfiguration_Memory" NewName="ComputeConfiguration_Memory" />
+                <Param Name="Environment_ComputeConfiguration_VCpu" NewName="ComputeConfiguration_VCpu" />
+                <Param Name="Environment_DockerServer_ComputeType" NewName="DockerServer_ComputeType" />
+                <Param Name="Environment_DockerServer_SecurityGroupIds" NewName="DockerServer_SecurityGroupId" />
+                <Param Name="Environment_DockerServer_Status_Message" NewName="Status_Message" />
+                <Param Name="Environment_DockerServer_Status_Status" NewName="Status_Status" />
+                <Param Name="Environment_Fleet_FleetArn" NewName="Fleet_FleetArn" />
+                <Param Name="Environment_RegistryCredential_Credential" NewName="RegistryCredential_Credential" />
+                <Param Name="Environment_RegistryCredential_CredentialProvider" NewName="RegistryCredential_CredentialProvider" />
+                <Param Name="LogsConfig_CloudWatchLogs_GroupName" NewName="CloudWatchLogs_GroupName" />
+                <Param Name="LogsConfig_CloudWatchLogs_Status" NewName="CloudWatchLogs_Status" />
+                <Param Name="LogsConfig_CloudWatchLogs_StreamName" NewName="CloudWatchLogs_StreamName" />
+                <Param Name="LogsConfig_S3Logs_BucketOwnerAccess" NewName="S3Logs_BucketOwnerAccess" />
+                <Param Name="LogsConfig_S3Logs_EncryptionDisabled" NewName="S3Logs_EncryptionDisabled" />
+                <Param Name="LogsConfig_S3Logs_Location" NewName="S3Logs_Location" />
+                <Param Name="LogsConfig_S3Logs_Status" NewName="S3Logs_Status" />
+                <Param Name="Source_Auth_Resource" NewName="Auth_Resource" />
+                <Param Name="Source_Auth_Type" NewName="Auth_Type" />
+                <Param Name="Source_BuildStatusConfig_Context" NewName="BuildStatusConfig_Context" />
+                <Param Name="Source_BuildStatusConfig_TargetUrl" NewName="BuildStatusConfig_TargetUrl" />
+                <Param Name="Source_GitSubmodulesConfig_FetchSubmodules" NewName="GitSubmodulesConfig_FetchSubmodule" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateReportGroup" OutputProperty="ReportGroup" Verb="New" Noun="ReportGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExportConfig_S3Destination_Bucket" NewName="S3Destination_Bucket" />
+                <Param Name="ExportConfig_S3Destination_BucketOwner" NewName="S3Destination_BucketOwner" />
+                <Param Name="ExportConfig_S3Destination_EncryptionDisabled" NewName="S3Destination_EncryptionDisabled" />
+                <Param Name="ExportConfig_S3Destination_EncryptionKey" NewName="S3Destination_EncryptionKey" />
+                <Param Name="ExportConfig_S3Destination_Packaging" NewName="S3Destination_Packaging" />
+                <Param Name="ExportConfig_S3Destination_Path" NewName="S3Destination_Path" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWebhook" OutputProperty="Webhook" Verb="New" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -204,11 +239,30 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartBuild" OutputProperty="Build" Verb="Start" Noun="Build" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LogsConfigOverride_CloudWatchLogs_GroupName" NewName="CloudWatchLogs_GroupName" />
+                <Param Name="LogsConfigOverride_CloudWatchLogs_Status" NewName="CloudWatchLogs_Status" />
+                <Param Name="LogsConfigOverride_CloudWatchLogs_StreamName" NewName="CloudWatchLogs_StreamName" />
+                <Param Name="LogsConfigOverride_S3Logs_BucketOwnerAccess" NewName="S3Logs_BucketOwnerAccess" />
+                <Param Name="LogsConfigOverride_S3Logs_EncryptionDisabled" NewName="S3Logs_EncryptionDisabled" />
+                <Param Name="LogsConfigOverride_S3Logs_Location" NewName="S3Logs_Location" />
+                <Param Name="LogsConfigOverride_S3Logs_Status" NewName="S3Logs_Status" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartBuildBatch" OutputProperty="BuildBatch" Verb="Start" Noun="Batch" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BuildBatchConfigOverride_Restrictions_ComputeTypesAllowed" NewName="Restrictions_ComputeTypesAllowed" />
+                <Param Name="BuildBatchConfigOverride_Restrictions_FleetsAllowed" NewName="Restrictions_FleetsAllowed" />
+                <Param Name="BuildBatchConfigOverride_Restrictions_MaximumBuildsAllowed" NewName="Restrictions_MaximumBuildsAllowed" />
+                <Param Name="LogsConfigOverride_CloudWatchLogs_GroupName" NewName="CloudWatchLogs_GroupName" />
+                <Param Name="LogsConfigOverride_CloudWatchLogs_Status" NewName="CloudWatchLogs_Status" />
+                <Param Name="LogsConfigOverride_CloudWatchLogs_StreamName" NewName="CloudWatchLogs_StreamName" />
+                <Param Name="LogsConfigOverride_S3Logs_BucketOwnerAccess" NewName="S3Logs_BucketOwnerAccess" />
+                <Param Name="LogsConfigOverride_S3Logs_EncryptionDisabled" NewName="S3Logs_EncryptionDisabled" />
+                <Param Name="LogsConfigOverride_S3Logs_Location" NewName="S3Logs_Location" />
+                <Param Name="LogsConfigOverride_S3Logs_Status" NewName="S3Logs_Status" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCommandExecution" OutputProperty="CommandExecution" Verb="Start" Noun="CommandExecution" ShouldProcessTarget="SandboxId" PipelineParameter="SandboxId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -240,7 +294,35 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProject" OutputProperty="Project" Verb="Update" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BuildBatchConfig_Restrictions_ComputeTypesAllowed" NewName="Restrictions_ComputeTypesAllowed" />
+                <Param Name="BuildBatchConfig_Restrictions_FleetsAllowed" NewName="Restrictions_FleetsAllowed" />
+                <Param Name="BuildBatchConfig_Restrictions_MaximumBuildsAllowed" NewName="Restrictions_MaximumBuildsAllowed" />
+                <Param Name="Environment_ComputeConfiguration_Disk" NewName="ComputeConfiguration_Disk" />
+                <Param Name="Environment_ComputeConfiguration_InstanceType" NewName="ComputeConfiguration_InstanceType" />
+                <Param Name="Environment_ComputeConfiguration_MachineType" NewName="ComputeConfiguration_MachineType" />
+                <Param Name="Environment_ComputeConfiguration_Memory" NewName="ComputeConfiguration_Memory" />
+                <Param Name="Environment_ComputeConfiguration_VCpu" NewName="ComputeConfiguration_VCpu" />
+                <Param Name="Environment_DockerServer_ComputeType" NewName="DockerServer_ComputeType" />
+                <Param Name="Environment_DockerServer_SecurityGroupIds" NewName="DockerServer_SecurityGroupId" />
+                <Param Name="Environment_DockerServer_Status_Message" NewName="Status_Message" />
+                <Param Name="Environment_DockerServer_Status_Status" NewName="Status_Status" />
+                <Param Name="Environment_Fleet_FleetArn" NewName="Fleet_FleetArn" />
+                <Param Name="Environment_RegistryCredential_Credential" NewName="RegistryCredential_Credential" />
+                <Param Name="Environment_RegistryCredential_CredentialProvider" NewName="RegistryCredential_CredentialProvider" />
+                <Param Name="LogsConfig_CloudWatchLogs_GroupName" NewName="CloudWatchLogs_GroupName" />
+                <Param Name="LogsConfig_CloudWatchLogs_Status" NewName="CloudWatchLogs_Status" />
+                <Param Name="LogsConfig_CloudWatchLogs_StreamName" NewName="CloudWatchLogs_StreamName" />
+                <Param Name="LogsConfig_S3Logs_BucketOwnerAccess" NewName="S3Logs_BucketOwnerAccess" />
+                <Param Name="LogsConfig_S3Logs_EncryptionDisabled" NewName="S3Logs_EncryptionDisabled" />
+                <Param Name="LogsConfig_S3Logs_Location" NewName="S3Logs_Location" />
+                <Param Name="LogsConfig_S3Logs_Status" NewName="S3Logs_Status" />
+                <Param Name="Source_Auth_Resource" NewName="Auth_Resource" />
+                <Param Name="Source_Auth_Type" NewName="Auth_Type" />
+                <Param Name="Source_BuildStatusConfig_Context" NewName="BuildStatusConfig_Context" />
+                <Param Name="Source_BuildStatusConfig_TargetUrl" NewName="BuildStatusConfig_TargetUrl" />
+                <Param Name="Source_GitSubmodulesConfig_FetchSubmodules" NewName="GitSubmodulesConfig_FetchSubmodule" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProjectVisibility" OutputProperty="*" Verb="Update" Noun="ProjectVisibility" ShouldProcessTarget="ProjectArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -248,7 +330,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateReportGroup" OutputProperty="ReportGroup" Verb="Update" Noun="ReportGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExportConfig_S3Destination_Bucket" NewName="S3Destination_Bucket" />
+                <Param Name="ExportConfig_S3Destination_BucketOwner" NewName="S3Destination_BucketOwner" />
+                <Param Name="ExportConfig_S3Destination_EncryptionDisabled" NewName="S3Destination_EncryptionDisabled" />
+                <Param Name="ExportConfig_S3Destination_EncryptionKey" NewName="S3Destination_EncryptionKey" />
+                <Param Name="ExportConfig_S3Destination_Packaging" NewName="S3Destination_Packaging" />
+                <Param Name="ExportConfig_S3Destination_Path" NewName="S3Destination_Path" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWebhook" OutputProperty="Webhook" Verb="Update" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">

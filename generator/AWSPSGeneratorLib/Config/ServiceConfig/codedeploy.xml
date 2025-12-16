@@ -16,7 +16,6 @@
     </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -30,7 +29,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetApplications" OutputProperty="ApplicationsInfo" Verb="Get" Noun="ApplicationBatch" PipelineParameter="ApplicationNames" NoPipelineParameter="false" LegacyAlias="Get-CDApplications" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetApplications" OutputProperty="ApplicationsInfo" Verb="Get" Noun="ApplicationBatch" PipelineParameter="ApplicationNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CDApplications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -42,7 +41,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetDeployments" OutputProperty="DeploymentsInfo" Verb="Get" Noun="DeploymentBatch" PipelineParameter="DeploymentIds" NoPipelineParameter="false" LegacyAlias="Get-CDDeployments" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetDeployments" OutputProperty="DeploymentsInfo" Verb="Get" Noun="DeploymentBatch" PipelineParameter="DeploymentIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CDDeployments">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -68,11 +67,29 @@
                 <Param Name="TargetInstances_TagFilters" NewName="TargetInstancesTagFilter" Alias="TargetInstances_TagFilter" />
                 <Param Name="Revision_RevisionType" NewName="RevisionType" />
                 <Param Name="TargetInstances_AutoScalingGroups" NewName="TargetInstancesAutoScalingGroup" Alias="TargetInstances_AutoScalingGroup" />
+                <Param Name="Revision_AppSpecContent_Content" NewName="AppSpecContent_Content" />
+                <Param Name="Revision_AppSpecContent_Sha256" NewName="AppSpecContent_Sha256" />
+                <Param Name="Revision_GitHubLocation_CommitId" NewName="GitHubLocation_CommitId" />
+                <Param Name="Revision_GitHubLocation_Repository" NewName="GitHubLocation_Repository" />
+                <Param Name="Revision_S3Location_Bucket" NewName="S3Location_Bucket" />
+                <Param Name="Revision_S3Location_BundleType" NewName="S3Location_BundleType" />
+                <Param Name="Revision_S3Location_ETag" NewName="S3Location_ETag" />
+                <Param Name="Revision_S3Location_Key" NewName="S3Location_Key" />
+                <Param Name="Revision_S3Location_Version" NewName="S3Location_Version" />
+                <Param Name="Revision_String_Content" NewName="String_Content" />
+                <Param Name="Revision_String_Sha256" NewName="String_Sha256" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeploymentConfig" OutputProperty="DeploymentConfigId" Verb="New" Noun="DeploymentConfig" ShouldProcessTarget="DeploymentConfigName" PipelineParameter="DeploymentConfigName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TrafficRoutingConfig_TimeBasedCanary_CanaryInterval" NewName="TimeBasedCanary_CanaryInterval" />
+                <Param Name="TrafficRoutingConfig_TimeBasedCanary_CanaryPercentage" NewName="TimeBasedCanary_CanaryPercentage" />
+                <Param Name="TrafficRoutingConfig_TimeBasedLinear_LinearInterval" NewName="TimeBasedLinear_LinearInterval" />
+                <Param Name="TrafficRoutingConfig_TimeBasedLinear_LinearPercentage" NewName="TimeBasedLinear_LinearPercentage" />
+                <Param Name="ZonalConfig_MinimumHealthyHostsPerZone_Type" NewName="MinimumHealthyHostsPerZone_Type" />
+                <Param Name="ZonalConfig_MinimumHealthyHostsPerZone_Value" NewName="MinimumHealthyHostsPerZone_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeploymentGroup" OutputProperty="DeploymentGroupId" Verb="New" Noun="DeploymentGroup" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -119,7 +136,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetApplicationRevision" OutputProperty="*" Verb="Get" Noun="ApplicationRevision" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Revision_AppSpecContent_Content" NewName="AppSpecContent_Content" />
+                <Param Name="Revision_AppSpecContent_Sha256" NewName="AppSpecContent_Sha256" />
+                <Param Name="Revision_GitHubLocation_CommitId" NewName="GitHubLocation_CommitId" />
+                <Param Name="Revision_GitHubLocation_Repository" NewName="GitHubLocation_Repository" />
+                <Param Name="Revision_S3Location_Bucket" NewName="S3Location_Bucket" />
+                <Param Name="Revision_S3Location_BundleType" NewName="S3Location_BundleType" />
+                <Param Name="Revision_S3Location_ETag" NewName="S3Location_ETag" />
+                <Param Name="Revision_S3Location_Key" NewName="S3Location_Key" />
+                <Param Name="Revision_S3Location_Version" NewName="S3Location_Version" />
+                <Param Name="Revision_String_Content" NewName="String_Content" />
+                <Param Name="Revision_String_Sha256" NewName="String_Sha256" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDeployment" OutputProperty="DeploymentInfo" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -158,7 +187,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeploymentGroups" OutputProperty="*" Verb="Get" Noun="DeploymentGroupList" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDeploymentGroups" OutputProperty="*" Verb="Get" Noun="DeploymentGroupList" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,7 +220,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterApplicationRevision" Verb="Register" Noun="ApplicationRevision" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Revision_AppSpecContent_Content" NewName="AppSpecContent_Content" />
+                <Param Name="Revision_AppSpecContent_Sha256" NewName="AppSpecContent_Sha256" />
+                <Param Name="Revision_GitHubLocation_CommitId" NewName="GitHubLocation_CommitId" />
+                <Param Name="Revision_GitHubLocation_Repository" NewName="GitHubLocation_Repository" />
+                <Param Name="Revision_S3Location_Bucket" NewName="S3Location_Bucket" />
+                <Param Name="Revision_S3Location_BundleType" NewName="S3Location_BundleType" />
+                <Param Name="Revision_S3Location_ETag" NewName="S3Location_ETag" />
+                <Param Name="Revision_S3Location_Key" NewName="S3Location_Key" />
+                <Param Name="Revision_S3Location_Version" NewName="S3Location_Version" />
+                <Param Name="Revision_String_Content" NewName="String_Content" />
+                <Param Name="Revision_String_Sha256" NewName="String_Sha256" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterOnPremisesInstance" Verb="Register" Noun="OnPremiseInstance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -238,7 +279,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

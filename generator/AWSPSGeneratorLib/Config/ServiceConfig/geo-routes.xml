@@ -35,6 +35,35 @@
                 <Param Name="TravelModeOptions_Car_LicensePlate_LastCharacter" NewName="TravelModeOptions_Car_LicensePlate_LastCharacter" />
                 <Param Name="TravelModeOptions_Scooter_LicensePlate_LastCharacter" NewName="TravelModeOptions_Scooter_LicensePlate_LastCharacter" />
                 <Param Name="TravelModeOptions_Truck_LicensePlate_LastCharacter" NewName="TravelModeOptions_Truck_LicensePlate_LastCharacter" />
+                <Param Name="TravelModeOptions_Car_EngineType" NewName="Car_EngineType" />
+                <Param Name="TravelModeOptions_Car_MaxSpeed" NewName="Car_MaxSpeed" />
+                <Param Name="TravelModeOptions_Car_Occupancy" NewName="Car_Occupancy" />
+                <Param Name="TravelModeOptions_Scooter_EngineType" NewName="Scooter_EngineType" />
+                <Param Name="TravelModeOptions_Scooter_MaxSpeed" NewName="Scooter_MaxSpeed" />
+                <Param Name="TravelModeOptions_Scooter_Occupancy" NewName="Scooter_Occupancy" />
+                <Param Name="TravelModeOptions_Truck_AxleCount" NewName="Truck_AxleCount" />
+                <Param Name="TravelModeOptions_Truck_EngineType" NewName="Truck_EngineType" />
+                <Param Name="TravelModeOptions_Truck_GrossWeight" NewName="Truck_GrossWeight" />
+                <Param Name="TravelModeOptions_Truck_HazardousCargos" NewName="Truck_HazardousCargo" />
+                <Param Name="TravelModeOptions_Truck_Height" NewName="Truck_Height" />
+                <Param Name="TravelModeOptions_Truck_HeightAboveFirstAxle" NewName="Truck_HeightAboveFirstAxle" />
+                <Param Name="TravelModeOptions_Truck_KpraLength" NewName="Truck_KpraLength" />
+                <Param Name="TravelModeOptions_Truck_Length" NewName="Truck_Length" />
+                <Param Name="TravelModeOptions_Truck_MaxSpeed" NewName="Truck_MaxSpeed" />
+                <Param Name="TravelModeOptions_Truck_Occupancy" NewName="Truck_Occupancy" />
+                <Param Name="TravelModeOptions_Truck_PayloadCapacity" NewName="Truck_PayloadCapacity" />
+                <Param Name="TravelModeOptions_Truck_TireCount" NewName="Truck_TireCount" />
+                <Param Name="TravelModeOptions_Truck_Trailer_AxleCount" NewName="Trailer_AxleCount" />
+                <Param Name="TravelModeOptions_Truck_Trailer_TrailerCount" NewName="Trailer_TrailerCount" />
+                <Param Name="TravelModeOptions_Truck_TruckType" NewName="Truck_TruckType" />
+                <Param Name="TravelModeOptions_Truck_TunnelRestrictionCode" NewName="Truck_TunnelRestrictionCode" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxle" NewName="Truck_WeightPerAxle" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Quad" NewName="WeightPerAxleGroup_Quad" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Quint" NewName="WeightPerAxleGroup_Quint" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Single" NewName="WeightPerAxleGroup_Single" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Tandem" NewName="WeightPerAxleGroup_Tandem" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Triple" NewName="WeightPerAxleGroup_Triple" />
+                <Param Name="TravelModeOptions_Truck_Width" NewName="Truck_Width" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,6 +72,35 @@
                 <Param Name="TravelModeOptions_Car_LicensePlate_LastCharacter" NewName="TravelModeOptions_Car_LicensePlate_LastCharacter" />
                 <Param Name="TravelModeOptions_Scooter_LicensePlate_LastCharacter" NewName="TravelModeOptions_Scooter_LicensePlate_LastCharacter" />
                 <Param Name="TravelModeOptions_Truck_LicensePlate_LastCharacter" NewName="TravelModeOptions_Truck_LicensePlate_LastCharacter" />
+                <Param Name="RoutingBoundary_Geometry_AutoCircle_Margin" NewName="AutoCircle_Margin" />
+                <Param Name="RoutingBoundary_Geometry_AutoCircle_MaxRadius" NewName="AutoCircle_MaxRadius" />
+                <Param Name="RoutingBoundary_Geometry_BoundingBox" NewName="Geometry_BoundingBox" />
+                <Param Name="RoutingBoundary_Geometry_Circle_Center" NewName="Circle_Center" />
+                <Param Name="RoutingBoundary_Geometry_Circle_Radius" NewName="Circle_Radius" />
+                <Param Name="RoutingBoundary_Geometry_Polygon" NewName="Geometry_Polygon" />
+                <Param Name="TravelModeOptions_Car_MaxSpeed" NewName="Car_MaxSpeed" />
+                <Param Name="TravelModeOptions_Car_Occupancy" NewName="Car_Occupancy" />
+                <Param Name="TravelModeOptions_Scooter_MaxSpeed" NewName="Scooter_MaxSpeed" />
+                <Param Name="TravelModeOptions_Scooter_Occupancy" NewName="Scooter_Occupancy" />
+                <Param Name="TravelModeOptions_Truck_AxleCount" NewName="Truck_AxleCount" />
+                <Param Name="TravelModeOptions_Truck_GrossWeight" NewName="Truck_GrossWeight" />
+                <Param Name="TravelModeOptions_Truck_HazardousCargos" NewName="Truck_HazardousCargo" />
+                <Param Name="TravelModeOptions_Truck_Height" NewName="Truck_Height" />
+                <Param Name="TravelModeOptions_Truck_KpraLength" NewName="Truck_KpraLength" />
+                <Param Name="TravelModeOptions_Truck_Length" NewName="Truck_Length" />
+                <Param Name="TravelModeOptions_Truck_MaxSpeed" NewName="Truck_MaxSpeed" />
+                <Param Name="TravelModeOptions_Truck_Occupancy" NewName="Truck_Occupancy" />
+                <Param Name="TravelModeOptions_Truck_PayloadCapacity" NewName="Truck_PayloadCapacity" />
+                <Param Name="TravelModeOptions_Truck_Trailer_TrailerCount" NewName="Trailer_TrailerCount" />
+                <Param Name="TravelModeOptions_Truck_TruckType" NewName="Truck_TruckType" />
+                <Param Name="TravelModeOptions_Truck_TunnelRestrictionCode" NewName="Truck_TunnelRestrictionCode" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxle" NewName="Truck_WeightPerAxle" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Quad" NewName="WeightPerAxleGroup_Quad" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Quint" NewName="WeightPerAxleGroup_Quint" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Single" NewName="WeightPerAxleGroup_Single" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Tandem" NewName="WeightPerAxleGroup_Tandem" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Triple" NewName="WeightPerAxleGroup_Triple" />
+                <Param Name="TravelModeOptions_Truck_Width" NewName="Truck_Width" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,15 +121,78 @@
                 <Param Name="TravelModeOptions_Car_LicensePlate_LastCharacter" NewName="TravelModeOptions_Car_LicensePlate_LastCharacter" />
                 <Param Name="TravelModeOptions_Scooter_LicensePlate_LastCharacter" NewName="TravelModeOptions_Scooter_LicensePlate_LastCharacter" />
                 <Param Name="TravelModeOptions_Truck_LicensePlate_LastCharacter" NewName="TravelModeOptions_Truck_LicensePlate_LastCharacter" />
+                <Param Name="Tolls_EmissionType_Co2EmissionClass" NewName="EmissionType_Co2EmissionClass" />
+                <Param Name="Tolls_EmissionType_Type" NewName="EmissionType_Type" />
+                <Param Name="TravelModeOptions_Car_EngineType" NewName="Car_EngineType" />
+                <Param Name="TravelModeOptions_Car_MaxSpeed" NewName="Car_MaxSpeed" />
+                <Param Name="TravelModeOptions_Car_Occupancy" NewName="Car_Occupancy" />
+                <Param Name="TravelModeOptions_Pedestrian_Speed" NewName="Pedestrian_Speed" />
+                <Param Name="TravelModeOptions_Scooter_EngineType" NewName="Scooter_EngineType" />
+                <Param Name="TravelModeOptions_Scooter_MaxSpeed" NewName="Scooter_MaxSpeed" />
+                <Param Name="TravelModeOptions_Scooter_Occupancy" NewName="Scooter_Occupancy" />
+                <Param Name="TravelModeOptions_Truck_AxleCount" NewName="Truck_AxleCount" />
+                <Param Name="TravelModeOptions_Truck_EngineType" NewName="Truck_EngineType" />
+                <Param Name="TravelModeOptions_Truck_GrossWeight" NewName="Truck_GrossWeight" />
+                <Param Name="TravelModeOptions_Truck_HazardousCargos" NewName="Truck_HazardousCargo" />
+                <Param Name="TravelModeOptions_Truck_Height" NewName="Truck_Height" />
+                <Param Name="TravelModeOptions_Truck_HeightAboveFirstAxle" NewName="Truck_HeightAboveFirstAxle" />
+                <Param Name="TravelModeOptions_Truck_KpraLength" NewName="Truck_KpraLength" />
+                <Param Name="TravelModeOptions_Truck_Length" NewName="Truck_Length" />
+                <Param Name="TravelModeOptions_Truck_MaxSpeed" NewName="Truck_MaxSpeed" />
+                <Param Name="TravelModeOptions_Truck_Occupancy" NewName="Truck_Occupancy" />
+                <Param Name="TravelModeOptions_Truck_PayloadCapacity" NewName="Truck_PayloadCapacity" />
+                <Param Name="TravelModeOptions_Truck_TireCount" NewName="Truck_TireCount" />
+                <Param Name="TravelModeOptions_Truck_Trailer_AxleCount" NewName="Trailer_AxleCount" />
+                <Param Name="TravelModeOptions_Truck_Trailer_TrailerCount" NewName="Trailer_TrailerCount" />
+                <Param Name="TravelModeOptions_Truck_TruckType" NewName="Truck_TruckType" />
+                <Param Name="TravelModeOptions_Truck_TunnelRestrictionCode" NewName="Truck_TunnelRestrictionCode" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxle" NewName="Truck_WeightPerAxle" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Quad" NewName="WeightPerAxleGroup_Quad" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Quint" NewName="WeightPerAxleGroup_Quint" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Single" NewName="WeightPerAxleGroup_Single" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Tandem" NewName="WeightPerAxleGroup_Tandem" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxleGroup_Triple" NewName="WeightPerAxleGroup_Triple" />
+                <Param Name="TravelModeOptions_Truck_Width" NewName="Truck_Width" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="OptimizeWaypoints" OutputProperty="*" Verb="Get" Noun="OptimizedWaypoint" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Clustering_DrivingDistanceOptions_DrivingDistance" NewName="DrivingDistanceOptions_DrivingDistance" />
+                <Param Name="DestinationOptions_AccessHours_From_DayOfWeek" NewName="From_DayOfWeek" />
+                <Param Name="DestinationOptions_AccessHours_From_TimeOfDay" NewName="From_TimeOfDay" />
+                <Param Name="DestinationOptions_AccessHours_To_DayOfWeek" NewName="To_DayOfWeek" />
+                <Param Name="DestinationOptions_AccessHours_To_TimeOfDay" NewName="To_TimeOfDay" />
+                <Param Name="DestinationOptions_SideOfStreet_Position" NewName="SideOfStreet_Position" />
+                <Param Name="DestinationOptions_SideOfStreet_UseWith" NewName="SideOfStreet_UseWith" />
+                <Param Name="Driver_RestCycles_LongCycle_RestDuration" NewName="LongCycle_RestDuration" />
+                <Param Name="Driver_RestCycles_LongCycle_WorkDuration" NewName="LongCycle_WorkDuration" />
+                <Param Name="Driver_RestCycles_ShortCycle_RestDuration" NewName="ShortCycle_RestDuration" />
+                <Param Name="Driver_RestCycles_ShortCycle_WorkDuration" NewName="ShortCycle_WorkDuration" />
+                <Param Name="Driver_RestProfile_Profile" NewName="RestProfile_Profile" />
+                <Param Name="TravelModeOptions_Pedestrian_Speed" NewName="Pedestrian_Speed" />
+                <Param Name="TravelModeOptions_Truck_GrossWeight" NewName="Truck_GrossWeight" />
+                <Param Name="TravelModeOptions_Truck_HazardousCargos" NewName="Truck_HazardousCargo" />
+                <Param Name="TravelModeOptions_Truck_Height" NewName="Truck_Height" />
+                <Param Name="TravelModeOptions_Truck_Length" NewName="Truck_Length" />
+                <Param Name="TravelModeOptions_Truck_Trailer_TrailerCount" NewName="Trailer_TrailerCount" />
+                <Param Name="TravelModeOptions_Truck_TruckType" NewName="Truck_TruckType" />
+                <Param Name="TravelModeOptions_Truck_TunnelRestrictionCode" NewName="Truck_TunnelRestrictionCode" />
+                <Param Name="TravelModeOptions_Truck_WeightPerAxle" NewName="Truck_WeightPerAxle" />
+                <Param Name="TravelModeOptions_Truck_Width" NewName="Truck_Width" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SnapToRoads" OutputProperty="*" Verb="Get" Noun="SnappedRoad" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TravelModeOptions_Truck_GrossWeight" NewName="Truck_GrossWeight" />
+                <Param Name="TravelModeOptions_Truck_HazardousCargos" NewName="Truck_HazardousCargo" />
+                <Param Name="TravelModeOptions_Truck_Height" NewName="Truck_Height" />
+                <Param Name="TravelModeOptions_Truck_Length" NewName="Truck_Length" />
+                <Param Name="TravelModeOptions_Truck_Trailer_TrailerCount" NewName="Trailer_TrailerCount" />
+                <Param Name="TravelModeOptions_Truck_TunnelRestrictionCode" NewName="Truck_TunnelRestrictionCode" />
+                <Param Name="TravelModeOptions_Truck_Width" NewName="Truck_Width" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

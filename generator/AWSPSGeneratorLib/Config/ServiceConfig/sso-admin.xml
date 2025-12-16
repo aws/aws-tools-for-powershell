@@ -32,7 +32,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationArn" Verb="New" Noun="Application" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PortalOptions_SignInOptions_ApplicationUrl" NewName="SignInOptions_ApplicationUrl" />
+                <Param Name="PortalOptions_SignInOptions_Origin" NewName="SignInOptions_Origin" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApplicationAssignment" Verb="New" Noun="ApplicationAssignment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -52,7 +55,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrustedTokenIssuer" OutputProperty="*" Verb="New" Noun="TrustedTokenIssuer" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TrustedTokenIssuerConfiguration_OidcJwtConfiguration_ClaimAttributePath" NewName="OidcJwtConfiguration_ClaimAttributePath" />
+                <Param Name="TrustedTokenIssuerConfiguration_OidcJwtConfiguration_IdentityStoreAttributePath" NewName="OidcJwtConfiguration_IdentityStoreAttributePath" />
+                <Param Name="TrustedTokenIssuerConfiguration_OidcJwtConfiguration_IssuerUrl" NewName="OidcJwtConfiguration_IssuerUrl" />
+                <Param Name="TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption" NewName="OidcJwtConfiguration_JwksRetrievalOption" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountAssignment" OutputProperty="AccountAssignmentDeletionStatus" Verb="Remove" Noun="AccountAssignment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -272,11 +280,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutApplicationAuthenticationMethod" Verb="Write" Noun="ApplicationAuthenticationMethod" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AuthenticationMethod_Iam_ActorPolicy" NewName="Iam_ActorPolicy" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutApplicationGrant" Verb="Write" Noun="ApplicationGrant" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Grant_AuthorizationCode_RedirectUris" NewName="AuthorizationCode_RedirectUris" />
+                <Param Name="Grant_JwtBearer_AuthorizedTokenIssuers" NewName="JwtBearer_AuthorizedTokenIssuer" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutApplicationSessionConfiguration" Verb="Write" Noun="ApplicationSessionConfiguration" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
@@ -288,7 +301,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutPermissionsBoundaryToPermissionSet" Verb="Write" Noun="PermissionsBoundaryToPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PermissionsBoundary_CustomerManagedPolicyReference_Name" NewName="CustomerManagedPolicyReference_Name" />
+                <Param Name="PermissionsBoundary_CustomerManagedPolicyReference_Path" NewName="CustomerManagedPolicyReference_Path" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -300,7 +316,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PortalOptions_SignInOptions_ApplicationUrl" NewName="SignInOptions_ApplicationUrl" />
+                <Param Name="PortalOptions_SignInOptions_Origin" NewName="SignInOptions_Origin" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInstance" Verb="Update" Noun="Instance" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -316,7 +335,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTrustedTokenIssuer" Verb="Update" Noun="TrustedTokenIssuer" ShouldProcessTarget="TrustedTokenIssuerArn" PipelineParameter="TrustedTokenIssuerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TrustedTokenIssuerConfiguration_OidcJwtConfiguration_ClaimAttributePath" NewName="OidcJwtConfiguration_ClaimAttributePath" />
+                <Param Name="TrustedTokenIssuerConfiguration_OidcJwtConfiguration_IdentityStoreAttributePath" NewName="OidcJwtConfiguration_IdentityStoreAttributePath" />
+                <Param Name="TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption" NewName="OidcJwtConfiguration_JwksRetrievalOption" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

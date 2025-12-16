@@ -31,7 +31,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCampaign" OutputProperty="*" Verb="New" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CollectionScheme_ConditionBasedCollectionScheme_ConditionLanguageVersion" NewName="ConditionBasedCollectionScheme_ConditionLanguageVersion" />
+                <Param Name="CollectionScheme_ConditionBasedCollectionScheme_Expression" NewName="ConditionBasedCollectionScheme_Expression" />
+                <Param Name="CollectionScheme_ConditionBasedCollectionScheme_MinimumTriggerIntervalMs" NewName="ConditionBasedCollectionScheme_MinimumTriggerIntervalMs" />
+                <Param Name="CollectionScheme_ConditionBasedCollectionScheme_TriggerMode" NewName="ConditionBasedCollectionScheme_TriggerMode" />
+                <Param Name="CollectionScheme_TimeBasedCollectionScheme_PeriodMs" NewName="TimeBasedCollectionScheme_PeriodMs" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDecoderManifest" OutputProperty="*" Verb="New" Noun="DecoderManifest" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>inspector</C2jFilename>
     <AssemblyName>Inspector</AssemblyName>
@@ -15,7 +16,6 @@
     </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -89,7 +89,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExclusionsPreview" OutputProperty="*" Verb="Get" Noun="ExclusionsPreview" PipelineParameter="AssessmentTemplateArn" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetExclusionsPreview" OutputProperty="*" Verb="Get" Noun="ExclusionsPreview" PipelineParameter="AssessmentTemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -97,35 +97,50 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssessmentRunAgents" OutputProperty="AssessmentRunAgents" Verb="Get" Noun="AssessmentRunAgent" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAssessmentRunAgents" OutputProperty="AssessmentRunAgents" Verb="Get" Noun="AssessmentRunAgent" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssessmentRuns" OutputProperty="AssessmentRunArns" Verb="Get" Noun="AssessmentRunList" PipelineParameter="AssessmentTemplateArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAssessmentRuns" OutputProperty="AssessmentRunArns" Verb="Get" Noun="AssessmentRunList" PipelineParameter="AssessmentTemplateArns" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params>
+                <Param Name="Filter_CompletionTimeRange_BeginDate" NewName="CompletionTimeRange_BeginDate" />
+                <Param Name="Filter_CompletionTimeRange_EndDate" NewName="CompletionTimeRange_EndDate" />
+                <Param Name="Filter_DurationRange_MaxSeconds" NewName="DurationRange_MaxSecond" />
+                <Param Name="Filter_DurationRange_MinSeconds" NewName="DurationRange_MinSecond" />
+                <Param Name="Filter_StartTimeRange_BeginDate" NewName="StartTimeRange_BeginDate" />
+                <Param Name="Filter_StartTimeRange_EndDate" NewName="StartTimeRange_EndDate" />
+                <Param Name="Filter_StateChangeTimeRange_BeginDate" NewName="StateChangeTimeRange_BeginDate" />
+                <Param Name="Filter_StateChangeTimeRange_EndDate" NewName="StateChangeTimeRange_EndDate" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentTargets" OutputProperty="AssessmentTargetArns" Verb="Get" Noun="AssessmentTargetList" PipelineParameter="Filter_AssessmentTargetNamePattern" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssessmentTargets" OutputProperty="AssessmentTargetArns" Verb="Get" Noun="AssessmentTargetList" PipelineParameter="Filter_AssessmentTargetNamePattern" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAssessmentTemplates" OutputProperty="AssessmentTemplateArns" Verb="Get" Noun="AssessmentTemplateList" PipelineParameter="AssessmentTargetArns" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params>
+                <Param Name="Filter_DurationRange_MaxSeconds" NewName="DurationRange_MaxSecond" />
+                <Param Name="Filter_DurationRange_MinSeconds" NewName="DurationRange_MinSecond" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="EventSubscription" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssessmentTemplates" OutputProperty="AssessmentTemplateArns" Verb="Get" Noun="AssessmentTemplateList" PipelineParameter="AssessmentTargetArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListExclusions" OutputProperty="ExclusionArns" Verb="Get" Noun="ExclusionList" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="EventSubscription" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingArns" Verb="Get" Noun="FindingList" PipelineParameter="AssessmentRunArns" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params>
+                <Param Name="Filter_CreationTimeRange_BeginDate" NewName="CreationTimeRange_BeginDate" />
+                <Param Name="Filter_CreationTimeRange_EndDate" NewName="CreationTimeRange_EndDate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExclusions" OutputProperty="ExclusionArns" Verb="Get" Noun="ExclusionList" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingArns" Verb="Get" Noun="FindingList" PipelineParameter="AssessmentRunArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListRulesPackages" OutputProperty="RulesPackageArns" Verb="Get" Noun="RulesPackageList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRulesPackages" OutputProperty="RulesPackageArns" Verb="Get" Noun="RulesPackageList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -133,7 +148,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PreviewAgents" OutputProperty="AgentPreviews" Verb="Get" Noun="AgentPreview" PipelineParameter="PreviewAgentsArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PreviewAgents" OutputProperty="AgentPreviews" Verb="Get" Noun="AgentPreview" PipelineParameter="PreviewAgentsArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -170,7 +185,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

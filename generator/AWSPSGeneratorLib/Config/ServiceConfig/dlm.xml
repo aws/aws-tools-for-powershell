@@ -25,6 +25,13 @@
                 <Param Name="PolicyDetails_Exclusions_ExcludeTags" NewName="PolicyDetails_Exclusions_ExcludeTags" />
                 <Param Name="PolicyDetails_Exclusions_ExcludeVolumeTypes" NewName="PolicyDetails_Exclusions_ExcludeVolumeTypes" />
                 <Param Name="PolicyDetails_ResourceType" NewName="PolicyDetails_SimplifiedResourceType" AutoApplyAlias="false" />
+                <Param Name="PolicyDetails_EventSource_Parameters_DescriptionRegex" NewName="Parameters_DescriptionRegex" />
+                <Param Name="PolicyDetails_EventSource_Parameters_EventType" NewName="Parameters_EventType" />
+                <Param Name="PolicyDetails_EventSource_Parameters_SnapshotOwner" NewName="Parameters_SnapshotOwner" />
+                <Param Name="PolicyDetails_EventSource_Type" NewName="EventSource_Type" />
+                <Param Name="PolicyDetails_Parameters_ExcludeBootVolume" NewName="Parameters_ExcludeBootVolume" />
+                <Param Name="PolicyDetails_Parameters_ExcludeDataVolumeTags" NewName="Parameters_ExcludeDataVolumeTag" />
+                <Param Name="PolicyDetails_Parameters_NoReboot" NewName="Parameters_NoReboot" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -58,6 +65,13 @@
                 <Param Name="PolicyDetails_Exclusions_ExcludeTags" NewName="PolicyDetails_Exclusions_ExcludeTags" />
                 <Param Name="PolicyDetails_Exclusions_ExcludeVolumeTypes" NewName="PolicyDetails_Exclusions_ExcludeVolumeTypes" />
                 <Param Name="PolicyDetails_ResourceType" NewName="PolicyDetails_SimplifiedResourceType" AutoApplyAlias="false" />
+                <Param Name="PolicyDetails_EventSource_Parameters_DescriptionRegex" NewName="Parameters_DescriptionRegex" />
+                <Param Name="PolicyDetails_EventSource_Parameters_EventType" NewName="Parameters_EventType" />
+                <Param Name="PolicyDetails_EventSource_Parameters_SnapshotOwner" NewName="Parameters_SnapshotOwner" />
+                <Param Name="PolicyDetails_EventSource_Type" NewName="EventSource_Type" />
+                <Param Name="PolicyDetails_Parameters_ExcludeBootVolume" NewName="Parameters_ExcludeBootVolume" />
+                <Param Name="PolicyDetails_Parameters_ExcludeDataVolumeTags" NewName="Parameters_ExcludeDataVolumeTag" />
+                <Param Name="PolicyDetails_Parameters_NoReboot" NewName="Parameters_NoReboot" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

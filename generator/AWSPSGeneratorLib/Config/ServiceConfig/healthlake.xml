@@ -20,7 +20,10 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateFHIRDatastore" OutputProperty="*" Verb="New" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreName" PipelineParameter="DatastoreTypeVersion" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SseConfiguration_KmsEncryptionConfig_CmkType" NewName="KmsEncryptionConfig_CmkType" />
+                <Param Name="SseConfiguration_KmsEncryptionConfig_KmsKeyId" NewName="KmsEncryptionConfig_KmsKeyId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFHIRDatastore" OutputProperty="*" Verb="Remove" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -56,11 +59,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartFHIRExportJob" OutputProperty="*" Verb="Start" Noun="FHIRExportJob" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputDataConfig_S3Configuration_KmsKeyId" NewName="S3Configuration_KmsKeyId" />
+                <Param Name="OutputDataConfig_S3Configuration_S3Uri" NewName="S3Configuration_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartFHIRImportJob" OutputProperty="*" Verb="Start" Noun="FHIRImportJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobOutputDataConfig_S3Configuration_KmsKeyId" NewName="S3Configuration_KmsKeyId" />
+                <Param Name="JobOutputDataConfig_S3Configuration_S3Uri" NewName="S3Configuration_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">

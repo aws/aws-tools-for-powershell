@@ -88,7 +88,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMultiplexProgram" OutputProperty="MultiplexProgram" Verb="New" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MultiplexProgramSettings_ServiceDescriptor_ProviderName" NewName="ServiceDescriptor_ProviderName" />
+                <Param Name="MultiplexProgramSettings_ServiceDescriptor_ServiceName" NewName="ServiceDescriptor_ServiceName" />
+                <Param Name="MultiplexProgramSettings_VideoSettings_ConstantBitrate" NewName="VideoSettings_ConstantBitrate" />
+                <Param Name="MultiplexProgramSettings_VideoSettings_StatmuxSettings_MaximumBitrate" NewName="StatmuxSettings_MaximumBitrate" />
+                <Param Name="MultiplexProgramSettings_VideoSettings_StatmuxSettings_MinimumBitrate" NewName="StatmuxSettings_MinimumBitrate" />
+                <Param Name="MultiplexProgramSettings_VideoSettings_StatmuxSettings_Priority" NewName="StatmuxSettings_Priority" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNetwork" OutputProperty="*" Verb="New" Noun="Network" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -499,7 +506,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMultiplexProgram" OutputProperty="MultiplexProgram" Verb="Update" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MultiplexProgramSettings_ServiceDescriptor_ProviderName" NewName="ServiceDescriptor_ProviderName" />
+                <Param Name="MultiplexProgramSettings_ServiceDescriptor_ServiceName" NewName="ServiceDescriptor_ServiceName" />
+                <Param Name="MultiplexProgramSettings_VideoSettings_ConstantBitrate" NewName="VideoSettings_ConstantBitrate" />
+                <Param Name="MultiplexProgramSettings_VideoSettings_StatmuxSettings_MaximumBitrate" NewName="StatmuxSettings_MaximumBitrate" />
+                <Param Name="MultiplexProgramSettings_VideoSettings_StatmuxSettings_MinimumBitrate" NewName="StatmuxSettings_MinimumBitrate" />
+                <Param Name="MultiplexProgramSettings_VideoSettings_StatmuxSettings_Priority" NewName="StatmuxSettings_Priority" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateNetwork" OutputProperty="*" Verb="Update" Noun="Network" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">

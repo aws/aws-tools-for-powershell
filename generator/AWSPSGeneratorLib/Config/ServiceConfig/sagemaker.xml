@@ -60,7 +60,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAlgorithm" OutputProperty="AlgorithmArn" Verb="New" Noun="Algorithm" ShouldProcessTarget="AlgorithmName" PipelineParameter="AlgorithmName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TrainingSpecification_AdditionalS3DataSource_CompressionType" NewName="AdditionalS3DataSource_CompressionType" />
+                <Param Name="TrainingSpecification_AdditionalS3DataSource_ETag" NewName="AdditionalS3DataSource_ETag" />
+                <Param Name="TrainingSpecification_AdditionalS3DataSource_S3DataType" NewName="AdditionalS3DataSource_S3DataType" />
+                <Param Name="TrainingSpecification_AdditionalS3DataSource_S3Uri" NewName="AdditionalS3DataSource_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApp" OutputProperty="AppArn" Verb="New" Noun="App" ShouldProcessTarget="AppName" PipelineParameter="AppName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -78,6 +83,12 @@
                 <Param Name="CodeEditorAppImageConfig_FileSystemConfig_DefaultGid" NewName="CodeEditorAppImageConfig_FileSystemConfig_DefaultGid" />
                 <Param Name="CodeEditorAppImageConfig_FileSystemConfig_DefaultUid" NewName="CodeEditorAppImageConfig_FileSystemConfig_DefaultUid" />
                 <Param Name="CodeEditorAppImageConfig_FileSystemConfig_MountPath" NewName="CodeEditorAppImageConfig_FileSystemConfig_MountPath" />
+                <Param Name="JupyterLabAppImageConfig_ContainerConfig_ContainerArguments" NewName="ContainerConfig_ContainerArgument" />
+                <Param Name="JupyterLabAppImageConfig_ContainerConfig_ContainerEntrypoint" NewName="ContainerConfig_ContainerEntrypoint" />
+                <Param Name="JupyterLabAppImageConfig_ContainerConfig_ContainerEnvironmentVariables" NewName="ContainerConfig_ContainerEnvironmentVariable" />
+                <Param Name="KernelGatewayImageConfig_FileSystemConfig_DefaultGid" NewName="FileSystemConfig_DefaultGid" />
+                <Param Name="KernelGatewayImageConfig_FileSystemConfig_DefaultUid" NewName="FileSystemConfig_DefaultUid" />
+                <Param Name="KernelGatewayImageConfig_FileSystemConfig_MountPath" NewName="FileSystemConfig_MountPath" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -86,7 +97,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAutoMLJob" OutputProperty="AutoMLJobArn" Verb="New" Noun="AutoMLJob" ShouldProcessTarget="AutoMLJobName" PipelineParameter="AutoMLJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AutoMLJobConfig_CandidateGenerationConfig_AlgorithmsConfig" NewName="CandidateGenerationConfig_AlgorithmsConfig" />
+                <Param Name="AutoMLJobConfig_CandidateGenerationConfig_FeatureSpecificationS3Uri" NewName="CandidateGenerationConfig_FeatureSpecificationS3Uri" />
+                <Param Name="AutoMLJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" NewName="CompletionCriteria_MaxAutoMLJobRuntimeInSecond" />
+                <Param Name="AutoMLJobConfig_CompletionCriteria_MaxCandidates" NewName="CompletionCriteria_MaxCandidate" />
+                <Param Name="AutoMLJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" NewName="CompletionCriteria_MaxRuntimePerTrainingJobInSecond" />
+                <Param Name="AutoMLJobConfig_DataSplitConfig_ValidationFraction" NewName="DataSplitConfig_ValidationFraction" />
+                <Param Name="AutoMLJobConfig_SecurityConfig_EnableInterContainerTrafficEncryption" NewName="SecurityConfig_EnableInterContainerTrafficEncryption" />
+                <Param Name="AutoMLJobConfig_SecurityConfig_VolumeKmsKeyId" NewName="SecurityConfig_VolumeKmsKeyId" />
+                <Param Name="AutoMLJobConfig_SecurityConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="AutoMLJobConfig_SecurityConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAutoMLJobV2" OutputProperty="AutoMLJobArn" Verb="New" Noun="AutoMLJobV2" ShouldProcessTarget="AutoMLJobName" PipelineParameter="AutoMLJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -105,11 +127,41 @@
                 <Param Name="AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" NewName="AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond" Alias="TextGeneration_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" />
                 <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig" NewName="TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig" Alias="CandidateGenerationConfig_AlgorithmsConfig" />
                 <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig" NewName="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig" />
+                <Param Name="AutoMLComputeConfig_EmrServerlessComputeConfig_ExecutionRoleARN" NewName="EmrServerlessComputeConfig_ExecutionRoleARN" />
+                <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" NewName="CompletionCriteria_MaxAutoMLJobRuntimeInSecond" />
+                <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_MaxCandidates" NewName="CompletionCriteria_MaxCandidate" />
+                <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" NewName="CompletionCriteria_MaxRuntimePerTrainingJobInSecond" />
+                <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_FeatureSpecificationS3Uri" NewName="TabularJobConfig_FeatureSpecificationS3Uri" />
+                <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_GenerateCandidateDefinitionsOnly" NewName="TabularJobConfig_GenerateCandidateDefinitionsOnly" />
+                <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_Mode" NewName="TabularJobConfig_Mode" />
+                <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_ProblemType" NewName="TabularJobConfig_ProblemType" />
+                <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_SampleWeightAttributeName" NewName="TabularJobConfig_SampleWeightAttributeName" />
+                <Param Name="AutoMLProblemTypeConfig_TabularJobConfig_TargetAttributeName" NewName="TabularJobConfig_TargetAttributeName" />
+                <Param Name="AutoMLProblemTypeConfig_TextClassificationJobConfig_ContentColumn" NewName="TextClassificationJobConfig_ContentColumn" />
+                <Param Name="AutoMLProblemTypeConfig_TextClassificationJobConfig_TargetLabelColumn" NewName="TextClassificationJobConfig_TargetLabelColumn" />
+                <Param Name="AutoMLProblemTypeConfig_TextGenerationJobConfig_BaseModelName" NewName="TextGenerationJobConfig_BaseModelName" />
+                <Param Name="AutoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig_AcceptEula" NewName="ModelAccessConfig_AcceptEula" />
+                <Param Name="AutoMLProblemTypeConfig_TextGenerationJobConfig_TextGenerationHyperParameters" NewName="TextGenerationJobConfig_TextGenerationHyperParameter" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_FeatureSpecificationS3Uri" NewName="TimeSeriesForecastingJobConfig_FeatureSpecificationS3Uri" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_ForecastFrequency" NewName="TimeSeriesForecastingJobConfig_ForecastFrequency" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_ForecastHorizon" NewName="TimeSeriesForecastingJobConfig_ForecastHorizon" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_ForecastQuantiles" NewName="TimeSeriesForecastingJobConfig_ForecastQuantile" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_HolidayConfig" NewName="TimeSeriesForecastingJobConfig_HolidayConfig" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_TimeSeriesConfig_GroupingAttributeNames" NewName="TimeSeriesConfig_GroupingAttributeName" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_TimeSeriesConfig_ItemIdentifierAttributeName" NewName="TimeSeriesConfig_ItemIdentifierAttributeName" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_TimeSeriesConfig_TargetAttributeName" NewName="TimeSeriesConfig_TargetAttributeName" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_TimeSeriesConfig_TimestampAttributeName" NewName="TimeSeriesConfig_TimestampAttributeName" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_Transformations_Aggregation" NewName="Transformations_Aggregation" />
+                <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_Transformations_Filling" NewName="Transformations_Filling" />
+                <Param Name="SecurityConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="SecurityConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCluster" OutputProperty="ClusterArn" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Orchestrator_Eks_ClusterArn" NewName="Eks_ClusterArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateClusterSchedulerConfig" OutputProperty="*" Verb="New" Noun="ClusterSchedulerConfig" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -121,11 +173,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCompilationJob" OutputProperty="CompilationJobArn" Verb="New" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputConfig_TargetPlatform_Accelerator" NewName="TargetPlatform_Accelerator" />
+                <Param Name="OutputConfig_TargetPlatform_Arch" NewName="TargetPlatform_Arch" />
+                <Param Name="OutputConfig_TargetPlatform_Os" NewName="TargetPlatform_Os" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateComputeQuota" OutputProperty="*" Verb="New" Noun="ComputeQuota" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ComputeQuotaConfig_ResourceSharingConfig_BorrowLimit" NewName="ResourceSharingConfig_BorrowLimit" />
+                <Param Name="ComputeQuotaConfig_ResourceSharingConfig_Strategy" NewName="ResourceSharingConfig_Strategy" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContext" OutputProperty="ContextArn" Verb="New" Noun="Context" ShouldProcessTarget="ContextName" PipelineParameter="ContextName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -133,7 +192,41 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataQualityJobDefinition" OutputProperty="JobDefinitionArn" Verb="New" Noun="DataQualityJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataQualityBaselineConfig_ConstraintsResource_S3Uri" NewName="ConstraintsResource_S3Uri" />
+                <Param Name="DataQualityBaselineConfig_StatisticsResource_S3Uri" NewName="StatisticsResource_S3Uri" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_DataCapturedDestinationS3Uri" NewName="BatchTransformInput_DataCapturedDestinationS3Uri" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_DatasetFormat_Csv_Header" NewName="Csv_Header" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_DatasetFormat_Json_Line" NewName="Json_Line" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_DatasetFormat_Parquet" NewName="DatasetFormat_Parquet" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_EndTimeOffset" NewName="BatchTransformInput_EndTimeOffset" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_ExcludeFeaturesAttribute" NewName="BatchTransformInput_ExcludeFeaturesAttribute" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_FeaturesAttribute" NewName="BatchTransformInput_FeaturesAttribute" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_InferenceAttribute" NewName="BatchTransformInput_InferenceAttribute" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_LocalPath" NewName="BatchTransformInput_LocalPath" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_ProbabilityAttribute" NewName="BatchTransformInput_ProbabilityAttribute" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_ProbabilityThresholdAttribute" NewName="BatchTransformInput_ProbabilityThresholdAttribute" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_S3DataDistributionType" NewName="BatchTransformInput_S3DataDistributionType" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_S3InputMode" NewName="BatchTransformInput_S3InputMode" />
+                <Param Name="DataQualityJobInput_BatchTransformInput_StartTimeOffset" NewName="BatchTransformInput_StartTimeOffset" />
+                <Param Name="DataQualityJobInput_EndpointInput_EndpointName" NewName="EndpointInput_EndpointName" />
+                <Param Name="DataQualityJobInput_EndpointInput_EndTimeOffset" NewName="EndpointInput_EndTimeOffset" />
+                <Param Name="DataQualityJobInput_EndpointInput_ExcludeFeaturesAttribute" NewName="EndpointInput_ExcludeFeaturesAttribute" />
+                <Param Name="DataQualityJobInput_EndpointInput_FeaturesAttribute" NewName="EndpointInput_FeaturesAttribute" />
+                <Param Name="DataQualityJobInput_EndpointInput_InferenceAttribute" NewName="EndpointInput_InferenceAttribute" />
+                <Param Name="DataQualityJobInput_EndpointInput_LocalPath" NewName="EndpointInput_LocalPath" />
+                <Param Name="DataQualityJobInput_EndpointInput_ProbabilityAttribute" NewName="EndpointInput_ProbabilityAttribute" />
+                <Param Name="DataQualityJobInput_EndpointInput_ProbabilityThresholdAttribute" NewName="EndpointInput_ProbabilityThresholdAttribute" />
+                <Param Name="DataQualityJobInput_EndpointInput_S3DataDistributionType" NewName="EndpointInput_S3DataDistributionType" />
+                <Param Name="DataQualityJobInput_EndpointInput_S3InputMode" NewName="EndpointInput_S3InputMode" />
+                <Param Name="DataQualityJobInput_EndpointInput_StartTimeOffset" NewName="EndpointInput_StartTimeOffset" />
+                <Param Name="JobResources_ClusterConfig_InstanceCount" NewName="ClusterConfig_InstanceCount" />
+                <Param Name="JobResources_ClusterConfig_InstanceType" NewName="ClusterConfig_InstanceType" />
+                <Param Name="JobResources_ClusterConfig_VolumeKmsKeyId" NewName="ClusterConfig_VolumeKmsKeyId" />
+                <Param Name="JobResources_ClusterConfig_VolumeSizeInGB" NewName="ClusterConfig_VolumeSizeInGB" />
+                <Param Name="NetworkConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="NetworkConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeviceFleet" Verb="New" Noun="DeviceFleet" ShouldProcessTarget="DeviceFleetName" PipelineParameter="DeviceFleetName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -157,6 +250,46 @@
                 <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
                 <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn" />
                 <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="DefaultSpaceSettings_CustomPosixUserConfig_Gid" NewName="CustomPosixUserConfig_Gid" />
+                <Param Name="DefaultSpaceSettings_CustomPosixUserConfig_Uid" NewName="CustomPosixUserConfig_Uid" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="IdleSettings_IdleTimeoutInMinute" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_LifecycleManagement" NewName="IdleSettings_LifecycleManagement" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_MaxIdleTimeoutInMinutes" NewName="IdleSettings_MaxIdleTimeoutInMinute" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_MinIdleTimeoutInMinutes" NewName="IdleSettings_MinIdleTimeoutInMinute" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_BuiltInLifecycleConfigArn" NewName="JupyterLabAppSettings_BuiltInLifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_CodeRepositories" NewName="JupyterLabAppSettings_CodeRepository" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_CustomImages" NewName="JupyterLabAppSettings_CustomImage" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_EmrSettings_AssumableRoleArns" NewName="EmrSettings_AssumableRoleArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_EmrSettings_ExecutionRoleArns" NewName="EmrSettings_ExecutionRoleArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_LifecycleConfigArns" NewName="JupyterLabAppSettings_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_CodeRepositories" NewName="JupyterServerAppSettings_CodeRepository" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_LifecycleConfigArns" NewName="JupyterServerAppSettings_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_CustomImages" NewName="KernelGatewayAppSettings_CustomImage" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_LifecycleConfigArns" NewName="KernelGatewayAppSettings_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_SpaceStorageSettings_DefaultEbsStorageSettings_DefaultEbsVolumeSizeInGb" NewName="DefaultEbsStorageSettings_DefaultEbsVolumeSizeInGb" />
+                <Param Name="DefaultSpaceSettings_SpaceStorageSettings_DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb" NewName="DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb" />
+                <Param Name="DomainSettings_AmazonQSettings_QProfileArn" NewName="AmazonQSettings_QProfileArn" />
+                <Param Name="DomainSettings_AmazonQSettings_Status" NewName="AmazonQSettings_Status" />
+                <Param Name="DomainSettings_DockerSettings_EnableDockerAccess" NewName="DockerSettings_EnableDockerAccess" />
+                <Param Name="DomainSettings_DockerSettings_RootlessDocker" NewName="DockerSettings_RootlessDocker" />
+                <Param Name="DomainSettings_DockerSettings_VpcOnlyTrustedAccounts" NewName="DockerSettings_VpcOnlyTrustedAccount" />
+                <Param Name="DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType" NewName="DefaultResourceSpec_InstanceType" />
+                <Param Name="DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="DomainSettings_RStudioServerProDomainSettings_DomainExecutionRoleArn" NewName="RStudioServerProDomainSettings_DomainExecutionRoleArn" />
+                <Param Name="DomainSettings_RStudioServerProDomainSettings_RStudioConnectUrl" NewName="RStudioServerProDomainSettings_RStudioConnectUrl" />
+                <Param Name="DomainSettings_RStudioServerProDomainSettings_RStudioPackageManagerUrl" NewName="RStudioServerProDomainSettings_RStudioPackageManagerUrl" />
+                <Param Name="DomainSettings_TrustedIdentityPropagationSettings_Status" NewName="TrustedIdentityPropagationSettings_Status" />
+                <Param Name="DomainSettings_UnifiedStudioSettings_DomainAccountId" NewName="UnifiedStudioSettings_DomainAccountId" />
+                <Param Name="DomainSettings_UnifiedStudioSettings_DomainId" NewName="UnifiedStudioSettings_DomainId" />
+                <Param Name="DomainSettings_UnifiedStudioSettings_DomainRegion" NewName="UnifiedStudioSettings_DomainRegion" />
+                <Param Name="DomainSettings_UnifiedStudioSettings_EnvironmentId" NewName="UnifiedStudioSettings_EnvironmentId" />
+                <Param Name="DomainSettings_UnifiedStudioSettings_ProjectId" NewName="UnifiedStudioSettings_ProjectId" />
+                <Param Name="DomainSettings_UnifiedStudioSettings_ProjectS3Path" NewName="UnifiedStudioSettings_ProjectS3Path" />
+                <Param Name="DomainSettings_UnifiedStudioSettings_SingleSignOnApplicationArn" NewName="UnifiedStudioSettings_SingleSignOnApplicationArn" />
+                <Param Name="DomainSettings_UnifiedStudioSettings_StudioWebPortalAccess" NewName="UnifiedStudioSettings_StudioWebPortalAccess" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -173,11 +306,57 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeploymentConfig_AutoRollbackConfiguration_Alarms" NewName="AutoRollbackConfiguration_Alarm" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSeconds" NewName="BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TerminationWaitInSeconds" NewName="BlueGreenUpdatePolicy_TerminationWaitInSecond" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type" NewName="CanarySize_Type" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Value" NewName="CanarySize_Value" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type" NewName="LinearStepSize_Type" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Value" NewName="LinearStepSize_Value" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type" NewName="TrafficRoutingConfiguration_Type" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_WaitIntervalInSeconds" NewName="TrafficRoutingConfiguration_WaitIntervalInSecond" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type" NewName="MaximumBatchSize_Type" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Value" NewName="MaximumBatchSize_Value" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumExecutionTimeoutInSeconds" NewName="RollingUpdatePolicy_MaximumExecutionTimeoutInSecond" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type" NewName="RollbackMaximumBatchSize_Type" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Value" NewName="RollbackMaximumBatchSize_Value" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_WaitIntervalInSeconds" NewName="RollingUpdatePolicy_WaitIntervalInSecond" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpointConfig" OutputProperty="EndpointConfigArn" Verb="New" Noun="EndpointConfig" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AsyncInferenceConfig_ClientConfig_MaxConcurrentInvocationsPerInstance" NewName="ClientConfig_MaxConcurrentInvocationsPerInstance" />
+                <Param Name="AsyncInferenceConfig_OutputConfig_KmsKeyId" NewName="OutputConfig_KmsKeyId" />
+                <Param Name="AsyncInferenceConfig_OutputConfig_NotificationConfig_ErrorTopic" NewName="NotificationConfig_ErrorTopic" />
+                <Param Name="AsyncInferenceConfig_OutputConfig_NotificationConfig_IncludeInferenceResponseIn" NewName="NotificationConfig_IncludeInferenceResponseIn" />
+                <Param Name="AsyncInferenceConfig_OutputConfig_NotificationConfig_SuccessTopic" NewName="NotificationConfig_SuccessTopic" />
+                <Param Name="AsyncInferenceConfig_OutputConfig_S3FailurePath" NewName="OutputConfig_S3FailurePath" />
+                <Param Name="AsyncInferenceConfig_OutputConfig_S3OutputPath" NewName="OutputConfig_S3OutputPath" />
+                <Param Name="DataCaptureConfig_CaptureContentTypeHeader_CsvContentTypes" NewName="CaptureContentTypeHeader_CsvContentType" />
+                <Param Name="DataCaptureConfig_CaptureContentTypeHeader_JsonContentTypes" NewName="CaptureContentTypeHeader_JsonContentType" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_EnableExplanations" NewName="ClarifyExplainerConfig_EnableExplanation" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_ContentTemplate" NewName="InferenceConfig_ContentTemplate" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_FeatureHeaders" NewName="InferenceConfig_FeatureHeader" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_FeaturesAttribute" NewName="InferenceConfig_FeaturesAttribute" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_FeatureTypes" NewName="InferenceConfig_FeatureType" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_LabelAttribute" NewName="InferenceConfig_LabelAttribute" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_LabelHeaders" NewName="InferenceConfig_LabelHeader" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_LabelIndex" NewName="InferenceConfig_LabelIndex" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_MaxPayloadInMB" NewName="InferenceConfig_MaxPayloadInMB" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_MaxRecordCount" NewName="InferenceConfig_MaxRecordCount" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_ProbabilityAttribute" NewName="InferenceConfig_ProbabilityAttribute" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_ProbabilityIndex" NewName="InferenceConfig_ProbabilityIndex" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_ShapConfig_NumberOfSamples" NewName="ShapConfig_NumberOfSample" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_ShapConfig_Seed" NewName="ShapConfig_Seed" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_MimeType" NewName="ShapBaselineConfig_MimeType" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_ShapBaseline" NewName="ShapBaselineConfig_ShapBaseline" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_ShapBaselineUri" NewName="ShapBaselineConfig_ShapBaselineUri" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Granularity" NewName="TextConfig_Granularity" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Language" NewName="TextConfig_Language" />
+                <Param Name="ExplainerConfig_ClarifyExplainerConfig_ShapConfig_UseLogit" NewName="ShapConfig_UseLogit" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateExperiment" OutputProperty="ExperimentArn" Verb="New" Noun="Experiment" ShouldProcessTarget="ExperimentName" PipelineParameter="ExperimentName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -185,11 +364,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFeatureGroup" OutputProperty="FeatureGroupArn" Verb="New" Noun="FeatureGroup" ShouldProcessTarget="FeatureGroupName" PipelineParameter="FeatureGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OfflineStoreConfig_DataCatalogConfig_Catalog" NewName="DataCatalogConfig_Catalog" />
+                <Param Name="OfflineStoreConfig_DataCatalogConfig_Database" NewName="DataCatalogConfig_Database" />
+                <Param Name="OfflineStoreConfig_DataCatalogConfig_TableName" NewName="DataCatalogConfig_TableName" />
+                <Param Name="OfflineStoreConfig_S3StorageConfig_KmsKeyId" NewName="S3StorageConfig_KmsKeyId" />
+                <Param Name="OfflineStoreConfig_S3StorageConfig_ResolvedOutputS3Uri" NewName="S3StorageConfig_ResolvedOutputS3Uri" />
+                <Param Name="OfflineStoreConfig_S3StorageConfig_S3Uri" NewName="S3StorageConfig_S3Uri" />
+                <Param Name="OnlineStoreConfig_SecurityConfig_KmsKeyId" NewName="SecurityConfig_KmsKeyId" />
+                <Param Name="OnlineStoreConfig_TtlDuration_Unit" NewName="TtlDuration_Unit" />
+                <Param Name="OnlineStoreConfig_TtlDuration_Value" NewName="TtlDuration_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFlowDefinition" OutputProperty="FlowDefinitionArn" Verb="New" Noun="FlowDefinition" ShouldProcessTarget="FlowDefinitionName" PipelineParameter="FlowDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HumanLoopActivationConfig_HumanLoopActivationConditionsConfig_HumanLoopActivationConditions" NewName="HumanLoopActivationConditionsConfig_HumanLoopActivationCondition" />
+                <Param Name="HumanLoopConfig_PublicWorkforceTaskPrice_AmountInUsd_Cents" NewName="AmountInUsd_Cent" />
+                <Param Name="HumanLoopConfig_PublicWorkforceTaskPrice_AmountInUsd_Dollars" NewName="AmountInUsd_Dollar" />
+                <Param Name="HumanLoopConfig_PublicWorkforceTaskPrice_AmountInUsd_TenthFractionsOfACent" NewName="AmountInUsd_TenthFractionsOfACent" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateHub" OutputProperty="HubArn" Verb="New" Noun="Hub" ShouldProcessTarget="HubName" PipelineParameter="HubName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -209,7 +403,46 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateHyperParameterTuningJob" OutputProperty="HyperParameterTuningJobArn" Verb="New" Noun="HyperParameterTuningJob" ShouldProcessTarget="HyperParameterTuningJobName" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_MetricName" NewName="HyperParameterTuningJobObjective_MetricName" />
+                <Param Name="HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type" NewName="HyperParameterTuningJobObjective_Type" />
+                <Param Name="HyperParameterTuningJobConfig_ParameterRanges_AutoParameters" NewName="ParameterRanges_AutoParameter" />
+                <Param Name="HyperParameterTuningJobConfig_ParameterRanges_CategoricalParameterRanges" NewName="ParameterRanges_CategoricalParameterRange" />
+                <Param Name="HyperParameterTuningJobConfig_ParameterRanges_ContinuousParameterRanges" NewName="ParameterRanges_ContinuousParameterRange" />
+                <Param Name="HyperParameterTuningJobConfig_ParameterRanges_IntegerParameterRanges" NewName="ParameterRanges_IntegerParameterRange" />
+                <Param Name="HyperParameterTuningJobConfig_ResourceLimits_MaxNumberOfTrainingJobs" NewName="ResourceLimits_MaxNumberOfTrainingJob" />
+                <Param Name="HyperParameterTuningJobConfig_ResourceLimits_MaxParallelTrainingJobs" NewName="ResourceLimits_MaxParallelTrainingJob" />
+                <Param Name="HyperParameterTuningJobConfig_ResourceLimits_MaxRuntimeInSeconds" NewName="ResourceLimits_MaxRuntimeInSecond" />
+                <Param Name="HyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_MaxResource" NewName="HyperbandStrategyConfig_MaxResource" />
+                <Param Name="HyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_MinResource" NewName="HyperbandStrategyConfig_MinResource" />
+                <Param Name="HyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving" NewName="BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving" />
+                <Param Name="HyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_CompleteOnConvergence" NewName="ConvergenceDetected_CompleteOnConvergence" />
+                <Param Name="HyperParameterTuningJobConfig_TuningJobCompletionCriteria_TargetObjectiveMetricValue" NewName="TuningJobCompletionCriteria_TargetObjectiveMetricValue" />
+                <Param Name="TrainingJobDefinition_AlgorithmSpecification_AlgorithmName" NewName="AlgorithmSpecification_AlgorithmName" />
+                <Param Name="TrainingJobDefinition_AlgorithmSpecification_MetricDefinitions" NewName="AlgorithmSpecification_MetricDefinition" />
+                <Param Name="TrainingJobDefinition_AlgorithmSpecification_TrainingImage" NewName="AlgorithmSpecification_TrainingImage" />
+                <Param Name="TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode" NewName="AlgorithmSpecification_TrainingInputMode" />
+                <Param Name="TrainingJobDefinition_CheckpointConfig_LocalPath" NewName="CheckpointConfig_LocalPath" />
+                <Param Name="TrainingJobDefinition_CheckpointConfig_S3Uri" NewName="CheckpointConfig_S3Uri" />
+                <Param Name="TrainingJobDefinition_HyperParameterRanges_AutoParameters" NewName="HyperParameterRanges_AutoParameter" />
+                <Param Name="TrainingJobDefinition_HyperParameterRanges_CategoricalParameterRanges" NewName="HyperParameterRanges_CategoricalParameterRange" />
+                <Param Name="TrainingJobDefinition_HyperParameterRanges_ContinuousParameterRanges" NewName="HyperParameterRanges_ContinuousParameterRange" />
+                <Param Name="TrainingJobDefinition_HyperParameterRanges_IntegerParameterRanges" NewName="HyperParameterRanges_IntegerParameterRange" />
+                <Param Name="TrainingJobDefinition_HyperParameterTuningResourceConfig_AllocationStrategy" NewName="HyperParameterTuningResourceConfig_AllocationStrategy" />
+                <Param Name="TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceConfigs" NewName="HyperParameterTuningResourceConfig_InstanceConfig" />
+                <Param Name="TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceCount" NewName="HyperParameterTuningResourceConfig_InstanceCount" />
+                <Param Name="TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceType" NewName="HyperParameterTuningResourceConfig_InstanceType" />
+                <Param Name="TrainingJobDefinition_HyperParameterTuningResourceConfig_VolumeKmsKeyId" NewName="HyperParameterTuningResourceConfig_VolumeKmsKeyId" />
+                <Param Name="TrainingJobDefinition_HyperParameterTuningResourceConfig_VolumeSizeInGB" NewName="HyperParameterTuningResourceConfig_VolumeSizeInGB" />
+                <Param Name="TrainingJobDefinition_RetryStrategy_MaximumRetryAttempts" NewName="RetryStrategy_MaximumRetryAttempt" />
+                <Param Name="TrainingJobDefinition_StoppingCondition_MaxPendingTimeInSeconds" NewName="StoppingCondition_MaxPendingTimeInSecond" />
+                <Param Name="TrainingJobDefinition_StoppingCondition_MaxRuntimeInSeconds" NewName="StoppingCondition_MaxRuntimeInSecond" />
+                <Param Name="TrainingJobDefinition_StoppingCondition_MaxWaitTimeInSeconds" NewName="StoppingCondition_MaxWaitTimeInSecond" />
+                <Param Name="TrainingJobDefinition_TuningObjective_MetricName" NewName="TuningObjective_MetricName" />
+                <Param Name="TrainingJobDefinition_TuningObjective_Type" NewName="TuningObjective_Type" />
+                <Param Name="TrainingJobDefinition_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="TrainingJobDefinition_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateImage" OutputProperty="ImageArn" Verb="New" Noun="Image" ShouldProcessTarget="ImageName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -221,19 +454,68 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateInferenceComponent" OutputProperty="InferenceComponentArn" Verb="New" Noun="InferenceComponent" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Specification_ComputeResourceRequirements_MaxMemoryRequiredInMb" NewName="ComputeResourceRequirements_MaxMemoryRequiredInMb" />
+                <Param Name="Specification_ComputeResourceRequirements_MinMemoryRequiredInMb" NewName="ComputeResourceRequirements_MinMemoryRequiredInMb" />
+                <Param Name="Specification_ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired" NewName="ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired" />
+                <Param Name="Specification_ComputeResourceRequirements_NumberOfCpuCoresRequired" NewName="ComputeResourceRequirements_NumberOfCpuCoresRequired" />
+                <Param Name="Specification_Container_ArtifactUrl" NewName="Container_ArtifactUrl" />
+                <Param Name="Specification_Container_Environment" NewName="Container_Environment" />
+                <Param Name="Specification_Container_Image" NewName="Container_Image" />
+                <Param Name="Specification_DataCacheConfig_EnableCaching" NewName="DataCacheConfig_EnableCaching" />
+                <Param Name="Specification_StartupParameters_ContainerStartupHealthCheckTimeoutInSeconds" NewName="StartupParameters_ContainerStartupHealthCheckTimeoutInSecond" />
+                <Param Name="Specification_StartupParameters_ModelDataDownloadTimeoutInSeconds" NewName="StartupParameters_ModelDataDownloadTimeoutInSecond" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="New" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataStorageConfig_ContentType_CsvContentTypes" NewName="ContentType_CsvContentType" />
+                <Param Name="DataStorageConfig_ContentType_JsonContentTypes" NewName="ContentType_JsonContentType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateInferenceRecommendationsJob" OutputProperty="JobArn" Verb="New" Noun="InferenceRecommendationsJob" AnonymousShouldProcessTarget="true" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputConfig_ContainerConfig_DataInputConfig" NewName="ContainerConfig_DataInputConfig" />
+                <Param Name="InputConfig_ContainerConfig_Domain" NewName="ContainerConfig_Domain" />
+                <Param Name="InputConfig_ContainerConfig_Framework" NewName="ContainerConfig_Framework" />
+                <Param Name="InputConfig_ContainerConfig_FrameworkVersion" NewName="ContainerConfig_FrameworkVersion" />
+                <Param Name="InputConfig_ContainerConfig_NearestModelName" NewName="ContainerConfig_NearestModelName" />
+                <Param Name="InputConfig_ContainerConfig_PayloadConfig_SamplePayloadUrl" NewName="PayloadConfig_SamplePayloadUrl" />
+                <Param Name="InputConfig_ContainerConfig_PayloadConfig_SupportedContentTypes" NewName="PayloadConfig_SupportedContentType" />
+                <Param Name="InputConfig_ContainerConfig_SupportedEndpointType" NewName="ContainerConfig_SupportedEndpointType" />
+                <Param Name="InputConfig_ContainerConfig_SupportedInstanceTypes" NewName="ContainerConfig_SupportedInstanceType" />
+                <Param Name="InputConfig_ContainerConfig_SupportedResponseMIMETypes" NewName="ContainerConfig_SupportedResponseMIMEType" />
+                <Param Name="InputConfig_ContainerConfig_Task" NewName="ContainerConfig_Task" />
+                <Param Name="InputConfig_ResourceLimit_MaxNumberOfTests" NewName="ResourceLimit_MaxNumberOfTest" />
+                <Param Name="InputConfig_ResourceLimit_MaxParallelOfTests" NewName="ResourceLimit_MaxParallelOfTest" />
+                <Param Name="InputConfig_TrafficPattern_Phases" NewName="TrafficPattern_Phase" />
+                <Param Name="InputConfig_TrafficPattern_Stairs_DurationInSeconds" NewName="Stairs_DurationInSecond" />
+                <Param Name="InputConfig_TrafficPattern_Stairs_NumberOfSteps" NewName="Stairs_NumberOfStep" />
+                <Param Name="InputConfig_TrafficPattern_Stairs_UsersPerStep" NewName="Stairs_UsersPerStep" />
+                <Param Name="InputConfig_TrafficPattern_TrafficType" NewName="TrafficPattern_TrafficType" />
+                <Param Name="InputConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="InputConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+                <Param Name="OutputConfig_CompiledOutputConfig_S3OutputUri" NewName="CompiledOutputConfig_S3OutputUri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLabelingJob" OutputProperty="LabelingJobArn" Verb="New" Noun="LabelingJob" ShouldProcessTarget="LabelingJobName" PipelineParameter="LabelingJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HumanTaskConfig_AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn" NewName="AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn" />
+                <Param Name="HumanTaskConfig_PublicWorkforceTaskPrice_AmountInUsd_Cents" NewName="AmountInUsd_Cent" />
+                <Param Name="HumanTaskConfig_PublicWorkforceTaskPrice_AmountInUsd_Dollars" NewName="AmountInUsd_Dollar" />
+                <Param Name="HumanTaskConfig_PublicWorkforceTaskPrice_AmountInUsd_TenthFractionsOfACent" NewName="AmountInUsd_TenthFractionsOfACent" />
+                <Param Name="HumanTaskConfig_UiConfig_HumanTaskUiArn" NewName="UiConfig_HumanTaskUiArn" />
+                <Param Name="HumanTaskConfig_UiConfig_UiTemplateS3Uri" NewName="UiConfig_UiTemplateS3Uri" />
+                <Param Name="InputConfig_DataAttributes_ContentClassifiers" NewName="DataAttributes_ContentClassifier" />
+                <Param Name="InputConfig_DataSource_S3DataSource_ManifestS3Uri" NewName="S3DataSource_ManifestS3Uri" />
+                <Param Name="InputConfig_DataSource_SnsDataSource_SnsTopicArn" NewName="SnsDataSource_SnsTopicArn" />
+                <Param Name="LabelingJobAlgorithmsConfig_LabelingJobResourceConfig_VolumeKmsKeyId" NewName="LabelingJobResourceConfig_VolumeKmsKeyId" />
+                <Param Name="LabelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="LabelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMlflowApp" OutputProperty="Arn" Verb="New" Noun="MlflowApp" ShouldProcessTarget="Name,RoleArn" PipelineParameter="" NoPipelineParameter="true">
@@ -249,7 +531,41 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelBiasJobDefinition" OutputProperty="JobDefinitionArn" Verb="New" Noun="ModelBiasJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobResources_ClusterConfig_InstanceCount" NewName="ClusterConfig_InstanceCount" />
+                <Param Name="JobResources_ClusterConfig_InstanceType" NewName="ClusterConfig_InstanceType" />
+                <Param Name="JobResources_ClusterConfig_VolumeKmsKeyId" NewName="ClusterConfig_VolumeKmsKeyId" />
+                <Param Name="JobResources_ClusterConfig_VolumeSizeInGB" NewName="ClusterConfig_VolumeSizeInGB" />
+                <Param Name="ModelBiasBaselineConfig_ConstraintsResource_S3Uri" NewName="ConstraintsResource_S3Uri" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_DataCapturedDestinationS3Uri" NewName="BatchTransformInput_DataCapturedDestinationS3Uri" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_DatasetFormat_Csv_Header" NewName="Csv_Header" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_DatasetFormat_Json_Line" NewName="Json_Line" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_DatasetFormat_Parquet" NewName="DatasetFormat_Parquet" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_EndTimeOffset" NewName="BatchTransformInput_EndTimeOffset" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_ExcludeFeaturesAttribute" NewName="BatchTransformInput_ExcludeFeaturesAttribute" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_FeaturesAttribute" NewName="BatchTransformInput_FeaturesAttribute" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_InferenceAttribute" NewName="BatchTransformInput_InferenceAttribute" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_LocalPath" NewName="BatchTransformInput_LocalPath" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_ProbabilityAttribute" NewName="BatchTransformInput_ProbabilityAttribute" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_ProbabilityThresholdAttribute" NewName="BatchTransformInput_ProbabilityThresholdAttribute" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_S3DataDistributionType" NewName="BatchTransformInput_S3DataDistributionType" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_S3InputMode" NewName="BatchTransformInput_S3InputMode" />
+                <Param Name="ModelBiasJobInput_BatchTransformInput_StartTimeOffset" NewName="BatchTransformInput_StartTimeOffset" />
+                <Param Name="ModelBiasJobInput_EndpointInput_EndpointName" NewName="EndpointInput_EndpointName" />
+                <Param Name="ModelBiasJobInput_EndpointInput_EndTimeOffset" NewName="EndpointInput_EndTimeOffset" />
+                <Param Name="ModelBiasJobInput_EndpointInput_ExcludeFeaturesAttribute" NewName="EndpointInput_ExcludeFeaturesAttribute" />
+                <Param Name="ModelBiasJobInput_EndpointInput_FeaturesAttribute" NewName="EndpointInput_FeaturesAttribute" />
+                <Param Name="ModelBiasJobInput_EndpointInput_InferenceAttribute" NewName="EndpointInput_InferenceAttribute" />
+                <Param Name="ModelBiasJobInput_EndpointInput_LocalPath" NewName="EndpointInput_LocalPath" />
+                <Param Name="ModelBiasJobInput_EndpointInput_ProbabilityAttribute" NewName="EndpointInput_ProbabilityAttribute" />
+                <Param Name="ModelBiasJobInput_EndpointInput_ProbabilityThresholdAttribute" NewName="EndpointInput_ProbabilityThresholdAttribute" />
+                <Param Name="ModelBiasJobInput_EndpointInput_S3DataDistributionType" NewName="EndpointInput_S3DataDistributionType" />
+                <Param Name="ModelBiasJobInput_EndpointInput_S3InputMode" NewName="EndpointInput_S3InputMode" />
+                <Param Name="ModelBiasJobInput_EndpointInput_StartTimeOffset" NewName="EndpointInput_StartTimeOffset" />
+                <Param Name="ModelBiasJobInput_GroundTruthS3Input_S3Uri" NewName="GroundTruthS3Input_S3Uri" />
+                <Param Name="NetworkConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="NetworkConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelCard" OutputProperty="ModelCardArn" Verb="New" Noun="ModelCard" ShouldProcessTarget="ModelCardName" PipelineParameter="ModelCardName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -261,7 +577,40 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelExplainabilityJobDefinition" OutputProperty="JobDefinitionArn" Verb="New" Noun="ModelExplainabilityJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobResources_ClusterConfig_InstanceCount" NewName="ClusterConfig_InstanceCount" />
+                <Param Name="JobResources_ClusterConfig_InstanceType" NewName="ClusterConfig_InstanceType" />
+                <Param Name="JobResources_ClusterConfig_VolumeKmsKeyId" NewName="ClusterConfig_VolumeKmsKeyId" />
+                <Param Name="JobResources_ClusterConfig_VolumeSizeInGB" NewName="ClusterConfig_VolumeSizeInGB" />
+                <Param Name="ModelExplainabilityBaselineConfig_ConstraintsResource_S3Uri" NewName="ConstraintsResource_S3Uri" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_DataCapturedDestinationS3Uri" NewName="BatchTransformInput_DataCapturedDestinationS3Uri" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_DatasetFormat_Csv_Header" NewName="Csv_Header" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_DatasetFormat_Json_Line" NewName="Json_Line" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_DatasetFormat_Parquet" NewName="DatasetFormat_Parquet" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_EndTimeOffset" NewName="BatchTransformInput_EndTimeOffset" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_ExcludeFeaturesAttribute" NewName="BatchTransformInput_ExcludeFeaturesAttribute" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_FeaturesAttribute" NewName="BatchTransformInput_FeaturesAttribute" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_InferenceAttribute" NewName="BatchTransformInput_InferenceAttribute" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_LocalPath" NewName="BatchTransformInput_LocalPath" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_ProbabilityAttribute" NewName="BatchTransformInput_ProbabilityAttribute" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_ProbabilityThresholdAttribute" NewName="BatchTransformInput_ProbabilityThresholdAttribute" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_S3DataDistributionType" NewName="BatchTransformInput_S3DataDistributionType" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_S3InputMode" NewName="BatchTransformInput_S3InputMode" />
+                <Param Name="ModelExplainabilityJobInput_BatchTransformInput_StartTimeOffset" NewName="BatchTransformInput_StartTimeOffset" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_EndpointName" NewName="EndpointInput_EndpointName" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_EndTimeOffset" NewName="EndpointInput_EndTimeOffset" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_ExcludeFeaturesAttribute" NewName="EndpointInput_ExcludeFeaturesAttribute" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_FeaturesAttribute" NewName="EndpointInput_FeaturesAttribute" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_InferenceAttribute" NewName="EndpointInput_InferenceAttribute" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_LocalPath" NewName="EndpointInput_LocalPath" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_ProbabilityAttribute" NewName="EndpointInput_ProbabilityAttribute" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_ProbabilityThresholdAttribute" NewName="EndpointInput_ProbabilityThresholdAttribute" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_S3DataDistributionType" NewName="EndpointInput_S3DataDistributionType" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_S3InputMode" NewName="EndpointInput_S3InputMode" />
+                <Param Name="ModelExplainabilityJobInput_EndpointInput_StartTimeOffset" NewName="EndpointInput_StartTimeOffset" />
+                <Param Name="NetworkConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="NetworkConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelPackage" OutputProperty="ModelPackageArn" Verb="New" Noun="ModelPackage" ShouldProcessTarget="ModelPackageName" PipelineParameter="ModelPackageName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -305,6 +654,18 @@
                 <Param Name="DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri" NewName="DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri" Alias="Statistics_S3Uri" />
                 <Param Name="DriftCheckBaselines_ModelQuality_Statistics_S3Uri" NewName="DriftCheckBaselines_ModelQuality_Statistics_S3Uri" />
                 <Param Name="ModelMetrics_ModelQuality_Statistics_S3Uri" NewName="ModelMetrics_ModelQuality_Statistics_S3Uri" />
+                <Param Name="DriftCheckBaselines_Bias_PostTrainingConstraints_ContentDigest" NewName="PostTrainingConstraints_ContentDigest" />
+                <Param Name="DriftCheckBaselines_Bias_PostTrainingConstraints_ContentType" NewName="PostTrainingConstraints_ContentType" />
+                <Param Name="DriftCheckBaselines_Bias_PostTrainingConstraints_S3Uri" NewName="PostTrainingConstraints_S3Uri" />
+                <Param Name="DriftCheckBaselines_Bias_PreTrainingConstraints_ContentDigest" NewName="PreTrainingConstraints_ContentDigest" />
+                <Param Name="DriftCheckBaselines_Bias_PreTrainingConstraints_ContentType" NewName="PreTrainingConstraints_ContentType" />
+                <Param Name="DriftCheckBaselines_Bias_PreTrainingConstraints_S3Uri" NewName="PreTrainingConstraints_S3Uri" />
+                <Param Name="ModelMetrics_Bias_PostTrainingReport_ContentDigest" NewName="PostTrainingReport_ContentDigest" />
+                <Param Name="ModelMetrics_Bias_PostTrainingReport_ContentType" NewName="PostTrainingReport_ContentType" />
+                <Param Name="ModelMetrics_Bias_PostTrainingReport_S3Uri" NewName="PostTrainingReport_S3Uri" />
+                <Param Name="ModelMetrics_Bias_PreTrainingReport_ContentDigest" NewName="PreTrainingReport_ContentDigest" />
+                <Param Name="ModelMetrics_Bias_PreTrainingReport_ContentType" NewName="PreTrainingReport_ContentType" />
+                <Param Name="ModelMetrics_Bias_PreTrainingReport_S3Uri" NewName="PreTrainingReport_S3Uri" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -313,7 +674,41 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelQualityJobDefinition" OutputProperty="JobDefinitionArn" Verb="New" Noun="ModelQualityJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobResources_ClusterConfig_InstanceCount" NewName="ClusterConfig_InstanceCount" />
+                <Param Name="JobResources_ClusterConfig_InstanceType" NewName="ClusterConfig_InstanceType" />
+                <Param Name="JobResources_ClusterConfig_VolumeKmsKeyId" NewName="ClusterConfig_VolumeKmsKeyId" />
+                <Param Name="JobResources_ClusterConfig_VolumeSizeInGB" NewName="ClusterConfig_VolumeSizeInGB" />
+                <Param Name="ModelQualityBaselineConfig_ConstraintsResource_S3Uri" NewName="ConstraintsResource_S3Uri" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_DataCapturedDestinationS3Uri" NewName="BatchTransformInput_DataCapturedDestinationS3Uri" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_DatasetFormat_Csv_Header" NewName="Csv_Header" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_DatasetFormat_Json_Line" NewName="Json_Line" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_DatasetFormat_Parquet" NewName="DatasetFormat_Parquet" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_EndTimeOffset" NewName="BatchTransformInput_EndTimeOffset" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_ExcludeFeaturesAttribute" NewName="BatchTransformInput_ExcludeFeaturesAttribute" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_FeaturesAttribute" NewName="BatchTransformInput_FeaturesAttribute" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_InferenceAttribute" NewName="BatchTransformInput_InferenceAttribute" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_LocalPath" NewName="BatchTransformInput_LocalPath" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_ProbabilityAttribute" NewName="BatchTransformInput_ProbabilityAttribute" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_ProbabilityThresholdAttribute" NewName="BatchTransformInput_ProbabilityThresholdAttribute" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_S3DataDistributionType" NewName="BatchTransformInput_S3DataDistributionType" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_S3InputMode" NewName="BatchTransformInput_S3InputMode" />
+                <Param Name="ModelQualityJobInput_BatchTransformInput_StartTimeOffset" NewName="BatchTransformInput_StartTimeOffset" />
+                <Param Name="ModelQualityJobInput_EndpointInput_EndpointName" NewName="EndpointInput_EndpointName" />
+                <Param Name="ModelQualityJobInput_EndpointInput_EndTimeOffset" NewName="EndpointInput_EndTimeOffset" />
+                <Param Name="ModelQualityJobInput_EndpointInput_ExcludeFeaturesAttribute" NewName="EndpointInput_ExcludeFeaturesAttribute" />
+                <Param Name="ModelQualityJobInput_EndpointInput_FeaturesAttribute" NewName="EndpointInput_FeaturesAttribute" />
+                <Param Name="ModelQualityJobInput_EndpointInput_InferenceAttribute" NewName="EndpointInput_InferenceAttribute" />
+                <Param Name="ModelQualityJobInput_EndpointInput_LocalPath" NewName="EndpointInput_LocalPath" />
+                <Param Name="ModelQualityJobInput_EndpointInput_ProbabilityAttribute" NewName="EndpointInput_ProbabilityAttribute" />
+                <Param Name="ModelQualityJobInput_EndpointInput_ProbabilityThresholdAttribute" NewName="EndpointInput_ProbabilityThresholdAttribute" />
+                <Param Name="ModelQualityJobInput_EndpointInput_S3DataDistributionType" NewName="EndpointInput_S3DataDistributionType" />
+                <Param Name="ModelQualityJobInput_EndpointInput_S3InputMode" NewName="EndpointInput_S3InputMode" />
+                <Param Name="ModelQualityJobInput_EndpointInput_StartTimeOffset" NewName="EndpointInput_StartTimeOffset" />
+                <Param Name="ModelQualityJobInput_GroundTruthS3Input_S3Uri" NewName="GroundTruthS3Input_S3Uri" />
+                <Param Name="NetworkConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="NetworkConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMonitoringSchedule" OutputProperty="MonitoringScheduleArn" Verb="New" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -332,6 +727,8 @@
             <Params>
                 <Param Name="ModelSource_SageMakerModel_ModelName" NewName="ModelSource_SageMakerModel_ModelName" />
                 <Param Name="OutputConfig_SageMakerModel_ModelName" NewName="OutputConfig_SageMakerModel_ModelName" />
+                <Param Name="ModelSource_S3_ModelAccessConfig_AcceptEula" NewName="ModelAccessConfig_AcceptEula" />
+                <Param Name="ModelSource_S3_S3Uri" NewName="S3_S3Uri" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -364,7 +761,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProcessingJob" OutputProperty="ProcessingJobArn" Verb="New" Noun="ProcessingJob" ShouldProcessTarget="ProcessingJobName" PipelineParameter="ProcessingJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NetworkConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="NetworkConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+                <Param Name="ProcessingResources_ClusterConfig_InstanceCount" NewName="ClusterConfig_InstanceCount" />
+                <Param Name="ProcessingResources_ClusterConfig_InstanceType" NewName="ClusterConfig_InstanceType" />
+                <Param Name="ProcessingResources_ClusterConfig_VolumeKmsKeyId" NewName="ClusterConfig_VolumeKmsKeyId" />
+                <Param Name="ProcessingResources_ClusterConfig_VolumeSizeInGB" NewName="ClusterConfig_VolumeSizeInGB" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -395,6 +799,12 @@
                 <Param Name="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
                 <Param Name="SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" Alias="AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" />
                 <Param Name="SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" />
+                <Param Name="SpaceSettings_JupyterLabAppSettings_CodeRepositories" NewName="JupyterLabAppSettings_CodeRepository" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_CodeRepositories" NewName="JupyterServerAppSettings_CodeRepository" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_LifecycleConfigArns" NewName="JupyterServerAppSettings_LifecycleConfigArn" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_CustomImages" NewName="KernelGatewayAppSettings_CustomImage" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_LifecycleConfigArns" NewName="KernelGatewayAppSettings_LifecycleConfigArn" />
+                <Param Name="SpaceSettings_SpaceStorageSettings_EbsStorageSettings_EbsVolumeSizeInGb" NewName="EbsStorageSettings_EbsVolumeSizeInGb" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -411,7 +821,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTransformJob" OutputProperty="TransformJobArn" Verb="New" Noun="TransformJob" ShouldProcessTarget="TransformJobName" PipelineParameter="TransformJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TransformInput_DataSource_S3DataSource_S3DataType" NewName="S3DataSource_S3DataType" />
+                <Param Name="TransformInput_DataSource_S3DataSource_S3Uri" NewName="S3DataSource_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrial" OutputProperty="TrialArn" Verb="New" Noun="Trial" ShouldProcessTarget="TrialName" PipelineParameter="TrialName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -431,7 +844,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkteam" OutputProperty="WorkteamArn" Verb="New" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WorkerAccessConfiguration_S3Presign_IamPolicyConstraints_SourceIp" NewName="IamPolicyConstraints_SourceIp" />
+                <Param Name="WorkerAccessConfiguration_S3Presign_IamPolicyConstraints_VpcSourceIp" NewName="IamPolicyConstraints_VpcSourceIp" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAction" OutputProperty="ActionArn" Verb="Remove" Noun="Action" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -987,7 +1403,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSearchSuggestions" OutputProperty="PropertyNameSuggestions" Verb="Get" Noun="SearchSuggestion" PipelineParameter="Resource" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SuggestionQuery_PropertyNameQuery_PropertyNameHint" NewName="PropertyNameQuery_PropertyNameHint" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ImportHubContent" OutputProperty="*" Verb="Import" Noun="HubContent" ShouldProcessTarget="HubName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -1477,6 +1895,12 @@
                 <Param Name="CodeEditorAppImageConfig_FileSystemConfig_DefaultGid" NewName="CodeEditorAppImageConfig_FileSystemConfig_DefaultGid" />
                 <Param Name="CodeEditorAppImageConfig_FileSystemConfig_DefaultUid" NewName="CodeEditorAppImageConfig_FileSystemConfig_DefaultUid" />
                 <Param Name="CodeEditorAppImageConfig_FileSystemConfig_MountPath" NewName="CodeEditorAppImageConfig_FileSystemConfig_MountPath" />
+                <Param Name="JupyterLabAppImageConfig_ContainerConfig_ContainerArguments" NewName="ContainerConfig_ContainerArgument" />
+                <Param Name="JupyterLabAppImageConfig_ContainerConfig_ContainerEntrypoint" NewName="ContainerConfig_ContainerEntrypoint" />
+                <Param Name="JupyterLabAppImageConfig_ContainerConfig_ContainerEnvironmentVariables" NewName="ContainerConfig_ContainerEnvironmentVariable" />
+                <Param Name="KernelGatewayImageConfig_FileSystemConfig_DefaultGid" NewName="FileSystemConfig_DefaultGid" />
+                <Param Name="KernelGatewayImageConfig_FileSystemConfig_DefaultUid" NewName="FileSystemConfig_DefaultUid" />
+                <Param Name="KernelGatewayImageConfig_FileSystemConfig_MountPath" NewName="FileSystemConfig_MountPath" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1493,7 +1917,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterSoftware" OutputProperty="ClusterArn" Verb="Update" Noun="ClusterSoftware" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type" NewName="MaximumBatchSize_Type" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Value" NewName="MaximumBatchSize_Value" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type" NewName="RollbackMaximumBatchSize_Type" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Value" NewName="RollbackMaximumBatchSize_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="Update" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1501,7 +1930,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateComputeQuota" OutputProperty="*" Verb="Update" Noun="ComputeQuota" ShouldProcessTarget="ComputeQuotaId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ComputeQuotaConfig_ResourceSharingConfig_BorrowLimit" NewName="ResourceSharingConfig_BorrowLimit" />
+                <Param Name="ComputeQuotaConfig_ResourceSharingConfig_Strategy" NewName="ResourceSharingConfig_Strategy" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContext" OutputProperty="ContextArn" Verb="Update" Noun="Context" ShouldProcessTarget="ContextName" PipelineParameter="ContextName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1533,11 +1965,67 @@
                 <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
                 <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn" />
                 <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="DefaultSpaceSettings_CustomPosixUserConfig_Gid" NewName="CustomPosixUserConfig_Gid" />
+                <Param Name="DefaultSpaceSettings_CustomPosixUserConfig_Uid" NewName="CustomPosixUserConfig_Uid" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="IdleSettings_IdleTimeoutInMinute" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_LifecycleManagement" NewName="IdleSettings_LifecycleManagement" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_MaxIdleTimeoutInMinutes" NewName="IdleSettings_MaxIdleTimeoutInMinute" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_MinIdleTimeoutInMinutes" NewName="IdleSettings_MinIdleTimeoutInMinute" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_BuiltInLifecycleConfigArn" NewName="JupyterLabAppSettings_BuiltInLifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_CodeRepositories" NewName="JupyterLabAppSettings_CodeRepository" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_CustomImages" NewName="JupyterLabAppSettings_CustomImage" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_EmrSettings_AssumableRoleArns" NewName="EmrSettings_AssumableRoleArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_EmrSettings_ExecutionRoleArns" NewName="EmrSettings_ExecutionRoleArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_LifecycleConfigArns" NewName="JupyterLabAppSettings_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_CodeRepositories" NewName="JupyterServerAppSettings_CodeRepository" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_LifecycleConfigArns" NewName="JupyterServerAppSettings_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_CustomImages" NewName="KernelGatewayAppSettings_CustomImage" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_LifecycleConfigArns" NewName="KernelGatewayAppSettings_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_SpaceStorageSettings_DefaultEbsStorageSettings_DefaultEbsVolumeSizeInGb" NewName="DefaultEbsStorageSettings_DefaultEbsVolumeSizeInGb" />
+                <Param Name="DefaultSpaceSettings_SpaceStorageSettings_DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb" NewName="DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb" />
+                <Param Name="DomainSettingsForUpdate_AmazonQSettings_QProfileArn" NewName="AmazonQSettings_QProfileArn" />
+                <Param Name="DomainSettingsForUpdate_AmazonQSettings_Status" NewName="AmazonQSettings_Status" />
+                <Param Name="DomainSettingsForUpdate_DockerSettings_EnableDockerAccess" NewName="DockerSettings_EnableDockerAccess" />
+                <Param Name="DomainSettingsForUpdate_DockerSettings_RootlessDocker" NewName="DockerSettings_RootlessDocker" />
+                <Param Name="DomainSettingsForUpdate_DockerSettings_VpcOnlyTrustedAccounts" NewName="DockerSettings_VpcOnlyTrustedAccount" />
+                <Param Name="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType" NewName="DefaultResourceSpec_InstanceType" />
+                <Param Name="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn" NewName="RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn" />
+                <Param Name="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl" NewName="RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl" />
+                <Param Name="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl" NewName="RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl" />
+                <Param Name="DomainSettingsForUpdate_TrustedIdentityPropagationSettings_Status" NewName="TrustedIdentityPropagationSettings_Status" />
+                <Param Name="DomainSettingsForUpdate_UnifiedStudioSettings_DomainAccountId" NewName="UnifiedStudioSettings_DomainAccountId" />
+                <Param Name="DomainSettingsForUpdate_UnifiedStudioSettings_DomainId" NewName="UnifiedStudioSettings_DomainId" />
+                <Param Name="DomainSettingsForUpdate_UnifiedStudioSettings_DomainRegion" NewName="UnifiedStudioSettings_DomainRegion" />
+                <Param Name="DomainSettingsForUpdate_UnifiedStudioSettings_EnvironmentId" NewName="UnifiedStudioSettings_EnvironmentId" />
+                <Param Name="DomainSettingsForUpdate_UnifiedStudioSettings_ProjectId" NewName="UnifiedStudioSettings_ProjectId" />
+                <Param Name="DomainSettingsForUpdate_UnifiedStudioSettings_ProjectS3Path" NewName="UnifiedStudioSettings_ProjectS3Path" />
+                <Param Name="DomainSettingsForUpdate_UnifiedStudioSettings_SingleSignOnApplicationArn" NewName="UnifiedStudioSettings_SingleSignOnApplicationArn" />
+                <Param Name="DomainSettingsForUpdate_UnifiedStudioSettings_StudioWebPortalAccess" NewName="UnifiedStudioSettings_StudioWebPortalAccess" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="EndpointArn" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeploymentConfig_AutoRollbackConfiguration_Alarms" NewName="AutoRollbackConfiguration_Alarm" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSeconds" NewName="BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TerminationWaitInSeconds" NewName="BlueGreenUpdatePolicy_TerminationWaitInSecond" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type" NewName="CanarySize_Type" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Value" NewName="CanarySize_Value" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type" NewName="LinearStepSize_Type" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Value" NewName="LinearStepSize_Value" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type" NewName="TrafficRoutingConfiguration_Type" />
+                <Param Name="DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_WaitIntervalInSeconds" NewName="TrafficRoutingConfiguration_WaitIntervalInSecond" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type" NewName="MaximumBatchSize_Type" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Value" NewName="MaximumBatchSize_Value" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumExecutionTimeoutInSeconds" NewName="RollingUpdatePolicy_MaximumExecutionTimeoutInSecond" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type" NewName="RollbackMaximumBatchSize_Type" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Value" NewName="RollbackMaximumBatchSize_Value" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_WaitIntervalInSeconds" NewName="RollingUpdatePolicy_WaitIntervalInSecond" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEndpointWeightsAndCapacities" OutputProperty="EndpointArn" Verb="Update" Noun="EndpointWeightAndCapacity" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1549,7 +2037,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFeatureGroup" OutputProperty="FeatureGroupArn" Verb="Update" Noun="FeatureGroup" ShouldProcessTarget="FeatureGroupName" PipelineParameter="FeatureGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OnlineStoreConfig_TtlDuration_Unit" NewName="TtlDuration_Unit" />
+                <Param Name="OnlineStoreConfig_TtlDuration_Value" NewName="TtlDuration_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFeatureMetadata" Verb="Update" Noun="FeatureMetadata" ShouldProcessTarget="FeatureGroupName" PipelineParameter="FeatureGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1577,7 +2068,25 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInferenceComponent" OutputProperty="InferenceComponentArn" Verb="Update" Noun="InferenceComponent" ShouldProcessTarget="InferenceComponentName" PipelineParameter="InferenceComponentName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeploymentConfig_AutoRollbackConfiguration_Alarms" NewName="AutoRollbackConfiguration_Alarm" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type" NewName="MaximumBatchSize_Type" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Value" NewName="MaximumBatchSize_Value" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_MaximumExecutionTimeoutInSeconds" NewName="RollingUpdatePolicy_MaximumExecutionTimeoutInSecond" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type" NewName="RollbackMaximumBatchSize_Type" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Value" NewName="RollbackMaximumBatchSize_Value" />
+                <Param Name="DeploymentConfig_RollingUpdatePolicy_WaitIntervalInSeconds" NewName="RollingUpdatePolicy_WaitIntervalInSecond" />
+                <Param Name="Specification_ComputeResourceRequirements_MaxMemoryRequiredInMb" NewName="ComputeResourceRequirements_MaxMemoryRequiredInMb" />
+                <Param Name="Specification_ComputeResourceRequirements_MinMemoryRequiredInMb" NewName="ComputeResourceRequirements_MinMemoryRequiredInMb" />
+                <Param Name="Specification_ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired" NewName="ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired" />
+                <Param Name="Specification_ComputeResourceRequirements_NumberOfCpuCoresRequired" NewName="ComputeResourceRequirements_NumberOfCpuCoresRequired" />
+                <Param Name="Specification_Container_ArtifactUrl" NewName="Container_ArtifactUrl" />
+                <Param Name="Specification_Container_Environment" NewName="Container_Environment" />
+                <Param Name="Specification_Container_Image" NewName="Container_Image" />
+                <Param Name="Specification_DataCacheConfig_EnableCaching" NewName="DataCacheConfig_EnableCaching" />
+                <Param Name="Specification_StartupParameters_ContainerStartupHealthCheckTimeoutInSeconds" NewName="StartupParameters_ContainerStartupHealthCheckTimeoutInSecond" />
+                <Param Name="Specification_StartupParameters_ModelDataDownloadTimeoutInSeconds" NewName="StartupParameters_ModelDataDownloadTimeoutInSecond" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInferenceComponentRuntimeConfig" OutputProperty="InferenceComponentArn" Verb="Update" Noun="InferenceComponentRuntimeConfig" ShouldProcessTarget="InferenceComponentName" PipelineParameter="InferenceComponentName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1585,7 +2094,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Update" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataStorageConfig_ContentType_CsvContentTypes" NewName="ContentType_CsvContentType" />
+                <Param Name="DataStorageConfig_ContentType_JsonContentTypes" NewName="ContentType_JsonContentType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMlflowApp" OutputProperty="Arn" Verb="Update" Noun="MlflowApp" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
@@ -1664,6 +2176,12 @@
                 <Param Name="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
                 <Param Name="SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" Alias="AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" />
                 <Param Name="SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" />
+                <Param Name="SpaceSettings_JupyterLabAppSettings_CodeRepositories" NewName="JupyterLabAppSettings_CodeRepository" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_CodeRepositories" NewName="JupyterServerAppSettings_CodeRepository" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_LifecycleConfigArns" NewName="JupyterServerAppSettings_LifecycleConfigArn" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_CustomImages" NewName="KernelGatewayAppSettings_CustomImage" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_LifecycleConfigArns" NewName="KernelGatewayAppSettings_LifecycleConfigArn" />
+                <Param Name="SpaceSettings_SpaceStorageSettings_EbsStorageSettings_EbsVolumeSizeInGb" NewName="EbsStorageSettings_EbsVolumeSizeInGb" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1688,7 +2206,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkteam" OutputProperty="Workteam" Verb="Update" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WorkerAccessConfiguration_S3Presign_IamPolicyConstraints_SourceIp" NewName="IamPolicyConstraints_SourceIp" />
+                <Param Name="WorkerAccessConfiguration_S3Presign_IamPolicyConstraints_VpcSourceIp" NewName="IamPolicyConstraints_VpcSourceIp" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

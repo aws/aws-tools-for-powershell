@@ -25,15 +25,29 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMember" OutputProperty="MemberId" Verb="New" Noun="Member" ShouldProcessTarget="MemberConfiguration_Name" PipelineParameter="MemberConfiguration_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MemberConfiguration_FrameworkConfiguration_Fabric_AdminPassword" NewName="Fabric_AdminPassword" />
+                <Param Name="MemberConfiguration_FrameworkConfiguration_Fabric_AdminUsername" NewName="Fabric_AdminUsername" />
+                <Param Name="MemberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch_Enabled" NewName="Cloudwatch_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNetwork" OutputProperty="*" Verb="New" Noun="Network" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FrameworkConfiguration_Fabric_Edition" NewName="Fabric_Edition" />
+                <Param Name="MemberConfiguration_FrameworkConfiguration_Fabric_AdminPassword" NewName="Fabric_AdminPassword" />
+                <Param Name="MemberConfiguration_FrameworkConfiguration_Fabric_AdminUsername" NewName="Fabric_AdminUsername" />
+                <Param Name="MemberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch_Enabled" NewName="Cloudwatch_Enabled" />
+                <Param Name="VotingPolicy_ApprovalThresholdPolicy_ProposalDurationInHours" NewName="ApprovalThresholdPolicy_ProposalDurationInHour" />
+                <Param Name="VotingPolicy_ApprovalThresholdPolicy_ThresholdComparator" NewName="ApprovalThresholdPolicy_ThresholdComparator" />
+                <Param Name="VotingPolicy_ApprovalThresholdPolicy_ThresholdPercentage" NewName="ApprovalThresholdPolicy_ThresholdPercentage" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNode" OutputProperty="NodeId" Verb="New" Noun="Node" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NodeConfiguration_LogPublishingConfiguration_Fabric" NewName="LogPublishingConfiguration_Fabric" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProposal" OutputProperty="ProposalId" Verb="New" Noun="Proposal" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -76,27 +90,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="NodeList" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="NodeList" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProposals" OutputProperty="Proposals" Verb="Get" Noun="ProposalList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProposals" OutputProperty="Proposals" Verb="Get" Noun="ProposalList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProposalVotes" OutputProperty="ProposalVotes" Verb="Get" Noun="ProposalVoteList" PipelineParameter="ProposalId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProposalVotes" OutputProperty="ProposalVotes" Verb="Get" Noun="ProposalVoteList" PipelineParameter="ProposalId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -117,7 +131,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMember" Verb="Update" Noun="Member" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch_Enabled" NewName="Cloudwatch_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateNode" Verb="Update" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false" LegacyV4Pagination="true">

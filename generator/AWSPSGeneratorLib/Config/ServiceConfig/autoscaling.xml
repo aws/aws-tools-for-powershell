@@ -71,7 +71,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAutoScalingGroup" Verb="New" Noun="AutoScalingGroup" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationIds" NewName="CapacityReservationTarget_CapacityReservationId" />
+                <Param Name="CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArns" NewName="CapacityReservationTarget_CapacityReservationResourceGroupArn" />
+                <Param Name="InstanceLifecyclePolicy_RetentionTriggers_TerminateHookAbandon" NewName="RetentionTriggers_TerminateHookAbandon" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLaunchConfiguration" Verb="New" Noun="LaunchConfiguration" ShouldProcessTarget="LaunchConfigurationName" PositionalParameters="ImageId;KeyName;SecurityGroups" PipelineParameter="LaunchConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -253,7 +257,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="*" Verb="Write" Noun="ScalingPolicy" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="PolicyName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TargetTrackingConfiguration_CustomizedMetricSpecification_Dimensions" NewName="CustomizedMetricSpecification_Dimension" />
+                <Param Name="TargetTrackingConfiguration_CustomizedMetricSpecification_MetricName" NewName="CustomizedMetricSpecification_MetricName" />
+                <Param Name="TargetTrackingConfiguration_CustomizedMetricSpecification_Metrics" NewName="CustomizedMetricSpecification_Metric" />
+                <Param Name="TargetTrackingConfiguration_CustomizedMetricSpecification_Namespace" NewName="CustomizedMetricSpecification_Namespace" />
+                <Param Name="TargetTrackingConfiguration_CustomizedMetricSpecification_Period" NewName="CustomizedMetricSpecification_Period" />
+                <Param Name="TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic" NewName="CustomizedMetricSpecification_Statistic" />
+                <Param Name="TargetTrackingConfiguration_CustomizedMetricSpecification_Unit" NewName="CustomizedMetricSpecification_Unit" />
+                <Param Name="TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType" NewName="PredefinedMetricSpecification_PredefinedMetricType" />
+                <Param Name="TargetTrackingConfiguration_PredefinedMetricSpecification_ResourceLabel" NewName="PredefinedMetricSpecification_ResourceLabel" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutScheduledUpdateGroupAction" Verb="Write" Noun="ScheduledUpdateGroupAction" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="ScheduledActionName;StartTime;EndTime" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -289,7 +303,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartInstanceRefresh" OutputProperty="InstanceRefreshId" Verb="Start" Noun="InstanceRefresh" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DesiredConfiguration_LaunchTemplate_LaunchTemplateId" NewName="LaunchTemplate_LaunchTemplateId" />
+                <Param Name="DesiredConfiguration_LaunchTemplate_LaunchTemplateName" NewName="LaunchTemplate_LaunchTemplateName" />
+                <Param Name="DesiredConfiguration_LaunchTemplate_Version" NewName="LaunchTemplate_Version" />
+                <Param Name="Preferences_AlarmSpecification_Alarms" NewName="AlarmSpecification_Alarm" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SuspendProcesses" Verb="Suspend" Noun="Process" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="ScalingProcesses" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -301,7 +320,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAutoScalingGroup" Verb="Update" Noun="AutoScalingGroup" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize;DesiredCapacity" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationIds" NewName="CapacityReservationTarget_CapacityReservationId" />
+                <Param Name="CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArns" NewName="CapacityReservationTarget_CapacityReservationResourceGroupArn" />
+                <Param Name="InstanceLifecyclePolicy_RetentionTriggers_TerminateHookAbandon" NewName="RetentionTriggers_TerminateHookAbandon" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

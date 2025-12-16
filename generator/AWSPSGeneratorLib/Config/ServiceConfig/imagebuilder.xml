@@ -40,19 +40,31 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateImage" OutputProperty="ImageBuildVersionArn" Verb="New" Noun="Image" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ImageScanningConfiguration_EcrConfiguration_ContainerTags" NewName="EcrConfiguration_ContainerTag" />
+                <Param Name="ImageScanningConfiguration_EcrConfiguration_RepositoryName" NewName="EcrConfiguration_RepositoryName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateImagePipeline" OutputProperty="ImagePipelineArn" Verb="New" Noun="ImagePipeline" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ImageScanningConfiguration_EcrConfiguration_ContainerTags" NewName="EcrConfiguration_ContainerTag" />
+                <Param Name="ImageScanningConfiguration_EcrConfiguration_RepositoryName" NewName="EcrConfiguration_RepositoryName" />
+                <Param Name="Schedule_AutoDisablePolicy_FailureCount" NewName="AutoDisablePolicy_FailureCount" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateImageRecipe" OutputProperty="ImageRecipeArn" Verb="New" Noun="ImageRecipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AdditionalInstanceConfiguration_SystemsManagerAgent_UninstallAfterBuild" NewName="SystemsManagerAgent_UninstallAfterBuild" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateInfrastructureConfiguration" OutputProperty="InfrastructureConfigurationArn" Verb="New" Noun="InfrastructureConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Logging_S3Logs_S3BucketName" NewName="S3Logs_S3BucketName" />
+                <Param Name="Logging_S3Logs_S3KeyPrefix" NewName="S3Logs_S3KeyPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLifecyclePolicy" OutputProperty="LifecyclePolicyArn" Verb="New" Noun="LifecyclePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -300,7 +312,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartResourceStateUpdate" OutputProperty="*" Verb="Start" Noun="ResourceStateUpdate" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExclusionRules_Amis_IsPublic" NewName="Amis_IsPublic" />
+                <Param Name="ExclusionRules_Amis_LastLaunched_Unit" NewName="LastLaunched_Unit" />
+                <Param Name="ExclusionRules_Amis_LastLaunched_Value" NewName="LastLaunched_Value" />
+                <Param Name="ExclusionRules_Amis_Regions" NewName="Amis_Region" />
+                <Param Name="ExclusionRules_Amis_SharedAccounts" NewName="Amis_SharedAccount" />
+                <Param Name="ExclusionRules_Amis_TagMap" NewName="Amis_TagMap" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -316,11 +335,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateImagePipeline" OutputProperty="ImagePipelineArn" Verb="Update" Noun="ImagePipeline" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ImageScanningConfiguration_EcrConfiguration_ContainerTags" NewName="EcrConfiguration_ContainerTag" />
+                <Param Name="ImageScanningConfiguration_EcrConfiguration_RepositoryName" NewName="EcrConfiguration_RepositoryName" />
+                <Param Name="Schedule_AutoDisablePolicy_FailureCount" NewName="AutoDisablePolicy_FailureCount" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInfrastructureConfiguration" OutputProperty="InfrastructureConfigurationArn" Verb="Update" Noun="InfrastructureConfiguration" ShouldProcessTarget="InfrastructureConfigurationArn" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Logging_S3Logs_S3BucketName" NewName="S3Logs_S3BucketName" />
+                <Param Name="Logging_S3Logs_S3KeyPrefix" NewName="S3Logs_S3KeyPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLifecyclePolicy" OutputProperty="LifecyclePolicyArn" Verb="Update" Noun="LifecyclePolicy" ShouldProcessTarget="LifecyclePolicyArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>clouddirectory</C2jFilename>
     <AssemblyName>CloudDirectory</AssemblyName>
@@ -15,7 +16,6 @@
     </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -110,7 +110,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetachTypedLink" Verb="Dismount" Noun="TypedLink" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TypedLinkSpecifier_SourceObjectReference_Selector" NewName="SourceObjectReference_Selector" />
+                <Param Name="TypedLinkSpecifier_TargetObjectReference_Selector" NewName="TargetObjectReference_Selector" />
+                <Param Name="TypedLinkSpecifier_TypedLinkFacet_SchemaArn" NewName="TypedLinkFacet_SchemaArn" />
+                <Param Name="TypedLinkSpecifier_TypedLinkFacet_TypedLinkName" NewName="TypedLinkFacet_TypedLinkName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisableDirectory" OutputProperty="DirectoryArn" Verb="Disable" Noun="Directory" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -134,7 +139,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetLinkAttributes" OutputProperty="Attributes" Verb="Get" Noun="LinkAttribute" PipelineParameter="DirectoryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TypedLinkSpecifier_SourceObjectReference_Selector" NewName="SourceObjectReference_Selector" />
+                <Param Name="TypedLinkSpecifier_TargetObjectReference_Selector" NewName="TargetObjectReference_Selector" />
+                <Param Name="TypedLinkSpecifier_TypedLinkFacet_SchemaArn" NewName="TypedLinkFacet_SchemaArn" />
+                <Param Name="TypedLinkSpecifier_TypedLinkFacet_TypedLinkName" NewName="TypedLinkFacet_TypedLinkName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetObjectAttributes" OutputProperty="Attributes" Verb="Get" Noun="ObjectAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -201,7 +211,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectParents" OutputProperty="*" Verb="Get" Noun="ObjectParent" PipelineParameter="DirectoryArn" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListObjectParents" OutputProperty="*" Verb="Get" Noun="ObjectParent" PipelineParameter="DirectoryArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -262,7 +272,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLinkAttributes" Verb="Update" Noun="LinkAttribute" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TypedLinkSpecifier_SourceObjectReference_Selector" NewName="SourceObjectReference_Selector" />
+                <Param Name="TypedLinkSpecifier_TargetObjectReference_Selector" NewName="TargetObjectReference_Selector" />
+                <Param Name="TypedLinkSpecifier_TypedLinkFacet_SchemaArn" NewName="TypedLinkFacet_SchemaArn" />
+                <Param Name="TypedLinkSpecifier_TypedLinkFacet_TypedLinkName" NewName="TypedLinkFacet_TypedLinkName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateObjectAttributes" OutputProperty="ObjectIdentifier" Verb="Update" Noun="ObjectAttribute" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -286,7 +301,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

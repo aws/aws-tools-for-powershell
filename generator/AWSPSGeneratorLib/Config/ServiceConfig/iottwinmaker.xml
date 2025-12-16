@@ -38,7 +38,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMetadataTransferJob" OutputProperty="*" Verb="New" Noun="MetadataTransferJob" ShouldProcessTarget="MetadataTransferJobId" PipelineParameter="Destination_Type" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Destination_IotTwinMakerConfiguration_Workspace" NewName="IotTwinMakerConfiguration_Workspace" />
+                <Param Name="Destination_S3Configuration_Location" NewName="S3Configuration_Location" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateScene" OutputProperty="*" Verb="New" Noun="Scene" ShouldProcessTarget="SceneId" PipelineParameter="SceneId" NoPipelineParameter="false" LegacyV4Pagination="true">

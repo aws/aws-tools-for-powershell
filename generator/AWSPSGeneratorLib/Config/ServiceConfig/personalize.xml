@@ -20,11 +20,22 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateBatchInferenceJob" OutputProperty="BatchInferenceJobArn" Verb="New" Noun="BatchInferenceJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobInput_S3DataSource_KmsKeyArn" NewName="S3DataSource_KmsKeyArn" />
+                <Param Name="JobInput_S3DataSource_Path" NewName="S3DataSource_Path" />
+                <Param Name="JobOutput_S3DataDestination_KmsKeyArn" NewName="S3DataDestination_KmsKeyArn" />
+                <Param Name="JobOutput_S3DataDestination_Path" NewName="S3DataDestination_Path" />
+                <Param Name="ThemeGenerationConfig_FieldsForThemeGeneration_ItemName" NewName="FieldsForThemeGeneration_ItemName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBatchSegmentJob" OutputProperty="BatchSegmentJobArn" Verb="New" Noun="BatchSegmentJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobInput_S3DataSource_KmsKeyArn" NewName="S3DataSource_KmsKeyArn" />
+                <Param Name="JobInput_S3DataSource_Path" NewName="S3DataSource_Path" />
+                <Param Name="JobOutput_S3DataDestination_KmsKeyArn" NewName="S3DataDestination_KmsKeyArn" />
+                <Param Name="JobOutput_S3DataDestination_Path" NewName="S3DataDestination_Path" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCampaign" OutputProperty="CampaignArn" Verb="New" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -40,7 +51,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDatasetExportJob" OutputProperty="DatasetExportJobArn" Verb="New" Noun="DatasetExportJob" AnonymousShouldProcessTarget="true" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobOutput_S3DataDestination_KmsKeyArn" NewName="S3DataDestination_KmsKeyArn" />
+                <Param Name="JobOutput_S3DataDestination_Path" NewName="S3DataDestination_Path" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDatasetGroup" OutputProperty="DatasetGroupArn" Verb="New" Noun="DatasetGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -60,11 +74,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMetricAttribution" OutputProperty="MetricAttributionArn" Verb="New" Noun="MetricAttribution" ShouldProcessTarget="DatasetGroupArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MetricsOutputConfig_S3DataDestination_KmsKeyArn" NewName="S3DataDestination_KmsKeyArn" />
+                <Param Name="MetricsOutputConfig_S3DataDestination_Path" NewName="S3DataDestination_Path" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRecommender" OutputProperty="RecommenderArn" Verb="New" Noun="Recommender" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RecommenderConfig_TrainingDataConfig_ExcludedDatasetColumns" NewName="TrainingDataConfig_ExcludedDatasetColumn" />
+                <Param Name="RecommenderConfig_TrainingDataConfig_IncludedDatasetColumns" NewName="TrainingDataConfig_IncludedDatasetColumn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSchema" OutputProperty="SchemaArn" Verb="New" Noun="Schema" ShouldProcessTarget="Name" PipelineParameter="Schema" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -72,7 +92,24 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSolution" OutputProperty="SolutionArn" Verb="New" Noun="Solution" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SolutionConfig_AutoMLConfig_MetricName" NewName="AutoMLConfig_MetricName" />
+                <Param Name="SolutionConfig_AutoMLConfig_RecipeList" NewName="AutoMLConfig_RecipeList" />
+                <Param Name="SolutionConfig_AutoTrainingConfig_SchedulingExpression" NewName="AutoTrainingConfig_SchedulingExpression" />
+                <Param Name="SolutionConfig_EventsConfig_EventParametersList" NewName="EventsConfig_EventParametersList" />
+                <Param Name="SolutionConfig_HpoConfig_AlgorithmHyperParameterRanges_CategoricalHyperParameterRanges" NewName="AlgorithmHyperParameterRanges_CategoricalHyperParameterRange" />
+                <Param Name="SolutionConfig_HpoConfig_AlgorithmHyperParameterRanges_ContinuousHyperParameterRanges" NewName="AlgorithmHyperParameterRanges_ContinuousHyperParameterRange" />
+                <Param Name="SolutionConfig_HpoConfig_AlgorithmHyperParameterRanges_IntegerHyperParameterRanges" NewName="AlgorithmHyperParameterRanges_IntegerHyperParameterRange" />
+                <Param Name="SolutionConfig_HpoConfig_HpoObjective_MetricName" NewName="HpoObjective_MetricName" />
+                <Param Name="SolutionConfig_HpoConfig_HpoObjective_MetricRegex" NewName="HpoObjective_MetricRegex" />
+                <Param Name="SolutionConfig_HpoConfig_HpoObjective_Type" NewName="HpoObjective_Type" />
+                <Param Name="SolutionConfig_HpoConfig_HpoResourceConfig_MaxNumberOfTrainingJobs" NewName="HpoResourceConfig_MaxNumberOfTrainingJob" />
+                <Param Name="SolutionConfig_HpoConfig_HpoResourceConfig_MaxParallelTrainingJobs" NewName="HpoResourceConfig_MaxParallelTrainingJob" />
+                <Param Name="SolutionConfig_OptimizationObjective_ItemAttribute" NewName="OptimizationObjective_ItemAttribute" />
+                <Param Name="SolutionConfig_OptimizationObjective_ObjectiveSensitivity" NewName="OptimizationObjective_ObjectiveSensitivity" />
+                <Param Name="SolutionConfig_TrainingDataConfig_ExcludedDatasetColumns" NewName="TrainingDataConfig_ExcludedDatasetColumn" />
+                <Param Name="SolutionConfig_TrainingDataConfig_IncludedDatasetColumns" NewName="TrainingDataConfig_IncludedDatasetColumn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSolutionVersion" OutputProperty="SolutionVersionArn" Verb="New" Noun="SolutionVersion" ShouldProcessTarget="SolutionArn" PipelineParameter="SolutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -191,7 +228,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBatchInferenceJobs" OutputProperty="BatchInferenceJobs" Verb="Get" Noun="BatchInferenceJobList" PipelineParameter="SolutionVersionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBatchInferenceJobs" OutputProperty="BatchInferenceJobs" Verb="Get" Noun="BatchInferenceJobList" PipelineParameter="SolutionVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -199,7 +236,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCampaigns" OutputProperty="Campaigns" Verb="Get" Noun="CampaignList" PipelineParameter="SolutionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCampaigns" OutputProperty="Campaigns" Verb="Get" Noun="CampaignList" PipelineParameter="SolutionArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -211,19 +248,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventTrackers" OutputProperty="EventTrackers" Verb="Get" Noun="EventTrackerList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventTrackers" OutputProperty="EventTrackers" Verb="Get" Noun="EventTrackerList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -239,7 +276,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecipes" OutputProperty="Recipes" Verb="Get" Noun="RecipeList" PipelineParameter="RecipeProvider" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecipes" OutputProperty="Recipes" Verb="Get" Noun="RecipeList" PipelineParameter="RecipeProvider" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -247,15 +284,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchemas" OutputProperty="Schemas" Verb="Get" Noun="SchemaList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSchemas" OutputProperty="Schemas" Verb="Get" Noun="SchemaList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSolutions" OutputProperty="Solutions" Verb="Get" Noun="SolutionList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSolutions" OutputProperty="Solutions" Verb="Get" Noun="SolutionList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSolutionVersions" OutputProperty="SolutionVersions" Verb="Get" Noun="SolutionVersionList" PipelineParameter="SolutionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSolutionVersions" OutputProperty="SolutionVersions" Verb="Get" Noun="SolutionVersionList" PipelineParameter="SolutionArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -292,15 +329,24 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMetricAttribution" OutputProperty="MetricAttributionArn" Verb="Update" Noun="MetricAttribution" ShouldProcessTarget="MetricAttributionArn" PipelineParameter="MetricAttributionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MetricsOutputConfig_S3DataDestination_KmsKeyArn" NewName="S3DataDestination_KmsKeyArn" />
+                <Param Name="MetricsOutputConfig_S3DataDestination_Path" NewName="S3DataDestination_Path" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRecommender" OutputProperty="RecommenderArn" Verb="Update" Noun="Recommender" ShouldProcessTarget="RecommenderArn" PipelineParameter="RecommenderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RecommenderConfig_TrainingDataConfig_ExcludedDatasetColumns" NewName="TrainingDataConfig_ExcludedDatasetColumn" />
+                <Param Name="RecommenderConfig_TrainingDataConfig_IncludedDatasetColumns" NewName="TrainingDataConfig_IncludedDatasetColumn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSolution" OutputProperty="SolutionArn" Verb="Update" Noun="Solution" ShouldProcessTarget="SolutionArn" PipelineParameter="SolutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SolutionUpdateConfig_AutoTrainingConfig_SchedulingExpression" NewName="AutoTrainingConfig_SchedulingExpression" />
+                <Param Name="SolutionUpdateConfig_EventsConfig_EventParametersList" NewName="EventsConfig_EventParametersList" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

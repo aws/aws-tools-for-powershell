@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>machinelearning</C2jFilename>
     <AssemblyName>MachineLearning</AssemblyName>
@@ -15,13 +16,12 @@
         <Map From="Tags" To="Tag" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTags" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-MLTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTags" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-MLTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -33,11 +33,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSourceFromRDS" OutputProperty="DataSourceId" Verb="New" Noun="DataSourceFromRDS" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RDSData_DatabaseCredentials_Password" NewName="DatabaseCredentials_Password" />
+                <Param Name="RDSData_DatabaseCredentials_Username" NewName="DatabaseCredentials_Username" />
+                <Param Name="RDSData_DatabaseInformation_DatabaseName" NewName="DatabaseInformation_DatabaseName" />
+                <Param Name="RDSData_DatabaseInformation_InstanceIdentifier" NewName="DatabaseInformation_InstanceIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSourceFromRedshift" OutputProperty="DataSourceId" Verb="New" Noun="DataSourceFromRedshift" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSpec_DatabaseCredentials_Password" NewName="DatabaseCredentials_Password" />
+                <Param Name="DataSpec_DatabaseCredentials_Username" NewName="DatabaseCredentials_Username" />
+                <Param Name="DataSpec_DatabaseInformation_ClusterIdentifier" NewName="DatabaseInformation_ClusterIdentifier" />
+                <Param Name="DataSpec_DatabaseInformation_DatabaseName" NewName="DatabaseInformation_DatabaseName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSourceFromS3" OutputProperty="DataSourceId" Verb="New" Noun="DataSourceFromS3" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -89,27 +99,27 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-MLTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTags" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-MLTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBatchPredictions" OutputProperty="Results" Verb="Get" Noun="BatchPredictionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLBatchPredictions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBatchPredictions" OutputProperty="Results" Verb="Get" Noun="BatchPredictionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLBatchPredictions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSources" OutputProperty="Results" Verb="Get" Noun="DataSourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLDataSources" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDataSources" OutputProperty="Results" Verb="Get" Noun="DataSourceList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLDataSources">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvaluations" OutputProperty="Results" Verb="Get" Noun="EvaluationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLEvaluations" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEvaluations" OutputProperty="Results" Verb="Get" Noun="EvaluationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLEvaluations">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMLModels" OutputProperty="Results" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLModels" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMLModels" OutputProperty="Results" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLModels">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Get-MLTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-MLTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -165,7 +175,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

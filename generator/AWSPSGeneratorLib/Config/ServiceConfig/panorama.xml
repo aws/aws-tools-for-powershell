@@ -24,7 +24,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJobForDevices" OutputProperty="Jobs" Verb="New" Noun="JobForDevice" ShouldProcessTarget="JobType" PipelineParameter="JobType" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeviceJobConfig_OTAJobConfig_AllowMajorVersionUpdate" NewName="OTAJobConfig_AllowMajorVersionUpdate" />
+                <Param Name="DeviceJobConfig_OTAJobConfig_ImageVersion" NewName="OTAJobConfig_ImageVersion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNodeFromTemplateJob" OutputProperty="JobId" Verb="New" Noun="NodeFromTemplateJob" ShouldProcessTarget="OutputPackageName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -35,8 +38,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePackageImportJob" OutputProperty="JobId" Verb="New" Noun="PackageImportJob" ShouldProcessTarget="" PipelineParameter="JobType" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="CreatePackageImportJob" OutputProperty="JobId" Verb="New" Noun="PackageImportJob" ShouldProcessTarget="JobType" PipelineParameter="JobType" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="InputConfig_PackageVersionInputConfig_S3Location_BucketName" NewName="S3Location_BucketName" />
+                <Param Name="InputConfig_PackageVersionInputConfig_S3Location_ObjectKey" NewName="S3Location_ObjectKey" />
+                <Param Name="InputConfig_PackageVersionInputConfig_S3Location_Region" NewName="S3Location_Region" />
+                <Param Name="OutputConfig_PackageVersionOutputConfig_MarkLatest" NewName="PackageVersionOutputConfig_MarkLatest" />
+                <Param Name="OutputConfig_PackageVersionOutputConfig_PackageName" NewName="PackageVersionOutputConfig_PackageName" />
+                <Param Name="OutputConfig_PackageVersionOutputConfig_PackageVersion" NewName="PackageVersionOutputConfig_PackageVersion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDevice" OutputProperty="DeviceId" Verb="Remove" Noun="Device" ShouldProcessTarget="DeviceId" PipelineParameter="DeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -137,6 +147,9 @@
                 <Param Name="NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_IpAddress" NewName="NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_IpAddress" />
                 <Param Name="NetworkingConfiguration_Ethernet0_StaticIpConnectionInfo_Mask" NewName="NetworkingConfiguration_Ethernet0_StaticIpConnectionInfo_Mask" />
                 <Param Name="NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_Mask" NewName="NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_Mask" />
+                <Param Name="NetworkingConfiguration_Ethernet0_ConnectionType" NewName="Ethernet0_ConnectionType" />
+                <Param Name="NetworkingConfiguration_Ethernet1_ConnectionType" NewName="Ethernet1_ConnectionType" />
+                <Param Name="NetworkingConfiguration_Ntp_NtpServers" NewName="Ntp_NtpServer" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

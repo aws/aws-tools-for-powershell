@@ -19,7 +19,11 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SlurmConfiguration_Accounting_DefaultPurgeTimeInDays" NewName="Accounting_DefaultPurgeTimeInDay" />
+                <Param Name="SlurmConfiguration_Accounting_Mode" NewName="Accounting_Mode" />
+                <Param Name="SlurmConfiguration_SlurmRest_Mode" NewName="SlurmRest_Mode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateComputeNodeGroup" OutputProperty="ComputeNodeGroup" Verb="New" Noun="ComputeNodeGroup" ShouldProcessTarget="ComputeNodeGroupName" PipelineParameter="ComputeNodeGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -83,7 +87,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="SlurmConfiguration_Accounting_DefaultPurgeTimeInDays" NewName="Accounting_DefaultPurgeTimeInDay" />
+                <Param Name="SlurmConfiguration_Accounting_Mode" NewName="Accounting_Mode" />
+                <Param Name="SlurmConfiguration_SlurmRest_Mode" NewName="SlurmRest_Mode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateComputeNodeGroup" OutputProperty="ComputeNodeGroup" Verb="Update" Noun="ComputeNodeGroup" ShouldProcessTarget="ComputeNodeGroupIdentifier" PipelineParameter="ComputeNodeGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">

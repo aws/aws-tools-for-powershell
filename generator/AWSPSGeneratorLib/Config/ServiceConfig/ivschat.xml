@@ -23,7 +23,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLoggingConfiguration" OutputProperty="*" Verb="New" Noun="LoggingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfiguration_CloudWatchLogs_LogGroupName" NewName="CloudWatchLogs_LogGroupName" />
+                <Param Name="DestinationConfiguration_Firehose_DeliveryStreamName" NewName="Firehose_DeliveryStreamName" />
+                <Param Name="DestinationConfiguration_S3_BucketName" NewName="S3_BucketName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRoom" OutputProperty="*" Verb="New" Noun="Room" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -79,7 +83,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLoggingConfiguration" OutputProperty="*" Verb="Update" Noun="LoggingConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfiguration_CloudWatchLogs_LogGroupName" NewName="CloudWatchLogs_LogGroupName" />
+                <Param Name="DestinationConfiguration_Firehose_DeliveryStreamName" NewName="Firehose_DeliveryStreamName" />
+                <Param Name="DestinationConfiguration_S3_BucketName" NewName="S3_BucketName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoom" OutputProperty="*" Verb="Update" Noun="Room" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">

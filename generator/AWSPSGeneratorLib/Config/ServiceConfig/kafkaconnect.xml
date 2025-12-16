@@ -20,11 +20,33 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateConnector" OutputProperty="*" Verb="New" Noun="Connector" ShouldProcessTarget="ConnectorName" PipelineParameter="ConnectorName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Capacity_AutoScaling_MaxWorkerCount" NewName="AutoScaling_MaxWorkerCount" />
+                <Param Name="Capacity_AutoScaling_McuCount" NewName="AutoScaling_McuCount" />
+                <Param Name="Capacity_AutoScaling_MinWorkerCount" NewName="AutoScaling_MinWorkerCount" />
+                <Param Name="Capacity_AutoScaling_ScaleInPolicy_CpuUtilizationPercentage" NewName="ScaleInPolicy_CpuUtilizationPercentage" />
+                <Param Name="Capacity_AutoScaling_ScaleOutPolicy_CpuUtilizationPercentage" NewName="ScaleOutPolicy_CpuUtilizationPercentage" />
+                <Param Name="Capacity_ProvisionedCapacity_McuCount" NewName="ProvisionedCapacity_McuCount" />
+                <Param Name="Capacity_ProvisionedCapacity_WorkerCount" NewName="ProvisionedCapacity_WorkerCount" />
+                <Param Name="KafkaCluster_ApacheKafkaCluster_BootstrapServers" NewName="ApacheKafkaCluster_BootstrapServer" />
+                <Param Name="KafkaCluster_ApacheKafkaCluster_Vpc_SecurityGroups" NewName="Vpc_SecurityGroup" />
+                <Param Name="KafkaCluster_ApacheKafkaCluster_Vpc_Subnets" NewName="Vpc_Subnet" />
+                <Param Name="LogDelivery_WorkerLogDelivery_CloudWatchLogs_Enabled" NewName="CloudWatchLogs_Enabled" />
+                <Param Name="LogDelivery_WorkerLogDelivery_CloudWatchLogs_LogGroup" NewName="CloudWatchLogs_LogGroup" />
+                <Param Name="LogDelivery_WorkerLogDelivery_Firehose_DeliveryStream" NewName="Firehose_DeliveryStream" />
+                <Param Name="LogDelivery_WorkerLogDelivery_Firehose_Enabled" NewName="Firehose_Enabled" />
+                <Param Name="LogDelivery_WorkerLogDelivery_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="LogDelivery_WorkerLogDelivery_S3_Enabled" NewName="S3_Enabled" />
+                <Param Name="LogDelivery_WorkerLogDelivery_S3_Prefix" NewName="S3_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomPlugin" OutputProperty="*" Verb="New" Noun="CustomPlugin" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Location_S3Location_BucketArn" NewName="S3Location_BucketArn" />
+                <Param Name="Location_S3Location_FileKey" NewName="S3Location_FileKey" />
+                <Param Name="Location_S3Location_ObjectVersion" NewName="S3Location_ObjectVersion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkerConfiguration" OutputProperty="*" Verb="New" Noun="WorkerConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -88,7 +110,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnector" OutputProperty="*" Verb="Update" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Capacity_AutoScaling_MaxWorkerCount" NewName="AutoScaling_MaxWorkerCount" />
+                <Param Name="Capacity_AutoScaling_McuCount" NewName="AutoScaling_McuCount" />
+                <Param Name="Capacity_AutoScaling_MinWorkerCount" NewName="AutoScaling_MinWorkerCount" />
+                <Param Name="Capacity_AutoScaling_ScaleInPolicy_CpuUtilizationPercentage" NewName="ScaleInPolicy_CpuUtilizationPercentage" />
+                <Param Name="Capacity_AutoScaling_ScaleOutPolicy_CpuUtilizationPercentage" NewName="ScaleOutPolicy_CpuUtilizationPercentage" />
+                <Param Name="Capacity_ProvisionedCapacity_McuCount" NewName="ProvisionedCapacity_McuCount" />
+                <Param Name="Capacity_ProvisionedCapacity_WorkerCount" NewName="ProvisionedCapacity_WorkerCount" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

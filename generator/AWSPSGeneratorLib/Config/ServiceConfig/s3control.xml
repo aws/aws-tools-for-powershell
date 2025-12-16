@@ -48,11 +48,86 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" OutputProperty="JobId" Verb="New" Noun="Job" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Manifest_Location_ETag" NewName="Location_ETag" />
+                <Param Name="Manifest_Location_ObjectArn" NewName="Location_ObjectArn" />
+                <Param Name="Manifest_Location_ObjectVersionId" NewName="Location_ObjectVersionId" />
+                <Param Name="Manifest_Spec_Fields" NewName="Spec_Field" />
+                <Param Name="Manifest_Spec_Format" NewName="Spec_Format" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_EnableManifestOutput" NewName="S3JobManifestGenerator_EnableManifestOutput" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_ExpectedBucketOwner" NewName="S3JobManifestGenerator_ExpectedBucketOwner" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_CreatedAfter" NewName="Filter_CreatedAfter" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_CreatedBefore" NewName="Filter_CreatedBefore" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_EligibleForReplication" NewName="Filter_EligibleForReplication" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_KeyNameConstraint_MatchAnyPrefix" NewName="KeyNameConstraint_MatchAnyPrefix" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_KeyNameConstraint_MatchAnySubstring" NewName="KeyNameConstraint_MatchAnySubstring" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_KeyNameConstraint_MatchAnySuffix" NewName="KeyNameConstraint_MatchAnySuffix" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_MatchAnyObjectEncryption" NewName="Filter_MatchAnyObjectEncryption" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_MatchAnyStorageClass" NewName="Filter_MatchAnyStorageClass" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_ObjectReplicationStatuses" NewName="Filter_ObjectReplicationStatus" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_ObjectSizeGreaterThanBytes" NewName="Filter_ObjectSizeGreaterThanByte" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_Filter_ObjectSizeLessThanBytes" NewName="Filter_ObjectSizeLessThanByte" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_Bucket" NewName="ManifestOutputLocation_Bucket" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ExpectedManifestBucketOwner" NewName="ManifestOutputLocation_ExpectedManifestBucketOwner" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS_KeyId" NewName="SSEKMS_KeyId" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSES3" NewName="ManifestEncryption_SSES3" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestFormat" NewName="ManifestOutputLocation_ManifestFormat" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestPrefix" NewName="ManifestOutputLocation_ManifestPrefix" />
+                <Param Name="ManifestGenerator_S3JobManifestGenerator_SourceBucket" NewName="S3JobManifestGenerator_SourceBucket" />
+                <Param Name="Operation_LambdaInvoke_FunctionArn" NewName="LambdaInvoke_FunctionArn" />
+                <Param Name="Operation_LambdaInvoke_InvocationSchemaVersion" NewName="LambdaInvoke_InvocationSchemaVersion" />
+                <Param Name="Operation_LambdaInvoke_UserArguments" NewName="LambdaInvoke_UserArgument" />
+                <Param Name="Operation_S3ComputeObjectChecksum_ChecksumAlgorithm" NewName="S3ComputeObjectChecksum_ChecksumAlgorithm" />
+                <Param Name="Operation_S3ComputeObjectChecksum_ChecksumType" NewName="S3ComputeObjectChecksum_ChecksumType" />
+                <Param Name="Operation_S3InitiateRestoreObject_ExpirationInDays" NewName="S3InitiateRestoreObject_ExpirationInDay" />
+                <Param Name="Operation_S3InitiateRestoreObject_GlacierJobTier" NewName="S3InitiateRestoreObject_GlacierJobTier" />
+                <Param Name="Operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Grants" NewName="AccessControlList_Grant" />
+                <Param Name="Operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner_DisplayName" NewName="Owner_DisplayName" />
+                <Param Name="Operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner_ID" NewName="Owner_ID" />
+                <Param Name="Operation_S3PutObjectAcl_AccessControlPolicy_CannedAccessControlList" NewName="AccessControlPolicy_CannedAccessControlList" />
+                <Param Name="Operation_S3PutObjectCopy_AccessControlGrants" NewName="S3PutObjectCopy_AccessControlGrant" />
+                <Param Name="Operation_S3PutObjectCopy_BucketKeyEnabled" NewName="S3PutObjectCopy_BucketKeyEnabled" />
+                <Param Name="Operation_S3PutObjectCopy_CannedAccessControlList" NewName="S3PutObjectCopy_CannedAccessControlList" />
+                <Param Name="Operation_S3PutObjectCopy_ChecksumAlgorithm" NewName="S3PutObjectCopy_ChecksumAlgorithm" />
+                <Param Name="Operation_S3PutObjectCopy_MetadataDirective" NewName="S3PutObjectCopy_MetadataDirective" />
+                <Param Name="Operation_S3PutObjectCopy_ModifiedSinceConstraint" NewName="S3PutObjectCopy_ModifiedSinceConstraint" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_CacheControl" NewName="NewObjectMetadata_CacheControl" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_ContentDisposition" NewName="NewObjectMetadata_ContentDisposition" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_ContentEncoding" NewName="NewObjectMetadata_ContentEncoding" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_ContentLanguage" NewName="NewObjectMetadata_ContentLanguage" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_ContentLength" NewName="NewObjectMetadata_ContentLength" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_ContentMD5" NewName="NewObjectMetadata_ContentMD5" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_ContentType" NewName="NewObjectMetadata_ContentType" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_HttpExpiresDate" NewName="NewObjectMetadata_HttpExpiresDate" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_RequesterCharged" NewName="NewObjectMetadata_RequesterCharged" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_SSEAlgorithm" NewName="NewObjectMetadata_SSEAlgorithm" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectMetadata_UserMetadata" NewName="NewObjectMetadata_UserMetadata" />
+                <Param Name="Operation_S3PutObjectCopy_NewObjectTagging" NewName="S3PutObjectCopy_NewObjectTagging" />
+                <Param Name="Operation_S3PutObjectCopy_ObjectLockLegalHoldStatus" NewName="S3PutObjectCopy_ObjectLockLegalHoldStatus" />
+                <Param Name="Operation_S3PutObjectCopy_ObjectLockMode" NewName="S3PutObjectCopy_ObjectLockMode" />
+                <Param Name="Operation_S3PutObjectCopy_ObjectLockRetainUntilDate" NewName="S3PutObjectCopy_ObjectLockRetainUntilDate" />
+                <Param Name="Operation_S3PutObjectCopy_RedirectLocation" NewName="S3PutObjectCopy_RedirectLocation" />
+                <Param Name="Operation_S3PutObjectCopy_RequesterPays" NewName="S3PutObjectCopy_RequesterPay" />
+                <Param Name="Operation_S3PutObjectCopy_SSEAwsKmsKeyId" NewName="S3PutObjectCopy_SSEAwsKmsKeyId" />
+                <Param Name="Operation_S3PutObjectCopy_StorageClass" NewName="S3PutObjectCopy_StorageClass" />
+                <Param Name="Operation_S3PutObjectCopy_TargetKeyPrefix" NewName="S3PutObjectCopy_TargetKeyPrefix" />
+                <Param Name="Operation_S3PutObjectCopy_TargetResource" NewName="S3PutObjectCopy_TargetResource" />
+                <Param Name="Operation_S3PutObjectCopy_UnModifiedSinceConstraint" NewName="S3PutObjectCopy_UnModifiedSinceConstraint" />
+                <Param Name="Operation_S3PutObjectLegalHold_LegalHold_Status" NewName="LegalHold_Status" />
+                <Param Name="Operation_S3PutObjectRetention_BypassGovernanceRetention" NewName="S3PutObjectRetention_BypassGovernanceRetention" />
+                <Param Name="Operation_S3PutObjectRetention_Retention_Mode" NewName="Retention_Mode" />
+                <Param Name="Operation_S3PutObjectRetention_Retention_RetainUntilDate" NewName="Retention_RetainUntilDate" />
+                <Param Name="Operation_S3PutObjectTagging_TagSet" NewName="S3PutObjectTagging_TagSet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMultiRegionAccessPoint" OutputProperty="RequestTokenARN" Verb="New" Noun="MultiRegionAccessPoint" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Details_PublicAccessBlock_BlockPublicAcls" NewName="PublicAccessBlock_BlockPublicAcl" />
+                <Param Name="Details_PublicAccessBlock_BlockPublicPolicy" NewName="PublicAccessBlock_BlockPublicPolicy" />
+                <Param Name="Details_PublicAccessBlock_IgnorePublicAcls" NewName="PublicAccessBlock_IgnorePublicAcl" />
+                <Param Name="Details_PublicAccessBlock_RestrictPublicBuckets" NewName="PublicAccessBlock_RestrictPublicBucket" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStorageLensGroup" Verb="New" Noun="StorageLensGroup" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -425,6 +500,18 @@
                 <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3" NewName="ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3" />
                 <Param Name="StorageLensConfiguration_DataExport_StorageLensTableDestination_IsEnabled" NewName="DataExport_StorageLensTableDestination_IsEnabled" />
                 <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled" NewName="ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_IsEnabled" NewName="StorageMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_Delimiter" NewName="SelectionCriteria_Delimiter" />
+                <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_MaxDepth" NewName="SelectionCriteria_MaxDepth" />
+                <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_MinStorageBytesPercentage" NewName="SelectionCriteria_MinStorageBytesPercentage" />
+                <Param Name="StorageLensConfiguration_AccountLevel_StorageLensGroupLevel_SelectionCriteria_Exclude" NewName="SelectionCriteria_Exclude" />
+                <Param Name="StorageLensConfiguration_AccountLevel_StorageLensGroupLevel_SelectionCriteria_Include" NewName="SelectionCriteria_Include" />
+                <Param Name="StorageLensConfiguration_AwsOrg_Arn" NewName="AwsOrg_Arn" />
+                <Param Name="StorageLensConfiguration_DataExport_CloudWatchMetrics_IsEnabled" NewName="CloudWatchMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_Exclude_Buckets" NewName="Exclude_Bucket" />
+                <Param Name="StorageLensConfiguration_Exclude_Regions" NewName="Exclude_Region" />
+                <Param Name="StorageLensConfiguration_Include_Buckets" NewName="Include_Bucket" />
+                <Param Name="StorageLensConfiguration_Include_Regions" NewName="Include_Region" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

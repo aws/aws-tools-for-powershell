@@ -74,11 +74,28 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContainerService" OutputProperty="ContainerService" Verb="New" Noun="ContainerService" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Deployment_PublicEndpoint_ContainerName" NewName="PublicEndpoint_ContainerName" />
+                <Param Name="Deployment_PublicEndpoint_ContainerPort" NewName="PublicEndpoint_ContainerPort" />
+                <Param Name="Deployment_PublicEndpoint_HealthCheck_HealthyThreshold" NewName="HealthCheck_HealthyThreshold" />
+                <Param Name="Deployment_PublicEndpoint_HealthCheck_IntervalSeconds" NewName="HealthCheck_IntervalSecond" />
+                <Param Name="Deployment_PublicEndpoint_HealthCheck_Path" NewName="HealthCheck_Path" />
+                <Param Name="Deployment_PublicEndpoint_HealthCheck_SuccessCodes" NewName="HealthCheck_SuccessCode" />
+                <Param Name="Deployment_PublicEndpoint_HealthCheck_TimeoutSeconds" NewName="HealthCheck_TimeoutSecond" />
+                <Param Name="Deployment_PublicEndpoint_HealthCheck_UnhealthyThreshold" NewName="HealthCheck_UnhealthyThreshold" />
+                <Param Name="PrivateRegistryAccess_EcrImagePullerRole_IsActive" NewName="EcrImagePullerRole_IsActive" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContainerServiceDeployment" OutputProperty="ContainerService" Verb="New" Noun="ContainerServiceDeployment" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PublicEndpoint_HealthCheck_HealthyThreshold" NewName="HealthCheck_HealthyThreshold" />
+                <Param Name="PublicEndpoint_HealthCheck_IntervalSeconds" NewName="HealthCheck_IntervalSecond" />
+                <Param Name="PublicEndpoint_HealthCheck_Path" NewName="HealthCheck_Path" />
+                <Param Name="PublicEndpoint_HealthCheck_SuccessCodes" NewName="HealthCheck_SuccessCode" />
+                <Param Name="PublicEndpoint_HealthCheck_TimeoutSeconds" NewName="HealthCheck_TimeoutSecond" />
+                <Param Name="PublicEndpoint_HealthCheck_UnhealthyThreshold" NewName="HealthCheck_UnhealthyThreshold" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContainerServiceRegistryLogin" OutputProperty="RegistryLogin" Verb="New" Noun="ContainerServiceRegistryLogin" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -98,7 +115,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDistribution" OutputProperty="*" Verb="New" Noun="Distribution" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CacheBehaviorSettings_ForwardedCookies_CookiesAllowList" NewName="ForwardedCookies_CookiesAllowList" />
+                <Param Name="CacheBehaviorSettings_ForwardedCookies_Option" NewName="ForwardedCookies_Option" />
+                <Param Name="CacheBehaviorSettings_ForwardedHeaders_HeadersAllowList" NewName="ForwardedHeaders_HeadersAllowList" />
+                <Param Name="CacheBehaviorSettings_ForwardedHeaders_Option" NewName="ForwardedHeaders_Option" />
+                <Param Name="CacheBehaviorSettings_ForwardedQueryStrings_Option" NewName="ForwardedQueryStrings_Option" />
+                <Param Name="CacheBehaviorSettings_ForwardedQueryStrings_QueryStringsAllowList" NewName="ForwardedQueryStrings_QueryStringsAllowList" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="Operation" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -260,7 +284,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableAddOn" OutputProperty="Operations" Verb="Enable" Noun="AddOn" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AddOnRequest_AutoSnapshotAddOnRequest_SnapshotTimeOfDay" NewName="AutoSnapshotAddOnRequest_SnapshotTimeOfDay" />
+                <Param Name="AddOnRequest_StopInstanceOnIdleRequest_Duration" NewName="StopInstanceOnIdleRequest_Duration" />
+                <Param Name="AddOnRequest_StopInstanceOnIdleRequest_Threshold" NewName="StopInstanceOnIdleRequest_Threshold" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ExportSnapshot" OutputProperty="Operations" Verb="Export" Noun="Snapshot" ShouldProcessTarget="SourceSnapshotName" PipelineParameter="SourceSnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -638,11 +666,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContainerService" OutputProperty="ContainerService" Verb="Update" Noun="ContainerService" ShouldProcessTarget="ServiceName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PrivateRegistryAccess_EcrImagePullerRole_IsActive" NewName="EcrImagePullerRole_IsActive" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDistribution" OutputProperty="Operation" Verb="Update" Noun="Distribution" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CacheBehaviorSettings_ForwardedCookies_CookiesAllowList" NewName="ForwardedCookies_CookiesAllowList" />
+                <Param Name="CacheBehaviorSettings_ForwardedCookies_Option" NewName="ForwardedCookies_Option" />
+                <Param Name="CacheBehaviorSettings_ForwardedHeaders_HeadersAllowList" NewName="ForwardedHeaders_HeadersAllowList" />
+                <Param Name="CacheBehaviorSettings_ForwardedHeaders_Option" NewName="ForwardedHeaders_Option" />
+                <Param Name="CacheBehaviorSettings_ForwardedQueryStrings_Option" NewName="ForwardedQueryStrings_Option" />
+                <Param Name="CacheBehaviorSettings_ForwardedQueryStrings_QueryStringsAllowList" NewName="ForwardedQueryStrings_QueryStringsAllowList" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDistributionBundle" OutputProperty="Operation" Verb="Update" Noun="DistributionBundle" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -28,7 +28,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorId" Verb="New" Noun="Connector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EgressConfig_VpcLattice_PortNumber" NewName="VpcLattice_PortNumber" />
+                <Param Name="EgressConfig_VpcLattice_ResourceConfigurationArn" NewName="VpcLattice_ResourceConfigurationArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProfile" OutputProperty="ProfileId" Verb="New" Noun="Profile" ShouldProcessTarget="As2Id" PipelineParameter="As2Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -44,7 +47,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWebApp" OutputProperty="WebAppId" Verb="New" Noun="WebApp" ShouldProcessTarget="IdentityProviderDetails_IdentityCenterConfig_InstanceArn" PipelineParameter="AccessEndpoint" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EndpointDetails_Vpc_SecurityGroupIds" NewName="Vpc_SecurityGroupId" />
+                <Param Name="EndpointDetails_Vpc_SubnetIds" NewName="Vpc_SubnetId" />
+                <Param Name="EndpointDetails_Vpc_VpcId" NewName="Vpc_VpcId" />
+                <Param Name="IdentityProviderDetails_IdentityCenterConfig_InstanceArn" NewName="IdentityCenterConfig_InstanceArn" />
+                <Param Name="IdentityProviderDetails_IdentityCenterConfig_Role" NewName="IdentityCenterConfig_Role" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkflow" OutputProperty="WorkflowId" Verb="New" Noun="Workflow" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -199,15 +208,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServers" OutputProperty="Servers" Verb="Get" Noun="ServerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServers" OutputProperty="Servers" Verb="Get" Noun="ServerList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -276,7 +285,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnector" OutputProperty="ConnectorId" Verb="Update" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EgressConfig_VpcLattice_PortNumber" NewName="VpcLattice_PortNumber" />
+                <Param Name="EgressConfig_VpcLattice_ResourceConfigurationArn" NewName="VpcLattice_ResourceConfigurationArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateHostKey" OutputProperty="*" Verb="Update" Noun="HostKey" ShouldProcessTarget="HostKeyId" PipelineParameter="HostKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -296,7 +308,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWebApp" OutputProperty="WebAppId" Verb="Update" Noun="WebApp" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EndpointDetails_Vpc_SubnetIds" NewName="Vpc_SubnetId" />
+                <Param Name="IdentityProviderDetails_IdentityCenterConfig_Role" NewName="IdentityCenterConfig_Role" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWebAppCustomization" OutputProperty="WebAppId" Verb="Update" Noun="WebAppCustomization" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false" LegacyV4Pagination="true">

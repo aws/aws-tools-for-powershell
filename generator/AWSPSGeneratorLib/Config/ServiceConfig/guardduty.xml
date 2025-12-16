@@ -32,7 +32,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDetector" OutputProperty="DetectorId" Verb="New" Noun="Detector" ShouldProcessTarget="Enable" PipelineParameter="Enable" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSources_Kubernetes_AuditLogs_Enable" NewName="AuditLogs_Enable" />
+                <Param Name="DataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes" NewName="ScanEc2InstanceWithFindings_EbsVolume" />
+                <Param Name="DataSources_S3Logs_Enable" NewName="S3Logs_Enable" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFilter" OutputProperty="Name" Verb="New" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -44,7 +48,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMalwareProtectionPlan" OutputProperty="MalwareProtectionPlanId" Verb="New" Noun="MalwareProtectionPlan" ShouldProcessTarget="ProtectedResource_S3Bucket_BucketName" PipelineParameter="Role" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Actions_Tagging_Status" NewName="Tagging_Status" />
+                <Param Name="ProtectedResource_S3Bucket_BucketName" NewName="S3Bucket_BucketName" />
+                <Param Name="ProtectedResource_S3Bucket_ObjectPrefixes" NewName="S3Bucket_ObjectPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMembers" OutputProperty="UnprocessedAccounts" Verb="New" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountDetails" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -296,7 +304,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMalwareScan" OutputProperty="ScanId" Verb="Start" Noun="MalwareScan" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ScanConfiguration_IncrementalScanDetails_BaselineResourceArn" NewName="IncrementalScanDetails_BaselineResourceArn" />
+                <Param Name="ScanConfiguration_RecoveryPoint_BackupVaultName" NewName="RecoveryPoint_BackupVaultName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMonitoringMembers" OutputProperty="UnprocessedAccounts" Verb="Start" Noun="MonitoringMember" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -320,7 +331,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDetector" Verb="Update" Noun="Detector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSources_Kubernetes_AuditLogs_Enable" NewName="AuditLogs_Enable" />
+                <Param Name="DataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes" NewName="ScanEc2InstanceWithFindings_EbsVolume" />
+                <Param Name="DataSources_S3Logs_Enable" NewName="S3Logs_Enable" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFilter" OutputProperty="Name" Verb="Update" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -336,7 +351,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMalwareProtectionPlan" Verb="Update" Noun="MalwareProtectionPlan" ShouldProcessTarget="MalwareProtectionPlanId" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Actions_Tagging_Status" NewName="Tagging_Status" />
+                <Param Name="ProtectedResource_S3Bucket_ObjectPrefixes" NewName="S3Bucket_ObjectPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMalwareScanSettings" Verb="Update" Noun="MalwareScanSetting" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -344,11 +362,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMemberDetectors" OutputProperty="UnprocessedAccounts" Verb="Update" Noun="MemberDetector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSources_Kubernetes_AuditLogs_Enable" NewName="AuditLogs_Enable" />
+                <Param Name="DataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes" NewName="ScanEc2InstanceWithFindings_EbsVolume" />
+                <Param Name="DataSources_S3Logs_Enable" NewName="S3Logs_Enable" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOrganizationConfiguration" Verb="Update" Noun="OrganizationConfiguration" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSources_Kubernetes_AuditLogs_AutoEnable" NewName="AuditLogs_AutoEnable" />
+                <Param Name="DataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes_AutoEnable" NewName="EbsVolumes_AutoEnable" />
+                <Param Name="DataSources_S3Logs_AutoEnable" NewName="S3Logs_AutoEnable" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePublishingDestination" Verb="Update" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -35,7 +35,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApi" OutputProperty="Api" Verb="New" Noun="Api" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EventConfig_LogConfig_CloudWatchLogsRoleArn" NewName="LogConfig_CloudWatchLogsRoleArn" />
+                <Param Name="EventConfig_LogConfig_LogLevel" NewName="LogConfig_LogLevel" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApiCache" OutputProperty="ApiCache" Verb="New" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -52,6 +55,8 @@
                 <Param Name="HandlerConfigs_OnSubscribe_Integration_DataSourceName" NewName="OnSubscribe_Integration_DataSourceName" />
                 <Param Name="HandlerConfigs_OnPublish_Integration_LambdaConfig_InvokeType" NewName="OnPublish_LambdaConfig_InvokeType" />
                 <Param Name="HandlerConfigs_OnSubscribe_Integration_LambdaConfig_InvokeType" NewName="OnSubscribe_LambdaConfig_InvokeType" />
+                <Param Name="HandlerConfigs_OnPublish_Behavior" NewName="OnPublish_Behavior" />
+                <Param Name="HandlerConfigs_OnSubscribe_Behavior" NewName="OnSubscribe_Behavior" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -64,7 +69,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFunction" OutputProperty="FunctionConfiguration" Verb="New" Noun="Function" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SyncConfig_LambdaConflictHandlerConfig_LambdaConflictHandlerArn" NewName="LambdaConflictHandlerConfig_LambdaConflictHandlerArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGraphqlApi" OutputProperty="GraphqlApi" Verb="New" Noun="GraphqlApi" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -72,7 +79,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateResolver" OutputProperty="Resolver" Verb="New" Noun="Resolver" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SyncConfig_LambdaConflictHandlerConfig_LambdaConflictHandlerArn" NewName="LambdaConflictHandlerConfig_LambdaConflictHandlerArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateType" OutputProperty="Type" Verb="New" Noun="Type" ShouldProcessTarget="ApiId" PipelineParameter="Definition" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -203,7 +212,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApiKeys" OutputProperty="ApiKeys" Verb="Get" Noun="ApiKeyList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApiKeys" OutputProperty="ApiKeys" Verb="Get" Noun="ApiKeyList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,7 +224,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -223,19 +232,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGraphqlApis" OutputProperty="GraphqlApis" Verb="Get" Noun="GraphqlApiList" PipelineParameter="ApiType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGraphqlApis" OutputProperty="GraphqlApis" Verb="Get" Noun="GraphqlApiList" PipelineParameter="ApiType" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolvers" OutputProperty="Resolvers" Verb="Get" Noun="ResolverList" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolvers" OutputProperty="Resolvers" Verb="Get" Noun="ResolverList" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolversByFunction" OutputProperty="Resolvers" Verb="Get" Noun="ResolverListByFunction" PipelineParameter="FunctionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolversByFunction" OutputProperty="Resolvers" Verb="Get" Noun="ResolverListByFunction" PipelineParameter="FunctionId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -247,7 +256,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypes" OutputProperty="Types" Verb="Get" Noun="TypeList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTypes" OutputProperty="Types" Verb="Get" Noun="TypeList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -280,7 +289,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApi" OutputProperty="Api" Verb="Update" Noun="Api" ShouldProcessTarget="Name" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EventConfig_LogConfig_CloudWatchLogsRoleArn" NewName="LogConfig_CloudWatchLogsRoleArn" />
+                <Param Name="EventConfig_LogConfig_LogLevel" NewName="LogConfig_LogLevel" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApiCache" OutputProperty="ApiCache" Verb="Update" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -297,6 +309,8 @@
                 <Param Name="HandlerConfigs_OnSubscribe_Integration_DataSourceName" NewName="OnSubscribe_Integration_DataSourceName" />
                 <Param Name="HandlerConfigs_OnPublish_Integration_LambdaConfig_InvokeType" NewName="OnPublish_LambdaConfig_InvokeType" />
                 <Param Name="HandlerConfigs_OnSubscribe_Integration_LambdaConfig_InvokeType" NewName="OnSubscribe_LambdaConfig_InvokeType" />
+                <Param Name="HandlerConfigs_OnPublish_Behavior" NewName="OnPublish_Behavior" />
+                <Param Name="HandlerConfigs_OnSubscribe_Behavior" NewName="OnSubscribe_Behavior" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -309,7 +323,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFunction" OutputProperty="FunctionConfiguration" Verb="Update" Noun="Function" ShouldProcessTarget="FunctionId" PipelineParameter="FunctionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SyncConfig_LambdaConflictHandlerConfig_LambdaConflictHandlerArn" NewName="LambdaConflictHandlerConfig_LambdaConflictHandlerArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGraphqlApi" OutputProperty="GraphqlApi" Verb="Update" Noun="GraphqlApi" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -317,7 +333,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResolver" OutputProperty="Resolver" Verb="Update" Noun="Resolver" ShouldProcessTarget="FieldName" PipelineParameter="FieldName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SyncConfig_LambdaConflictHandlerConfig_LambdaConflictHandlerArn" NewName="LambdaConflictHandlerConfig_LambdaConflictHandlerArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSourceApiAssociation" OutputProperty="SourceApiAssociation" Verb="Update" Noun="SourceApiAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">

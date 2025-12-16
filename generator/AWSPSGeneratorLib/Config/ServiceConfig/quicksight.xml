@@ -46,13 +46,50 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateActionConnector" OutputProperty="*" Verb="New" Noun="ActionConnector" ShouldProcessTarget="ActionConnectorId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ApiKeyConnectionMetadata_ApiKey" NewName="ApiKeyConnectionMetadata_ApiKey" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ApiKeyConnectionMetadata_BaseEndpoint" NewName="ApiKeyConnectionMetadata_BaseEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ApiKeyConnectionMetadata_Email" NewName="ApiKeyConnectionMetadata_Email" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsDetails_AuthorizationCodeGrantDetails_AuthorizationEndpoint" NewName="AuthorizationCodeGrantDetails_AuthorizationEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsDetails_AuthorizationCodeGrantDetails_ClientId" NewName="AuthorizationCodeGrantDetails_ClientId" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsDetails_AuthorizationCodeGrantDetails_ClientSecret" NewName="AuthorizationCodeGrantDetails_ClientSecret" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsDetails_AuthorizationCodeGrantDetails_TokenEndpoint" NewName="AuthorizationCodeGrantDetails_TokenEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsSource" NewName="AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsSource" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_BaseEndpoint" NewName="AuthorizationCodeGrantMetadata_BaseEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_RedirectUrl" NewName="AuthorizationCodeGrantMetadata_RedirectUrl" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_BasicAuthConnectionMetadata_BaseEndpoint" NewName="BasicAuthConnectionMetadata_BaseEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_BasicAuthConnectionMetadata_Password" NewName="BasicAuthConnectionMetadata_Password" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_BasicAuthConnectionMetadata_Username" NewName="BasicAuthConnectionMetadata_Username" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_BaseEndpoint" NewName="ClientCredentialsGrantMetadata_BaseEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_ClientCredentialsDetails_ClientCredentialsGrantDetails_ClientId" NewName="ClientCredentialsGrantDetails_ClientId" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_ClientCredentialsDetails_ClientCredentialsGrantDetails_ClientSecret" NewName="ClientCredentialsGrantDetails_ClientSecret" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_ClientCredentialsDetails_ClientCredentialsGrantDetails_TokenEndpoint" NewName="ClientCredentialsGrantDetails_TokenEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_ClientCredentialsSource" NewName="ClientCredentialsGrantMetadata_ClientCredentialsSource" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_IamConnectionMetadata_RoleArn" NewName="IamConnectionMetadata_RoleArn" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_NoneConnectionMetadata_BaseEndpoint" NewName="NoneConnectionMetadata_BaseEndpoint" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAnalysis" OutputProperty="*" Verb="New" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption" NewName="ScreenCanvasSizeOptions_ResizeOption" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Bottom" NewName="PaperMargin_Bottom" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Left" NewName="PaperMargin_Left" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Right" NewName="PaperMargin_Right" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Top" NewName="PaperMargin_Top" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation" NewName="PaperCanvasSizeOptions_PaperOrientation" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize" NewName="PaperCanvasSizeOptions_PaperSize" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType" NewName="DefaultNewSheetConfiguration_SheetContentType" />
+                <Param Name="Definition_Options_CustomActionDefaults_HighlightOperation_Trigger" NewName="HighlightOperation_Trigger" />
+                <Param Name="Definition_Options_ExcludedDataSetArns" NewName="Options_ExcludedDataSetArn" />
+                <Param Name="Definition_Options_QBusinessInsightsStatus" NewName="Options_QBusinessInsightsStatus" />
+                <Param Name="Definition_Options_Timezone" NewName="Options_Timezone" />
+                <Param Name="Definition_Options_WeekStart" NewName="Options_WeekStart" />
+                <Param Name="Definition_QueryExecutionOptions_QueryExecutionMode" NewName="QueryExecutionOptions_QueryExecutionMode" />
+                <Param Name="SourceEntity_SourceTemplate_Arn" NewName="SourceTemplate_Arn" />
+                <Param Name="SourceEntity_SourceTemplate_DataSetReferences" NewName="SourceTemplate_DataSetReference" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -62,6 +99,37 @@
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_S3Uri" NewName="Favicon_S3Uri" />
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_PublicUrl" NewName="Primary_PublicUrl" />
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_S3Uri" NewName="Primary_S3Uri" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Accent_Background" NewName="Accent_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Accent_Foreground" NewName="Accent_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Danger_Background" NewName="Danger_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Danger_Foreground" NewName="Danger_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Dimension_Background" NewName="Dimension_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Dimension_Foreground" NewName="Dimension_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Info_Background" NewName="Info_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Info_Foreground" NewName="Info_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Measure_Background" NewName="Measure_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Measure_Foreground" NewName="Measure_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Primary_Background" NewName="Primary_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Primary_Foreground" NewName="Primary_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Secondary_Background" NewName="Secondary_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Secondary_Foreground" NewName="Secondary_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Success_Background" NewName="Success_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Success_Foreground" NewName="Success_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Warning_Background" NewName="Warning_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Warning_Foreground" NewName="Warning_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandElementStyle_NavbarStyle_ContextualNavbar_Background" NewName="ContextualNavbar_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandElementStyle_NavbarStyle_ContextualNavbar_Foreground" NewName="ContextualNavbar_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandElementStyle_NavbarStyle_GlobalNavbar_Background" NewName="GlobalNavbar_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandElementStyle_NavbarStyle_GlobalNavbar_Foreground" NewName="GlobalNavbar_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_Background" NewName="Automation_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_Foreground" NewName="Automation_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_Background" NewName="Connection_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_Foreground" NewName="Connection_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_Background" NewName="Insight_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_Foreground" NewName="Insight_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_Background" NewName="Visualization_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_Foreground" NewName="Visualization_Foreground" />
+                <Param Name="BrandDefinition_LogoConfiguration_AltText" NewName="LogoConfiguration_AltText" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -73,6 +141,36 @@
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus" NewName="AdHocFilteringOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataPointDrillUpDownOption_AvailabilityStatus" NewName="DataPointDrillUpDownOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataPointMenuLabelOption_AvailabilityStatus" NewName="DataPointMenuLabelOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataPointTooltipOption_AvailabilityStatus" NewName="DataPointTooltipOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataQAEnabledOption_AvailabilityStatus" NewName="DataQAEnabledOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataStoriesSharingOption_AvailabilityStatus" NewName="DataStoriesSharingOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_ExecutiveSummaryOption_AvailabilityStatus" NewName="ExecutiveSummaryOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus" NewName="ExportToCSVOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus" NewName="ExportWithHiddenFieldsOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_QuickSuiteActionsOption_AvailabilityStatus" NewName="QuickSuiteActionsOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_SheetControlsOption_VisibilityState" NewName="SheetControlsOption_VisibilityState" />
+                <Param Name="DashboardPublishOptions_SheetLayoutElementMaximizationOption_AvailabilityStatus" NewName="SheetLayoutElementMaximizationOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus" NewName="VisualAxisSortOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_VisualMenuOption_AvailabilityStatus" NewName="VisualMenuOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus" NewName="ExportHiddenFieldsOption_AvailabilityStatus" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption" NewName="ScreenCanvasSizeOptions_ResizeOption" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Bottom" NewName="PaperMargin_Bottom" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Left" NewName="PaperMargin_Left" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Right" NewName="PaperMargin_Right" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Top" NewName="PaperMargin_Top" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation" NewName="PaperCanvasSizeOptions_PaperOrientation" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize" NewName="PaperCanvasSizeOptions_PaperSize" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType" NewName="DefaultNewSheetConfiguration_SheetContentType" />
+                <Param Name="Definition_Options_CustomActionDefaults_HighlightOperation_Trigger" NewName="HighlightOperation_Trigger" />
+                <Param Name="Definition_Options_ExcludedDataSetArns" NewName="Options_ExcludedDataSetArn" />
+                <Param Name="Definition_Options_QBusinessInsightsStatus" NewName="Options_QBusinessInsightsStatus" />
+                <Param Name="Definition_Options_Timezone" NewName="Options_Timezone" />
+                <Param Name="Definition_Options_WeekStart" NewName="Options_WeekStart" />
+                <Param Name="SourceEntity_SourceTemplate_Arn" NewName="SourceTemplate_Arn" />
+                <Param Name="SourceEntity_SourceTemplate_DataSetReferences" NewName="SourceTemplate_DataSetReference" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,6 +190,105 @@
                 <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" />
                 <Param Name="DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation" NewName="DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation" />
                 <Param Name="DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation" NewName="DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation" Alias="IdentityCenterConfiguration_EnableIdentityPropagation" />
+                <Param Name="Credentials_CredentialPair_AlternateDataSourceParameters" NewName="CredentialPair_AlternateDataSourceParameter" />
+                <Param Name="Credentials_CredentialPair_Password" NewName="CredentialPair_Password" />
+                <Param Name="Credentials_CredentialPair_Username" NewName="CredentialPair_Username" />
+                <Param Name="Credentials_KeyPairCredentials_KeyPairUsername" NewName="KeyPairCredentials_KeyPairUsername" />
+                <Param Name="Credentials_KeyPairCredentials_PrivateKey" NewName="KeyPairCredentials_PrivateKey" />
+                <Param Name="Credentials_KeyPairCredentials_PrivateKeyPassphrase" NewName="KeyPairCredentials_PrivateKeyPassphrase" />
+                <Param Name="Credentials_WebProxyCredentials_WebProxyPassword" NewName="WebProxyCredentials_WebProxyPassword" />
+                <Param Name="Credentials_WebProxyCredentials_WebProxyUsername" NewName="WebProxyCredentials_WebProxyUsername" />
+                <Param Name="DataSourceParameters_AmazonElasticsearchParameters_Domain" NewName="AmazonElasticsearchParameters_Domain" />
+                <Param Name="DataSourceParameters_AmazonOpenSearchParameters_Domain" NewName="AmazonOpenSearchParameters_Domain" />
+                <Param Name="DataSourceParameters_AthenaParameters_RoleArn" NewName="AthenaParameters_RoleArn" />
+                <Param Name="DataSourceParameters_AthenaParameters_WorkGroup" NewName="AthenaParameters_WorkGroup" />
+                <Param Name="DataSourceParameters_AuroraParameters_Database" NewName="AuroraParameters_Database" />
+                <Param Name="DataSourceParameters_AuroraParameters_Host" NewName="AuroraParameters_Host" />
+                <Param Name="DataSourceParameters_AuroraParameters_Port" NewName="AuroraParameters_Port" />
+                <Param Name="DataSourceParameters_AuroraPostgreSqlParameters_Database" NewName="AuroraPostgreSqlParameters_Database" />
+                <Param Name="DataSourceParameters_AuroraPostgreSqlParameters_Host" NewName="AuroraPostgreSqlParameters_Host" />
+                <Param Name="DataSourceParameters_AuroraPostgreSqlParameters_Port" NewName="AuroraPostgreSqlParameters_Port" />
+                <Param Name="DataSourceParameters_AwsIotAnalyticsParameters_DataSetName" NewName="AwsIotAnalyticsParameters_DataSetName" />
+                <Param Name="DataSourceParameters_BigQueryParameters_DataSetRegion" NewName="BigQueryParameters_DataSetRegion" />
+                <Param Name="DataSourceParameters_BigQueryParameters_ProjectId" NewName="BigQueryParameters_ProjectId" />
+                <Param Name="DataSourceParameters_ConfluenceParameters_ConfluenceUrl" NewName="ConfluenceParameters_ConfluenceUrl" />
+                <Param Name="DataSourceParameters_CustomConnectionParameters_ConnectionType" NewName="CustomConnectionParameters_ConnectionType" />
+                <Param Name="DataSourceParameters_DatabricksParameters_Host" NewName="DatabricksParameters_Host" />
+                <Param Name="DataSourceParameters_DatabricksParameters_Port" NewName="DatabricksParameters_Port" />
+                <Param Name="DataSourceParameters_DatabricksParameters_SqlEndpointPath" NewName="DatabricksParameters_SqlEndpointPath" />
+                <Param Name="DataSourceParameters_ExasolParameters_Host" NewName="ExasolParameters_Host" />
+                <Param Name="DataSourceParameters_ExasolParameters_Port" NewName="ExasolParameters_Port" />
+                <Param Name="DataSourceParameters_ImpalaParameters_Database" NewName="ImpalaParameters_Database" />
+                <Param Name="DataSourceParameters_ImpalaParameters_Host" NewName="ImpalaParameters_Host" />
+                <Param Name="DataSourceParameters_ImpalaParameters_Port" NewName="ImpalaParameters_Port" />
+                <Param Name="DataSourceParameters_ImpalaParameters_SqlEndpointPath" NewName="ImpalaParameters_SqlEndpointPath" />
+                <Param Name="DataSourceParameters_JiraParameters_SiteBaseUrl" NewName="JiraParameters_SiteBaseUrl" />
+                <Param Name="DataSourceParameters_MariaDbParameters_Database" NewName="MariaDbParameters_Database" />
+                <Param Name="DataSourceParameters_MariaDbParameters_Host" NewName="MariaDbParameters_Host" />
+                <Param Name="DataSourceParameters_MariaDbParameters_Port" NewName="MariaDbParameters_Port" />
+                <Param Name="DataSourceParameters_MySqlParameters_Database" NewName="MySqlParameters_Database" />
+                <Param Name="DataSourceParameters_MySqlParameters_Host" NewName="MySqlParameters_Host" />
+                <Param Name="DataSourceParameters_MySqlParameters_Port" NewName="MySqlParameters_Port" />
+                <Param Name="DataSourceParameters_OracleParameters_Database" NewName="OracleParameters_Database" />
+                <Param Name="DataSourceParameters_OracleParameters_Host" NewName="OracleParameters_Host" />
+                <Param Name="DataSourceParameters_OracleParameters_Port" NewName="OracleParameters_Port" />
+                <Param Name="DataSourceParameters_OracleParameters_UseServiceName" NewName="OracleParameters_UseServiceName" />
+                <Param Name="DataSourceParameters_PostgreSqlParameters_Database" NewName="PostgreSqlParameters_Database" />
+                <Param Name="DataSourceParameters_PostgreSqlParameters_Host" NewName="PostgreSqlParameters_Host" />
+                <Param Name="DataSourceParameters_PostgreSqlParameters_Port" NewName="PostgreSqlParameters_Port" />
+                <Param Name="DataSourceParameters_PrestoParameters_Catalog" NewName="PrestoParameters_Catalog" />
+                <Param Name="DataSourceParameters_PrestoParameters_Host" NewName="PrestoParameters_Host" />
+                <Param Name="DataSourceParameters_PrestoParameters_Port" NewName="PrestoParameters_Port" />
+                <Param Name="DataSourceParameters_QBusinessParameters_ApplicationArn" NewName="QBusinessParameters_ApplicationArn" />
+                <Param Name="DataSourceParameters_RdsParameters_Database" NewName="RdsParameters_Database" />
+                <Param Name="DataSourceParameters_RdsParameters_InstanceId" NewName="RdsParameters_InstanceId" />
+                <Param Name="DataSourceParameters_RedshiftParameters_ClusterId" NewName="RedshiftParameters_ClusterId" />
+                <Param Name="DataSourceParameters_RedshiftParameters_Database" NewName="RedshiftParameters_Database" />
+                <Param Name="DataSourceParameters_RedshiftParameters_Host" NewName="RedshiftParameters_Host" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IAMParameters_AutoCreateDatabaseUser" NewName="IAMParameters_AutoCreateDatabaseUser" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IAMParameters_DatabaseGroups" NewName="IAMParameters_DatabaseGroup" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IAMParameters_DatabaseUser" NewName="IAMParameters_DatabaseUser" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IAMParameters_RoleArn" NewName="IAMParameters_RoleArn" />
+                <Param Name="DataSourceParameters_RedshiftParameters_Port" NewName="RedshiftParameters_Port" />
+                <Param Name="DataSourceParameters_S3KnowledgeBaseParameters_BucketUrl" NewName="S3KnowledgeBaseParameters_BucketUrl" />
+                <Param Name="DataSourceParameters_S3KnowledgeBaseParameters_MetadataFilesLocation" NewName="S3KnowledgeBaseParameters_MetadataFilesLocation" />
+                <Param Name="DataSourceParameters_S3KnowledgeBaseParameters_RoleArn" NewName="S3KnowledgeBaseParameters_RoleArn" />
+                <Param Name="DataSourceParameters_S3Parameters_ManifestFileLocation_Bucket" NewName="ManifestFileLocation_Bucket" />
+                <Param Name="DataSourceParameters_S3Parameters_ManifestFileLocation_Key" NewName="ManifestFileLocation_Key" />
+                <Param Name="DataSourceParameters_S3Parameters_RoleArn" NewName="S3Parameters_RoleArn" />
+                <Param Name="DataSourceParameters_ServiceNowParameters_SiteBaseUrl" NewName="ServiceNowParameters_SiteBaseUrl" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_AuthenticationType" NewName="SnowflakeParameters_AuthenticationType" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_Database" NewName="SnowflakeParameters_Database" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_DatabaseAccessControlRole" NewName="SnowflakeParameters_DatabaseAccessControlRole" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_Host" NewName="SnowflakeParameters_Host" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_Warehouse" NewName="SnowflakeParameters_Warehouse" />
+                <Param Name="DataSourceParameters_SparkParameters_Host" NewName="SparkParameters_Host" />
+                <Param Name="DataSourceParameters_SparkParameters_Port" NewName="SparkParameters_Port" />
+                <Param Name="DataSourceParameters_SqlServerParameters_Database" NewName="SqlServerParameters_Database" />
+                <Param Name="DataSourceParameters_SqlServerParameters_Host" NewName="SqlServerParameters_Host" />
+                <Param Name="DataSourceParameters_SqlServerParameters_Port" NewName="SqlServerParameters_Port" />
+                <Param Name="DataSourceParameters_StarburstParameters_AuthenticationType" NewName="StarburstParameters_AuthenticationType" />
+                <Param Name="DataSourceParameters_StarburstParameters_Catalog" NewName="StarburstParameters_Catalog" />
+                <Param Name="DataSourceParameters_StarburstParameters_DatabaseAccessControlRole" NewName="StarburstParameters_DatabaseAccessControlRole" />
+                <Param Name="DataSourceParameters_StarburstParameters_Host" NewName="StarburstParameters_Host" />
+                <Param Name="DataSourceParameters_StarburstParameters_Port" NewName="StarburstParameters_Port" />
+                <Param Name="DataSourceParameters_StarburstParameters_ProductType" NewName="StarburstParameters_ProductType" />
+                <Param Name="DataSourceParameters_TeradataParameters_Database" NewName="TeradataParameters_Database" />
+                <Param Name="DataSourceParameters_TeradataParameters_Host" NewName="TeradataParameters_Host" />
+                <Param Name="DataSourceParameters_TeradataParameters_Port" NewName="TeradataParameters_Port" />
+                <Param Name="DataSourceParameters_TrinoParameters_Catalog" NewName="TrinoParameters_Catalog" />
+                <Param Name="DataSourceParameters_TrinoParameters_Host" NewName="TrinoParameters_Host" />
+                <Param Name="DataSourceParameters_TrinoParameters_Port" NewName="TrinoParameters_Port" />
+                <Param Name="DataSourceParameters_TwitterParameters_MaxRows" NewName="TwitterParameters_MaxRow" />
+                <Param Name="DataSourceParameters_TwitterParameters_Query" NewName="TwitterParameters_Query" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_LoginPageUrl" NewName="WebCrawlerParameters_LoginPageUrl" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_PasswordButtonXpath" NewName="WebCrawlerParameters_PasswordButtonXpath" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_PasswordFieldXpath" NewName="WebCrawlerParameters_PasswordFieldXpath" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_UsernameButtonXpath" NewName="WebCrawlerParameters_UsernameButtonXpath" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_UsernameFieldXpath" NewName="WebCrawlerParameters_UsernameFieldXpath" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_WebCrawlerAuthType" NewName="WebCrawlerParameters_WebCrawlerAuthType" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_WebProxyHostName" NewName="WebCrawlerParameters_WebProxyHostName" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_WebProxyPortNumber" NewName="WebCrawlerParameters_WebProxyPortNumber" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -124,7 +321,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRefreshSchedule" OutputProperty="*" Verb="New" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Schedule_ScheduleFrequency_Interval" NewName="ScheduleFrequency_Interval" />
+                <Param Name="Schedule_ScheduleFrequency_RefreshOnDay_DayOfMonth" NewName="RefreshOnDay_DayOfMonth" />
+                <Param Name="Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek" NewName="RefreshOnDay_DayOfWeek" />
+                <Param Name="Schedule_ScheduleFrequency_TimeOfTheDay" NewName="ScheduleFrequency_TimeOfTheDay" />
+                <Param Name="Schedule_ScheduleFrequency_Timezone" NewName="ScheduleFrequency_Timezone" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRoleMembership" OutputProperty="*" Verb="New" Noun="RoleMembership" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -135,6 +338,23 @@
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption" NewName="ScreenCanvasSizeOptions_ResizeOption" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Bottom" NewName="PaperMargin_Bottom" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Left" NewName="PaperMargin_Left" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Right" NewName="PaperMargin_Right" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Top" NewName="PaperMargin_Top" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation" NewName="PaperCanvasSizeOptions_PaperOrientation" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize" NewName="PaperCanvasSizeOptions_PaperSize" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType" NewName="DefaultNewSheetConfiguration_SheetContentType" />
+                <Param Name="Definition_Options_CustomActionDefaults_HighlightOperation_Trigger" NewName="HighlightOperation_Trigger" />
+                <Param Name="Definition_Options_ExcludedDataSetArns" NewName="Options_ExcludedDataSetArn" />
+                <Param Name="Definition_Options_QBusinessInsightsStatus" NewName="Options_QBusinessInsightsStatus" />
+                <Param Name="Definition_Options_Timezone" NewName="Options_Timezone" />
+                <Param Name="Definition_Options_WeekStart" NewName="Options_WeekStart" />
+                <Param Name="Definition_QueryExecutionOptions_QueryExecutionMode" NewName="QueryExecutionOptions_QueryExecutionMode" />
+                <Param Name="SourceEntity_SourceAnalysis_Arn" NewName="SourceAnalysis_Arn" />
+                <Param Name="SourceEntity_SourceAnalysis_DataSetReferences" NewName="SourceAnalysis_DataSetReference" />
+                <Param Name="SourceEntity_SourceTemplate_Arn" NewName="SourceTemplate_Arn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -173,6 +393,60 @@
                 <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily" Alias="VisualTitleFontFamily" />
                 <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle" Alias="VisualSubtitleFontStyle" />
                 <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle" Alias="VisualTitleFontStyle" />
+                <Param Name="Configuration_DataColorPalette_Colors" NewName="DataColorPalette_Color" />
+                <Param Name="Configuration_DataColorPalette_EmptyFillColor" NewName="DataColorPalette_EmptyFillColor" />
+                <Param Name="Configuration_DataColorPalette_MinMaxGradient" NewName="DataColorPalette_MinMaxGradient" />
+                <Param Name="Configuration_Sheet_Background_Color" NewName="Background_Color" />
+                <Param Name="Configuration_Sheet_Background_Gradient" NewName="Background_Gradient" />
+                <Param Name="Configuration_Sheet_Tile_BackgroundColor" NewName="Tile_BackgroundColor" />
+                <Param Name="Configuration_Sheet_Tile_Border_Color" NewName="Border_Color" />
+                <Param Name="Configuration_Sheet_Tile_Border_Show" NewName="Border_Show" />
+                <Param Name="Configuration_Sheet_Tile_Border_Width" NewName="Border_Width" />
+                <Param Name="Configuration_Sheet_Tile_BorderRadius" NewName="Tile_BorderRadius" />
+                <Param Name="Configuration_Sheet_Tile_Padding" NewName="Tile_Padding" />
+                <Param Name="Configuration_Sheet_TileLayout_Gutter_Show" NewName="Gutter_Show" />
+                <Param Name="Configuration_Sheet_TileLayout_Margin_Show" NewName="Margin_Show" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontColor" NewName="AxisLabelFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontDecoration" NewName="AxisLabelFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontFamily" NewName="AxisLabelFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontStyle" NewName="AxisLabelFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontColor" NewName="AxisTitleFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontDecoration" NewName="AxisTitleFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontFamily" NewName="AxisTitleFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontStyle" NewName="AxisTitleFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontColor" NewName="DataLabelFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontDecoration" NewName="DataLabelFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontFamily" NewName="DataLabelFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontStyle" NewName="DataLabelFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_FontFamilies" NewName="Typography_FontFamily" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontColor" NewName="LegendTitleFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontDecoration" NewName="LegendTitleFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontFamily" NewName="LegendTitleFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontStyle" NewName="LegendTitleFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontColor" NewName="LegendValueFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontDecoration" NewName="LegendValueFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontFamily" NewName="LegendValueFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontStyle" NewName="LegendValueFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_TextAlignment" NewName="VisualSubtitleFontConfiguration_TextAlignment" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_TextTransform" NewName="VisualSubtitleFontConfiguration_TextTransform" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_TextAlignment" NewName="VisualTitleFontConfiguration_TextAlignment" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_TextTransform" NewName="VisualTitleFontConfiguration_TextTransform" />
+                <Param Name="Configuration_UIColorPalette_Accent" NewName="UIColorPalette_Accent" />
+                <Param Name="Configuration_UIColorPalette_AccentForeground" NewName="UIColorPalette_AccentForeground" />
+                <Param Name="Configuration_UIColorPalette_Danger" NewName="UIColorPalette_Danger" />
+                <Param Name="Configuration_UIColorPalette_DangerForeground" NewName="UIColorPalette_DangerForeground" />
+                <Param Name="Configuration_UIColorPalette_Dimension" NewName="UIColorPalette_Dimension" />
+                <Param Name="Configuration_UIColorPalette_DimensionForeground" NewName="UIColorPalette_DimensionForeground" />
+                <Param Name="Configuration_UIColorPalette_Measure" NewName="UIColorPalette_Measure" />
+                <Param Name="Configuration_UIColorPalette_MeasureForeground" NewName="UIColorPalette_MeasureForeground" />
+                <Param Name="Configuration_UIColorPalette_PrimaryBackground" NewName="UIColorPalette_PrimaryBackground" />
+                <Param Name="Configuration_UIColorPalette_PrimaryForeground" NewName="UIColorPalette_PrimaryForeground" />
+                <Param Name="Configuration_UIColorPalette_SecondaryBackground" NewName="UIColorPalette_SecondaryBackground" />
+                <Param Name="Configuration_UIColorPalette_SecondaryForeground" NewName="UIColorPalette_SecondaryForeground" />
+                <Param Name="Configuration_UIColorPalette_Success" NewName="UIColorPalette_Success" />
+                <Param Name="Configuration_UIColorPalette_SuccessForeground" NewName="UIColorPalette_SuccessForeground" />
+                <Param Name="Configuration_UIColorPalette_Warning" NewName="UIColorPalette_Warning" />
+                <Param Name="Configuration_UIColorPalette_WarningForeground" NewName="UIColorPalette_WarningForeground" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -181,7 +455,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTopic" OutputProperty="*" Verb="New" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Topic_ConfigOptions_QBusinessInsightsEnabled" NewName="ConfigOptions_QBusinessInsightsEnabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTopicRefreshSchedule" OutputProperty="*" Verb="New" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -541,7 +817,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GenerateEmbedUrlForAnonymousUser" OutputProperty="EmbedUrl" Verb="New" Noun="EmbedUrlForAnonymousUser" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExperienceConfiguration_Dashboard_DisabledFeatures" NewName="Dashboard_DisabledFeature" />
+                <Param Name="ExperienceConfiguration_Dashboard_EnabledFeatures" NewName="Dashboard_EnabledFeature" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" NewName="SharedView_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_InitialDashboardId" NewName="Dashboard_InitialDashboardId" />
+                <Param Name="ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_DashboardId" NewName="InitialDashboardVisualId_DashboardId" />
+                <Param Name="ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_SheetId" NewName="InitialDashboardVisualId_SheetId" />
+                <Param Name="ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_VisualId" NewName="InitialDashboardVisualId_VisualId" />
+                <Param Name="ExperienceConfiguration_GenerativeQnA_InitialTopicId" NewName="GenerativeQnA_InitialTopicId" />
+                <Param Name="ExperienceConfiguration_QSearchBar_InitialTopicId" NewName="QSearchBar_InitialTopicId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GenerateEmbedUrlForRegisteredUser" OutputProperty="EmbedUrl" Verb="New" Noun="EmbedUrlForRegisteredUser" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -560,6 +846,16 @@
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled" NewName="Console_Schedules_Enabled" />
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="Dashboard_ThresholdAlerts_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="Console_ThresholdAlerts_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_InitialDashboardId" NewName="Dashboard_InitialDashboardId" />
+                <Param Name="ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_DashboardId" NewName="InitialDashboardVisualId_DashboardId" />
+                <Param Name="ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_SheetId" NewName="InitialDashboardVisualId_SheetId" />
+                <Param Name="ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_VisualId" NewName="InitialDashboardVisualId_VisualId" />
+                <Param Name="ExperienceConfiguration_GenerativeQnA_InitialTopicId" NewName="GenerativeQnA_InitialTopicId" />
+                <Param Name="ExperienceConfiguration_QSearchBar_InitialTopicId" NewName="QSearchBar_InitialTopicId" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_DataQnA_Enabled" NewName="DataQnA_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_DataStories_Enabled" NewName="DataStories_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_GenerativeAuthoring_Enabled" NewName="GenerativeAuthoring_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_InitialPath" NewName="QuickSightConsole_InitialPath" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -577,6 +873,17 @@
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled" NewName="Console_Schedules_Enabled" />
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="Dashboard_ThresholdAlerts_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="Console_ThresholdAlerts_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled" NewName="Bookmarks_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_InitialDashboardId" NewName="Dashboard_InitialDashboardId" />
+                <Param Name="ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_DashboardId" NewName="InitialDashboardVisualId_DashboardId" />
+                <Param Name="ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_SheetId" NewName="InitialDashboardVisualId_SheetId" />
+                <Param Name="ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_VisualId" NewName="InitialDashboardVisualId_VisualId" />
+                <Param Name="ExperienceConfiguration_GenerativeQnA_InitialTopicId" NewName="GenerativeQnA_InitialTopicId" />
+                <Param Name="ExperienceConfiguration_QSearchBar_InitialTopicId" NewName="QSearchBar_InitialTopicId" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_DataQnA_Enabled" NewName="DataQnA_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_DataStories_Enabled" NewName="DataStories_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_GenerativeAuthoring_Enabled" NewName="GenerativeAuthoring_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_InitialPath" NewName="QuickSightConsole_InitialPath" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -749,7 +1056,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDataSetRefreshProperties" OutputProperty="*" Verb="Write" Noun="DataSetRefreshProperty" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSetRefreshProperties_FailureConfiguration_EmailAlert_AlertStatus" NewName="EmailAlert_AlertStatus" />
+                <Param Name="DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_ColumnName" NewName="LookbackWindow_ColumnName" />
+                <Param Name="DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_Size" NewName="LookbackWindow_Size" />
+                <Param Name="DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_SizeUnit" NewName="LookbackWindow_SizeUnit" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterUser" OutputProperty="*" Verb="Register" Noun="User" ShouldProcessTarget="Email" PipelineParameter="Email" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -797,15 +1109,25 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAssetBundleExportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleExportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleExportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CloudFormationOverridePropertyConfiguration_ResourceIdOverrideConfiguration_PrefixForAllResources" NewName="ResourceIdOverrideConfiguration_PrefixForAllResource" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAssetBundleImportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleImportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OverrideParameters_ResourceIdOverrideConfiguration_PrefixForAllResources" NewName="ResourceIdOverrideConfiguration_PrefixForAllResource" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDashboardSnapshotJob" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJob" AnonymousShouldProcessTarget="true" PipelineParameter="SnapshotJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SnapshotConfiguration_DestinationConfiguration_S3Destinations" NewName="DestinationConfiguration_S3Destination" />
+                <Param Name="SnapshotConfiguration_Parameters_DateTimeParameters" NewName="Parameters_DateTimeParameter" />
+                <Param Name="SnapshotConfiguration_Parameters_DecimalParameters" NewName="Parameters_DecimalParameter" />
+                <Param Name="SnapshotConfiguration_Parameters_IntegerParameters" NewName="Parameters_IntegerParameter" />
+                <Param Name="SnapshotConfiguration_Parameters_StringParameters" NewName="Parameters_StringParameter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDashboardSnapshotJobSchedule" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJobSchedule" AnonymousShouldProcessTarget="true" PipelineParameter="ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -833,7 +1155,28 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateActionConnector" OutputProperty="*" Verb="Update" Noun="ActionConnector" ShouldProcessTarget="ActionConnectorId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ApiKeyConnectionMetadata_ApiKey" NewName="ApiKeyConnectionMetadata_ApiKey" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ApiKeyConnectionMetadata_BaseEndpoint" NewName="ApiKeyConnectionMetadata_BaseEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ApiKeyConnectionMetadata_Email" NewName="ApiKeyConnectionMetadata_Email" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsDetails_AuthorizationCodeGrantDetails_AuthorizationEndpoint" NewName="AuthorizationCodeGrantDetails_AuthorizationEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsDetails_AuthorizationCodeGrantDetails_ClientId" NewName="AuthorizationCodeGrantDetails_ClientId" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsDetails_AuthorizationCodeGrantDetails_ClientSecret" NewName="AuthorizationCodeGrantDetails_ClientSecret" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsDetails_AuthorizationCodeGrantDetails_TokenEndpoint" NewName="AuthorizationCodeGrantDetails_TokenEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsSource" NewName="AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsSource" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_BaseEndpoint" NewName="AuthorizationCodeGrantMetadata_BaseEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_AuthorizationCodeGrantMetadata_RedirectUrl" NewName="AuthorizationCodeGrantMetadata_RedirectUrl" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_BasicAuthConnectionMetadata_BaseEndpoint" NewName="BasicAuthConnectionMetadata_BaseEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_BasicAuthConnectionMetadata_Password" NewName="BasicAuthConnectionMetadata_Password" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_BasicAuthConnectionMetadata_Username" NewName="BasicAuthConnectionMetadata_Username" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_BaseEndpoint" NewName="ClientCredentialsGrantMetadata_BaseEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_ClientCredentialsDetails_ClientCredentialsGrantDetails_ClientId" NewName="ClientCredentialsGrantDetails_ClientId" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_ClientCredentialsDetails_ClientCredentialsGrantDetails_ClientSecret" NewName="ClientCredentialsGrantDetails_ClientSecret" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_ClientCredentialsDetails_ClientCredentialsGrantDetails_TokenEndpoint" NewName="ClientCredentialsGrantDetails_TokenEndpoint" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_ClientCredentialsGrantMetadata_ClientCredentialsSource" NewName="ClientCredentialsGrantMetadata_ClientCredentialsSource" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_IamConnectionMetadata_RoleArn" NewName="IamConnectionMetadata_RoleArn" />
+                <Param Name="AuthenticationConfig_AuthenticationMetadata_NoneConnectionMetadata_BaseEndpoint" NewName="NoneConnectionMetadata_BaseEndpoint" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateActionConnectorPermissions" OutputProperty="*" Verb="Update" Noun="ActionConnectorPermission" ShouldProcessTarget="ActionConnectorId,AwsAccountId" PipelineParameter="" NoPipelineParameter="true">
@@ -844,6 +1187,22 @@
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption" NewName="ScreenCanvasSizeOptions_ResizeOption" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Bottom" NewName="PaperMargin_Bottom" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Left" NewName="PaperMargin_Left" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Right" NewName="PaperMargin_Right" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Top" NewName="PaperMargin_Top" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation" NewName="PaperCanvasSizeOptions_PaperOrientation" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize" NewName="PaperCanvasSizeOptions_PaperSize" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType" NewName="DefaultNewSheetConfiguration_SheetContentType" />
+                <Param Name="Definition_Options_CustomActionDefaults_HighlightOperation_Trigger" NewName="HighlightOperation_Trigger" />
+                <Param Name="Definition_Options_ExcludedDataSetArns" NewName="Options_ExcludedDataSetArn" />
+                <Param Name="Definition_Options_QBusinessInsightsStatus" NewName="Options_QBusinessInsightsStatus" />
+                <Param Name="Definition_Options_Timezone" NewName="Options_Timezone" />
+                <Param Name="Definition_Options_WeekStart" NewName="Options_WeekStart" />
+                <Param Name="Definition_QueryExecutionOptions_QueryExecutionMode" NewName="QueryExecutionOptions_QueryExecutionMode" />
+                <Param Name="SourceEntity_SourceTemplate_Arn" NewName="SourceTemplate_Arn" />
+                <Param Name="SourceEntity_SourceTemplate_DataSetReferences" NewName="SourceTemplate_DataSetReference" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -861,6 +1220,37 @@
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_S3Uri" NewName="Favicon_S3Uri" />
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_PublicUrl" NewName="Primary_PublicUrl" />
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_S3Uri" NewName="Primary_S3Uri" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Accent_Background" NewName="Accent_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Accent_Foreground" NewName="Accent_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Danger_Background" NewName="Danger_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Danger_Foreground" NewName="Danger_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Dimension_Background" NewName="Dimension_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Dimension_Foreground" NewName="Dimension_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Info_Background" NewName="Info_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Info_Foreground" NewName="Info_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Measure_Background" NewName="Measure_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Measure_Foreground" NewName="Measure_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Primary_Background" NewName="Primary_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Primary_Foreground" NewName="Primary_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Secondary_Background" NewName="Secondary_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Secondary_Foreground" NewName="Secondary_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Success_Background" NewName="Success_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Success_Foreground" NewName="Success_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Warning_Background" NewName="Warning_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandColorPalette_Warning_Foreground" NewName="Warning_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandElementStyle_NavbarStyle_ContextualNavbar_Background" NewName="ContextualNavbar_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandElementStyle_NavbarStyle_ContextualNavbar_Foreground" NewName="ContextualNavbar_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandElementStyle_NavbarStyle_GlobalNavbar_Background" NewName="GlobalNavbar_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_BrandElementStyle_NavbarStyle_GlobalNavbar_Foreground" NewName="GlobalNavbar_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_Background" NewName="Automation_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_Foreground" NewName="Automation_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_Background" NewName="Connection_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_Foreground" NewName="Connection_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_Background" NewName="Insight_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_Foreground" NewName="Insight_Foreground" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_Background" NewName="Visualization_Background" />
+                <Param Name="BrandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_Foreground" NewName="Visualization_Foreground" />
+                <Param Name="BrandDefinition_LogoConfiguration_AltText" NewName="LogoConfiguration_AltText" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -880,6 +1270,36 @@
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus" NewName="AdHocFilteringOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataPointDrillUpDownOption_AvailabilityStatus" NewName="DataPointDrillUpDownOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataPointMenuLabelOption_AvailabilityStatus" NewName="DataPointMenuLabelOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataPointTooltipOption_AvailabilityStatus" NewName="DataPointTooltipOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataQAEnabledOption_AvailabilityStatus" NewName="DataQAEnabledOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_DataStoriesSharingOption_AvailabilityStatus" NewName="DataStoriesSharingOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_ExecutiveSummaryOption_AvailabilityStatus" NewName="ExecutiveSummaryOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus" NewName="ExportToCSVOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus" NewName="ExportWithHiddenFieldsOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_QuickSuiteActionsOption_AvailabilityStatus" NewName="QuickSuiteActionsOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_SheetControlsOption_VisibilityState" NewName="SheetControlsOption_VisibilityState" />
+                <Param Name="DashboardPublishOptions_SheetLayoutElementMaximizationOption_AvailabilityStatus" NewName="SheetLayoutElementMaximizationOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus" NewName="VisualAxisSortOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_VisualMenuOption_AvailabilityStatus" NewName="VisualMenuOption_AvailabilityStatus" />
+                <Param Name="DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus" NewName="ExportHiddenFieldsOption_AvailabilityStatus" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption" NewName="ScreenCanvasSizeOptions_ResizeOption" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Bottom" NewName="PaperMargin_Bottom" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Left" NewName="PaperMargin_Left" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Right" NewName="PaperMargin_Right" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Top" NewName="PaperMargin_Top" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation" NewName="PaperCanvasSizeOptions_PaperOrientation" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize" NewName="PaperCanvasSizeOptions_PaperSize" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType" NewName="DefaultNewSheetConfiguration_SheetContentType" />
+                <Param Name="Definition_Options_CustomActionDefaults_HighlightOperation_Trigger" NewName="HighlightOperation_Trigger" />
+                <Param Name="Definition_Options_ExcludedDataSetArns" NewName="Options_ExcludedDataSetArn" />
+                <Param Name="Definition_Options_QBusinessInsightsStatus" NewName="Options_QBusinessInsightsStatus" />
+                <Param Name="Definition_Options_Timezone" NewName="Options_Timezone" />
+                <Param Name="Definition_Options_WeekStart" NewName="Options_WeekStart" />
+                <Param Name="SourceEntity_SourceTemplate_Arn" NewName="SourceTemplate_Arn" />
+                <Param Name="SourceEntity_SourceTemplate_DataSetReferences" NewName="SourceTemplate_DataSetReference" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -919,6 +1339,105 @@
                 <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" />
                 <Param Name="DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation" NewName="DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation" />
                 <Param Name="DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation" NewName="DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation" Alias="IdentityCenterConfiguration_EnableIdentityPropagation" />
+                <Param Name="Credentials_CredentialPair_AlternateDataSourceParameters" NewName="CredentialPair_AlternateDataSourceParameter" />
+                <Param Name="Credentials_CredentialPair_Password" NewName="CredentialPair_Password" />
+                <Param Name="Credentials_CredentialPair_Username" NewName="CredentialPair_Username" />
+                <Param Name="Credentials_KeyPairCredentials_KeyPairUsername" NewName="KeyPairCredentials_KeyPairUsername" />
+                <Param Name="Credentials_KeyPairCredentials_PrivateKey" NewName="KeyPairCredentials_PrivateKey" />
+                <Param Name="Credentials_KeyPairCredentials_PrivateKeyPassphrase" NewName="KeyPairCredentials_PrivateKeyPassphrase" />
+                <Param Name="Credentials_WebProxyCredentials_WebProxyPassword" NewName="WebProxyCredentials_WebProxyPassword" />
+                <Param Name="Credentials_WebProxyCredentials_WebProxyUsername" NewName="WebProxyCredentials_WebProxyUsername" />
+                <Param Name="DataSourceParameters_AmazonElasticsearchParameters_Domain" NewName="AmazonElasticsearchParameters_Domain" />
+                <Param Name="DataSourceParameters_AmazonOpenSearchParameters_Domain" NewName="AmazonOpenSearchParameters_Domain" />
+                <Param Name="DataSourceParameters_AthenaParameters_RoleArn" NewName="AthenaParameters_RoleArn" />
+                <Param Name="DataSourceParameters_AthenaParameters_WorkGroup" NewName="AthenaParameters_WorkGroup" />
+                <Param Name="DataSourceParameters_AuroraParameters_Database" NewName="AuroraParameters_Database" />
+                <Param Name="DataSourceParameters_AuroraParameters_Host" NewName="AuroraParameters_Host" />
+                <Param Name="DataSourceParameters_AuroraParameters_Port" NewName="AuroraParameters_Port" />
+                <Param Name="DataSourceParameters_AuroraPostgreSqlParameters_Database" NewName="AuroraPostgreSqlParameters_Database" />
+                <Param Name="DataSourceParameters_AuroraPostgreSqlParameters_Host" NewName="AuroraPostgreSqlParameters_Host" />
+                <Param Name="DataSourceParameters_AuroraPostgreSqlParameters_Port" NewName="AuroraPostgreSqlParameters_Port" />
+                <Param Name="DataSourceParameters_AwsIotAnalyticsParameters_DataSetName" NewName="AwsIotAnalyticsParameters_DataSetName" />
+                <Param Name="DataSourceParameters_BigQueryParameters_DataSetRegion" NewName="BigQueryParameters_DataSetRegion" />
+                <Param Name="DataSourceParameters_BigQueryParameters_ProjectId" NewName="BigQueryParameters_ProjectId" />
+                <Param Name="DataSourceParameters_ConfluenceParameters_ConfluenceUrl" NewName="ConfluenceParameters_ConfluenceUrl" />
+                <Param Name="DataSourceParameters_CustomConnectionParameters_ConnectionType" NewName="CustomConnectionParameters_ConnectionType" />
+                <Param Name="DataSourceParameters_DatabricksParameters_Host" NewName="DatabricksParameters_Host" />
+                <Param Name="DataSourceParameters_DatabricksParameters_Port" NewName="DatabricksParameters_Port" />
+                <Param Name="DataSourceParameters_DatabricksParameters_SqlEndpointPath" NewName="DatabricksParameters_SqlEndpointPath" />
+                <Param Name="DataSourceParameters_ExasolParameters_Host" NewName="ExasolParameters_Host" />
+                <Param Name="DataSourceParameters_ExasolParameters_Port" NewName="ExasolParameters_Port" />
+                <Param Name="DataSourceParameters_ImpalaParameters_Database" NewName="ImpalaParameters_Database" />
+                <Param Name="DataSourceParameters_ImpalaParameters_Host" NewName="ImpalaParameters_Host" />
+                <Param Name="DataSourceParameters_ImpalaParameters_Port" NewName="ImpalaParameters_Port" />
+                <Param Name="DataSourceParameters_ImpalaParameters_SqlEndpointPath" NewName="ImpalaParameters_SqlEndpointPath" />
+                <Param Name="DataSourceParameters_JiraParameters_SiteBaseUrl" NewName="JiraParameters_SiteBaseUrl" />
+                <Param Name="DataSourceParameters_MariaDbParameters_Database" NewName="MariaDbParameters_Database" />
+                <Param Name="DataSourceParameters_MariaDbParameters_Host" NewName="MariaDbParameters_Host" />
+                <Param Name="DataSourceParameters_MariaDbParameters_Port" NewName="MariaDbParameters_Port" />
+                <Param Name="DataSourceParameters_MySqlParameters_Database" NewName="MySqlParameters_Database" />
+                <Param Name="DataSourceParameters_MySqlParameters_Host" NewName="MySqlParameters_Host" />
+                <Param Name="DataSourceParameters_MySqlParameters_Port" NewName="MySqlParameters_Port" />
+                <Param Name="DataSourceParameters_OracleParameters_Database" NewName="OracleParameters_Database" />
+                <Param Name="DataSourceParameters_OracleParameters_Host" NewName="OracleParameters_Host" />
+                <Param Name="DataSourceParameters_OracleParameters_Port" NewName="OracleParameters_Port" />
+                <Param Name="DataSourceParameters_OracleParameters_UseServiceName" NewName="OracleParameters_UseServiceName" />
+                <Param Name="DataSourceParameters_PostgreSqlParameters_Database" NewName="PostgreSqlParameters_Database" />
+                <Param Name="DataSourceParameters_PostgreSqlParameters_Host" NewName="PostgreSqlParameters_Host" />
+                <Param Name="DataSourceParameters_PostgreSqlParameters_Port" NewName="PostgreSqlParameters_Port" />
+                <Param Name="DataSourceParameters_PrestoParameters_Catalog" NewName="PrestoParameters_Catalog" />
+                <Param Name="DataSourceParameters_PrestoParameters_Host" NewName="PrestoParameters_Host" />
+                <Param Name="DataSourceParameters_PrestoParameters_Port" NewName="PrestoParameters_Port" />
+                <Param Name="DataSourceParameters_QBusinessParameters_ApplicationArn" NewName="QBusinessParameters_ApplicationArn" />
+                <Param Name="DataSourceParameters_RdsParameters_Database" NewName="RdsParameters_Database" />
+                <Param Name="DataSourceParameters_RdsParameters_InstanceId" NewName="RdsParameters_InstanceId" />
+                <Param Name="DataSourceParameters_RedshiftParameters_ClusterId" NewName="RedshiftParameters_ClusterId" />
+                <Param Name="DataSourceParameters_RedshiftParameters_Database" NewName="RedshiftParameters_Database" />
+                <Param Name="DataSourceParameters_RedshiftParameters_Host" NewName="RedshiftParameters_Host" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IAMParameters_AutoCreateDatabaseUser" NewName="IAMParameters_AutoCreateDatabaseUser" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IAMParameters_DatabaseGroups" NewName="IAMParameters_DatabaseGroup" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IAMParameters_DatabaseUser" NewName="IAMParameters_DatabaseUser" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IAMParameters_RoleArn" NewName="IAMParameters_RoleArn" />
+                <Param Name="DataSourceParameters_RedshiftParameters_Port" NewName="RedshiftParameters_Port" />
+                <Param Name="DataSourceParameters_S3KnowledgeBaseParameters_BucketUrl" NewName="S3KnowledgeBaseParameters_BucketUrl" />
+                <Param Name="DataSourceParameters_S3KnowledgeBaseParameters_MetadataFilesLocation" NewName="S3KnowledgeBaseParameters_MetadataFilesLocation" />
+                <Param Name="DataSourceParameters_S3KnowledgeBaseParameters_RoleArn" NewName="S3KnowledgeBaseParameters_RoleArn" />
+                <Param Name="DataSourceParameters_S3Parameters_ManifestFileLocation_Bucket" NewName="ManifestFileLocation_Bucket" />
+                <Param Name="DataSourceParameters_S3Parameters_ManifestFileLocation_Key" NewName="ManifestFileLocation_Key" />
+                <Param Name="DataSourceParameters_S3Parameters_RoleArn" NewName="S3Parameters_RoleArn" />
+                <Param Name="DataSourceParameters_ServiceNowParameters_SiteBaseUrl" NewName="ServiceNowParameters_SiteBaseUrl" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_AuthenticationType" NewName="SnowflakeParameters_AuthenticationType" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_Database" NewName="SnowflakeParameters_Database" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_DatabaseAccessControlRole" NewName="SnowflakeParameters_DatabaseAccessControlRole" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_Host" NewName="SnowflakeParameters_Host" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_Warehouse" NewName="SnowflakeParameters_Warehouse" />
+                <Param Name="DataSourceParameters_SparkParameters_Host" NewName="SparkParameters_Host" />
+                <Param Name="DataSourceParameters_SparkParameters_Port" NewName="SparkParameters_Port" />
+                <Param Name="DataSourceParameters_SqlServerParameters_Database" NewName="SqlServerParameters_Database" />
+                <Param Name="DataSourceParameters_SqlServerParameters_Host" NewName="SqlServerParameters_Host" />
+                <Param Name="DataSourceParameters_SqlServerParameters_Port" NewName="SqlServerParameters_Port" />
+                <Param Name="DataSourceParameters_StarburstParameters_AuthenticationType" NewName="StarburstParameters_AuthenticationType" />
+                <Param Name="DataSourceParameters_StarburstParameters_Catalog" NewName="StarburstParameters_Catalog" />
+                <Param Name="DataSourceParameters_StarburstParameters_DatabaseAccessControlRole" NewName="StarburstParameters_DatabaseAccessControlRole" />
+                <Param Name="DataSourceParameters_StarburstParameters_Host" NewName="StarburstParameters_Host" />
+                <Param Name="DataSourceParameters_StarburstParameters_Port" NewName="StarburstParameters_Port" />
+                <Param Name="DataSourceParameters_StarburstParameters_ProductType" NewName="StarburstParameters_ProductType" />
+                <Param Name="DataSourceParameters_TeradataParameters_Database" NewName="TeradataParameters_Database" />
+                <Param Name="DataSourceParameters_TeradataParameters_Host" NewName="TeradataParameters_Host" />
+                <Param Name="DataSourceParameters_TeradataParameters_Port" NewName="TeradataParameters_Port" />
+                <Param Name="DataSourceParameters_TrinoParameters_Catalog" NewName="TrinoParameters_Catalog" />
+                <Param Name="DataSourceParameters_TrinoParameters_Host" NewName="TrinoParameters_Host" />
+                <Param Name="DataSourceParameters_TrinoParameters_Port" NewName="TrinoParameters_Port" />
+                <Param Name="DataSourceParameters_TwitterParameters_MaxRows" NewName="TwitterParameters_MaxRow" />
+                <Param Name="DataSourceParameters_TwitterParameters_Query" NewName="TwitterParameters_Query" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_LoginPageUrl" NewName="WebCrawlerParameters_LoginPageUrl" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_PasswordButtonXpath" NewName="WebCrawlerParameters_PasswordButtonXpath" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_PasswordFieldXpath" NewName="WebCrawlerParameters_PasswordFieldXpath" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_UsernameButtonXpath" NewName="WebCrawlerParameters_UsernameButtonXpath" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_UsernameFieldXpath" NewName="WebCrawlerParameters_UsernameFieldXpath" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_WebCrawlerAuthType" NewName="WebCrawlerParameters_WebCrawlerAuthType" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_WebProxyHostName" NewName="WebCrawlerParameters_WebProxyHostName" />
+                <Param Name="DataSourceParameters_WebCrawlerParameters_WebProxyPortNumber" NewName="WebCrawlerParameters_WebProxyPortNumber" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -978,7 +1497,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRefreshSchedule" OutputProperty="*" Verb="Update" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Schedule_ScheduleFrequency_Interval" NewName="ScheduleFrequency_Interval" />
+                <Param Name="Schedule_ScheduleFrequency_RefreshOnDay_DayOfMonth" NewName="RefreshOnDay_DayOfMonth" />
+                <Param Name="Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek" NewName="RefreshOnDay_DayOfWeek" />
+                <Param Name="Schedule_ScheduleFrequency_TimeOfTheDay" NewName="ScheduleFrequency_TimeOfTheDay" />
+                <Param Name="Schedule_ScheduleFrequency_Timezone" NewName="ScheduleFrequency_Timezone" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoleCustomPermission" OutputProperty="*" Verb="Update" Noun="RoleCustomPermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -993,6 +1518,23 @@
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption" NewName="ScreenCanvasSizeOptions_ResizeOption" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Bottom" NewName="PaperMargin_Bottom" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Left" NewName="PaperMargin_Left" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Right" NewName="PaperMargin_Right" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Top" NewName="PaperMargin_Top" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation" NewName="PaperCanvasSizeOptions_PaperOrientation" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize" NewName="PaperCanvasSizeOptions_PaperSize" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType" NewName="DefaultNewSheetConfiguration_SheetContentType" />
+                <Param Name="Definition_Options_CustomActionDefaults_HighlightOperation_Trigger" NewName="HighlightOperation_Trigger" />
+                <Param Name="Definition_Options_ExcludedDataSetArns" NewName="Options_ExcludedDataSetArn" />
+                <Param Name="Definition_Options_QBusinessInsightsStatus" NewName="Options_QBusinessInsightsStatus" />
+                <Param Name="Definition_Options_Timezone" NewName="Options_Timezone" />
+                <Param Name="Definition_Options_WeekStart" NewName="Options_WeekStart" />
+                <Param Name="Definition_QueryExecutionOptions_QueryExecutionMode" NewName="QueryExecutionOptions_QueryExecutionMode" />
+                <Param Name="SourceEntity_SourceAnalysis_Arn" NewName="SourceAnalysis_Arn" />
+                <Param Name="SourceEntity_SourceAnalysis_DataSetReferences" NewName="SourceAnalysis_DataSetReference" />
+                <Param Name="SourceEntity_SourceTemplate_Arn" NewName="SourceTemplate_Arn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1035,6 +1577,60 @@
                 <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily" Alias="VisualTitleFontFamily" />
                 <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle" Alias="VisualSubtitleFontStyle" />
                 <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle" Alias="VisualTitleFontStyle" />
+                <Param Name="Configuration_DataColorPalette_Colors" NewName="DataColorPalette_Color" />
+                <Param Name="Configuration_DataColorPalette_EmptyFillColor" NewName="DataColorPalette_EmptyFillColor" />
+                <Param Name="Configuration_DataColorPalette_MinMaxGradient" NewName="DataColorPalette_MinMaxGradient" />
+                <Param Name="Configuration_Sheet_Background_Color" NewName="Background_Color" />
+                <Param Name="Configuration_Sheet_Background_Gradient" NewName="Background_Gradient" />
+                <Param Name="Configuration_Sheet_Tile_BackgroundColor" NewName="Tile_BackgroundColor" />
+                <Param Name="Configuration_Sheet_Tile_Border_Color" NewName="Border_Color" />
+                <Param Name="Configuration_Sheet_Tile_Border_Show" NewName="Border_Show" />
+                <Param Name="Configuration_Sheet_Tile_Border_Width" NewName="Border_Width" />
+                <Param Name="Configuration_Sheet_Tile_BorderRadius" NewName="Tile_BorderRadius" />
+                <Param Name="Configuration_Sheet_Tile_Padding" NewName="Tile_Padding" />
+                <Param Name="Configuration_Sheet_TileLayout_Gutter_Show" NewName="Gutter_Show" />
+                <Param Name="Configuration_Sheet_TileLayout_Margin_Show" NewName="Margin_Show" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontColor" NewName="AxisLabelFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontDecoration" NewName="AxisLabelFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontFamily" NewName="AxisLabelFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontStyle" NewName="AxisLabelFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontColor" NewName="AxisTitleFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontDecoration" NewName="AxisTitleFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontFamily" NewName="AxisTitleFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontStyle" NewName="AxisTitleFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontColor" NewName="DataLabelFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontDecoration" NewName="DataLabelFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontFamily" NewName="DataLabelFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontStyle" NewName="DataLabelFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_FontFamilies" NewName="Typography_FontFamily" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontColor" NewName="LegendTitleFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontDecoration" NewName="LegendTitleFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontFamily" NewName="LegendTitleFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontStyle" NewName="LegendTitleFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontColor" NewName="LegendValueFontConfiguration_FontColor" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontDecoration" NewName="LegendValueFontConfiguration_FontDecoration" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontFamily" NewName="LegendValueFontConfiguration_FontFamily" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontStyle" NewName="LegendValueFontConfiguration_FontStyle" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_TextAlignment" NewName="VisualSubtitleFontConfiguration_TextAlignment" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_TextTransform" NewName="VisualSubtitleFontConfiguration_TextTransform" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_TextAlignment" NewName="VisualTitleFontConfiguration_TextAlignment" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_TextTransform" NewName="VisualTitleFontConfiguration_TextTransform" />
+                <Param Name="Configuration_UIColorPalette_Accent" NewName="UIColorPalette_Accent" />
+                <Param Name="Configuration_UIColorPalette_AccentForeground" NewName="UIColorPalette_AccentForeground" />
+                <Param Name="Configuration_UIColorPalette_Danger" NewName="UIColorPalette_Danger" />
+                <Param Name="Configuration_UIColorPalette_DangerForeground" NewName="UIColorPalette_DangerForeground" />
+                <Param Name="Configuration_UIColorPalette_Dimension" NewName="UIColorPalette_Dimension" />
+                <Param Name="Configuration_UIColorPalette_DimensionForeground" NewName="UIColorPalette_DimensionForeground" />
+                <Param Name="Configuration_UIColorPalette_Measure" NewName="UIColorPalette_Measure" />
+                <Param Name="Configuration_UIColorPalette_MeasureForeground" NewName="UIColorPalette_MeasureForeground" />
+                <Param Name="Configuration_UIColorPalette_PrimaryBackground" NewName="UIColorPalette_PrimaryBackground" />
+                <Param Name="Configuration_UIColorPalette_PrimaryForeground" NewName="UIColorPalette_PrimaryForeground" />
+                <Param Name="Configuration_UIColorPalette_SecondaryBackground" NewName="UIColorPalette_SecondaryBackground" />
+                <Param Name="Configuration_UIColorPalette_SecondaryForeground" NewName="UIColorPalette_SecondaryForeground" />
+                <Param Name="Configuration_UIColorPalette_Success" NewName="UIColorPalette_Success" />
+                <Param Name="Configuration_UIColorPalette_SuccessForeground" NewName="UIColorPalette_SuccessForeground" />
+                <Param Name="Configuration_UIColorPalette_Warning" NewName="UIColorPalette_Warning" />
+                <Param Name="Configuration_UIColorPalette_WarningForeground" NewName="UIColorPalette_WarningForeground" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1047,7 +1643,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTopic" OutputProperty="*" Verb="Update" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Topic_ConfigOptions_QBusinessInsightsEnabled" NewName="ConfigOptions_QBusinessInsightsEnabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTopicPermissions" OutputProperty="*" Verb="Update" Noun="TopicPermission" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">

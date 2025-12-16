@@ -202,7 +202,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Write" Noun="LoggingConfiguration" ShouldProcessTarget="LoggingConfiguration_ResourceArn" PipelineParameter="LoggingConfiguration_ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LoggingConfiguration_LoggingFilter_DefaultBehavior" NewName="LoggingFilter_DefaultBehavior" />
+                <Param Name="LoggingConfiguration_LoggingFilter_Filters" NewName="LoggingFilter_Filter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutManagedRuleSetVersions" OutputProperty="NextLockToken" Verb="Write" Noun="ManagedRuleSetVersion" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">

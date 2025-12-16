@@ -236,7 +236,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetNetworkRoutes" OutputProperty="*" Verb="Get" Noun="NetworkRoute" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RouteTableIdentifier_CoreNetworkNetworkFunctionGroup_CoreNetworkId" NewName="CoreNetworkNetworkFunctionGroup_CoreNetworkId" />
+                <Param Name="RouteTableIdentifier_CoreNetworkNetworkFunctionGroup_EdgeLocation" NewName="CoreNetworkNetworkFunctionGroup_EdgeLocation" />
+                <Param Name="RouteTableIdentifier_CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName" NewName="CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName" />
+                <Param Name="RouteTableIdentifier_CoreNetworkSegmentEdge_CoreNetworkId" NewName="CoreNetworkSegmentEdge_CoreNetworkId" />
+                <Param Name="RouteTableIdentifier_CoreNetworkSegmentEdge_EdgeLocation" NewName="CoreNetworkSegmentEdge_EdgeLocation" />
+                <Param Name="RouteTableIdentifier_CoreNetworkSegmentEdge_SegmentName" NewName="CoreNetworkSegmentEdge_SegmentName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetNetworkTelemetry" OutputProperty="NetworkTelemetry" Verb="Get" Noun="NetworkTelemetry" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -32,7 +32,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStage" OutputProperty="*" Verb="New" Noun="Stage" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AutoParticipantRecordingConfiguration_HlsConfiguration_TargetSegmentDurationSeconds" NewName="HlsConfiguration_TargetSegmentDurationSecond" />
+                <Param Name="AutoParticipantRecordingConfiguration_ThumbnailConfiguration_RecordingMode" NewName="ThumbnailConfiguration_RecordingMode" />
+                <Param Name="AutoParticipantRecordingConfiguration_ThumbnailConfiguration_Storage" NewName="ThumbnailConfiguration_Storage" />
+                <Param Name="AutoParticipantRecordingConfiguration_ThumbnailConfiguration_TargetIntervalSeconds" NewName="ThumbnailConfiguration_TargetIntervalSecond" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStorageConfiguration" OutputProperty="StorageConfiguration" Verb="New" Noun="StorageConfiguration" ShouldProcessTarget="S3_BucketName" PipelineParameter="S3_BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -146,7 +151,25 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartComposition" OutputProperty="Composition" Verb="Start" Noun="Composition" ShouldProcessTarget="StageArn" PipelineParameter="StageArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Layout_Grid_FeaturedParticipantAttribute" NewName="Grid_FeaturedParticipantAttribute" />
+                <Param Name="Layout_Grid_GridGap" NewName="Grid_GridGap" />
+                <Param Name="Layout_Grid_OmitStoppedVideo" NewName="Grid_OmitStoppedVideo" />
+                <Param Name="Layout_Grid_ParticipantOrderAttribute" NewName="Grid_ParticipantOrderAttribute" />
+                <Param Name="Layout_Grid_VideoAspectRatio" NewName="Grid_VideoAspectRatio" />
+                <Param Name="Layout_Grid_VideoFillMode" NewName="Grid_VideoFillMode" />
+                <Param Name="Layout_Pip_FeaturedParticipantAttribute" NewName="Pip_FeaturedParticipantAttribute" />
+                <Param Name="Layout_Pip_GridGap" NewName="Pip_GridGap" />
+                <Param Name="Layout_Pip_OmitStoppedVideo" NewName="Pip_OmitStoppedVideo" />
+                <Param Name="Layout_Pip_ParticipantOrderAttribute" NewName="Pip_ParticipantOrderAttribute" />
+                <Param Name="Layout_Pip_PipBehavior" NewName="Pip_PipBehavior" />
+                <Param Name="Layout_Pip_PipHeight" NewName="Pip_PipHeight" />
+                <Param Name="Layout_Pip_PipOffset" NewName="Pip_PipOffset" />
+                <Param Name="Layout_Pip_PipParticipantAttribute" NewName="Pip_PipParticipantAttribute" />
+                <Param Name="Layout_Pip_PipPosition" NewName="Pip_PipPosition" />
+                <Param Name="Layout_Pip_PipWidth" NewName="Pip_PipWidth" />
+                <Param Name="Layout_Pip_VideoFillMode" NewName="Pip_VideoFillMode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartParticipantReplication" OutputProperty="*" Verb="Start" Noun="ParticipantReplication" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="SourceStageArn" NoPipelineParameter="false">
@@ -174,7 +197,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStage" OutputProperty="Stage" Verb="Update" Noun="Stage" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AutoParticipantRecordingConfiguration_HlsConfiguration_TargetSegmentDurationSeconds" NewName="HlsConfiguration_TargetSegmentDurationSecond" />
+                <Param Name="AutoParticipantRecordingConfiguration_ThumbnailConfiguration_RecordingMode" NewName="ThumbnailConfiguration_RecordingMode" />
+                <Param Name="AutoParticipantRecordingConfiguration_ThumbnailConfiguration_Storage" NewName="ThumbnailConfiguration_Storage" />
+                <Param Name="AutoParticipantRecordingConfiguration_ThumbnailConfiguration_TargetIntervalSeconds" NewName="ThumbnailConfiguration_TargetIntervalSecond" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

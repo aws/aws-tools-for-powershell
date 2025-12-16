@@ -27,7 +27,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIdMappingWorkflow" OutputProperty="*" Verb="New" Noun="IdMappingWorkflow" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdMappingTechniques_ProviderProperties_IntermediateSourceConfiguration_IntermediateS3Path" NewName="IntermediateSourceConfiguration_IntermediateS3Path" />
+                <Param Name="IdMappingTechniques_ProviderProperties_ProviderConfiguration" NewName="ProviderProperties_ProviderConfiguration" />
+                <Param Name="IdMappingTechniques_ProviderProperties_ProviderServiceArn" NewName="ProviderProperties_ProviderServiceArn" />
+                <Param Name="IdMappingTechniques_RuleBasedProperties_AttributeMatchingModel" NewName="RuleBasedProperties_AttributeMatchingModel" />
+                <Param Name="IdMappingTechniques_RuleBasedProperties_RecordMatchingModel" NewName="RuleBasedProperties_RecordMatchingModel" />
+                <Param Name="IdMappingTechniques_RuleBasedProperties_RuleDefinitionType" NewName="RuleBasedProperties_RuleDefinitionType" />
+                <Param Name="IdMappingTechniques_RuleBasedProperties_Rules" NewName="RuleBasedProperties_Rule" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIdNamespace" OutputProperty="*" Verb="New" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -35,7 +43,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMatchingWorkflow" OutputProperty="*" Verb="New" Noun="MatchingWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResolutionTechniques_ProviderProperties_IntermediateSourceConfiguration_IntermediateS3Path" NewName="IntermediateSourceConfiguration_IntermediateS3Path" />
+                <Param Name="ResolutionTechniques_ProviderProperties_ProviderConfiguration" NewName="ProviderProperties_ProviderConfiguration" />
+                <Param Name="ResolutionTechniques_ProviderProperties_ProviderServiceArn" NewName="ProviderProperties_ProviderServiceArn" />
+                <Param Name="ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel" NewName="RuleBasedProperties_AttributeMatchingModel" />
+                <Param Name="ResolutionTechniques_RuleBasedProperties_MatchPurpose" NewName="RuleBasedProperties_MatchPurpose" />
+                <Param Name="ResolutionTechniques_RuleBasedProperties_Rules" NewName="RuleBasedProperties_Rule" />
+                <Param Name="ResolutionTechniques_RuleConditionProperties_Rules" NewName="RuleConditionProperties_Rule" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSchemaMapping" OutputProperty="*" Verb="New" Noun="SchemaMapping" ShouldProcessTarget="SchemaName" PipelineParameter="SchemaName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -155,7 +171,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIdMappingWorkflow" OutputProperty="*" Verb="Update" Noun="IdMappingWorkflow" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdMappingTechniques_ProviderProperties_IntermediateSourceConfiguration_IntermediateS3Path" NewName="IntermediateSourceConfiguration_IntermediateS3Path" />
+                <Param Name="IdMappingTechniques_ProviderProperties_ProviderConfiguration" NewName="ProviderProperties_ProviderConfiguration" />
+                <Param Name="IdMappingTechniques_ProviderProperties_ProviderServiceArn" NewName="ProviderProperties_ProviderServiceArn" />
+                <Param Name="IdMappingTechniques_RuleBasedProperties_AttributeMatchingModel" NewName="RuleBasedProperties_AttributeMatchingModel" />
+                <Param Name="IdMappingTechniques_RuleBasedProperties_RecordMatchingModel" NewName="RuleBasedProperties_RecordMatchingModel" />
+                <Param Name="IdMappingTechniques_RuleBasedProperties_RuleDefinitionType" NewName="RuleBasedProperties_RuleDefinitionType" />
+                <Param Name="IdMappingTechniques_RuleBasedProperties_Rules" NewName="RuleBasedProperties_Rule" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIdNamespace" OutputProperty="*" Verb="Update" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -163,7 +187,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMatchingWorkflow" OutputProperty="*" Verb="Update" Noun="MatchingWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResolutionTechniques_ProviderProperties_IntermediateSourceConfiguration_IntermediateS3Path" NewName="IntermediateSourceConfiguration_IntermediateS3Path" />
+                <Param Name="ResolutionTechniques_ProviderProperties_ProviderConfiguration" NewName="ProviderProperties_ProviderConfiguration" />
+                <Param Name="ResolutionTechniques_ProviderProperties_ProviderServiceArn" NewName="ProviderProperties_ProviderServiceArn" />
+                <Param Name="ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel" NewName="RuleBasedProperties_AttributeMatchingModel" />
+                <Param Name="ResolutionTechniques_RuleBasedProperties_MatchPurpose" NewName="RuleBasedProperties_MatchPurpose" />
+                <Param Name="ResolutionTechniques_RuleBasedProperties_Rules" NewName="RuleBasedProperties_Rule" />
+                <Param Name="ResolutionTechniques_RuleConditionProperties_Rules" NewName="RuleConditionProperties_Rule" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSchemaMapping" OutputProperty="*" Verb="Update" Noun="SchemaMapping" ShouldProcessTarget="SchemaName" PipelineParameter="SchemaName" NoPipelineParameter="false" LegacyV4Pagination="true">

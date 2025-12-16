@@ -23,7 +23,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTable" OutputProperty="*" Verb="New" Noun="Table" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Metadata_Iceberg_Properties" NewName="Iceberg_Property" />
+                <Param Name="Metadata_Iceberg_Schema_Fields" NewName="Schema_Field" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTableBucket" OutputProperty="Arn" Verb="New" Noun="TableBucket" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -163,7 +166,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTableBucketMaintenanceConfiguration" Verb="Write" Noun="TableBucketMaintenanceConfiguration" ShouldProcessTarget="TableBucketARN" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Value_Settings_IcebergUnreferencedFileRemoval_NonCurrentDays" NewName="IcebergUnreferencedFileRemoval_NonCurrentDay" />
+                <Param Name="Value_Settings_IcebergUnreferencedFileRemoval_UnreferencedDays" NewName="IcebergUnreferencedFileRemoval_UnreferencedDay" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTableBucketMetricsConfiguration" Verb="Write" Noun="TableBucketMetricsConfiguration" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
@@ -183,7 +189,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTableMaintenanceConfiguration" Verb="Write" Noun="TableMaintenanceConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Value_Settings_IcebergCompaction_Strategy" NewName="IcebergCompaction_Strategy" />
+                <Param Name="Value_Settings_IcebergCompaction_TargetFileSizeMB" NewName="IcebergCompaction_TargetFileSizeMB" />
+                <Param Name="Value_Settings_IcebergSnapshotManagement_MaxSnapshotAgeHours" NewName="IcebergSnapshotManagement_MaxSnapshotAgeHour" />
+                <Param Name="Value_Settings_IcebergSnapshotManagement_MinSnapshotsToKeep" NewName="IcebergSnapshotManagement_MinSnapshotsToKeep" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTablePolicy" Verb="Write" Noun="TablePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -191,7 +202,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTableRecordExpirationConfiguration" Verb="Write" Noun="TableRecordExpirationConfiguration" ShouldProcessTarget="TableArn" PipelineParameter="TableArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Value_Settings_Days" NewName="Settings_Day" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTableReplication" OutputProperty="*" Verb="Write" Noun="TableReplication" ShouldProcessTarget="TableArn" PipelineParameter="TableArn" NoPipelineParameter="false">

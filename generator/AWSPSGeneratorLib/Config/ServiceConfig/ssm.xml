@@ -50,7 +50,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAssociation" OutputProperty="AssociationDescription" Verb="New" Noun="Association" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputLocation_S3Location_OutputS3BucketName" NewName="S3Location_OutputS3BucketName" />
+                <Param Name="OutputLocation_S3Location_OutputS3KeyPrefix" NewName="S3Location_OutputS3KeyPrefix" />
+                <Param Name="OutputLocation_S3Location_OutputS3Region" NewName="S3Location_OutputS3Region" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAssociationBatch" OutputProperty="*" Verb="New" Noun="AssociationFromBatch" ShouldProcessTarget="Entries" PipelineParameter="Entries" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -78,7 +82,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateResourceDataSync" Verb="New" Noun="ResourceDataSync" ShouldProcessTarget="SyncName" PipelineParameter="SyncName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="S3Destination_DestinationDataSharing_DestinationDataSharingType" NewName="DestinationDataSharing_DestinationDataSharingType" />
+                <Param Name="SyncSource_AwsOrganizationsSource_OrganizationalUnits" NewName="AwsOrganizationsSource_OrganizationalUnit" />
+                <Param Name="SyncSource_AwsOrganizationsSource_OrganizationSourceType" NewName="AwsOrganizationsSource_OrganizationSourceType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteActivation" Verb="Remove" Noun="Activation" ShouldProcessTarget="ActivationId" PipelineParameter="ActivationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -147,7 +155,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeActivations" OutputProperty="ActivationList" Verb="Get" Noun="Activation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeActivations" OutputProperty="ActivationList" Verb="Get" Noun="Activation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,23 +163,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAssociationExecutions" OutputProperty="AssociationExecutions" Verb="Get" Noun="AssociationExecution" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAssociationExecutions" OutputProperty="AssociationExecutions" Verb="Get" Noun="AssociationExecution" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAssociationExecutionTargets" OutputProperty="AssociationExecutionTargets" Verb="Get" Noun="AssociationExecutionTarget" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAssociationExecutionTargets" OutputProperty="AssociationExecutionTargets" Verb="Get" Noun="AssociationExecutionTarget" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAutomationExecutions" OutputProperty="AutomationExecutionMetadataList" Verb="Get" Noun="AutomationExecutionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAutomationExecutions" OutputProperty="AutomationExecutionMetadataList" Verb="Get" Noun="AutomationExecutionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAutomationStepExecutions" OutputProperty="StepExecutions" Verb="Get" Noun="AutomationStepExecution" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAutomationStepExecutions" OutputProperty="StepExecutions" Verb="Get" Noun="AutomationStepExecution" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAvailablePatches" OutputProperty="Patches" Verb="Get" Noun="AvailablePatch" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAvailablePatches" OutputProperty="Patches" Verb="Get" Noun="AvailablePatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -183,32 +191,32 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEffectiveInstanceAssociations" OutputProperty="Associations" Verb="Get" Noun="EffectiveInstanceAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEffectiveInstanceAssociations" OutputProperty="Associations" Verb="Get" Noun="EffectiveInstanceAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="5" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline" OutputProperty="EffectivePatches" Verb="Get" Noun="EffectivePatchesForPatchBaseline" PipelineParameter="BaselineId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline" OutputProperty="EffectivePatches" Verb="Get" Noun="EffectivePatchesForPatchBaseline" PipelineParameter="BaselineId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceAssociationsStatus" OutputProperty="InstanceAssociationStatusInfos" Verb="Get" Noun="InstanceAssociationsStatus" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceAssociationsStatus" OutputProperty="InstanceAssociationStatusInfos" Verb="Get" Noun="InstanceAssociationsStatus" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceInformation" OutputProperty="InstanceInformationList" Verb="Get" Noun="InstanceInformation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceInformation" OutputProperty="InstanceInformationList" Verb="Get" Noun="InstanceInformation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstancePatches" OutputProperty="Patches" Verb="Get" Noun="InstancePatch" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstancePatches" OutputProperty="Patches" Verb="Get" Noun="InstancePatch" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstancePatchStates" OutputProperty="InstancePatchStates" Verb="Get" Noun="InstancePatchState" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstancePatchStates" OutputProperty="InstancePatchStates" Verb="Get" Noun="InstancePatchState" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstancePatchStatesForPatchGroup" OutputProperty="InstancePatchStates" Verb="Get" Noun="InstancePatchStatesForPatchGroup" PipelineParameter="PatchGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstancePatchStatesForPatchGroup" OutputProperty="InstancePatchStates" Verb="Get" Noun="InstancePatchStatesForPatchGroup" PipelineParameter="PatchGroup" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,55 +224,55 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInventoryDeletions" OutputProperty="InventoryDeletions" Verb="Get" Noun="InventoryDeletionList" PipelineParameter="DeletionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInventoryDeletions" OutputProperty="InventoryDeletions" Verb="Get" Noun="InventoryDeletionList" PipelineParameter="DeletionId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMaintenanceWindowExecutions" OutputProperty="WindowExecutions" Verb="Get" Noun="MaintenanceWindowExecutionList" PipelineParameter="WindowId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMaintenanceWindowExecutions" OutputProperty="WindowExecutions" Verb="Get" Noun="MaintenanceWindowExecutionList" PipelineParameter="WindowId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTaskInvocations" OutputProperty="WindowExecutionTaskInvocationIdentities" Verb="Get" Noun="MaintenanceWindowExecutionTaskInvocationList" PipelineParameter="WindowExecutionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTaskInvocations" OutputProperty="WindowExecutionTaskInvocationIdentities" Verb="Get" Noun="MaintenanceWindowExecutionTaskInvocationList" PipelineParameter="WindowExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTasks" OutputProperty="WindowExecutionTaskIdentities" Verb="Get" Noun="MaintenanceWindowExecutionTaskList" PipelineParameter="WindowExecutionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTasks" OutputProperty="WindowExecutionTaskIdentities" Verb="Get" Noun="MaintenanceWindowExecutionTaskList" PipelineParameter="WindowExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMaintenanceWindows" OutputProperty="WindowIdentities" Verb="Get" Noun="MaintenanceWindowList" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMaintenanceWindows" OutputProperty="WindowIdentities" Verb="Get" Noun="MaintenanceWindowList" PipelineParameter="Filters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMaintenanceWindowSchedule" OutputProperty="ScheduledWindowExecutions" Verb="Get" Noun="MaintenanceWindowSchedule" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMaintenanceWindowSchedule" OutputProperty="ScheduledWindowExecutions" Verb="Get" Noun="MaintenanceWindowSchedule" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMaintenanceWindowsForTarget" OutputProperty="WindowIdentities" Verb="Get" Noun="MaintenanceWindowsForTarget" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMaintenanceWindowsForTarget" OutputProperty="WindowIdentities" Verb="Get" Noun="MaintenanceWindowsForTarget" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMaintenanceWindowTargets" OutputProperty="Targets" Verb="Get" Noun="MaintenanceWindowTarget" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-SSMMaintenanceWindowTargets" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMaintenanceWindowTargets" OutputProperty="Targets" Verb="Get" Noun="MaintenanceWindowTarget" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-SSMMaintenanceWindowTargets">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMaintenanceWindowTasks" OutputProperty="Tasks" Verb="Get" Noun="MaintenanceWindowTaskList" PipelineParameter="WindowId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMaintenanceWindowTasks" OutputProperty="Tasks" Verb="Get" Noun="MaintenanceWindowTaskList" PipelineParameter="WindowId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOpsItems" OutputProperty="OpsItemSummaries" Verb="Get" Noun="OpsItemSummary" PipelineParameter="OpsItemFilters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeOpsItems" OutputProperty="OpsItemSummaries" Verb="Get" Noun="OpsItemSummary" PipelineParameter="OpsItemFilters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeParameters" OutputProperty="Parameters" Verb="Get" Noun="ParameterList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeParameters" OutputProperty="Parameters" Verb="Get" Noun="ParameterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePatchBaselines" OutputProperty="BaselineIdentities" Verb="Get" Noun="PatchBaseline" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePatchBaselines" OutputProperty="BaselineIdentities" Verb="Get" Noun="PatchBaseline" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePatchGroups" OutputProperty="Mappings" Verb="Get" Noun="PatchGroup" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePatchGroups" OutputProperty="Mappings" Verb="Get" Noun="PatchGroup" PipelineParameter="Filters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -272,11 +280,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePatchProperties" OutputProperty="Properties" Verb="Get" Noun="PatchProperty" PipelineParameter="Property" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePatchProperties" OutputProperty="Properties" Verb="Get" Noun="PatchProperty" PipelineParameter="Property" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSessions" OutputProperty="Sessions" Verb="Get" Noun="Session" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSessions" OutputProperty="Sessions" Verb="Get" Noun="Session" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -309,7 +317,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDeployablePatchSnapshotForInstance" OutputProperty="*" Verb="Get" Noun="DeployablePatchSnapshotForInstance" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BaselineOverride_ApprovalRules_PatchRules" NewName="ApprovalRules_PatchRule" />
+                <Param Name="BaselineOverride_GlobalFilters_PatchFilters" NewName="GlobalFilters_PatchFilter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDocument" OutputProperty="*" Verb="Get" Noun="Document" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -320,11 +331,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInventory" OutputProperty="Entities" Verb="Get" Noun="Inventory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInventory" OutputProperty="Entities" Verb="Get" Noun="Inventory" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInventorySchema" OutputProperty="Schemas" Verb="Get" Noun="InventorySchema" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInventorySchema" OutputProperty="Schemas" Verb="Get" Noun="InventorySchema" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="200" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
@@ -357,7 +368,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOpsSummary" OutputProperty="Entities" Verb="Get" Noun="OpsSummary" PipelineParameter="Aggregators" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetOpsSummary" OutputProperty="Entities" Verb="Get" Noun="OpsSummary" PipelineParameter="Aggregators" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -365,15 +376,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetParameterHistory" OutputProperty="Parameters" Verb="Get" Noun="ParameterHistory" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetParameterHistory" OutputProperty="Parameters" Verb="Get" Noun="ParameterHistory" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetParameters" OutputProperty="*" Verb="Get" Noun="ParameterValue" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-SSMParameterNameList" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetParameters" OutputProperty="*" Verb="Get" Noun="ParameterValue" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Get-SSMParameterNameList">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetParametersByPath" OutputProperty="Parameters" Verb="Get" Noun="ParametersByPath" PipelineParameter="Path" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetParametersByPath" OutputProperty="Parameters" Verb="Get" Noun="ParametersByPath" PipelineParameter="Path" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="10" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
@@ -398,27 +409,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociations" OutputProperty="Associations" Verb="Get" Noun="AssociationList" PipelineParameter="AssociationFilterList" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAssociations" OutputProperty="Associations" Verb="Get" Noun="AssociationList" PipelineParameter="AssociationFilterList" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociationVersions" OutputProperty="AssociationVersions" Verb="Get" Noun="AssociationVersionList" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAssociationVersions" OutputProperty="AssociationVersions" Verb="Get" Noun="AssociationVersionList" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCommandInvocations" OutputProperty="CommandInvocations" Verb="Get" Noun="CommandInvocation" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCommandInvocations" OutputProperty="CommandInvocations" Verb="Get" Noun="CommandInvocation" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCommands" OutputProperty="Commands" Verb="Get" Noun="Command" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCommands" OutputProperty="Commands" Verb="Get" Noun="Command" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComplianceItems" OutputProperty="ComplianceItems" Verb="Get" Noun="ComplianceItemList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListComplianceItems" OutputProperty="ComplianceItems" Verb="Get" Noun="ComplianceItemList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComplianceSummaries" OutputProperty="ComplianceSummaryItems" Verb="Get" Noun="ComplianceSummaryList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListComplianceSummaries" OutputProperty="ComplianceSummaryItems" Verb="Get" Noun="ComplianceSummaryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -426,15 +437,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocuments" OutputProperty="DocumentIdentifiers" Verb="Get" Noun="DocumentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDocuments" OutputProperty="DocumentIdentifiers" Verb="Get" Noun="DocumentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentVersions" OutputProperty="DocumentVersions" Verb="Get" Noun="DocumentVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDocumentVersions" OutputProperty="DocumentVersions" Verb="Get" Noun="DocumentVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInventoryEntries" OutputProperty="*" Verb="Get" Noun="InventoryEntryList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInventoryEntries" OutputProperty="*" Verb="Get" Noun="InventoryEntryList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -458,11 +469,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceComplianceSummaries" OutputProperty="ResourceComplianceSummaryItems" Verb="Get" Noun="ResourceComplianceSummaryList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceComplianceSummaries" OutputProperty="ResourceComplianceSummaryItems" Verb="Get" Noun="ResourceComplianceSummaryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceDataSync" OutputProperty="ResourceDataSyncItems" Verb="Get" Noun="ResourceDataSync" PipelineParameter="SyncType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceDataSync" OutputProperty="ResourceDataSyncItems" Verb="Get" Noun="ResourceDataSync" PipelineParameter="SyncType" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -503,7 +514,29 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterTaskWithMaintenanceWindow" OutputProperty="WindowTaskId" Verb="Register" Noun="TaskWithMaintenanceWindow" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TaskInvocationParameters_Automation_DocumentVersion" NewName="Automation_DocumentVersion" />
+                <Param Name="TaskInvocationParameters_Automation_Parameters" NewName="Automation_Parameter" />
+                <Param Name="TaskInvocationParameters_Lambda_ClientContext" NewName="Lambda_ClientContext" />
+                <Param Name="TaskInvocationParameters_Lambda_Payload" NewName="Lambda_Payload" />
+                <Param Name="TaskInvocationParameters_Lambda_Qualifier" NewName="Lambda_Qualifier" />
+                <Param Name="TaskInvocationParameters_RunCommand_CloudWatchOutputConfig_CloudWatchLogGroupName" NewName="CloudWatchOutputConfig_CloudWatchLogGroupName" />
+                <Param Name="TaskInvocationParameters_RunCommand_CloudWatchOutputConfig_CloudWatchOutputEnabled" NewName="CloudWatchOutputConfig_CloudWatchOutputEnabled" />
+                <Param Name="TaskInvocationParameters_RunCommand_Comment" NewName="RunCommand_Comment" />
+                <Param Name="TaskInvocationParameters_RunCommand_DocumentHash" NewName="RunCommand_DocumentHash" />
+                <Param Name="TaskInvocationParameters_RunCommand_DocumentHashType" NewName="RunCommand_DocumentHashType" />
+                <Param Name="TaskInvocationParameters_RunCommand_DocumentVersion" NewName="RunCommand_DocumentVersion" />
+                <Param Name="TaskInvocationParameters_RunCommand_NotificationConfig_NotificationArn" NewName="NotificationConfig_NotificationArn" />
+                <Param Name="TaskInvocationParameters_RunCommand_NotificationConfig_NotificationEvents" NewName="NotificationConfig_NotificationEvent" />
+                <Param Name="TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType" NewName="NotificationConfig_NotificationType" />
+                <Param Name="TaskInvocationParameters_RunCommand_OutputS3BucketName" NewName="RunCommand_OutputS3BucketName" />
+                <Param Name="TaskInvocationParameters_RunCommand_OutputS3KeyPrefix" NewName="RunCommand_OutputS3KeyPrefix" />
+                <Param Name="TaskInvocationParameters_RunCommand_Parameters" NewName="RunCommand_Parameter" />
+                <Param Name="TaskInvocationParameters_RunCommand_ServiceRoleArn" NewName="RunCommand_ServiceRoleArn" />
+                <Param Name="TaskInvocationParameters_RunCommand_TimeoutSeconds" NewName="RunCommand_TimeoutSecond" />
+                <Param Name="TaskInvocationParameters_StepFunctions_Input" NewName="StepFunctions_Input" />
+                <Param Name="TaskInvocationParameters_StepFunctions_Name" NewName="StepFunctions_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -543,7 +576,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartExecutionPreview" OutputProperty="ExecutionPreviewId" Verb="Start" Noun="ExecutionPreview" ShouldProcessTarget="DocumentName" PipelineParameter="DocumentName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExecutionInputs_Automation_Parameters" NewName="Automation_Parameter" />
+                <Param Name="ExecutionInputs_Automation_TargetLocations" NewName="Automation_TargetLocation" />
+                <Param Name="ExecutionInputs_Automation_TargetLocationsURL" NewName="Automation_TargetLocationsURL" />
+                <Param Name="ExecutionInputs_Automation_TargetMaps" NewName="Automation_TargetMap" />
+                <Param Name="ExecutionInputs_Automation_TargetParameterName" NewName="Automation_TargetParameterName" />
+                <Param Name="ExecutionInputs_Automation_Targets" NewName="Automation_Target" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartSession" OutputProperty="*" Verb="Start" Noun="Session" ShouldProcessTarget="DocumentName" PipelineParameter="DocumentName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -563,7 +603,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAssociation" OutputProperty="AssociationDescription" Verb="Update" Noun="Association" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputLocation_S3Location_OutputS3BucketName" NewName="S3Location_OutputS3BucketName" />
+                <Param Name="OutputLocation_S3Location_OutputS3KeyPrefix" NewName="S3Location_OutputS3KeyPrefix" />
+                <Param Name="OutputLocation_S3Location_OutputS3Region" NewName="S3Location_OutputS3Region" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAssociationStatus" OutputProperty="AssociationDescription" Verb="Update" Noun="AssociationStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -591,7 +635,29 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMaintenanceWindowTask" OutputProperty="*" Verb="Update" Noun="MaintenanceWindowTask" ShouldProcessTarget="WindowTaskId" PipelineParameter="WindowTaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TaskInvocationParameters_Automation_DocumentVersion" NewName="Automation_DocumentVersion" />
+                <Param Name="TaskInvocationParameters_Automation_Parameters" NewName="Automation_Parameter" />
+                <Param Name="TaskInvocationParameters_Lambda_ClientContext" NewName="Lambda_ClientContext" />
+                <Param Name="TaskInvocationParameters_Lambda_Payload" NewName="Lambda_Payload" />
+                <Param Name="TaskInvocationParameters_Lambda_Qualifier" NewName="Lambda_Qualifier" />
+                <Param Name="TaskInvocationParameters_RunCommand_CloudWatchOutputConfig_CloudWatchLogGroupName" NewName="CloudWatchOutputConfig_CloudWatchLogGroupName" />
+                <Param Name="TaskInvocationParameters_RunCommand_CloudWatchOutputConfig_CloudWatchOutputEnabled" NewName="CloudWatchOutputConfig_CloudWatchOutputEnabled" />
+                <Param Name="TaskInvocationParameters_RunCommand_Comment" NewName="RunCommand_Comment" />
+                <Param Name="TaskInvocationParameters_RunCommand_DocumentHash" NewName="RunCommand_DocumentHash" />
+                <Param Name="TaskInvocationParameters_RunCommand_DocumentHashType" NewName="RunCommand_DocumentHashType" />
+                <Param Name="TaskInvocationParameters_RunCommand_DocumentVersion" NewName="RunCommand_DocumentVersion" />
+                <Param Name="TaskInvocationParameters_RunCommand_NotificationConfig_NotificationArn" NewName="NotificationConfig_NotificationArn" />
+                <Param Name="TaskInvocationParameters_RunCommand_NotificationConfig_NotificationEvents" NewName="NotificationConfig_NotificationEvent" />
+                <Param Name="TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType" NewName="NotificationConfig_NotificationType" />
+                <Param Name="TaskInvocationParameters_RunCommand_OutputS3BucketName" NewName="RunCommand_OutputS3BucketName" />
+                <Param Name="TaskInvocationParameters_RunCommand_OutputS3KeyPrefix" NewName="RunCommand_OutputS3KeyPrefix" />
+                <Param Name="TaskInvocationParameters_RunCommand_Parameters" NewName="RunCommand_Parameter" />
+                <Param Name="TaskInvocationParameters_RunCommand_ServiceRoleArn" NewName="RunCommand_ServiceRoleArn" />
+                <Param Name="TaskInvocationParameters_RunCommand_TimeoutSeconds" NewName="RunCommand_TimeoutSecond" />
+                <Param Name="TaskInvocationParameters_StepFunctions_Input" NewName="StepFunctions_Input" />
+                <Param Name="TaskInvocationParameters_StepFunctions_Name" NewName="StepFunctions_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateManagedInstanceRole" Verb="Update" Noun="ManagedInstanceRole" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -611,7 +677,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResourceDataSync" Verb="Update" Noun="ResourceDataSync" ShouldProcessTarget="SyncName" PipelineParameter="SyncName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SyncSource_AwsOrganizationsSource_OrganizationalUnits" NewName="AwsOrganizationsSource_OrganizationalUnit" />
+                <Param Name="SyncSource_AwsOrganizationsSource_OrganizationSourceType" NewName="AwsOrganizationsSource_OrganizationSourceType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateServiceSetting" Verb="Update" Noun="ServiceSetting" ShouldProcessTarget="SettingId" PipelineParameter="SettingId" NoPipelineParameter="false" LegacyV4Pagination="true">

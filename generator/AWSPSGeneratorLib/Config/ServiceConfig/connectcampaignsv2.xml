@@ -34,6 +34,31 @@
                 <Param Name="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" />
                 <Param Name="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" NewName="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" Alias="DefaultOutboundConfig_ConnectSourcePhoneNumberArn" />
                 <Param Name="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" NewName="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" />
+                <Param Name="ChannelSubtypeConfig_Email_Capacity" NewName="Email_Capacity" />
+                <Param Name="ChannelSubtypeConfig_Email_DefaultOutboundConfig_ConnectSourceEmailAddress" NewName="DefaultOutboundConfig_ConnectSourceEmailAddress" />
+                <Param Name="ChannelSubtypeConfig_Email_DefaultOutboundConfig_SourceEmailAddressDisplayName" NewName="DefaultOutboundConfig_SourceEmailAddressDisplayName" />
+                <Param Name="ChannelSubtypeConfig_Sms_Capacity" NewName="Sms_Capacity" />
+                <Param Name="ChannelSubtypeConfig_Telephony_Capacity" NewName="Telephony_Capacity" />
+                <Param Name="ChannelSubtypeConfig_Telephony_ConnectQueueId" NewName="Telephony_ConnectQueueId" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt" NewName="AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_AnswerMachineDetectionConfig_EnableAnswerMachineDetection" NewName="AnswerMachineDetectionConfig_EnableAnswerMachineDetection" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_ConnectContactFlowId" NewName="DefaultOutboundConfig_ConnectContactFlowId" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_ConnectSourcePhoneNumber" NewName="DefaultOutboundConfig_ConnectSourcePhoneNumber" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_RingTimeout" NewName="DefaultOutboundConfig_RingTimeout" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Predictive_BandwidthAllocation" NewName="Predictive_BandwidthAllocation" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Preview_AgentActions" NewName="Preview_AgentAction" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Preview_BandwidthAllocation" NewName="Preview_BandwidthAllocation" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig_DurationInSeconds" NewName="TimeoutConfig_DurationInSecond" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Progressive_BandwidthAllocation" NewName="Progressive_BandwidthAllocation" />
+                <Param Name="ChannelSubtypeConfig_WhatsApp_Capacity" NewName="WhatsApp_Capacity" />
+                <Param Name="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_WisdomTemplateArn" NewName="DefaultOutboundConfig_WisdomTemplateArn" />
+                <Param Name="ChannelSubtypeConfig_WhatsApp_OutboundMode_Agentless" NewName="OutboundMode_Agentless" />
+                <Param Name="CommunicationLimitsOverride_AllChannelSubtypes_CommunicationLimitsList" NewName="AllChannelSubtypes_CommunicationLimitsList" />
+                <Param Name="CommunicationTimeConfig_LocalTimeZoneConfig_DefaultTimeZone" NewName="LocalTimeZoneConfig_DefaultTimeZone" />
+                <Param Name="CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetection" NewName="LocalTimeZoneConfig_LocalTimeZoneDetection" />
+                <Param Name="CommunicationTimeConfig_WhatsApp_OpenHours_DailyHours" NewName="OpenHours_DailyHour" />
+                <Param Name="CommunicationTimeConfig_WhatsApp_RestrictedPeriods_RestrictedPeriodList" NewName="RestrictedPeriods_RestrictedPeriodList" />
+                <Param Name="Source_EventTrigger_CustomerProfilesDomainArn" NewName="EventTrigger_CustomerProfilesDomainArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -58,7 +83,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteConnectInstanceIntegration" Verb="Remove" Noun="ConnectInstanceIntegration" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IntegrationIdentifier_CustomerProfiles_DomainArn" NewName="CustomerProfiles_DomainArn" />
+                <Param Name="IntegrationIdentifier_Lambda_FunctionArn" NewName="Lambda_FunctionArn" />
+                <Param Name="IntegrationIdentifier_QConnect_KnowledgeBaseArn" NewName="QConnect_KnowledgeBaseArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInstanceOnboardingJob" Verb="Remove" Noun="InstanceOnboardingJob" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -90,7 +119,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCampaigns" OutputProperty="CampaignSummaryList" Verb="Get" Noun="CampaignList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filters_InstanceIdFilter_Operator" NewName="InstanceIdFilter_Operator" />
+                <Param Name="Filters_InstanceIdFilter_Value" NewName="InstanceIdFilter_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListConnectInstanceIntegrations" OutputProperty="IntegrationSummaryList" Verb="Get" Noun="ConnectInstanceIntegrationList" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -106,11 +138,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutConnectInstanceIntegration" Verb="Write" Noun="ConnectInstanceIntegration" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IntegrationConfig_CustomerProfiles_DomainArn" NewName="CustomerProfiles_DomainArn" />
+                <Param Name="IntegrationConfig_CustomerProfiles_ObjectTypeNames" NewName="CustomerProfiles_ObjectTypeName" />
+                <Param Name="IntegrationConfig_Lambda_FunctionArn" NewName="Lambda_FunctionArn" />
+                <Param Name="IntegrationConfig_QConnect_KnowledgeBaseArn" NewName="QConnect_KnowledgeBaseArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutInstanceCommunicationLimits" Verb="Write" Noun="InstanceCommunicationLimit" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="CommunicationLimitsConfig_AllChannelSubtypes_CommunicationLimitsList" NewName="AllChannelSubtypes_CommunicationLimitsList" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutOutboundRequestBatch" OutputProperty="*" Verb="Write" Noun="OutboundRequestBatch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -154,11 +193,32 @@
                 <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Telephony_OutboundMode_Agentless" />
                 <Param Name="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" NewName="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" Alias="DefaultOutboundConfig_ConnectSourcePhoneNumberArn" />
                 <Param Name="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" NewName="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" />
+                <Param Name="ChannelSubtypeConfig_Email_Capacity" NewName="Email_Capacity" />
+                <Param Name="ChannelSubtypeConfig_Email_DefaultOutboundConfig_ConnectSourceEmailAddress" NewName="DefaultOutboundConfig_ConnectSourceEmailAddress" />
+                <Param Name="ChannelSubtypeConfig_Email_DefaultOutboundConfig_SourceEmailAddressDisplayName" NewName="DefaultOutboundConfig_SourceEmailAddressDisplayName" />
+                <Param Name="ChannelSubtypeConfig_Sms_Capacity" NewName="Sms_Capacity" />
+                <Param Name="ChannelSubtypeConfig_Telephony_Capacity" NewName="Telephony_Capacity" />
+                <Param Name="ChannelSubtypeConfig_Telephony_ConnectQueueId" NewName="Telephony_ConnectQueueId" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt" NewName="AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_AnswerMachineDetectionConfig_EnableAnswerMachineDetection" NewName="AnswerMachineDetectionConfig_EnableAnswerMachineDetection" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_ConnectContactFlowId" NewName="DefaultOutboundConfig_ConnectContactFlowId" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_ConnectSourcePhoneNumber" NewName="DefaultOutboundConfig_ConnectSourcePhoneNumber" />
+                <Param Name="ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_RingTimeout" NewName="DefaultOutboundConfig_RingTimeout" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Predictive_BandwidthAllocation" NewName="Predictive_BandwidthAllocation" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Preview_AgentActions" NewName="Preview_AgentAction" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Preview_BandwidthAllocation" NewName="Preview_BandwidthAllocation" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig_DurationInSeconds" NewName="TimeoutConfig_DurationInSecond" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Progressive_BandwidthAllocation" NewName="Progressive_BandwidthAllocation" />
+                <Param Name="ChannelSubtypeConfig_WhatsApp_Capacity" NewName="WhatsApp_Capacity" />
+                <Param Name="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_WisdomTemplateArn" NewName="DefaultOutboundConfig_WisdomTemplateArn" />
+                <Param Name="ChannelSubtypeConfig_WhatsApp_OutboundMode_Agentless" NewName="OutboundMode_Agentless" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCampaignCommunicationLimits" Verb="Update" Noun="CampaignCommunicationLimit" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CommunicationLimitsOverride_AllChannelSubtypes_CommunicationLimitsList" NewName="AllChannelSubtypes_CommunicationLimitsList" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCampaignCommunicationTime" Verb="Update" Noun="CampaignCommunicationTime" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -169,6 +229,10 @@
                 <Param Name="CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList" />
                 <Param Name="CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList" />
                 <Param Name="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" />
+                <Param Name="CommunicationTimeConfig_LocalTimeZoneConfig_DefaultTimeZone" NewName="LocalTimeZoneConfig_DefaultTimeZone" />
+                <Param Name="CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetection" NewName="LocalTimeZoneConfig_LocalTimeZoneDetection" />
+                <Param Name="CommunicationTimeConfig_WhatsApp_OpenHours_DailyHours" NewName="OpenHours_DailyHour" />
+                <Param Name="CommunicationTimeConfig_WhatsApp_RestrictedPeriods_RestrictedPeriodList" NewName="RestrictedPeriods_RestrictedPeriodList" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -185,7 +249,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCampaignSource" Verb="Update" Noun="CampaignSource" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Source_EventTrigger_CustomerProfilesDomainArn" NewName="EventTrigger_CustomerProfilesDomainArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

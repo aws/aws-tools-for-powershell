@@ -35,6 +35,15 @@
                 <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationResourceGroupArn" NewName="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationResourceGroupArn" />
                 <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy" NewName="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy" />
                 <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationPreference" NewName="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationPreference" />
+                <Param Name="InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy" NewName="OnDemandSpecification_AllocationStrategy" />
+                <Param Name="InstanceFleet_LaunchSpecifications_SpotSpecification_AllocationStrategy" NewName="SpotSpecification_AllocationStrategy" />
+                <Param Name="InstanceFleet_LaunchSpecifications_SpotSpecification_BlockDurationMinutes" NewName="SpotSpecification_BlockDurationMinute" />
+                <Param Name="InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction" NewName="SpotSpecification_TimeoutAction" />
+                <Param Name="InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutDurationMinutes" NewName="SpotSpecification_TimeoutDurationMinute" />
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_AllocationStrategy" NewName="OnDemandResizeSpecification_AllocationStrategy" />
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_TimeoutDurationMinutes" NewName="OnDemandResizeSpecification_TimeoutDurationMinute" />
+                <Param Name="InstanceFleet_ResizeSpecifications_SpotResizeSpecification_AllocationStrategy" NewName="SpotResizeSpecification_AllocationStrategy" />
+                <Param Name="InstanceFleet_ResizeSpecifications_SpotResizeSpecification_TimeoutDurationMinutes" NewName="SpotResizeSpecification_TimeoutDurationMinute" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -195,7 +204,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstanceFleet" Verb="Edit" Noun="InstanceFleet" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_AllocationStrategy" NewName="OnDemandResizeSpecification_AllocationStrategy" />
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationPreference" NewName="CapacityReservationOptions_CapacityReservationPreference" />
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationResourceGroupArn" NewName="CapacityReservationOptions_CapacityReservationResourceGroupArn" />
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy" NewName="CapacityReservationOptions_UsageStrategy" />
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_TimeoutDurationMinutes" NewName="OnDemandResizeSpecification_TimeoutDurationMinute" />
+                <Param Name="InstanceFleet_ResizeSpecifications_SpotResizeSpecification_AllocationStrategy" NewName="SpotResizeSpecification_AllocationStrategy" />
+                <Param Name="InstanceFleet_ResizeSpecifications_SpotResizeSpecification_TimeoutDurationMinutes" NewName="SpotResizeSpecification_TimeoutDurationMinute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstanceGroups" Verb="Edit" Noun="InstanceGroup" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -203,7 +220,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAutoScalingPolicy" OutputProperty="*" Verb="Write" Noun="AutoScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AutoScalingPolicy_Constraints_MaxCapacity" NewName="Constraints_MaxCapacity" />
+                <Param Name="AutoScalingPolicy_Constraints_MinCapacity" NewName="Constraints_MinCapacity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAutoTerminationPolicy" Verb="Write" Noun="AutoTerminationPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -215,7 +235,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutManagedScalingPolicy" Verb="Write" Noun="ManagedScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ManagedScalingPolicy_ComputeLimits_MaximumCapacityUnits" NewName="ComputeLimits_MaximumCapacityUnit" />
+                <Param Name="ManagedScalingPolicy_ComputeLimits_MaximumCoreCapacityUnits" NewName="ComputeLimits_MaximumCoreCapacityUnit" />
+                <Param Name="ManagedScalingPolicy_ComputeLimits_MaximumOnDemandCapacityUnits" NewName="ComputeLimits_MaximumOnDemandCapacityUnit" />
+                <Param Name="ManagedScalingPolicy_ComputeLimits_MinimumCapacityUnits" NewName="ComputeLimits_MinimumCapacityUnit" />
+                <Param Name="ManagedScalingPolicy_ComputeLimits_UnitType" NewName="ComputeLimits_UnitType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveAutoScalingPolicy" Verb="Remove" Noun="AutoScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -240,6 +266,16 @@
                 <Param Name="Instances_Placement_AvailabilityZones" AutoRename="false" />
                 <Param Name="Instances_Ec2SubnetId" AutoRename="false" />
                 <Param Name="Instances_Ec2SubnetIds" AutoRename="false" />
+                <Param Name="ManagedScalingPolicy_ComputeLimits_MaximumCapacityUnits" NewName="ComputeLimits_MaximumCapacityUnit" />
+                <Param Name="ManagedScalingPolicy_ComputeLimits_MaximumCoreCapacityUnits" NewName="ComputeLimits_MaximumCoreCapacityUnit" />
+                <Param Name="ManagedScalingPolicy_ComputeLimits_MaximumOnDemandCapacityUnits" NewName="ComputeLimits_MaximumOnDemandCapacityUnit" />
+                <Param Name="ManagedScalingPolicy_ComputeLimits_MinimumCapacityUnits" NewName="ComputeLimits_MinimumCapacityUnit" />
+                <Param Name="ManagedScalingPolicy_ComputeLimits_UnitType" NewName="ComputeLimits_UnitType" />
+                <Param Name="MonitoringConfiguration_CloudWatchLogConfiguration_Enabled" NewName="CloudWatchLogConfiguration_Enabled" />
+                <Param Name="MonitoringConfiguration_CloudWatchLogConfiguration_EncryptionKeyArn" NewName="CloudWatchLogConfiguration_EncryptionKeyArn" />
+                <Param Name="MonitoringConfiguration_CloudWatchLogConfiguration_LogGroupName" NewName="CloudWatchLogConfiguration_LogGroupName" />
+                <Param Name="MonitoringConfiguration_CloudWatchLogConfiguration_LogStreamNamePrefix" NewName="CloudWatchLogConfiguration_LogStreamNamePrefix" />
+                <Param Name="MonitoringConfiguration_CloudWatchLogConfiguration_LogTypes" NewName="CloudWatchLogConfiguration_LogType" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

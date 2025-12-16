@@ -57,11 +57,16 @@
                 <Param Name="Spec_GrpcRoute_Match_Port" NewName="Spec_GrpcRoute_Match_Port" />
                 <Param Name="Spec_Http2Route_Match_Port" NewName="Spec_Http2Route_Match_Port" />
                 <Param Name="Spec_HttpRoute_Match_Port" NewName="Spec_HttpRoute_Match_Port" />
+                <Param Name="Spec_GrpcRoute_Match_Metadata" NewName="Match_Metadata" />
+                <Param Name="Spec_Http2Route_Match_Path_Exact" NewName="Path_Exact" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMesh" OutputProperty="Mesh" Verb="New" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Spec_EgressFilter_Type" NewName="EgressFilter_Type" />
+                <Param Name="Spec_ServiceDiscovery_IpPreference" NewName="ServiceDiscovery_IpPreference" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRoute" OutputProperty="Route" Verb="New" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -117,6 +122,10 @@
                 <Param Name="Spec_GrpcRoute_Match_Port" NewName="Spec_GrpcRoute_Match_Port" />
                 <Param Name="Spec_Http2Route_Match_Port" NewName="Spec_Http2Route_Match_Port" />
                 <Param Name="Spec_HttpRoute_Match_Port" NewName="Spec_HttpRoute_Match_Port" />
+                <Param Name="Spec_GrpcRoute_Match_Metadata" NewName="Match_Metadata" />
+                <Param Name="Spec_GrpcRoute_Match_ServiceName" NewName="Match_ServiceName" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_GrpcRetryEvents" NewName="RetryPolicy_GrpcRetryEvent" />
+                <Param Name="Spec_TcpRoute_Match_Port" NewName="Match_Port" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,6 +135,14 @@
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" />
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" Alias="Sds_SecretName" />
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_PrivateKey" NewName="File_PrivateKey" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Enforce" NewName="Tls_Enforce" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Ports" NewName="Tls_Port" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_SubjectAlternativeNames_Match_Exact" NewName="Match_Exact" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm_CertificateAuthorityArns" NewName="Acm_CertificateAuthorityArn" />
+                <Param Name="Spec_Logging_AccessLog_File_Format_Json" NewName="Format_Json" />
+                <Param Name="Spec_Logging_AccessLog_File_Format_Text" NewName="Format_Text" />
+                <Param Name="Spec_Logging_AccessLog_File_Path" NewName="File_Path" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,6 +152,21 @@
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" />
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" Alias="Sds_SecretName" />
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_PrivateKey" NewName="File_PrivateKey" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Enforce" NewName="Tls_Enforce" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Ports" NewName="Tls_Port" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_SubjectAlternativeNames_Match_Exact" NewName="Match_Exact" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm_CertificateAuthorityArns" NewName="Acm_CertificateAuthorityArn" />
+                <Param Name="Spec_Logging_AccessLog_File_Format_Json" NewName="Format_Json" />
+                <Param Name="Spec_Logging_AccessLog_File_Format_Text" NewName="Format_Text" />
+                <Param Name="Spec_Logging_AccessLog_File_Path" NewName="File_Path" />
+                <Param Name="Spec_ServiceDiscovery_AwsCloudMap_Attributes" NewName="AwsCloudMap_Attribute" />
+                <Param Name="Spec_ServiceDiscovery_AwsCloudMap_IpPreference" NewName="AwsCloudMap_IpPreference" />
+                <Param Name="Spec_ServiceDiscovery_AwsCloudMap_NamespaceName" NewName="AwsCloudMap_NamespaceName" />
+                <Param Name="Spec_ServiceDiscovery_AwsCloudMap_ServiceName" NewName="AwsCloudMap_ServiceName" />
+                <Param Name="Spec_ServiceDiscovery_Dns_Hostname" NewName="Dns_Hostname" />
+                <Param Name="Spec_ServiceDiscovery_Dns_IpPreference" NewName="Dns_IpPreference" />
+                <Param Name="Spec_ServiceDiscovery_Dns_ResponseType" NewName="Dns_ResponseType" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -143,7 +175,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualService" OutputProperty="VirtualService" Verb="New" Noun="VirtualService" ShouldProcessTarget="VirtualServiceName" PipelineParameter="VirtualServiceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Spec_Provider_VirtualNode_VirtualNodeName" NewName="VirtualNode_VirtualNodeName" />
+                <Param Name="Spec_Provider_VirtualRouter_VirtualRouterName" NewName="VirtualRouter_VirtualRouterName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteGatewayRoute" OutputProperty="GatewayRoute" Verb="Remove" Noun="GatewayRoute" ShouldProcessTarget="GatewayRouteName" PipelineParameter="GatewayRouteName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -206,15 +241,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMeshes" OutputProperty="Meshes" Verb="Get" Noun="MeshList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMeshes" OutputProperty="Meshes" Verb="Get" Noun="MeshList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoutes" OutputProperty="Routes" Verb="Get" Noun="RouteList" PipelineParameter="VirtualRouterName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRoutes" OutputProperty="Routes" Verb="Get" Noun="RouteList" PipelineParameter="VirtualRouterName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -222,15 +257,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualNodes" OutputProperty="VirtualNodes" Verb="Get" Noun="VirtualNodeList" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVirtualNodes" OutputProperty="VirtualNodes" Verb="Get" Noun="VirtualNodeList" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualRouters" OutputProperty="VirtualRouters" Verb="Get" Noun="VirtualRouterList" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVirtualRouters" OutputProperty="VirtualRouters" Verb="Get" Noun="VirtualRouterList" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualServices" OutputProperty="VirtualServices" Verb="Get" Noun="VirtualServiceList" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVirtualServices" OutputProperty="VirtualServices" Verb="Get" Noun="VirtualServiceList" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -281,11 +316,15 @@
                 <Param Name="Spec_GrpcRoute_Match_Port" NewName="Spec_GrpcRoute_Match_Port" />
                 <Param Name="Spec_Http2Route_Match_Port" NewName="Spec_Http2Route_Match_Port" />
                 <Param Name="Spec_HttpRoute_Match_Port" NewName="Spec_HttpRoute_Match_Port" />
+                <Param Name="Spec_GrpcRoute_Match_Metadata" NewName="Match_Metadata" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMesh" OutputProperty="Mesh" Verb="Update" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Spec_EgressFilter_Type" NewName="EgressFilter_Type" />
+                <Param Name="Spec_ServiceDiscovery_IpPreference" NewName="ServiceDiscovery_IpPreference" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoute" OutputProperty="Route" Verb="Update" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -342,6 +381,9 @@
                 <Param Name="Spec_Http2Route_Match_Port" NewName="Spec_Http2Route_Match_Port" />
                 <Param Name="Spec_HttpRoute_Match_Port" NewName="Spec_HttpRoute_Match_Port" />
                 <Param Name="Spec_TcpRoute_Match_Port" NewName="Spec_TcpRoute_Match_Port" />
+                <Param Name="Spec_GrpcRoute_Match_Metadata" NewName="Match_Metadata" />
+                <Param Name="Spec_GrpcRoute_Match_ServiceName" NewName="Match_ServiceName" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_GrpcRetryEvents" NewName="RetryPolicy_GrpcRetryEvent" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -351,6 +393,14 @@
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" />
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" Alias="Sds_SecretName" />
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_PrivateKey" NewName="File_PrivateKey" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Enforce" NewName="Tls_Enforce" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Ports" NewName="Tls_Port" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_SubjectAlternativeNames_Match_Exact" NewName="Match_Exact" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm_CertificateAuthorityArns" NewName="Acm_CertificateAuthorityArn" />
+                <Param Name="Spec_Logging_AccessLog_File_Format_Json" NewName="Format_Json" />
+                <Param Name="Spec_Logging_AccessLog_File_Format_Text" NewName="Format_Text" />
+                <Param Name="Spec_Logging_AccessLog_File_Path" NewName="File_Path" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -360,6 +410,21 @@
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" />
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" Alias="Sds_SecretName" />
                 <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_PrivateKey" NewName="File_PrivateKey" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Enforce" NewName="Tls_Enforce" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Ports" NewName="Tls_Port" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_SubjectAlternativeNames_Match_Exact" NewName="Match_Exact" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm_CertificateAuthorityArns" NewName="Acm_CertificateAuthorityArn" />
+                <Param Name="Spec_Logging_AccessLog_File_Format_Json" NewName="Format_Json" />
+                <Param Name="Spec_Logging_AccessLog_File_Format_Text" NewName="Format_Text" />
+                <Param Name="Spec_Logging_AccessLog_File_Path" NewName="File_Path" />
+                <Param Name="Spec_ServiceDiscovery_AwsCloudMap_Attributes" NewName="AwsCloudMap_Attribute" />
+                <Param Name="Spec_ServiceDiscovery_AwsCloudMap_IpPreference" NewName="AwsCloudMap_IpPreference" />
+                <Param Name="Spec_ServiceDiscovery_AwsCloudMap_NamespaceName" NewName="AwsCloudMap_NamespaceName" />
+                <Param Name="Spec_ServiceDiscovery_AwsCloudMap_ServiceName" NewName="AwsCloudMap_ServiceName" />
+                <Param Name="Spec_ServiceDiscovery_Dns_Hostname" NewName="Dns_Hostname" />
+                <Param Name="Spec_ServiceDiscovery_Dns_IpPreference" NewName="Dns_IpPreference" />
+                <Param Name="Spec_ServiceDiscovery_Dns_ResponseType" NewName="Dns_ResponseType" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -368,7 +433,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVirtualService" OutputProperty="VirtualService" Verb="Update" Noun="VirtualService" ShouldProcessTarget="VirtualServiceName" PipelineParameter="VirtualServiceName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Spec_Provider_VirtualNode_VirtualNodeName" NewName="VirtualNode_VirtualNodeName" />
+                <Param Name="Spec_Provider_VirtualRouter_VirtualRouterName" NewName="VirtualRouter_VirtualRouterName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

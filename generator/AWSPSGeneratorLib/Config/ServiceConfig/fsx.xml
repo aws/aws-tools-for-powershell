@@ -39,6 +39,12 @@
             <Params>
                 <Param Name="OpenZFSConfiguration_FileSystemIdentity_Type" NewName="OpenZFSConfiguration_FileSystemIdentity_Type" Alias="FileSystemIdentity_Type" />
                 <Param Name="OntapConfiguration_FileSystemIdentity_Type" NewName="OntapConfiguration_FileSystemIdentity_Type" />
+                <Param Name="OntapConfiguration_FileSystemIdentity_UnixUser_Name" NewName="UnixUser_Name" />
+                <Param Name="OntapConfiguration_FileSystemIdentity_WindowsUser_Name" NewName="WindowsUser_Name" />
+                <Param Name="OpenZFSConfiguration_FileSystemIdentity_PosixUser_Gid" NewName="PosixUser_Gid" />
+                <Param Name="OpenZFSConfiguration_FileSystemIdentity_PosixUser_SecondaryGids" NewName="PosixUser_SecondaryGid" />
+                <Param Name="OpenZFSConfiguration_FileSystemIdentity_PosixUser_Uid" NewName="PosixUser_Uid" />
+                <Param Name="S3AccessPoint_VpcConfiguration_VpcId" NewName="VpcConfiguration_VpcId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,15 +53,23 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataRepositoryAssociation" OutputProperty="Association" Verb="New" Noun="DataRepositoryAssociation" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="S3_AutoExportPolicy_Events" NewName="AutoExportPolicy_Event" />
+                <Param Name="S3_AutoImportPolicy_Events" NewName="AutoImportPolicy_Event" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataRepositoryTask" OutputProperty="DataRepositoryTask" Verb="New" Noun="DataRepositoryTask" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ReleaseConfiguration_DurationSinceLastAccess_Unit" NewName="DurationSinceLastAccess_Unit" />
+                <Param Name="ReleaseConfiguration_DurationSinceLastAccess_Value" NewName="DurationSinceLastAccess_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFileCache" OutputProperty="FileCache" Verb="New" Noun="FileCache" ShouldProcessTarget="KmsKeyId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LustreConfiguration_MetadataConfiguration_StorageCapacity" NewName="MetadataConfiguration_StorageCapacity" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFileSystem" OutputProperty="FileSystem" Verb="New" Noun="FileSystem" ShouldProcessTarget="FileSystemType" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -64,11 +78,30 @@
                 <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Iops" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Iops" />
                 <Param Name="OntapConfiguration_DiskIopsConfiguration_Mode" NewName="OntapConfiguration_DiskIopsConfiguration_Mode" />
                 <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Mode" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Mode" />
+                <Param Name="OpenZFSConfiguration_ReadCacheConfiguration_SizeGiB" NewName="ReadCacheConfiguration_SizeGiB" />
+                <Param Name="OpenZFSConfiguration_ReadCacheConfiguration_SizingMode" NewName="ReadCacheConfiguration_SizingMode" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_CopyTagsToSnapshots" NewName="RootVolumeConfiguration_CopyTagsToSnapshot" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType" NewName="RootVolumeConfiguration_DataCompressionType" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_NfsExports" NewName="RootVolumeConfiguration_NfsExport" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_ReadOnly" NewName="RootVolumeConfiguration_ReadOnly" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_RecordSizeKiB" NewName="RootVolumeConfiguration_RecordSizeKiB" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_UserAndGroupQuotas" NewName="RootVolumeConfiguration_UserAndGroupQuota" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFileSystemFromBackup" OutputProperty="FileSystem" Verb="New" Noun="FileSystemFromBackup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Iops" NewName="DiskIopsConfiguration_Iops" />
+                <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Mode" NewName="DiskIopsConfiguration_Mode" />
+                <Param Name="OpenZFSConfiguration_ReadCacheConfiguration_SizeGiB" NewName="ReadCacheConfiguration_SizeGiB" />
+                <Param Name="OpenZFSConfiguration_ReadCacheConfiguration_SizingMode" NewName="ReadCacheConfiguration_SizingMode" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_CopyTagsToSnapshots" NewName="RootVolumeConfiguration_CopyTagsToSnapshot" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType" NewName="RootVolumeConfiguration_DataCompressionType" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_NfsExports" NewName="RootVolumeConfiguration_NfsExport" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_ReadOnly" NewName="RootVolumeConfiguration_ReadOnly" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_RecordSizeKiB" NewName="RootVolumeConfiguration_RecordSizeKiB" />
+                <Param Name="OpenZFSConfiguration_RootVolumeConfiguration_UserAndGroupQuotas" NewName="RootVolumeConfiguration_UserAndGroupQuota" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -76,15 +109,59 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStorageVirtualMachine" OutputProperty="StorageVirtualMachine" Verb="New" Noun="StorageVirtualMachine" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_DnsIps" NewName="SelfManagedActiveDirectoryConfiguration_DnsIp" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret" NewName="SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_DomainName" NewName="SelfManagedActiveDirectoryConfiguration_DomainName" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup" NewName="SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName" NewName="SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_Password" NewName="SelfManagedActiveDirectoryConfiguration_Password" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_UserName" NewName="SelfManagedActiveDirectoryConfiguration_UserName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVolume" OutputProperty="Volume" Verb="New" Noun="Volume" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OntapConfiguration_AggregateConfiguration_Aggregates" NewName="AggregateConfiguration_Aggregate" />
+                <Param Name="OntapConfiguration_AggregateConfiguration_ConstituentsPerAggregate" NewName="AggregateConfiguration_ConstituentsPerAggregate" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_AuditLogVolume" NewName="SnaplockConfiguration_AuditLogVolume" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Type" NewName="AutocommitPeriod_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Value" NewName="AutocommitPeriod_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_PrivilegedDelete" NewName="SnaplockConfiguration_PrivilegedDelete" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Type" NewName="DefaultRetention_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Value" NewName="DefaultRetention_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Type" NewName="MaximumRetention_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Value" NewName="MaximumRetention_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Type" NewName="MinimumRetention_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Value" NewName="MinimumRetention_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_SnaplockType" NewName="SnaplockConfiguration_SnaplockType" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_VolumeAppendModeEnabled" NewName="SnaplockConfiguration_VolumeAppendModeEnabled" />
+                <Param Name="OntapConfiguration_TieringPolicy_CoolingPeriod" NewName="TieringPolicy_CoolingPeriod" />
+                <Param Name="OntapConfiguration_TieringPolicy_Name" NewName="TieringPolicy_Name" />
+                <Param Name="OpenZFSConfiguration_OriginSnapshot_CopyStrategy" NewName="OriginSnapshot_CopyStrategy" />
+                <Param Name="OpenZFSConfiguration_OriginSnapshot_SnapshotARN" NewName="OriginSnapshot_SnapshotARN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVolumeFromBackup" OutputProperty="Volume" Verb="New" Noun="VolumeFromBackup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OntapConfiguration_AggregateConfiguration_Aggregates" NewName="AggregateConfiguration_Aggregate" />
+                <Param Name="OntapConfiguration_AggregateConfiguration_ConstituentsPerAggregate" NewName="AggregateConfiguration_ConstituentsPerAggregate" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_AuditLogVolume" NewName="SnaplockConfiguration_AuditLogVolume" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Type" NewName="AutocommitPeriod_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Value" NewName="AutocommitPeriod_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_PrivilegedDelete" NewName="SnaplockConfiguration_PrivilegedDelete" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Type" NewName="DefaultRetention_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Value" NewName="DefaultRetention_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Type" NewName="MaximumRetention_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Value" NewName="MaximumRetention_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Type" NewName="MinimumRetention_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Value" NewName="MinimumRetention_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_SnaplockType" NewName="SnaplockConfiguration_SnaplockType" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_VolumeAppendModeEnabled" NewName="SnaplockConfiguration_VolumeAppendModeEnabled" />
+                <Param Name="OntapConfiguration_TieringPolicy_CoolingPeriod" NewName="TieringPolicy_CoolingPeriod" />
+                <Param Name="OntapConfiguration_TieringPolicy_Name" NewName="TieringPolicy_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBackup" OutputProperty="*" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -192,7 +269,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataRepositoryAssociation" OutputProperty="Association" Verb="Update" Noun="DataRepositoryAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="S3_AutoExportPolicy_Events" NewName="AutoExportPolicy_Event" />
+                <Param Name="S3_AutoImportPolicy_Events" NewName="AutoImportPolicy_Event" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFileCache" OutputProperty="FileCache" Verb="Update" Noun="FileCache" ShouldProcessTarget="FileCacheId" PipelineParameter="FileCacheId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -205,6 +285,8 @@
                 <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Iops" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Iops" />
                 <Param Name="OntapConfiguration_DiskIopsConfiguration_Mode" NewName="OntapConfiguration_DiskIopsConfiguration_Mode" />
                 <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Mode" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Mode" />
+                <Param Name="OpenZFSConfiguration_ReadCacheConfiguration_SizeGiB" NewName="ReadCacheConfiguration_SizeGiB" />
+                <Param Name="OpenZFSConfiguration_ReadCacheConfiguration_SizingMode" NewName="ReadCacheConfiguration_SizingMode" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -217,11 +299,33 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStorageVirtualMachine" OutputProperty="StorageVirtualMachine" Verb="Update" Noun="StorageVirtualMachine" ShouldProcessTarget="StorageVirtualMachineId" PipelineParameter="StorageVirtualMachineId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_DnsIps" NewName="SelfManagedActiveDirectoryConfiguration_DnsIp" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret" NewName="SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_DomainName" NewName="SelfManagedActiveDirectoryConfiguration_DomainName" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup" NewName="SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName" NewName="SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_Password" NewName="SelfManagedActiveDirectoryConfiguration_Password" />
+                <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_UserName" NewName="SelfManagedActiveDirectoryConfiguration_UserName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVolume" OutputProperty="Volume" Verb="Update" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OntapConfiguration_SnaplockConfiguration_AuditLogVolume" NewName="SnaplockConfiguration_AuditLogVolume" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Type" NewName="AutocommitPeriod_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Value" NewName="AutocommitPeriod_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_PrivilegedDelete" NewName="SnaplockConfiguration_PrivilegedDelete" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Type" NewName="DefaultRetention_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Value" NewName="DefaultRetention_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Type" NewName="MaximumRetention_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Value" NewName="MaximumRetention_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Type" NewName="MinimumRetention_Type" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Value" NewName="MinimumRetention_Value" />
+                <Param Name="OntapConfiguration_SnaplockConfiguration_VolumeAppendModeEnabled" NewName="SnaplockConfiguration_VolumeAppendModeEnabled" />
+                <Param Name="OntapConfiguration_TieringPolicy_CoolingPeriod" NewName="TieringPolicy_CoolingPeriod" />
+                <Param Name="OntapConfiguration_TieringPolicy_Name" NewName="TieringPolicy_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

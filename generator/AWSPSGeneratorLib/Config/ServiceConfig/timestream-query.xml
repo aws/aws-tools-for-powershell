@@ -26,7 +26,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateScheduledQuery" OutputProperty="Arn" Verb="New" Noun="ScheduledQuery" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ErrorReportConfiguration_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
+                <Param Name="ErrorReportConfiguration_S3Configuration_EncryptionOption" NewName="S3Configuration_EncryptionOption" />
+                <Param Name="ErrorReportConfiguration_S3Configuration_ObjectKeyPrefix" NewName="S3Configuration_ObjectKeyPrefix" />
+                <Param Name="NotificationConfiguration_SnsConfiguration_TopicArn" NewName="SnsConfiguration_TopicArn" />
+                <Param Name="TargetConfiguration_TimestreamConfiguration_DatabaseName" NewName="TimestreamConfiguration_DatabaseName" />
+                <Param Name="TargetConfiguration_TimestreamConfiguration_DimensionMappings" NewName="TimestreamConfiguration_DimensionMapping" />
+                <Param Name="TargetConfiguration_TimestreamConfiguration_MeasureNameColumn" NewName="TimestreamConfiguration_MeasureNameColumn" />
+                <Param Name="TargetConfiguration_TimestreamConfiguration_MixedMeasureMappings" NewName="TimestreamConfiguration_MixedMeasureMapping" />
+                <Param Name="TargetConfiguration_TimestreamConfiguration_MultiMeasureMappings_MultiMeasureAttributeMappings" NewName="MultiMeasureMappings_MultiMeasureAttributeMapping" />
+                <Param Name="TargetConfiguration_TimestreamConfiguration_MultiMeasureMappings_TargetMultiMeasureName" NewName="MultiMeasureMappings_TargetMultiMeasureName" />
+                <Param Name="TargetConfiguration_TimestreamConfiguration_TableName" NewName="TimestreamConfiguration_TableName" />
+                <Param Name="TargetConfiguration_TimestreamConfiguration_TimeColumn" NewName="TimestreamConfiguration_TimeColumn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteScheduledQuery" Verb="Remove" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -74,7 +87,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="*" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="MaxQueryTCU" PipelineParameter="MaxQueryTCU" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="QueryCompute_ProvisionedCapacity_NotificationConfiguration_RoleArn" NewName="NotificationConfiguration_RoleArn" />
+                <Param Name="QueryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration_TopicArn" NewName="SnsConfiguration_TopicArn" />
+                <Param Name="QueryCompute_ProvisionedCapacity_TargetQueryTCU" NewName="ProvisionedCapacity_TargetQueryTCU" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateScheduledQuery" Verb="Update" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
