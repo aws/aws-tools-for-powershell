@@ -70,15 +70,24 @@
                 <Param Name="Schedule_Monthly_StartTime_Timezone" NewName="Schedule_Monthly_StartTime_Timezone" />
                 <Param Name="Schedule_Weekly_StartTime_TimeOfDay" NewName="Schedule_Weekly_StartTime_TimeOfDay" />
                 <Param Name="Schedule_Weekly_StartTime_Timezone" NewName="Schedule_Weekly_StartTime_Timezone" />
+                <Param Name="Schedule_Monthly_Day" NewName="Monthly_Day" />
+                <Param Name="Schedule_Weekly_Days" NewName="Weekly_Day" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeSecurityIntegration" OutputProperty="*" Verb="New" Noun="CodeSecurityIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Details_GitlabSelfManaged_AccessToken" NewName="GitlabSelfManaged_AccessToken" />
+                <Param Name="Details_GitlabSelfManaged_InstanceUrl" NewName="GitlabSelfManaged_InstanceUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeSecurityScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="New" Noun="CodeSecurityScanConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Configuration_ContinuousIntegrationScanConfiguration_SupportedEvents" NewName="ContinuousIntegrationScanConfiguration_SupportedEvent" />
+                <Param Name="Configuration_PeriodicScanConfiguration_Frequency" NewName="PeriodicScanConfiguration_Frequency" />
+                <Param Name="Configuration_PeriodicScanConfiguration_FrequencyExpression" NewName="PeriodicScanConfiguration_FrequencyExpression" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFilter" OutputProperty="Arn" Verb="New" Noun="Filter" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -234,7 +243,67 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFindingAggregations" OutputProperty="*" Verb="Get" Noun="FindingAggregationList" PipelineParameter="AggregationType" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AggregationRequest_AccountAggregation_FindingType" NewName="AccountAggregation_FindingType" />
+                <Param Name="AggregationRequest_AccountAggregation_ResourceType" NewName="AccountAggregation_ResourceType" />
+                <Param Name="AggregationRequest_AccountAggregation_SortBy" NewName="AccountAggregation_SortBy" />
+                <Param Name="AggregationRequest_AccountAggregation_SortOrder" NewName="AccountAggregation_SortOrder" />
+                <Param Name="AggregationRequest_AmiAggregation_Amis" NewName="AmiAggregation_Ami" />
+                <Param Name="AggregationRequest_AmiAggregation_SortBy" NewName="AmiAggregation_SortBy" />
+                <Param Name="AggregationRequest_AmiAggregation_SortOrder" NewName="AmiAggregation_SortOrder" />
+                <Param Name="AggregationRequest_AwsEcrContainerAggregation_Architectures" NewName="AwsEcrContainerAggregation_Architecture" />
+                <Param Name="AggregationRequest_AwsEcrContainerAggregation_ImageShas" NewName="AwsEcrContainerAggregation_ImageSha" />
+                <Param Name="AggregationRequest_AwsEcrContainerAggregation_ImageTags" NewName="AwsEcrContainerAggregation_ImageTag" />
+                <Param Name="AggregationRequest_AwsEcrContainerAggregation_InUseCount" NewName="AwsEcrContainerAggregation_InUseCount" />
+                <Param Name="AggregationRequest_AwsEcrContainerAggregation_LastInUseAt" NewName="AwsEcrContainerAggregation_LastInUseAt" />
+                <Param Name="AggregationRequest_AwsEcrContainerAggregation_Repositories" NewName="AwsEcrContainerAggregation_Repository" />
+                <Param Name="AggregationRequest_AwsEcrContainerAggregation_ResourceIds" NewName="AwsEcrContainerAggregation_ResourceId" />
+                <Param Name="AggregationRequest_AwsEcrContainerAggregation_SortBy" NewName="AwsEcrContainerAggregation_SortBy" />
+                <Param Name="AggregationRequest_AwsEcrContainerAggregation_SortOrder" NewName="AwsEcrContainerAggregation_SortOrder" />
+                <Param Name="AggregationRequest_CodeRepositoryAggregation_ProjectNames" NewName="CodeRepositoryAggregation_ProjectName" />
+                <Param Name="AggregationRequest_CodeRepositoryAggregation_ProviderTypes" NewName="CodeRepositoryAggregation_ProviderType" />
+                <Param Name="AggregationRequest_CodeRepositoryAggregation_ResourceIds" NewName="CodeRepositoryAggregation_ResourceId" />
+                <Param Name="AggregationRequest_CodeRepositoryAggregation_SortBy" NewName="CodeRepositoryAggregation_SortBy" />
+                <Param Name="AggregationRequest_CodeRepositoryAggregation_SortOrder" NewName="CodeRepositoryAggregation_SortOrder" />
+                <Param Name="AggregationRequest_Ec2InstanceAggregation_Amis" NewName="Ec2InstanceAggregation_Ami" />
+                <Param Name="AggregationRequest_Ec2InstanceAggregation_InstanceIds" NewName="Ec2InstanceAggregation_InstanceId" />
+                <Param Name="AggregationRequest_Ec2InstanceAggregation_InstanceTags" NewName="Ec2InstanceAggregation_InstanceTag" />
+                <Param Name="AggregationRequest_Ec2InstanceAggregation_OperatingSystems" NewName="Ec2InstanceAggregation_OperatingSystem" />
+                <Param Name="AggregationRequest_Ec2InstanceAggregation_SortBy" NewName="Ec2InstanceAggregation_SortBy" />
+                <Param Name="AggregationRequest_Ec2InstanceAggregation_SortOrder" NewName="Ec2InstanceAggregation_SortOrder" />
+                <Param Name="AggregationRequest_FindingTypeAggregation_FindingType" NewName="FindingTypeAggregation_FindingType" />
+                <Param Name="AggregationRequest_FindingTypeAggregation_ResourceType" NewName="FindingTypeAggregation_ResourceType" />
+                <Param Name="AggregationRequest_FindingTypeAggregation_SortBy" NewName="FindingTypeAggregation_SortBy" />
+                <Param Name="AggregationRequest_FindingTypeAggregation_SortOrder" NewName="FindingTypeAggregation_SortOrder" />
+                <Param Name="AggregationRequest_ImageLayerAggregation_LayerHashes" NewName="ImageLayerAggregation_LayerHash" />
+                <Param Name="AggregationRequest_ImageLayerAggregation_Repositories" NewName="ImageLayerAggregation_Repository" />
+                <Param Name="AggregationRequest_ImageLayerAggregation_ResourceIds" NewName="ImageLayerAggregation_ResourceId" />
+                <Param Name="AggregationRequest_ImageLayerAggregation_SortBy" NewName="ImageLayerAggregation_SortBy" />
+                <Param Name="AggregationRequest_ImageLayerAggregation_SortOrder" NewName="ImageLayerAggregation_SortOrder" />
+                <Param Name="AggregationRequest_LambdaFunctionAggregation_FunctionNames" NewName="LambdaFunctionAggregation_FunctionName" />
+                <Param Name="AggregationRequest_LambdaFunctionAggregation_FunctionTags" NewName="LambdaFunctionAggregation_FunctionTag" />
+                <Param Name="AggregationRequest_LambdaFunctionAggregation_ResourceIds" NewName="LambdaFunctionAggregation_ResourceId" />
+                <Param Name="AggregationRequest_LambdaFunctionAggregation_Runtimes" NewName="LambdaFunctionAggregation_Runtime" />
+                <Param Name="AggregationRequest_LambdaFunctionAggregation_SortBy" NewName="LambdaFunctionAggregation_SortBy" />
+                <Param Name="AggregationRequest_LambdaFunctionAggregation_SortOrder" NewName="LambdaFunctionAggregation_SortOrder" />
+                <Param Name="AggregationRequest_LambdaLayerAggregation_FunctionNames" NewName="LambdaLayerAggregation_FunctionName" />
+                <Param Name="AggregationRequest_LambdaLayerAggregation_LayerArns" NewName="LambdaLayerAggregation_LayerArn" />
+                <Param Name="AggregationRequest_LambdaLayerAggregation_ResourceIds" NewName="LambdaLayerAggregation_ResourceId" />
+                <Param Name="AggregationRequest_LambdaLayerAggregation_SortBy" NewName="LambdaLayerAggregation_SortBy" />
+                <Param Name="AggregationRequest_LambdaLayerAggregation_SortOrder" NewName="LambdaLayerAggregation_SortOrder" />
+                <Param Name="AggregationRequest_PackageAggregation_PackageNames" NewName="PackageAggregation_PackageName" />
+                <Param Name="AggregationRequest_PackageAggregation_SortBy" NewName="PackageAggregation_SortBy" />
+                <Param Name="AggregationRequest_PackageAggregation_SortOrder" NewName="PackageAggregation_SortOrder" />
+                <Param Name="AggregationRequest_RepositoryAggregation_Repositories" NewName="RepositoryAggregation_Repository" />
+                <Param Name="AggregationRequest_RepositoryAggregation_SortBy" NewName="RepositoryAggregation_SortBy" />
+                <Param Name="AggregationRequest_RepositoryAggregation_SortOrder" NewName="RepositoryAggregation_SortOrder" />
+                <Param Name="AggregationRequest_TitleAggregation_FindingType" NewName="TitleAggregation_FindingType" />
+                <Param Name="AggregationRequest_TitleAggregation_ResourceType" NewName="TitleAggregation_ResourceType" />
+                <Param Name="AggregationRequest_TitleAggregation_SortBy" NewName="TitleAggregation_SortBy" />
+                <Param Name="AggregationRequest_TitleAggregation_SortOrder" NewName="TitleAggregation_SortOrder" />
+                <Param Name="AggregationRequest_TitleAggregation_Titles" NewName="TitleAggregation_Title" />
+                <Param Name="AggregationRequest_TitleAggregation_VulnerabilityIds" NewName="TitleAggregation_VulnerabilityId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFindings" OutputProperty="Findings" Verb="Get" Noun="FindingList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -284,6 +353,17 @@
         <ServiceOperation MethodName="StopCisSession" Verb="Stop" Noun="CisSession" ShouldProcessTarget="ScanJobId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SessionToken" NewName="CisSessionToken" AutoApplyAlias="false" />
+                <Param Name="Message_ComputePlatform_Product" NewName="ComputePlatform_Product" />
+                <Param Name="Message_ComputePlatform_Vendor" NewName="ComputePlatform_Vendor" />
+                <Param Name="Message_ComputePlatform_Version" NewName="ComputePlatform_Version" />
+                <Param Name="Message_Progress_ErrorChecks" NewName="Progress_ErrorCheck" />
+                <Param Name="Message_Progress_FailedChecks" NewName="Progress_FailedCheck" />
+                <Param Name="Message_Progress_InformationalChecks" NewName="Progress_InformationalCheck" />
+                <Param Name="Message_Progress_NotApplicableChecks" NewName="Progress_NotApplicableCheck" />
+                <Param Name="Message_Progress_NotEvaluatedChecks" NewName="Progress_NotEvaluatedCheck" />
+                <Param Name="Message_Progress_SuccessfulChecks" NewName="Progress_SuccessfulCheck" />
+                <Param Name="Message_Progress_TotalChecks" NewName="Progress_TotalCheck" />
+                <Param Name="Message_Progress_UnknownChecks" NewName="Progress_UnknownCheck" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -303,15 +383,25 @@
                 <Param Name="Schedule_Monthly_StartTime_Timezone" NewName="Schedule_Monthly_StartTime_Timezone" />
                 <Param Name="Schedule_Weekly_StartTime_TimeOfDay" NewName="Schedule_Weekly_StartTime_TimeOfDay" />
                 <Param Name="Schedule_Weekly_StartTime_Timezone" NewName="Schedule_Weekly_StartTime_Timezone" />
+                <Param Name="Schedule_Monthly_Day" NewName="Monthly_Day" />
+                <Param Name="Schedule_Weekly_Days" NewName="Weekly_Day" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCodeSecurityIntegration" OutputProperty="*" Verb="Update" Noun="CodeSecurityIntegration" ShouldProcessTarget="IntegrationArn" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Details_Github_Code" NewName="Github_Code" />
+                <Param Name="Details_Github_InstallationId" NewName="Github_InstallationId" />
+                <Param Name="Details_GitlabSelfManaged_AuthCode" NewName="GitlabSelfManaged_AuthCode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCodeSecurityScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="Update" Noun="CodeSecurityScanConfiguration" ShouldProcessTarget="ScanConfigurationArn" PipelineParameter="ScanConfigurationArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Configuration_ContinuousIntegrationScanConfiguration_SupportedEvents" NewName="ContinuousIntegrationScanConfiguration_SupportedEvent" />
+                <Param Name="Configuration_PeriodicScanConfiguration_Frequency" NewName="PeriodicScanConfiguration_Frequency" />
+                <Param Name="Configuration_PeriodicScanConfiguration_FrequencyExpression" NewName="PeriodicScanConfiguration_FrequencyExpression" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguration" Verb="Update" Noun="Configuration" ShouldProcessTarget="EcrConfiguration_RescanDuration" PipelineParameter="EcrConfiguration_RescanDuration" NoPipelineParameter="false" LegacyV4Pagination="true">

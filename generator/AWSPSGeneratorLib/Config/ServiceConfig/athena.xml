@@ -63,6 +63,34 @@
             <Params>
                 <Param Name="Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey" NewName="Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey" />
                 <Param Name="Configuration_ResultConfiguration_EncryptionConfiguration_KmsKey" NewName="Configuration_ResultConfiguration_EncryptionConfiguration_KmsKey" Alias="EncryptionConfiguration_KmsKey" />
+                <Param Name="Configuration_CustomerContentEncryptionConfiguration_KmsKey" NewName="CustomerContentEncryptionConfiguration_KmsKey" />
+                <Param Name="Configuration_EngineConfiguration_AdditionalConfigs" NewName="EngineConfiguration_AdditionalConfig" />
+                <Param Name="Configuration_EngineConfiguration_Classifications" NewName="EngineConfiguration_Classification" />
+                <Param Name="Configuration_EngineConfiguration_CoordinatorDpuSize" NewName="EngineConfiguration_CoordinatorDpuSize" />
+                <Param Name="Configuration_EngineConfiguration_DefaultExecutorDpuSize" NewName="EngineConfiguration_DefaultExecutorDpuSize" />
+                <Param Name="Configuration_EngineConfiguration_MaxConcurrentDpus" NewName="EngineConfiguration_MaxConcurrentDpus" />
+                <Param Name="Configuration_EngineConfiguration_SparkProperties" NewName="EngineConfiguration_SparkProperty" />
+                <Param Name="Configuration_EngineVersion_EffectiveEngineVersion" NewName="EngineVersion_EffectiveEngineVersion" />
+                <Param Name="Configuration_EngineVersion_SelectedEngineVersion" NewName="EngineVersion_SelectedEngineVersion" />
+                <Param Name="Configuration_IdentityCenterConfiguration_EnableIdentityCenter" NewName="IdentityCenterConfiguration_EnableIdentityCenter" />
+                <Param Name="Configuration_IdentityCenterConfiguration_IdentityCenterInstanceArn" NewName="IdentityCenterConfiguration_IdentityCenterInstanceArn" />
+                <Param Name="Configuration_ManagedQueryResultsConfiguration_Enabled" NewName="ManagedQueryResultsConfiguration_Enabled" />
+                <Param Name="Configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_Enabled" NewName="CloudWatchLoggingConfiguration_Enabled" />
+                <Param Name="Configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogGroup" NewName="CloudWatchLoggingConfiguration_LogGroup" />
+                <Param Name="Configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogStreamNamePrefix" NewName="CloudWatchLoggingConfiguration_LogStreamNamePrefix" />
+                <Param Name="Configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogTypes" NewName="CloudWatchLoggingConfiguration_LogType" />
+                <Param Name="Configuration_MonitoringConfiguration_ManagedLoggingConfiguration_Enabled" NewName="ManagedLoggingConfiguration_Enabled" />
+                <Param Name="Configuration_MonitoringConfiguration_ManagedLoggingConfiguration_KmsKey" NewName="ManagedLoggingConfiguration_KmsKey" />
+                <Param Name="Configuration_MonitoringConfiguration_S3LoggingConfiguration_Enabled" NewName="S3LoggingConfiguration_Enabled" />
+                <Param Name="Configuration_MonitoringConfiguration_S3LoggingConfiguration_KmsKey" NewName="S3LoggingConfiguration_KmsKey" />
+                <Param Name="Configuration_MonitoringConfiguration_S3LoggingConfiguration_LogLocation" NewName="S3LoggingConfiguration_LogLocation" />
+                <Param Name="Configuration_QueryResultsS3AccessGrantsConfiguration_AuthenticationType" NewName="QueryResultsS3AccessGrantsConfiguration_AuthenticationType" />
+                <Param Name="Configuration_QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix" NewName="QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix" />
+                <Param Name="Configuration_QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrants" NewName="QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant" />
+                <Param Name="Configuration_ResultConfiguration_AclConfiguration_S3AclOption" NewName="AclConfiguration_S3AclOption" />
+                <Param Name="Configuration_ResultConfiguration_EncryptionConfiguration_EncryptionOption" NewName="EncryptionConfiguration_EncryptionOption" />
+                <Param Name="Configuration_ResultConfiguration_ExpectedBucketOwner" NewName="ResultConfiguration_ExpectedBucketOwner" />
+                <Param Name="Configuration_ResultConfiguration_OutputLocation" NewName="ResultConfiguration_OutputLocation" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -247,11 +275,27 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartQueryExecution" OutputProperty="QueryExecutionId" Verb="Start" Noun="QueryExecution" ShouldProcessTarget="QueryString" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResultConfiguration_AclConfiguration_S3AclOption" NewName="AclConfiguration_S3AclOption" />
+                <Param Name="ResultConfiguration_EncryptionConfiguration_EncryptionOption" NewName="EncryptionConfiguration_EncryptionOption" />
+                <Param Name="ResultConfiguration_EncryptionConfiguration_KmsKey" NewName="EncryptionConfiguration_KmsKey" />
+                <Param Name="ResultReuseConfiguration_ResultReuseByAgeConfiguration_Enabled" NewName="ResultReuseByAgeConfiguration_Enabled" />
+                <Param Name="ResultReuseConfiguration_ResultReuseByAgeConfiguration_MaxAgeInMinutes" NewName="ResultReuseByAgeConfiguration_MaxAgeInMinute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartSession" OutputProperty="*" Verb="Start" Noun="Session" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_Enabled" NewName="CloudWatchLoggingConfiguration_Enabled" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_LogGroup" NewName="CloudWatchLoggingConfiguration_LogGroup" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_LogStreamNamePrefix" NewName="CloudWatchLoggingConfiguration_LogStreamNamePrefix" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_LogTypes" NewName="CloudWatchLoggingConfiguration_LogType" />
+                <Param Name="MonitoringConfiguration_ManagedLoggingConfiguration_Enabled" NewName="ManagedLoggingConfiguration_Enabled" />
+                <Param Name="MonitoringConfiguration_ManagedLoggingConfiguration_KmsKey" NewName="ManagedLoggingConfiguration_KmsKey" />
+                <Param Name="MonitoringConfiguration_S3LoggingConfiguration_Enabled" NewName="S3LoggingConfiguration_Enabled" />
+                <Param Name="MonitoringConfiguration_S3LoggingConfiguration_KmsKey" NewName="S3LoggingConfiguration_KmsKey" />
+                <Param Name="MonitoringConfiguration_S3LoggingConfiguration_LogLocation" NewName="S3LoggingConfiguration_LogLocation" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopCalculationExecution" OutputProperty="State" Verb="Stop" Noun="CalculationExecution" ShouldProcessTarget="CalculationExecutionId" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -302,6 +346,37 @@
             <Params>
                 <Param Name="ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey" NewName="ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey" />
                 <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey" NewName="ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey" Alias="EncryptionConfiguration_KmsKey" />
+                <Param Name="ConfigurationUpdates_CustomerContentEncryptionConfiguration_KmsKey" NewName="CustomerContentEncryptionConfiguration_KmsKey" />
+                <Param Name="ConfigurationUpdates_EngineConfiguration_AdditionalConfigs" NewName="EngineConfiguration_AdditionalConfig" />
+                <Param Name="ConfigurationUpdates_EngineConfiguration_Classifications" NewName="EngineConfiguration_Classification" />
+                <Param Name="ConfigurationUpdates_EngineConfiguration_CoordinatorDpuSize" NewName="EngineConfiguration_CoordinatorDpuSize" />
+                <Param Name="ConfigurationUpdates_EngineConfiguration_DefaultExecutorDpuSize" NewName="EngineConfiguration_DefaultExecutorDpuSize" />
+                <Param Name="ConfigurationUpdates_EngineConfiguration_MaxConcurrentDpus" NewName="EngineConfiguration_MaxConcurrentDpus" />
+                <Param Name="ConfigurationUpdates_EngineConfiguration_SparkProperties" NewName="EngineConfiguration_SparkProperty" />
+                <Param Name="ConfigurationUpdates_EngineVersion_EffectiveEngineVersion" NewName="EngineVersion_EffectiveEngineVersion" />
+                <Param Name="ConfigurationUpdates_EngineVersion_SelectedEngineVersion" NewName="EngineVersion_SelectedEngineVersion" />
+                <Param Name="ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_Enabled" NewName="ManagedQueryResultsConfigurationUpdates_Enabled" />
+                <Param Name="ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration" NewName="ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration" />
+                <Param Name="ConfigurationUpdates_MonitoringConfiguration_CloudWatchLoggingConfiguration_Enabled" NewName="CloudWatchLoggingConfiguration_Enabled" />
+                <Param Name="ConfigurationUpdates_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogGroup" NewName="CloudWatchLoggingConfiguration_LogGroup" />
+                <Param Name="ConfigurationUpdates_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogStreamNamePrefix" NewName="CloudWatchLoggingConfiguration_LogStreamNamePrefix" />
+                <Param Name="ConfigurationUpdates_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogTypes" NewName="CloudWatchLoggingConfiguration_LogType" />
+                <Param Name="ConfigurationUpdates_MonitoringConfiguration_ManagedLoggingConfiguration_Enabled" NewName="ManagedLoggingConfiguration_Enabled" />
+                <Param Name="ConfigurationUpdates_MonitoringConfiguration_ManagedLoggingConfiguration_KmsKey" NewName="ManagedLoggingConfiguration_KmsKey" />
+                <Param Name="ConfigurationUpdates_MonitoringConfiguration_S3LoggingConfiguration_Enabled" NewName="S3LoggingConfiguration_Enabled" />
+                <Param Name="ConfigurationUpdates_MonitoringConfiguration_S3LoggingConfiguration_KmsKey" NewName="S3LoggingConfiguration_KmsKey" />
+                <Param Name="ConfigurationUpdates_MonitoringConfiguration_S3LoggingConfiguration_LogLocation" NewName="S3LoggingConfiguration_LogLocation" />
+                <Param Name="ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_AuthenticationType" NewName="QueryResultsS3AccessGrantsConfiguration_AuthenticationType" />
+                <Param Name="ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix" NewName="QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix" />
+                <Param Name="ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrants" NewName="QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant" />
+                <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_AclConfiguration_S3AclOption" NewName="AclConfiguration_S3AclOption" />
+                <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_EncryptionOption" NewName="EncryptionConfiguration_EncryptionOption" />
+                <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_ExpectedBucketOwner" NewName="ResultConfigurationUpdates_ExpectedBucketOwner" />
+                <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_OutputLocation" NewName="ResultConfigurationUpdates_OutputLocation" />
+                <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_RemoveAclConfiguration" NewName="ResultConfigurationUpdates_RemoveAclConfiguration" />
+                <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_RemoveEncryptionConfiguration" NewName="ResultConfigurationUpdates_RemoveEncryptionConfiguration" />
+                <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_RemoveExpectedBucketOwner" NewName="ResultConfigurationUpdates_RemoveExpectedBucketOwner" />
+                <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_RemoveOutputLocation" NewName="ResultConfigurationUpdates_RemoveOutputLocation" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

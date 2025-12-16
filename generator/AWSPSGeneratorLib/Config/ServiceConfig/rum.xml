@@ -31,7 +31,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAppMonitor" OutputProperty="Id" Verb="New" Noun="AppMonitor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeobfuscationConfiguration_JavaScriptSourceMaps_S3Uri" NewName="JavaScriptSourceMaps_S3Uri" />
+                <Param Name="DeobfuscationConfiguration_JavaScriptSourceMaps_Status" NewName="JavaScriptSourceMaps_Status" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAppMonitor" Verb="Remove" Noun="AppMonitor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -91,7 +94,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAppMonitor" Verb="Update" Noun="AppMonitor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeobfuscationConfiguration_JavaScriptSourceMaps_S3Uri" NewName="JavaScriptSourceMaps_S3Uri" />
+                <Param Name="DeobfuscationConfiguration_JavaScriptSourceMaps_Status" NewName="JavaScriptSourceMaps_Status" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRumMetricDefinition" Verb="Update" Noun="RumMetricDefinition" ShouldProcessTarget="MetricDefinitionId" PipelineParameter="MetricDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">

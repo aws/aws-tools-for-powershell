@@ -40,11 +40,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCapability" OutputProperty="Capability" Verb="New" Noun="Capability" ShouldProcessTarget="CapabilityName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_ArgoCd_AwsIdc_IdcInstanceArn" NewName="AwsIdc_IdcInstanceArn" />
+                <Param Name="Configuration_ArgoCd_AwsIdc_IdcRegion" NewName="AwsIdc_IdcRegion" />
+                <Param Name="Configuration_ArgoCd_Namespace" NewName="ArgoCd_Namespace" />
+                <Param Name="Configuration_ArgoCd_NetworkAccess_VpceIds" NewName="NetworkAccess_VpceId" />
+                <Param Name="Configuration_ArgoCd_RbacRoleMappings" NewName="ArgoCd_RbacRoleMapping" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="KubernetesNetworkConfig_ElasticLoadBalancing_Enabled" NewName="ElasticLoadBalancing_Enabled" />
+                <Param Name="OutpostConfig_ControlPlanePlacement_GroupName" NewName="ControlPlanePlacement_GroupName" />
+                <Param Name="StorageConfig_BlockStorage_Enabled" NewName="BlockStorage_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEksAnywhereSubscription" OutputProperty="Subscription" Verb="New" Noun="EksAnywhereSubscription" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -248,11 +258,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCapability" OutputProperty="Update" Verb="Update" Noun="Capability" ShouldProcessTarget="CapabilityName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_ArgoCd_NetworkAccess_VpceIds" NewName="NetworkAccess_VpceId" />
+                <Param Name="Configuration_ArgoCd_RbacRoleMappings_AddOrUpdateRoleMappings" NewName="RbacRoleMappings_AddOrUpdateRoleMapping" />
+                <Param Name="Configuration_ArgoCd_RbacRoleMappings_RemoveRoleMappings" NewName="RbacRoleMappings_RemoveRoleMapping" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterConfig" OutputProperty="Update" Verb="Update" Noun="ClusterConfig" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="KubernetesNetworkConfig_ElasticLoadBalancing_Enabled" NewName="ElasticLoadBalancing_Enabled" />
+                <Param Name="StorageConfig_BlockStorage_Enabled" NewName="BlockStorage_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterVersion" OutputProperty="Update" Verb="Update" Noun="ClusterVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -27,11 +27,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateListener" OutputProperty="*" Verb="New" Noun="Listener" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DefaultAction_FixedResponse_StatusCode" NewName="FixedResponse_StatusCode" />
+                <Param Name="DefaultAction_Forward_TargetGroups" NewName="Forward_TargetGroup" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateResourceConfiguration" OutputProperty="*" Verb="New" Noun="ResourceConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfigurationDefinition_ArnResource_Arn" NewName="ArnResource_Arn" />
+                <Param Name="ResourceConfigurationDefinition_DnsResource_DomainName" NewName="DnsResource_DomainName" />
+                <Param Name="ResourceConfigurationDefinition_DnsResource_IpAddressType" NewName="DnsResource_IpAddressType" />
+                <Param Name="ResourceConfigurationDefinition_IpResource_IpAddress" NewName="IpResource_IpAddress" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateResourceGateway" OutputProperty="*" Verb="New" Noun="ResourceGateway" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -39,7 +47,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Action_FixedResponse_StatusCode" NewName="FixedResponse_StatusCode" />
+                <Param Name="Action_Forward_TargetGroups" NewName="Forward_TargetGroup" />
+                <Param Name="Match_HttpMatch_HeaderMatches" NewName="HttpMatch_HeaderMatch" />
+                <Param Name="Match_HttpMatch_Method" NewName="HttpMatch_Method" />
+                <Param Name="Match_HttpMatch_PathMatch_CaseSensitive" NewName="PathMatch_CaseSensitive" />
+                <Param Name="Match_HttpMatch_PathMatch_Match_Exact" NewName="Match_Exact" />
+                <Param Name="Match_HttpMatch_PathMatch_Match_Prefix" NewName="Match_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -63,7 +79,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTargetGroup" OutputProperty="*" Verb="New" Noun="TargetGroup" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Config_HealthCheck_Enabled" NewName="HealthCheck_Enabled" />
+                <Param Name="Config_HealthCheck_HealthCheckIntervalSeconds" NewName="HealthCheck_HealthCheckIntervalSecond" />
+                <Param Name="Config_HealthCheck_HealthCheckTimeoutSeconds" NewName="HealthCheck_HealthCheckTimeoutSecond" />
+                <Param Name="Config_HealthCheck_HealthyThresholdCount" NewName="HealthCheck_HealthyThresholdCount" />
+                <Param Name="Config_HealthCheck_Matcher_HttpCode" NewName="Matcher_HttpCode" />
+                <Param Name="Config_HealthCheck_Path" NewName="HealthCheck_Path" />
+                <Param Name="Config_HealthCheck_Port" NewName="HealthCheck_Port" />
+                <Param Name="Config_HealthCheck_Protocol" NewName="HealthCheck_Protocol" />
+                <Param Name="Config_HealthCheck_ProtocolVersion" NewName="HealthCheck_ProtocolVersion" />
+                <Param Name="Config_HealthCheck_UnhealthyThresholdCount" NewName="HealthCheck_UnhealthyThresholdCount" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccessLogSubscription" Verb="Remove" Noun="AccessLogSubscription" ShouldProcessTarget="AccessLogSubscriptionIdentifier" PipelineParameter="AccessLogSubscriptionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -279,11 +306,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateListener" OutputProperty="*" Verb="Update" Noun="Listener" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DefaultAction_FixedResponse_StatusCode" NewName="FixedResponse_StatusCode" />
+                <Param Name="DefaultAction_Forward_TargetGroups" NewName="Forward_TargetGroup" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResourceConfiguration" OutputProperty="*" Verb="Update" Noun="ResourceConfiguration" ShouldProcessTarget="ResourceConfigurationIdentifier" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfigurationDefinition_ArnResource_Arn" NewName="ArnResource_Arn" />
+                <Param Name="ResourceConfigurationDefinition_DnsResource_DomainName" NewName="DnsResource_DomainName" />
+                <Param Name="ResourceConfigurationDefinition_DnsResource_IpAddressType" NewName="DnsResource_IpAddressType" />
+                <Param Name="ResourceConfigurationDefinition_IpResource_IpAddress" NewName="IpResource_IpAddress" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResourceGateway" OutputProperty="*" Verb="Update" Noun="ResourceGateway" ShouldProcessTarget="ResourceGatewayIdentifier" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -291,7 +326,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRule" OutputProperty="*" Verb="Update" Noun="Rule" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Action_FixedResponse_StatusCode" NewName="FixedResponse_StatusCode" />
+                <Param Name="Action_Forward_TargetGroups" NewName="Forward_TargetGroup" />
+                <Param Name="Match_HttpMatch_HeaderMatches" NewName="HttpMatch_HeaderMatch" />
+                <Param Name="Match_HttpMatch_Method" NewName="HttpMatch_Method" />
+                <Param Name="Match_HttpMatch_PathMatch_CaseSensitive" NewName="PathMatch_CaseSensitive" />
+                <Param Name="Match_HttpMatch_PathMatch_Match_Exact" NewName="Match_Exact" />
+                <Param Name="Match_HttpMatch_PathMatch_Match_Prefix" NewName="Match_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateService" OutputProperty="*" Verb="Update" Noun="Service" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -307,7 +350,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTargetGroup" OutputProperty="*" Verb="Update" Noun="TargetGroup" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HealthCheck_Matcher_HttpCode" NewName="Matcher_HttpCode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -27,7 +27,59 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchPutTaxRegistration" OutputProperty="*" Verb="Write" Noun="TaxRegistrationBatch" ShouldProcessTarget="TaxRegistrationEntry_RegistrationId" PipelineParameter="TaxRegistrationEntry_RegistrationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_CanadaAdditionalInfo_CanadaQuebecSalesTaxNumber" NewName="CanadaAdditionalInfo_CanadaQuebecSalesTaxNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_CanadaAdditionalInfo_CanadaRetailSalesTaxNumber" NewName="CanadaAdditionalInfo_CanadaRetailSalesTaxNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_CanadaAdditionalInfo_IsResellerAccount" NewName="CanadaAdditionalInfo_IsResellerAccount" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_CanadaAdditionalInfo_ProvincialSalesTaxId" NewName="CanadaAdditionalInfo_ProvincialSalesTaxId" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_EgyptAdditionalInfo_UniqueIdentificationNumber" NewName="EgyptAdditionalInfo_UniqueIdentificationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate" NewName="EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_EstoniaAdditionalInfo_RegistryCommercialCode" NewName="EstoniaAdditionalInfo_RegistryCommercialCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_GeorgiaAdditionalInfo_PersonType" NewName="GeorgiaAdditionalInfo_PersonType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_GreeceAdditionalInfo_ContractingAuthorityCode" NewName="GreeceAdditionalInfo_ContractingAuthorityCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_DecisionNumber" NewName="IndonesiaAdditionalInfo_DecisionNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_PpnExceptionDesignationCode" NewName="IndonesiaAdditionalInfo_PpnExceptionDesignationCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_TaxRegistrationNumberType" NewName="IndonesiaAdditionalInfo_TaxRegistrationNumberType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IsraelAdditionalInfo_CustomerType" NewName="IsraelAdditionalInfo_CustomerType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IsraelAdditionalInfo_DealerType" NewName="IsraelAdditionalInfo_DealerType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CigNumber" NewName="ItalyAdditionalInfo_CigNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CupNumber" NewName="ItalyAdditionalInfo_CupNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_SdiAccountId" NewName="ItalyAdditionalInfo_SdiAccountId" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_TaxCode" NewName="ItalyAdditionalInfo_TaxCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_KenyaAdditionalInfo_PersonType" NewName="KenyaAdditionalInfo_PersonType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_BusinessRegistrationNumber" NewName="MalaysiaAdditionalInfo_BusinessRegistrationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_ServiceTaxCodes" NewName="MalaysiaAdditionalInfo_ServiceTaxCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_TaxInformationNumber" NewName="MalaysiaAdditionalInfo_TaxInformationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_IndividualRegistrationNumber" NewName="PolandAdditionalInfo_IndividualRegistrationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_IsGroupVatEnabled" NewName="PolandAdditionalInfo_IsGroupVatEnabled" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_RomaniaAdditionalInfo_TaxRegistrationNumberType" NewName="RomaniaAdditionalInfo_TaxRegistrationNumberType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SaudiArabiaAdditionalInfo_TaxRegistrationNumberType" NewName="SaudiArabiaAdditionalInfo_TaxRegistrationNumberType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SouthKoreaAdditionalInfo_BusinessRepresentativeName" NewName="SouthKoreaAdditionalInfo_BusinessRepresentativeName" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SouthKoreaAdditionalInfo_ItemOfBusiness" NewName="SouthKoreaAdditionalInfo_ItemOfBusiness" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SouthKoreaAdditionalInfo_LineOfBusiness" NewName="SouthKoreaAdditionalInfo_LineOfBusiness" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SpainAdditionalInfo_RegistrationType" NewName="SpainAdditionalInfo_RegistrationType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo_Industries" NewName="TurkeyAdditionalInfo_Industry" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo_KepEmailId" NewName="TurkeyAdditionalInfo_KepEmailId" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo_SecondaryTaxId" NewName="TurkeyAdditionalInfo_SecondaryTaxId" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo_TaxOffice" NewName="TurkeyAdditionalInfo_TaxOffice" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_UkraineAdditionalInfo_UkraineTrnType" NewName="UkraineAdditionalInfo_UkraineTrnType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_TaxRegistrationNumberType" NewName="UzbekistanAdditionalInfo_TaxRegistrationNumberType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_VatRegistrationNumber" NewName="UzbekistanAdditionalInfo_VatRegistrationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_ElectronicTransactionCodeNumber" NewName="VietnamAdditionalInfo_ElectronicTransactionCodeNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_EnterpriseIdentificationNumber" NewName="VietnamAdditionalInfo_EnterpriseIdentificationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_PaymentVoucherNumber" NewName="VietnamAdditionalInfo_PaymentVoucherNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_PaymentVoucherNumberDate" NewName="VietnamAdditionalInfo_PaymentVoucherNumberDate" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_AddressLine1" NewName="LegalAddress_AddressLine1" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_AddressLine2" NewName="LegalAddress_AddressLine2" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_AddressLine3" NewName="LegalAddress_AddressLine3" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_City" NewName="LegalAddress_City" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_CountryCode" NewName="LegalAddress_CountryCode" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_DistrictOrCounty" NewName="LegalAddress_DistrictOrCounty" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_PostalCode" NewName="LegalAddress_PostalCode" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_StateOrRegion" NewName="LegalAddress_StateOrRegion" />
+                <Param Name="TaxRegistrationEntry_VerificationDetails_DateOfBirth" NewName="VerificationDetails_DateOfBirth" />
+                <Param Name="TaxRegistrationEntry_VerificationDetails_TaxRegistrationDocuments" NewName="VerificationDetails_TaxRegistrationDocument" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteSupplementalTaxRegistration" Verb="Remove" Noun="SupplementalTaxRegistration" ShouldProcessTarget="AuthorityId" PipelineParameter="AuthorityId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -67,7 +119,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutSupplementalTaxRegistration" OutputProperty="*" Verb="Write" Noun="SupplementalTaxRegistration" ShouldProcessTarget="TaxRegistrationEntry_RegistrationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TaxRegistrationEntry_Address_AddressLine1" NewName="Address_AddressLine1" />
+                <Param Name="TaxRegistrationEntry_Address_AddressLine2" NewName="Address_AddressLine2" />
+                <Param Name="TaxRegistrationEntry_Address_AddressLine3" NewName="Address_AddressLine3" />
+                <Param Name="TaxRegistrationEntry_Address_City" NewName="Address_City" />
+                <Param Name="TaxRegistrationEntry_Address_CountryCode" NewName="Address_CountryCode" />
+                <Param Name="TaxRegistrationEntry_Address_DistrictOrCounty" NewName="Address_DistrictOrCounty" />
+                <Param Name="TaxRegistrationEntry_Address_PostalCode" NewName="Address_PostalCode" />
+                <Param Name="TaxRegistrationEntry_Address_StateOrRegion" NewName="Address_StateOrRegion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTaxExemption" OutputProperty="CaseId" Verb="Write" Noun="TaxExemption" ShouldProcessTarget="ExemptionCertificate_DocumentName" PipelineParameter="ExemptionType" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -79,7 +140,59 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTaxRegistration" OutputProperty="Status" Verb="Write" Noun="TaxRegistration" ShouldProcessTarget="TaxRegistrationEntry_RegistrationId" PipelineParameter="TaxRegistrationEntry_RegistrationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_CanadaAdditionalInfo_CanadaQuebecSalesTaxNumber" NewName="CanadaAdditionalInfo_CanadaQuebecSalesTaxNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_CanadaAdditionalInfo_CanadaRetailSalesTaxNumber" NewName="CanadaAdditionalInfo_CanadaRetailSalesTaxNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_CanadaAdditionalInfo_IsResellerAccount" NewName="CanadaAdditionalInfo_IsResellerAccount" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_CanadaAdditionalInfo_ProvincialSalesTaxId" NewName="CanadaAdditionalInfo_ProvincialSalesTaxId" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_EgyptAdditionalInfo_UniqueIdentificationNumber" NewName="EgyptAdditionalInfo_UniqueIdentificationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate" NewName="EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_EstoniaAdditionalInfo_RegistryCommercialCode" NewName="EstoniaAdditionalInfo_RegistryCommercialCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_GeorgiaAdditionalInfo_PersonType" NewName="GeorgiaAdditionalInfo_PersonType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_GreeceAdditionalInfo_ContractingAuthorityCode" NewName="GreeceAdditionalInfo_ContractingAuthorityCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_DecisionNumber" NewName="IndonesiaAdditionalInfo_DecisionNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_PpnExceptionDesignationCode" NewName="IndonesiaAdditionalInfo_PpnExceptionDesignationCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_TaxRegistrationNumberType" NewName="IndonesiaAdditionalInfo_TaxRegistrationNumberType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IsraelAdditionalInfo_CustomerType" NewName="IsraelAdditionalInfo_CustomerType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_IsraelAdditionalInfo_DealerType" NewName="IsraelAdditionalInfo_DealerType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CigNumber" NewName="ItalyAdditionalInfo_CigNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CupNumber" NewName="ItalyAdditionalInfo_CupNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_SdiAccountId" NewName="ItalyAdditionalInfo_SdiAccountId" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_TaxCode" NewName="ItalyAdditionalInfo_TaxCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_KenyaAdditionalInfo_PersonType" NewName="KenyaAdditionalInfo_PersonType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_BusinessRegistrationNumber" NewName="MalaysiaAdditionalInfo_BusinessRegistrationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_ServiceTaxCodes" NewName="MalaysiaAdditionalInfo_ServiceTaxCode" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_TaxInformationNumber" NewName="MalaysiaAdditionalInfo_TaxInformationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_IndividualRegistrationNumber" NewName="PolandAdditionalInfo_IndividualRegistrationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_IsGroupVatEnabled" NewName="PolandAdditionalInfo_IsGroupVatEnabled" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_RomaniaAdditionalInfo_TaxRegistrationNumberType" NewName="RomaniaAdditionalInfo_TaxRegistrationNumberType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SaudiArabiaAdditionalInfo_TaxRegistrationNumberType" NewName="SaudiArabiaAdditionalInfo_TaxRegistrationNumberType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SouthKoreaAdditionalInfo_BusinessRepresentativeName" NewName="SouthKoreaAdditionalInfo_BusinessRepresentativeName" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SouthKoreaAdditionalInfo_ItemOfBusiness" NewName="SouthKoreaAdditionalInfo_ItemOfBusiness" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SouthKoreaAdditionalInfo_LineOfBusiness" NewName="SouthKoreaAdditionalInfo_LineOfBusiness" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_SpainAdditionalInfo_RegistrationType" NewName="SpainAdditionalInfo_RegistrationType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo_Industries" NewName="TurkeyAdditionalInfo_Industry" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo_KepEmailId" NewName="TurkeyAdditionalInfo_KepEmailId" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo_SecondaryTaxId" NewName="TurkeyAdditionalInfo_SecondaryTaxId" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo_TaxOffice" NewName="TurkeyAdditionalInfo_TaxOffice" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_UkraineAdditionalInfo_UkraineTrnType" NewName="UkraineAdditionalInfo_UkraineTrnType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_TaxRegistrationNumberType" NewName="UzbekistanAdditionalInfo_TaxRegistrationNumberType" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_VatRegistrationNumber" NewName="UzbekistanAdditionalInfo_VatRegistrationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_ElectronicTransactionCodeNumber" NewName="VietnamAdditionalInfo_ElectronicTransactionCodeNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_EnterpriseIdentificationNumber" NewName="VietnamAdditionalInfo_EnterpriseIdentificationNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_PaymentVoucherNumber" NewName="VietnamAdditionalInfo_PaymentVoucherNumber" />
+                <Param Name="TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_PaymentVoucherNumberDate" NewName="VietnamAdditionalInfo_PaymentVoucherNumberDate" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_AddressLine1" NewName="LegalAddress_AddressLine1" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_AddressLine2" NewName="LegalAddress_AddressLine2" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_AddressLine3" NewName="LegalAddress_AddressLine3" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_City" NewName="LegalAddress_City" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_CountryCode" NewName="LegalAddress_CountryCode" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_DistrictOrCounty" NewName="LegalAddress_DistrictOrCounty" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_PostalCode" NewName="LegalAddress_PostalCode" />
+                <Param Name="TaxRegistrationEntry_LegalAddress_StateOrRegion" NewName="LegalAddress_StateOrRegion" />
+                <Param Name="TaxRegistrationEntry_VerificationDetails_DateOfBirth" NewName="VerificationDetails_DateOfBirth" />
+                <Param Name="TaxRegistrationEntry_VerificationDetails_TaxRegistrationDocuments" NewName="VerificationDetails_TaxRegistrationDocument" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

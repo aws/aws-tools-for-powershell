@@ -32,23 +32,45 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDatasetImportJob" OutputProperty="DatasetImportJobArn" Verb="New" Noun="DatasetImportJob" ShouldProcessTarget="DatasetImportJobName" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSource_S3Config_KMSKeyArn" NewName="S3Config_KMSKeyArn" />
+                <Param Name="DataSource_S3Config_Path" NewName="S3Config_Path" />
+                <Param Name="DataSource_S3Config_RoleArn" NewName="S3Config_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateExplainability" OutputProperty="ExplainabilityArn" Verb="New" Noun="Explainability" ShouldProcessTarget="ExplainabilityName" PipelineParameter="ExplainabilityName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSource_S3Config_KMSKeyArn" NewName="S3Config_KMSKeyArn" />
+                <Param Name="DataSource_S3Config_Path" NewName="S3Config_Path" />
+                <Param Name="DataSource_S3Config_RoleArn" NewName="S3Config_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateExplainabilityExport" OutputProperty="ExplainabilityExportArn" Verb="New" Noun="ExplainabilityExport" ShouldProcessTarget="ExplainabilityArn" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Destination_S3Config_KMSKeyArn" NewName="S3Config_KMSKeyArn" />
+                <Param Name="Destination_S3Config_Path" NewName="S3Config_Path" />
+                <Param Name="Destination_S3Config_RoleArn" NewName="S3Config_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateForecast" OutputProperty="ForecastArn" Verb="New" Noun="Forecast" ShouldProcessTarget="ForecastName" PipelineParameter="PredictorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_KMSKeyArn" NewName="S3Config_KMSKeyArn" />
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_Path" NewName="S3Config_Path" />
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_RoleArn" NewName="S3Config_RoleArn" />
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_Format" NewName="TimeSeriesIdentifiers_Format" />
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_Schema_Attributes" NewName="Schema_Attribute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateForecastExportJob" OutputProperty="ForecastExportJobArn" Verb="New" Noun="ForecastExportJob" ShouldProcessTarget="ForecastExportJobName" PipelineParameter="ForecastArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Destination_S3Config_KMSKeyArn" NewName="S3Config_KMSKeyArn" />
+                <Param Name="Destination_S3Config_Path" NewName="S3Config_Path" />
+                <Param Name="Destination_S3Config_RoleArn" NewName="S3Config_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMonitor" OutputProperty="MonitorArn" Verb="New" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -56,23 +78,46 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePredictor" OutputProperty="PredictorArn" Verb="New" Noun="Predictor" ShouldProcessTarget="PredictorName" PipelineParameter="PredictorName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HPOConfig_ParameterRanges_CategoricalParameterRanges" NewName="ParameterRanges_CategoricalParameterRange" />
+                <Param Name="HPOConfig_ParameterRanges_ContinuousParameterRanges" NewName="ParameterRanges_ContinuousParameterRange" />
+                <Param Name="HPOConfig_ParameterRanges_IntegerParameterRanges" NewName="ParameterRanges_IntegerParameterRange" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePredictorBacktestExportJob" OutputProperty="PredictorBacktestExportJobArn" Verb="New" Noun="PredictorBacktestExportJob" ShouldProcessTarget="PredictorBacktestExportJobName" PipelineParameter="PredictorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Destination_S3Config_KMSKeyArn" NewName="S3Config_KMSKeyArn" />
+                <Param Name="Destination_S3Config_Path" NewName="S3Config_Path" />
+                <Param Name="Destination_S3Config_RoleArn" NewName="S3Config_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWhatIfAnalysis" OutputProperty="WhatIfAnalysisArn" Verb="New" Noun="WhatIfAnalysis" ShouldProcessTarget="WhatIfAnalysisName" PipelineParameter="WhatIfAnalysisName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_KMSKeyArn" NewName="S3Config_KMSKeyArn" />
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_Path" NewName="S3Config_Path" />
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_RoleArn" NewName="S3Config_RoleArn" />
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_Format" NewName="TimeSeriesIdentifiers_Format" />
+                <Param Name="TimeSeriesSelector_TimeSeriesIdentifiers_Schema_Attributes" NewName="Schema_Attribute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWhatIfForecast" OutputProperty="WhatIfForecastArn" Verb="New" Noun="WhatIfForecast" ShouldProcessTarget="WhatIfForecastName" PipelineParameter="WhatIfForecastName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TimeSeriesReplacementsDataSource_S3Config_KMSKeyArn" NewName="S3Config_KMSKeyArn" />
+                <Param Name="TimeSeriesReplacementsDataSource_S3Config_Path" NewName="S3Config_Path" />
+                <Param Name="TimeSeriesReplacementsDataSource_S3Config_RoleArn" NewName="S3Config_RoleArn" />
+                <Param Name="TimeSeriesReplacementsDataSource_Schema_Attributes" NewName="Schema_Attribute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWhatIfForecastExport" OutputProperty="WhatIfForecastExportArn" Verb="New" Noun="WhatIfForecastExport" ShouldProcessTarget="WhatIfForecastExportName" PipelineParameter="WhatIfForecastExportName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Destination_S3Config_KMSKeyArn" NewName="S3Config_KMSKeyArn" />
+                <Param Name="Destination_S3Config_Path" NewName="S3Config_Path" />
+                <Param Name="Destination_S3Config_RoleArn" NewName="S3Config_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -191,15 +236,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -211,11 +256,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListForecastExportJobs" OutputProperty="ForecastExportJobs" Verb="Get" Noun="ForecastExportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListForecastExportJobs" OutputProperty="ForecastExportJobs" Verb="Get" Noun="ForecastExportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListForecasts" OutputProperty="Forecasts" Verb="Get" Noun="ForecastList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListForecasts" OutputProperty="Forecasts" Verb="Get" Noun="ForecastList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -231,7 +276,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPredictors" OutputProperty="Predictors" Verb="Get" Noun="PredictorList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPredictors" OutputProperty="Predictors" Verb="Get" Noun="PredictorList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

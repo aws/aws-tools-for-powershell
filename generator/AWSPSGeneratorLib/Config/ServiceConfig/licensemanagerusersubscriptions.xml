@@ -20,11 +20,22 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AssociateUser" OutputProperty="InstanceUserSummary" Verb="Add" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv4List" NewName="ActiveDirectorySettings_DomainIpv4List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List" NewName="ActiveDirectorySettings_DomainIpv6List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainName" NewName="ActiveDirectorySettings_DomainName" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainNetworkSettings_Subnets" NewName="DomainNetworkSettings_Subnet" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectoryType" NewName="ActiveDirectoryIdentityProvider_ActiveDirectoryType" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" NewName="ActiveDirectoryIdentityProvider_DirectoryId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" NewName="ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLicenseServerEndpoint" OutputProperty="*" Verb="New" Noun="LicenseServerEndpoint" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LicenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLicenseServerEndpoint" OutputProperty="LicenseServerEndpoint" Verb="Remove" Noun="LicenseServerEndpoint" ShouldProcessTarget="LicenseServerEndpointArn" PipelineParameter="LicenseServerEndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -32,11 +43,29 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeregisterIdentityProvider" OutputProperty="IdentityProviderSummary" Verb="Unregister" Noun="IdentityProvider" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Product" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv4List" NewName="ActiveDirectorySettings_DomainIpv4List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List" NewName="ActiveDirectorySettings_DomainIpv6List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainName" NewName="ActiveDirectorySettings_DomainName" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainNetworkSettings_Subnets" NewName="DomainNetworkSettings_Subnet" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectoryType" NewName="ActiveDirectoryIdentityProvider_ActiveDirectoryType" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" NewName="ActiveDirectoryIdentityProvider_DirectoryId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" NewName="ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateUser" OutputProperty="InstanceUserSummary" Verb="Remove" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv4List" NewName="ActiveDirectorySettings_DomainIpv4List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List" NewName="ActiveDirectorySettings_DomainIpv6List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainName" NewName="ActiveDirectorySettings_DomainName" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainNetworkSettings_Subnets" NewName="DomainNetworkSettings_Subnet" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectoryType" NewName="ActiveDirectoryIdentityProvider_ActiveDirectoryType" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" NewName="ActiveDirectoryIdentityProvider_DirectoryId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" NewName="ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="IdentityProviderSummaries" Verb="Get" Noun="IdentityProviderList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -52,7 +81,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListProductSubscriptions" OutputProperty="ProductUserSummaries" Verb="Get" Noun="ProductSubscriptionList" PipelineParameter="Product" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv4List" NewName="ActiveDirectorySettings_DomainIpv4List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List" NewName="ActiveDirectorySettings_DomainIpv6List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainName" NewName="ActiveDirectorySettings_DomainName" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainNetworkSettings_Subnets" NewName="DomainNetworkSettings_Subnet" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectoryType" NewName="ActiveDirectoryIdentityProvider_ActiveDirectoryType" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" NewName="ActiveDirectoryIdentityProvider_DirectoryId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" NewName="ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -60,19 +98,55 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListUserAssociations" OutputProperty="InstanceUserSummaries" Verb="Get" Noun="UserAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv4List" NewName="ActiveDirectorySettings_DomainIpv4List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List" NewName="ActiveDirectorySettings_DomainIpv6List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainName" NewName="ActiveDirectorySettings_DomainName" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainNetworkSettings_Subnets" NewName="DomainNetworkSettings_Subnet" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectoryType" NewName="ActiveDirectoryIdentityProvider_ActiveDirectoryType" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" NewName="ActiveDirectoryIdentityProvider_DirectoryId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" NewName="ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterIdentityProvider" OutputProperty="IdentityProviderSummary" Verb="Register" Noun="IdentityProvider" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Product" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv4List" NewName="ActiveDirectorySettings_DomainIpv4List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List" NewName="ActiveDirectorySettings_DomainIpv6List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainName" NewName="ActiveDirectorySettings_DomainName" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainNetworkSettings_Subnets" NewName="DomainNetworkSettings_Subnet" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectoryType" NewName="ActiveDirectoryIdentityProvider_ActiveDirectoryType" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" NewName="ActiveDirectoryIdentityProvider_DirectoryId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" NewName="ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartProductSubscription" OutputProperty="ProductUserSummary" Verb="Start" Noun="ProductSubscription" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv4List" NewName="ActiveDirectorySettings_DomainIpv4List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List" NewName="ActiveDirectorySettings_DomainIpv6List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainName" NewName="ActiveDirectorySettings_DomainName" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainNetworkSettings_Subnets" NewName="DomainNetworkSettings_Subnet" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectoryType" NewName="ActiveDirectoryIdentityProvider_ActiveDirectoryType" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" NewName="ActiveDirectoryIdentityProvider_DirectoryId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" NewName="ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopProductSubscription" OutputProperty="ProductUserSummary" Verb="Stop" Noun="ProductSubscription" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv4List" NewName="ActiveDirectorySettings_DomainIpv4List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List" NewName="ActiveDirectorySettings_DomainIpv6List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainName" NewName="ActiveDirectorySettings_DomainName" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainNetworkSettings_Subnets" NewName="DomainNetworkSettings_Subnet" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectoryType" NewName="ActiveDirectoryIdentityProvider_ActiveDirectoryType" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" NewName="ActiveDirectoryIdentityProvider_DirectoryId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" NewName="ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -84,7 +158,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIdentityProviderSettings" OutputProperty="*" Verb="Update" Noun="IdentityProviderSetting" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainCredentialsProvider_SecretsManagerCredentialsProvider_SecretId" NewName="SecretsManagerCredentialsProvider_SecretId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv4List" NewName="ActiveDirectorySettings_DomainIpv4List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List" NewName="ActiveDirectorySettings_DomainIpv6List" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainName" NewName="ActiveDirectorySettings_DomainName" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainNetworkSettings_Subnets" NewName="DomainNetworkSettings_Subnet" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectoryType" NewName="ActiveDirectoryIdentityProvider_ActiveDirectoryType" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" NewName="ActiveDirectoryIdentityProvider_DirectoryId" />
+                <Param Name="IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" NewName="ActiveDirectoryIdentityProvider_IsSharedActiveDirectory" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

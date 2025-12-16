@@ -52,11 +52,24 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" AnonymousShouldProcessTarget="true" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputDataConfig_DocumentClassifierInputDataConfig_LabelDelimiter" NewName="DocumentClassifierInputDataConfig_LabelDelimiter" />
+                <Param Name="InputDataConfig_DocumentClassifierInputDataConfig_S3Uri" NewName="DocumentClassifierInputDataConfig_S3Uri" />
+                <Param Name="InputDataConfig_EntityRecognizerInputDataConfig_Annotations_S3Uri" NewName="Annotations_S3Uri" />
+                <Param Name="InputDataConfig_EntityRecognizerInputDataConfig_Documents_InputFormat" NewName="Documents_InputFormat" />
+                <Param Name="InputDataConfig_EntityRecognizerInputDataConfig_Documents_S3Uri" NewName="Documents_S3Uri" />
+                <Param Name="InputDataConfig_EntityRecognizerInputDataConfig_EntityList_S3Uri" NewName="EntityList_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDocumentClassifier" OutputProperty="DocumentClassifierArn" Verb="New" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierName" PipelineParameter="DocumentClassifierName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputDataConfig_DocumentReaderConfig_DocumentReadAction" NewName="DocumentReaderConfig_DocumentReadAction" />
+                <Param Name="InputDataConfig_DocumentReaderConfig_DocumentReadMode" NewName="DocumentReaderConfig_DocumentReadMode" />
+                <Param Name="InputDataConfig_DocumentReaderConfig_FeatureTypes" NewName="DocumentReaderConfig_FeatureType" />
+                <Param Name="InputDataConfig_Documents_S3Uri" NewName="Documents_S3Uri" />
+                <Param Name="InputDataConfig_Documents_TestS3Uri" NewName="Documents_TestS3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -64,11 +77,24 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEntityRecognizer" OutputProperty="EntityRecognizerArn" Verb="New" Noun="EntityRecognizer" ShouldProcessTarget="RecognizerName" PipelineParameter="RecognizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputDataConfig_Annotations_S3Uri" NewName="Annotations_S3Uri" />
+                <Param Name="InputDataConfig_Annotations_TestS3Uri" NewName="Annotations_TestS3Uri" />
+                <Param Name="InputDataConfig_Documents_InputFormat" NewName="Documents_InputFormat" />
+                <Param Name="InputDataConfig_Documents_S3Uri" NewName="Documents_S3Uri" />
+                <Param Name="InputDataConfig_Documents_TestS3Uri" NewName="Documents_TestS3Uri" />
+                <Param Name="InputDataConfig_EntityList_S3Uri" NewName="EntityList_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFlywheel" OutputProperty="*" Verb="New" Noun="Flywheel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSecurityConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="DataSecurityConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+                <Param Name="TaskConfig_DocumentClassificationConfig_Labels" NewName="DocumentClassificationConfig_Label" />
+                <Param Name="TaskConfig_DocumentClassificationConfig_Mode" NewName="DocumentClassificationConfig_Mode" />
+                <Param Name="TaskConfig_EntityRecognitionConfig_EntityTypes" NewName="EntityRecognitionConfig_EntityType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDocumentClassifier" Verb="Remove" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -195,11 +221,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentClassificationJobs" OutputProperty="DocumentClassificationJobPropertiesList" Verb="Get" Noun="DocumentClassificationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDocumentClassificationJobs" OutputProperty="DocumentClassificationJobPropertiesList" Verb="Get" Noun="DocumentClassificationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentClassifiers" OutputProperty="DocumentClassifierPropertiesList" Verb="Get" Noun="DocumentClassifierList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDocumentClassifiers" OutputProperty="DocumentClassifierPropertiesList" Verb="Get" Noun="DocumentClassifierList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,19 +233,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" OutputProperty="DominantLanguageDetectionJobPropertiesList" Verb="Get" Noun="DominantLanguageDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" OutputProperty="DominantLanguageDetectionJobPropertiesList" Verb="Get" Noun="DominantLanguageDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpoints" OutputProperty="EndpointPropertiesList" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEndpoints" OutputProperty="EndpointPropertiesList" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitiesDetectionJobs" OutputProperty="EntitiesDetectionJobPropertiesList" Verb="Get" Noun="EntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEntitiesDetectionJobs" OutputProperty="EntitiesDetectionJobPropertiesList" Verb="Get" Noun="EntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntityRecognizers" OutputProperty="EntityRecognizerPropertiesList" Verb="Get" Noun="EntityRecognizerList" PipelineParameter="Filter_Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEntityRecognizers" OutputProperty="EntityRecognizerPropertiesList" Verb="Get" Noun="EntityRecognizerList" PipelineParameter="Filter_Status" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -239,15 +265,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeyPhrasesDetectionJobs" OutputProperty="KeyPhrasesDetectionJobPropertiesList" Verb="Get" Noun="KeyPhrasesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKeyPhrasesDetectionJobs" OutputProperty="KeyPhrasesDetectionJobPropertiesList" Verb="Get" Noun="KeyPhrasesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPiiEntitiesDetectionJobs" OutputProperty="PiiEntitiesDetectionJobPropertiesList" Verb="Get" Noun="PiiEntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPiiEntitiesDetectionJobs" OutputProperty="PiiEntitiesDetectionJobPropertiesList" Verb="Get" Noun="PiiEntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSentimentDetectionJobs" OutputProperty="SentimentDetectionJobPropertiesList" Verb="Get" Noun="SentimentDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSentimentDetectionJobs" OutputProperty="SentimentDetectionJobPropertiesList" Verb="Get" Noun="SentimentDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -259,7 +285,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicsDetectionJobs" OutputProperty="TopicsDetectionJobPropertiesList" Verb="Get" Noun="TopicsDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTopicsDetectionJobs" OutputProperty="TopicsDetectionJobPropertiesList" Verb="Get" Noun="TopicsDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -356,7 +382,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlywheel" OutputProperty="FlywheelProperties" Verb="Update" Noun="Flywheel" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataSecurityConfig_VpcConfig_SecurityGroupIds" NewName="VpcConfig_SecurityGroupId" />
+                <Param Name="DataSecurityConfig_VpcConfig_Subnets" NewName="VpcConfig_Subnet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

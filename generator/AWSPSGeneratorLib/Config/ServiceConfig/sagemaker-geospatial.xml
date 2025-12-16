@@ -27,11 +27,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ExportEarthObservationJob" OutputProperty="*" Verb="Export" Noun="EarthObservationJob" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputConfig_S3Data_KmsKeyId" NewName="S3Data_KmsKeyId" />
+                <Param Name="OutputConfig_S3Data_S3Uri" NewName="S3Data_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ExportVectorEnrichmentJob" OutputProperty="*" Verb="Export" Noun="VectorEnrichmentJob" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputConfig_S3Data_KmsKeyId" NewName="S3Data_KmsKeyId" />
+                <Param Name="OutputConfig_S3Data_S3Uri" NewName="S3Data_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEarthObservationJob" OutputProperty="*" Verb="Get" Noun="EarthObservationJob" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -67,7 +73,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchRasterDataCollection" OutputProperty="*" Verb="Search" Noun="RasterDataCollection" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RasterDataCollectionQuery_AreaOfInterest_AreaOfInterestGeometry_MultiPolygonGeometry_Coordinates" NewName="MultiPolygonGeometry_Coordinate" />
+                <Param Name="RasterDataCollectionQuery_AreaOfInterest_AreaOfInterestGeometry_PolygonGeometry_Coordinates" NewName="PolygonGeometry_Coordinate" />
+                <Param Name="RasterDataCollectionQuery_PropertyFilters_LogicalOperator" NewName="PropertyFilters_LogicalOperator" />
+                <Param Name="RasterDataCollectionQuery_PropertyFilters_Properties" NewName="PropertyFilters_Property" />
+                <Param Name="RasterDataCollectionQuery_TimeRangeFilter_EndTime" NewName="TimeRangeFilter_EndTime" />
+                <Param Name="RasterDataCollectionQuery_TimeRangeFilter_StartTime" NewName="TimeRangeFilter_StartTime" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartEarthObservationJob" OutputProperty="*" Verb="Start" Noun="EarthObservationJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -76,11 +89,45 @@
                 <Param Name="JobConfig_ResamplingConfig_OutputResolution_UserDefined_Value" NewName="JobConfig_ResamplingConfig_OutputResolution_UserDefined_Value" />
                 <Param Name="JobConfig_StackConfig_OutputResolution_UserDefined_Unit" NewName="JobConfig_StackConfig_OutputResolution_UserDefined_Unit" />
                 <Param Name="JobConfig_StackConfig_OutputResolution_UserDefined_Value" NewName="JobConfig_StackConfig_OutputResolution_UserDefined_Value" />
+                <Param Name="InputConfig_RasterDataCollectionQuery_AreaOfInterest_AreaOfInterestGeometry_MultiPolygonGeometry_Coordinates" NewName="MultiPolygonGeometry_Coordinate" />
+                <Param Name="InputConfig_RasterDataCollectionQuery_AreaOfInterest_AreaOfInterestGeometry_PolygonGeometry_Coordinates" NewName="PolygonGeometry_Coordinate" />
+                <Param Name="InputConfig_RasterDataCollectionQuery_PropertyFilters_LogicalOperator" NewName="PropertyFilters_LogicalOperator" />
+                <Param Name="InputConfig_RasterDataCollectionQuery_PropertyFilters_Properties" NewName="PropertyFilters_Property" />
+                <Param Name="InputConfig_RasterDataCollectionQuery_RasterDataCollectionArn" NewName="RasterDataCollectionQuery_RasterDataCollectionArn" />
+                <Param Name="InputConfig_RasterDataCollectionQuery_TimeRangeFilter_EndTime" NewName="TimeRangeFilter_EndTime" />
+                <Param Name="InputConfig_RasterDataCollectionQuery_TimeRangeFilter_StartTime" NewName="TimeRangeFilter_StartTime" />
+                <Param Name="JobConfig_BandMathConfig_CustomIndices_Operations" NewName="CustomIndices_Operation" />
+                <Param Name="JobConfig_BandMathConfig_PredefinedIndices" NewName="BandMathConfig_PredefinedIndex" />
+                <Param Name="JobConfig_CloudRemovalConfig_AlgorithmName" NewName="CloudRemovalConfig_AlgorithmName" />
+                <Param Name="JobConfig_CloudRemovalConfig_InterpolationValue" NewName="CloudRemovalConfig_InterpolationValue" />
+                <Param Name="JobConfig_CloudRemovalConfig_TargetBands" NewName="CloudRemovalConfig_TargetBand" />
+                <Param Name="JobConfig_GeoMosaicConfig_AlgorithmName" NewName="GeoMosaicConfig_AlgorithmName" />
+                <Param Name="JobConfig_GeoMosaicConfig_TargetBands" NewName="GeoMosaicConfig_TargetBand" />
+                <Param Name="JobConfig_ResamplingConfig_AlgorithmName" NewName="ResamplingConfig_AlgorithmName" />
+                <Param Name="JobConfig_ResamplingConfig_TargetBands" NewName="ResamplingConfig_TargetBand" />
+                <Param Name="JobConfig_StackConfig_OutputResolution_Predefined" NewName="OutputResolution_Predefined" />
+                <Param Name="JobConfig_StackConfig_TargetBands" NewName="StackConfig_TargetBand" />
+                <Param Name="JobConfig_TemporalStatisticsConfig_GroupBy" NewName="TemporalStatisticsConfig_GroupBy" />
+                <Param Name="JobConfig_TemporalStatisticsConfig_Statistics" NewName="TemporalStatisticsConfig_Statistic" />
+                <Param Name="JobConfig_TemporalStatisticsConfig_TargetBands" NewName="TemporalStatisticsConfig_TargetBand" />
+                <Param Name="JobConfig_ZonalStatisticsConfig_Statistics" NewName="ZonalStatisticsConfig_Statistic" />
+                <Param Name="JobConfig_ZonalStatisticsConfig_TargetBands" NewName="ZonalStatisticsConfig_TargetBand" />
+                <Param Name="JobConfig_ZonalStatisticsConfig_ZoneS3Path" NewName="ZonalStatisticsConfig_ZoneS3Path" />
+                <Param Name="JobConfig_ZonalStatisticsConfig_ZoneS3PathKmsKeyId" NewName="ZonalStatisticsConfig_ZoneS3PathKmsKeyId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartVectorEnrichmentJob" OutputProperty="*" Verb="Start" Noun="VectorEnrichmentJob" AnonymousShouldProcessTarget="true" PipelineParameter="ExecutionRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputConfig_DataSourceConfig_S3Data_KmsKeyId" NewName="S3Data_KmsKeyId" />
+                <Param Name="InputConfig_DataSourceConfig_S3Data_S3Uri" NewName="S3Data_S3Uri" />
+                <Param Name="JobConfig_MapMatchingConfig_IdAttributeName" NewName="MapMatchingConfig_IdAttributeName" />
+                <Param Name="JobConfig_MapMatchingConfig_TimestampAttributeName" NewName="MapMatchingConfig_TimestampAttributeName" />
+                <Param Name="JobConfig_MapMatchingConfig_XAttributeName" NewName="MapMatchingConfig_XAttributeName" />
+                <Param Name="JobConfig_MapMatchingConfig_YAttributeName" NewName="MapMatchingConfig_YAttributeName" />
+                <Param Name="JobConfig_ReverseGeocodingConfig_XAttributeName" NewName="ReverseGeocodingConfig_XAttributeName" />
+                <Param Name="JobConfig_ReverseGeocodingConfig_YAttributeName" NewName="ReverseGeocodingConfig_YAttributeName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopEarthObservationJob" Verb="Stop" Noun="EarthObservationJob" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">

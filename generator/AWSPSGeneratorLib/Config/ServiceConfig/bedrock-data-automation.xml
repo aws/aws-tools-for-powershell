@@ -65,6 +65,19 @@
                 <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
                 <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
                 <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
+                <Param Name="OverrideConfiguration_Audio_LanguageConfiguration_GenerativeOutputLanguage" NewName="LanguageConfiguration_GenerativeOutputLanguage" />
+                <Param Name="OverrideConfiguration_Audio_LanguageConfiguration_IdentifyMultipleLanguages" NewName="LanguageConfiguration_IdentifyMultipleLanguage" />
+                <Param Name="OverrideConfiguration_Audio_LanguageConfiguration_InputLanguages" NewName="LanguageConfiguration_InputLanguage" />
+                <Param Name="OverrideConfiguration_Document_Splitter_State" NewName="Splitter_State" />
+                <Param Name="OverrideConfiguration_ModalityRouting_Jpeg" NewName="ModalityRouting_Jpeg" />
+                <Param Name="OverrideConfiguration_ModalityRouting_Mov" NewName="ModalityRouting_Mov" />
+                <Param Name="OverrideConfiguration_ModalityRouting_Mp4" NewName="ModalityRouting_Mp4" />
+                <Param Name="OverrideConfiguration_ModalityRouting_Png" NewName="ModalityRouting_Png" />
+                <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling_State" NewName="ChannelLabeling_State" />
+                <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling_State" NewName="SpeakerLabeling_State" />
+                <Param Name="StandardOutputConfiguration_Document_Extraction_Granularity_Types" NewName="Granularity_Type" />
+                <Param Name="StandardOutputConfiguration_Document_OutputFormat_AdditionalFileFormat_State" NewName="AdditionalFileFormat_State" />
+                <Param Name="StandardOutputConfiguration_Document_OutputFormat_TextFormat_Types" NewName="TextFormat_Type" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -146,6 +159,19 @@
                 <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
                 <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
                 <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
+                <Param Name="OverrideConfiguration_Audio_LanguageConfiguration_GenerativeOutputLanguage" NewName="LanguageConfiguration_GenerativeOutputLanguage" />
+                <Param Name="OverrideConfiguration_Audio_LanguageConfiguration_IdentifyMultipleLanguages" NewName="LanguageConfiguration_IdentifyMultipleLanguage" />
+                <Param Name="OverrideConfiguration_Audio_LanguageConfiguration_InputLanguages" NewName="LanguageConfiguration_InputLanguage" />
+                <Param Name="OverrideConfiguration_Document_Splitter_State" NewName="Splitter_State" />
+                <Param Name="OverrideConfiguration_ModalityRouting_Jpeg" NewName="ModalityRouting_Jpeg" />
+                <Param Name="OverrideConfiguration_ModalityRouting_Mov" NewName="ModalityRouting_Mov" />
+                <Param Name="OverrideConfiguration_ModalityRouting_Mp4" NewName="ModalityRouting_Mp4" />
+                <Param Name="OverrideConfiguration_ModalityRouting_Png" NewName="ModalityRouting_Png" />
+                <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling_State" NewName="ChannelLabeling_State" />
+                <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling_State" NewName="SpeakerLabeling_State" />
+                <Param Name="StandardOutputConfiguration_Document_Extraction_Granularity_Types" NewName="Granularity_Type" />
+                <Param Name="StandardOutputConfiguration_Document_OutputFormat_AdditionalFileFormat_State" NewName="AdditionalFileFormat_State" />
+                <Param Name="StandardOutputConfiguration_Document_OutputFormat_TextFormat_Types" NewName="TextFormat_Type" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

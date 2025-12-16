@@ -27,7 +27,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" OutputProperty="JobArn" Verb="New" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AlgorithmSpecification_ContainerImage_Uri" NewName="ContainerImage_Uri" />
+                <Param Name="AlgorithmSpecification_ScriptModeConfig_CompressionType" NewName="ScriptModeConfig_CompressionType" />
+                <Param Name="AlgorithmSpecification_ScriptModeConfig_EntryPoint" NewName="ScriptModeConfig_EntryPoint" />
+                <Param Name="AlgorithmSpecification_ScriptModeConfig_S3Uri" NewName="ScriptModeConfig_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateQuantumTask" OutputProperty="QuantumTaskArn" Verb="New" Noun="QuantumTask" ShouldProcessTarget="DeviceArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

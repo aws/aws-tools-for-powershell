@@ -79,7 +79,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutPortfolioPreferences" Verb="Write" Noun="PortfolioPreference" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ApplicationPreferences_ManagementPreference_AwsManagedResources_TargetDestination" NewName="AwsManagedResources_TargetDestination" />
+                <Param Name="ApplicationPreferences_ManagementPreference_NoPreference_TargetDestination" NewName="NoPreference_TargetDestination" />
+                <Param Name="ApplicationPreferences_ManagementPreference_SelfManageResources_TargetDestination" NewName="SelfManageResources_TargetDestination" />
+                <Param Name="DatabasePreferences_DatabaseMigrationPreference_Heterogeneous_TargetDatabaseEngine" NewName="Heterogeneous_TargetDatabaseEngine" />
+                <Param Name="DatabasePreferences_DatabaseMigrationPreference_Homogeneous_TargetDatabaseEngine" NewName="Homogeneous_TargetDatabaseEngine" />
+                <Param Name="DatabasePreferences_DatabaseMigrationPreference_NoPreference_TargetDatabaseEngine" NewName="NoPreference_TargetDatabaseEngine" />
+                <Param Name="PrioritizeBusinessGoals_BusinessGoals_LicenseCostReduction" NewName="BusinessGoals_LicenseCostReduction" />
+                <Param Name="PrioritizeBusinessGoals_BusinessGoals_ModernizeInfrastructureWithCloudNativeTechnologies" NewName="BusinessGoals_ModernizeInfrastructureWithCloudNativeTechnology" />
+                <Param Name="PrioritizeBusinessGoals_BusinessGoals_ReduceOperationalOverheadWithManagedServices" NewName="BusinessGoals_ReduceOperationalOverheadWithManagedService" />
+                <Param Name="PrioritizeBusinessGoals_BusinessGoals_SpeedOfMigration" NewName="BusinessGoals_SpeedOfMigration" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAssessment" OutputProperty="AssessmentId" Verb="Start" Noun="Assessment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

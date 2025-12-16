@@ -47,11 +47,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DatasetSource_GroundTruthManifest_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="DatasetSource_GroundTruthManifest_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="DatasetSource_GroundTruthManifest_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFaceLivenessSession" OutputProperty="SessionId" Verb="New" Noun="FaceLivenessSession" ShouldProcessTarget="KmsKeyId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Settings_OutputConfig_S3Bucket" NewName="OutputConfig_S3Bucket" />
+                <Param Name="Settings_OutputConfig_S3KeyPrefix" NewName="OutputConfig_S3KeyPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="ProjectArn" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -59,11 +66,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProjectVersion" OutputProperty="ProjectVersionArn" Verb="New" Noun="ProjectVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FeatureConfig_ContentModeration_ConfidenceThreshold" NewName="ContentModeration_ConfidenceThreshold" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStreamProcessor" OutputProperty="StreamProcessorArn" Verb="New" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Input_KinesisVideoStream_Arn" NewName="KinesisVideoStream_Arn" />
+                <Param Name="Output_KinesisDataStream_Arn" NewName="KinesisDataStream_Arn" />
+                <Param Name="Output_S3Destination_Bucket" NewName="S3Destination_Bucket" />
+                <Param Name="Output_S3Destination_KeyPrefix" NewName="S3Destination_KeyPrefix" />
+                <Param Name="Settings_ConnectedHome_Labels" NewName="ConnectedHome_Label" />
+                <Param Name="Settings_ConnectedHome_MinConfidence" NewName="ConnectedHome_MinConfidence" />
+                <Param Name="Settings_FaceSearch_CollectionId" NewName="FaceSearch_CollectionId" />
+                <Param Name="Settings_FaceSearch_FaceMatchThreshold" NewName="FaceSearch_FaceMatchThreshold" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateUser" Verb="New" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -110,11 +128,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProjects" OutputProperty="ProjectDescriptions" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProjects" OutputProperty="ProjectDescriptions" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProjectVersions" OutputProperty="ProjectVersionDescriptions" Verb="Get" Noun="ProjectVersion" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProjectVersions" OutputProperty="ProjectVersionDescriptions" Verb="Get" Noun="ProjectVersion" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -123,7 +141,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetectCustomLabels" OutputProperty="CustomLabels" Verb="Find" Noun="CustomLabel" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="Image_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="Image_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetectFaces" OutputProperty="*" Verb="Find" Noun="Face" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -141,11 +163,21 @@
                 <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
                 <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
                 <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+                <Param Name="Settings_GeneralLabels_LabelCategoryExclusionFilters" NewName="GeneralLabels_LabelCategoryExclusionFilter" />
+                <Param Name="Settings_GeneralLabels_LabelCategoryInclusionFilters" NewName="GeneralLabels_LabelCategoryInclusionFilter" />
+                <Param Name="Settings_GeneralLabels_LabelExclusionFilters" NewName="GeneralLabels_LabelExclusionFilter" />
+                <Param Name="Settings_GeneralLabels_LabelInclusionFilters" NewName="GeneralLabels_LabelInclusionFilter" />
+                <Param Name="Settings_ImageProperties_MaxDominantColors" NewName="ImageProperties_MaxDominantColor" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetectModerationLabels" OutputProperty="*" Verb="Find" Noun="ModerationLabel" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HumanLoopConfig_DataAttributes_ContentClassifiers" NewName="DataAttributes_ContentClassifier" />
+                <Param Name="Image_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="Image_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="Image_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetectProtectiveEquipment" OutputProperty="*" Verb="Find" Noun="ProtectiveEquipment" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -163,6 +195,9 @@
                 <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
                 <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
                 <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+                <Param Name="Filters_WordFilter_MinBoundingBoxHeight" NewName="WordFilter_MinBoundingBoxHeight" />
+                <Param Name="Filters_WordFilter_MinBoundingBoxWidth" NewName="WordFilter_MinBoundingBoxWidth" />
+                <Param Name="Filters_WordFilter_MinConfidence" NewName="WordFilter_MinConfidence" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -178,15 +213,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCelebrityRecognition" OutputProperty="*" Verb="Get" Noun="CelebrityRecognition" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCelebrityRecognition" OutputProperty="*" Verb="Get" Noun="CelebrityRecognition" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContentModeration" OutputProperty="*" Verb="Get" Noun="ContentModeration" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContentModeration" OutputProperty="*" Verb="Get" Noun="ContentModeration" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFaceDetection" OutputProperty="*" Verb="Get" Noun="FaceDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFaceDetection" OutputProperty="*" Verb="Get" Noun="FaceDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -194,11 +229,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFaceSearch" OutputProperty="*" Verb="Get" Noun="FaceSearch" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFaceSearch" OutputProperty="*" Verb="Get" Noun="FaceSearch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLabelDetection" OutputProperty="*" Verb="Get" Noun="LabelDetection" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLabelDetection" OutputProperty="*" Verb="Get" Noun="LabelDetection" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -206,7 +241,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPersonTracking" OutputProperty="*" Verb="Get" Noun="PersonTracking" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPersonTracking" OutputProperty="*" Verb="Get" Noun="PersonTracking" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -227,7 +262,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollections" OutputProperty="*" Verb="Get" Noun="CollectionIdList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCollections" OutputProperty="*" Verb="Get" Noun="CollectionIdList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -239,7 +274,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFaces" OutputProperty="*" Verb="Get" Noun="FaceList" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFaces" OutputProperty="*" Verb="Get" Noun="FaceList" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -251,7 +286,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamProcessors" OutputProperty="StreamProcessors" Verb="Get" Noun="StreamProcessorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStreamProcessors" OutputProperty="StreamProcessors" Verb="Get" Noun="StreamProcessorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -294,7 +329,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchUsersByImage" OutputProperty="*" Verb="Search" Noun="UsersByImage" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="Image_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="Image_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCelebrityRecognition" OutputProperty="JobId" Verb="Start" Noun="CelebrityRecognition" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -314,11 +353,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartLabelDetection" OutputProperty="JobId" Verb="Start" Noun="LabelDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Settings_GeneralLabels_LabelCategoryExclusionFilters" NewName="GeneralLabels_LabelCategoryExclusionFilter" />
+                <Param Name="Settings_GeneralLabels_LabelCategoryInclusionFilters" NewName="GeneralLabels_LabelCategoryInclusionFilter" />
+                <Param Name="Settings_GeneralLabels_LabelExclusionFilters" NewName="GeneralLabels_LabelExclusionFilter" />
+                <Param Name="Settings_GeneralLabels_LabelInclusionFilters" NewName="GeneralLabels_LabelInclusionFilter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMediaAnalysisJob" OutputProperty="JobId" Verb="Start" Noun="MediaAnalysisJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Input_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="Input_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="Input_S3Object_Version" NewName="S3Object_Version" />
+                <Param Name="OperationsConfig_DetectModerationLabels_MinConfidence" NewName="DetectModerationLabels_MinConfidence" />
+                <Param Name="OperationsConfig_DetectModerationLabels_ProjectVersion" NewName="DetectModerationLabels_ProjectVersion" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartPersonTracking" OutputProperty="JobId" Verb="Start" Noun="PersonTracking" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -329,16 +379,28 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSegmentDetection" OutputProperty="JobId" Verb="Start" Noun="SegmentDetection" ShouldProcessTarget="" PipelineParameter="Video" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="StartSegmentDetection" OutputProperty="JobId" Verb="Start" Noun="SegmentDetection" ShouldProcessTarget="Video" PipelineParameter="Video" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="Filters_ShotFilter_MinSegmentConfidence" NewName="ShotFilter_MinSegmentConfidence" />
+                <Param Name="Filters_TechnicalCueFilter_BlackFrame_MaxPixelThreshold" NewName="BlackFrame_MaxPixelThreshold" />
+                <Param Name="Filters_TechnicalCueFilter_BlackFrame_MinCoveragePercentage" NewName="BlackFrame_MinCoveragePercentage" />
+                <Param Name="Filters_TechnicalCueFilter_MinSegmentConfidence" NewName="TechnicalCueFilter_MinSegmentConfidence" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartStreamProcessor" OutputProperty="SessionId" Verb="Start" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="StartSelector_KVSStreamStartSelector_FragmentNumber" NewName="KVSStreamStartSelector_FragmentNumber" />
+                <Param Name="StartSelector_KVSStreamStartSelector_ProducerTimestamp" NewName="KVSStreamStartSelector_ProducerTimestamp" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTextDetection" OutputProperty="JobId" Verb="Start" Noun="TextDetection" ShouldProcessTarget="" PipelineParameter="Video" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="StartTextDetection" OutputProperty="JobId" Verb="Start" Noun="TextDetection" ShouldProcessTarget="Video" PipelineParameter="Video" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="Filters_WordFilter_MinBoundingBoxHeight" NewName="WordFilter_MinBoundingBoxHeight" />
+                <Param Name="Filters_WordFilter_MinBoundingBoxWidth" NewName="WordFilter_MinBoundingBoxWidth" />
+                <Param Name="Filters_WordFilter_MinConfidence" NewName="WordFilter_MinConfidence" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopProjectVersion" OutputProperty="Status" Verb="Stop" Noun="ProjectVersion" ShouldProcessTarget="ProjectVersionArn" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -362,7 +424,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStreamProcessor" Verb="Update" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SettingsForUpdate_ConnectedHomeForUpdate_Labels" NewName="ConnectedHomeForUpdate_Label" />
+                <Param Name="SettingsForUpdate_ConnectedHomeForUpdate_MinConfidence" NewName="ConnectedHomeForUpdate_MinConfidence" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

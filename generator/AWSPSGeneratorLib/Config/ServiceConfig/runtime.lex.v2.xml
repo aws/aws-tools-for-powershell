@@ -27,11 +27,31 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutSession" OutputProperty="*" Verb="Write" Noun="Session" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SessionStateValue_DialogAction_SlotElicitationStyle" NewName="DialogAction_SlotElicitationStyle" />
+                <Param Name="SessionStateValue_DialogAction_SlotToElicit" NewName="DialogAction_SlotToElicit" />
+                <Param Name="SessionStateValue_DialogAction_SubSlotToElicit" NewName="DialogAction_SubSlotToElicit" />
+                <Param Name="SessionStateValue_DialogAction_Type" NewName="DialogAction_Type" />
+                <Param Name="SessionStateValue_Intent_ConfirmationState" NewName="Intent_ConfirmationState" />
+                <Param Name="SessionStateValue_Intent_Name" NewName="Intent_Name" />
+                <Param Name="SessionStateValue_Intent_Slots" NewName="Intent_Slot" />
+                <Param Name="SessionStateValue_Intent_State" NewName="Intent_State" />
+                <Param Name="SessionStateValue_RuntimeHints_SlotHints" NewName="RuntimeHints_SlotHint" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RecognizeText" OutputProperty="*" Verb="Send" Noun="Text" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SessionStateValue_DialogAction_SlotElicitationStyle" NewName="DialogAction_SlotElicitationStyle" />
+                <Param Name="SessionStateValue_DialogAction_SlotToElicit" NewName="DialogAction_SlotToElicit" />
+                <Param Name="SessionStateValue_DialogAction_SubSlotToElicit" NewName="DialogAction_SubSlotToElicit" />
+                <Param Name="SessionStateValue_DialogAction_Type" NewName="DialogAction_Type" />
+                <Param Name="SessionStateValue_Intent_ConfirmationState" NewName="Intent_ConfirmationState" />
+                <Param Name="SessionStateValue_Intent_Name" NewName="Intent_Name" />
+                <Param Name="SessionStateValue_Intent_Slots" NewName="Intent_Slot" />
+                <Param Name="SessionStateValue_Intent_State" NewName="Intent_State" />
+                <Param Name="SessionStateValue_RuntimeHints_SlotHints" NewName="RuntimeHints_SlotHint" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RecognizeUtterance" OutputProperty="*" Verb="Send" Noun="Utterance" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

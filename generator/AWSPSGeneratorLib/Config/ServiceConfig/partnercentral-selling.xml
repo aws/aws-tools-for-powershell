@@ -42,6 +42,18 @@
                 <Param Name="Payload_Lead_Customer_CompanyName" NewName="Lead_Customer_CompanyName" />
                 <Param Name="Payload_Lead_Customer_Industry" NewName="Lead_Customer_Industry" />
                 <Param Name="Payload_Lead_Customer_WebsiteUrl" NewName="Lead_Customer_WebsiteUrl" />
+                <Param Name="Payload_CustomerProject_Customer_CountryCode" NewName="Customer_CountryCode" />
+                <Param Name="Payload_CustomerProject_Project_BusinessProblem" NewName="Project_BusinessProblem" />
+                <Param Name="Payload_CustomerProject_Project_TargetCompletionDate" NewName="Project_TargetCompletionDate" />
+                <Param Name="Payload_CustomerProject_Project_Title" NewName="Project_Title" />
+                <Param Name="Payload_Lead_Customer_Address_City" NewName="Address_City" />
+                <Param Name="Payload_Lead_Customer_Address_CountryCode" NewName="Address_CountryCode" />
+                <Param Name="Payload_Lead_Customer_Address_PostalCode" NewName="Address_PostalCode" />
+                <Param Name="Payload_Lead_Customer_Address_StateOrRegion" NewName="Address_StateOrRegion" />
+                <Param Name="Payload_Lead_Customer_AwsMaturity" NewName="Customer_AwsMaturity" />
+                <Param Name="Payload_Lead_Customer_MarketSegment" NewName="Customer_MarketSegment" />
+                <Param Name="Payload_Lead_Interactions" NewName="Lead_Interaction" />
+                <Param Name="Payload_Lead_QualificationStatus" NewName="Lead_QualificationStatus" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,11 +67,40 @@
                 <Param Name="Invitation_Payload_OpportunityInvitation_Customer_CountryCode" NewName="Invitation_Payload_OpportunityInvitation_Customer_CountryCode" Alias="Customer_CountryCode" />
                 <Param Name="Invitation_Payload_OpportunityInvitation_Customer_Industry" NewName="Invitation_Payload_OpportunityInvitation_Customer_Industry" Alias="Customer_Industry" />
                 <Param Name="Invitation_Payload_OpportunityInvitation_Customer_WebsiteUrl" NewName="Invitation_Payload_OpportunityInvitation_Customer_WebsiteUrl" Alias="Customer_WebsiteUrl" />
+                <Param Name="Invitation_Payload_LeadInvitation_Customer_AwsMaturity" NewName="Customer_AwsMaturity" />
+                <Param Name="Invitation_Payload_LeadInvitation_Customer_MarketSegment" NewName="Customer_MarketSegment" />
+                <Param Name="Invitation_Payload_LeadInvitation_Interaction_ContactBusinessTitle" NewName="Interaction_ContactBusinessTitle" />
+                <Param Name="Invitation_Payload_LeadInvitation_Interaction_SourceId" NewName="Interaction_SourceId" />
+                <Param Name="Invitation_Payload_LeadInvitation_Interaction_SourceName" NewName="Interaction_SourceName" />
+                <Param Name="Invitation_Payload_LeadInvitation_Interaction_SourceType" NewName="Interaction_SourceType" />
+                <Param Name="Invitation_Payload_LeadInvitation_Interaction_Usecase" NewName="Interaction_Usecase" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_Project_BusinessProblem" NewName="Project_BusinessProblem" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_Project_ExpectedCustomerSpend" NewName="Project_ExpectedCustomerSpend" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_Project_TargetCompletionDate" NewName="Project_TargetCompletionDate" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_Project_Title" NewName="Project_Title" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_ReceiverResponsibilities" NewName="OpportunityInvitation_ReceiverResponsibility" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_SenderContacts" NewName="OpportunityInvitation_SenderContact" />
+                <Param Name="Invitation_Receiver_Account_Alias" NewName="Account_Alias" />
+                <Param Name="Invitation_Receiver_Account_AwsAccountId" NewName="Account_AwsAccountId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOpportunity" OutputProperty="Id" Verb="Invoke" Noun="CreateOpportunity" ShouldProcessTarget="Customer_Account_CompanyName" PipelineParameter="Customer_Account_CompanyName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Customer_Account_Address_City" NewName="Address_City" />
+                <Param Name="Customer_Account_Address_CountryCode" NewName="Address_CountryCode" />
+                <Param Name="Customer_Account_Address_PostalCode" NewName="Address_PostalCode" />
+                <Param Name="Customer_Account_Address_StateOrRegion" NewName="Address_StateOrRegion" />
+                <Param Name="Customer_Account_Address_StreetAddress" NewName="Address_StreetAddress" />
+                <Param Name="Customer_Account_AwsAccountId" NewName="Account_AwsAccountId" />
+                <Param Name="Customer_Account_CompanyName" NewName="Account_CompanyName" />
+                <Param Name="Customer_Account_Duns" NewName="Account_Dun" />
+                <Param Name="Customer_Account_Industry" NewName="Account_Industry" />
+                <Param Name="Customer_Account_OtherIndustry" NewName="Account_OtherIndustry" />
+                <Param Name="Customer_Account_WebsiteUrl" NewName="Account_WebsiteUrl" />
+                <Param Name="SoftwareRevenue_Value_Amount" NewName="Value_Amount" />
+                <Param Name="SoftwareRevenue_Value_CurrencyCode" NewName="Value_CurrencyCode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateResourceSnapshot" OutputProperty="*" Verb="Invoke" Noun="ResourceSnapshot" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -202,11 +243,48 @@
                 <Param Name="Payload_Lead_Customer_CompanyName" NewName="Lead_Customer_CompanyName" />
                 <Param Name="Payload_Lead_Customer_Industry" NewName="Lead_Customer_Industry" />
                 <Param Name="Payload_Lead_Customer_WebsiteUrl" NewName="Lead_Customer_WebsiteUrl" />
+                <Param Name="Payload_CustomerProject_Customer_CountryCode" NewName="Customer_CountryCode" />
+                <Param Name="Payload_CustomerProject_Project_BusinessProblem" NewName="Project_BusinessProblem" />
+                <Param Name="Payload_CustomerProject_Project_TargetCompletionDate" NewName="Project_TargetCompletionDate" />
+                <Param Name="Payload_CustomerProject_Project_Title" NewName="Project_Title" />
+                <Param Name="Payload_Lead_Customer_Address_City" NewName="Address_City" />
+                <Param Name="Payload_Lead_Customer_Address_CountryCode" NewName="Address_CountryCode" />
+                <Param Name="Payload_Lead_Customer_Address_PostalCode" NewName="Address_PostalCode" />
+                <Param Name="Payload_Lead_Customer_Address_StateOrRegion" NewName="Address_StateOrRegion" />
+                <Param Name="Payload_Lead_Customer_AwsMaturity" NewName="Customer_AwsMaturity" />
+                <Param Name="Payload_Lead_Customer_MarketSegment" NewName="Customer_MarketSegment" />
+                <Param Name="Payload_Lead_Interaction_BusinessProblem" NewName="Interaction_BusinessProblem" />
+                <Param Name="Payload_Lead_Interaction_Contact_BusinessTitle" NewName="Contact_BusinessTitle" />
+                <Param Name="Payload_Lead_Interaction_Contact_Email" NewName="Contact_Email" />
+                <Param Name="Payload_Lead_Interaction_Contact_FirstName" NewName="Contact_FirstName" />
+                <Param Name="Payload_Lead_Interaction_Contact_LastName" NewName="Contact_LastName" />
+                <Param Name="Payload_Lead_Interaction_Contact_Phone" NewName="Contact_Phone" />
+                <Param Name="Payload_Lead_Interaction_CustomerAction" NewName="Interaction_CustomerAction" />
+                <Param Name="Payload_Lead_Interaction_InteractionDate" NewName="Interaction_InteractionDate" />
+                <Param Name="Payload_Lead_Interaction_SourceId" NewName="Interaction_SourceId" />
+                <Param Name="Payload_Lead_Interaction_SourceName" NewName="Interaction_SourceName" />
+                <Param Name="Payload_Lead_Interaction_SourceType" NewName="Interaction_SourceType" />
+                <Param Name="Payload_Lead_Interaction_Usecase" NewName="Interaction_Usecase" />
+                <Param Name="Payload_Lead_QualificationStatus" NewName="Lead_QualificationStatus" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOpportunity" OutputProperty="*" Verb="Update" Noun="Opportunity" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Customer_Account_Address_City" NewName="Address_City" />
+                <Param Name="Customer_Account_Address_CountryCode" NewName="Address_CountryCode" />
+                <Param Name="Customer_Account_Address_PostalCode" NewName="Address_PostalCode" />
+                <Param Name="Customer_Account_Address_StateOrRegion" NewName="Address_StateOrRegion" />
+                <Param Name="Customer_Account_Address_StreetAddress" NewName="Address_StreetAddress" />
+                <Param Name="Customer_Account_AwsAccountId" NewName="Account_AwsAccountId" />
+                <Param Name="Customer_Account_CompanyName" NewName="Account_CompanyName" />
+                <Param Name="Customer_Account_Duns" NewName="Account_Dun" />
+                <Param Name="Customer_Account_Industry" NewName="Account_Industry" />
+                <Param Name="Customer_Account_OtherIndustry" NewName="Account_OtherIndustry" />
+                <Param Name="Customer_Account_WebsiteUrl" NewName="Account_WebsiteUrl" />
+                <Param Name="SoftwareRevenue_Value_Amount" NewName="Value_Amount" />
+                <Param Name="SoftwareRevenue_Value_CurrencyCode" NewName="Value_CurrencyCode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

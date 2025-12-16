@@ -39,7 +39,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomLineItem" OutputProperty="Arn" Verb="New" Noun="CustomLineItem" ShouldProcessTarget="Name" PipelineParameter="BillingGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ChargeDetails_Flat_ChargeValue" NewName="Flat_ChargeValue" />
+                <Param Name="ChargeDetails_Percentage_AssociatedValues" NewName="Percentage_AssociatedValue" />
+                <Param Name="ChargeDetails_Percentage_PercentageValue" NewName="Percentage_PercentageValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePricingPlan" OutputProperty="Arn" Verb="New" Noun="PricingPlan" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -47,7 +51,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePricingRule" OutputProperty="Arn" Verb="New" Noun="PricingRule" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Tiering_FreeTier_Activated" NewName="FreeTier_Activated" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBillingGroup" OutputProperty="Arn" Verb="Remove" Noun="BillingGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -97,7 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCustomLineItemVersions" OutputProperty="CustomLineItemVersions" Verb="Get" Noun="CustomLineItemVersionList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filters_BillingPeriodRange_EndBillingPeriod" NewName="BillingPeriodRange_EndBillingPeriod" />
+                <Param Name="Filters_BillingPeriodRange_StartBillingPeriod" NewName="BillingPeriodRange_StartBillingPeriod" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPricingPlans" OutputProperty="*" Verb="Get" Noun="PricingPlanList" PipelineParameter="BillingPeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -137,7 +146,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCustomLineItem" OutputProperty="*" Verb="Update" Noun="CustomLineItem" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ChargeDetails_Flat_ChargeValue" NewName="Flat_ChargeValue" />
+                <Param Name="ChargeDetails_Percentage_PercentageValue" NewName="Percentage_PercentageValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePricingPlan" OutputProperty="*" Verb="Update" Noun="PricingPlan" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -145,7 +157,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePricingRule" OutputProperty="*" Verb="Update" Noun="PricingRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Tiering_FreeTier_Activated" NewName="FreeTier_Activated" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -36,11 +36,36 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCluster" OutputProperty="ClusterId" Verb="New" Noun="Cluster" ShouldProcessTarget="AddressId" PipelineParameter="AddressId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OnDeviceServiceConfiguration_EKSOnDeviceService_EKSAnywhereVersion" NewName="EKSOnDeviceService_EKSAnywhereVersion" />
+                <Param Name="OnDeviceServiceConfiguration_EKSOnDeviceService_KubernetesVersion" NewName="EKSOnDeviceService_KubernetesVersion" />
+                <Param Name="OnDeviceServiceConfiguration_NFSOnDeviceService_StorageLimit" NewName="NFSOnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit" NewName="NFSOnDeviceService_StorageUnit" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_FaultTolerance" NewName="S3OnDeviceService_FaultTolerance" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_ServiceSize" NewName="S3OnDeviceService_ServiceSize" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_StorageLimit" NewName="S3OnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit" NewName="S3OnDeviceService_StorageUnit" />
+                <Param Name="OnDeviceServiceConfiguration_TGWOnDeviceService_StorageLimit" NewName="TGWOnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit" NewName="TGWOnDeviceService_StorageUnit" />
+                <Param Name="TaxDocuments_IND_GSTIN" NewName="IND_GSTIN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" OutputProperty="JobId" Verb="New" Noun="Job" ShouldProcessTarget="AddressId" PipelineParameter="AddressId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection_IsWifiEnabled" NewName="WirelessConnection_IsWifiEnabled" />
+                <Param Name="OnDeviceServiceConfiguration_EKSOnDeviceService_EKSAnywhereVersion" NewName="EKSOnDeviceService_EKSAnywhereVersion" />
+                <Param Name="OnDeviceServiceConfiguration_EKSOnDeviceService_KubernetesVersion" NewName="EKSOnDeviceService_KubernetesVersion" />
+                <Param Name="OnDeviceServiceConfiguration_NFSOnDeviceService_StorageLimit" NewName="NFSOnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit" NewName="NFSOnDeviceService_StorageUnit" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_FaultTolerance" NewName="S3OnDeviceService_FaultTolerance" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_ServiceSize" NewName="S3OnDeviceService_ServiceSize" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_StorageLimit" NewName="S3OnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit" NewName="S3OnDeviceService_StorageUnit" />
+                <Param Name="OnDeviceServiceConfiguration_TGWOnDeviceService_StorageLimit" NewName="TGWOnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit" NewName="TGWOnDeviceService_StorageUnit" />
+                <Param Name="TaxDocuments_IND_GSTIN" NewName="IND_GSTIN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLongTermPricing" OutputProperty="LongTermPricingId" Verb="New" Noun="LongTermPricing" ShouldProcessTarget="LongTermPricingType" PipelineParameter="LongTermPricingType" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -55,7 +80,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAddresses" OutputProperty="Addresses" Verb="Get" Noun="AddressList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAddresses" OutputProperty="Addresses" Verb="Get" Noun="AddressList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -87,19 +112,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusterJobs" OutputProperty="JobListEntries" Verb="Get" Noun="ClusterJobList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusterJobs" OutputProperty="JobListEntries" Verb="Get" Noun="ClusterJobList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterListEntries" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterListEntries" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCompatibleImages" OutputProperty="CompatibleImages" Verb="Get" Noun="CompatibleImageList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCompatibleImages" OutputProperty="CompatibleImages" Verb="Get" Noun="CompatibleImageList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobListEntries" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobListEntries" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -116,11 +141,33 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OnDeviceServiceConfiguration_EKSOnDeviceService_EKSAnywhereVersion" NewName="EKSOnDeviceService_EKSAnywhereVersion" />
+                <Param Name="OnDeviceServiceConfiguration_EKSOnDeviceService_KubernetesVersion" NewName="EKSOnDeviceService_KubernetesVersion" />
+                <Param Name="OnDeviceServiceConfiguration_NFSOnDeviceService_StorageLimit" NewName="NFSOnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit" NewName="NFSOnDeviceService_StorageUnit" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_FaultTolerance" NewName="S3OnDeviceService_FaultTolerance" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_ServiceSize" NewName="S3OnDeviceService_ServiceSize" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_StorageLimit" NewName="S3OnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit" NewName="S3OnDeviceService_StorageUnit" />
+                <Param Name="OnDeviceServiceConfiguration_TGWOnDeviceService_StorageLimit" NewName="TGWOnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit" NewName="TGWOnDeviceService_StorageUnit" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateJob" Verb="Update" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OnDeviceServiceConfiguration_EKSOnDeviceService_EKSAnywhereVersion" NewName="EKSOnDeviceService_EKSAnywhereVersion" />
+                <Param Name="OnDeviceServiceConfiguration_EKSOnDeviceService_KubernetesVersion" NewName="EKSOnDeviceService_KubernetesVersion" />
+                <Param Name="OnDeviceServiceConfiguration_NFSOnDeviceService_StorageLimit" NewName="NFSOnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit" NewName="NFSOnDeviceService_StorageUnit" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_FaultTolerance" NewName="S3OnDeviceService_FaultTolerance" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_ServiceSize" NewName="S3OnDeviceService_ServiceSize" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_StorageLimit" NewName="S3OnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit" NewName="S3OnDeviceService_StorageUnit" />
+                <Param Name="OnDeviceServiceConfiguration_TGWOnDeviceService_StorageLimit" NewName="TGWOnDeviceService_StorageLimit" />
+                <Param Name="OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit" NewName="TGWOnDeviceService_StorageUnit" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateJobShipmentState" Verb="Update" Noun="JobShipmentState" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -31,11 +31,25 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="New" Noun="AnalysisTemplate" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Source_Artifacts_AdditionalArtifacts" NewName="Artifacts_AdditionalArtifact" />
+                <Param Name="Source_Artifacts_EntryPoint_Location_Bucket" NewName="Location_Bucket" />
+                <Param Name="Source_Artifacts_EntryPoint_Location_Key" NewName="Location_Key" />
+                <Param Name="Source_Artifacts_RoleArn" NewName="Artifacts_RoleArn" />
+                <Param Name="SyntheticDataParameters_MlSyntheticDataParameters_ColumnClassification_ColumnMapping" NewName="ColumnClassification_ColumnMapping" />
+                <Param Name="SyntheticDataParameters_MlSyntheticDataParameters_Epsilon" NewName="MlSyntheticDataParameters_Epsilon" />
+                <Param Name="SyntheticDataParameters_MlSyntheticDataParameters_MaxMembershipInferenceAttackScore" NewName="MlSyntheticDataParameters_MaxMembershipInferenceAttackScore" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCollaboration" OutputProperty="Collaboration" Verb="New" Noun="Collaboration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CreatorPaymentConfiguration_JobCompute_IsResponsible" NewName="JobCompute_IsResponsible" />
+                <Param Name="CreatorPaymentConfiguration_MachineLearning_ModelInference_IsResponsible" NewName="ModelInference_IsResponsible" />
+                <Param Name="CreatorPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible" NewName="ModelTraining_IsResponsible" />
+                <Param Name="CreatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible" NewName="SyntheticDataGeneration_IsResponsible" />
+                <Param Name="CreatorPaymentConfiguration_QueryCompute_IsResponsible" NewName="QueryCompute_IsResponsible" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCollaborationChangeRequest" OutputProperty="CollaborationChangeRequest" Verb="New" Noun="CollaborationChangeRequest" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
@@ -47,11 +61,44 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredTable" OutputProperty="ConfiguredTable" Verb="New" Noun="ConfiguredTable" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TableReference_Athena_DatabaseName" NewName="Athena_DatabaseName" />
+                <Param Name="TableReference_Athena_OutputLocation" NewName="Athena_OutputLocation" />
+                <Param Name="TableReference_Athena_Region" NewName="Athena_Region" />
+                <Param Name="TableReference_Athena_TableName" NewName="Athena_TableName" />
+                <Param Name="TableReference_Athena_WorkGroup" NewName="Athena_WorkGroup" />
+                <Param Name="TableReference_Glue_DatabaseName" NewName="Glue_DatabaseName" />
+                <Param Name="TableReference_Glue_Region" NewName="Glue_Region" />
+                <Param Name="TableReference_Glue_TableName" NewName="Glue_TableName" />
+                <Param Name="TableReference_Snowflake_AccountIdentifier" NewName="Snowflake_AccountIdentifier" />
+                <Param Name="TableReference_Snowflake_DatabaseName" NewName="Snowflake_DatabaseName" />
+                <Param Name="TableReference_Snowflake_SchemaName" NewName="Snowflake_SchemaName" />
+                <Param Name="TableReference_Snowflake_SecretArn" NewName="Snowflake_SecretArn" />
+                <Param Name="TableReference_Snowflake_TableName" NewName="Snowflake_TableName" />
+                <Param Name="TableReference_Snowflake_TableSchema_V1" NewName="TableSchema_V1" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="New" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AdditionalAnalyses" NewName="Aggregation_AdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AggregateColumns" NewName="Aggregation_AggregateColumn" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AllowedJoinOperators" NewName="Aggregation_AllowedJoinOperator" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_DimensionColumns" NewName="Aggregation_DimensionColumn" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_JoinColumns" NewName="Aggregation_JoinColumn" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_JoinRequired" NewName="Aggregation_JoinRequired" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_OutputConstraints" NewName="Aggregation_OutputConstraint" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_ScalarFunctions" NewName="Aggregation_ScalarFunction" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AdditionalAnalyses" NewName="Custom_AdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AllowedAnalyses" NewName="Custom_AllowedAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AllowedAnalysisProviders" NewName="Custom_AllowedAnalysisProvider" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_DifferentialPrivacy_Columns" NewName="DifferentialPrivacy_Column" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_DisallowedOutputColumns" NewName="Custom_DisallowedOutputColumn" />
+                <Param Name="AnalysisRulePolicy_V1_List_AdditionalAnalyses" NewName="List_AdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_List_AllowedJoinOperators" NewName="List_AllowedJoinOperator" />
+                <Param Name="AnalysisRulePolicy_V1_List_JoinColumns" NewName="List_JoinColumn" />
+                <Param Name="AnalysisRulePolicy_V1_List_ListColumns" NewName="List_ListColumn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="New" Noun="ConfiguredTableAssociation" ShouldProcessTarget="Name" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -59,7 +106,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="New" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AllowedAdditionalAnalyses" NewName="Aggregation_AllowedAdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AllowedResultReceivers" NewName="Aggregation_AllowedResultReceiver" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses" NewName="Custom_AllowedAdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AllowedResultReceivers" NewName="Custom_AllowedResultReceiver" />
+                <Param Name="AnalysisRulePolicy_V1_List_AllowedAdditionalAnalyses" NewName="List_AllowedAdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_List_AllowedResultReceivers" NewName="List_AllowedResultReceiver" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIdMappingTable" OutputProperty="IdMappingTable" Verb="New" Noun="IdMappingTable" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -74,11 +128,25 @@
             <Params>
                 <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" Alias="Default_Job_S3_Bucket" />
                 <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" Alias="Default_Job_S3_KeyPrefix" />
+                <Param Name="DefaultResultConfiguration_OutputConfiguration_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="DefaultResultConfiguration_OutputConfiguration_S3_KeyPrefix" NewName="S3_KeyPrefix" />
+                <Param Name="DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat" NewName="S3_ResultFormat" />
+                <Param Name="DefaultResultConfiguration_OutputConfiguration_S3_SingleFileOutput" NewName="S3_SingleFileOutput" />
+                <Param Name="PaymentConfiguration_JobCompute_IsResponsible" NewName="JobCompute_IsResponsible" />
+                <Param Name="PaymentConfiguration_MachineLearning_ModelInference_IsResponsible" NewName="ModelInference_IsResponsible" />
+                <Param Name="PaymentConfiguration_MachineLearning_ModelTraining_IsResponsible" NewName="ModelTraining_IsResponsible" />
+                <Param Name="PaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible" NewName="SyntheticDataGeneration_IsResponsible" />
+                <Param Name="PaymentConfiguration_QueryCompute_IsResponsible" NewName="QueryCompute_IsResponsible" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="New" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Parameters_AccessBudget_BudgetParameters" NewName="AccessBudget_BudgetParameter" />
+                <Param Name="Parameters_AccessBudget_ResourceArn" NewName="AccessBudget_ResourceArn" />
+                <Param Name="Parameters_DifferentialPrivacy_Epsilon" NewName="DifferentialPrivacy_Epsilon" />
+                <Param Name="Parameters_DifferentialPrivacy_UsersNoisePerQuery" NewName="DifferentialPrivacy_UsersNoisePerQuery" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAnalysisTemplate" Verb="Remove" Noun="AnalysisTemplate" ShouldProcessTarget="AnalysisTemplateIdentifier" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -298,15 +366,32 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PreviewPrivacyImpact" OutputProperty="PrivacyImpact" Verb="Test" Noun="PrivacyImpact" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Parameters_DifferentialPrivacy_Epsilon" NewName="DifferentialPrivacy_Epsilon" />
+                <Param Name="Parameters_DifferentialPrivacy_UsersNoisePerQuery" NewName="DifferentialPrivacy_UsersNoisePerQuery" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartProtectedJob" OutputProperty="ProtectedJob" Verb="Start" Noun="ProtectedJob" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ComputeConfiguration_Worker_Number" NewName="Worker_Number" />
+                <Param Name="ComputeConfiguration_Worker_Type" NewName="Worker_Type" />
+                <Param Name="ResultConfiguration_OutputConfiguration_Member_AccountId" NewName="Member_AccountId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartProtectedQuery" OutputProperty="ProtectedQuery" Verb="Start" Noun="ProtectedQuery" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ComputeConfiguration_Worker_Number" NewName="Worker_Number" />
+                <Param Name="ComputeConfiguration_Worker_Properties_Spark" NewName="Properties_Spark" />
+                <Param Name="ComputeConfiguration_Worker_Type" NewName="Worker_Type" />
+                <Param Name="ResultConfiguration_OutputConfiguration_Distribute_Locations" NewName="Distribute_Location" />
+                <Param Name="ResultConfiguration_OutputConfiguration_Member_AccountId" NewName="Member_AccountId" />
+                <Param Name="ResultConfiguration_OutputConfiguration_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="ResultConfiguration_OutputConfiguration_S3_KeyPrefix" NewName="S3_KeyPrefix" />
+                <Param Name="ResultConfiguration_OutputConfiguration_S3_ResultFormat" NewName="S3_ResultFormat" />
+                <Param Name="ResultConfiguration_OutputConfiguration_S3_SingleFileOutput" NewName="S3_SingleFileOutput" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -330,11 +415,44 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguredTable" OutputProperty="ConfiguredTable" Verb="Update" Noun="ConfiguredTable" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TableReference_Athena_DatabaseName" NewName="Athena_DatabaseName" />
+                <Param Name="TableReference_Athena_OutputLocation" NewName="Athena_OutputLocation" />
+                <Param Name="TableReference_Athena_Region" NewName="Athena_Region" />
+                <Param Name="TableReference_Athena_TableName" NewName="Athena_TableName" />
+                <Param Name="TableReference_Athena_WorkGroup" NewName="Athena_WorkGroup" />
+                <Param Name="TableReference_Glue_DatabaseName" NewName="Glue_DatabaseName" />
+                <Param Name="TableReference_Glue_Region" NewName="Glue_Region" />
+                <Param Name="TableReference_Glue_TableName" NewName="Glue_TableName" />
+                <Param Name="TableReference_Snowflake_AccountIdentifier" NewName="Snowflake_AccountIdentifier" />
+                <Param Name="TableReference_Snowflake_DatabaseName" NewName="Snowflake_DatabaseName" />
+                <Param Name="TableReference_Snowflake_SchemaName" NewName="Snowflake_SchemaName" />
+                <Param Name="TableReference_Snowflake_SecretArn" NewName="Snowflake_SecretArn" />
+                <Param Name="TableReference_Snowflake_TableName" NewName="Snowflake_TableName" />
+                <Param Name="TableReference_Snowflake_TableSchema_V1" NewName="TableSchema_V1" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="Update" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AdditionalAnalyses" NewName="Aggregation_AdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AggregateColumns" NewName="Aggregation_AggregateColumn" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AllowedJoinOperators" NewName="Aggregation_AllowedJoinOperator" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_DimensionColumns" NewName="Aggregation_DimensionColumn" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_JoinColumns" NewName="Aggregation_JoinColumn" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_JoinRequired" NewName="Aggregation_JoinRequired" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_OutputConstraints" NewName="Aggregation_OutputConstraint" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_ScalarFunctions" NewName="Aggregation_ScalarFunction" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AdditionalAnalyses" NewName="Custom_AdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AllowedAnalyses" NewName="Custom_AllowedAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AllowedAnalysisProviders" NewName="Custom_AllowedAnalysisProvider" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_DifferentialPrivacy_Columns" NewName="DifferentialPrivacy_Column" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_DisallowedOutputColumns" NewName="Custom_DisallowedOutputColumn" />
+                <Param Name="AnalysisRulePolicy_V1_List_AdditionalAnalyses" NewName="List_AdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_List_AllowedJoinOperators" NewName="List_AllowedJoinOperator" />
+                <Param Name="AnalysisRulePolicy_V1_List_JoinColumns" NewName="List_JoinColumn" />
+                <Param Name="AnalysisRulePolicy_V1_List_ListColumns" NewName="List_ListColumn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Update" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -342,7 +460,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="Update" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AllowedAdditionalAnalyses" NewName="Aggregation_AllowedAdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Aggregation_AllowedResultReceivers" NewName="Aggregation_AllowedResultReceiver" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses" NewName="Custom_AllowedAdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_Custom_AllowedResultReceivers" NewName="Custom_AllowedResultReceiver" />
+                <Param Name="AnalysisRulePolicy_V1_List_AllowedAdditionalAnalyses" NewName="List_AllowedAdditionalAnalysis" />
+                <Param Name="AnalysisRulePolicy_V1_List_AllowedResultReceivers" NewName="List_AllowedResultReceiver" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIdMappingTable" OutputProperty="IdMappingTable" Verb="Update" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -357,11 +482,19 @@
             <Params>
                 <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" Alias="Default_Job_S3_Bucket" />
                 <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" Alias="Default_Job_S3_KeyPrefix" />
+                <Param Name="DefaultResultConfiguration_OutputConfiguration_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="DefaultResultConfiguration_OutputConfiguration_S3_KeyPrefix" NewName="S3_KeyPrefix" />
+                <Param Name="DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat" NewName="S3_ResultFormat" />
+                <Param Name="DefaultResultConfiguration_OutputConfiguration_S3_SingleFileOutput" NewName="S3_SingleFileOutput" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="Update" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="PrivacyBudgetTemplateIdentifier" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Parameters_AccessBudget_BudgetParameters" NewName="AccessBudget_BudgetParameter" />
+                <Param Name="Parameters_DifferentialPrivacy_Epsilon" NewName="DifferentialPrivacy_Epsilon" />
+                <Param Name="Parameters_DifferentialPrivacy_UsersNoisePerQuery" NewName="DifferentialPrivacy_UsersNoisePerQuery" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProtectedJob" OutputProperty="ProtectedJob" Verb="Update" Noun="ProtectedJob" ShouldProcessTarget="ProtectedJobIdentifier" PipelineParameter="ProtectedJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">

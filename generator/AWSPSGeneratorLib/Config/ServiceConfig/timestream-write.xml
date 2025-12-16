@@ -20,7 +20,28 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateBatchLoadTask" OutputProperty="TaskId" Verb="New" Noun="BatchLoadTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DataModelConfiguration_DataModel_DimensionMappings" NewName="DataModel_DimensionMapping" />
+                <Param Name="DataModelConfiguration_DataModel_MeasureNameColumn" NewName="DataModel_MeasureNameColumn" />
+                <Param Name="DataModelConfiguration_DataModel_MixedMeasureMappings" NewName="DataModel_MixedMeasureMapping" />
+                <Param Name="DataModelConfiguration_DataModel_MultiMeasureMappings_MultiMeasureAttributeMappings" NewName="MultiMeasureMappings_MultiMeasureAttributeMapping" />
+                <Param Name="DataModelConfiguration_DataModel_MultiMeasureMappings_TargetMultiMeasureName" NewName="MultiMeasureMappings_TargetMultiMeasureName" />
+                <Param Name="DataModelConfiguration_DataModel_TimeColumn" NewName="DataModel_TimeColumn" />
+                <Param Name="DataModelConfiguration_DataModel_TimeUnit" NewName="DataModel_TimeUnit" />
+                <Param Name="DataModelConfiguration_DataModelS3Configuration_BucketName" NewName="DataModelS3Configuration_BucketName" />
+                <Param Name="DataModelConfiguration_DataModelS3Configuration_ObjectKey" NewName="DataModelS3Configuration_ObjectKey" />
+                <Param Name="DataSourceConfiguration_CsvConfiguration_ColumnSeparator" NewName="CsvConfiguration_ColumnSeparator" />
+                <Param Name="DataSourceConfiguration_CsvConfiguration_EscapeChar" NewName="CsvConfiguration_EscapeChar" />
+                <Param Name="DataSourceConfiguration_CsvConfiguration_NullValue" NewName="CsvConfiguration_NullValue" />
+                <Param Name="DataSourceConfiguration_CsvConfiguration_QuoteChar" NewName="CsvConfiguration_QuoteChar" />
+                <Param Name="DataSourceConfiguration_CsvConfiguration_TrimWhiteSpace" NewName="CsvConfiguration_TrimWhiteSpace" />
+                <Param Name="DataSourceConfiguration_DataSourceS3Configuration_BucketName" NewName="DataSourceS3Configuration_BucketName" />
+                <Param Name="DataSourceConfiguration_DataSourceS3Configuration_ObjectKeyPrefix" NewName="DataSourceS3Configuration_ObjectKeyPrefix" />
+                <Param Name="ReportConfiguration_ReportS3Configuration_BucketName" NewName="ReportS3Configuration_BucketName" />
+                <Param Name="ReportConfiguration_ReportS3Configuration_EncryptionOption" NewName="ReportS3Configuration_EncryptionOption" />
+                <Param Name="ReportConfiguration_ReportS3Configuration_KmsKeyId" NewName="ReportS3Configuration_KmsKeyId" />
+                <Param Name="ReportConfiguration_ReportS3Configuration_ObjectKeyPrefix" NewName="ReportS3Configuration_ObjectKeyPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDatabase" OutputProperty="Database" Verb="New" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -28,7 +49,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTable" OutputProperty="Table" Verb="New" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
+                <Param Name="MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption" NewName="S3Configuration_EncryptionOption" />
+                <Param Name="MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_KmsKeyId" NewName="S3Configuration_KmsKeyId" />
+                <Param Name="MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_ObjectKeyPrefix" NewName="S3Configuration_ObjectKeyPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDatabase" Verb="Remove" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -88,7 +114,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTable" OutputProperty="Table" Verb="Update" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
+                <Param Name="MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption" NewName="S3Configuration_EncryptionOption" />
+                <Param Name="MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_KmsKeyId" NewName="S3Configuration_KmsKeyId" />
+                <Param Name="MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_ObjectKeyPrefix" NewName="S3Configuration_ObjectKeyPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="WriteRecords" OutputProperty="*" Verb="Write" Noun="Record" ShouldProcessTarget="TableName" PipelineParameter="Records" NoPipelineParameter="false" LegacyV4Pagination="true">

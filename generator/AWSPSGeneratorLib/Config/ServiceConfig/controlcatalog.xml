@@ -31,8 +31,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListControls" OutputProperty="Controls" Verb="Get" Noun="ControlList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="ListControls" OutputProperty="Controls" Verb="Get" Noun="ControlList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="Filter_Implementations_Identifiers" NewName="Implementations_Identifier" />
+                <Param Name="Filter_Implementations_Types" NewName="Implementations_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">

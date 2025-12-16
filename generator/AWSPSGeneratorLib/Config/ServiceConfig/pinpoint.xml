@@ -23,7 +23,116 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCampaign" OutputProperty="CampaignResponse" Verb="New" Noun="Campaign" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WriteCampaignRequest_CustomDeliveryConfiguration_DeliveryUri" NewName="CustomDeliveryConfiguration_DeliveryUri" />
+                <Param Name="WriteCampaignRequest_CustomDeliveryConfiguration_EndpointTypes" NewName="CustomDeliveryConfiguration_EndpointType" />
+                <Param Name="WriteCampaignRequest_Hook_LambdaFunctionName" NewName="Hook_LambdaFunctionName" />
+                <Param Name="WriteCampaignRequest_Hook_Mode" NewName="Hook_Mode" />
+                <Param Name="WriteCampaignRequest_Hook_WebUrl" NewName="Hook_WebUrl" />
+                <Param Name="WriteCampaignRequest_Limits_Daily" NewName="Limits_Daily" />
+                <Param Name="WriteCampaignRequest_Limits_MaximumDuration" NewName="Limits_MaximumDuration" />
+                <Param Name="WriteCampaignRequest_Limits_MessagesPerSecond" NewName="Limits_MessagesPerSecond" />
+                <Param Name="WriteCampaignRequest_Limits_Session" NewName="Limits_Session" />
+                <Param Name="WriteCampaignRequest_Limits_Total" NewName="Limits_Total" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_Action" NewName="ADMMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_Body" NewName="ADMMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_ImageIconUrl" NewName="ADMMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_ImageSmallIconUrl" NewName="ADMMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_ImageUrl" NewName="ADMMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_JsonBody" NewName="ADMMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_MediaUrl" NewName="ADMMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_RawContent" NewName="ADMMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_SilentPush" NewName="ADMMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_TimeToLive" NewName="ADMMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_Title" NewName="ADMMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_Url" NewName="ADMMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_Action" NewName="APNSMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_Body" NewName="APNSMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageIconUrl" NewName="APNSMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageSmallIconUrl" NewName="APNSMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageUrl" NewName="APNSMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_JsonBody" NewName="APNSMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_MediaUrl" NewName="APNSMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_RawContent" NewName="APNSMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_SilentPush" NewName="APNSMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_TimeToLive" NewName="APNSMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_Title" NewName="APNSMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_Url" NewName="APNSMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action" NewName="BaiduMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_Body" NewName="BaiduMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_ImageIconUrl" NewName="BaiduMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_ImageSmallIconUrl" NewName="BaiduMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_ImageUrl" NewName="BaiduMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_JsonBody" NewName="BaiduMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_MediaUrl" NewName="BaiduMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_RawContent" NewName="BaiduMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_SilentPush" NewName="BaiduMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_TimeToLive" NewName="BaiduMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_Title" NewName="BaiduMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_Url" NewName="BaiduMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_CustomMessage_Data" NewName="CustomMessage_Data" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action" NewName="DefaultMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_Body" NewName="DefaultMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageIconUrl" NewName="DefaultMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageSmallIconUrl" NewName="DefaultMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageUrl" NewName="DefaultMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_JsonBody" NewName="DefaultMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_MediaUrl" NewName="DefaultMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_RawContent" NewName="DefaultMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_SilentPush" NewName="DefaultMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_TimeToLive" NewName="DefaultMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_Title" NewName="DefaultMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_Url" NewName="DefaultMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_Body" NewName="EmailMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_FromAddress" NewName="EmailMessage_FromAddress" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_Headers" NewName="EmailMessage_Header" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_HtmlBody" NewName="EmailMessage_HtmlBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_Title" NewName="EmailMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_Action" NewName="GCMMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_Body" NewName="GCMMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageIconUrl" NewName="GCMMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageSmallIconUrl" NewName="GCMMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageUrl" NewName="GCMMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_JsonBody" NewName="GCMMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_MediaUrl" NewName="GCMMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_RawContent" NewName="GCMMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_SilentPush" NewName="GCMMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_TimeToLive" NewName="GCMMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_Title" NewName="GCMMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_Url" NewName="GCMMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_InAppMessage_Body" NewName="InAppMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_InAppMessage_Content" NewName="InAppMessage_Content" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_InAppMessage_CustomConfig" NewName="InAppMessage_CustomConfig" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout" NewName="InAppMessage_Layout" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_Body" NewName="SMSMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_EntityId" NewName="SMSMessage_EntityId" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType" NewName="SMSMessage_MessageType" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_OriginationNumber" NewName="SMSMessage_OriginationNumber" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_SenderId" NewName="SMSMessage_SenderId" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_TemplateId" NewName="SMSMessage_TemplateId" />
+                <Param Name="WriteCampaignRequest_Schedule_EndTime" NewName="Schedule_EndTime" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_Dimensions_Attributes" NewName="Dimensions_Attribute" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType" NewName="EventType_DimensionType" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_Values" NewName="EventType_Value" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_Dimensions_Metrics" NewName="Dimensions_Metric" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_FilterType" NewName="EventFilter_FilterType" />
+                <Param Name="WriteCampaignRequest_Schedule_Frequency" NewName="Schedule_Frequency" />
+                <Param Name="WriteCampaignRequest_Schedule_IsLocalTime" NewName="Schedule_IsLocalTime" />
+                <Param Name="WriteCampaignRequest_Schedule_QuietTime_End" NewName="QuietTime_End" />
+                <Param Name="WriteCampaignRequest_Schedule_QuietTime_Start" NewName="QuietTime_Start" />
+                <Param Name="WriteCampaignRequest_Schedule_StartTime" NewName="Schedule_StartTime" />
+                <Param Name="WriteCampaignRequest_Schedule_Timezone" NewName="Schedule_Timezone" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_EmailTemplate_Name" NewName="EmailTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_EmailTemplate_Version" NewName="EmailTemplate_Version" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_InAppTemplate_Name" NewName="InAppTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_InAppTemplate_Version" NewName="InAppTemplate_Version" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_PushTemplate_Name" NewName="PushTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_PushTemplate_Version" NewName="PushTemplate_Version" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_SMSTemplate_Name" NewName="SMSTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_SMSTemplate_Version" NewName="SMSTemplate_Version" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_VoiceTemplate_Name" NewName="VoiceTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_VoiceTemplate_Version" NewName="VoiceTemplate_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEmailTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="EmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -43,11 +152,84 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJourney" OutputProperty="JourneyResponse" Verb="New" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WriteJourneyRequest_ClosedDays_CUSTOM" NewName="ClosedDays_CUSTOM" />
+                <Param Name="WriteJourneyRequest_ClosedDays_EMAIL" NewName="ClosedDays_EMAIL" />
+                <Param Name="WriteJourneyRequest_ClosedDays_PUSH" NewName="ClosedDays_PUSH" />
+                <Param Name="WriteJourneyRequest_ClosedDays_SMS" NewName="ClosedDays_SMS" />
+                <Param Name="WriteJourneyRequest_ClosedDays_VOICE" NewName="ClosedDays_VOICE" />
+                <Param Name="WriteJourneyRequest_JourneyChannelSettings_ConnectCampaignArn" NewName="JourneyChannelSettings_ConnectCampaignArn" />
+                <Param Name="WriteJourneyRequest_JourneyChannelSettings_ConnectCampaignExecutionRoleArn" NewName="JourneyChannelSettings_ConnectCampaignExecutionRoleArn" />
+                <Param Name="WriteJourneyRequest_Limits_DailyCap" NewName="Limits_DailyCap" />
+                <Param Name="WriteJourneyRequest_Limits_EndpointReentryCap" NewName="Limits_EndpointReentryCap" />
+                <Param Name="WriteJourneyRequest_Limits_EndpointReentryInterval" NewName="Limits_EndpointReentryInterval" />
+                <Param Name="WriteJourneyRequest_Limits_MessagesPerSecond" NewName="Limits_MessagesPerSecond" />
+                <Param Name="WriteJourneyRequest_Limits_TimeframeCap_Cap" NewName="TimeframeCap_Cap" />
+                <Param Name="WriteJourneyRequest_Limits_TimeframeCap_Days" NewName="TimeframeCap_Day" />
+                <Param Name="WriteJourneyRequest_Limits_TotalCap" NewName="Limits_TotalCap" />
+                <Param Name="WriteJourneyRequest_OpenHours_CUSTOM" NewName="OpenHours_CUSTOM" />
+                <Param Name="WriteJourneyRequest_OpenHours_EMAIL" NewName="OpenHours_EMAIL" />
+                <Param Name="WriteJourneyRequest_OpenHours_PUSH" NewName="OpenHours_PUSH" />
+                <Param Name="WriteJourneyRequest_OpenHours_SMS" NewName="OpenHours_SMS" />
+                <Param Name="WriteJourneyRequest_OpenHours_VOICE" NewName="OpenHours_VOICE" />
+                <Param Name="WriteJourneyRequest_QuietTime_End" NewName="QuietTime_End" />
+                <Param Name="WriteJourneyRequest_QuietTime_Start" NewName="QuietTime_Start" />
+                <Param Name="WriteJourneyRequest_Schedule_EndTime" NewName="Schedule_EndTime" />
+                <Param Name="WriteJourneyRequest_Schedule_StartTime" NewName="Schedule_StartTime" />
+                <Param Name="WriteJourneyRequest_Schedule_Timezone" NewName="Schedule_Timezone" />
+                <Param Name="WriteJourneyRequest_StartCondition_Description" NewName="StartCondition_Description" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_Attributes" NewName="Dimensions_Attribute" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType" NewName="EventType_DimensionType" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_Values" NewName="EventType_Value" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_Metrics" NewName="Dimensions_Metric" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_FilterType" NewName="EventFilter_FilterType" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_SegmentId" NewName="EventStartCondition_SegmentId" />
+                <Param Name="WriteJourneyRequest_StartCondition_SegmentStartCondition_SegmentId" NewName="SegmentStartCondition_SegmentId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePushTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PushNotificationTemplateRequest_ADM_Action" NewName="ADM_Action" />
+                <Param Name="PushNotificationTemplateRequest_ADM_Body" NewName="ADM_Body" />
+                <Param Name="PushNotificationTemplateRequest_ADM_ImageIconUrl" NewName="ADM_ImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_ADM_ImageUrl" NewName="ADM_ImageUrl" />
+                <Param Name="PushNotificationTemplateRequest_ADM_RawContent" NewName="ADM_RawContent" />
+                <Param Name="PushNotificationTemplateRequest_ADM_SmallImageIconUrl" NewName="ADM_SmallImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_ADM_Sound" NewName="ADM_Sound" />
+                <Param Name="PushNotificationTemplateRequest_ADM_Title" NewName="ADM_Title" />
+                <Param Name="PushNotificationTemplateRequest_ADM_Url" NewName="ADM_Url" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Action" NewName="APNS_Action" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Body" NewName="APNS_Body" />
+                <Param Name="PushNotificationTemplateRequest_APNS_MediaUrl" NewName="APNS_MediaUrl" />
+                <Param Name="PushNotificationTemplateRequest_APNS_RawContent" NewName="APNS_RawContent" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Sound" NewName="APNS_Sound" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Title" NewName="APNS_Title" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Url" NewName="APNS_Url" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Action" NewName="Baidu_Action" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Body" NewName="Baidu_Body" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_ImageIconUrl" NewName="Baidu_ImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_ImageUrl" NewName="Baidu_ImageUrl" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_RawContent" NewName="Baidu_RawContent" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_SmallImageIconUrl" NewName="Baidu_SmallImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Sound" NewName="Baidu_Sound" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Title" NewName="Baidu_Title" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Url" NewName="Baidu_Url" />
+                <Param Name="PushNotificationTemplateRequest_Default_Action" NewName="Default_Action" />
+                <Param Name="PushNotificationTemplateRequest_Default_Body" NewName="Default_Body" />
+                <Param Name="PushNotificationTemplateRequest_Default_Sound" NewName="Default_Sound" />
+                <Param Name="PushNotificationTemplateRequest_Default_Title" NewName="Default_Title" />
+                <Param Name="PushNotificationTemplateRequest_Default_Url" NewName="Default_Url" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Action" NewName="GCM_Action" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Body" NewName="GCM_Body" />
+                <Param Name="PushNotificationTemplateRequest_GCM_ImageIconUrl" NewName="GCM_ImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_GCM_ImageUrl" NewName="GCM_ImageUrl" />
+                <Param Name="PushNotificationTemplateRequest_GCM_RawContent" NewName="GCM_RawContent" />
+                <Param Name="PushNotificationTemplateRequest_GCM_SmallImageIconUrl" NewName="GCM_SmallImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Sound" NewName="GCM_Sound" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Title" NewName="GCM_Title" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Url" NewName="GCM_Url" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="New" Noun="RecommenderConfiguration" ShouldProcessTarget="CreateRecommenderConfiguration_RecommendationProviderUri" PipelineParameter="CreateRecommenderConfiguration_RecommendationProviderUri" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -55,7 +237,32 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSegment" OutputProperty="SegmentResponse" Verb="New" Noun="Segment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WriteSegmentRequest_Dimensions_Attributes" NewName="Dimensions_Attribute" />
+                <Param Name="WriteSegmentRequest_Dimensions_Behavior_Recency_Duration" NewName="Recency_Duration" />
+                <Param Name="WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType" NewName="Recency_RecencyType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType" NewName="AppVersion_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_AppVersion_Values" NewName="AppVersion_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType" NewName="Channel_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Channel_Values" NewName="Channel_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType" NewName="DeviceType_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_DeviceType_Values" NewName="DeviceType_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Make_DimensionType" NewName="Make_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Make_Values" NewName="Make_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Model_DimensionType" NewName="Model_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Model_Values" NewName="Model_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Platform_DimensionType" NewName="Platform_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Platform_Values" NewName="Platform_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_Country_DimensionType" NewName="Country_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_Country_Values" NewName="Country_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Latitude" NewName="Coordinates_Latitude" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Longitude" NewName="Coordinates_Longitude" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_GPSPoint_RangeInKilometers" NewName="GPSPoint_RangeInKilometer" />
+                <Param Name="WriteSegmentRequest_Dimensions_Metrics" NewName="Dimensions_Metric" />
+                <Param Name="WriteSegmentRequest_Dimensions_UserAttributes" NewName="Dimensions_UserAttribute" />
+                <Param Name="WriteSegmentRequest_SegmentGroups_Groups" NewName="SegmentGroups_Group" />
+                <Param Name="WriteSegmentRequest_SegmentGroups_Include" NewName="SegmentGroups_Include" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSmsTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="SmsTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -405,7 +612,120 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendMessages" OutputProperty="MessageResponse" Verb="Send" Noun="Message" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_Action" NewName="ADMMessage_Action" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_Body" NewName="ADMMessage_Body" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_ConsolidationKey" NewName="ADMMessage_ConsolidationKey" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_Data" NewName="ADMMessage_Data" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_ExpiresAfter" NewName="ADMMessage_ExpiresAfter" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_IconReference" NewName="ADMMessage_IconReference" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_ImageIconUrl" NewName="ADMMessage_ImageIconUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_ImageUrl" NewName="ADMMessage_ImageUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_MD5" NewName="ADMMessage_MD5" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_RawContent" NewName="ADMMessage_RawContent" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_SilentPush" NewName="ADMMessage_SilentPush" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_SmallImageIconUrl" NewName="ADMMessage_SmallImageIconUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_Sound" NewName="ADMMessage_Sound" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_Substitutions" NewName="ADMMessage_Substitution" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_Title" NewName="ADMMessage_Title" />
+                <Param Name="MessageRequest_MessageConfiguration_ADMMessage_Url" NewName="ADMMessage_Url" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Action" NewName="APNSMessage_Action" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_APNSPushType" NewName="APNSMessage_APNSPushType" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Badge" NewName="APNSMessage_Badge" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Body" NewName="APNSMessage_Body" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Category" NewName="APNSMessage_Category" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_CollapseId" NewName="APNSMessage_CollapseId" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Data" NewName="APNSMessage_Data" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_MediaUrl" NewName="APNSMessage_MediaUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_PreferredAuthenticationMethod" NewName="APNSMessage_PreferredAuthenticationMethod" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Priority" NewName="APNSMessage_Priority" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_RawContent" NewName="APNSMessage_RawContent" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_SilentPush" NewName="APNSMessage_SilentPush" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Sound" NewName="APNSMessage_Sound" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Substitutions" NewName="APNSMessage_Substitution" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_ThreadId" NewName="APNSMessage_ThreadId" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_TimeToLive" NewName="APNSMessage_TimeToLive" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Title" NewName="APNSMessage_Title" />
+                <Param Name="MessageRequest_MessageConfiguration_APNSMessage_Url" NewName="APNSMessage_Url" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_Action" NewName="BaiduMessage_Action" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_Body" NewName="BaiduMessage_Body" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_Data" NewName="BaiduMessage_Data" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_IconReference" NewName="BaiduMessage_IconReference" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_ImageIconUrl" NewName="BaiduMessage_ImageIconUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_ImageUrl" NewName="BaiduMessage_ImageUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_RawContent" NewName="BaiduMessage_RawContent" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_SilentPush" NewName="BaiduMessage_SilentPush" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_SmallImageIconUrl" NewName="BaiduMessage_SmallImageIconUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_Sound" NewName="BaiduMessage_Sound" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_Substitutions" NewName="BaiduMessage_Substitution" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_TimeToLive" NewName="BaiduMessage_TimeToLive" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_Title" NewName="BaiduMessage_Title" />
+                <Param Name="MessageRequest_MessageConfiguration_BaiduMessage_Url" NewName="BaiduMessage_Url" />
+                <Param Name="MessageRequest_MessageConfiguration_DefaultMessage_Body" NewName="DefaultMessage_Body" />
+                <Param Name="MessageRequest_MessageConfiguration_DefaultMessage_Substitutions" NewName="DefaultMessage_Substitution" />
+                <Param Name="MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action" NewName="DefaultPushNotificationMessage_Action" />
+                <Param Name="MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Body" NewName="DefaultPushNotificationMessage_Body" />
+                <Param Name="MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Data" NewName="DefaultPushNotificationMessage_Data" />
+                <Param Name="MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_SilentPush" NewName="DefaultPushNotificationMessage_SilentPush" />
+                <Param Name="MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Substitutions" NewName="DefaultPushNotificationMessage_Substitution" />
+                <Param Name="MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Title" NewName="DefaultPushNotificationMessage_Title" />
+                <Param Name="MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Url" NewName="DefaultPushNotificationMessage_Url" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_Body" NewName="EmailMessage_Body" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_FeedbackForwardingAddress" NewName="EmailMessage_FeedbackForwardingAddress" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_FromAddress" NewName="EmailMessage_FromAddress" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_RawEmail_Data" NewName="RawEmail_Data" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_ReplyToAddresses" NewName="EmailMessage_ReplyToAddress" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_Headers" NewName="SimpleEmail_Header" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_HtmlPart_Charset" NewName="HtmlPart_Charset" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_HtmlPart_Data" NewName="HtmlPart_Data" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_Subject_Charset" NewName="Subject_Charset" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_Subject_Data" NewName="Subject_Data" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_TextPart_Charset" NewName="TextPart_Charset" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_TextPart_Data" NewName="TextPart_Data" />
+                <Param Name="MessageRequest_MessageConfiguration_EmailMessage_Substitutions" NewName="EmailMessage_Substitution" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_Action" NewName="GCMMessage_Action" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_Body" NewName="GCMMessage_Body" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_CollapseKey" NewName="GCMMessage_CollapseKey" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_Data" NewName="GCMMessage_Data" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_IconReference" NewName="GCMMessage_IconReference" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_ImageIconUrl" NewName="GCMMessage_ImageIconUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_ImageUrl" NewName="GCMMessage_ImageUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_PreferredAuthenticationMethod" NewName="GCMMessage_PreferredAuthenticationMethod" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_Priority" NewName="GCMMessage_Priority" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_RawContent" NewName="GCMMessage_RawContent" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_RestrictedPackageName" NewName="GCMMessage_RestrictedPackageName" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_SilentPush" NewName="GCMMessage_SilentPush" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_SmallImageIconUrl" NewName="GCMMessage_SmallImageIconUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_Sound" NewName="GCMMessage_Sound" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_Substitutions" NewName="GCMMessage_Substitution" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_TimeToLive" NewName="GCMMessage_TimeToLive" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_Title" NewName="GCMMessage_Title" />
+                <Param Name="MessageRequest_MessageConfiguration_GCMMessage_Url" NewName="GCMMessage_Url" />
+                <Param Name="MessageRequest_MessageConfiguration_SMSMessage_Body" NewName="SMSMessage_Body" />
+                <Param Name="MessageRequest_MessageConfiguration_SMSMessage_EntityId" NewName="SMSMessage_EntityId" />
+                <Param Name="MessageRequest_MessageConfiguration_SMSMessage_Keyword" NewName="SMSMessage_Keyword" />
+                <Param Name="MessageRequest_MessageConfiguration_SMSMessage_MediaUrl" NewName="SMSMessage_MediaUrl" />
+                <Param Name="MessageRequest_MessageConfiguration_SMSMessage_MessageType" NewName="SMSMessage_MessageType" />
+                <Param Name="MessageRequest_MessageConfiguration_SMSMessage_OriginationNumber" NewName="SMSMessage_OriginationNumber" />
+                <Param Name="MessageRequest_MessageConfiguration_SMSMessage_SenderId" NewName="SMSMessage_SenderId" />
+                <Param Name="MessageRequest_MessageConfiguration_SMSMessage_Substitutions" NewName="SMSMessage_Substitution" />
+                <Param Name="MessageRequest_MessageConfiguration_SMSMessage_TemplateId" NewName="SMSMessage_TemplateId" />
+                <Param Name="MessageRequest_MessageConfiguration_VoiceMessage_Body" NewName="VoiceMessage_Body" />
+                <Param Name="MessageRequest_MessageConfiguration_VoiceMessage_LanguageCode" NewName="VoiceMessage_LanguageCode" />
+                <Param Name="MessageRequest_MessageConfiguration_VoiceMessage_OriginationNumber" NewName="VoiceMessage_OriginationNumber" />
+                <Param Name="MessageRequest_MessageConfiguration_VoiceMessage_Substitutions" NewName="VoiceMessage_Substitution" />
+                <Param Name="MessageRequest_MessageConfiguration_VoiceMessage_VoiceId" NewName="VoiceMessage_VoiceId" />
+                <Param Name="MessageRequest_TemplateConfiguration_EmailTemplate_Name" NewName="EmailTemplate_Name" />
+                <Param Name="MessageRequest_TemplateConfiguration_EmailTemplate_Version" NewName="EmailTemplate_Version" />
+                <Param Name="MessageRequest_TemplateConfiguration_InAppTemplate_Name" NewName="InAppTemplate_Name" />
+                <Param Name="MessageRequest_TemplateConfiguration_InAppTemplate_Version" NewName="InAppTemplate_Version" />
+                <Param Name="MessageRequest_TemplateConfiguration_PushTemplate_Name" NewName="PushTemplate_Name" />
+                <Param Name="MessageRequest_TemplateConfiguration_PushTemplate_Version" NewName="PushTemplate_Version" />
+                <Param Name="MessageRequest_TemplateConfiguration_SMSTemplate_Name" NewName="SMSTemplate_Name" />
+                <Param Name="MessageRequest_TemplateConfiguration_SMSTemplate_Version" NewName="SMSTemplate_Version" />
+                <Param Name="MessageRequest_TemplateConfiguration_VoiceTemplate_Name" NewName="VoiceTemplate_Name" />
+                <Param Name="MessageRequest_TemplateConfiguration_VoiceTemplate_Version" NewName="VoiceTemplate_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendOTPMessage" OutputProperty="MessageResponse" Verb="Send" Noun="OTPMessage" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -413,7 +733,120 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendUsersMessages" OutputProperty="SendUsersMessageResponse" Verb="Send" Noun="UserMessageBatch" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_Action" NewName="ADMMessage_Action" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_Body" NewName="ADMMessage_Body" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_ConsolidationKey" NewName="ADMMessage_ConsolidationKey" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_Data" NewName="ADMMessage_Data" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_ExpiresAfter" NewName="ADMMessage_ExpiresAfter" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_IconReference" NewName="ADMMessage_IconReference" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_ImageIconUrl" NewName="ADMMessage_ImageIconUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_ImageUrl" NewName="ADMMessage_ImageUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_MD5" NewName="ADMMessage_MD5" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_RawContent" NewName="ADMMessage_RawContent" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_SilentPush" NewName="ADMMessage_SilentPush" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_SmallImageIconUrl" NewName="ADMMessage_SmallImageIconUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_Sound" NewName="ADMMessage_Sound" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_Substitutions" NewName="ADMMessage_Substitution" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_Title" NewName="ADMMessage_Title" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_ADMMessage_Url" NewName="ADMMessage_Url" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Action" NewName="APNSMessage_Action" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_APNSPushType" NewName="APNSMessage_APNSPushType" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Badge" NewName="APNSMessage_Badge" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Body" NewName="APNSMessage_Body" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Category" NewName="APNSMessage_Category" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_CollapseId" NewName="APNSMessage_CollapseId" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Data" NewName="APNSMessage_Data" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_MediaUrl" NewName="APNSMessage_MediaUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_PreferredAuthenticationMethod" NewName="APNSMessage_PreferredAuthenticationMethod" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Priority" NewName="APNSMessage_Priority" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_RawContent" NewName="APNSMessage_RawContent" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_SilentPush" NewName="APNSMessage_SilentPush" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Sound" NewName="APNSMessage_Sound" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Substitutions" NewName="APNSMessage_Substitution" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_ThreadId" NewName="APNSMessage_ThreadId" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_TimeToLive" NewName="APNSMessage_TimeToLive" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Title" NewName="APNSMessage_Title" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_APNSMessage_Url" NewName="APNSMessage_Url" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Action" NewName="BaiduMessage_Action" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Body" NewName="BaiduMessage_Body" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Data" NewName="BaiduMessage_Data" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_IconReference" NewName="BaiduMessage_IconReference" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_ImageIconUrl" NewName="BaiduMessage_ImageIconUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_ImageUrl" NewName="BaiduMessage_ImageUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_RawContent" NewName="BaiduMessage_RawContent" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_SilentPush" NewName="BaiduMessage_SilentPush" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_SmallImageIconUrl" NewName="BaiduMessage_SmallImageIconUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Sound" NewName="BaiduMessage_Sound" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Substitutions" NewName="BaiduMessage_Substitution" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_TimeToLive" NewName="BaiduMessage_TimeToLive" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Title" NewName="BaiduMessage_Title" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Url" NewName="BaiduMessage_Url" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_DefaultMessage_Body" NewName="DefaultMessage_Body" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_DefaultMessage_Substitutions" NewName="DefaultMessage_Substitution" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action" NewName="DefaultPushNotificationMessage_Action" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Body" NewName="DefaultPushNotificationMessage_Body" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Data" NewName="DefaultPushNotificationMessage_Data" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_SilentPush" NewName="DefaultPushNotificationMessage_SilentPush" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Substitutions" NewName="DefaultPushNotificationMessage_Substitution" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Title" NewName="DefaultPushNotificationMessage_Title" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Url" NewName="DefaultPushNotificationMessage_Url" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_Body" NewName="EmailMessage_Body" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_FeedbackForwardingAddress" NewName="EmailMessage_FeedbackForwardingAddress" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_FromAddress" NewName="EmailMessage_FromAddress" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_RawEmail_Data" NewName="RawEmail_Data" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_ReplyToAddresses" NewName="EmailMessage_ReplyToAddress" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_Headers" NewName="SimpleEmail_Header" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_HtmlPart_Charset" NewName="HtmlPart_Charset" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_HtmlPart_Data" NewName="HtmlPart_Data" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_Subject_Charset" NewName="Subject_Charset" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_Subject_Data" NewName="Subject_Data" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_TextPart_Charset" NewName="TextPart_Charset" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_TextPart_Data" NewName="TextPart_Data" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_EmailMessage_Substitutions" NewName="EmailMessage_Substitution" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_Action" NewName="GCMMessage_Action" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_Body" NewName="GCMMessage_Body" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_CollapseKey" NewName="GCMMessage_CollapseKey" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_Data" NewName="GCMMessage_Data" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_IconReference" NewName="GCMMessage_IconReference" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_ImageIconUrl" NewName="GCMMessage_ImageIconUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_ImageUrl" NewName="GCMMessage_ImageUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_PreferredAuthenticationMethod" NewName="GCMMessage_PreferredAuthenticationMethod" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_Priority" NewName="GCMMessage_Priority" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_RawContent" NewName="GCMMessage_RawContent" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_RestrictedPackageName" NewName="GCMMessage_RestrictedPackageName" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_SilentPush" NewName="GCMMessage_SilentPush" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_SmallImageIconUrl" NewName="GCMMessage_SmallImageIconUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_Sound" NewName="GCMMessage_Sound" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_Substitutions" NewName="GCMMessage_Substitution" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_TimeToLive" NewName="GCMMessage_TimeToLive" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_Title" NewName="GCMMessage_Title" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_GCMMessage_Url" NewName="GCMMessage_Url" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_SMSMessage_Body" NewName="SMSMessage_Body" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_SMSMessage_EntityId" NewName="SMSMessage_EntityId" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_SMSMessage_Keyword" NewName="SMSMessage_Keyword" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_SMSMessage_MediaUrl" NewName="SMSMessage_MediaUrl" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_SMSMessage_MessageType" NewName="SMSMessage_MessageType" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_SMSMessage_OriginationNumber" NewName="SMSMessage_OriginationNumber" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_SMSMessage_SenderId" NewName="SMSMessage_SenderId" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_SMSMessage_Substitutions" NewName="SMSMessage_Substitution" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_SMSMessage_TemplateId" NewName="SMSMessage_TemplateId" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_VoiceMessage_Body" NewName="VoiceMessage_Body" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_VoiceMessage_LanguageCode" NewName="VoiceMessage_LanguageCode" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_VoiceMessage_OriginationNumber" NewName="VoiceMessage_OriginationNumber" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_VoiceMessage_Substitutions" NewName="VoiceMessage_Substitution" />
+                <Param Name="SendUsersMessageRequest_MessageConfiguration_VoiceMessage_VoiceId" NewName="VoiceMessage_VoiceId" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_EmailTemplate_Name" NewName="EmailTemplate_Name" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_EmailTemplate_Version" NewName="EmailTemplate_Version" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_InAppTemplate_Name" NewName="InAppTemplate_Name" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_InAppTemplate_Version" NewName="InAppTemplate_Version" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_PushTemplate_Name" NewName="PushTemplate_Name" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_PushTemplate_Version" NewName="PushTemplate_Version" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_SMSTemplate_Name" NewName="SMSTemplate_Name" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_SMSTemplate_Version" NewName="SMSTemplate_Version" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_VoiceTemplate_Name" NewName="VoiceTemplate_Name" />
+                <Param Name="SendUsersMessageRequest_TemplateConfiguration_VoiceTemplate_Version" NewName="VoiceTemplate_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -445,7 +878,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApplicationSettings" OutputProperty="ApplicationSettingsResource" Verb="Update" Noun="ApplicationSettingList" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WriteApplicationSettingsRequest_CampaignHook_LambdaFunctionName" NewName="CampaignHook_LambdaFunctionName" />
+                <Param Name="WriteApplicationSettingsRequest_CampaignHook_Mode" NewName="CampaignHook_Mode" />
+                <Param Name="WriteApplicationSettingsRequest_CampaignHook_WebUrl" NewName="CampaignHook_WebUrl" />
+                <Param Name="WriteApplicationSettingsRequest_JourneyLimits_DailyCap" NewName="JourneyLimits_DailyCap" />
+                <Param Name="WriteApplicationSettingsRequest_JourneyLimits_TimeframeCap_Cap" NewName="TimeframeCap_Cap" />
+                <Param Name="WriteApplicationSettingsRequest_JourneyLimits_TimeframeCap_Days" NewName="TimeframeCap_Day" />
+                <Param Name="WriteApplicationSettingsRequest_JourneyLimits_TotalCap" NewName="JourneyLimits_TotalCap" />
+                <Param Name="WriteApplicationSettingsRequest_Limits_Daily" NewName="Limits_Daily" />
+                <Param Name="WriteApplicationSettingsRequest_Limits_MaximumDuration" NewName="Limits_MaximumDuration" />
+                <Param Name="WriteApplicationSettingsRequest_Limits_MessagesPerSecond" NewName="Limits_MessagesPerSecond" />
+                <Param Name="WriteApplicationSettingsRequest_Limits_Session" NewName="Limits_Session" />
+                <Param Name="WriteApplicationSettingsRequest_Limits_Total" NewName="Limits_Total" />
+                <Param Name="WriteApplicationSettingsRequest_QuietTime_End" NewName="QuietTime_End" />
+                <Param Name="WriteApplicationSettingsRequest_QuietTime_Start" NewName="QuietTime_Start" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBaiduChannel" OutputProperty="BaiduChannelResponse" Verb="Update" Noun="BaiduChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -453,7 +901,116 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCampaign" OutputProperty="CampaignResponse" Verb="Update" Noun="Campaign" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WriteCampaignRequest_CustomDeliveryConfiguration_DeliveryUri" NewName="CustomDeliveryConfiguration_DeliveryUri" />
+                <Param Name="WriteCampaignRequest_CustomDeliveryConfiguration_EndpointTypes" NewName="CustomDeliveryConfiguration_EndpointType" />
+                <Param Name="WriteCampaignRequest_Hook_LambdaFunctionName" NewName="Hook_LambdaFunctionName" />
+                <Param Name="WriteCampaignRequest_Hook_Mode" NewName="Hook_Mode" />
+                <Param Name="WriteCampaignRequest_Hook_WebUrl" NewName="Hook_WebUrl" />
+                <Param Name="WriteCampaignRequest_Limits_Daily" NewName="Limits_Daily" />
+                <Param Name="WriteCampaignRequest_Limits_MaximumDuration" NewName="Limits_MaximumDuration" />
+                <Param Name="WriteCampaignRequest_Limits_MessagesPerSecond" NewName="Limits_MessagesPerSecond" />
+                <Param Name="WriteCampaignRequest_Limits_Session" NewName="Limits_Session" />
+                <Param Name="WriteCampaignRequest_Limits_Total" NewName="Limits_Total" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_Action" NewName="ADMMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_Body" NewName="ADMMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_ImageIconUrl" NewName="ADMMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_ImageSmallIconUrl" NewName="ADMMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_ImageUrl" NewName="ADMMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_JsonBody" NewName="ADMMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_MediaUrl" NewName="ADMMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_RawContent" NewName="ADMMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_SilentPush" NewName="ADMMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_TimeToLive" NewName="ADMMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_Title" NewName="ADMMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_ADMMessage_Url" NewName="ADMMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_Action" NewName="APNSMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_Body" NewName="APNSMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageIconUrl" NewName="APNSMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageSmallIconUrl" NewName="APNSMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageUrl" NewName="APNSMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_JsonBody" NewName="APNSMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_MediaUrl" NewName="APNSMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_RawContent" NewName="APNSMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_SilentPush" NewName="APNSMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_TimeToLive" NewName="APNSMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_Title" NewName="APNSMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_APNSMessage_Url" NewName="APNSMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action" NewName="BaiduMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_Body" NewName="BaiduMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_ImageIconUrl" NewName="BaiduMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_ImageSmallIconUrl" NewName="BaiduMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_ImageUrl" NewName="BaiduMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_JsonBody" NewName="BaiduMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_MediaUrl" NewName="BaiduMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_RawContent" NewName="BaiduMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_SilentPush" NewName="BaiduMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_TimeToLive" NewName="BaiduMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_Title" NewName="BaiduMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_BaiduMessage_Url" NewName="BaiduMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_CustomMessage_Data" NewName="CustomMessage_Data" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action" NewName="DefaultMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_Body" NewName="DefaultMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageIconUrl" NewName="DefaultMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageSmallIconUrl" NewName="DefaultMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageUrl" NewName="DefaultMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_JsonBody" NewName="DefaultMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_MediaUrl" NewName="DefaultMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_RawContent" NewName="DefaultMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_SilentPush" NewName="DefaultMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_TimeToLive" NewName="DefaultMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_Title" NewName="DefaultMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_DefaultMessage_Url" NewName="DefaultMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_Body" NewName="EmailMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_FromAddress" NewName="EmailMessage_FromAddress" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_Headers" NewName="EmailMessage_Header" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_HtmlBody" NewName="EmailMessage_HtmlBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_EmailMessage_Title" NewName="EmailMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_Action" NewName="GCMMessage_Action" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_Body" NewName="GCMMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageIconUrl" NewName="GCMMessage_ImageIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageSmallIconUrl" NewName="GCMMessage_ImageSmallIconUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageUrl" NewName="GCMMessage_ImageUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_JsonBody" NewName="GCMMessage_JsonBody" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_MediaUrl" NewName="GCMMessage_MediaUrl" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_RawContent" NewName="GCMMessage_RawContent" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_SilentPush" NewName="GCMMessage_SilentPush" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_TimeToLive" NewName="GCMMessage_TimeToLive" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_Title" NewName="GCMMessage_Title" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_GCMMessage_Url" NewName="GCMMessage_Url" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_InAppMessage_Body" NewName="InAppMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_InAppMessage_Content" NewName="InAppMessage_Content" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_InAppMessage_CustomConfig" NewName="InAppMessage_CustomConfig" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout" NewName="InAppMessage_Layout" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_Body" NewName="SMSMessage_Body" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_EntityId" NewName="SMSMessage_EntityId" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType" NewName="SMSMessage_MessageType" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_OriginationNumber" NewName="SMSMessage_OriginationNumber" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_SenderId" NewName="SMSMessage_SenderId" />
+                <Param Name="WriteCampaignRequest_MessageConfiguration_SMSMessage_TemplateId" NewName="SMSMessage_TemplateId" />
+                <Param Name="WriteCampaignRequest_Schedule_EndTime" NewName="Schedule_EndTime" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_Dimensions_Attributes" NewName="Dimensions_Attribute" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType" NewName="EventType_DimensionType" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_Values" NewName="EventType_Value" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_Dimensions_Metrics" NewName="Dimensions_Metric" />
+                <Param Name="WriteCampaignRequest_Schedule_EventFilter_FilterType" NewName="EventFilter_FilterType" />
+                <Param Name="WriteCampaignRequest_Schedule_Frequency" NewName="Schedule_Frequency" />
+                <Param Name="WriteCampaignRequest_Schedule_IsLocalTime" NewName="Schedule_IsLocalTime" />
+                <Param Name="WriteCampaignRequest_Schedule_QuietTime_End" NewName="QuietTime_End" />
+                <Param Name="WriteCampaignRequest_Schedule_QuietTime_Start" NewName="QuietTime_Start" />
+                <Param Name="WriteCampaignRequest_Schedule_StartTime" NewName="Schedule_StartTime" />
+                <Param Name="WriteCampaignRequest_Schedule_Timezone" NewName="Schedule_Timezone" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_EmailTemplate_Name" NewName="EmailTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_EmailTemplate_Version" NewName="EmailTemplate_Version" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_InAppTemplate_Name" NewName="InAppTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_InAppTemplate_Version" NewName="InAppTemplate_Version" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_PushTemplate_Name" NewName="PushTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_PushTemplate_Version" NewName="PushTemplate_Version" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_SMSTemplate_Name" NewName="SMSTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_SMSTemplate_Version" NewName="SMSTemplate_Version" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_VoiceTemplate_Name" NewName="VoiceTemplate_Name" />
+                <Param Name="WriteCampaignRequest_TemplateConfiguration_VoiceTemplate_Version" NewName="VoiceTemplate_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEmailChannel" OutputProperty="EmailChannelResponse" Verb="Update" Noun="EmailChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -465,7 +1022,24 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="MessageBody" Verb="Update" Noun="Endpoint" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EndpointRequest_Demographic_AppVersion" NewName="Demographic_AppVersion" />
+                <Param Name="EndpointRequest_Demographic_Locale" NewName="Demographic_Locale" />
+                <Param Name="EndpointRequest_Demographic_Make" NewName="Demographic_Make" />
+                <Param Name="EndpointRequest_Demographic_Model" NewName="Demographic_Model" />
+                <Param Name="EndpointRequest_Demographic_ModelVersion" NewName="Demographic_ModelVersion" />
+                <Param Name="EndpointRequest_Demographic_Platform" NewName="Demographic_Platform" />
+                <Param Name="EndpointRequest_Demographic_PlatformVersion" NewName="Demographic_PlatformVersion" />
+                <Param Name="EndpointRequest_Demographic_Timezone" NewName="Demographic_Timezone" />
+                <Param Name="EndpointRequest_Location_City" NewName="Location_City" />
+                <Param Name="EndpointRequest_Location_Country" NewName="Location_Country" />
+                <Param Name="EndpointRequest_Location_Latitude" NewName="Location_Latitude" />
+                <Param Name="EndpointRequest_Location_Longitude" NewName="Location_Longitude" />
+                <Param Name="EndpointRequest_Location_PostalCode" NewName="Location_PostalCode" />
+                <Param Name="EndpointRequest_Location_Region" NewName="Location_Region" />
+                <Param Name="EndpointRequest_User_UserAttributes" NewName="User_UserAttribute" />
+                <Param Name="EndpointRequest_User_UserId" NewName="User_UserId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEndpointsBatch" OutputProperty="MessageBody" Verb="Update" Noun="EndpointsBatch" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -481,7 +1055,40 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateJourney" OutputProperty="JourneyResponse" Verb="Update" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WriteJourneyRequest_ClosedDays_CUSTOM" NewName="ClosedDays_CUSTOM" />
+                <Param Name="WriteJourneyRequest_ClosedDays_EMAIL" NewName="ClosedDays_EMAIL" />
+                <Param Name="WriteJourneyRequest_ClosedDays_PUSH" NewName="ClosedDays_PUSH" />
+                <Param Name="WriteJourneyRequest_ClosedDays_SMS" NewName="ClosedDays_SMS" />
+                <Param Name="WriteJourneyRequest_ClosedDays_VOICE" NewName="ClosedDays_VOICE" />
+                <Param Name="WriteJourneyRequest_JourneyChannelSettings_ConnectCampaignArn" NewName="JourneyChannelSettings_ConnectCampaignArn" />
+                <Param Name="WriteJourneyRequest_JourneyChannelSettings_ConnectCampaignExecutionRoleArn" NewName="JourneyChannelSettings_ConnectCampaignExecutionRoleArn" />
+                <Param Name="WriteJourneyRequest_Limits_DailyCap" NewName="Limits_DailyCap" />
+                <Param Name="WriteJourneyRequest_Limits_EndpointReentryCap" NewName="Limits_EndpointReentryCap" />
+                <Param Name="WriteJourneyRequest_Limits_EndpointReentryInterval" NewName="Limits_EndpointReentryInterval" />
+                <Param Name="WriteJourneyRequest_Limits_MessagesPerSecond" NewName="Limits_MessagesPerSecond" />
+                <Param Name="WriteJourneyRequest_Limits_TimeframeCap_Cap" NewName="TimeframeCap_Cap" />
+                <Param Name="WriteJourneyRequest_Limits_TimeframeCap_Days" NewName="TimeframeCap_Day" />
+                <Param Name="WriteJourneyRequest_Limits_TotalCap" NewName="Limits_TotalCap" />
+                <Param Name="WriteJourneyRequest_OpenHours_CUSTOM" NewName="OpenHours_CUSTOM" />
+                <Param Name="WriteJourneyRequest_OpenHours_EMAIL" NewName="OpenHours_EMAIL" />
+                <Param Name="WriteJourneyRequest_OpenHours_PUSH" NewName="OpenHours_PUSH" />
+                <Param Name="WriteJourneyRequest_OpenHours_SMS" NewName="OpenHours_SMS" />
+                <Param Name="WriteJourneyRequest_OpenHours_VOICE" NewName="OpenHours_VOICE" />
+                <Param Name="WriteJourneyRequest_QuietTime_End" NewName="QuietTime_End" />
+                <Param Name="WriteJourneyRequest_QuietTime_Start" NewName="QuietTime_Start" />
+                <Param Name="WriteJourneyRequest_Schedule_EndTime" NewName="Schedule_EndTime" />
+                <Param Name="WriteJourneyRequest_Schedule_StartTime" NewName="Schedule_StartTime" />
+                <Param Name="WriteJourneyRequest_Schedule_Timezone" NewName="Schedule_Timezone" />
+                <Param Name="WriteJourneyRequest_StartCondition_Description" NewName="StartCondition_Description" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_Attributes" NewName="Dimensions_Attribute" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType" NewName="EventType_DimensionType" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_Values" NewName="EventType_Value" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_Metrics" NewName="Dimensions_Metric" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_FilterType" NewName="EventFilter_FilterType" />
+                <Param Name="WriteJourneyRequest_StartCondition_EventStartCondition_SegmentId" NewName="EventStartCondition_SegmentId" />
+                <Param Name="WriteJourneyRequest_StartCondition_SegmentStartCondition_SegmentId" NewName="SegmentStartCondition_SegmentId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateJourneyState" OutputProperty="JourneyResponse" Verb="Update" Noun="JourneyState" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -489,7 +1096,47 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePushTemplate" OutputProperty="MessageBody" Verb="Update" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PushNotificationTemplateRequest_ADM_Action" NewName="ADM_Action" />
+                <Param Name="PushNotificationTemplateRequest_ADM_Body" NewName="ADM_Body" />
+                <Param Name="PushNotificationTemplateRequest_ADM_ImageIconUrl" NewName="ADM_ImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_ADM_ImageUrl" NewName="ADM_ImageUrl" />
+                <Param Name="PushNotificationTemplateRequest_ADM_RawContent" NewName="ADM_RawContent" />
+                <Param Name="PushNotificationTemplateRequest_ADM_SmallImageIconUrl" NewName="ADM_SmallImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_ADM_Sound" NewName="ADM_Sound" />
+                <Param Name="PushNotificationTemplateRequest_ADM_Title" NewName="ADM_Title" />
+                <Param Name="PushNotificationTemplateRequest_ADM_Url" NewName="ADM_Url" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Action" NewName="APNS_Action" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Body" NewName="APNS_Body" />
+                <Param Name="PushNotificationTemplateRequest_APNS_MediaUrl" NewName="APNS_MediaUrl" />
+                <Param Name="PushNotificationTemplateRequest_APNS_RawContent" NewName="APNS_RawContent" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Sound" NewName="APNS_Sound" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Title" NewName="APNS_Title" />
+                <Param Name="PushNotificationTemplateRequest_APNS_Url" NewName="APNS_Url" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Action" NewName="Baidu_Action" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Body" NewName="Baidu_Body" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_ImageIconUrl" NewName="Baidu_ImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_ImageUrl" NewName="Baidu_ImageUrl" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_RawContent" NewName="Baidu_RawContent" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_SmallImageIconUrl" NewName="Baidu_SmallImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Sound" NewName="Baidu_Sound" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Title" NewName="Baidu_Title" />
+                <Param Name="PushNotificationTemplateRequest_Baidu_Url" NewName="Baidu_Url" />
+                <Param Name="PushNotificationTemplateRequest_Default_Action" NewName="Default_Action" />
+                <Param Name="PushNotificationTemplateRequest_Default_Body" NewName="Default_Body" />
+                <Param Name="PushNotificationTemplateRequest_Default_Sound" NewName="Default_Sound" />
+                <Param Name="PushNotificationTemplateRequest_Default_Title" NewName="Default_Title" />
+                <Param Name="PushNotificationTemplateRequest_Default_Url" NewName="Default_Url" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Action" NewName="GCM_Action" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Body" NewName="GCM_Body" />
+                <Param Name="PushNotificationTemplateRequest_GCM_ImageIconUrl" NewName="GCM_ImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_GCM_ImageUrl" NewName="GCM_ImageUrl" />
+                <Param Name="PushNotificationTemplateRequest_GCM_RawContent" NewName="GCM_RawContent" />
+                <Param Name="PushNotificationTemplateRequest_GCM_SmallImageIconUrl" NewName="GCM_SmallImageIconUrl" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Sound" NewName="GCM_Sound" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Title" NewName="GCM_Title" />
+                <Param Name="PushNotificationTemplateRequest_GCM_Url" NewName="GCM_Url" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Update" Noun="RecommenderConfiguration" ShouldProcessTarget="RecommenderId" PipelineParameter="RecommenderId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -497,7 +1144,32 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSegment" OutputProperty="SegmentResponse" Verb="Update" Noun="Segment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WriteSegmentRequest_Dimensions_Attributes" NewName="Dimensions_Attribute" />
+                <Param Name="WriteSegmentRequest_Dimensions_Behavior_Recency_Duration" NewName="Recency_Duration" />
+                <Param Name="WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType" NewName="Recency_RecencyType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType" NewName="AppVersion_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_AppVersion_Values" NewName="AppVersion_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType" NewName="Channel_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Channel_Values" NewName="Channel_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType" NewName="DeviceType_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_DeviceType_Values" NewName="DeviceType_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Make_DimensionType" NewName="Make_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Make_Values" NewName="Make_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Model_DimensionType" NewName="Model_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Model_Values" NewName="Model_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Platform_DimensionType" NewName="Platform_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Demographic_Platform_Values" NewName="Platform_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_Country_DimensionType" NewName="Country_DimensionType" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_Country_Values" NewName="Country_Value" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Latitude" NewName="Coordinates_Latitude" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Longitude" NewName="Coordinates_Longitude" />
+                <Param Name="WriteSegmentRequest_Dimensions_Location_GPSPoint_RangeInKilometers" NewName="GPSPoint_RangeInKilometer" />
+                <Param Name="WriteSegmentRequest_Dimensions_Metrics" NewName="Dimensions_Metric" />
+                <Param Name="WriteSegmentRequest_Dimensions_UserAttributes" NewName="Dimensions_UserAttribute" />
+                <Param Name="WriteSegmentRequest_SegmentGroups_Groups" NewName="SegmentGroups_Group" />
+                <Param Name="WriteSegmentRequest_SegmentGroups_Include" NewName="SegmentGroups_Include" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSmsChannel" OutputProperty="SMSChannelResponse" Verb="Update" Noun="SmsChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">

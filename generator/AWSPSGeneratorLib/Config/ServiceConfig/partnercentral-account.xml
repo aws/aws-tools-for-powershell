@@ -119,7 +119,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartVerification" OutputProperty="*" Verb="Start" Noun="Verification" ShouldProcessTarget="VerificationDetails_BusinessVerificationDetails_RegistrationId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="VerificationDetails_BusinessVerificationDetails_CountryCode" NewName="BusinessVerificationDetails_CountryCode" />
+                <Param Name="VerificationDetails_BusinessVerificationDetails_JurisdictionOfIncorporation" NewName="BusinessVerificationDetails_JurisdictionOfIncorporation" />
+                <Param Name="VerificationDetails_BusinessVerificationDetails_LegalName" NewName="BusinessVerificationDetails_LegalName" />
+                <Param Name="VerificationDetails_BusinessVerificationDetails_RegistrationId" NewName="BusinessVerificationDetails_RegistrationId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">

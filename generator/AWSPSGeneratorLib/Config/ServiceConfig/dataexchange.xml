@@ -36,13 +36,62 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEventAction" OutputProperty="*" Verb="New" Noun="EventAction" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Action_ExportRevisionToS3_Encryption_KmsKeyArn" NewName="Encryption_KmsKeyArn" />
+                <Param Name="Action_ExportRevisionToS3_Encryption_Type" NewName="Encryption_Type" />
+                <Param Name="Action_ExportRevisionToS3_RevisionDestination_Bucket" NewName="RevisionDestination_Bucket" />
+                <Param Name="Action_ExportRevisionToS3_RevisionDestination_KeyPattern" NewName="RevisionDestination_KeyPattern" />
+                <Param Name="Event_RevisionPublished_DataSetId" NewName="RevisionPublished_DataSetId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="Type" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Details_ExportRevisionsToS3_Encryption_KmsKeyArn" NewName="Details_ExportRevisionsToS3_Encryption_KmsKeyArn" />
                 <Param Name="Details_ExportRevisionsToS3_Encryption_Type" NewName="Details_ExportRevisionsToS3_Encryption_Type" />
+                <Param Name="Details_CreateS3DataAccessFromS3Bucket_AssetSource_Bucket" NewName="AssetSource_Bucket" />
+                <Param Name="Details_CreateS3DataAccessFromS3Bucket_AssetSource_KeyPrefixes" NewName="AssetSource_KeyPrefix" />
+                <Param Name="Details_CreateS3DataAccessFromS3Bucket_AssetSource_Keys" NewName="AssetSource_Key" />
+                <Param Name="Details_CreateS3DataAccessFromS3Bucket_AssetSource_KmsKeysToGrant" NewName="AssetSource_KmsKeysToGrant" />
+                <Param Name="Details_CreateS3DataAccessFromS3Bucket_DataSetId" NewName="CreateS3DataAccessFromS3Bucket_DataSetId" />
+                <Param Name="Details_CreateS3DataAccessFromS3Bucket_RevisionId" NewName="CreateS3DataAccessFromS3Bucket_RevisionId" />
+                <Param Name="Details_ExportAssetsToS3_AssetDestinations" NewName="ExportAssetsToS3_AssetDestination" />
+                <Param Name="Details_ExportAssetsToS3_DataSetId" NewName="ExportAssetsToS3_DataSetId" />
+                <Param Name="Details_ExportAssetsToS3_Encryption_KmsKeyArn" NewName="Encryption_KmsKeyArn" />
+                <Param Name="Details_ExportAssetsToS3_Encryption_Type" NewName="Encryption_Type" />
+                <Param Name="Details_ExportAssetsToS3_RevisionId" NewName="ExportAssetsToS3_RevisionId" />
+                <Param Name="Details_ExportAssetToSignedUrl_AssetId" NewName="ExportAssetToSignedUrl_AssetId" />
+                <Param Name="Details_ExportAssetToSignedUrl_DataSetId" NewName="ExportAssetToSignedUrl_DataSetId" />
+                <Param Name="Details_ExportAssetToSignedUrl_RevisionId" NewName="ExportAssetToSignedUrl_RevisionId" />
+                <Param Name="Details_ExportRevisionsToS3_DataSetId" NewName="ExportRevisionsToS3_DataSetId" />
+                <Param Name="Details_ExportRevisionsToS3_RevisionDestinations" NewName="ExportRevisionsToS3_RevisionDestination" />
+                <Param Name="Details_ImportAssetFromApiGatewayApi_ApiDescription" NewName="ImportAssetFromApiGatewayApi_ApiDescription" />
+                <Param Name="Details_ImportAssetFromApiGatewayApi_ApiId" NewName="ImportAssetFromApiGatewayApi_ApiId" />
+                <Param Name="Details_ImportAssetFromApiGatewayApi_ApiKey" NewName="ImportAssetFromApiGatewayApi_ApiKey" />
+                <Param Name="Details_ImportAssetFromApiGatewayApi_ApiName" NewName="ImportAssetFromApiGatewayApi_ApiName" />
+                <Param Name="Details_ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash" NewName="ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash" />
+                <Param Name="Details_ImportAssetFromApiGatewayApi_DataSetId" NewName="ImportAssetFromApiGatewayApi_DataSetId" />
+                <Param Name="Details_ImportAssetFromApiGatewayApi_ProtocolType" NewName="ImportAssetFromApiGatewayApi_ProtocolType" />
+                <Param Name="Details_ImportAssetFromApiGatewayApi_RevisionId" NewName="ImportAssetFromApiGatewayApi_RevisionId" />
+                <Param Name="Details_ImportAssetFromApiGatewayApi_Stage" NewName="ImportAssetFromApiGatewayApi_Stage" />
+                <Param Name="Details_ImportAssetFromSignedUrl_AssetName" NewName="ImportAssetFromSignedUrl_AssetName" />
+                <Param Name="Details_ImportAssetFromSignedUrl_DataSetId" NewName="ImportAssetFromSignedUrl_DataSetId" />
+                <Param Name="Details_ImportAssetFromSignedUrl_Md5Hash" NewName="ImportAssetFromSignedUrl_Md5Hash" />
+                <Param Name="Details_ImportAssetFromSignedUrl_RevisionId" NewName="ImportAssetFromSignedUrl_RevisionId" />
+                <Param Name="Details_ImportAssetsFromLakeFormationTagPolicy_CatalogId" NewName="ImportAssetsFromLakeFormationTagPolicy_CatalogId" />
+                <Param Name="Details_ImportAssetsFromLakeFormationTagPolicy_Database_Expression" NewName="Database_Expression" />
+                <Param Name="Details_ImportAssetsFromLakeFormationTagPolicy_Database_Permissions" NewName="Database_Permission" />
+                <Param Name="Details_ImportAssetsFromLakeFormationTagPolicy_DataSetId" NewName="ImportAssetsFromLakeFormationTagPolicy_DataSetId" />
+                <Param Name="Details_ImportAssetsFromLakeFormationTagPolicy_RevisionId" NewName="ImportAssetsFromLakeFormationTagPolicy_RevisionId" />
+                <Param Name="Details_ImportAssetsFromLakeFormationTagPolicy_RoleArn" NewName="ImportAssetsFromLakeFormationTagPolicy_RoleArn" />
+                <Param Name="Details_ImportAssetsFromLakeFormationTagPolicy_Table_Expression" NewName="Table_Expression" />
+                <Param Name="Details_ImportAssetsFromLakeFormationTagPolicy_Table_Permissions" NewName="Table_Permission" />
+                <Param Name="Details_ImportAssetsFromRedshiftDataShares_AssetSources" NewName="ImportAssetsFromRedshiftDataShares_AssetSource" />
+                <Param Name="Details_ImportAssetsFromRedshiftDataShares_DataSetId" NewName="ImportAssetsFromRedshiftDataShares_DataSetId" />
+                <Param Name="Details_ImportAssetsFromRedshiftDataShares_RevisionId" NewName="ImportAssetsFromRedshiftDataShares_RevisionId" />
+                <Param Name="Details_ImportAssetsFromS3_AssetSources" NewName="ImportAssetsFromS3_AssetSource" />
+                <Param Name="Details_ImportAssetsFromS3_DataSetId" NewName="ImportAssetsFromS3_DataSetId" />
+                <Param Name="Details_ImportAssetsFromS3_RevisionId" NewName="ImportAssetsFromS3_RevisionId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,7 +188,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendDataSetNotification" Verb="Send" Noun="DataSetNotification" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Details_DataUpdate_DataUpdatedAt" NewName="DataUpdate_DataUpdatedAt" />
+                <Param Name="Details_Deprecation_DeprecationAt" NewName="Deprecation_DeprecationAt" />
+                <Param Name="Details_SchemaChange_Changes" NewName="SchemaChange_Change" />
+                <Param Name="Details_SchemaChange_SchemaChangeAt" NewName="SchemaChange_SchemaChangeAt" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartJob" Verb="Start" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -163,7 +217,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEventAction" OutputProperty="*" Verb="Update" Noun="EventAction" ShouldProcessTarget="EventActionId" PipelineParameter="EventActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Action_ExportRevisionToS3_Encryption_KmsKeyArn" NewName="Encryption_KmsKeyArn" />
+                <Param Name="Action_ExportRevisionToS3_Encryption_Type" NewName="Encryption_Type" />
+                <Param Name="Action_ExportRevisionToS3_RevisionDestination_Bucket" NewName="RevisionDestination_Bucket" />
+                <Param Name="Action_ExportRevisionToS3_RevisionDestination_KeyPattern" NewName="RevisionDestination_KeyPattern" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRevision" OutputProperty="*" Verb="Update" Noun="Revision" ShouldProcessTarget="RevisionId" PipelineParameter="RevisionId" NoPipelineParameter="false" LegacyV4Pagination="true">

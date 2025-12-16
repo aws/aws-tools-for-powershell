@@ -53,6 +53,10 @@
                 <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" />
                 <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" Alias="PostExtractionHookConfiguration_InvocationCondition_Operator" />
                 <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" Alias="PreExtractionHookConfiguration_InvocationCondition_Operator" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_LambdaArn" NewName="PostExtractionHookConfiguration_LambdaArn" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_S3Bucket" NewName="PostExtractionHookConfiguration_S3Bucket" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_LambdaArn" NewName="PreExtractionHookConfiguration_LambdaArn" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_S3Bucket" NewName="PreExtractionHookConfiguration_S3Bucket" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -78,11 +82,20 @@
                 <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" />
                 <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" Alias="PostExtractionHookConfiguration_InvocationCondition_Operator" />
                 <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" Alias="PreExtractionHookConfiguration_InvocationCondition_Operator" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_LambdaArn" NewName="PostExtractionHookConfiguration_LambdaArn" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_S3Bucket" NewName="PostExtractionHookConfiguration_S3Bucket" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_LambdaArn" NewName="PreExtractionHookConfiguration_LambdaArn" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_S3Bucket" NewName="PreExtractionHookConfiguration_S3Bucket" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateExperience" OutputProperty="Id" Verb="New" Noun="Experience" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_ContentSourceConfiguration_DataSourceIds" NewName="ContentSourceConfiguration_DataSourceId" />
+                <Param Name="Configuration_ContentSourceConfiguration_DirectPutContent" NewName="ContentSourceConfiguration_DirectPutContent" />
+                <Param Name="Configuration_ContentSourceConfiguration_FaqIds" NewName="ContentSourceConfiguration_FaqId" />
+                <Param Name="Configuration_UserIdentityConfiguration_IdentityAttributeName" NewName="UserIdentityConfiguration_IdentityAttributeName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFaq" OutputProperty="Id" Verb="New" Noun="Faq" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -186,7 +199,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetQuerySuggestions" OutputProperty="*" Verb="Get" Noun="QuerySuggestion" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AttributeSuggestionsConfig_UserContext_DataSourceGroups" NewName="UserContext_DataSourceGroup" />
+                <Param Name="AttributeSuggestionsConfig_UserContext_Groups" NewName="UserContext_Group" />
+                <Param Name="AttributeSuggestionsConfig_UserContext_Token" NewName="UserContext_Token" />
+                <Param Name="AttributeSuggestionsConfig_UserContext_UserId" NewName="UserContext_UserId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSnapshots" OutputProperty="*" Verb="Get" Noun="Snapshot" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -246,11 +264,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutPrincipalMapping" Verb="Write" Noun="PrincipalMapping" ShouldProcessTarget="IndexId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GroupMembers_S3PathforGroupMembers_Bucket" NewName="S3PathforGroupMembers_Bucket" />
+                <Param Name="GroupMembers_S3PathforGroupMembers_Key" NewName="S3PathforGroupMembers_Key" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Query" OutputProperty="*" Verb="Invoke" Noun="Query" ShouldProcessTarget="IndexId" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CollapseConfiguration_ExpandConfiguration_MaxExpandedResultsPerItem" NewName="ExpandConfiguration_MaxExpandedResultsPerItem" />
+                <Param Name="CollapseConfiguration_ExpandConfiguration_MaxResultItemsToExpand" NewName="ExpandConfiguration_MaxResultItemsToExpand" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="IndexId" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -295,11 +319,20 @@
                 <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" />
                 <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" Alias="PostExtractionHookConfiguration_InvocationCondition_Operator" />
                 <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" Alias="PreExtractionHookConfiguration_InvocationCondition_Operator" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_LambdaArn" NewName="PostExtractionHookConfiguration_LambdaArn" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_S3Bucket" NewName="PostExtractionHookConfiguration_S3Bucket" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_LambdaArn" NewName="PreExtractionHookConfiguration_LambdaArn" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_S3Bucket" NewName="PreExtractionHookConfiguration_S3Bucket" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateExperience" Verb="Update" Noun="Experience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_ContentSourceConfiguration_DataSourceIds" NewName="ContentSourceConfiguration_DataSourceId" />
+                <Param Name="Configuration_ContentSourceConfiguration_DirectPutContent" NewName="ContentSourceConfiguration_DirectPutContent" />
+                <Param Name="Configuration_ContentSourceConfiguration_FaqIds" NewName="ContentSourceConfiguration_FaqId" />
+                <Param Name="Configuration_UserIdentityConfiguration_IdentityAttributeName" NewName="UserIdentityConfiguration_IdentityAttributeName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFeaturedResultsSet" OutputProperty="FeaturedResultsSet" Verb="Update" Noun="FeaturedResultsSet" ShouldProcessTarget="FeaturedResultsSetId" PipelineParameter="FeaturedResultsSetId" NoPipelineParameter="false" LegacyV4Pagination="true">

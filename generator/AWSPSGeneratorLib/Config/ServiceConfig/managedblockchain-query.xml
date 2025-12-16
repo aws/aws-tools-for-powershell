@@ -40,7 +40,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFilteredTransactionEvents" OutputProperty="Events" Verb="Get" Noun="FilteredTransactionEventList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TimeFilter_From_Time" NewName="From_Time" />
+                <Param Name="TimeFilter_To_Time" NewName="To_Time" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTokenBalances" OutputProperty="TokenBalances" Verb="Get" Noun="TokenBalanceList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

@@ -31,19 +31,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalableTargets" OutputProperty="ScalableTargets" Verb="Get" Noun="ScalableTarget" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeScalableTargets" OutputProperty="ScalableTargets" Verb="Get" Noun="ScalableTarget" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="ScalingActivities" Verb="Get" Noun="ScalingActivity" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="ScalingActivities" Verb="Get" Noun="ScalingActivity" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,8 +55,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="*" Verb="Set" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyAlias="Write-AASScalingPolicy" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="*" Verb="Set" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Write-AASScalingPolicy">
+            <Params>
+                <Param Name="TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Dimensions" NewName="CustomizedMetricSpecification_Dimension" />
+                <Param Name="TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_MetricName" NewName="CustomizedMetricSpecification_MetricName" />
+                <Param Name="TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Metrics" NewName="CustomizedMetricSpecification_Metric" />
+                <Param Name="TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Namespace" NewName="CustomizedMetricSpecification_Namespace" />
+                <Param Name="TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Statistic" NewName="CustomizedMetricSpecification_Statistic" />
+                <Param Name="TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Unit" NewName="CustomizedMetricSpecification_Unit" />
+                <Param Name="TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType" NewName="PredefinedMetricSpecification_PredefinedMetricType" />
+                <Param Name="TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_ResourceLabel" NewName="PredefinedMetricSpecification_ResourceLabel" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutScheduledAction" Verb="Set" Noun="ScheduledAction" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">

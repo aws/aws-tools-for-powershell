@@ -19,7 +19,32 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateSchedule" OutputProperty="ScheduleArn" Verb="New" Noun="Schedule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Target_DeadLetterConfig_Arn" NewName="DeadLetterConfig_Arn" />
+                <Param Name="Target_EcsParameters_CapacityProviderStrategy" NewName="EcsParameters_CapacityProviderStrategy" />
+                <Param Name="Target_EcsParameters_EnableECSManagedTags" NewName="EcsParameters_EnableECSManagedTag" />
+                <Param Name="Target_EcsParameters_EnableExecuteCommand" NewName="EcsParameters_EnableExecuteCommand" />
+                <Param Name="Target_EcsParameters_Group" NewName="EcsParameters_Group" />
+                <Param Name="Target_EcsParameters_LaunchType" NewName="EcsParameters_LaunchType" />
+                <Param Name="Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp" NewName="AwsvpcConfiguration_AssignPublicIp" />
+                <Param Name="Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_SecurityGroups" NewName="AwsvpcConfiguration_SecurityGroup" />
+                <Param Name="Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_Subnets" NewName="AwsvpcConfiguration_Subnet" />
+                <Param Name="Target_EcsParameters_PlacementConstraints" NewName="EcsParameters_PlacementConstraint" />
+                <Param Name="Target_EcsParameters_PlacementStrategy" NewName="EcsParameters_PlacementStrategy" />
+                <Param Name="Target_EcsParameters_PlatformVersion" NewName="EcsParameters_PlatformVersion" />
+                <Param Name="Target_EcsParameters_PropagateTags" NewName="EcsParameters_PropagateTag" />
+                <Param Name="Target_EcsParameters_ReferenceId" NewName="EcsParameters_ReferenceId" />
+                <Param Name="Target_EcsParameters_Tags" NewName="EcsParameters_Tag" />
+                <Param Name="Target_EcsParameters_TaskCount" NewName="EcsParameters_TaskCount" />
+                <Param Name="Target_EcsParameters_TaskDefinitionArn" NewName="EcsParameters_TaskDefinitionArn" />
+                <Param Name="Target_EventBridgeParameters_DetailType" NewName="EventBridgeParameters_DetailType" />
+                <Param Name="Target_EventBridgeParameters_Source" NewName="EventBridgeParameters_Source" />
+                <Param Name="Target_KinesisParameters_PartitionKey" NewName="KinesisParameters_PartitionKey" />
+                <Param Name="Target_RetryPolicy_MaximumEventAgeInSeconds" NewName="RetryPolicy_MaximumEventAgeInSecond" />
+                <Param Name="Target_RetryPolicy_MaximumRetryAttempts" NewName="RetryPolicy_MaximumRetryAttempt" />
+                <Param Name="Target_SageMakerPipelineParameters_PipelineParameterList" NewName="SageMakerPipelineParameters_PipelineParameterList" />
+                <Param Name="Target_SqsParameters_MessageGroupId" NewName="SqsParameters_MessageGroupId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateScheduleGroup" OutputProperty="ScheduleGroupArn" Verb="New" Noun="ScheduleGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -63,7 +88,32 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSchedule" OutputProperty="ScheduleArn" Verb="Update" Noun="Schedule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Target_DeadLetterConfig_Arn" NewName="DeadLetterConfig_Arn" />
+                <Param Name="Target_EcsParameters_CapacityProviderStrategy" NewName="EcsParameters_CapacityProviderStrategy" />
+                <Param Name="Target_EcsParameters_EnableECSManagedTags" NewName="EcsParameters_EnableECSManagedTag" />
+                <Param Name="Target_EcsParameters_EnableExecuteCommand" NewName="EcsParameters_EnableExecuteCommand" />
+                <Param Name="Target_EcsParameters_Group" NewName="EcsParameters_Group" />
+                <Param Name="Target_EcsParameters_LaunchType" NewName="EcsParameters_LaunchType" />
+                <Param Name="Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp" NewName="AwsvpcConfiguration_AssignPublicIp" />
+                <Param Name="Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_SecurityGroups" NewName="AwsvpcConfiguration_SecurityGroup" />
+                <Param Name="Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_Subnets" NewName="AwsvpcConfiguration_Subnet" />
+                <Param Name="Target_EcsParameters_PlacementConstraints" NewName="EcsParameters_PlacementConstraint" />
+                <Param Name="Target_EcsParameters_PlacementStrategy" NewName="EcsParameters_PlacementStrategy" />
+                <Param Name="Target_EcsParameters_PlatformVersion" NewName="EcsParameters_PlatformVersion" />
+                <Param Name="Target_EcsParameters_PropagateTags" NewName="EcsParameters_PropagateTag" />
+                <Param Name="Target_EcsParameters_ReferenceId" NewName="EcsParameters_ReferenceId" />
+                <Param Name="Target_EcsParameters_Tags" NewName="EcsParameters_Tag" />
+                <Param Name="Target_EcsParameters_TaskCount" NewName="EcsParameters_TaskCount" />
+                <Param Name="Target_EcsParameters_TaskDefinitionArn" NewName="EcsParameters_TaskDefinitionArn" />
+                <Param Name="Target_EventBridgeParameters_DetailType" NewName="EventBridgeParameters_DetailType" />
+                <Param Name="Target_EventBridgeParameters_Source" NewName="EventBridgeParameters_Source" />
+                <Param Name="Target_KinesisParameters_PartitionKey" NewName="KinesisParameters_PartitionKey" />
+                <Param Name="Target_RetryPolicy_MaximumEventAgeInSeconds" NewName="RetryPolicy_MaximumEventAgeInSecond" />
+                <Param Name="Target_RetryPolicy_MaximumRetryAttempts" NewName="RetryPolicy_MaximumRetryAttempt" />
+                <Param Name="Target_SageMakerPipelineParameters_PipelineParameterList" NewName="SageMakerPipelineParameters_PipelineParameterList" />
+                <Param Name="Target_SqsParameters_MessageGroupId" NewName="SqsParameters_MessageGroupId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

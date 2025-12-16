@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>elasticloadbalancing</C2jFilename>
     <AssemblyName>ElasticLoadBalancing</AssemblyName>
@@ -31,13 +32,12 @@
         <Map From="AvailabilityZonesForLoadBalancer" To="AvailabilityZoneForLoadBalancer" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="LoadBalancerNames" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Add-ELBTags" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="LoadBalancerNames" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-ELBTags">
             <Params />
             <PassThru>
                 <Expression>context.Tag</Expression>
@@ -97,7 +97,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -117,11 +117,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancerDescriptions" Verb="Get" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancerDescriptions" Verb="Get" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="TagDescriptions" Verb="Get" Noun="ResourceTag" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Get-ELBTags" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="TagDescriptions" Verb="Get" Noun="ResourceTag" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ELBTags">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -138,14 +138,23 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyLoadBalancerAttributes" OutputProperty="*" Verb="Edit" Noun="LoadBalancerAttribute" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LoadBalancerAttributes_AccessLog_EmitInterval" NewName="AccessLog_EmitInterval" />
+                <Param Name="LoadBalancerAttributes_AccessLog_Enabled" NewName="AccessLog_Enabled" />
+                <Param Name="LoadBalancerAttributes_AccessLog_S3BucketName" NewName="AccessLog_S3BucketName" />
+                <Param Name="LoadBalancerAttributes_AccessLog_S3BucketPrefix" NewName="AccessLog_S3BucketPrefix" />
+                <Param Name="LoadBalancerAttributes_ConnectionDraining_Enabled" NewName="ConnectionDraining_Enabled" />
+                <Param Name="LoadBalancerAttributes_ConnectionDraining_Timeout" NewName="ConnectionDraining_Timeout" />
+                <Param Name="LoadBalancerAttributes_ConnectionSettings_IdleTimeout" NewName="ConnectionSettings_IdleTimeout" />
+                <Param Name="LoadBalancerAttributes_CrossZoneLoadBalancing_Enabled" NewName="CrossZoneLoadBalancing_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterInstancesWithLoadBalancer" OutputProperty="Instances" Verb="Register" Noun="InstanceWithLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Tags" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Remove-ELBTags" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Tags" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-ELBTags">
             <Params />
             <PassThru>
                 <Expression>context.Tag</Expression>
@@ -166,7 +175,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

@@ -56,7 +56,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelVersion" OutputProperty="*" Verb="New" Noun="ModelVersion" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IngestedEventsDetail_IngestedEventsTimeWindow_EndTime" NewName="IngestedEventsTimeWindow_EndTime" />
+                <Param Name="IngestedEventsDetail_IngestedEventsTimeWindow_StartTime" NewName="IngestedEventsTimeWindow_StartTime" />
+                <Param Name="TrainingDataSchema_LabelSchema_LabelMapper" NewName="LabelSchema_LabelMapper" />
+                <Param Name="TrainingDataSchema_LabelSchema_UnlabeledEventsTreatment" NewName="LabelSchema_UnlabeledEventsTreatment" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRule" OutputProperty="Rule" Verb="New" Noun="Rule" ShouldProcessTarget="RuleId" PipelineParameter="RuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -292,7 +297,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateModelVersion" OutputProperty="*" Verb="Update" Noun="ModelVersion" ShouldProcessTarget="ModelId" PipelineParameter="MajorVersionNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IngestedEventsDetail_IngestedEventsTimeWindow_EndTime" NewName="IngestedEventsTimeWindow_EndTime" />
+                <Param Name="IngestedEventsDetail_IngestedEventsTimeWindow_StartTime" NewName="IngestedEventsTimeWindow_StartTime" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateModelVersionStatus" Verb="Update" Noun="ModelVersionStatus" ShouldProcessTarget="ModelId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

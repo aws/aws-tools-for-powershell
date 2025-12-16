@@ -84,7 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListActionExecutions" OutputProperty="ActionExecutionDetails" Verb="Get" Noun="ActionExecutionList" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filter_LatestInPipelineExecution_PipelineExecutionId" NewName="LatestInPipelineExecution_PipelineExecutionId" />
+                <Param Name="Filter_LatestInPipelineExecution_StartTimeRange" NewName="LatestInPipelineExecution_StartTimeRange" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListActionTypes" OutputProperty="ActionTypes" Verb="Get" Noun="ActionType" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -96,7 +99,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionSummary" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
-            <Params />
+            <Params>
+                <Param Name="Filter_SucceededInStage_StageName" NewName="SucceededInStage_StageName" />
+            </Params>
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -105,7 +110,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRuleExecutions" OutputProperty="RuleExecutionDetails" Verb="Get" Noun="RuleExecutionList" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filter_LatestInPipelineExecution_PipelineExecutionId" NewName="LatestInPipelineExecution_PipelineExecutionId" />
+                <Param Name="Filter_LatestInPipelineExecution_StartTimeRange" NewName="LatestInPipelineExecution_StartTimeRange" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRuleTypes" OutputProperty="RuleTypes" Verb="Get" Noun="RuleTypeList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -157,7 +165,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutWebhook" OutputProperty="Webhook" Verb="Write" Noun="Webhook" ShouldProcessTarget="Webhook_Name" PipelineParameter="Webhook_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Webhook_AuthenticationConfiguration_AllowedIPRange" NewName="AuthenticationConfiguration_AllowedIPRange" />
+                <Param Name="Webhook_AuthenticationConfiguration_SecretToken" NewName="AuthenticationConfiguration_SecretToken" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterWebhookWithThirdParty" Verb="Register" Noun="WebhookWithThirdParty" ShouldProcessTarget="WebhookName" PipelineParameter="WebhookName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -189,7 +200,27 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateActionType" Verb="Update" Noun="ActionType" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ActionType_Executor_Configuration_JobWorkerExecutorConfiguration_PollingAccounts" NewName="JobWorkerExecutorConfiguration_PollingAccount" />
+                <Param Name="ActionType_Executor_Configuration_JobWorkerExecutorConfiguration_PollingServicePrincipals" NewName="JobWorkerExecutorConfiguration_PollingServicePrincipal" />
+                <Param Name="ActionType_Executor_Configuration_LambdaExecutorConfiguration_LambdaFunctionArn" NewName="LambdaExecutorConfiguration_LambdaFunctionArn" />
+                <Param Name="ActionType_Executor_JobTimeout" NewName="Executor_JobTimeout" />
+                <Param Name="ActionType_Executor_PolicyStatementsTemplate" NewName="Executor_PolicyStatementsTemplate" />
+                <Param Name="ActionType_Executor_Type" NewName="Executor_Type" />
+                <Param Name="ActionType_Id_Category" NewName="Id_Category" />
+                <Param Name="ActionType_Id_Owner" NewName="Id_Owner" />
+                <Param Name="ActionType_Id_Provider" NewName="Id_Provider" />
+                <Param Name="ActionType_Id_Version" NewName="Id_Version" />
+                <Param Name="ActionType_InputArtifactDetails_MaximumCount" NewName="InputArtifactDetails_MaximumCount" />
+                <Param Name="ActionType_InputArtifactDetails_MinimumCount" NewName="InputArtifactDetails_MinimumCount" />
+                <Param Name="ActionType_OutputArtifactDetails_MaximumCount" NewName="OutputArtifactDetails_MaximumCount" />
+                <Param Name="ActionType_OutputArtifactDetails_MinimumCount" NewName="OutputArtifactDetails_MinimumCount" />
+                <Param Name="ActionType_Permissions_AllowedAccounts" NewName="Permissions_AllowedAccount" />
+                <Param Name="ActionType_Urls_ConfigurationUrl" NewName="Urls_ConfigurationUrl" />
+                <Param Name="ActionType_Urls_EntityUrlTemplate" NewName="Urls_EntityUrlTemplate" />
+                <Param Name="ActionType_Urls_ExecutionUrlTemplate" NewName="Urls_ExecutionUrlTemplate" />
+                <Param Name="ActionType_Urls_RevisionUrlTemplate" NewName="Urls_RevisionUrlTemplate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePipeline" OutputProperty="Pipeline" Verb="Update" Noun="Pipeline" ShouldProcessTarget="Pipeline" PipelineParameter="Pipeline" NoPipelineParameter="false" LegacyV4Pagination="true">

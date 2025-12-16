@@ -21,19 +21,99 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="DecryptData" OutputProperty="*" Verb="Unprotect" Noun="Data" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DecryptionAttributes_Asymmetric_PaddingType" NewName="Asymmetric_PaddingType" />
+                <Param Name="DecryptionAttributes_Dukpt_DukptKeyDerivationType" NewName="Dukpt_DukptKeyDerivationType" />
+                <Param Name="DecryptionAttributes_Dukpt_DukptKeyVariant" NewName="Dukpt_DukptKeyVariant" />
+                <Param Name="DecryptionAttributes_Dukpt_InitializationVector" NewName="Dukpt_InitializationVector" />
+                <Param Name="DecryptionAttributes_Dukpt_KeySerialNumber" NewName="Dukpt_KeySerialNumber" />
+                <Param Name="DecryptionAttributes_Dukpt_Mode" NewName="Dukpt_Mode" />
+                <Param Name="DecryptionAttributes_Emv_InitializationVector" NewName="Emv_InitializationVector" />
+                <Param Name="DecryptionAttributes_Emv_MajorKeyDerivationMode" NewName="Emv_MajorKeyDerivationMode" />
+                <Param Name="DecryptionAttributes_Emv_Mode" NewName="Emv_Mode" />
+                <Param Name="DecryptionAttributes_Emv_PanSequenceNumber" NewName="Emv_PanSequenceNumber" />
+                <Param Name="DecryptionAttributes_Emv_PrimaryAccountNumber" NewName="Emv_PrimaryAccountNumber" />
+                <Param Name="DecryptionAttributes_Emv_SessionDerivationData" NewName="Emv_SessionDerivationData" />
+                <Param Name="DecryptionAttributes_Symmetric_InitializationVector" NewName="Symmetric_InitializationVector" />
+                <Param Name="DecryptionAttributes_Symmetric_Mode" NewName="Symmetric_Mode" />
+                <Param Name="DecryptionAttributes_Symmetric_PaddingType" NewName="Symmetric_PaddingType" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="DiffieHellmanSymmetricKey_KeyAlgorithm" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" NewName="DiffieHellmanSymmetricKey_KeyDerivationFunction" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" NewName="DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" NewName="DiffieHellmanSymmetricKey_PublicKeyCertificate" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" NewName="DiffieHellmanSymmetricKey_SharedInformation" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="WrappedKeyMaterial_Tr31KeyBlock" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EncryptData" OutputProperty="*" Verb="Protect" Noun="Data" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EncryptionAttributes_Asymmetric_PaddingType" NewName="Asymmetric_PaddingType" />
+                <Param Name="EncryptionAttributes_Dukpt_DukptKeyDerivationType" NewName="Dukpt_DukptKeyDerivationType" />
+                <Param Name="EncryptionAttributes_Dukpt_DukptKeyVariant" NewName="Dukpt_DukptKeyVariant" />
+                <Param Name="EncryptionAttributes_Dukpt_InitializationVector" NewName="Dukpt_InitializationVector" />
+                <Param Name="EncryptionAttributes_Dukpt_KeySerialNumber" NewName="Dukpt_KeySerialNumber" />
+                <Param Name="EncryptionAttributes_Dukpt_Mode" NewName="Dukpt_Mode" />
+                <Param Name="EncryptionAttributes_Emv_InitializationVector" NewName="Emv_InitializationVector" />
+                <Param Name="EncryptionAttributes_Emv_MajorKeyDerivationMode" NewName="Emv_MajorKeyDerivationMode" />
+                <Param Name="EncryptionAttributes_Emv_Mode" NewName="Emv_Mode" />
+                <Param Name="EncryptionAttributes_Emv_PanSequenceNumber" NewName="Emv_PanSequenceNumber" />
+                <Param Name="EncryptionAttributes_Emv_PrimaryAccountNumber" NewName="Emv_PrimaryAccountNumber" />
+                <Param Name="EncryptionAttributes_Emv_SessionDerivationData" NewName="Emv_SessionDerivationData" />
+                <Param Name="EncryptionAttributes_Symmetric_InitializationVector" NewName="Symmetric_InitializationVector" />
+                <Param Name="EncryptionAttributes_Symmetric_Mode" NewName="Symmetric_Mode" />
+                <Param Name="EncryptionAttributes_Symmetric_PaddingType" NewName="Symmetric_PaddingType" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="DiffieHellmanSymmetricKey_KeyAlgorithm" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" NewName="DiffieHellmanSymmetricKey_KeyDerivationFunction" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" NewName="DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" NewName="DiffieHellmanSymmetricKey_PublicKeyCertificate" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" NewName="DiffieHellmanSymmetricKey_SharedInformation" />
+                <Param Name="WrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="WrappedKeyMaterial_Tr31KeyBlock" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GenerateCardValidationData" OutputProperty="*" Verb="New" Noun="CardValidationData" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GenerationAttributes_AmexCardSecurityCodeVersion1_CardExpiryDate" NewName="AmexCardSecurityCodeVersion1_CardExpiryDate" />
+                <Param Name="GenerationAttributes_AmexCardSecurityCodeVersion2_CardExpiryDate" NewName="AmexCardSecurityCodeVersion2_CardExpiryDate" />
+                <Param Name="GenerationAttributes_AmexCardSecurityCodeVersion2_ServiceCode" NewName="AmexCardSecurityCodeVersion2_ServiceCode" />
+                <Param Name="GenerationAttributes_CardHolderVerificationValue_ApplicationTransactionCounter" NewName="CardHolderVerificationValue_ApplicationTransactionCounter" />
+                <Param Name="GenerationAttributes_CardHolderVerificationValue_PanSequenceNumber" NewName="CardHolderVerificationValue_PanSequenceNumber" />
+                <Param Name="GenerationAttributes_CardHolderVerificationValue_UnpredictableNumber" NewName="CardHolderVerificationValue_UnpredictableNumber" />
+                <Param Name="GenerationAttributes_CardVerificationValue1_CardExpiryDate" NewName="CardVerificationValue1_CardExpiryDate" />
+                <Param Name="GenerationAttributes_CardVerificationValue1_ServiceCode" NewName="CardVerificationValue1_ServiceCode" />
+                <Param Name="GenerationAttributes_CardVerificationValue2_CardExpiryDate" NewName="CardVerificationValue2_CardExpiryDate" />
+                <Param Name="GenerationAttributes_DynamicCardVerificationCode_ApplicationTransactionCounter" NewName="DynamicCardVerificationCode_ApplicationTransactionCounter" />
+                <Param Name="GenerationAttributes_DynamicCardVerificationCode_PanSequenceNumber" NewName="DynamicCardVerificationCode_PanSequenceNumber" />
+                <Param Name="GenerationAttributes_DynamicCardVerificationCode_TrackData" NewName="DynamicCardVerificationCode_TrackData" />
+                <Param Name="GenerationAttributes_DynamicCardVerificationCode_UnpredictableNumber" NewName="DynamicCardVerificationCode_UnpredictableNumber" />
+                <Param Name="GenerationAttributes_DynamicCardVerificationValue_ApplicationTransactionCounter" NewName="DynamicCardVerificationValue_ApplicationTransactionCounter" />
+                <Param Name="GenerationAttributes_DynamicCardVerificationValue_CardExpiryDate" NewName="DynamicCardVerificationValue_CardExpiryDate" />
+                <Param Name="GenerationAttributes_DynamicCardVerificationValue_PanSequenceNumber" NewName="DynamicCardVerificationValue_PanSequenceNumber" />
+                <Param Name="GenerationAttributes_DynamicCardVerificationValue_ServiceCode" NewName="DynamicCardVerificationValue_ServiceCode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GenerateMac" OutputProperty="*" Verb="New" Noun="Mac" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GenerationAttributes_DukptCmac_DukptDerivationType" NewName="DukptCmac_DukptDerivationType" />
+                <Param Name="GenerationAttributes_DukptCmac_DukptKeyVariant" NewName="DukptCmac_DukptKeyVariant" />
+                <Param Name="GenerationAttributes_DukptCmac_KeySerialNumber" NewName="DukptCmac_KeySerialNumber" />
+                <Param Name="GenerationAttributes_DukptIso9797Algorithm1_DukptDerivationType" NewName="DukptIso9797Algorithm1_DukptDerivationType" />
+                <Param Name="GenerationAttributes_DukptIso9797Algorithm1_DukptKeyVariant" NewName="DukptIso9797Algorithm1_DukptKeyVariant" />
+                <Param Name="GenerationAttributes_DukptIso9797Algorithm1_KeySerialNumber" NewName="DukptIso9797Algorithm1_KeySerialNumber" />
+                <Param Name="GenerationAttributes_DukptIso9797Algorithm3_DukptDerivationType" NewName="DukptIso9797Algorithm3_DukptDerivationType" />
+                <Param Name="GenerationAttributes_DukptIso9797Algorithm3_DukptKeyVariant" NewName="DukptIso9797Algorithm3_DukptKeyVariant" />
+                <Param Name="GenerationAttributes_DukptIso9797Algorithm3_KeySerialNumber" NewName="DukptIso9797Algorithm3_KeySerialNumber" />
+                <Param Name="GenerationAttributes_EmvMac_MajorKeyDerivationMode" NewName="EmvMac_MajorKeyDerivationMode" />
+                <Param Name="GenerationAttributes_EmvMac_PanSequenceNumber" NewName="EmvMac_PanSequenceNumber" />
+                <Param Name="GenerationAttributes_EmvMac_PrimaryAccountNumber" NewName="EmvMac_PrimaryAccountNumber" />
+                <Param Name="GenerationAttributes_EmvMac_SessionKeyDerivationMode" NewName="EmvMac_SessionKeyDerivationMode" />
+                <Param Name="GenerationAttributes_EmvMac_SessionKeyDerivationValue_ApplicationCryptogram" NewName="SessionKeyDerivationValue_ApplicationCryptogram" />
+                <Param Name="GenerationAttributes_EmvMac_SessionKeyDerivationValue_ApplicationTransactionCounter" NewName="SessionKeyDerivationValue_ApplicationTransactionCounter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GenerateMacEmvPinChange" OutputProperty="*" Verb="New" Noun="MacEmvPinChange" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -42,11 +122,61 @@
                 <Param Name="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentEncryptedPinBlock" NewName="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentEncryptedPinBlock" />
                 <Param Name="DerivationMethodAttributes_Amex_CurrentPinAttributes_CurrentPinPekIdentifier" NewName="DerivationMethodAttributes_Amex_CurrentPinAttributes_CurrentPinPekIdentifier" />
                 <Param Name="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentPinPekIdentifier" NewName="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentPinPekIdentifier" />
+                <Param Name="DerivationMethodAttributes_Amex_ApplicationTransactionCounter" NewName="Amex_ApplicationTransactionCounter" />
+                <Param Name="DerivationMethodAttributes_Amex_AuthorizationRequestKeyIdentifier" NewName="Amex_AuthorizationRequestKeyIdentifier" />
+                <Param Name="DerivationMethodAttributes_Amex_MajorKeyDerivationMode" NewName="Amex_MajorKeyDerivationMode" />
+                <Param Name="DerivationMethodAttributes_Amex_PanSequenceNumber" NewName="Amex_PanSequenceNumber" />
+                <Param Name="DerivationMethodAttributes_Amex_PrimaryAccountNumber" NewName="Amex_PrimaryAccountNumber" />
+                <Param Name="DerivationMethodAttributes_Emv2000_ApplicationTransactionCounter" NewName="Emv2000_ApplicationTransactionCounter" />
+                <Param Name="DerivationMethodAttributes_Emv2000_MajorKeyDerivationMode" NewName="Emv2000_MajorKeyDerivationMode" />
+                <Param Name="DerivationMethodAttributes_Emv2000_PanSequenceNumber" NewName="Emv2000_PanSequenceNumber" />
+                <Param Name="DerivationMethodAttributes_Emv2000_PrimaryAccountNumber" NewName="Emv2000_PrimaryAccountNumber" />
+                <Param Name="DerivationMethodAttributes_EmvCommon_ApplicationCryptogram" NewName="EmvCommon_ApplicationCryptogram" />
+                <Param Name="DerivationMethodAttributes_EmvCommon_MajorKeyDerivationMode" NewName="EmvCommon_MajorKeyDerivationMode" />
+                <Param Name="DerivationMethodAttributes_EmvCommon_Mode" NewName="EmvCommon_Mode" />
+                <Param Name="DerivationMethodAttributes_EmvCommon_PanSequenceNumber" NewName="EmvCommon_PanSequenceNumber" />
+                <Param Name="DerivationMethodAttributes_EmvCommon_PinBlockLengthPosition" NewName="EmvCommon_PinBlockLengthPosition" />
+                <Param Name="DerivationMethodAttributes_EmvCommon_PinBlockPaddingType" NewName="EmvCommon_PinBlockPaddingType" />
+                <Param Name="DerivationMethodAttributes_EmvCommon_PrimaryAccountNumber" NewName="EmvCommon_PrimaryAccountNumber" />
+                <Param Name="DerivationMethodAttributes_Mastercard_ApplicationCryptogram" NewName="Mastercard_ApplicationCryptogram" />
+                <Param Name="DerivationMethodAttributes_Mastercard_MajorKeyDerivationMode" NewName="Mastercard_MajorKeyDerivationMode" />
+                <Param Name="DerivationMethodAttributes_Mastercard_PanSequenceNumber" NewName="Mastercard_PanSequenceNumber" />
+                <Param Name="DerivationMethodAttributes_Mastercard_PrimaryAccountNumber" NewName="Mastercard_PrimaryAccountNumber" />
+                <Param Name="DerivationMethodAttributes_Visa_ApplicationTransactionCounter" NewName="Visa_ApplicationTransactionCounter" />
+                <Param Name="DerivationMethodAttributes_Visa_AuthorizationRequestKeyIdentifier" NewName="Visa_AuthorizationRequestKeyIdentifier" />
+                <Param Name="DerivationMethodAttributes_Visa_MajorKeyDerivationMode" NewName="Visa_MajorKeyDerivationMode" />
+                <Param Name="DerivationMethodAttributes_Visa_PanSequenceNumber" NewName="Visa_PanSequenceNumber" />
+                <Param Name="DerivationMethodAttributes_Visa_PrimaryAccountNumber" NewName="Visa_PrimaryAccountNumber" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GeneratePinData" OutputProperty="*" Verb="New" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="GenerationKeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="DiffieHellmanSymmetricKey_KeyAlgorithm" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" NewName="DiffieHellmanSymmetricKey_KeyDerivationFunction" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" NewName="DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" NewName="DiffieHellmanSymmetricKey_PublicKeyCertificate" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" NewName="DiffieHellmanSymmetricKey_SharedInformation" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="WrappedKeyMaterial_Tr31KeyBlock" />
+                <Param Name="GenerationAttributes_Ibm3624NaturalPin_DecimalizationTable" NewName="Ibm3624NaturalPin_DecimalizationTable" />
+                <Param Name="GenerationAttributes_Ibm3624NaturalPin_PinValidationData" NewName="Ibm3624NaturalPin_PinValidationData" />
+                <Param Name="GenerationAttributes_Ibm3624NaturalPin_PinValidationDataPadCharacter" NewName="Ibm3624NaturalPin_PinValidationDataPadCharacter" />
+                <Param Name="GenerationAttributes_Ibm3624PinFromOffset_DecimalizationTable" NewName="Ibm3624PinFromOffset_DecimalizationTable" />
+                <Param Name="GenerationAttributes_Ibm3624PinFromOffset_PinOffset" NewName="Ibm3624PinFromOffset_PinOffset" />
+                <Param Name="GenerationAttributes_Ibm3624PinFromOffset_PinValidationData" NewName="Ibm3624PinFromOffset_PinValidationData" />
+                <Param Name="GenerationAttributes_Ibm3624PinFromOffset_PinValidationDataPadCharacter" NewName="Ibm3624PinFromOffset_PinValidationDataPadCharacter" />
+                <Param Name="GenerationAttributes_Ibm3624PinOffset_DecimalizationTable" NewName="Ibm3624PinOffset_DecimalizationTable" />
+                <Param Name="GenerationAttributes_Ibm3624PinOffset_EncryptedPinBlock" NewName="Ibm3624PinOffset_EncryptedPinBlock" />
+                <Param Name="GenerationAttributes_Ibm3624PinOffset_PinValidationData" NewName="Ibm3624PinOffset_PinValidationData" />
+                <Param Name="GenerationAttributes_Ibm3624PinOffset_PinValidationDataPadCharacter" NewName="Ibm3624PinOffset_PinValidationDataPadCharacter" />
+                <Param Name="GenerationAttributes_Ibm3624RandomPin_DecimalizationTable" NewName="Ibm3624RandomPin_DecimalizationTable" />
+                <Param Name="GenerationAttributes_Ibm3624RandomPin_PinValidationData" NewName="Ibm3624RandomPin_PinValidationData" />
+                <Param Name="GenerationAttributes_Ibm3624RandomPin_PinValidationDataPadCharacter" NewName="Ibm3624RandomPin_PinValidationDataPadCharacter" />
+                <Param Name="GenerationAttributes_VisaPin_PinVerificationKeyIndex" NewName="VisaPin_PinVerificationKeyIndex" />
+                <Param Name="GenerationAttributes_VisaPinVerificationValue_EncryptedPinBlock" NewName="VisaPinVerificationValue_EncryptedPinBlock" />
+                <Param Name="GenerationAttributes_VisaPinVerificationValue_PinVerificationKeyIndex" NewName="VisaPinVerificationValue_PinVerificationKeyIndex" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ReEncryptData" OutputProperty="*" Verb="Update" Noun="EncryptData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -85,7 +215,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TranslateKeyMaterial" OutputProperty="WrappedKey" Verb="Convert" Noun="KeyMaterial" ShouldProcessTarget="KeyCheckValueAlgorithm" PipelineParameter="KeyCheckValueAlgorithm" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="IncomingKeyMaterial_DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier" NewName="DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="IncomingKeyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_SharedInformation" NewName="DerivationData_SharedInformation" />
+                <Param Name="IncomingKeyMaterial_DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm" NewName="DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm" />
+                <Param Name="IncomingKeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationFunction" NewName="DiffieHellmanTr31KeyBlock_KeyDerivationFunction" />
+                <Param Name="IncomingKeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm" NewName="DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm" />
+                <Param Name="IncomingKeyMaterial_DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier" NewName="DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier" />
+                <Param Name="IncomingKeyMaterial_DiffieHellmanTr31KeyBlock_PublicKeyCertificate" NewName="DiffieHellmanTr31KeyBlock_PublicKeyCertificate" />
+                <Param Name="IncomingKeyMaterial_DiffieHellmanTr31KeyBlock_WrappedKeyBlock" NewName="DiffieHellmanTr31KeyBlock_WrappedKeyBlock" />
+                <Param Name="OutgoingKeyMaterial_Tr31KeyBlock_WrappingKeyIdentifier" NewName="Tr31KeyBlock_WrappingKeyIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TranslatePinData" OutputProperty="*" Verb="Convert" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -114,19 +254,88 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="VerifyAuthRequestCryptogram" OutputProperty="*" Verb="Test" Noun="AuthRequestCryptogram" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AuthResponseAttributes_ArpcMethod1_AuthResponseCode" NewName="ArpcMethod1_AuthResponseCode" />
+                <Param Name="AuthResponseAttributes_ArpcMethod2_CardStatusUpdate" NewName="ArpcMethod2_CardStatusUpdate" />
+                <Param Name="AuthResponseAttributes_ArpcMethod2_ProprietaryAuthenticationData" NewName="ArpcMethod2_ProprietaryAuthenticationData" />
+                <Param Name="SessionKeyDerivationAttributes_Amex_PanSequenceNumber" NewName="Amex_PanSequenceNumber" />
+                <Param Name="SessionKeyDerivationAttributes_Amex_PrimaryAccountNumber" NewName="Amex_PrimaryAccountNumber" />
+                <Param Name="SessionKeyDerivationAttributes_Emv2000_ApplicationTransactionCounter" NewName="Emv2000_ApplicationTransactionCounter" />
+                <Param Name="SessionKeyDerivationAttributes_Emv2000_PanSequenceNumber" NewName="Emv2000_PanSequenceNumber" />
+                <Param Name="SessionKeyDerivationAttributes_Emv2000_PrimaryAccountNumber" NewName="Emv2000_PrimaryAccountNumber" />
+                <Param Name="SessionKeyDerivationAttributes_EmvCommon_ApplicationTransactionCounter" NewName="EmvCommon_ApplicationTransactionCounter" />
+                <Param Name="SessionKeyDerivationAttributes_EmvCommon_PanSequenceNumber" NewName="EmvCommon_PanSequenceNumber" />
+                <Param Name="SessionKeyDerivationAttributes_EmvCommon_PrimaryAccountNumber" NewName="EmvCommon_PrimaryAccountNumber" />
+                <Param Name="SessionKeyDerivationAttributes_Mastercard_ApplicationTransactionCounter" NewName="Mastercard_ApplicationTransactionCounter" />
+                <Param Name="SessionKeyDerivationAttributes_Mastercard_PanSequenceNumber" NewName="Mastercard_PanSequenceNumber" />
+                <Param Name="SessionKeyDerivationAttributes_Mastercard_PrimaryAccountNumber" NewName="Mastercard_PrimaryAccountNumber" />
+                <Param Name="SessionKeyDerivationAttributes_Mastercard_UnpredictableNumber" NewName="Mastercard_UnpredictableNumber" />
+                <Param Name="SessionKeyDerivationAttributes_Visa_PanSequenceNumber" NewName="Visa_PanSequenceNumber" />
+                <Param Name="SessionKeyDerivationAttributes_Visa_PrimaryAccountNumber" NewName="Visa_PrimaryAccountNumber" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="VerifyCardValidationData" OutputProperty="*" Verb="Test" Noun="CardValidationData" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="VerificationAttributes_AmexCardSecurityCodeVersion1_CardExpiryDate" NewName="AmexCardSecurityCodeVersion1_CardExpiryDate" />
+                <Param Name="VerificationAttributes_AmexCardSecurityCodeVersion2_CardExpiryDate" NewName="AmexCardSecurityCodeVersion2_CardExpiryDate" />
+                <Param Name="VerificationAttributes_AmexCardSecurityCodeVersion2_ServiceCode" NewName="AmexCardSecurityCodeVersion2_ServiceCode" />
+                <Param Name="VerificationAttributes_CardHolderVerificationValue_ApplicationTransactionCounter" NewName="CardHolderVerificationValue_ApplicationTransactionCounter" />
+                <Param Name="VerificationAttributes_CardHolderVerificationValue_PanSequenceNumber" NewName="CardHolderVerificationValue_PanSequenceNumber" />
+                <Param Name="VerificationAttributes_CardHolderVerificationValue_UnpredictableNumber" NewName="CardHolderVerificationValue_UnpredictableNumber" />
+                <Param Name="VerificationAttributes_CardVerificationValue1_CardExpiryDate" NewName="CardVerificationValue1_CardExpiryDate" />
+                <Param Name="VerificationAttributes_CardVerificationValue1_ServiceCode" NewName="CardVerificationValue1_ServiceCode" />
+                <Param Name="VerificationAttributes_CardVerificationValue2_CardExpiryDate" NewName="CardVerificationValue2_CardExpiryDate" />
+                <Param Name="VerificationAttributes_DiscoverDynamicCardVerificationCode_ApplicationTransactionCounter" NewName="DiscoverDynamicCardVerificationCode_ApplicationTransactionCounter" />
+                <Param Name="VerificationAttributes_DiscoverDynamicCardVerificationCode_CardExpiryDate" NewName="DiscoverDynamicCardVerificationCode_CardExpiryDate" />
+                <Param Name="VerificationAttributes_DiscoverDynamicCardVerificationCode_UnpredictableNumber" NewName="DiscoverDynamicCardVerificationCode_UnpredictableNumber" />
+                <Param Name="VerificationAttributes_DynamicCardVerificationCode_ApplicationTransactionCounter" NewName="DynamicCardVerificationCode_ApplicationTransactionCounter" />
+                <Param Name="VerificationAttributes_DynamicCardVerificationCode_PanSequenceNumber" NewName="DynamicCardVerificationCode_PanSequenceNumber" />
+                <Param Name="VerificationAttributes_DynamicCardVerificationCode_TrackData" NewName="DynamicCardVerificationCode_TrackData" />
+                <Param Name="VerificationAttributes_DynamicCardVerificationCode_UnpredictableNumber" NewName="DynamicCardVerificationCode_UnpredictableNumber" />
+                <Param Name="VerificationAttributes_DynamicCardVerificationValue_ApplicationTransactionCounter" NewName="DynamicCardVerificationValue_ApplicationTransactionCounter" />
+                <Param Name="VerificationAttributes_DynamicCardVerificationValue_CardExpiryDate" NewName="DynamicCardVerificationValue_CardExpiryDate" />
+                <Param Name="VerificationAttributes_DynamicCardVerificationValue_PanSequenceNumber" NewName="DynamicCardVerificationValue_PanSequenceNumber" />
+                <Param Name="VerificationAttributes_DynamicCardVerificationValue_ServiceCode" NewName="DynamicCardVerificationValue_ServiceCode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="VerifyMac" OutputProperty="*" Verb="Test" Noun="Mac" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="VerificationAttributes_DukptCmac_DukptDerivationType" NewName="DukptCmac_DukptDerivationType" />
+                <Param Name="VerificationAttributes_DukptCmac_DukptKeyVariant" NewName="DukptCmac_DukptKeyVariant" />
+                <Param Name="VerificationAttributes_DukptCmac_KeySerialNumber" NewName="DukptCmac_KeySerialNumber" />
+                <Param Name="VerificationAttributes_DukptIso9797Algorithm1_DukptDerivationType" NewName="DukptIso9797Algorithm1_DukptDerivationType" />
+                <Param Name="VerificationAttributes_DukptIso9797Algorithm1_DukptKeyVariant" NewName="DukptIso9797Algorithm1_DukptKeyVariant" />
+                <Param Name="VerificationAttributes_DukptIso9797Algorithm1_KeySerialNumber" NewName="DukptIso9797Algorithm1_KeySerialNumber" />
+                <Param Name="VerificationAttributes_DukptIso9797Algorithm3_DukptDerivationType" NewName="DukptIso9797Algorithm3_DukptDerivationType" />
+                <Param Name="VerificationAttributes_DukptIso9797Algorithm3_DukptKeyVariant" NewName="DukptIso9797Algorithm3_DukptKeyVariant" />
+                <Param Name="VerificationAttributes_DukptIso9797Algorithm3_KeySerialNumber" NewName="DukptIso9797Algorithm3_KeySerialNumber" />
+                <Param Name="VerificationAttributes_EmvMac_MajorKeyDerivationMode" NewName="EmvMac_MajorKeyDerivationMode" />
+                <Param Name="VerificationAttributes_EmvMac_PanSequenceNumber" NewName="EmvMac_PanSequenceNumber" />
+                <Param Name="VerificationAttributes_EmvMac_PrimaryAccountNumber" NewName="EmvMac_PrimaryAccountNumber" />
+                <Param Name="VerificationAttributes_EmvMac_SessionKeyDerivationMode" NewName="EmvMac_SessionKeyDerivationMode" />
+                <Param Name="VerificationAttributes_EmvMac_SessionKeyDerivationValue_ApplicationCryptogram" NewName="SessionKeyDerivationValue_ApplicationCryptogram" />
+                <Param Name="VerificationAttributes_EmvMac_SessionKeyDerivationValue_ApplicationTransactionCounter" NewName="SessionKeyDerivationValue_ApplicationTransactionCounter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="VerifyPinData" OutputProperty="*" Verb="Test" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="VerificationKeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="DiffieHellmanSymmetricKey_KeyAlgorithm" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" NewName="DiffieHellmanSymmetricKey_KeyDerivationFunction" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" NewName="DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" NewName="DiffieHellmanSymmetricKey_PublicKeyCertificate" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" NewName="DiffieHellmanSymmetricKey_SharedInformation" />
+                <Param Name="EncryptionWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="WrappedKeyMaterial_Tr31KeyBlock" />
+                <Param Name="VerificationAttributes_Ibm3624Pin_DecimalizationTable" NewName="Ibm3624Pin_DecimalizationTable" />
+                <Param Name="VerificationAttributes_Ibm3624Pin_PinOffset" NewName="Ibm3624Pin_PinOffset" />
+                <Param Name="VerificationAttributes_Ibm3624Pin_PinValidationData" NewName="Ibm3624Pin_PinValidationData" />
+                <Param Name="VerificationAttributes_Ibm3624Pin_PinValidationDataPadCharacter" NewName="Ibm3624Pin_PinValidationDataPadCharacter" />
+                <Param Name="VerificationAttributes_VisaPin_PinVerificationKeyIndex" NewName="VisaPin_PinVerificationKeyIndex" />
+                <Param Name="VerificationAttributes_VisaPin_VerificationValue" NewName="VisaPin_VerificationValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

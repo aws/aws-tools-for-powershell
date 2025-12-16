@@ -115,7 +115,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartSpeakerEnrollmentJob" OutputProperty="Job" Verb="Start" Noun="SpeakerEnrollmentJob" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EnrollmentConfig_FraudDetectionConfig_FraudDetectionAction" NewName="FraudDetectionConfig_FraudDetectionAction" />
+                <Param Name="EnrollmentConfig_FraudDetectionConfig_RiskThreshold" NewName="FraudDetectionConfig_RiskThreshold" />
+                <Param Name="EnrollmentConfig_FraudDetectionConfig_WatchlistIds" NewName="FraudDetectionConfig_WatchlistId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">

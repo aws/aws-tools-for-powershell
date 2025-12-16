@@ -90,7 +90,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProtectionStatus" OutputProperty="*" Verb="Get" Noun="ProtectionStatus" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetProtectionStatus" OutputProperty="*" Verb="Get" Noun="ProtectionStatus" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -122,7 +122,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComplianceStatus" OutputProperty="PolicyComplianceStatusList" Verb="Get" Noun="ComplianceStatusList" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListComplianceStatus" OutputProperty="PolicyComplianceStatusList" Verb="Get" Noun="ComplianceStatusList" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -130,11 +130,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMemberAccounts" OutputProperty="MemberAccounts" Verb="Get" Noun="MemberAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMemberAccounts" OutputProperty="MemberAccounts" Verb="Get" Noun="MemberAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicies" OutputProperty="PolicyList" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="PolicyList" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,7 +159,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAdminAccount" Verb="Write" Noun="AdminAccount" ShouldProcessTarget="AdminAccount" PipelineParameter="AdminAccount" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AdminScope_AccountScope_Accounts" NewName="AccountScope_Account" />
+                <Param Name="AdminScope_AccountScope_AllAccountsEnabled" NewName="AccountScope_AllAccountsEnabled" />
+                <Param Name="AdminScope_AccountScope_ExcludeSpecifiedAccounts" NewName="AccountScope_ExcludeSpecifiedAccount" />
+                <Param Name="AdminScope_OrganizationalUnitScope_AllOrganizationalUnitsEnabled" NewName="OrganizationalUnitScope_AllOrganizationalUnitsEnabled" />
+                <Param Name="AdminScope_OrganizationalUnitScope_ExcludeSpecifiedOrganizationalUnits" NewName="OrganizationalUnitScope_ExcludeSpecifiedOrganizationalUnit" />
+                <Param Name="AdminScope_OrganizationalUnitScope_OrganizationalUnits" NewName="OrganizationalUnitScope_OrganizationalUnit" />
+                <Param Name="AdminScope_PolicyTypeScope_AllPolicyTypesEnabled" NewName="PolicyTypeScope_AllPolicyTypesEnabled" />
+                <Param Name="AdminScope_PolicyTypeScope_PolicyTypes" NewName="PolicyTypeScope_PolicyType" />
+                <Param Name="AdminScope_RegionScope_AllRegionsEnabled" NewName="RegionScope_AllRegionsEnabled" />
+                <Param Name="AdminScope_RegionScope_Regions" NewName="RegionScope_Region" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAppsList" OutputProperty="*" Verb="Write" Noun="AppList" ShouldProcessTarget="AppsList_ListName" PipelineParameter="AppsList_ListName" NoPipelineParameter="false" LegacyV4Pagination="true">

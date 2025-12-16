@@ -27,7 +27,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetId" Verb="New" Noun="Dataset" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SchemaDefinition_TabularSchemaConfig_Columns" NewName="TabularSchemaConfig_Column" />
+                <Param Name="SchemaDefinition_TabularSchemaConfig_PrimaryKeyColumns" NewName="TabularSchemaConfig_PrimaryKeyColumn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataView" OutputProperty="*" Verb="New" Noun="DataView" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -131,7 +134,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataset" OutputProperty="DatasetId" Verb="Update" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SchemaDefinition_TabularSchemaConfig_Columns" NewName="TabularSchemaConfig_Column" />
+                <Param Name="SchemaDefinition_TabularSchemaConfig_PrimaryKeyColumns" NewName="TabularSchemaConfig_PrimaryKeyColumn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePermissionGroup" OutputProperty="PermissionGroupId" Verb="Update" Noun="PermissionGroup" ShouldProcessTarget="PermissionGroupId" PipelineParameter="PermissionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">

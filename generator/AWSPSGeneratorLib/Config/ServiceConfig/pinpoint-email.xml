@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>pinpoint-email</C2jFilename>
     <AssemblyName>PinpointEmail</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -24,7 +24,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Verb="New" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EventDestination_CloudWatchDestination_DimensionConfigurations" NewName="CloudWatchDestination_DimensionConfiguration" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_DeliveryStreamArn" NewName="KinesisFirehoseDestination_DeliveryStreamArn" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_IamRoleArn" NewName="KinesisFirehoseDestination_IamRoleArn" />
+                <Param Name="EventDestination_PinpointDestination_ApplicationArn" NewName="PinpointDestination_ApplicationArn" />
+                <Param Name="EventDestination_SnsDestination_TopicArn" NewName="SnsDestination_TopicArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDedicatedIpPool" Verb="New" Noun="DedicatedIpPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -32,7 +38,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeliverabilityTestReport" OutputProperty="*" Verb="New" Noun="DeliverabilityTestReport" ShouldProcessTarget="FromEmailAddress" PipelineParameter="FromEmailAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Content_Raw_Data" NewName="Raw_Data" />
+                <Param Name="Content_Simple_Body_Html_Charset" NewName="Html_Charset" />
+                <Param Name="Content_Simple_Body_Html_Data" NewName="Html_Data" />
+                <Param Name="Content_Simple_Body_Text_Charset" NewName="Text_Charset" />
+                <Param Name="Content_Simple_Body_Text_Data" NewName="Text_Data" />
+                <Param Name="Content_Simple_Subject_Charset" NewName="Subject_Charset" />
+                <Param Name="Content_Simple_Subject_Data" NewName="Subject_Data" />
+                <Param Name="Content_Template_TemplateArn" NewName="Template_TemplateArn" />
+                <Param Name="Content_Template_TemplateData" NewName="Template_TemplateData" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEmailIdentity" OutputProperty="*" Verb="New" Noun="EmailIdentity" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -75,7 +91,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDedicatedIps" OutputProperty="DedicatedIps" Verb="Get" Noun="DedicatedIpList" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDedicatedIps" OutputProperty="DedicatedIps" Verb="Get" Noun="DedicatedIpList" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,23 +115,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDedicatedIpPools" OutputProperty="DedicatedIpPools" Verb="Get" Noun="DedicatedIpPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDedicatedIpPools" OutputProperty="DedicatedIpPools" Verb="Get" Noun="DedicatedIpPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeliverabilityTestReports" OutputProperty="DeliverabilityTestReports" Verb="Get" Noun="DeliverabilityTestReportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDeliverabilityTestReports" OutputProperty="DeliverabilityTestReports" Verb="Get" Noun="DeliverabilityTestReportList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainDeliverabilityCampaigns" OutputProperty="DomainDeliverabilityCampaigns" Verb="Get" Noun="DomainDeliverabilityCampaignList" PipelineParameter="SubscribedDomain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomainDeliverabilityCampaigns" OutputProperty="DomainDeliverabilityCampaigns" Verb="Get" Noun="DomainDeliverabilityCampaignList" PipelineParameter="SubscribedDomain" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEmailIdentities" OutputProperty="EmailIdentities" Verb="Get" Noun="EmailIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEmailIdentities" OutputProperty="EmailIdentities" Verb="Get" Noun="EmailIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -172,7 +188,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendEmail" OutputProperty="MessageId" Verb="Send" Noun="Email" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Content_Raw_Data" NewName="Raw_Data" />
+                <Param Name="Content_Simple_Body_Html_Charset" NewName="Html_Charset" />
+                <Param Name="Content_Simple_Body_Html_Data" NewName="Html_Data" />
+                <Param Name="Content_Simple_Body_Text_Charset" NewName="Text_Charset" />
+                <Param Name="Content_Simple_Body_Text_Data" NewName="Text_Data" />
+                <Param Name="Content_Simple_Subject_Charset" NewName="Subject_Charset" />
+                <Param Name="Content_Simple_Subject_Data" NewName="Subject_Data" />
+                <Param Name="Content_Template_TemplateArn" NewName="Template_TemplateArn" />
+                <Param Name="Content_Template_TemplateData" NewName="Template_TemplateData" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -184,11 +210,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Verb="Update" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EventDestination_CloudWatchDestination_DimensionConfigurations" NewName="CloudWatchDestination_DimensionConfiguration" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_DeliveryStreamArn" NewName="KinesisFirehoseDestination_DeliveryStreamArn" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_IamRoleArn" NewName="KinesisFirehoseDestination_IamRoleArn" />
+                <Param Name="EventDestination_PinpointDestination_ApplicationArn" NewName="PinpointDestination_ApplicationArn" />
+                <Param Name="EventDestination_SnsDestination_TopicArn" NewName="SnsDestination_TopicArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

@@ -43,7 +43,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplications" Verb="Remove" Noun="Application" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false" LegacyAlias="Remove-ADSApplications" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApplications" Verb="Remove" Noun="Application" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-ADSApplications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -51,7 +51,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAgents" OutputProperty="AgentsInfo" Verb="Get" Noun="Agent" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAgents" OutputProperty="AgentsInfo" Verb="Get" Noun="Agent" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,23 +63,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContinuousExports" OutputProperty="Descriptions" Verb="Get" Noun="ContinuousExport" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeContinuousExports" OutputProperty="Descriptions" Verb="Get" Noun="ContinuousExport" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportConfigurations" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportConfiguration" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExportConfigurations" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportConfiguration" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportTask" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportTask" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImportTasks" OutputProperty="Tasks" Verb="Get" Noun="ImportTask" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeImportTasks" OutputProperty="Tasks" Verb="Get" Noun="ImportTask" PipelineParameter="Filters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,11 +95,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServerNeighbors" OutputProperty="*" Verb="Get" Noun="ServerNeighborList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServerNeighbors" OutputProperty="*" Verb="Get" Noun="ServerNeighborList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -116,7 +116,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartExportTask" OutputProperty="ExportId" Verb="Start" Noun="ExportTask" AnonymousShouldProcessTarget="true" PipelineParameter="ExportDataFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Preferences_Ec2RecommendationsPreferences_CpuPerformanceMetricBasis_Name" NewName="CpuPerformanceMetricBasis_Name" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_CpuPerformanceMetricBasis_PercentageAdjust" NewName="CpuPerformanceMetricBasis_PercentageAdjust" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_Enabled" NewName="Ec2RecommendationsPreferences_Enabled" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_ExcludedInstanceTypes" NewName="Ec2RecommendationsPreferences_ExcludedInstanceType" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_PreferredRegion" NewName="Ec2RecommendationsPreferences_PreferredRegion" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_RamPerformanceMetricBasis_Name" NewName="RamPerformanceMetricBasis_Name" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_RamPerformanceMetricBasis_PercentageAdjust" NewName="RamPerformanceMetricBasis_PercentageAdjust" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_OfferingClass" NewName="ReservedInstanceOptions_OfferingClass" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_PurchasingOption" NewName="ReservedInstanceOptions_PurchasingOption" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_TermLength" NewName="ReservedInstanceOptions_TermLength" />
+                <Param Name="Preferences_Ec2RecommendationsPreferences_Tenancy" NewName="Ec2RecommendationsPreferences_Tenancy" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartImportTask" OutputProperty="Task" Verb="Start" Noun="ImportTask" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">

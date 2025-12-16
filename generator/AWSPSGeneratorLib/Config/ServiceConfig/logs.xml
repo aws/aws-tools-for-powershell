@@ -62,7 +62,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateScheduledQuery" OutputProperty="*" Verb="New" Noun="ScheduledQuery" ShouldProcessTarget="Name,ExecutionRoleArn" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfiguration_S3Configuration_DestinationIdentifier" NewName="S3Configuration_DestinationIdentifier" />
+                <Param Name="DestinationConfiguration_S3Configuration_RoleArn" NewName="S3Configuration_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountPolicy" Verb="Remove" Noun="AccountPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -364,7 +367,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutIntegration" OutputProperty="*" Verb="Write" Noun="Integration" ShouldProcessTarget="IntegrationName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfig_OpenSearchResourceConfig_ApplicationArn" NewName="OpenSearchResourceConfig_ApplicationArn" />
+                <Param Name="ResourceConfig_OpenSearchResourceConfig_DashboardViewerPrincipals" NewName="OpenSearchResourceConfig_DashboardViewerPrincipal" />
+                <Param Name="ResourceConfig_OpenSearchResourceConfig_DataSourceRoleArn" NewName="OpenSearchResourceConfig_DataSourceRoleArn" />
+                <Param Name="ResourceConfig_OpenSearchResourceConfig_KmsKeyArn" NewName="OpenSearchResourceConfig_KmsKeyArn" />
+                <Param Name="ResourceConfig_OpenSearchResourceConfig_RetentionDays" NewName="OpenSearchResourceConfig_RetentionDay" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutLogEvents" OutputProperty="NextSequenceToken" Verb="Write" Noun="LogEvent" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName;LogStreamName" PipelineParameter="SequenceToken" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Write-CWLLogEvents">
@@ -452,7 +461,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateScheduledQuery" OutputProperty="*" Verb="Update" Noun="ScheduledQuery" ShouldProcessTarget="ExecutionRoleArn,Identifier" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfiguration_S3Configuration_DestinationIdentifier" NewName="S3Configuration_DestinationIdentifier" />
+                <Param Name="DestinationConfiguration_S3Configuration_RoleArn" NewName="S3Configuration_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -19,11 +19,17 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateDbCluster" OutputProperty="*" Verb="New" Noun="DbCluster" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LogDeliveryConfiguration_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
+                <Param Name="LogDeliveryConfiguration_S3Configuration_Enabled" NewName="S3Configuration_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDbInstance" OutputProperty="*" Verb="New" Noun="DbInstance" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LogDeliveryConfiguration_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
+                <Param Name="LogDeliveryConfiguration_S3Configuration_Enabled" NewName="S3Configuration_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDbParameterGroup" OutputProperty="*" Verb="New" Noun="DbParameterGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -84,6 +90,116 @@
                 <Param Name="Parameters_InfluxDBv3Enterprise_RetentionCheckInterval_DurationType" NewName="InfluxDBv3Enterprise_RetentionCheckInterval_DurationType" Alias="Parameters_InfluxDBv3Enterprise_RetentionCheckInterval_DurationType" />
                 <Param Name="Parameters_InfluxDBv3Core_RetentionCheckInterval_Value" NewName="InfluxDBv3Core_RetentionCheckInterval_Value" Alias="Parameters_InfluxDBv3Core_RetentionCheckInterval_Value" />
                 <Param Name="Parameters_InfluxDBv3Enterprise_RetentionCheckInterval_Value" NewName="InfluxDBv3Enterprise_RetentionCheckInterval_Value" Alias="Parameters_InfluxDBv3Enterprise_RetentionCheckInterval_Value" />
+                <Param Name="Parameters_InfluxDBv2_FluxLogEnabled" NewName="InfluxDBv2_FluxLogEnabled" />
+                <Param Name="Parameters_InfluxDBv2_HttpIdleTimeout_DurationType" NewName="HttpIdleTimeout_DurationType" />
+                <Param Name="Parameters_InfluxDBv2_HttpIdleTimeout_Value" NewName="HttpIdleTimeout_Value" />
+                <Param Name="Parameters_InfluxDBv2_HttpReadHeaderTimeout_DurationType" NewName="HttpReadHeaderTimeout_DurationType" />
+                <Param Name="Parameters_InfluxDBv2_HttpReadHeaderTimeout_Value" NewName="HttpReadHeaderTimeout_Value" />
+                <Param Name="Parameters_InfluxDBv2_HttpReadTimeout_DurationType" NewName="HttpReadTimeout_DurationType" />
+                <Param Name="Parameters_InfluxDBv2_HttpReadTimeout_Value" NewName="HttpReadTimeout_Value" />
+                <Param Name="Parameters_InfluxDBv2_HttpWriteTimeout_DurationType" NewName="HttpWriteTimeout_DurationType" />
+                <Param Name="Parameters_InfluxDBv2_HttpWriteTimeout_Value" NewName="HttpWriteTimeout_Value" />
+                <Param Name="Parameters_InfluxDBv2_InfluxqlMaxSelectBuckets" NewName="InfluxDBv2_InfluxqlMaxSelectBucket" />
+                <Param Name="Parameters_InfluxDBv2_InfluxqlMaxSelectPoint" NewName="InfluxDBv2_InfluxqlMaxSelectPoint" />
+                <Param Name="Parameters_InfluxDBv2_InfluxqlMaxSelectSeries" NewName="InfluxDBv2_InfluxqlMaxSelectSeries" />
+                <Param Name="Parameters_InfluxDBv2_LogLevel" NewName="InfluxDBv2_LogLevel" />
+                <Param Name="Parameters_InfluxDBv2_MetricsDisabled" NewName="InfluxDBv2_MetricsDisabled" />
+                <Param Name="Parameters_InfluxDBv2_NoTasks" NewName="InfluxDBv2_NoTask" />
+                <Param Name="Parameters_InfluxDBv2_PprofDisabled" NewName="InfluxDBv2_PprofDisabled" />
+                <Param Name="Parameters_InfluxDBv2_QueryConcurrency" NewName="InfluxDBv2_QueryConcurrency" />
+                <Param Name="Parameters_InfluxDBv2_QueryInitialMemoryBytes" NewName="InfluxDBv2_QueryInitialMemoryByte" />
+                <Param Name="Parameters_InfluxDBv2_QueryMaxMemoryBytes" NewName="InfluxDBv2_QueryMaxMemoryByte" />
+                <Param Name="Parameters_InfluxDBv2_QueryMemoryBytes" NewName="InfluxDBv2_QueryMemoryByte" />
+                <Param Name="Parameters_InfluxDBv2_QueryQueueSize" NewName="InfluxDBv2_QueryQueueSize" />
+                <Param Name="Parameters_InfluxDBv2_SessionLength" NewName="InfluxDBv2_SessionLength" />
+                <Param Name="Parameters_InfluxDBv2_SessionRenewDisabled" NewName="InfluxDBv2_SessionRenewDisabled" />
+                <Param Name="Parameters_InfluxDBv2_StorageCacheMaxMemorySize" NewName="InfluxDBv2_StorageCacheMaxMemorySize" />
+                <Param Name="Parameters_InfluxDBv2_StorageCacheSnapshotMemorySize" NewName="InfluxDBv2_StorageCacheSnapshotMemorySize" />
+                <Param Name="Parameters_InfluxDBv2_StorageCacheSnapshotWriteColdDuration_DurationType" NewName="StorageCacheSnapshotWriteColdDuration_DurationType" />
+                <Param Name="Parameters_InfluxDBv2_StorageCacheSnapshotWriteColdDuration_Value" NewName="StorageCacheSnapshotWriteColdDuration_Value" />
+                <Param Name="Parameters_InfluxDBv2_StorageCompactFullWriteColdDuration_DurationType" NewName="StorageCompactFullWriteColdDuration_DurationType" />
+                <Param Name="Parameters_InfluxDBv2_StorageCompactFullWriteColdDuration_Value" NewName="StorageCompactFullWriteColdDuration_Value" />
+                <Param Name="Parameters_InfluxDBv2_StorageCompactThroughputBurst" NewName="InfluxDBv2_StorageCompactThroughputBurst" />
+                <Param Name="Parameters_InfluxDBv2_StorageMaxConcurrentCompactions" NewName="InfluxDBv2_StorageMaxConcurrentCompaction" />
+                <Param Name="Parameters_InfluxDBv2_StorageMaxIndexLogFileSize" NewName="InfluxDBv2_StorageMaxIndexLogFileSize" />
+                <Param Name="Parameters_InfluxDBv2_StorageNoValidateFieldSize" NewName="InfluxDBv2_StorageNoValidateFieldSize" />
+                <Param Name="Parameters_InfluxDBv2_StorageRetentionCheckInterval_DurationType" NewName="StorageRetentionCheckInterval_DurationType" />
+                <Param Name="Parameters_InfluxDBv2_StorageRetentionCheckInterval_Value" NewName="StorageRetentionCheckInterval_Value" />
+                <Param Name="Parameters_InfluxDBv2_StorageSeriesFileMaxConcurrentSnapshotCompactions" NewName="InfluxDBv2_StorageSeriesFileMaxConcurrentSnapshotCompaction" />
+                <Param Name="Parameters_InfluxDBv2_StorageSeriesIdSetCacheSize" NewName="InfluxDBv2_StorageSeriesIdSetCacheSize" />
+                <Param Name="Parameters_InfluxDBv2_StorageWalMaxConcurrentWrites" NewName="InfluxDBv2_StorageWalMaxConcurrentWrite" />
+                <Param Name="Parameters_InfluxDBv2_StorageWalMaxWriteDelay_DurationType" NewName="StorageWalMaxWriteDelay_DurationType" />
+                <Param Name="Parameters_InfluxDBv2_StorageWalMaxWriteDelay_Value" NewName="StorageWalMaxWriteDelay_Value" />
+                <Param Name="Parameters_InfluxDBv2_TracingType" NewName="InfluxDBv2_TracingType" />
+                <Param Name="Parameters_InfluxDBv2_UiDisabled" NewName="InfluxDBv2_UiDisabled" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionConfig" NewName="InfluxDBv3Core_DataFusionConfig" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionMaxParquetFanout" NewName="InfluxDBv3Core_DataFusionMaxParquetFanout" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionNumThreads" NewName="InfluxDBv3Core_DataFusionNumThread" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionRuntimeDisableLifoSlot" NewName="InfluxDBv3Core_DataFusionRuntimeDisableLifoSlot" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionRuntimeEventInterval" NewName="InfluxDBv3Core_DataFusionRuntimeEventInterval" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionRuntimeGlobalQueueInterval" NewName="InfluxDBv3Core_DataFusionRuntimeGlobalQueueInterval" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionRuntimeMaxBlockingThreads" NewName="InfluxDBv3Core_DataFusionRuntimeMaxBlockingThread" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionRuntimeMaxIoEventsPerTick" NewName="InfluxDBv3Core_DataFusionRuntimeMaxIoEventsPerTick" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionRuntimeThreadPriority" NewName="InfluxDBv3Core_DataFusionRuntimeThreadPriority" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionRuntimeType" NewName="InfluxDBv3Core_DataFusionRuntimeType" />
+                <Param Name="Parameters_InfluxDBv3Core_DataFusionUseCachedParquetLoader" NewName="InfluxDBv3Core_DataFusionUseCachedParquetLoader" />
+                <Param Name="Parameters_InfluxDBv3Core_DisableParquetMemCache" NewName="InfluxDBv3Core_DisableParquetMemCache" />
+                <Param Name="Parameters_InfluxDBv3Core_LogFilter" NewName="InfluxDBv3Core_LogFilter" />
+                <Param Name="Parameters_InfluxDBv3Core_LogFormat" NewName="InfluxDBv3Core_LogFormat" />
+                <Param Name="Parameters_InfluxDBv3Core_MaxHttpRequestSize" NewName="InfluxDBv3Core_MaxHttpRequestSize" />
+                <Param Name="Parameters_InfluxDBv3Core_ParquetMemCachePrunePercentage" NewName="InfluxDBv3Core_ParquetMemCachePrunePercentage" />
+                <Param Name="Parameters_InfluxDBv3Core_QueryFileLimit" NewName="InfluxDBv3Core_QueryFileLimit" />
+                <Param Name="Parameters_InfluxDBv3Core_QueryLogSize" NewName="InfluxDBv3Core_QueryLogSize" />
+                <Param Name="Parameters_InfluxDBv3Core_SnapshottedWalFilesToKeep" NewName="InfluxDBv3Core_SnapshottedWalFilesToKeep" />
+                <Param Name="Parameters_InfluxDBv3Core_TableIndexCacheConcurrencyLimit" NewName="InfluxDBv3Core_TableIndexCacheConcurrencyLimit" />
+                <Param Name="Parameters_InfluxDBv3Core_TableIndexCacheMaxEntries" NewName="InfluxDBv3Core_TableIndexCacheMaxEntry" />
+                <Param Name="Parameters_InfluxDBv3Core_WalMaxWriteBufferSize" NewName="InfluxDBv3Core_WalMaxWriteBufferSize" />
+                <Param Name="Parameters_InfluxDBv3Core_WalReplayConcurrencyLimit" NewName="InfluxDBv3Core_WalReplayConcurrencyLimit" />
+                <Param Name="Parameters_InfluxDBv3Core_WalReplayFailOnError" NewName="InfluxDBv3Core_WalReplayFailOnError" />
+                <Param Name="Parameters_InfluxDBv3Core_WalSnapshotSize" NewName="InfluxDBv3Core_WalSnapshotSize" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CatalogSyncInterval_DurationType" NewName="CatalogSyncInterval_DurationType" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CatalogSyncInterval_Value" NewName="CatalogSyncInterval_Value" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CompactionCheckInterval_DurationType" NewName="CompactionCheckInterval_DurationType" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CompactionCheckInterval_Value" NewName="CompactionCheckInterval_Value" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CompactionCleanupWait_DurationType" NewName="CompactionCleanupWait_DurationType" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CompactionCleanupWait_Value" NewName="CompactionCleanupWait_Value" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CompactionGen2Duration_DurationType" NewName="CompactionGen2Duration_DurationType" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CompactionGen2Duration_Value" NewName="CompactionGen2Duration_Value" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CompactionMaxNumFilesPerPlan" NewName="InfluxDBv3Enterprise_CompactionMaxNumFilesPerPlan" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CompactionMultipliers" NewName="InfluxDBv3Enterprise_CompactionMultiplier" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_CompactionRowLimit" NewName="InfluxDBv3Enterprise_CompactionRowLimit" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionConfig" NewName="InfluxDBv3Enterprise_DataFusionConfig" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionMaxParquetFanout" NewName="InfluxDBv3Enterprise_DataFusionMaxParquetFanout" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionNumThreads" NewName="InfluxDBv3Enterprise_DataFusionNumThread" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionRuntimeDisableLifoSlot" NewName="InfluxDBv3Enterprise_DataFusionRuntimeDisableLifoSlot" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionRuntimeEventInterval" NewName="InfluxDBv3Enterprise_DataFusionRuntimeEventInterval" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionRuntimeGlobalQueueInterval" NewName="InfluxDBv3Enterprise_DataFusionRuntimeGlobalQueueInterval" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionRuntimeMaxBlockingThreads" NewName="InfluxDBv3Enterprise_DataFusionRuntimeMaxBlockingThread" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionRuntimeMaxIoEventsPerTick" NewName="InfluxDBv3Enterprise_DataFusionRuntimeMaxIoEventsPerTick" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionRuntimeThreadPriority" NewName="InfluxDBv3Enterprise_DataFusionRuntimeThreadPriority" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionRuntimeType" NewName="InfluxDBv3Enterprise_DataFusionRuntimeType" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DataFusionUseCachedParquetLoader" NewName="InfluxDBv3Enterprise_DataFusionUseCachedParquetLoader" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DedicatedCompactor" NewName="InfluxDBv3Enterprise_DedicatedCompactor" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DisableParquetMemCache" NewName="InfluxDBv3Enterprise_DisableParquetMemCache" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_DistinctValueCacheDisableFromHistory" NewName="InfluxDBv3Enterprise_DistinctValueCacheDisableFromHistory" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_IngestQueryInstances" NewName="InfluxDBv3Enterprise_IngestQueryInstance" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_LastValueCacheDisableFromHistory" NewName="InfluxDBv3Enterprise_LastValueCacheDisableFromHistory" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_LogFilter" NewName="InfluxDBv3Enterprise_LogFilter" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_LogFormat" NewName="InfluxDBv3Enterprise_LogFormat" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_MaxHttpRequestSize" NewName="InfluxDBv3Enterprise_MaxHttpRequestSize" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_ParquetMemCachePrunePercentage" NewName="InfluxDBv3Enterprise_ParquetMemCachePrunePercentage" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_QueryFileLimit" NewName="InfluxDBv3Enterprise_QueryFileLimit" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_QueryLogSize" NewName="InfluxDBv3Enterprise_QueryLogSize" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_QueryOnlyInstances" NewName="InfluxDBv3Enterprise_QueryOnlyInstance" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_ReplicationInterval_DurationType" NewName="ReplicationInterval_DurationType" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_ReplicationInterval_Value" NewName="ReplicationInterval_Value" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_SnapshottedWalFilesToKeep" NewName="InfluxDBv3Enterprise_SnapshottedWalFilesToKeep" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_TableIndexCacheConcurrencyLimit" NewName="InfluxDBv3Enterprise_TableIndexCacheConcurrencyLimit" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_TableIndexCacheMaxEntries" NewName="InfluxDBv3Enterprise_TableIndexCacheMaxEntry" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_WalMaxWriteBufferSize" NewName="InfluxDBv3Enterprise_WalMaxWriteBufferSize" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_WalReplayConcurrencyLimit" NewName="InfluxDBv3Enterprise_WalReplayConcurrencyLimit" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_WalReplayFailOnError" NewName="InfluxDBv3Enterprise_WalReplayFailOnError" />
+                <Param Name="Parameters_InfluxDBv3Enterprise_WalSnapshotSize" NewName="InfluxDBv3Enterprise_WalSnapshotSize" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,11 +252,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDbCluster" OutputProperty="DbClusterStatus" Verb="Update" Noun="DbCluster" ShouldProcessTarget="DbClusterId" PipelineParameter="DbClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LogDeliveryConfiguration_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
+                <Param Name="LogDeliveryConfiguration_S3Configuration_Enabled" NewName="S3Configuration_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDbInstance" OutputProperty="*" Verb="Update" Noun="DbInstance" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LogDeliveryConfiguration_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
+                <Param Name="LogDeliveryConfiguration_S3Configuration_Enabled" NewName="S3Configuration_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -20,7 +20,35 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AddLFTagsToResource" OutputProperty="Failures" Verb="Add" Noun="LFTagsToResource" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Resource_Catalog_Id" NewName="Catalog_Id" />
+                <Param Name="Resource_Database_CatalogId" NewName="Database_CatalogId" />
+                <Param Name="Resource_Database_Name" NewName="Database_Name" />
+                <Param Name="Resource_DataCellsFilter_DatabaseName" NewName="DataCellsFilter_DatabaseName" />
+                <Param Name="Resource_DataCellsFilter_Name" NewName="DataCellsFilter_Name" />
+                <Param Name="Resource_DataCellsFilter_TableCatalogId" NewName="DataCellsFilter_TableCatalogId" />
+                <Param Name="Resource_DataCellsFilter_TableName" NewName="DataCellsFilter_TableName" />
+                <Param Name="Resource_DataLocation_CatalogId" NewName="DataLocation_CatalogId" />
+                <Param Name="Resource_DataLocation_ResourceArn" NewName="DataLocation_ResourceArn" />
+                <Param Name="Resource_LFTag_CatalogId" NewName="LFTag_CatalogId" />
+                <Param Name="Resource_LFTag_TagKey" NewName="LFTag_TagKey" />
+                <Param Name="Resource_LFTag_TagValues" NewName="LFTag_TagValue" />
+                <Param Name="Resource_LFTagExpression_CatalogId" NewName="LFTagExpression_CatalogId" />
+                <Param Name="Resource_LFTagExpression_Name" NewName="LFTagExpression_Name" />
+                <Param Name="Resource_LFTagPolicy_CatalogId" NewName="LFTagPolicy_CatalogId" />
+                <Param Name="Resource_LFTagPolicy_Expression" NewName="LFTagPolicy_Expression" />
+                <Param Name="Resource_LFTagPolicy_ExpressionName" NewName="LFTagPolicy_ExpressionName" />
+                <Param Name="Resource_LFTagPolicy_ResourceType" NewName="LFTagPolicy_ResourceType" />
+                <Param Name="Resource_Table_CatalogId" NewName="Table_CatalogId" />
+                <Param Name="Resource_Table_DatabaseName" NewName="Table_DatabaseName" />
+                <Param Name="Resource_Table_Name" NewName="Table_Name" />
+                <Param Name="Resource_Table_TableWildcard" NewName="Table_TableWildcard" />
+                <Param Name="Resource_TableWithColumns_CatalogId" NewName="TableWithColumns_CatalogId" />
+                <Param Name="Resource_TableWithColumns_ColumnNames" NewName="TableWithColumns_ColumnName" />
+                <Param Name="Resource_TableWithColumns_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
+                <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssumeDecoratedRoleWithSAML" Verb="Use" Noun="" Exclude="true" ShouldProcessTarget="" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -46,7 +74,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataCellsFilter" Verb="New" Noun="DataCellsFilter" ShouldProcessTarget="TableData_TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TableData_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="TableData_RowFilter_AllRowsWildcard" NewName="RowFilter_AllRowsWildcard" />
+                <Param Name="TableData_RowFilter_FilterExpression" NewName="RowFilter_FilterExpression" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLakeFormationIdentityCenterConfiguration" OutputProperty="ApplicationArn" Verb="New" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -54,7 +86,35 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLakeFormationOptIn" Verb="New" Noun="LakeFormationOptIn" ShouldProcessTarget="Principal_DataLakePrincipalIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Resource_Catalog_Id" NewName="Catalog_Id" />
+                <Param Name="Resource_Database_CatalogId" NewName="Database_CatalogId" />
+                <Param Name="Resource_Database_Name" NewName="Database_Name" />
+                <Param Name="Resource_DataCellsFilter_DatabaseName" NewName="DataCellsFilter_DatabaseName" />
+                <Param Name="Resource_DataCellsFilter_Name" NewName="DataCellsFilter_Name" />
+                <Param Name="Resource_DataCellsFilter_TableCatalogId" NewName="DataCellsFilter_TableCatalogId" />
+                <Param Name="Resource_DataCellsFilter_TableName" NewName="DataCellsFilter_TableName" />
+                <Param Name="Resource_DataLocation_CatalogId" NewName="DataLocation_CatalogId" />
+                <Param Name="Resource_DataLocation_ResourceArn" NewName="DataLocation_ResourceArn" />
+                <Param Name="Resource_LFTag_CatalogId" NewName="LFTag_CatalogId" />
+                <Param Name="Resource_LFTag_TagKey" NewName="LFTag_TagKey" />
+                <Param Name="Resource_LFTag_TagValues" NewName="LFTag_TagValue" />
+                <Param Name="Resource_LFTagExpression_CatalogId" NewName="LFTagExpression_CatalogId" />
+                <Param Name="Resource_LFTagExpression_Name" NewName="LFTagExpression_Name" />
+                <Param Name="Resource_LFTagPolicy_CatalogId" NewName="LFTagPolicy_CatalogId" />
+                <Param Name="Resource_LFTagPolicy_Expression" NewName="LFTagPolicy_Expression" />
+                <Param Name="Resource_LFTagPolicy_ExpressionName" NewName="LFTagPolicy_ExpressionName" />
+                <Param Name="Resource_LFTagPolicy_ResourceType" NewName="LFTagPolicy_ResourceType" />
+                <Param Name="Resource_Table_CatalogId" NewName="Table_CatalogId" />
+                <Param Name="Resource_Table_DatabaseName" NewName="Table_DatabaseName" />
+                <Param Name="Resource_Table_Name" NewName="Table_Name" />
+                <Param Name="Resource_Table_TableWildcard" NewName="Table_TableWildcard" />
+                <Param Name="Resource_TableWithColumns_CatalogId" NewName="TableWithColumns_CatalogId" />
+                <Param Name="Resource_TableWithColumns_ColumnNames" NewName="TableWithColumns_ColumnName" />
+                <Param Name="Resource_TableWithColumns_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
+                <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLFTag" Verb="New" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -74,7 +134,35 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLakeFormationOptIn" Verb="Remove" Noun="LakeFormationOptIn" ShouldProcessTarget="Principal_DataLakePrincipalIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Resource_Catalog_Id" NewName="Catalog_Id" />
+                <Param Name="Resource_Database_CatalogId" NewName="Database_CatalogId" />
+                <Param Name="Resource_Database_Name" NewName="Database_Name" />
+                <Param Name="Resource_DataCellsFilter_DatabaseName" NewName="DataCellsFilter_DatabaseName" />
+                <Param Name="Resource_DataCellsFilter_Name" NewName="DataCellsFilter_Name" />
+                <Param Name="Resource_DataCellsFilter_TableCatalogId" NewName="DataCellsFilter_TableCatalogId" />
+                <Param Name="Resource_DataCellsFilter_TableName" NewName="DataCellsFilter_TableName" />
+                <Param Name="Resource_DataLocation_CatalogId" NewName="DataLocation_CatalogId" />
+                <Param Name="Resource_DataLocation_ResourceArn" NewName="DataLocation_ResourceArn" />
+                <Param Name="Resource_LFTag_CatalogId" NewName="LFTag_CatalogId" />
+                <Param Name="Resource_LFTag_TagKey" NewName="LFTag_TagKey" />
+                <Param Name="Resource_LFTag_TagValues" NewName="LFTag_TagValue" />
+                <Param Name="Resource_LFTagExpression_CatalogId" NewName="LFTagExpression_CatalogId" />
+                <Param Name="Resource_LFTagExpression_Name" NewName="LFTagExpression_Name" />
+                <Param Name="Resource_LFTagPolicy_CatalogId" NewName="LFTagPolicy_CatalogId" />
+                <Param Name="Resource_LFTagPolicy_Expression" NewName="LFTagPolicy_Expression" />
+                <Param Name="Resource_LFTagPolicy_ExpressionName" NewName="LFTagPolicy_ExpressionName" />
+                <Param Name="Resource_LFTagPolicy_ResourceType" NewName="LFTagPolicy_ResourceType" />
+                <Param Name="Resource_Table_CatalogId" NewName="Table_CatalogId" />
+                <Param Name="Resource_Table_DatabaseName" NewName="Table_DatabaseName" />
+                <Param Name="Resource_Table_Name" NewName="Table_Name" />
+                <Param Name="Resource_Table_TableWildcard" NewName="Table_TableWildcard" />
+                <Param Name="Resource_TableWithColumns_CatalogId" NewName="TableWithColumns_CatalogId" />
+                <Param Name="Resource_TableWithColumns_ColumnNames" NewName="TableWithColumns_ColumnName" />
+                <Param Name="Resource_TableWithColumns_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
+                <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLFTag" Verb="Remove" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -121,7 +209,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEffectivePermissionsForPath" OutputProperty="Permissions" Verb="Get" Noun="EffectivePermissionsForPath" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEffectivePermissionsForPath" OutputProperty="Permissions" Verb="Get" Noun="EffectivePermissionsForPath" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -142,7 +230,35 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResourceLFTags" OutputProperty="*" Verb="Get" Noun="ResourceLFTag" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Resource_Catalog_Id" NewName="Catalog_Id" />
+                <Param Name="Resource_Database_CatalogId" NewName="Database_CatalogId" />
+                <Param Name="Resource_Database_Name" NewName="Database_Name" />
+                <Param Name="Resource_DataCellsFilter_DatabaseName" NewName="DataCellsFilter_DatabaseName" />
+                <Param Name="Resource_DataCellsFilter_Name" NewName="DataCellsFilter_Name" />
+                <Param Name="Resource_DataCellsFilter_TableCatalogId" NewName="DataCellsFilter_TableCatalogId" />
+                <Param Name="Resource_DataCellsFilter_TableName" NewName="DataCellsFilter_TableName" />
+                <Param Name="Resource_DataLocation_CatalogId" NewName="DataLocation_CatalogId" />
+                <Param Name="Resource_DataLocation_ResourceArn" NewName="DataLocation_ResourceArn" />
+                <Param Name="Resource_LFTag_CatalogId" NewName="LFTag_CatalogId" />
+                <Param Name="Resource_LFTag_TagKey" NewName="LFTag_TagKey" />
+                <Param Name="Resource_LFTag_TagValues" NewName="LFTag_TagValue" />
+                <Param Name="Resource_LFTagExpression_CatalogId" NewName="LFTagExpression_CatalogId" />
+                <Param Name="Resource_LFTagExpression_Name" NewName="LFTagExpression_Name" />
+                <Param Name="Resource_LFTagPolicy_CatalogId" NewName="LFTagPolicy_CatalogId" />
+                <Param Name="Resource_LFTagPolicy_Expression" NewName="LFTagPolicy_Expression" />
+                <Param Name="Resource_LFTagPolicy_ExpressionName" NewName="LFTagPolicy_ExpressionName" />
+                <Param Name="Resource_LFTagPolicy_ResourceType" NewName="LFTagPolicy_ResourceType" />
+                <Param Name="Resource_Table_CatalogId" NewName="Table_CatalogId" />
+                <Param Name="Resource_Table_DatabaseName" NewName="Table_DatabaseName" />
+                <Param Name="Resource_Table_Name" NewName="Table_Name" />
+                <Param Name="Resource_Table_TableWildcard" NewName="Table_TableWildcard" />
+                <Param Name="Resource_TableWithColumns_CatalogId" NewName="TableWithColumns_CatalogId" />
+                <Param Name="Resource_TableWithColumns_ColumnNames" NewName="TableWithColumns_ColumnName" />
+                <Param Name="Resource_TableWithColumns_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
+                <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTableObjects" OutputProperty="Objects" Verb="Get" Noun="TableObject" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -166,7 +282,35 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GrantPermissions" Verb="Grant" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Resource_Catalog_Id" NewName="Catalog_Id" />
+                <Param Name="Resource_Database_CatalogId" NewName="Database_CatalogId" />
+                <Param Name="Resource_Database_Name" NewName="Database_Name" />
+                <Param Name="Resource_DataCellsFilter_DatabaseName" NewName="DataCellsFilter_DatabaseName" />
+                <Param Name="Resource_DataCellsFilter_Name" NewName="DataCellsFilter_Name" />
+                <Param Name="Resource_DataCellsFilter_TableCatalogId" NewName="DataCellsFilter_TableCatalogId" />
+                <Param Name="Resource_DataCellsFilter_TableName" NewName="DataCellsFilter_TableName" />
+                <Param Name="Resource_DataLocation_CatalogId" NewName="DataLocation_CatalogId" />
+                <Param Name="Resource_DataLocation_ResourceArn" NewName="DataLocation_ResourceArn" />
+                <Param Name="Resource_LFTag_CatalogId" NewName="LFTag_CatalogId" />
+                <Param Name="Resource_LFTag_TagKey" NewName="LFTag_TagKey" />
+                <Param Name="Resource_LFTag_TagValues" NewName="LFTag_TagValue" />
+                <Param Name="Resource_LFTagExpression_CatalogId" NewName="LFTagExpression_CatalogId" />
+                <Param Name="Resource_LFTagExpression_Name" NewName="LFTagExpression_Name" />
+                <Param Name="Resource_LFTagPolicy_CatalogId" NewName="LFTagPolicy_CatalogId" />
+                <Param Name="Resource_LFTagPolicy_Expression" NewName="LFTagPolicy_Expression" />
+                <Param Name="Resource_LFTagPolicy_ExpressionName" NewName="LFTagPolicy_ExpressionName" />
+                <Param Name="Resource_LFTagPolicy_ResourceType" NewName="LFTagPolicy_ResourceType" />
+                <Param Name="Resource_Table_CatalogId" NewName="Table_CatalogId" />
+                <Param Name="Resource_Table_DatabaseName" NewName="Table_DatabaseName" />
+                <Param Name="Resource_Table_Name" NewName="Table_Name" />
+                <Param Name="Resource_Table_TableWildcard" NewName="Table_TableWildcard" />
+                <Param Name="Resource_TableWithColumns_CatalogId" NewName="TableWithColumns_CatalogId" />
+                <Param Name="Resource_TableWithColumns_ColumnNames" NewName="TableWithColumns_ColumnName" />
+                <Param Name="Resource_TableWithColumns_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
+                <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDataCellsFilter" OutputProperty="DataCellsFilters" Verb="Get" Noun="DataCellsFilterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -174,7 +318,35 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLakeFormationOptIns" OutputProperty="LakeFormationOptInsInfoList" Verb="Get" Noun="LakeFormationOptInList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Resource_Catalog_Id" NewName="Catalog_Id" />
+                <Param Name="Resource_Database_CatalogId" NewName="Database_CatalogId" />
+                <Param Name="Resource_Database_Name" NewName="Database_Name" />
+                <Param Name="Resource_DataCellsFilter_DatabaseName" NewName="DataCellsFilter_DatabaseName" />
+                <Param Name="Resource_DataCellsFilter_Name" NewName="DataCellsFilter_Name" />
+                <Param Name="Resource_DataCellsFilter_TableCatalogId" NewName="DataCellsFilter_TableCatalogId" />
+                <Param Name="Resource_DataCellsFilter_TableName" NewName="DataCellsFilter_TableName" />
+                <Param Name="Resource_DataLocation_CatalogId" NewName="DataLocation_CatalogId" />
+                <Param Name="Resource_DataLocation_ResourceArn" NewName="DataLocation_ResourceArn" />
+                <Param Name="Resource_LFTag_CatalogId" NewName="LFTag_CatalogId" />
+                <Param Name="Resource_LFTag_TagKey" NewName="LFTag_TagKey" />
+                <Param Name="Resource_LFTag_TagValues" NewName="LFTag_TagValue" />
+                <Param Name="Resource_LFTagExpression_CatalogId" NewName="LFTagExpression_CatalogId" />
+                <Param Name="Resource_LFTagExpression_Name" NewName="LFTagExpression_Name" />
+                <Param Name="Resource_LFTagPolicy_CatalogId" NewName="LFTagPolicy_CatalogId" />
+                <Param Name="Resource_LFTagPolicy_Expression" NewName="LFTagPolicy_Expression" />
+                <Param Name="Resource_LFTagPolicy_ExpressionName" NewName="LFTagPolicy_ExpressionName" />
+                <Param Name="Resource_LFTagPolicy_ResourceType" NewName="LFTagPolicy_ResourceType" />
+                <Param Name="Resource_Table_CatalogId" NewName="Table_CatalogId" />
+                <Param Name="Resource_Table_DatabaseName" NewName="Table_DatabaseName" />
+                <Param Name="Resource_Table_Name" NewName="Table_Name" />
+                <Param Name="Resource_Table_TableWildcard" NewName="Table_TableWildcard" />
+                <Param Name="Resource_TableWithColumns_CatalogId" NewName="TableWithColumns_CatalogId" />
+                <Param Name="Resource_TableWithColumns_ColumnNames" NewName="TableWithColumns_ColumnName" />
+                <Param Name="Resource_TableWithColumns_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
+                <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLFTagExpressions" OutputProperty="LFTagExpressions" Verb="Get" Noun="LFTagExpressionList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -185,11 +357,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissions" OutputProperty="PrincipalResourcePermissions" Verb="Get" Noun="PermissionList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="PrincipalResourcePermissions" Verb="Get" Noun="PermissionList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params>
+                <Param Name="Resource_Catalog_Id" NewName="Catalog_Id" />
+                <Param Name="Resource_Database_CatalogId" NewName="Database_CatalogId" />
+                <Param Name="Resource_Database_Name" NewName="Database_Name" />
+                <Param Name="Resource_DataCellsFilter_DatabaseName" NewName="DataCellsFilter_DatabaseName" />
+                <Param Name="Resource_DataCellsFilter_Name" NewName="DataCellsFilter_Name" />
+                <Param Name="Resource_DataCellsFilter_TableCatalogId" NewName="DataCellsFilter_TableCatalogId" />
+                <Param Name="Resource_DataCellsFilter_TableName" NewName="DataCellsFilter_TableName" />
+                <Param Name="Resource_DataLocation_CatalogId" NewName="DataLocation_CatalogId" />
+                <Param Name="Resource_DataLocation_ResourceArn" NewName="DataLocation_ResourceArn" />
+                <Param Name="Resource_LFTag_CatalogId" NewName="LFTag_CatalogId" />
+                <Param Name="Resource_LFTag_TagKey" NewName="LFTag_TagKey" />
+                <Param Name="Resource_LFTag_TagValues" NewName="LFTag_TagValue" />
+                <Param Name="Resource_LFTagExpression_CatalogId" NewName="LFTagExpression_CatalogId" />
+                <Param Name="Resource_LFTagExpression_Name" NewName="LFTagExpression_Name" />
+                <Param Name="Resource_LFTagPolicy_CatalogId" NewName="LFTagPolicy_CatalogId" />
+                <Param Name="Resource_LFTagPolicy_Expression" NewName="LFTagPolicy_Expression" />
+                <Param Name="Resource_LFTagPolicy_ExpressionName" NewName="LFTagPolicy_ExpressionName" />
+                <Param Name="Resource_LFTagPolicy_ResourceType" NewName="LFTagPolicy_ResourceType" />
+                <Param Name="Resource_Table_CatalogId" NewName="Table_CatalogId" />
+                <Param Name="Resource_Table_DatabaseName" NewName="Table_DatabaseName" />
+                <Param Name="Resource_Table_Name" NewName="Table_Name" />
+                <Param Name="Resource_Table_TableWildcard" NewName="Table_TableWildcard" />
+                <Param Name="Resource_TableWithColumns_CatalogId" NewName="TableWithColumns_CatalogId" />
+                <Param Name="Resource_TableWithColumns_ColumnNames" NewName="TableWithColumns_ColumnName" />
+                <Param Name="Resource_TableWithColumns_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
+                <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="ResourceInfoList" Verb="Get" Noun="ResourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResources" OutputProperty="ResourceInfoList" Verb="Get" Noun="ResourceList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -210,11 +410,67 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveLFTagsFromResource" OutputProperty="Failures" Verb="Remove" Noun="LFTagsFromResource" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Resource_Catalog_Id" NewName="Catalog_Id" />
+                <Param Name="Resource_Database_CatalogId" NewName="Database_CatalogId" />
+                <Param Name="Resource_Database_Name" NewName="Database_Name" />
+                <Param Name="Resource_DataCellsFilter_DatabaseName" NewName="DataCellsFilter_DatabaseName" />
+                <Param Name="Resource_DataCellsFilter_Name" NewName="DataCellsFilter_Name" />
+                <Param Name="Resource_DataCellsFilter_TableCatalogId" NewName="DataCellsFilter_TableCatalogId" />
+                <Param Name="Resource_DataCellsFilter_TableName" NewName="DataCellsFilter_TableName" />
+                <Param Name="Resource_DataLocation_CatalogId" NewName="DataLocation_CatalogId" />
+                <Param Name="Resource_DataLocation_ResourceArn" NewName="DataLocation_ResourceArn" />
+                <Param Name="Resource_LFTag_CatalogId" NewName="LFTag_CatalogId" />
+                <Param Name="Resource_LFTag_TagKey" NewName="LFTag_TagKey" />
+                <Param Name="Resource_LFTag_TagValues" NewName="LFTag_TagValue" />
+                <Param Name="Resource_LFTagExpression_CatalogId" NewName="LFTagExpression_CatalogId" />
+                <Param Name="Resource_LFTagExpression_Name" NewName="LFTagExpression_Name" />
+                <Param Name="Resource_LFTagPolicy_CatalogId" NewName="LFTagPolicy_CatalogId" />
+                <Param Name="Resource_LFTagPolicy_Expression" NewName="LFTagPolicy_Expression" />
+                <Param Name="Resource_LFTagPolicy_ExpressionName" NewName="LFTagPolicy_ExpressionName" />
+                <Param Name="Resource_LFTagPolicy_ResourceType" NewName="LFTagPolicy_ResourceType" />
+                <Param Name="Resource_Table_CatalogId" NewName="Table_CatalogId" />
+                <Param Name="Resource_Table_DatabaseName" NewName="Table_DatabaseName" />
+                <Param Name="Resource_Table_Name" NewName="Table_Name" />
+                <Param Name="Resource_Table_TableWildcard" NewName="Table_TableWildcard" />
+                <Param Name="Resource_TableWithColumns_CatalogId" NewName="TableWithColumns_CatalogId" />
+                <Param Name="Resource_TableWithColumns_ColumnNames" NewName="TableWithColumns_ColumnName" />
+                <Param Name="Resource_TableWithColumns_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
+                <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RevokePermissions" Verb="Revoke" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Resource_Catalog_Id" NewName="Catalog_Id" />
+                <Param Name="Resource_Database_CatalogId" NewName="Database_CatalogId" />
+                <Param Name="Resource_Database_Name" NewName="Database_Name" />
+                <Param Name="Resource_DataCellsFilter_DatabaseName" NewName="DataCellsFilter_DatabaseName" />
+                <Param Name="Resource_DataCellsFilter_Name" NewName="DataCellsFilter_Name" />
+                <Param Name="Resource_DataCellsFilter_TableCatalogId" NewName="DataCellsFilter_TableCatalogId" />
+                <Param Name="Resource_DataCellsFilter_TableName" NewName="DataCellsFilter_TableName" />
+                <Param Name="Resource_DataLocation_CatalogId" NewName="DataLocation_CatalogId" />
+                <Param Name="Resource_DataLocation_ResourceArn" NewName="DataLocation_ResourceArn" />
+                <Param Name="Resource_LFTag_CatalogId" NewName="LFTag_CatalogId" />
+                <Param Name="Resource_LFTag_TagKey" NewName="LFTag_TagKey" />
+                <Param Name="Resource_LFTag_TagValues" NewName="LFTag_TagValue" />
+                <Param Name="Resource_LFTagExpression_CatalogId" NewName="LFTagExpression_CatalogId" />
+                <Param Name="Resource_LFTagExpression_Name" NewName="LFTagExpression_Name" />
+                <Param Name="Resource_LFTagPolicy_CatalogId" NewName="LFTagPolicy_CatalogId" />
+                <Param Name="Resource_LFTagPolicy_Expression" NewName="LFTagPolicy_Expression" />
+                <Param Name="Resource_LFTagPolicy_ExpressionName" NewName="LFTagPolicy_ExpressionName" />
+                <Param Name="Resource_LFTagPolicy_ResourceType" NewName="LFTagPolicy_ResourceType" />
+                <Param Name="Resource_Table_CatalogId" NewName="Table_CatalogId" />
+                <Param Name="Resource_Table_DatabaseName" NewName="Table_DatabaseName" />
+                <Param Name="Resource_Table_Name" NewName="Table_Name" />
+                <Param Name="Resource_Table_TableWildcard" NewName="Table_TableWildcard" />
+                <Param Name="Resource_TableWithColumns_CatalogId" NewName="TableWithColumns_CatalogId" />
+                <Param Name="Resource_TableWithColumns_ColumnNames" NewName="TableWithColumns_ColumnName" />
+                <Param Name="Resource_TableWithColumns_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
+                <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchDatabasesByLFTags" OutputProperty="DatabaseList" Verb="Search" Noun="DatabasesByLFTag" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -234,7 +490,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataCellsFilter" Verb="Update" Noun="DataCellsFilter" ShouldProcessTarget="TableData_TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TableData_ColumnWildcard_ExcludedColumnNames" NewName="ColumnWildcard_ExcludedColumnName" />
+                <Param Name="TableData_RowFilter_AllRowsWildcard" NewName="RowFilter_AllRowsWildcard" />
+                <Param Name="TableData_RowFilter_FilterExpression" NewName="RowFilter_FilterExpression" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLakeFormationIdentityCenterConfiguration" Verb="Update" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -44,7 +44,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAnalyzer" OutputProperty="Arn" Verb="New" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_InternalAccess_AnalysisRule_Inclusions" NewName="AnalysisRule_Inclusion" />
+                <Param Name="Configuration_UnusedAccess_AnalysisRule_Exclusions" NewName="AnalysisRule_Exclusion" />
+                <Param Name="Configuration_UnusedAccess_UnusedAccessAge" NewName="UnusedAccess_UnusedAccessAge" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateArchiveRule" Verb="New" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -152,7 +156,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAnalyzer" OutputProperty="*" Verb="Update" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_InternalAccess_AnalysisRule_Inclusions" NewName="AnalysisRule_Inclusion" />
+                <Param Name="Configuration_UnusedAccess_AnalysisRule_Exclusions" NewName="AnalysisRule_Exclusion" />
+                <Param Name="Configuration_UnusedAccess_UnusedAccessAge" NewName="UnusedAccess_UnusedAccessAge" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateArchiveRule" Verb="Update" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">

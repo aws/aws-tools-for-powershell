@@ -23,6 +23,10 @@
             <Params>
                 <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" />
                 <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" />
+                <Param Name="ExperimentReportConfiguration_DataSources_CloudWatchDashboards" NewName="DataSources_CloudWatchDashboard" />
+                <Param Name="LogConfiguration_CloudWatchLogsConfiguration_LogGroupArn" NewName="CloudWatchLogsConfiguration_LogGroupArn" />
+                <Param Name="LogConfiguration_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
+                <Param Name="LogConfiguration_S3Configuration_Prefix" NewName="S3Configuration_Prefix" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -118,6 +122,10 @@
             <Params>
                 <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" />
                 <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" />
+                <Param Name="ExperimentReportConfiguration_DataSources_CloudWatchDashboards" NewName="DataSources_CloudWatchDashboard" />
+                <Param Name="LogConfiguration_CloudWatchLogsConfiguration_LogGroupArn" NewName="CloudWatchLogsConfiguration_LogGroupArn" />
+                <Param Name="LogConfiguration_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
+                <Param Name="LogConfiguration_S3Configuration_Prefix" NewName="S3Configuration_Prefix" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

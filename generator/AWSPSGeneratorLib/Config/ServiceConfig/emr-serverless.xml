@@ -23,7 +23,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_Enabled" NewName="CloudWatchLoggingConfiguration_Enabled" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_EncryptionKeyArn" NewName="CloudWatchLoggingConfiguration_EncryptionKeyArn" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_LogGroupName" NewName="CloudWatchLoggingConfiguration_LogGroupName" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_LogStreamNamePrefix" NewName="CloudWatchLoggingConfiguration_LogStreamNamePrefix" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_LogTypes" NewName="CloudWatchLoggingConfiguration_LogType" />
+                <Param Name="MonitoringConfiguration_ManagedPersistenceMonitoringConfiguration_Enabled" NewName="ManagedPersistenceMonitoringConfiguration_Enabled" />
+                <Param Name="MonitoringConfiguration_ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn" NewName="ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn" />
+                <Param Name="MonitoringConfiguration_PrometheusMonitoringConfiguration_RemoteWriteUrl" NewName="PrometheusMonitoringConfiguration_RemoteWriteUrl" />
+                <Param Name="MonitoringConfiguration_S3MonitoringConfiguration_EncryptionKeyArn" NewName="S3MonitoringConfiguration_EncryptionKeyArn" />
+                <Param Name="MonitoringConfiguration_S3MonitoringConfiguration_LogUri" NewName="S3MonitoringConfiguration_LogUri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -63,7 +74,24 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartJobRun" OutputProperty="*" Verb="Start" Noun="JobRun" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_Enabled" NewName="CloudWatchLoggingConfiguration_Enabled" />
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_EncryptionKeyArn" NewName="CloudWatchLoggingConfiguration_EncryptionKeyArn" />
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogGroupName" NewName="CloudWatchLoggingConfiguration_LogGroupName" />
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogStreamNamePrefix" NewName="CloudWatchLoggingConfiguration_LogStreamNamePrefix" />
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogTypes" NewName="CloudWatchLoggingConfiguration_LogType" />
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_ManagedPersistenceMonitoringConfiguration_Enabled" NewName="ManagedPersistenceMonitoringConfiguration_Enabled" />
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn" NewName="ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn" />
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_PrometheusMonitoringConfiguration_RemoteWriteUrl" NewName="PrometheusMonitoringConfiguration_RemoteWriteUrl" />
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_S3MonitoringConfiguration_EncryptionKeyArn" NewName="S3MonitoringConfiguration_EncryptionKeyArn" />
+                <Param Name="ConfigurationOverrides_MonitoringConfiguration_S3MonitoringConfiguration_LogUri" NewName="S3MonitoringConfiguration_LogUri" />
+                <Param Name="JobDriver_Hive_InitQueryFile" NewName="Hive_InitQueryFile" />
+                <Param Name="JobDriver_Hive_Parameters" NewName="Hive_Parameter" />
+                <Param Name="JobDriver_Hive_Query" NewName="Hive_Query" />
+                <Param Name="JobDriver_SparkSubmit_EntryPoint" NewName="SparkSubmit_EntryPoint" />
+                <Param Name="JobDriver_SparkSubmit_EntryPointArguments" NewName="SparkSubmit_EntryPointArgument" />
+                <Param Name="JobDriver_SparkSubmit_SparkSubmitParameters" NewName="SparkSubmit_SparkSubmitParameter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopApplication" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -79,7 +107,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApplication" OutputProperty="Application" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_Enabled" NewName="CloudWatchLoggingConfiguration_Enabled" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_EncryptionKeyArn" NewName="CloudWatchLoggingConfiguration_EncryptionKeyArn" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_LogGroupName" NewName="CloudWatchLoggingConfiguration_LogGroupName" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_LogStreamNamePrefix" NewName="CloudWatchLoggingConfiguration_LogStreamNamePrefix" />
+                <Param Name="MonitoringConfiguration_CloudWatchLoggingConfiguration_LogTypes" NewName="CloudWatchLoggingConfiguration_LogType" />
+                <Param Name="MonitoringConfiguration_ManagedPersistenceMonitoringConfiguration_Enabled" NewName="ManagedPersistenceMonitoringConfiguration_Enabled" />
+                <Param Name="MonitoringConfiguration_ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn" NewName="ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn" />
+                <Param Name="MonitoringConfiguration_PrometheusMonitoringConfiguration_RemoteWriteUrl" NewName="PrometheusMonitoringConfiguration_RemoteWriteUrl" />
+                <Param Name="MonitoringConfiguration_S3MonitoringConfiguration_EncryptionKeyArn" NewName="S3MonitoringConfiguration_EncryptionKeyArn" />
+                <Param Name="MonitoringConfiguration_S3MonitoringConfiguration_LogUri" NewName="S3MonitoringConfiguration_LogUri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -34,7 +34,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBackupSelection" OutputProperty="*" Verb="New" Noun="BackupSelection" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BackupSelection_Conditions_StringEquals" NewName="Conditions_StringEqual" />
+                <Param Name="BackupSelection_Conditions_StringLike" NewName="Conditions_StringLike" />
+                <Param Name="BackupSelection_Conditions_StringNotEquals" NewName="Conditions_StringNotEqual" />
+                <Param Name="BackupSelection_Conditions_StringNotLike" NewName="Conditions_StringNotLike" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBackupVault" OutputProperty="*" Verb="New" Noun="BackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -46,7 +51,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLegalHold" OutputProperty="*" Verb="New" Noun="LegalHold" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RecoveryPointSelection_DateRange_FromDate" NewName="DateRange_FromDate" />
+                <Param Name="RecoveryPointSelection_DateRange_ToDate" NewName="DateRange_ToDate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLogicallyAirGappedBackupVault" OutputProperty="*" Verb="New" Noun="LogicallyAirGappedBackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -62,11 +70,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRestoreTestingPlan" OutputProperty="*" Verb="New" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlan_RestoreTestingPlanName" PipelineParameter="RestoreTestingPlan_RestoreTestingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_Algorithm" NewName="RecoveryPointSelection_Algorithm" />
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_ExcludeVaults" NewName="RecoveryPointSelection_ExcludeVault" />
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_IncludeVaults" NewName="RecoveryPointSelection_IncludeVault" />
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_RecoveryPointTypes" NewName="RecoveryPointSelection_RecoveryPointType" />
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_SelectionWindowDays" NewName="RecoveryPointSelection_SelectionWindowDay" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRestoreTestingSelection" OutputProperty="*" Verb="New" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RestoreTestingSelection_ProtectedResourceConditions_StringEquals" NewName="ProtectedResourceConditions_StringEqual" />
+                <Param Name="RestoreTestingSelection_ProtectedResourceConditions_StringNotEquals" NewName="ProtectedResourceConditions_StringNotEqual" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTieringConfiguration" OutputProperty="*" Verb="New" Noun="TieringConfiguration" ShouldProcessTarget="TieringConfiguration_BackupVaultName" PipelineParameter="" NoPipelineParameter="true">
@@ -442,11 +459,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRestoreTestingPlan" OutputProperty="*" Verb="Update" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_Algorithm" NewName="RecoveryPointSelection_Algorithm" />
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_ExcludeVaults" NewName="RecoveryPointSelection_ExcludeVault" />
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_IncludeVaults" NewName="RecoveryPointSelection_IncludeVault" />
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_RecoveryPointTypes" NewName="RecoveryPointSelection_RecoveryPointType" />
+                <Param Name="RestoreTestingPlan_RecoveryPointSelection_SelectionWindowDays" NewName="RecoveryPointSelection_SelectionWindowDay" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRestoreTestingSelection" OutputProperty="*" Verb="Update" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingSelectionName" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RestoreTestingSelection_ProtectedResourceConditions_StringEquals" NewName="ProtectedResourceConditions_StringEqual" />
+                <Param Name="RestoreTestingSelection_ProtectedResourceConditions_StringNotEquals" NewName="ProtectedResourceConditions_StringNotEqual" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTieringConfiguration" OutputProperty="*" Verb="Update" Noun="TieringConfiguration" ShouldProcessTarget="TieringConfigurationName" PipelineParameter="TieringConfigurationName" NoPipelineParameter="false">

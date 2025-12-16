@@ -51,8 +51,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessPolicy" OutputProperty="*" Verb="New" Noun="AccessPolicy" ShouldProcessTarget="" PipelineParameter="AccessPolicyPermission" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="CreateAccessPolicy" OutputProperty="*" Verb="New" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyPermission" PipelineParameter="AccessPolicyPermission" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="AccessPolicyIdentity_Group_Id" NewName="Group_Id" />
+                <Param Name="AccessPolicyIdentity_IamRole_Arn" NewName="IamRole_Arn" />
+                <Param Name="AccessPolicyIdentity_IamUser_Arn" NewName="IamUser_Arn" />
+                <Param Name="AccessPolicyIdentity_User_Id" NewName="User_Id" />
+                <Param Name="AccessPolicyResource_Portal_Id" NewName="Portal_Id" />
+                <Param Name="AccessPolicyResource_Project_Id" NewName="Project_Id" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAsset" OutputProperty="*" Verb="New" Noun="Asset" AnonymousShouldProcessTarget="true" PipelineParameter="AssetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -68,11 +75,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBulkImportJob" OutputProperty="*" Verb="New" Noun="BulkImportJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="JobConfiguration_FileFormat_Csv_ColumnNames" NewName="Csv_ColumnName" />
+                <Param Name="JobConfiguration_FileFormat_Parquet" NewName="FileFormat_Parquet" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateComputationModel" OutputProperty="*" Verb="New" Noun="ComputationModel" ShouldProcessTarget="ComputationModelName" PipelineParameter="ComputationModelName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ComputationModelConfiguration_AnomalyDetection_InputProperties" NewName="AnomalyDetection_InputProperty" />
+                <Param Name="ComputationModelConfiguration_AnomalyDetection_ResultProperty" NewName="AnomalyDetection_ResultProperty" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" AnonymousShouldProcessTarget="true" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -80,11 +93,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataset" OutputProperty="*" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DatasetSource_SourceDetail_Kendra_KnowledgeBaseArn" NewName="Kendra_KnowledgeBaseArn" />
+                <Param Name="DatasetSource_SourceDetail_Kendra_RoleArn" NewName="Kendra_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGateway" OutputProperty="*" Verb="New" Noun="Gateway" ShouldProcessTarget="GatewayName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GatewayPlatform_Greengrass_GroupArn" NewName="Greengrass_GroupArn" />
+                <Param Name="GatewayPlatform_GreengrassV2_CoreDeviceOperatingSystem" NewName="GreengrassV2_CoreDeviceOperatingSystem" />
+                <Param Name="GatewayPlatform_GreengrassV2_CoreDeviceThingName" NewName="GreengrassV2_CoreDeviceThingName" />
+                <Param Name="GatewayPlatform_SiemensIE_IotCoreThingName" NewName="SiemensIE_IotCoreThingName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="PortalName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -312,7 +333,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListComputationModelDataBindingUsages" OutputProperty="DataBindingUsageSummaries" Verb="Get" Noun="ComputationModelDataBindingUsageList" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="DataBindingValueFilter_Asset_AssetId" NewName="Asset_AssetId" />
+                <Param Name="DataBindingValueFilter_AssetModel_AssetModelId" NewName="AssetModel_AssetModelId" />
+                <Param Name="DataBindingValueFilter_AssetModelProperty_AssetModelId" NewName="AssetModelProperty_AssetModelId" />
+                <Param Name="DataBindingValueFilter_AssetModelProperty_PropertyId" NewName="AssetModelProperty_PropertyId" />
+                <Param Name="DataBindingValueFilter_AssetProperty_AssetId" NewName="AssetProperty_AssetId" />
+                <Param Name="DataBindingValueFilter_AssetProperty_PropertyId" NewName="AssetProperty_PropertyId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListComputationModelResolveToResources" OutputProperty="ComputationModelResolveToResourceSummaries" Verb="Get" Noun="ComputationModelResolveToResourceList" PipelineParameter="ComputationModelId" NoPipelineParameter="false">
@@ -375,8 +403,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutStorageConfiguration" OutputProperty="*" Verb="Write" Noun="StorageConfiguration" ShouldProcessTarget="" PipelineParameter="StorageType" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="PutStorageConfiguration" OutputProperty="*" Verb="Write" Noun="StorageConfiguration" ShouldProcessTarget="StorageType" PipelineParameter="StorageType" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="MultiLayerStorage_CustomerManagedS3Storage_RoleArn" NewName="CustomerManagedS3Storage_RoleArn" />
+                <Param Name="MultiLayerStorage_CustomerManagedS3Storage_S3ResourceArn" NewName="CustomerManagedS3Storage_S3ResourceArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -388,7 +419,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccessPolicy" Verb="Update" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyId" PipelineParameter="AccessPolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AccessPolicyIdentity_Group_Id" NewName="Group_Id" />
+                <Param Name="AccessPolicyIdentity_IamRole_Arn" NewName="IamRole_Arn" />
+                <Param Name="AccessPolicyIdentity_IamUser_Arn" NewName="IamUser_Arn" />
+                <Param Name="AccessPolicyIdentity_User_Id" NewName="User_Id" />
+                <Param Name="AccessPolicyResource_Portal_Id" NewName="Portal_Id" />
+                <Param Name="AccessPolicyResource_Project_Id" NewName="Project_Id" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAsset" OutputProperty="AssetStatus" Verb="Update" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -408,7 +446,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateComputationModel" OutputProperty="ComputationModelStatus" Verb="Update" Noun="ComputationModel" ShouldProcessTarget="ComputationModelId" PipelineParameter="ComputationModelId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ComputationModelConfiguration_AnomalyDetection_InputProperties" NewName="AnomalyDetection_InputProperty" />
+                <Param Name="ComputationModelConfiguration_AnomalyDetection_ResultProperty" NewName="AnomalyDetection_ResultProperty" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDashboard" Verb="Update" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -416,7 +457,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataset" OutputProperty="*" Verb="Update" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DatasetSource_SourceDetail_Kendra_KnowledgeBaseArn" NewName="Kendra_KnowledgeBaseArn" />
+                <Param Name="DatasetSource_SourceDetail_Kendra_RoleArn" NewName="Kendra_RoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGateway" Verb="Update" Noun="Gateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -428,7 +472,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePortal" OutputProperty="PortalStatus" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PortalLogoImage_File_Data" NewName="File_Data" />
+                <Param Name="PortalLogoImage_File_Type" NewName="File_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProject" Verb="Update" Noun="Project" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">

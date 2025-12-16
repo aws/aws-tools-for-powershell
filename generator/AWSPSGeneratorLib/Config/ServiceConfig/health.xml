@@ -19,11 +19,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeAffectedAccountsForOrganization" OutputProperty="AffectedAccounts" Verb="Get" Noun="AffectedAccountsForOrganization" PipelineParameter="EventArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAffectedAccountsForOrganization" OutputProperty="AffectedAccounts" Verb="Get" Noun="AffectedAccountsForOrganization" PipelineParameter="EventArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAffectedEntities" OutputProperty="Entities" Verb="Get" Noun="AffectedEntity" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAffectedEntities" OutputProperty="Entities" Verb="Get" Noun="AffectedEntity" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,7 +39,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventAggregates" OutputProperty="EventAggregates" Verb="Get" Noun="EventAggregate" PipelineParameter="AggregateField" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEventAggregates" OutputProperty="EventAggregates" Verb="Get" Noun="EventAggregate" PipelineParameter="AggregateField" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -51,15 +51,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventsForOrganization" OutputProperty="Events" Verb="Get" Noun="EventsForOrganization" PipelineParameter="Locale" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="DescribeEventsForOrganization" OutputProperty="Events" Verb="Get" Noun="EventsForOrganization" PipelineParameter="Locale" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params>
+                <Param Name="Filter_EndTime_From" NewName="EndTime_From" />
+                <Param Name="Filter_EndTime_To" NewName="EndTime_To" />
+                <Param Name="Filter_LastUpdatedTime_From" NewName="LastUpdatedTime_From" />
+                <Param Name="Filter_LastUpdatedTime_To" NewName="LastUpdatedTime_To" />
+                <Param Name="Filter_StartTime_From" NewName="StartTime_From" />
+                <Param Name="Filter_StartTime_To" NewName="StartTime_To" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventTypes" OutputProperty="EventTypes" Verb="Get" Noun="EventType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEventTypes" OutputProperty="EventTypes" Verb="Get" Noun="EventType" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

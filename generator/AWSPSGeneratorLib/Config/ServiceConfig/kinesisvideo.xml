@@ -106,6 +106,12 @@
                 <Param Name="EdgeConfig_RecorderConfig_ScheduleConfig_ScheduleExpression" NewName="EdgeConfig_RecorderConfig_ScheduleConfig_ScheduleExpression" />
                 <Param Name="EdgeConfig_UploaderConfig_ScheduleConfig_DurationInSeconds" NewName="EdgeConfig_UploaderConfig_ScheduleConfig_DurationInSeconds" />
                 <Param Name="EdgeConfig_UploaderConfig_ScheduleConfig_ScheduleExpression" NewName="EdgeConfig_UploaderConfig_ScheduleConfig_ScheduleExpression" />
+                <Param Name="EdgeConfig_DeletionConfig_DeleteAfterUpload" NewName="DeletionConfig_DeleteAfterUpload" />
+                <Param Name="EdgeConfig_DeletionConfig_EdgeRetentionInHours" NewName="DeletionConfig_EdgeRetentionInHour" />
+                <Param Name="EdgeConfig_DeletionConfig_LocalSizeConfig_MaxLocalMediaSizeInMB" NewName="LocalSizeConfig_MaxLocalMediaSizeInMB" />
+                <Param Name="EdgeConfig_DeletionConfig_LocalSizeConfig_StrategyOnFullSize" NewName="LocalSizeConfig_StrategyOnFullSize" />
+                <Param Name="EdgeConfig_RecorderConfig_MediaSourceConfig_MediaUriSecretArn" NewName="MediaSourceConfig_MediaUriSecretArn" />
+                <Param Name="EdgeConfig_RecorderConfig_MediaSourceConfig_MediaUriType" NewName="MediaSourceConfig_MediaUriType" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -130,7 +136,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateImageGenerationConfiguration" Verb="Update" Noun="ImageGenerationConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ImageGenerationConfiguration_DestinationConfig_DestinationRegion" NewName="DestinationConfig_DestinationRegion" />
+                <Param Name="ImageGenerationConfiguration_DestinationConfig_Uri" NewName="DestinationConfig_Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMediaStorageConfiguration" Verb="Update" Noun="MediaStorageConfiguration" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -138,7 +147,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateNotificationConfiguration" Verb="Update" Noun="NotificationConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NotificationConfiguration_DestinationConfig_Uri" NewName="DestinationConfig_Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSignalingChannel" Verb="Update" Noun="SignalingChannel" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false" LegacyV4Pagination="true">

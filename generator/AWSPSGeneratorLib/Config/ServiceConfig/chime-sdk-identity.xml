@@ -27,7 +27,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAppInstanceBot" OutputProperty="AppInstanceBotArn" Verb="New" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_Lex_InvokedBy_StandardMessages" NewName="InvokedBy_StandardMessage" />
+                <Param Name="Configuration_Lex_InvokedBy_TargetedMessages" NewName="InvokedBy_TargetedMessage" />
+                <Param Name="Configuration_Lex_LexBotAliasArn" NewName="Lex_LexBotAliasArn" />
+                <Param Name="Configuration_Lex_LocaleId" NewName="Lex_LocaleId" />
+                <Param Name="Configuration_Lex_RespondsTo" NewName="Lex_RespondsTo" />
+                <Param Name="Configuration_Lex_WelcomeIntent" NewName="Lex_WelcomeIntent" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="New" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserId" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -103,7 +110,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAppInstanceRetentionSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceRetentionSetting" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AppInstanceRetentionSettings_ChannelRetentionSettings_RetentionDays" NewName="ChannelRetentionSettings_RetentionDay" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAppInstanceUserExpirationSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceUserExpirationSetting" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -127,7 +136,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAppInstanceBot" OutputProperty="AppInstanceBotArn" Verb="Update" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceBotArn" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_Lex_InvokedBy_StandardMessages" NewName="InvokedBy_StandardMessage" />
+                <Param Name="Configuration_Lex_InvokedBy_TargetedMessages" NewName="InvokedBy_TargetedMessage" />
+                <Param Name="Configuration_Lex_LexBotAliasArn" NewName="Lex_LexBotAliasArn" />
+                <Param Name="Configuration_Lex_LocaleId" NewName="Lex_LocaleId" />
+                <Param Name="Configuration_Lex_RespondsTo" NewName="Lex_RespondsTo" />
+                <Param Name="Configuration_Lex_WelcomeIntent" NewName="Lex_WelcomeIntent" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="Update" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false" LegacyV4Pagination="true">

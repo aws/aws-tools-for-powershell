@@ -26,7 +26,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateComputeEnvironment" OutputProperty="*" Verb="New" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironmentName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ComputeResources_LaunchTemplate_LaunchTemplateId" NewName="LaunchTemplate_LaunchTemplateId" />
+                <Param Name="ComputeResources_LaunchTemplate_LaunchTemplateName" NewName="LaunchTemplate_LaunchTemplateName" />
+                <Param Name="ComputeResources_LaunchTemplate_Overrides" NewName="LaunchTemplate_Override" />
+                <Param Name="ComputeResources_LaunchTemplate_UserdataType" NewName="LaunchTemplate_UserdataType" />
+                <Param Name="ComputeResources_LaunchTemplate_Version" NewName="LaunchTemplate_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConsumableResource" OutputProperty="*" Verb="New" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResourceName" PipelineParameter="ConsumableResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -130,11 +136,44 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterJobDefinition" OutputProperty="*" Verb="Register" Noun="JobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ContainerProperties_EphemeralStorage_SizeInGiB" NewName="EphemeralStorage_SizeInGiB" />
+                <Param Name="ContainerProperties_FargatePlatformConfiguration_PlatformVersion" NewName="FargatePlatformConfiguration_PlatformVersion" />
+                <Param Name="ContainerProperties_LinuxParameters_Devices" NewName="LinuxParameters_Device" />
+                <Param Name="ContainerProperties_LinuxParameters_InitProcessEnabled" NewName="LinuxParameters_InitProcessEnabled" />
+                <Param Name="ContainerProperties_LinuxParameters_MaxSwap" NewName="LinuxParameters_MaxSwap" />
+                <Param Name="ContainerProperties_LinuxParameters_SharedMemorySize" NewName="LinuxParameters_SharedMemorySize" />
+                <Param Name="ContainerProperties_LinuxParameters_Swappiness" NewName="LinuxParameters_Swappiness" />
+                <Param Name="ContainerProperties_LinuxParameters_Tmpfs" NewName="LinuxParameters_Tmpf" />
+                <Param Name="ContainerProperties_LogConfiguration_LogDriver" NewName="LogConfiguration_LogDriver" />
+                <Param Name="ContainerProperties_LogConfiguration_Options" NewName="LogConfiguration_Option" />
+                <Param Name="ContainerProperties_LogConfiguration_SecretOptions" NewName="LogConfiguration_SecretOption" />
+                <Param Name="ContainerProperties_NetworkConfiguration_AssignPublicIp" NewName="NetworkConfiguration_AssignPublicIp" />
+                <Param Name="ContainerProperties_RepositoryCredentials_CredentialsParameter" NewName="RepositoryCredentials_CredentialsParameter" />
+                <Param Name="ContainerProperties_RuntimePlatform_CpuArchitecture" NewName="RuntimePlatform_CpuArchitecture" />
+                <Param Name="ContainerProperties_RuntimePlatform_OperatingSystemFamily" NewName="RuntimePlatform_OperatingSystemFamily" />
+                <Param Name="EksProperties_PodProperties_Containers" NewName="PodProperties_Container" />
+                <Param Name="EksProperties_PodProperties_DnsPolicy" NewName="PodProperties_DnsPolicy" />
+                <Param Name="EksProperties_PodProperties_HostNetwork" NewName="PodProperties_HostNetwork" />
+                <Param Name="EksProperties_PodProperties_ImagePullSecrets" NewName="PodProperties_ImagePullSecret" />
+                <Param Name="EksProperties_PodProperties_InitContainers" NewName="PodProperties_InitContainer" />
+                <Param Name="EksProperties_PodProperties_Metadata_Annotations" NewName="Metadata_Annotation" />
+                <Param Name="EksProperties_PodProperties_Metadata_Labels" NewName="Metadata_Label" />
+                <Param Name="EksProperties_PodProperties_Metadata_Namespace" NewName="Metadata_Namespace" />
+                <Param Name="EksProperties_PodProperties_ServiceAccountName" NewName="PodProperties_ServiceAccountName" />
+                <Param Name="EksProperties_PodProperties_ShareProcessNamespace" NewName="PodProperties_ShareProcessNamespace" />
+                <Param Name="EksProperties_PodProperties_Volumes" NewName="PodProperties_Volume" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SubmitJob" OutputProperty="*" Verb="Submit" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EksPropertiesOverride_PodProperties_Containers" NewName="PodProperties_Container" />
+                <Param Name="EksPropertiesOverride_PodProperties_InitContainers" NewName="PodProperties_InitContainer" />
+                <Param Name="EksPropertiesOverride_PodProperties_Metadata_Annotations" NewName="Metadata_Annotation" />
+                <Param Name="EksPropertiesOverride_PodProperties_Metadata_Labels" NewName="Metadata_Label" />
+                <Param Name="EksPropertiesOverride_PodProperties_Metadata_Namespace" NewName="Metadata_Namespace" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SubmitServiceJob" OutputProperty="*" Verb="Submit" Noun="ServiceJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
@@ -158,7 +197,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateComputeEnvironment" OutputProperty="*" Verb="Update" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ComputeResources_LaunchTemplate_LaunchTemplateId" NewName="LaunchTemplate_LaunchTemplateId" />
+                <Param Name="ComputeResources_LaunchTemplate_LaunchTemplateName" NewName="LaunchTemplate_LaunchTemplateName" />
+                <Param Name="ComputeResources_LaunchTemplate_Overrides" NewName="LaunchTemplate_Override" />
+                <Param Name="ComputeResources_LaunchTemplate_UserdataType" NewName="LaunchTemplate_UserdataType" />
+                <Param Name="ComputeResources_LaunchTemplate_Version" NewName="LaunchTemplate_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConsumableResource" OutputProperty="*" Verb="Update" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false" LegacyV4Pagination="true">

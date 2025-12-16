@@ -55,6 +55,8 @@
             <Params>
                 <Param Name="PostSetupScriptDetails_ScriptS3Location_S3Bucket" NewName="PostSetupScriptDetails_ScriptS3Location_S3Bucket" />
                 <Param Name="PostSetupScriptDetails_ScriptS3Location_S3Key" NewName="PostSetupScriptDetails_ScriptS3Location_S3Key" />
+                <Param Name="SetupScriptDetails_ScriptS3Location_S3Bucket" NewName="ScriptS3Location_S3Bucket" />
+                <Param Name="SetupScriptDetails_ScriptS3Location_S3Key" NewName="ScriptS3Location_S3Key" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

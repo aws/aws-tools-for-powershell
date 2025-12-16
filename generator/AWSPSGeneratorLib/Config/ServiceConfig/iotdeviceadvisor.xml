@@ -55,7 +55,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartSuiteRun" OutputProperty="*" Verb="Start" Noun="SuiteRun" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SuiteRunConfiguration_PrimaryDevice_CertificateArn" NewName="PrimaryDevice_CertificateArn" />
+                <Param Name="SuiteRunConfiguration_PrimaryDevice_DeviceRoleArn" NewName="PrimaryDevice_DeviceRoleArn" />
+                <Param Name="SuiteRunConfiguration_PrimaryDevice_ThingArn" NewName="PrimaryDevice_ThingArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopSuiteRun" Verb="Stop" Noun="SuiteRun" ShouldProcessTarget="SuiteRunId" PipelineParameter="SuiteRunId" NoPipelineParameter="false" LegacyV4Pagination="true">

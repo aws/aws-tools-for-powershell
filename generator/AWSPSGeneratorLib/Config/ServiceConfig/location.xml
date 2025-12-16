@@ -47,11 +47,25 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CalculateRoute" OutputProperty="*" Verb="Get" Noun="Route" PipelineParameter="CalculatorName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TruckModeOptions_Dimensions_Height" NewName="Dimensions_Height" />
+                <Param Name="TruckModeOptions_Dimensions_Length" NewName="Dimensions_Length" />
+                <Param Name="TruckModeOptions_Dimensions_Unit" NewName="Dimensions_Unit" />
+                <Param Name="TruckModeOptions_Dimensions_Width" NewName="Dimensions_Width" />
+                <Param Name="TruckModeOptions_Weight_Total" NewName="Weight_Total" />
+                <Param Name="TruckModeOptions_Weight_Unit" NewName="Weight_Unit" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CalculateRouteMatrix" OutputProperty="*" Verb="Get" Noun="RouteMatrix" PipelineParameter="CalculatorName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TruckModeOptions_Dimensions_Height" NewName="Dimensions_Height" />
+                <Param Name="TruckModeOptions_Dimensions_Length" NewName="Dimensions_Length" />
+                <Param Name="TruckModeOptions_Dimensions_Unit" NewName="Dimensions_Unit" />
+                <Param Name="TruckModeOptions_Dimensions_Width" NewName="Dimensions_Width" />
+                <Param Name="TruckModeOptions_Weight_Total" NewName="Weight_Total" />
+                <Param Name="TruckModeOptions_Weight_Unit" NewName="Weight_Unit" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGeofenceCollection" OutputProperty="*" Verb="New" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -207,7 +221,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutGeofence" OutputProperty="*" Verb="Set" Noun="Geofence" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Geometry_Circle_Center" NewName="Circle_Center" />
+                <Param Name="Geometry_Circle_Radius" NewName="Circle_Radius" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchPlaceIndexForPosition" OutputProperty="*" Verb="Search" Noun="PlaceIndexForPosition" IgnoreSupportsShouldProcess="true" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -255,7 +272,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="VerifyDevicePosition" OutputProperty="*" Verb="Invoke" Noun="VerifyDevicePositionOperation" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeviceState_Accuracy_Horizontal" NewName="Accuracy_Horizontal" />
+                <Param Name="DeviceState_CellSignals_LteCellDetails" NewName="CellSignals_LteCellDetail" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

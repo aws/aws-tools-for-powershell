@@ -27,7 +27,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBackendAPI" OutputProperty="*" Verb="New" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfig_ConflictResolution_ResolutionStrategy" NewName="ConflictResolution_ResolutionStrategy" />
+                <Param Name="ResourceConfig_DefaultAuthType_Mode" NewName="DefaultAuthType_Mode" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_CognitoUserPoolId" NewName="Settings_CognitoUserPoolId" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_Description" NewName="Settings_Description" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_ExpirationTime" NewName="Settings_ExpirationTime" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDAuthTTL" NewName="Settings_OpenIDAuthTTL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDClientId" NewName="Settings_OpenIDClientId" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDIatTTL" NewName="Settings_OpenIDIatTTL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDIssueURL" NewName="Settings_OpenIDIssueURL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDProviderName" NewName="Settings_OpenIDProviderName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBackendAuth" OutputProperty="*" Verb="New" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -35,6 +46,36 @@
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" />
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" />
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage" />
+                <Param Name="ResourceConfig_IdentityPoolConfigs_IdentityPoolName" NewName="IdentityPoolConfigs_IdentityPoolName" />
+                <Param Name="ResourceConfig_IdentityPoolConfigs_UnauthenticatedLogin" NewName="IdentityPoolConfigs_UnauthenticatedLogin" />
+                <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod" NewName="ForgotPassword_DeliveryMethod" />
+                <Param Name="ResourceConfig_UserPoolConfigs_Mfa_MFAMode" NewName="Mfa_MFAMode" />
+                <Param Name="ResourceConfig_UserPoolConfigs_Mfa_Settings_MfaTypes" NewName="Settings_MfaType" />
+                <Param Name="ResourceConfig_UserPoolConfigs_Mfa_Settings_SmsMessage" NewName="Settings_SmsMessage" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_DomainPrefix" NewName="OAuth_DomainPrefix" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_OAuthGrantType" NewName="OAuth_OAuthGrantType" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_OAuthScopes" NewName="OAuth_OAuthScope" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_RedirectSignInURIs" NewName="OAuth_RedirectSignInURIs" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_RedirectSignOutURIs" NewName="OAuth_RedirectSignOutURIs" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_Facebook_ClientId" NewName="Facebook_ClientId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_Facebook_ClientSecret" NewName="Facebook_ClientSecret" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_Google_ClientId" NewName="Google_ClientId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_Google_ClientSecret" NewName="Google_ClientSecret" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_LoginWithAmazon_ClientId" NewName="LoginWithAmazon_ClientId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_LoginWithAmazon_ClientSecret" NewName="LoginWithAmazon_ClientSecret" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_ClientId" NewName="SignInWithApple_ClientId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_KeyId" NewName="SignInWithApple_KeyId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_PrivateKey" NewName="SignInWithApple_PrivateKey" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_TeamId" NewName="SignInWithApple_TeamId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_PasswordPolicy_AdditionalConstraints" NewName="PasswordPolicy_AdditionalConstraint" />
+                <Param Name="ResourceConfig_UserPoolConfigs_PasswordPolicy_MinimumLength" NewName="PasswordPolicy_MinimumLength" />
+                <Param Name="ResourceConfig_UserPoolConfigs_RequiredSignUpAttributes" NewName="UserPoolConfigs_RequiredSignUpAttribute" />
+                <Param Name="ResourceConfig_UserPoolConfigs_SignInMethod" NewName="UserPoolConfigs_SignInMethod" />
+                <Param Name="ResourceConfig_UserPoolConfigs_UserPoolName" NewName="UserPoolConfigs_UserPoolName" />
+                <Param Name="ResourceConfig_UserPoolConfigs_VerificationMessage_DeliveryMethod" NewName="VerificationMessage_DeliveryMethod" />
+                <Param Name="ResourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_EmailMessage" NewName="EmailSettings_EmailMessage" />
+                <Param Name="ResourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_EmailSubject" NewName="EmailSettings_EmailSubject" />
+                <Param Name="ResourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings_SmsMessage" NewName="SmsSettings_SmsMessage" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,7 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBackendStorage" OutputProperty="*" Verb="New" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfig_Permissions_Authenticated" NewName="Permissions_Authenticated" />
+                <Param Name="ResourceConfig_Permissions_UnAuthenticated" NewName="Permissions_UnAuthenticated" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -55,7 +99,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBackendAPI" OutputProperty="*" Verb="Remove" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfig_ConflictResolution_ResolutionStrategy" NewName="ConflictResolution_ResolutionStrategy" />
+                <Param Name="ResourceConfig_DefaultAuthType_Mode" NewName="DefaultAuthType_Mode" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_CognitoUserPoolId" NewName="Settings_CognitoUserPoolId" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_Description" NewName="Settings_Description" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_ExpirationTime" NewName="Settings_ExpirationTime" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDAuthTTL" NewName="Settings_OpenIDAuthTTL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDClientId" NewName="Settings_OpenIDClientId" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDIatTTL" NewName="Settings_OpenIDIatTTL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDIssueURL" NewName="Settings_OpenIDIssueURL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDProviderName" NewName="Settings_OpenIDProviderName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBackendAuth" OutputProperty="*" Verb="Remove" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -79,7 +134,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBackendAPI" OutputProperty="*" Verb="Get" Noun="BackendAPI" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfig_ConflictResolution_ResolutionStrategy" NewName="ConflictResolution_ResolutionStrategy" />
+                <Param Name="ResourceConfig_DefaultAuthType_Mode" NewName="DefaultAuthType_Mode" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_CognitoUserPoolId" NewName="Settings_CognitoUserPoolId" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_Description" NewName="Settings_Description" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_ExpirationTime" NewName="Settings_ExpirationTime" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDAuthTTL" NewName="Settings_OpenIDAuthTTL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDClientId" NewName="Settings_OpenIDClientId" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDIatTTL" NewName="Settings_OpenIDIatTTL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDIssueURL" NewName="Settings_OpenIDIssueURL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDProviderName" NewName="Settings_OpenIDProviderName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBackendAPIModels" OutputProperty="*" Verb="Get" Noun="BackendAPIModel" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -127,7 +193,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBackendAPI" OutputProperty="*" Verb="Update" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfig_ConflictResolution_ResolutionStrategy" NewName="ConflictResolution_ResolutionStrategy" />
+                <Param Name="ResourceConfig_DefaultAuthType_Mode" NewName="DefaultAuthType_Mode" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_CognitoUserPoolId" NewName="Settings_CognitoUserPoolId" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_Description" NewName="Settings_Description" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_ExpirationTime" NewName="Settings_ExpirationTime" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDAuthTTL" NewName="Settings_OpenIDAuthTTL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDClientId" NewName="Settings_OpenIDClientId" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDIatTTL" NewName="Settings_OpenIDIatTTL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDIssueURL" NewName="Settings_OpenIDIssueURL" />
+                <Param Name="ResourceConfig_DefaultAuthType_Settings_OpenIDProviderName" NewName="Settings_OpenIDProviderName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBackendAuth" OutputProperty="*" Verb="Update" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -135,6 +212,32 @@
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" />
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" />
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage" />
+                <Param Name="ResourceConfig_IdentityPoolConfigs_UnauthenticatedLogin" NewName="IdentityPoolConfigs_UnauthenticatedLogin" />
+                <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod" NewName="ForgotPassword_DeliveryMethod" />
+                <Param Name="ResourceConfig_UserPoolConfigs_Mfa_MFAMode" NewName="Mfa_MFAMode" />
+                <Param Name="ResourceConfig_UserPoolConfigs_Mfa_Settings_MfaTypes" NewName="Settings_MfaType" />
+                <Param Name="ResourceConfig_UserPoolConfigs_Mfa_Settings_SmsMessage" NewName="Settings_SmsMessage" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_DomainPrefix" NewName="OAuth_DomainPrefix" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_OAuthGrantType" NewName="OAuth_OAuthGrantType" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_OAuthScopes" NewName="OAuth_OAuthScope" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_RedirectSignInURIs" NewName="OAuth_RedirectSignInURIs" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_RedirectSignOutURIs" NewName="OAuth_RedirectSignOutURIs" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_Facebook_ClientId" NewName="Facebook_ClientId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_Facebook_ClientSecret" NewName="Facebook_ClientSecret" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_Google_ClientId" NewName="Google_ClientId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_Google_ClientSecret" NewName="Google_ClientSecret" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_LoginWithAmazon_ClientId" NewName="LoginWithAmazon_ClientId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_LoginWithAmazon_ClientSecret" NewName="LoginWithAmazon_ClientSecret" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_ClientId" NewName="SignInWithApple_ClientId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_KeyId" NewName="SignInWithApple_KeyId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_PrivateKey" NewName="SignInWithApple_PrivateKey" />
+                <Param Name="ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_TeamId" NewName="SignInWithApple_TeamId" />
+                <Param Name="ResourceConfig_UserPoolConfigs_PasswordPolicy_AdditionalConstraints" NewName="PasswordPolicy_AdditionalConstraint" />
+                <Param Name="ResourceConfig_UserPoolConfigs_PasswordPolicy_MinimumLength" NewName="PasswordPolicy_MinimumLength" />
+                <Param Name="ResourceConfig_UserPoolConfigs_VerificationMessage_DeliveryMethod" NewName="VerificationMessage_DeliveryMethod" />
+                <Param Name="ResourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_EmailMessage" NewName="EmailSettings_EmailMessage" />
+                <Param Name="ResourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_EmailSubject" NewName="EmailSettings_EmailSubject" />
+                <Param Name="ResourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings_SmsMessage" NewName="SmsSettings_SmsMessage" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -147,7 +250,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBackendStorage" OutputProperty="*" Verb="Update" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfig_Permissions_Authenticated" NewName="Permissions_Authenticated" />
+                <Param Name="ResourceConfig_Permissions_UnAuthenticated" NewName="Permissions_UnAuthenticated" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

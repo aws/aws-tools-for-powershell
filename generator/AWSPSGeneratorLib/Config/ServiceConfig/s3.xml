@@ -64,11 +64,17 @@
                 <Param Name="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm" NewName="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm" />
                 <Param Name="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn" NewName="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn" />
                 <Param Name="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm" NewName="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm" />
+                <Param Name="MetadataConfiguration_InventoryTableConfiguration_ConfigurationState" NewName="InventoryTableConfiguration_ConfigurationState" />
+                <Param Name="MetadataConfiguration_JournalTableConfiguration_RecordExpiration_Days" NewName="RecordExpiration_Day" />
+                <Param Name="MetadataConfiguration_JournalTableConfiguration_RecordExpiration_Expiration" NewName="RecordExpiration_Expiration" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBucketMetadataTableConfiguration" Verb="New" Noun="BucketMetadataTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MetadataTableConfiguration_S3TablesDestination_TableBucketArn" NewName="S3TablesDestination_TableBucketArn" />
+                <Param Name="MetadataTableConfiguration_S3TablesDestination_TableName" NewName="S3TablesDestination_TableName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSession" OutputProperty="Credentials" Verb="New" Noun="Session" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -375,7 +381,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketAnalyticsConfiguration" Verb="Write" Noun="BucketAnalyticsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AnalyticsConfiguration_AnalyticsFilter_AnalyticsFilterPredicate" NewName="AnalyticsFilter_AnalyticsFilterPredicate" />
+                <Param Name="AnalyticsConfiguration_StorageClassAnalysis_DataExport_OutputSchemaVersion" NewName="DataExport_OutputSchemaVersion" />
+                <Param Name="AnalyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_BucketAccountId" NewName="S3BucketDestination_BucketAccountId" />
+                <Param Name="AnalyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_BucketName" NewName="S3BucketDestination_BucketName" />
+                <Param Name="AnalyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_Format" NewName="S3BucketDestination_Format" />
+                <Param Name="AnalyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_Prefix" NewName="S3BucketDestination_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketEncryption" Verb="Set" Noun="BucketEncryption" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -383,19 +396,35 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketIntelligentTieringConfiguration" Verb="Write" Noun="BucketIntelligentTieringConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IntelligentTieringConfiguration_IntelligentTieringFilter_IntelligentTieringFilterPredicate" NewName="IntelligentTieringFilter_IntelligentTieringFilterPredicate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketInventoryConfiguration" Verb="Write" Noun="BucketInventoryConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InventoryConfiguration_Destination_S3BucketDestination_AccountId" NewName="S3BucketDestination_AccountId" />
+                <Param Name="InventoryConfiguration_Destination_S3BucketDestination_BucketName" NewName="S3BucketDestination_BucketName" />
+                <Param Name="InventoryConfiguration_Destination_S3BucketDestination_Prefix" NewName="S3BucketDestination_Prefix" />
+                <Param Name="InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat" NewName="S3BucketDestination_InventoryFormat" />
+                <Param Name="InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSES3" NewName="InventoryEncryption_SSES3" />
+                <Param Name="InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_KeyId" NewName="SSEKMS_KeyId" />
+                <Param Name="InventoryConfiguration_InventoryFilter_InventoryFilterPredicate" NewName="InventoryFilter_InventoryFilterPredicate" />
+                <Param Name="InventoryConfiguration_Schedule_Frequency" NewName="Schedule_Frequency" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketLogging" Verb="Write" Noun="BucketLogging" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LoggingConfig_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource" NewName="PartitionedPrefix_PartitionDateSource" />
+                <Param Name="LoggingConfig_TargetObjectKeyFormat_SimplePrefix" NewName="TargetObjectKeyFormat_SimplePrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketMetricsConfiguration" Verb="Write" Noun="BucketMetricsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MetricsConfiguration_MetricsFilter_MetricsFilterPredicate" NewName="MetricsFilter_MetricsFilterPredicate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketNotification" Verb="Write" Noun="BucketNotification" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -433,7 +462,13 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketWebsite" Verb="Write" Noun="BucketWebsite" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WebsiteConfiguration_RedirectAllRequestsTo_HostName" NewName="RedirectAllRequestsTo_HostName" />
+                <Param Name="WebsiteConfiguration_RedirectAllRequestsTo_HttpRedirectCode" NewName="RedirectAllRequestsTo_HttpRedirectCode" />
+                <Param Name="WebsiteConfiguration_RedirectAllRequestsTo_Protocol" NewName="RedirectAllRequestsTo_Protocol" />
+                <Param Name="WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyPrefixWith" NewName="RedirectAllRequestsTo_ReplaceKeyPrefixWith" />
+                <Param Name="WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyWith" NewName="RedirectAllRequestsTo_ReplaceKeyWith" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutCORSConfiguration" Verb="Write" Noun="CORSConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -453,7 +488,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutObjectLockConfiguration" OutputProperty="RequestCharged" Verb="Write" Noun="ObjectLockConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ObjectLockConfiguration_Rule_DefaultRetention_Days" NewName="DefaultRetention_Day" />
+                <Param Name="ObjectLockConfiguration_Rule_DefaultRetention_Mode" NewName="DefaultRetention_Mode" />
+                <Param Name="ObjectLockConfiguration_Rule_DefaultRetention_Years" NewName="DefaultRetention_Year" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutObjectRetention" OutputProperty="RequestCharged" Verb="Write" Noun="ObjectRetention" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -475,6 +514,18 @@
         <ServiceOperation MethodName="RestoreObject" OutputProperty="*" Verb="Restore" Noun="Object" ShouldProcessTarget="BucketName" PositionalParameters="Key;Days" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Days" NewName="CopyLifetimeInDays" />
+                <Param Name="OutputLocation_S3_BucketName" NewName="S3_BucketName" />
+                <Param Name="OutputLocation_S3_Prefix" NewName="S3_Prefix" />
+                <Param Name="OutputLocation_S3_Encryption_EncryptionType" NewName="Encryption_EncryptionType" />
+                <Param Name="OutputLocation_S3_Encryption_KMSKeyId" NewName="Encryption_KMSKeyId" />
+                <Param Name="OutputLocation_S3_Encryption_KMSContext" NewName="Encryption_KMSContext" />
+                <Param Name="OutputLocation_S3_CannedACL" NewName="S3_CannedACL" />
+                <Param Name="OutputLocation_S3_AccessControlList_Owner_DisplayName" NewName="Owner_DisplayName" />
+                <Param Name="OutputLocation_S3_AccessControlList_Owner_Id" NewName="Owner_Id" />
+                <Param Name="OutputLocation_S3_AccessControlList_Grants" NewName="AccessControlList_Grant" />
+                <Param Name="OutputLocation_S3_Tagging_TagSet" NewName="Tagging_TagSet" />
+                <Param Name="OutputLocation_S3_UserMetadata" NewName="S3_UserMetadata" />
+                <Param Name="OutputLocation_S3_StorageClass" NewName="S3_StorageClass" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -483,11 +534,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBucketMetadataInventoryTableConfiguration" Verb="Update" Noun="BucketMetadataInventoryTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn" NewName="EncryptionConfiguration_KmsKeyArn" />
+                <Param Name="InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm" NewName="EncryptionConfiguration_SseAlgorithm" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBucketMetadataJournalTableConfiguration" Verb="Update" Noun="BucketMetadataJournalTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn" NewName="EncryptionConfiguration_KmsKeyArn" />
+                <Param Name="JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm" NewName="EncryptionConfiguration_SseAlgorithm" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UploadPart" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">

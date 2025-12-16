@@ -184,7 +184,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateUserPool" OutputProperty="UserPool" Verb="New" Noun="UserPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AdminCreateUserConfig_InviteMessageTemplate_EmailMessage" NewName="InviteMessageTemplate_EmailMessage" />
+                <Param Name="AdminCreateUserConfig_InviteMessageTemplate_EmailSubject" NewName="InviteMessageTemplate_EmailSubject" />
+                <Param Name="AdminCreateUserConfig_InviteMessageTemplate_SMSMessage" NewName="InviteMessageTemplate_SMSMessage" />
+                <Param Name="LambdaConfig_CustomEmailSender_LambdaArn" NewName="CustomEmailSender_LambdaArn" />
+                <Param Name="LambdaConfig_CustomEmailSender_LambdaVersion" NewName="CustomEmailSender_LambdaVersion" />
+                <Param Name="LambdaConfig_CustomSMSSender_LambdaArn" NewName="CustomSMSSender_LambdaArn" />
+                <Param Name="LambdaConfig_CustomSMSSender_LambdaVersion" NewName="CustomSMSSender_LambdaVersion" />
+                <Param Name="LambdaConfig_PreTokenGenerationConfig_LambdaArn" NewName="PreTokenGenerationConfig_LambdaArn" />
+                <Param Name="LambdaConfig_PreTokenGenerationConfig_LambdaVersion" NewName="PreTokenGenerationConfig_LambdaVersion" />
+                <Param Name="Policies_PasswordPolicy_MinimumLength" NewName="PasswordPolicy_MinimumLength" />
+                <Param Name="Policies_PasswordPolicy_PasswordHistorySize" NewName="PasswordPolicy_PasswordHistorySize" />
+                <Param Name="Policies_PasswordPolicy_RequireLowercase" NewName="PasswordPolicy_RequireLowercase" />
+                <Param Name="Policies_PasswordPolicy_RequireNumbers" NewName="PasswordPolicy_RequireNumber" />
+                <Param Name="Policies_PasswordPolicy_RequireSymbols" NewName="PasswordPolicy_RequireSymbol" />
+                <Param Name="Policies_PasswordPolicy_RequireUppercase" NewName="PasswordPolicy_RequireUppercase" />
+                <Param Name="Policies_PasswordPolicy_TemporaryPasswordValidityDays" NewName="PasswordPolicy_TemporaryPasswordValidityDay" />
+                <Param Name="Policies_SignInPolicy_AllowedFirstAuthFactors" NewName="SignInPolicy_AllowedFirstAuthFactor" />
+                <Param Name="UserPoolAddOns_AdvancedSecurityAdditionalFlows_CustomAuthMode" NewName="AdvancedSecurityAdditionalFlows_CustomAuthMode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateUserPoolClient" OutputProperty="UserPoolClient" Verb="New" Noun="UserPoolClient" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -413,7 +432,27 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SetRiskConfiguration" OutputProperty="RiskConfiguration" Verb="Set" Noun="RiskConfiguration" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AccountTakeoverRiskConfiguration_Actions_HighAction_EventAction" NewName="HighAction_EventAction" />
+                <Param Name="AccountTakeoverRiskConfiguration_Actions_HighAction_Notify" NewName="HighAction_Notify" />
+                <Param Name="AccountTakeoverRiskConfiguration_Actions_LowAction_EventAction" NewName="LowAction_EventAction" />
+                <Param Name="AccountTakeoverRiskConfiguration_Actions_LowAction_Notify" NewName="LowAction_Notify" />
+                <Param Name="AccountTakeoverRiskConfiguration_Actions_MediumAction_EventAction" NewName="MediumAction_EventAction" />
+                <Param Name="AccountTakeoverRiskConfiguration_Actions_MediumAction_Notify" NewName="MediumAction_Notify" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_BlockEmail_HtmlBody" NewName="BlockEmail_HtmlBody" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_BlockEmail_Subject" NewName="BlockEmail_Subject" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_BlockEmail_TextBody" NewName="BlockEmail_TextBody" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_From" NewName="NotifyConfiguration_From" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_MfaEmail_HtmlBody" NewName="MfaEmail_HtmlBody" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_MfaEmail_Subject" NewName="MfaEmail_Subject" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_MfaEmail_TextBody" NewName="MfaEmail_TextBody" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_NoActionEmail_HtmlBody" NewName="NoActionEmail_HtmlBody" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_NoActionEmail_Subject" NewName="NoActionEmail_Subject" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_NoActionEmail_TextBody" NewName="NoActionEmail_TextBody" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_ReplyTo" NewName="NotifyConfiguration_ReplyTo" />
+                <Param Name="AccountTakeoverRiskConfiguration_NotifyConfiguration_SourceArn" NewName="NotifyConfiguration_SourceArn" />
+                <Param Name="CompromisedCredentialsRiskConfiguration_Actions_EventAction" NewName="Actions_EventAction" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SetUICustomization" OutputProperty="UICustomization" Verb="Set" Noun="UICustomization" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -489,7 +528,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUserPool" Verb="Update" Noun="UserPool" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AdminCreateUserConfig_InviteMessageTemplate_EmailMessage" NewName="InviteMessageTemplate_EmailMessage" />
+                <Param Name="AdminCreateUserConfig_InviteMessageTemplate_EmailSubject" NewName="InviteMessageTemplate_EmailSubject" />
+                <Param Name="AdminCreateUserConfig_InviteMessageTemplate_SMSMessage" NewName="InviteMessageTemplate_SMSMessage" />
+                <Param Name="LambdaConfig_CustomEmailSender_LambdaArn" NewName="CustomEmailSender_LambdaArn" />
+                <Param Name="LambdaConfig_CustomEmailSender_LambdaVersion" NewName="CustomEmailSender_LambdaVersion" />
+                <Param Name="LambdaConfig_CustomSMSSender_LambdaArn" NewName="CustomSMSSender_LambdaArn" />
+                <Param Name="LambdaConfig_CustomSMSSender_LambdaVersion" NewName="CustomSMSSender_LambdaVersion" />
+                <Param Name="LambdaConfig_PreTokenGenerationConfig_LambdaArn" NewName="PreTokenGenerationConfig_LambdaArn" />
+                <Param Name="LambdaConfig_PreTokenGenerationConfig_LambdaVersion" NewName="PreTokenGenerationConfig_LambdaVersion" />
+                <Param Name="Policies_PasswordPolicy_MinimumLength" NewName="PasswordPolicy_MinimumLength" />
+                <Param Name="Policies_PasswordPolicy_PasswordHistorySize" NewName="PasswordPolicy_PasswordHistorySize" />
+                <Param Name="Policies_PasswordPolicy_RequireLowercase" NewName="PasswordPolicy_RequireLowercase" />
+                <Param Name="Policies_PasswordPolicy_RequireNumbers" NewName="PasswordPolicy_RequireNumber" />
+                <Param Name="Policies_PasswordPolicy_RequireSymbols" NewName="PasswordPolicy_RequireSymbol" />
+                <Param Name="Policies_PasswordPolicy_RequireUppercase" NewName="PasswordPolicy_RequireUppercase" />
+                <Param Name="Policies_PasswordPolicy_TemporaryPasswordValidityDays" NewName="PasswordPolicy_TemporaryPasswordValidityDay" />
+                <Param Name="Policies_SignInPolicy_AllowedFirstAuthFactors" NewName="SignInPolicy_AllowedFirstAuthFactor" />
+                <Param Name="UserPoolAddOns_AdvancedSecurityAdditionalFlows_CustomAuthMode" NewName="AdvancedSecurityAdditionalFlows_CustomAuthMode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUserPoolClient" OutputProperty="UserPoolClient" Verb="Update" Noun="UserPoolClient" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -59,7 +59,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTerminologies" OutputProperty="TerminologyPropertiesList" Verb="Get" Noun="TerminologyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTerminologies" OutputProperty="TerminologyPropertiesList" Verb="Get" Noun="TerminologyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -68,7 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartTextTranslationJob" OutputProperty="*" Verb="Start" Noun="TextTranslationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputDataConfig_EncryptionKey_Id" NewName="EncryptionKey_Id" />
+                <Param Name="OutputDataConfig_EncryptionKey_Type" NewName="EncryptionKey_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopTextTranslationJob" OutputProperty="*" Verb="Stop" Noun="TextTranslationJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">

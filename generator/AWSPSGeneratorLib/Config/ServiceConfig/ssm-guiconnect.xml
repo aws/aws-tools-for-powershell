@@ -27,7 +27,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnectionRecordingPreferences" OutputProperty="ConnectionRecordingPreferences" Verb="Update" Noun="ConnectionRecordingPreference" ShouldProcessTarget="ConnectionRecordingPreferences_KMSKeyArn" PipelineParameter="ConnectionRecordingPreferences_KMSKeyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConnectionRecordingPreferences_RecordingDestinations_S3Buckets" NewName="RecordingDestinations_S3Bucket" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -20,11 +20,20 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AnalyzeDocument" OutputProperty="Blocks" Verb="Invoke" Noun="DocumentAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Document_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="Document_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="Document_S3Object_Version" NewName="S3Object_Version" />
+                <Param Name="HumanLoopConfig_DataAttributes_ContentClassifiers" NewName="DataAttributes_ContentClassifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AnalyzeExpense" OutputProperty="ExpenseDocuments" Verb="Invoke" Noun="ExpenseAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Document_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="Document_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="Document_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AnalyzeID" OutputProperty="*" Verb="Invoke" Noun="AnalyzeID" ShouldProcessTarget="DocumentPages" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -36,7 +45,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAdapterVersion" OutputProperty="*" Verb="New" Noun="AdapterVersion" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DatasetConfig_ManifestS3Object_Bucket" NewName="ManifestS3Object_Bucket" />
+                <Param Name="DatasetConfig_ManifestS3Object_Name" NewName="ManifestS3Object_Name" />
+                <Param Name="DatasetConfig_ManifestS3Object_Version" NewName="ManifestS3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAdapter" Verb="Remove" Noun="Adapter" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -48,7 +61,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetectDocumentText" OutputProperty="Blocks" Verb="Find" Noun="DocumentText" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Document_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="Document_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="Document_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAdapter" OutputProperty="*" Verb="Get" Noun="Adapter" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -59,11 +76,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentAnalysis" OutputProperty="*" Verb="Get" Noun="DocumentAnalysis" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDocumentAnalysis" OutputProperty="*" Verb="Get" Noun="DocumentAnalysis" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentTextDetection" OutputProperty="*" Verb="Get" Noun="DocumentTextDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDocumentTextDetection" OutputProperty="*" Verb="Get" Noun="DocumentTextDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,19 +109,35 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDocumentAnalysis" OutputProperty="JobId" Verb="Start" Noun="DocumentAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="FeatureTypes" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DocumentLocation_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="DocumentLocation_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="DocumentLocation_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDocumentTextDetection" OutputProperty="JobId" Verb="Start" Noun="DocumentTextDetection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DocumentLocation_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="DocumentLocation_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="DocumentLocation_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartExpenseAnalysis" OutputProperty="JobId" Verb="Start" Noun="ExpenseAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DocumentLocation_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="DocumentLocation_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="DocumentLocation_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartLendingAnalysis" OutputProperty="JobId" Verb="Start" Noun="LendingAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DocumentLocation_S3Object_Bucket" NewName="S3Object_Bucket" />
+                <Param Name="DocumentLocation_S3Object_Name" NewName="S3Object_Name" />
+                <Param Name="DocumentLocation_S3Object_Version" NewName="S3Object_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">

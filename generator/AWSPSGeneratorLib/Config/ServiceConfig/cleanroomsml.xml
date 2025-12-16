@@ -31,7 +31,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredAudienceModel" OutputProperty="ConfiguredAudienceModelArn" Verb="New" Noun="ConfiguredAudienceModel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputConfig_Destination_S3Destination_S3Uri" NewName="S3Destination_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredModelAlgorithm" OutputProperty="ConfiguredModelAlgorithmArn" Verb="New" Noun="ConfiguredModelAlgorithm" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -39,11 +41,29 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredModelAlgorithmAssociation" OutputProperty="ConfiguredModelAlgorithmAssociationArn" Verb="New" Noun="ConfiguredModelAlgorithmAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PrivacyConfiguration_Policies_TrainedModelExports_FilesToExport" NewName="TrainedModelExports_FilesToExport" />
+                <Param Name="PrivacyConfiguration_Policies_TrainedModelExports_MaxSize_Unit" NewName="MaxSize_Unit" />
+                <Param Name="PrivacyConfiguration_Policies_TrainedModelExports_MaxSize_Value" NewName="MaxSize_Value" />
+                <Param Name="PrivacyConfiguration_Policies_TrainedModelInferenceJobs_ContainerLogs" NewName="TrainedModelInferenceJobs_ContainerLog" />
+                <Param Name="PrivacyConfiguration_Policies_TrainedModelInferenceJobs_MaxOutputSize_Unit" NewName="MaxOutputSize_Unit" />
+                <Param Name="PrivacyConfiguration_Policies_TrainedModelInferenceJobs_MaxOutputSize_Value" NewName="MaxOutputSize_Value" />
+                <Param Name="PrivacyConfiguration_Policies_TrainedModels_ContainerLogs" NewName="TrainedModels_ContainerLog" />
+                <Param Name="PrivacyConfiguration_Policies_TrainedModels_ContainerMetrics_NoiseLevel" NewName="ContainerMetrics_NoiseLevel" />
+                <Param Name="PrivacyConfiguration_Policies_TrainedModels_MaxArtifactSize_Unit" NewName="MaxArtifactSize_Unit" />
+                <Param Name="PrivacyConfiguration_Policies_TrainedModels_MaxArtifactSize_Value" NewName="MaxArtifactSize_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMLInputChannel" OutputProperty="MlInputChannelArn" Verb="New" Noun="MLInputChannel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Number" NewName="Worker_Number" />
+                <Param Name="InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Type" NewName="Worker_Type" />
+                <Param Name="InputChannel_DataSource_ProtectedQueryInputParameters_ResultFormat" NewName="ProtectedQueryInputParameters_ResultFormat" />
+                <Param Name="InputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_AnalysisTemplateArn" NewName="SqlParameters_AnalysisTemplateArn" />
+                <Param Name="InputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_Parameters" NewName="SqlParameters_Parameter" />
+                <Param Name="InputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_QueryString" NewName="SqlParameters_QueryString" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrainedModel" OutputProperty="TrainedModelArn" Verb="New" Noun="TrainedModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -223,7 +243,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutMLConfiguration" Verb="Write" Noun="MLConfiguration" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DefaultOutputLocation_Destination_S3Destination_S3Uri" NewName="S3Destination_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAudienceExportJob" Verb="Start" Noun="AudienceExportJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -231,7 +253,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAudienceGenerationJob" OutputProperty="AudienceGenerationJobArn" Verb="Start" Noun="AudienceGenerationJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SeedAudience_DataSource_S3Uri" NewName="DataSource_S3Uri" />
+                <Param Name="SeedAudience_SqlComputeConfiguration_Worker_Number" NewName="Worker_Number" />
+                <Param Name="SeedAudience_SqlComputeConfiguration_Worker_Type" NewName="Worker_Type" />
+                <Param Name="SeedAudience_SqlParameters_AnalysisTemplateArn" NewName="SqlParameters_AnalysisTemplateArn" />
+                <Param Name="SeedAudience_SqlParameters_Parameters" NewName="SqlParameters_Parameter" />
+                <Param Name="SeedAudience_SqlParameters_QueryString" NewName="SqlParameters_QueryString" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartTrainedModelExportJob" Verb="Start" Noun="TrainedModelExportJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -251,7 +280,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguredAudienceModel" OutputProperty="ConfiguredAudienceModelArn" Verb="Update" Noun="ConfiguredAudienceModel" ShouldProcessTarget="ConfiguredAudienceModelArn" PipelineParameter="ConfiguredAudienceModelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputConfig_Destination_S3Destination_S3Uri" NewName="S3Destination_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

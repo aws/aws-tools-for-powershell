@@ -143,7 +143,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartBatchJob" OutputProperty="ExecutionId" Verb="Start" Noun="BatchJob" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="BatchJobIdentifier_FileBatchJobIdentifier_FileName" NewName="FileBatchJobIdentifier_FileName" />
+                <Param Name="BatchJobIdentifier_FileBatchJobIdentifier_FolderPath" NewName="FileBatchJobIdentifier_FolderPath" />
+                <Param Name="BatchJobIdentifier_RestartBatchJobIdentifier_ExecutionId" NewName="RestartBatchJobIdentifier_ExecutionId" />
+                <Param Name="BatchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_FromProcStep" NewName="JobStepRestartMarker_FromProcStep" />
+                <Param Name="BatchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_FromStep" NewName="JobStepRestartMarker_FromStep" />
+                <Param Name="BatchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_Skip" NewName="JobStepRestartMarker_Skip" />
+                <Param Name="BatchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_StepCheckpoint" NewName="JobStepRestartMarker_StepCheckpoint" />
+                <Param Name="BatchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_ToProcStep" NewName="JobStepRestartMarker_ToProcStep" />
+                <Param Name="BatchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_ToStep" NewName="JobStepRestartMarker_ToStep" />
+                <Param Name="BatchJobIdentifier_S3BatchJobIdentifier_Bucket" NewName="S3BatchJobIdentifier_Bucket" />
+                <Param Name="BatchJobIdentifier_S3BatchJobIdentifier_Identifier_FileName" NewName="Identifier_FileName" />
+                <Param Name="BatchJobIdentifier_S3BatchJobIdentifier_Identifier_ScriptName" NewName="Identifier_ScriptName" />
+                <Param Name="BatchJobIdentifier_S3BatchJobIdentifier_KeyPrefix" NewName="S3BatchJobIdentifier_KeyPrefix" />
+                <Param Name="BatchJobIdentifier_ScriptBatchJobIdentifier_ScriptName" NewName="ScriptBatchJobIdentifier_ScriptName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopApplication" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -28,11 +28,37 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddEntityOwner" Verb="Add" Noun="EntityOwner" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Owner_Group_GroupIdentifier" NewName="Group_GroupIdentifier" />
+                <Param Name="Owner_User_UserIdentifier" NewName="User_UserIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddPolicyGrant" OutputProperty="GrantId" Verb="Add" Noun="PolicyGrant" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Detail_AddToProjectMemberPool_IncludeChildDomainUnits" NewName="AddToProjectMemberPool_IncludeChildDomainUnit" />
+                <Param Name="Detail_CreateAssetType_IncludeChildDomainUnits" NewName="CreateAssetType_IncludeChildDomainUnit" />
+                <Param Name="Detail_CreateDomainUnit_IncludeChildDomainUnits" NewName="CreateDomainUnit_IncludeChildDomainUnit" />
+                <Param Name="Detail_CreateEnvironmentProfile_DomainUnitId" NewName="CreateEnvironmentProfile_DomainUnitId" />
+                <Param Name="Detail_CreateFormType_IncludeChildDomainUnits" NewName="CreateFormType_IncludeChildDomainUnit" />
+                <Param Name="Detail_CreateGlossary_IncludeChildDomainUnits" NewName="CreateGlossary_IncludeChildDomainUnit" />
+                <Param Name="Detail_CreateProject_IncludeChildDomainUnits" NewName="CreateProject_IncludeChildDomainUnit" />
+                <Param Name="Detail_CreateProjectFromProjectProfile_IncludeChildDomainUnits" NewName="CreateProjectFromProjectProfile_IncludeChildDomainUnit" />
+                <Param Name="Detail_CreateProjectFromProjectProfile_ProjectProfiles" NewName="CreateProjectFromProjectProfile_ProjectProfile" />
+                <Param Name="Detail_OverrideDomainUnitOwners_IncludeChildDomainUnits" NewName="OverrideDomainUnitOwners_IncludeChildDomainUnit" />
+                <Param Name="Detail_OverrideProjectOwners_IncludeChildDomainUnits" NewName="OverrideProjectOwners_IncludeChildDomainUnit" />
+                <Param Name="Detail_UseAssetType_DomainUnitId" NewName="UseAssetType_DomainUnitId" />
+                <Param Name="Principal_DomainUnit_DomainUnitDesignation" NewName="DomainUnit_DomainUnitDesignation" />
+                <Param Name="Principal_DomainUnit_DomainUnitGrantFilter_AllDomainUnitsGrantFilter" NewName="DomainUnitGrantFilter_AllDomainUnitsGrantFilter" />
+                <Param Name="Principal_DomainUnit_DomainUnitIdentifier" NewName="DomainUnit_DomainUnitIdentifier" />
+                <Param Name="Principal_Group_GroupIdentifier" NewName="Group_GroupIdentifier" />
+                <Param Name="Principal_Project_ProjectDesignation" NewName="Project_ProjectDesignation" />
+                <Param Name="Principal_Project_ProjectGrantFilter_DomainUnitFilter_DomainUnit" NewName="DomainUnitFilter_DomainUnit" />
+                <Param Name="Principal_Project_ProjectGrantFilter_DomainUnitFilter_IncludeChildDomainUnits" NewName="DomainUnitFilter_IncludeChildDomainUnit" />
+                <Param Name="Principal_Project_ProjectIdentifier" NewName="Project_ProjectIdentifier" />
+                <Param Name="Principal_User_AllUsersGrantFilter" NewName="User_AllUsersGrantFilter" />
+                <Param Name="Principal_User_UserIdentifier" NewName="User_UserIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateEnvironmentRole" Verb="Set" Noun="EnvironmentRole" ShouldProcessTarget="EnvironmentRoleArn" PipelineParameter="EnvironmentRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -60,19 +86,53 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAccountPool" OutputProperty="*" Verb="New" Noun="AccountPool" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="AccountSource_CustomAccountPoolHandler_LambdaExecutionRoleArn" NewName="CustomAccountPoolHandler_LambdaExecutionRoleArn" />
+                <Param Name="AccountSource_CustomAccountPoolHandler_LambdaFunctionArn" NewName="CustomAccountPoolHandler_LambdaFunctionArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAsset" OutputProperty="*" Verb="New" Noun="Asset" ShouldProcessTarget="OwningProjectIdentifier" PipelineParameter="OwningProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PredictionConfiguration_BusinessNameGeneration_Enabled" NewName="BusinessNameGeneration_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAssetFilter" OutputProperty="*" Verb="New" Noun="AssetFilter" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_ColumnConfiguration_IncludedColumnNames" NewName="ColumnConfiguration_IncludedColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_And" NewName="RowFilter_And" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_EqualTo_ColumnName" NewName="EqualTo_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_EqualTo_Value" NewName="EqualTo_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_GreaterThan_ColumnName" NewName="GreaterThan_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_GreaterThan_Value" NewName="GreaterThan_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_GreaterThanOrEqualTo_ColumnName" NewName="GreaterThanOrEqualTo_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_GreaterThanOrEqualTo_Value" NewName="GreaterThanOrEqualTo_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_In_ColumnName" NewName="In_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_In_Values" NewName="In_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_IsNotNull_ColumnName" NewName="IsNotNull_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_IsNull_ColumnName" NewName="IsNull_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_LessThan_ColumnName" NewName="LessThan_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_LessThan_Value" NewName="LessThan_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_LessThanOrEqualTo_ColumnName" NewName="LessThanOrEqualTo_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_LessThanOrEqualTo_Value" NewName="LessThanOrEqualTo_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_Like_ColumnName" NewName="Like_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_Like_Value" NewName="Like_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotEqualTo_ColumnName" NewName="NotEqualTo_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotEqualTo_Value" NewName="NotEqualTo_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotIn_ColumnName" NewName="NotIn_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotIn_Values" NewName="NotIn_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotLike_ColumnName" NewName="NotLike_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotLike_Value" NewName="NotLike_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Or" NewName="RowFilter_Or" />
+                <Param Name="Configuration_RowConfiguration_Sensitive" NewName="RowConfiguration_Sensitive" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAssetRevision" OutputProperty="*" Verb="New" Noun="AssetRevision" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="PredictionConfiguration_BusinessNameGeneration_Enabled" NewName="BusinessNameGeneration_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAssetType" OutputProperty="*" Verb="New" Noun="AssetType" ShouldProcessTarget="OwningProjectIdentifier" PipelineParameter="OwningProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -80,7 +140,74 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConnection" OutputProperty="*" Verb="New" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Props_AmazonQProperties_AuthMode" NewName="AmazonQProperties_AuthMode" />
+                <Param Name="Props_AmazonQProperties_IsEnabled" NewName="AmazonQProperties_IsEnabled" />
+                <Param Name="Props_AmazonQProperties_ProfileArn" NewName="AmazonQProperties_ProfileArn" />
+                <Param Name="Props_AthenaProperties_WorkgroupName" NewName="AthenaProperties_WorkgroupName" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AthenaProperties" NewName="GlueConnectionInput_AthenaProperty" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_AuthenticationType" NewName="AuthenticationConfiguration_AuthenticationType" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_Password" NewName="BasicAuthenticationCredentials_Password" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_UserName" NewName="BasicAuthenticationCredentials_UserName" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_CustomAuthenticationCredentials" NewName="AuthenticationConfiguration_CustomAuthenticationCredential" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_KmsKeyArn" NewName="AuthenticationConfiguration_KmsKeyArn" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode" NewName="AuthorizationCodeProperties_AuthorizationCode" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri" NewName="AuthorizationCodeProperties_RedirectUri" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference" NewName="OAuth2ClientApplication_AWSManagedClientApplicationReference" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId" NewName="OAuth2ClientApplication_UserManagedClientApplicationClientId" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_AccessToken" NewName="OAuth2Credentials_AccessToken" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_JwtToken" NewName="OAuth2Credentials_JwtToken" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_RefreshToken" NewName="OAuth2Credentials_RefreshToken" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_UserManagedClientApplicationClientSecret" NewName="OAuth2Credentials_UserManagedClientApplicationClientSecret" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType" NewName="OAuth2Properties_OAuth2GrantType" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl" NewName="OAuth2Properties_TokenUrl" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap" NewName="OAuth2Properties_TokenUrlParametersMap" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_SecretArn" NewName="AuthenticationConfiguration_SecretArn" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_ConnectionProperties" NewName="GlueConnectionInput_ConnectionProperty" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_ConnectionType" NewName="GlueConnectionInput_ConnectionType" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_Description" NewName="GlueConnectionInput_Description" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_MatchCriteria" NewName="GlueConnectionInput_MatchCriterion" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_Name" NewName="GlueConnectionInput_Name" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_PhysicalConnectionRequirements_AvailabilityZone" NewName="PhysicalConnectionRequirements_AvailabilityZone" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_PhysicalConnectionRequirements_SecurityGroupIdList" NewName="PhysicalConnectionRequirements_SecurityGroupIdList" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_PhysicalConnectionRequirements_SubnetId" NewName="PhysicalConnectionRequirements_SubnetId" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_PhysicalConnectionRequirements_SubnetIdList" NewName="PhysicalConnectionRequirements_SubnetIdList" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_PythonProperties" NewName="GlueConnectionInput_PythonProperty" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_SparkProperties" NewName="GlueConnectionInput_SparkProperty" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_ValidateCredentials" NewName="GlueConnectionInput_ValidateCredential" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_ValidateForComputeEnvironments" NewName="GlueConnectionInput_ValidateForComputeEnvironment" />
+                <Param Name="Props_HyperPodProperties_ClusterName" NewName="HyperPodProperties_ClusterName" />
+                <Param Name="Props_IamProperties_GlueLineageSyncEnabled" NewName="IamProperties_GlueLineageSyncEnabled" />
+                <Param Name="Props_MlflowProperties_TrackingServerArn" NewName="MlflowProperties_TrackingServerArn" />
+                <Param Name="Props_RedshiftProperties_Credentials_SecretArn" NewName="Credentials_SecretArn" />
+                <Param Name="Props_RedshiftProperties_Credentials_UsernamePassword_Password" NewName="UsernamePassword_Password" />
+                <Param Name="Props_RedshiftProperties_Credentials_UsernamePassword_Username" NewName="UsernamePassword_Username" />
+                <Param Name="Props_RedshiftProperties_DatabaseName" NewName="RedshiftProperties_DatabaseName" />
+                <Param Name="Props_RedshiftProperties_Host" NewName="RedshiftProperties_Host" />
+                <Param Name="Props_RedshiftProperties_LineageSync_Enabled" NewName="LineageSync_Enabled" />
+                <Param Name="Props_RedshiftProperties_LineageSync_Schedule_Schedule" NewName="Schedule_Schedule" />
+                <Param Name="Props_RedshiftProperties_Port" NewName="RedshiftProperties_Port" />
+                <Param Name="Props_RedshiftProperties_Storage_ClusterName" NewName="Storage_ClusterName" />
+                <Param Name="Props_RedshiftProperties_Storage_WorkgroupName" NewName="Storage_WorkgroupName" />
+                <Param Name="Props_S3Properties_S3AccessGrantLocationId" NewName="S3Properties_S3AccessGrantLocationId" />
+                <Param Name="Props_S3Properties_S3Uri" NewName="S3Properties_S3Uri" />
+                <Param Name="Props_SparkEmrProperties_ComputeArn" NewName="SparkEmrProperties_ComputeArn" />
+                <Param Name="Props_SparkEmrProperties_InstanceProfileArn" NewName="SparkEmrProperties_InstanceProfileArn" />
+                <Param Name="Props_SparkEmrProperties_JavaVirtualEnv" NewName="SparkEmrProperties_JavaVirtualEnv" />
+                <Param Name="Props_SparkEmrProperties_LogUri" NewName="SparkEmrProperties_LogUri" />
+                <Param Name="Props_SparkEmrProperties_ManagedEndpointArn" NewName="SparkEmrProperties_ManagedEndpointArn" />
+                <Param Name="Props_SparkEmrProperties_PythonVirtualEnv" NewName="SparkEmrProperties_PythonVirtualEnv" />
+                <Param Name="Props_SparkEmrProperties_RuntimeRole" NewName="SparkEmrProperties_RuntimeRole" />
+                <Param Name="Props_SparkEmrProperties_TrustedCertificatesS3Uri" NewName="SparkEmrProperties_TrustedCertificatesS3Uri" />
+                <Param Name="Props_SparkGlueProperties_AdditionalArgs_Connection" NewName="AdditionalArgs_Connection" />
+                <Param Name="Props_SparkGlueProperties_GlueConnectionName" NewName="SparkGlueProperties_GlueConnectionName" />
+                <Param Name="Props_SparkGlueProperties_GlueVersion" NewName="SparkGlueProperties_GlueVersion" />
+                <Param Name="Props_SparkGlueProperties_IdleTimeout" NewName="SparkGlueProperties_IdleTimeout" />
+                <Param Name="Props_SparkGlueProperties_JavaVirtualEnv" NewName="SparkGlueProperties_JavaVirtualEnv" />
+                <Param Name="Props_SparkGlueProperties_NumberOfWorkers" NewName="SparkGlueProperties_NumberOfWorker" />
+                <Param Name="Props_SparkGlueProperties_PythonVirtualEnv" NewName="SparkGlueProperties_PythonVirtualEnv" />
+                <Param Name="Props_SparkGlueProperties_WorkerType" NewName="SparkGlueProperties_WorkerType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataProduct" OutputProperty="*" Verb="New" Noun="DataProduct" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -92,7 +219,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_GlueRunConfiguration_AutoImportDataQualityResult" NewName="GlueRunConfiguration_AutoImportDataQualityResult" />
+                <Param Name="Configuration_GlueRunConfiguration_CatalogName" NewName="GlueRunConfiguration_CatalogName" />
+                <Param Name="Configuration_GlueRunConfiguration_DataAccessRole" NewName="GlueRunConfiguration_DataAccessRole" />
+                <Param Name="Configuration_GlueRunConfiguration_RelationalFilterConfigurations" NewName="GlueRunConfiguration_RelationalFilterConfiguration" />
+                <Param Name="Configuration_RedshiftRunConfiguration_DataAccessRole" NewName="RedshiftRunConfiguration_DataAccessRole" />
+                <Param Name="Configuration_RedshiftRunConfiguration_RedshiftCredentialConfiguration_SecretManagerArn" NewName="RedshiftCredentialConfiguration_SecretManagerArn" />
+                <Param Name="Configuration_RedshiftRunConfiguration_RedshiftStorage_RedshiftClusterSource_ClusterName" NewName="RedshiftClusterSource_ClusterName" />
+                <Param Name="Configuration_RedshiftRunConfiguration_RedshiftStorage_RedshiftServerlessSource_WorkgroupName" NewName="RedshiftServerlessSource_WorkgroupName" />
+                <Param Name="Configuration_RedshiftRunConfiguration_RelationalFilterConfigurations" NewName="RedshiftRunConfiguration_RelationalFilterConfiguration" />
+                <Param Name="Configuration_SageMakerRunConfiguration_TrackingAssets" NewName="SageMakerRunConfiguration_TrackingAsset" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -108,11 +246,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEnvironmentAction" OutputProperty="*" Verb="New" Noun="EnvironmentAction" ShouldProcessTarget="EnvironmentIdentifier" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Parameters_AwsConsoleLink_Uri" NewName="AwsConsoleLink_Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEnvironmentBlueprint" OutputProperty="*" Verb="New" Noun="EnvironmentBlueprint" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="ProvisioningProperties_CloudFormation_TemplateUrl" NewName="CloudFormation_TemplateUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEnvironmentProfile" OutputProperty="*" Verb="New" Noun="EnvironmentProfile" ShouldProcessTarget="EnvironmentBlueprintIdentifier" PipelineParameter="EnvironmentBlueprintIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -164,7 +306,10 @@
             </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSubscriptionGrant" OutputProperty="*" Verb="New" Noun="SubscriptionGrant" ShouldProcessTarget="SubscriptionTargetIdentifier" PipelineParameter="SubscriptionTargetIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GrantedEntity_Listing_Identifier" NewName="Listing_Identifier" />
+                <Param Name="GrantedEntity_Listing_Revision" NewName="Listing_Revision" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSubscriptionRequest" OutputProperty="*" Verb="New" Noun="SubscriptionRequest" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -605,11 +750,25 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveEntityOwner" Verb="Remove" Noun="EntityOwner" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Owner_Group_GroupIdentifier" NewName="Group_GroupIdentifier" />
+                <Param Name="Owner_User_UserIdentifier" NewName="User_UserIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemovePolicyGrant" Verb="Remove" Noun="PolicyGrant" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Principal_DomainUnit_DomainUnitDesignation" NewName="DomainUnit_DomainUnitDesignation" />
+                <Param Name="Principal_DomainUnit_DomainUnitGrantFilter_AllDomainUnitsGrantFilter" NewName="DomainUnitGrantFilter_AllDomainUnitsGrantFilter" />
+                <Param Name="Principal_DomainUnit_DomainUnitIdentifier" NewName="DomainUnit_DomainUnitIdentifier" />
+                <Param Name="Principal_Group_GroupIdentifier" NewName="Group_GroupIdentifier" />
+                <Param Name="Principal_Project_ProjectDesignation" NewName="Project_ProjectDesignation" />
+                <Param Name="Principal_Project_ProjectGrantFilter_DomainUnitFilter_DomainUnit" NewName="DomainUnitFilter_DomainUnit" />
+                <Param Name="Principal_Project_ProjectGrantFilter_DomainUnitFilter_IncludeChildDomainUnits" NewName="DomainUnitFilter_IncludeChildDomainUnit" />
+                <Param Name="Principal_Project_ProjectIdentifier" NewName="Project_ProjectIdentifier" />
+                <Param Name="Principal_User_AllUsersGrantFilter" NewName="User_AllUsersGrantFilter" />
+                <Param Name="Principal_User_UserIdentifier" NewName="User_UserIdentifier" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RevokeSubscription" OutputProperty="*" Verb="Revoke" Noun="Subscription" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -617,7 +776,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Search" OutputProperty="*" Verb="Search" Noun="Resource" ShouldProcessTarget="DomainIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filters_Filter_Attribute" NewName="Filter_Attribute" />
+                <Param Name="Filters_Filter_Value" NewName="Filter_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchGroupProfiles" OutputProperty="*" Verb="Search" Noun="GroupProfile" ShouldProcessTarget="DomainIdentifier" PipelineParameter="GroupType" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -625,11 +787,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchListings" OutputProperty="*" Verb="Search" Noun="Listing" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filters_Filter_Attribute" NewName="Filter_Attribute" />
+                <Param Name="Filters_Filter_Value" NewName="Filter_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchTypes" OutputProperty="*" Verb="Search" Noun="Type" ShouldProcessTarget="DomainIdentifier" PipelineParameter="SearchScope" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filters_Filter_Attribute" NewName="Filter_Attribute" />
+                <Param Name="Filters_Filter_Value" NewName="Filter_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchUserProfiles" OutputProperty="*" Verb="Search" Noun="UserProfile" ShouldProcessTarget="DomainIdentifier" PipelineParameter="UserType" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -655,19 +823,92 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccountPool" OutputProperty="*" Verb="Update" Noun="AccountPool" ShouldProcessTarget="DomainIdentifier" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AccountSource_CustomAccountPoolHandler_LambdaExecutionRoleArn" NewName="CustomAccountPoolHandler_LambdaExecutionRoleArn" />
+                <Param Name="AccountSource_CustomAccountPoolHandler_LambdaFunctionArn" NewName="CustomAccountPoolHandler_LambdaFunctionArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAssetFilter" OutputProperty="*" Verb="Update" Noun="AssetFilter" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_ColumnConfiguration_IncludedColumnNames" NewName="ColumnConfiguration_IncludedColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_And" NewName="RowFilter_And" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_EqualTo_ColumnName" NewName="EqualTo_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_EqualTo_Value" NewName="EqualTo_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_GreaterThan_ColumnName" NewName="GreaterThan_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_GreaterThan_Value" NewName="GreaterThan_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_GreaterThanOrEqualTo_ColumnName" NewName="GreaterThanOrEqualTo_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_GreaterThanOrEqualTo_Value" NewName="GreaterThanOrEqualTo_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_In_ColumnName" NewName="In_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_In_Values" NewName="In_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_IsNotNull_ColumnName" NewName="IsNotNull_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_IsNull_ColumnName" NewName="IsNull_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_LessThan_ColumnName" NewName="LessThan_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_LessThan_Value" NewName="LessThan_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_LessThanOrEqualTo_ColumnName" NewName="LessThanOrEqualTo_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_LessThanOrEqualTo_Value" NewName="LessThanOrEqualTo_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_Like_ColumnName" NewName="Like_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_Like_Value" NewName="Like_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotEqualTo_ColumnName" NewName="NotEqualTo_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotEqualTo_Value" NewName="NotEqualTo_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotIn_ColumnName" NewName="NotIn_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotIn_Values" NewName="NotIn_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotLike_ColumnName" NewName="NotLike_ColumnName" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Expression_NotLike_Value" NewName="NotLike_Value" />
+                <Param Name="Configuration_RowConfiguration_RowFilter_Or" NewName="RowFilter_Or" />
+                <Param Name="Configuration_RowConfiguration_Sensitive" NewName="RowConfiguration_Sensitive" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnection" OutputProperty="*" Verb="Update" Noun="Connection" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Props_AmazonQProperties_AuthMode" NewName="AmazonQProperties_AuthMode" />
+                <Param Name="Props_AmazonQProperties_IsEnabled" NewName="AmazonQProperties_IsEnabled" />
+                <Param Name="Props_AmazonQProperties_ProfileArn" NewName="AmazonQProperties_ProfileArn" />
+                <Param Name="Props_AthenaProperties_WorkgroupName" NewName="AthenaProperties_WorkgroupName" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_Password" NewName="BasicAuthenticationCredentials_Password" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_UserName" NewName="BasicAuthenticationCredentials_UserName" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_SecretArn" NewName="AuthenticationConfiguration_SecretArn" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_ConnectionProperties" NewName="GlueConnectionInput_ConnectionProperty" />
+                <Param Name="Props_GlueProperties_GlueConnectionInput_Description" NewName="GlueConnectionInput_Description" />
+                <Param Name="Props_IamProperties_GlueLineageSyncEnabled" NewName="IamProperties_GlueLineageSyncEnabled" />
+                <Param Name="Props_MlflowProperties_TrackingServerArn" NewName="MlflowProperties_TrackingServerArn" />
+                <Param Name="Props_RedshiftProperties_Credentials_SecretArn" NewName="Credentials_SecretArn" />
+                <Param Name="Props_RedshiftProperties_Credentials_UsernamePassword_Password" NewName="UsernamePassword_Password" />
+                <Param Name="Props_RedshiftProperties_Credentials_UsernamePassword_Username" NewName="UsernamePassword_Username" />
+                <Param Name="Props_RedshiftProperties_DatabaseName" NewName="RedshiftProperties_DatabaseName" />
+                <Param Name="Props_RedshiftProperties_Host" NewName="RedshiftProperties_Host" />
+                <Param Name="Props_RedshiftProperties_LineageSync_Enabled" NewName="LineageSync_Enabled" />
+                <Param Name="Props_RedshiftProperties_LineageSync_Schedule_Schedule" NewName="Schedule_Schedule" />
+                <Param Name="Props_RedshiftProperties_Port" NewName="RedshiftProperties_Port" />
+                <Param Name="Props_RedshiftProperties_Storage_ClusterName" NewName="Storage_ClusterName" />
+                <Param Name="Props_RedshiftProperties_Storage_WorkgroupName" NewName="Storage_WorkgroupName" />
+                <Param Name="Props_S3Properties_S3AccessGrantLocationId" NewName="S3Properties_S3AccessGrantLocationId" />
+                <Param Name="Props_S3Properties_S3Uri" NewName="S3Properties_S3Uri" />
+                <Param Name="Props_SparkEmrProperties_ComputeArn" NewName="SparkEmrProperties_ComputeArn" />
+                <Param Name="Props_SparkEmrProperties_InstanceProfileArn" NewName="SparkEmrProperties_InstanceProfileArn" />
+                <Param Name="Props_SparkEmrProperties_JavaVirtualEnv" NewName="SparkEmrProperties_JavaVirtualEnv" />
+                <Param Name="Props_SparkEmrProperties_LogUri" NewName="SparkEmrProperties_LogUri" />
+                <Param Name="Props_SparkEmrProperties_ManagedEndpointArn" NewName="SparkEmrProperties_ManagedEndpointArn" />
+                <Param Name="Props_SparkEmrProperties_PythonVirtualEnv" NewName="SparkEmrProperties_PythonVirtualEnv" />
+                <Param Name="Props_SparkEmrProperties_RuntimeRole" NewName="SparkEmrProperties_RuntimeRole" />
+                <Param Name="Props_SparkEmrProperties_TrustedCertificatesS3Uri" NewName="SparkEmrProperties_TrustedCertificatesS3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSource" OutputProperty="*" Verb="Update" Noun="DataSource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_GlueRunConfiguration_AutoImportDataQualityResult" NewName="GlueRunConfiguration_AutoImportDataQualityResult" />
+                <Param Name="Configuration_GlueRunConfiguration_CatalogName" NewName="GlueRunConfiguration_CatalogName" />
+                <Param Name="Configuration_GlueRunConfiguration_DataAccessRole" NewName="GlueRunConfiguration_DataAccessRole" />
+                <Param Name="Configuration_GlueRunConfiguration_RelationalFilterConfigurations" NewName="GlueRunConfiguration_RelationalFilterConfiguration" />
+                <Param Name="Configuration_RedshiftRunConfiguration_DataAccessRole" NewName="RedshiftRunConfiguration_DataAccessRole" />
+                <Param Name="Configuration_RedshiftRunConfiguration_RedshiftCredentialConfiguration_SecretManagerArn" NewName="RedshiftCredentialConfiguration_SecretManagerArn" />
+                <Param Name="Configuration_RedshiftRunConfiguration_RedshiftStorage_RedshiftClusterSource_ClusterName" NewName="RedshiftClusterSource_ClusterName" />
+                <Param Name="Configuration_RedshiftRunConfiguration_RedshiftStorage_RedshiftServerlessSource_WorkgroupName" NewName="RedshiftServerlessSource_WorkgroupName" />
+                <Param Name="Configuration_RedshiftRunConfiguration_RelationalFilterConfigurations" NewName="RedshiftRunConfiguration_RelationalFilterConfiguration" />
+                <Param Name="Configuration_SageMakerRunConfiguration_TrackingAssets" NewName="SageMakerRunConfiguration_TrackingAsset" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomain" OutputProperty="*" Verb="Update" Noun="Domain" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -683,11 +924,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEnvironmentAction" OutputProperty="*" Verb="Update" Noun="EnvironmentAction" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Parameters_AwsConsoleLink_Uri" NewName="AwsConsoleLink_Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEnvironmentBlueprint" OutputProperty="*" Verb="Update" Noun="EnvironmentBlueprint" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="ProvisioningProperties_CloudFormation_TemplateUrl" NewName="CloudFormation_TemplateUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEnvironmentProfile" OutputProperty="*" Verb="Update" Noun="EnvironmentProfile" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">

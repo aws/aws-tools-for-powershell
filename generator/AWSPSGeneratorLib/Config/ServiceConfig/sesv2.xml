@@ -28,11 +28,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfigurationSet" Verb="New" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="VdmOptions_DashboardOptions_EngagementMetrics" NewName="DashboardOptions_EngagementMetric" />
+                <Param Name="VdmOptions_GuardianOptions_OptimizedSharedDelivery" NewName="GuardianOptions_OptimizedSharedDelivery" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Verb="New" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EventDestination_CloudWatchDestination_DimensionConfigurations" NewName="CloudWatchDestination_DimensionConfiguration" />
+                <Param Name="EventDestination_EventBridgeDestination_EventBusArn" NewName="EventBridgeDestination_EventBusArn" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_DeliveryStreamArn" NewName="KinesisFirehoseDestination_DeliveryStreamArn" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_IamRoleArn" NewName="KinesisFirehoseDestination_IamRoleArn" />
+                <Param Name="EventDestination_PinpointDestination_ApplicationArn" NewName="PinpointDestination_ApplicationArn" />
+                <Param Name="EventDestination_SnsDestination_TopicArn" NewName="SnsDestination_TopicArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContact" Verb="New" Noun="Contact" ShouldProcessTarget="ContactListName" PipelineParameter="ContactListName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -52,7 +62,25 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeliverabilityTestReport" OutputProperty="*" Verb="New" Noun="DeliverabilityTestReport" ShouldProcessTarget="ReportName" PipelineParameter="FromEmailAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Content_Raw_Data" NewName="Raw_Data" />
+                <Param Name="Content_Simple_Attachments" NewName="Simple_Attachment" />
+                <Param Name="Content_Simple_Body_Html_Charset" NewName="Html_Charset" />
+                <Param Name="Content_Simple_Body_Html_Data" NewName="Html_Data" />
+                <Param Name="Content_Simple_Body_Text_Charset" NewName="Text_Charset" />
+                <Param Name="Content_Simple_Body_Text_Data" NewName="Text_Data" />
+                <Param Name="Content_Simple_Headers" NewName="Simple_Header" />
+                <Param Name="Content_Simple_Subject_Charset" NewName="Subject_Charset" />
+                <Param Name="Content_Simple_Subject_Data" NewName="Subject_Data" />
+                <Param Name="Content_Template_Attachments" NewName="Template_Attachment" />
+                <Param Name="Content_Template_Headers" NewName="Template_Header" />
+                <Param Name="Content_Template_TemplateArn" NewName="Template_TemplateArn" />
+                <Param Name="Content_Template_TemplateContent_Html" NewName="TemplateContent_Html" />
+                <Param Name="Content_Template_TemplateContent_Subject" NewName="TemplateContent_Subject" />
+                <Param Name="Content_Template_TemplateContent_Text" NewName="TemplateContent_Text" />
+                <Param Name="Content_Template_TemplateData" NewName="Template_TemplateData" />
+                <Param Name="Content_Template_TemplateName" NewName="Template_TemplateName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEmailIdentity" OutputProperty="*" Verb="New" Noun="EmailIdentity" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -68,11 +96,36 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateExportJob" OutputProperty="JobId" Verb="New" Noun="ExportJob" ShouldProcessTarget="ExportDestination_DataFormat" PipelineParameter="ExportDestination_DataFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExportDataSource_MessageInsightsDataSource_EndDate" NewName="MessageInsightsDataSource_EndDate" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Exclude_Destination" NewName="Exclude_Destination" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Exclude_FromEmailAddress" NewName="Exclude_FromEmailAddress" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Exclude_Isp" NewName="Exclude_Isp" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Exclude_LastDeliveryEvent" NewName="Exclude_LastDeliveryEvent" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Exclude_LastEngagementEvent" NewName="Exclude_LastEngagementEvent" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Exclude_Subject" NewName="Exclude_Subject" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Include_Destination" NewName="Include_Destination" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Include_FromEmailAddress" NewName="Include_FromEmailAddress" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Include_Isp" NewName="Include_Isp" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Include_LastDeliveryEvent" NewName="Include_LastDeliveryEvent" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Include_LastEngagementEvent" NewName="Include_LastEngagementEvent" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_Include_Subject" NewName="Include_Subject" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_MaxResults" NewName="MessageInsightsDataSource_MaxResult" />
+                <Param Name="ExportDataSource_MessageInsightsDataSource_StartDate" NewName="MessageInsightsDataSource_StartDate" />
+                <Param Name="ExportDataSource_MetricsDataSource_Dimensions" NewName="MetricsDataSource_Dimension" />
+                <Param Name="ExportDataSource_MetricsDataSource_EndDate" NewName="MetricsDataSource_EndDate" />
+                <Param Name="ExportDataSource_MetricsDataSource_Metrics" NewName="MetricsDataSource_Metric" />
+                <Param Name="ExportDataSource_MetricsDataSource_Namespace" NewName="MetricsDataSource_Namespace" />
+                <Param Name="ExportDataSource_MetricsDataSource_StartDate" NewName="MetricsDataSource_StartDate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateImportJob" OutputProperty="JobId" Verb="New" Noun="ImportJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ImportDestination_ContactListDestination_ContactListImportAction" NewName="ContactListDestination_ContactListImportAction" />
+                <Param Name="ImportDestination_ContactListDestination_ContactListName" NewName="ContactListDestination_ContactListName" />
+                <Param Name="ImportDestination_SuppressionListDestination_SuppressionListImportAction" NewName="SuppressionListDestination_SuppressionListImportAction" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMultiRegionEndpoint" OutputProperty="*" Verb="New" Noun="MultiRegionEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -244,7 +297,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListContacts" OutputProperty="Contacts" Verb="Get" Noun="ContactCollection" PipelineParameter="ContactListName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filter_TopicFilter_TopicName" NewName="TopicFilter_TopicName" />
+                <Param Name="Filter_TopicFilter_UseDefaultIfPreferenceUnavailable" NewName="TopicFilter_UseDefaultIfPreferenceUnavailable" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCustomVerificationEmailTemplates" OutputProperty="CustomVerificationEmailTemplates" Verb="Get" Noun="CustomVerificationEmailTemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -328,7 +384,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAccountVdmAttributes" Verb="Write" Noun="AccountVdmAttribute" ShouldProcessTarget="VdmAttributes_VdmEnabled" PipelineParameter="VdmAttributes_VdmEnabled" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="VdmAttributes_DashboardAttributes_EngagementMetrics" NewName="DashboardAttributes_EngagementMetric" />
+                <Param Name="VdmAttributes_GuardianAttributes_OptimizedSharedDelivery" NewName="GuardianAttributes_OptimizedSharedDelivery" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutConfigurationSetArchivingOptions" Verb="Write" Noun="ConfigurationSetArchivingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -356,7 +415,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutConfigurationSetVdmOptions" Verb="Write" Noun="ConfigurationSetVdmOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="VdmOptions_DashboardOptions_EngagementMetrics" NewName="DashboardOptions_EngagementMetric" />
+                <Param Name="VdmOptions_GuardianOptions_OptimizedSharedDelivery" NewName="GuardianOptions_OptimizedSharedDelivery" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDedicatedIpInPool" Verb="Write" Noun="DedicatedIpInPool" ShouldProcessTarget="DestinationPoolName" PipelineParameter="Ip" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -400,7 +462,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendBulkEmail" OutputProperty="BulkEmailEntryResults" Verb="Send" Noun="BulkEmail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DefaultContent_Template_Attachments" NewName="Template_Attachment" />
+                <Param Name="DefaultContent_Template_Headers" NewName="Template_Header" />
+                <Param Name="DefaultContent_Template_TemplateArn" NewName="Template_TemplateArn" />
+                <Param Name="DefaultContent_Template_TemplateContent_Html" NewName="TemplateContent_Html" />
+                <Param Name="DefaultContent_Template_TemplateContent_Subject" NewName="TemplateContent_Subject" />
+                <Param Name="DefaultContent_Template_TemplateContent_Text" NewName="TemplateContent_Text" />
+                <Param Name="DefaultContent_Template_TemplateData" NewName="Template_TemplateData" />
+                <Param Name="DefaultContent_Template_TemplateName" NewName="Template_TemplateName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendCustomVerificationEmail" OutputProperty="MessageId" Verb="Send" Noun="CustomVerificationEmail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -408,7 +479,25 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendEmail" OutputProperty="MessageId" Verb="Send" Noun="Email" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Content_Raw_Data" NewName="Raw_Data" />
+                <Param Name="Content_Simple_Attachments" NewName="Simple_Attachment" />
+                <Param Name="Content_Simple_Body_Html_Charset" NewName="Html_Charset" />
+                <Param Name="Content_Simple_Body_Html_Data" NewName="Html_Data" />
+                <Param Name="Content_Simple_Body_Text_Charset" NewName="Text_Charset" />
+                <Param Name="Content_Simple_Body_Text_Data" NewName="Text_Data" />
+                <Param Name="Content_Simple_Headers" NewName="Simple_Header" />
+                <Param Name="Content_Simple_Subject_Charset" NewName="Subject_Charset" />
+                <Param Name="Content_Simple_Subject_Data" NewName="Subject_Data" />
+                <Param Name="Content_Template_Attachments" NewName="Template_Attachment" />
+                <Param Name="Content_Template_Headers" NewName="Template_Header" />
+                <Param Name="Content_Template_TemplateArn" NewName="Template_TemplateArn" />
+                <Param Name="Content_Template_TemplateContent_Html" NewName="TemplateContent_Html" />
+                <Param Name="Content_Template_TemplateContent_Subject" NewName="TemplateContent_Subject" />
+                <Param Name="Content_Template_TemplateContent_Text" NewName="TemplateContent_Text" />
+                <Param Name="Content_Template_TemplateData" NewName="Template_TemplateData" />
+                <Param Name="Content_Template_TemplateName" NewName="Template_TemplateName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -424,7 +513,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Verb="Update" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="EventDestination_CloudWatchDestination_DimensionConfigurations" NewName="CloudWatchDestination_DimensionConfiguration" />
+                <Param Name="EventDestination_EventBridgeDestination_EventBusArn" NewName="EventBridgeDestination_EventBusArn" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_DeliveryStreamArn" NewName="KinesisFirehoseDestination_DeliveryStreamArn" />
+                <Param Name="EventDestination_KinesisFirehoseDestination_IamRoleArn" NewName="KinesisFirehoseDestination_IamRoleArn" />
+                <Param Name="EventDestination_PinpointDestination_ApplicationArn" NewName="PinpointDestination_ApplicationArn" />
+                <Param Name="EventDestination_SnsDestination_TopicArn" NewName="SnsDestination_TopicArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContact" Verb="Update" Noun="Contact" ShouldProcessTarget="ContactListName" PipelineParameter="ContactListName" NoPipelineParameter="false" LegacyV4Pagination="true">

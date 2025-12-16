@@ -27,7 +27,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkflowStep" OutputProperty="*" Verb="New" Noun="WorkflowStep" ShouldProcessTarget="WorkflowId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WorkflowStepAutomationConfiguration_Command_Linux" NewName="Command_Linux" />
+                <Param Name="WorkflowStepAutomationConfiguration_Command_Windows" NewName="Command_Window" />
+                <Param Name="WorkflowStepAutomationConfiguration_ScriptLocationS3Key_Linux" NewName="ScriptLocationS3Key_Linux" />
+                <Param Name="WorkflowStepAutomationConfiguration_ScriptLocationS3Key_Windows" NewName="ScriptLocationS3Key_Window" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkflowStepGroup" OutputProperty="*" Verb="New" Noun="WorkflowStepGroup" ShouldProcessTarget="WorkflowId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -135,7 +140,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkflowStep" OutputProperty="*" Verb="Update" Noun="WorkflowStep" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="WorkflowStepAutomationConfiguration_Command_Linux" NewName="Command_Linux" />
+                <Param Name="WorkflowStepAutomationConfiguration_Command_Windows" NewName="Command_Window" />
+                <Param Name="WorkflowStepAutomationConfiguration_ScriptLocationS3Key_Linux" NewName="ScriptLocationS3Key_Linux" />
+                <Param Name="WorkflowStepAutomationConfiguration_ScriptLocationS3Key_Windows" NewName="ScriptLocationS3Key_Window" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkflowStepGroup" OutputProperty="*" Verb="Update" Noun="WorkflowStepGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">

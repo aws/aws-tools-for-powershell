@@ -48,11 +48,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartSearchJob" OutputProperty="*" Verb="Start" Noun="SearchJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchScope_BackupResourceCreationTime_CreatedAfter" NewName="BackupResourceCreationTime_CreatedAfter" />
+                <Param Name="SearchScope_BackupResourceCreationTime_CreatedBefore" NewName="BackupResourceCreationTime_CreatedBefore" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartSearchResultExportJob" OutputProperty="*" Verb="Start" Noun="SearchResultExportJob" ShouldProcessTarget="SearchJobIdentifier" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExportSpecification_S3ExportSpecification_DestinationBucket" NewName="S3ExportSpecification_DestinationBucket" />
+                <Param Name="ExportSpecification_S3ExportSpecification_DestinationPrefix" NewName="S3ExportSpecification_DestinationPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopSearchJob" Verb="Stop" Noun="SearchJob" ShouldProcessTarget="SearchJobIdentifier" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">

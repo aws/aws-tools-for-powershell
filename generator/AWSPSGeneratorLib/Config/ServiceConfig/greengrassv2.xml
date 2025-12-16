@@ -36,11 +36,38 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateComponentVersion" OutputProperty="*" Verb="New" Noun="ComponentVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LambdaFunction_ComponentLambdaParameters_EnvironmentVariables" NewName="ComponentLambdaParameters_EnvironmentVariable" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_EventSources" NewName="ComponentLambdaParameters_EventSource" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_ExecArgs" NewName="ComponentLambdaParameters_ExecArg" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_InputPayloadEncodingType" NewName="ComponentLambdaParameters_InputPayloadEncodingType" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_LinuxProcessParams_ContainerParams_Devices" NewName="ContainerParams_Device" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_LinuxProcessParams_ContainerParams_MemorySizeInKB" NewName="ContainerParams_MemorySizeInKB" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_LinuxProcessParams_ContainerParams_MountROSysfs" NewName="ContainerParams_MountROSysf" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_LinuxProcessParams_ContainerParams_Volumes" NewName="ContainerParams_Volume" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_LinuxProcessParams_IsolationMode" NewName="LinuxProcessParams_IsolationMode" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_MaxIdleTimeInSeconds" NewName="ComponentLambdaParameters_MaxIdleTimeInSecond" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_MaxInstancesCount" NewName="ComponentLambdaParameters_MaxInstancesCount" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_MaxQueueSize" NewName="ComponentLambdaParameters_MaxQueueSize" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_Pinned" NewName="ComponentLambdaParameters_Pinned" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_StatusTimeoutInSeconds" NewName="ComponentLambdaParameters_StatusTimeoutInSecond" />
+                <Param Name="LambdaFunction_ComponentLambdaParameters_TimeoutInSeconds" NewName="ComponentLambdaParameters_TimeoutInSecond" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeployment" OutputProperty="*" Verb="New" Noun="Deployment" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DeploymentPolicies_ComponentUpdatePolicy_Action" NewName="ComponentUpdatePolicy_Action" />
+                <Param Name="DeploymentPolicies_ComponentUpdatePolicy_TimeoutInSeconds" NewName="ComponentUpdatePolicy_TimeoutInSecond" />
+                <Param Name="DeploymentPolicies_ConfigurationValidationPolicy_TimeoutInSeconds" NewName="ConfigurationValidationPolicy_TimeoutInSecond" />
+                <Param Name="IotJobConfiguration_AbortConfig_CriteriaList" NewName="AbortConfig_CriteriaList" />
+                <Param Name="IotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_BaseRatePerMinute" NewName="ExponentialRate_BaseRatePerMinute" />
+                <Param Name="IotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_IncrementFactor" NewName="ExponentialRate_IncrementFactor" />
+                <Param Name="IotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_NumberOfNotifiedThings" NewName="RateIncreaseCriteria_NumberOfNotifiedThing" />
+                <Param Name="IotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_NumberOfSucceededThings" NewName="RateIncreaseCriteria_NumberOfSucceededThing" />
+                <Param Name="IotJobConfiguration_JobExecutionsRolloutConfig_MaximumPerMinute" NewName="JobExecutionsRolloutConfig_MaximumPerMinute" />
+                <Param Name="IotJobConfiguration_TimeoutConfig_InProgressTimeoutInMinutes" NewName="TimeoutConfig_InProgressTimeoutInMinute" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteComponent" Verb="Remove" Noun="Component" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">

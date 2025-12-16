@@ -28,13 +28,50 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCluster" OutputProperty="*" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ClientAuthentication_Sasl_Iam_Enabled" NewName="Iam_Enabled" />
+                <Param Name="ClientAuthentication_Sasl_Scram_Enabled" NewName="Scram_Enabled" />
+                <Param Name="ClientAuthentication_Tls_CertificateAuthorityArnList" NewName="Tls_CertificateAuthorityArnList" />
+                <Param Name="ClientAuthentication_Tls_Enabled" NewName="Tls_Enabled" />
+                <Param Name="ClientAuthentication_Unauthenticated_Enabled" NewName="Unauthenticated_Enabled" />
+                <Param Name="EncryptionInfo_EncryptionAtRest_DataVolumeKMSKeyId" NewName="EncryptionAtRest_DataVolumeKMSKeyId" />
+                <Param Name="EncryptionInfo_EncryptionInTransit_ClientBroker" NewName="EncryptionInTransit_ClientBroker" />
+                <Param Name="EncryptionInfo_EncryptionInTransit_InCluster" NewName="EncryptionInTransit_InCluster" />
+                <Param Name="LoggingInfo_BrokerLogs_CloudWatchLogs_Enabled" NewName="CloudWatchLogs_Enabled" />
+                <Param Name="LoggingInfo_BrokerLogs_CloudWatchLogs_LogGroup" NewName="CloudWatchLogs_LogGroup" />
+                <Param Name="LoggingInfo_BrokerLogs_Firehose_DeliveryStream" NewName="Firehose_DeliveryStream" />
+                <Param Name="LoggingInfo_BrokerLogs_Firehose_Enabled" NewName="Firehose_Enabled" />
+                <Param Name="LoggingInfo_BrokerLogs_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="LoggingInfo_BrokerLogs_S3_Enabled" NewName="S3_Enabled" />
+                <Param Name="LoggingInfo_BrokerLogs_S3_Prefix" NewName="S3_Prefix" />
+                <Param Name="OpenMonitoring_Prometheus_JmxExporter_EnabledInBroker" NewName="JmxExporter_EnabledInBroker" />
+                <Param Name="OpenMonitoring_Prometheus_NodeExporter_EnabledInBroker" NewName="NodeExporter_EnabledInBroker" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateClusterV2" OutputProperty="*" Verb="New" Noun="ClusterV2" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Provisioned_ClientAuthentication_Sasl_Iam_Enabled" NewName="Provisioned_ClientAuthentication_Sasl_Iam_Enabled" />
                 <Param Name="Serverless_ClientAuthentication_Sasl_Iam_Enabled" NewName="Serverless_ClientAuthentication_Sasl_Iam_Enabled" />
+                <Param Name="Provisioned_ClientAuthentication_Sasl_Scram_Enabled" NewName="Scram_Enabled" />
+                <Param Name="Provisioned_ClientAuthentication_Tls_CertificateAuthorityArnList" NewName="Tls_CertificateAuthorityArnList" />
+                <Param Name="Provisioned_ClientAuthentication_Tls_Enabled" NewName="Tls_Enabled" />
+                <Param Name="Provisioned_ClientAuthentication_Unauthenticated_Enabled" NewName="Unauthenticated_Enabled" />
+                <Param Name="Provisioned_ConfigurationInfo_Arn" NewName="ConfigurationInfo_Arn" />
+                <Param Name="Provisioned_ConfigurationInfo_Revision" NewName="ConfigurationInfo_Revision" />
+                <Param Name="Provisioned_EncryptionInfo_EncryptionAtRest_DataVolumeKMSKeyId" NewName="EncryptionAtRest_DataVolumeKMSKeyId" />
+                <Param Name="Provisioned_EncryptionInfo_EncryptionInTransit_ClientBroker" NewName="EncryptionInTransit_ClientBroker" />
+                <Param Name="Provisioned_EncryptionInfo_EncryptionInTransit_InCluster" NewName="EncryptionInTransit_InCluster" />
+                <Param Name="Provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_Enabled" NewName="CloudWatchLogs_Enabled" />
+                <Param Name="Provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_LogGroup" NewName="CloudWatchLogs_LogGroup" />
+                <Param Name="Provisioned_LoggingInfo_BrokerLogs_Firehose_DeliveryStream" NewName="Firehose_DeliveryStream" />
+                <Param Name="Provisioned_LoggingInfo_BrokerLogs_Firehose_Enabled" NewName="Firehose_Enabled" />
+                <Param Name="Provisioned_LoggingInfo_BrokerLogs_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="Provisioned_LoggingInfo_BrokerLogs_S3_Enabled" NewName="S3_Enabled" />
+                <Param Name="Provisioned_LoggingInfo_BrokerLogs_S3_Prefix" NewName="S3_Prefix" />
+                <Param Name="Provisioned_OpenMonitoring_Prometheus_JmxExporter_EnabledInBroker" NewName="JmxExporter_EnabledInBroker" />
+                <Param Name="Provisioned_OpenMonitoring_Prometheus_NodeExporter_EnabledInBroker" NewName="NodeExporter_EnabledInBroker" />
+                <Param Name="Provisioned_Rebalancing_Status" NewName="Rebalancing_Status" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -223,11 +260,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnectivity" OutputProperty="*" Verb="Update" Noun="Connectivity" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConnectivityInfo_PublicAccess_Type" NewName="PublicAccess_Type" />
+                <Param Name="ConnectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam_Enabled" NewName="Iam_Enabled" />
+                <Param Name="ConnectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram_Enabled" NewName="Scram_Enabled" />
+                <Param Name="ConnectivityInfo_VpcConnectivity_ClientAuthentication_Tls_Enabled" NewName="Tls_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMonitoring" OutputProperty="*" Verb="Update" Noun="Monitoring" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="LoggingInfo_BrokerLogs_CloudWatchLogs_Enabled" NewName="CloudWatchLogs_Enabled" />
+                <Param Name="LoggingInfo_BrokerLogs_CloudWatchLogs_LogGroup" NewName="CloudWatchLogs_LogGroup" />
+                <Param Name="LoggingInfo_BrokerLogs_Firehose_DeliveryStream" NewName="Firehose_DeliveryStream" />
+                <Param Name="LoggingInfo_BrokerLogs_Firehose_Enabled" NewName="Firehose_Enabled" />
+                <Param Name="LoggingInfo_BrokerLogs_S3_Bucket" NewName="S3_Bucket" />
+                <Param Name="LoggingInfo_BrokerLogs_S3_Enabled" NewName="S3_Enabled" />
+                <Param Name="LoggingInfo_BrokerLogs_S3_Prefix" NewName="S3_Prefix" />
+                <Param Name="OpenMonitoring_Prometheus_JmxExporter_EnabledInBroker" NewName="JmxExporter_EnabledInBroker" />
+                <Param Name="OpenMonitoring_Prometheus_NodeExporter_EnabledInBroker" NewName="NodeExporter_EnabledInBroker" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRebalancing" OutputProperty="*" Verb="Update" Noun="Rebalancing" ShouldProcessTarget="ClusterArn" PipelineParameter="" NoPipelineParameter="true">
@@ -239,7 +291,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSecurity" OutputProperty="*" Verb="Update" Noun="Security" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ClientAuthentication_Sasl_Iam_Enabled" NewName="Iam_Enabled" />
+                <Param Name="ClientAuthentication_Sasl_Scram_Enabled" NewName="Scram_Enabled" />
+                <Param Name="ClientAuthentication_Tls_CertificateAuthorityArnList" NewName="Tls_CertificateAuthorityArnList" />
+                <Param Name="ClientAuthentication_Tls_Enabled" NewName="Tls_Enabled" />
+                <Param Name="ClientAuthentication_Unauthenticated_Enabled" NewName="Unauthenticated_Enabled" />
+                <Param Name="EncryptionInfo_EncryptionAtRest_DataVolumeKMSKeyId" NewName="EncryptionAtRest_DataVolumeKMSKeyId" />
+                <Param Name="EncryptionInfo_EncryptionInTransit_ClientBroker" NewName="EncryptionInTransit_ClientBroker" />
+                <Param Name="EncryptionInfo_EncryptionInTransit_InCluster" NewName="EncryptionInTransit_InCluster" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStorage" OutputProperty="*" Verb="Update" Noun="Storage" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">

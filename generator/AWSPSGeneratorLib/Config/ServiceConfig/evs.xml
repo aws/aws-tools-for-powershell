@@ -25,6 +25,16 @@
         <ServiceOperation MethodName="CreateEnvironment" OutputProperty="Environment" Verb="New" Noun="Environment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
             <Params>
                 <Param Name="Hosts" NewName="Hosts" />
+                <Param Name="InitialVlans_EdgeVTep_Cidr" NewName="EdgeVTep_Cidr" />
+                <Param Name="InitialVlans_ExpansionVlan1_Cidr" NewName="ExpansionVlan1_Cidr" />
+                <Param Name="InitialVlans_ExpansionVlan2_Cidr" NewName="ExpansionVlan2_Cidr" />
+                <Param Name="InitialVlans_Hcx_Cidr" NewName="Hcx_Cidr" />
+                <Param Name="InitialVlans_NsxUplink_Cidr" NewName="NsxUplink_Cidr" />
+                <Param Name="InitialVlans_VmkManagement_Cidr" NewName="VmkManagement_Cidr" />
+                <Param Name="InitialVlans_VmManagement_Cidr" NewName="VmManagement_Cidr" />
+                <Param Name="InitialVlans_VMotion_Cidr" NewName="VMotion_Cidr" />
+                <Param Name="InitialVlans_VSan_Cidr" NewName="VSan_Cidr" />
+                <Param Name="InitialVlans_VTep_Cidr" NewName="VTep_Cidr" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

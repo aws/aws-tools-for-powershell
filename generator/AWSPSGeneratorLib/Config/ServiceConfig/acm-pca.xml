@@ -72,18 +72,47 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="IssueCertificate" OutputProperty="CertificateArn" Verb="New" Noun="Certificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="ApiPassthrough_Extensions_CertificatePolicies" NewName="Extensions_CertificatePolicy" />
+                <Param Name="ApiPassthrough_Extensions_CustomExtensions" NewName="Extensions_CustomExtension" />
+                <Param Name="ApiPassthrough_Extensions_ExtendedKeyUsage" NewName="Extensions_ExtendedKeyUsage" />
+                <Param Name="ApiPassthrough_Extensions_KeyUsage_CRLSign" NewName="KeyUsage_CRLSign" />
+                <Param Name="ApiPassthrough_Extensions_KeyUsage_DataEncipherment" NewName="KeyUsage_DataEncipherment" />
+                <Param Name="ApiPassthrough_Extensions_KeyUsage_DecipherOnly" NewName="KeyUsage_DecipherOnly" />
+                <Param Name="ApiPassthrough_Extensions_KeyUsage_DigitalSignature" NewName="KeyUsage_DigitalSignature" />
+                <Param Name="ApiPassthrough_Extensions_KeyUsage_EncipherOnly" NewName="KeyUsage_EncipherOnly" />
+                <Param Name="ApiPassthrough_Extensions_KeyUsage_KeyAgreement" NewName="KeyUsage_KeyAgreement" />
+                <Param Name="ApiPassthrough_Extensions_KeyUsage_KeyCertSign" NewName="KeyUsage_KeyCertSign" />
+                <Param Name="ApiPassthrough_Extensions_KeyUsage_KeyEncipherment" NewName="KeyUsage_KeyEncipherment" />
+                <Param Name="ApiPassthrough_Extensions_KeyUsage_NonRepudiation" NewName="KeyUsage_NonRepudiation" />
+                <Param Name="ApiPassthrough_Extensions_SubjectAlternativeNames" NewName="Extensions_SubjectAlternativeName" />
+                <Param Name="ApiPassthrough_Subject_CommonName" NewName="Subject_CommonName" />
+                <Param Name="ApiPassthrough_Subject_Country" NewName="Subject_Country" />
+                <Param Name="ApiPassthrough_Subject_CustomAttributes" NewName="Subject_CustomAttribute" />
+                <Param Name="ApiPassthrough_Subject_DistinguishedNameQualifier" NewName="Subject_DistinguishedNameQualifier" />
+                <Param Name="ApiPassthrough_Subject_GenerationQualifier" NewName="Subject_GenerationQualifier" />
+                <Param Name="ApiPassthrough_Subject_GivenName" NewName="Subject_GivenName" />
+                <Param Name="ApiPassthrough_Subject_Initials" NewName="Subject_Initial" />
+                <Param Name="ApiPassthrough_Subject_Locality" NewName="Subject_Locality" />
+                <Param Name="ApiPassthrough_Subject_Organization" NewName="Subject_Organization" />
+                <Param Name="ApiPassthrough_Subject_OrganizationalUnit" NewName="Subject_OrganizationalUnit" />
+                <Param Name="ApiPassthrough_Subject_Pseudonym" NewName="Subject_Pseudonym" />
+                <Param Name="ApiPassthrough_Subject_SerialNumber" NewName="Subject_SerialNumber" />
+                <Param Name="ApiPassthrough_Subject_State" NewName="Subject_State" />
+                <Param Name="ApiPassthrough_Subject_Surname" NewName="Subject_Surname" />
+                <Param Name="ApiPassthrough_Subject_Title" NewName="Subject_Title" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCertificateAuthorities" OutputProperty="CertificateAuthorities" Verb="Get" Noun="CertificateAuthorityList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificateAuthorities" OutputProperty="CertificateAuthorities" Verb="Get" Noun="CertificateAuthorityList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="CertificateAuthorityTagList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="CertificateAuthorityTagList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -39,7 +39,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIngressPoint" OutputProperty="IngressPointId" Verb="New" Noun="IngressPoint" ShouldProcessTarget="IngressPointName" PipelineParameter="IngressPointName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NetworkConfiguration_PrivateNetworkConfiguration_VpcEndpointId" NewName="PrivateNetworkConfiguration_VpcEndpointId" />
+                <Param Name="NetworkConfiguration_PublicNetworkConfiguration_IpType" NewName="PublicNetworkConfiguration_IpType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRelay" OutputProperty="RelayId" Verb="New" Noun="Relay" ShouldProcessTarget="RelayName" PipelineParameter="RelayName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -211,7 +214,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartArchiveExport" OutputProperty="ExportId" Verb="Start" Noun="ArchiveExport" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExportDestinationConfiguration_S3_S3Location" NewName="S3_S3Location" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartArchiveSearch" OutputProperty="SearchId" Verb="Start" Noun="ArchiveSearch" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">

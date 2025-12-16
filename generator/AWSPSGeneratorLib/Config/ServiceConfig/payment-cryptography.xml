@@ -27,7 +27,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateKey" OutputProperty="Key" Verb="New" Noun="Key" ShouldProcessTarget="Exportable" PipelineParameter="Exportable" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="KeyAttributes_KeyModesOfUse_Decrypt" NewName="KeyModesOfUse_Decrypt" />
+                <Param Name="KeyAttributes_KeyModesOfUse_DeriveKey" NewName="KeyModesOfUse_DeriveKey" />
+                <Param Name="KeyAttributes_KeyModesOfUse_Encrypt" NewName="KeyModesOfUse_Encrypt" />
+                <Param Name="KeyAttributes_KeyModesOfUse_Generate" NewName="KeyModesOfUse_Generate" />
+                <Param Name="KeyAttributes_KeyModesOfUse_NoRestrictions" NewName="KeyModesOfUse_NoRestriction" />
+                <Param Name="KeyAttributes_KeyModesOfUse_Sign" NewName="KeyModesOfUse_Sign" />
+                <Param Name="KeyAttributes_KeyModesOfUse_Unwrap" NewName="KeyModesOfUse_Unwrap" />
+                <Param Name="KeyAttributes_KeyModesOfUse_Verify" NewName="KeyModesOfUse_Verify" />
+                <Param Name="KeyAttributes_KeyModesOfUse_Wrap" NewName="KeyModesOfUse_Wrap" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -72,6 +82,37 @@
                 <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap" NewName="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap" Alias="DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap" />
                 <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion" NewName="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion" Alias="DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion" />
                 <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks" NewName="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks" Alias="DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks" />
+                <Param Name="ExportAttributes_ExportDukptInitialKey_KeySerialNumber" NewName="ExportDukptInitialKey_KeySerialNumber" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier" NewName="DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_SharedInformation" NewName="DerivationData_SharedInformation" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm" NewName="DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationFunction" NewName="DiffieHellmanTr31KeyBlock_KeyDerivationFunction" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm" NewName="DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier" NewName="DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_PublicKeyCertificate" NewName="DiffieHellmanTr31KeyBlock_PublicKeyCertificate" />
+                <Param Name="KeyMaterial_KeyCryptogram_CertificateAuthorityPublicKeyIdentifier" NewName="KeyCryptogram_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="KeyMaterial_KeyCryptogram_WrappingKeyCertificate" NewName="KeyCryptogram_WrappingKeyCertificate" />
+                <Param Name="KeyMaterial_KeyCryptogram_WrappingSpec" NewName="KeyCryptogram_WrappingSpec" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyExportability" NewName="KeyBlockHeaders_KeyExportability" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt" NewName="KeyModesOfUse_Decrypt" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey" NewName="KeyModesOfUse_DeriveKey" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt" NewName="KeyModesOfUse_Encrypt" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate" NewName="KeyModesOfUse_Generate" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions" NewName="KeyModesOfUse_NoRestriction" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign" NewName="KeyModesOfUse_Sign" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap" NewName="KeyModesOfUse_Unwrap" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify" NewName="KeyModesOfUse_Verify" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap" NewName="KeyModesOfUse_Wrap" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_KeyVersion" NewName="KeyBlockHeaders_KeyVersion" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_KeyBlockHeaders_OptionalBlocks" NewName="KeyBlockHeaders_OptionalBlock" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_WrappingKeyIdentifier" NewName="Tr31KeyBlock_WrappingKeyIdentifier" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier" NewName="Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_ExportToken" NewName="Tr34KeyBlock_ExportToken" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockFormat" NewName="Tr34KeyBlock_KeyBlockFormat" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_RandomNonce" NewName="Tr34KeyBlock_RandomNonce" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_SigningKeyCertificate" NewName="Tr34KeyBlock_SigningKeyCertificate" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_SigningKeyIdentifier" NewName="Tr34KeyBlock_SigningKeyIdentifier" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_WrappingKeyCertificate" NewName="Tr34KeyBlock_WrappingKeyCertificate" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -129,6 +170,43 @@
                 <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap" />
                 <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify" />
                 <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier" NewName="DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_SharedInformation" NewName="DerivationData_SharedInformation" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm" NewName="DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationFunction" NewName="DiffieHellmanTr31KeyBlock_KeyDerivationFunction" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm" NewName="DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier" NewName="DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_PublicKeyCertificate" NewName="DiffieHellmanTr31KeyBlock_PublicKeyCertificate" />
+                <Param Name="KeyMaterial_DiffieHellmanTr31KeyBlock_WrappedKeyBlock" NewName="DiffieHellmanTr31KeyBlock_WrappedKeyBlock" />
+                <Param Name="KeyMaterial_KeyCryptogram_Exportable" NewName="KeyCryptogram_Exportable" />
+                <Param Name="KeyMaterial_KeyCryptogram_ImportToken" NewName="KeyCryptogram_ImportToken" />
+                <Param Name="KeyMaterial_KeyCryptogram_WrappedKeyCryptogram" NewName="KeyCryptogram_WrappedKeyCryptogram" />
+                <Param Name="KeyMaterial_KeyCryptogram_WrappingSpec" NewName="KeyCryptogram_WrappingSpec" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_PublicKeyCertificate" NewName="RootCertificatePublicKey_PublicKeyCertificate" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_WrappedKeyBlock" NewName="Tr31KeyBlock_WrappedKeyBlock" />
+                <Param Name="KeyMaterial_Tr31KeyBlock_WrappingKeyIdentifier" NewName="Tr31KeyBlock_WrappingKeyIdentifier" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier" NewName="Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_ImportToken" NewName="Tr34KeyBlock_ImportToken" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockFormat" NewName="Tr34KeyBlock_KeyBlockFormat" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_RandomNonce" NewName="Tr34KeyBlock_RandomNonce" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_SigningKeyCertificate" NewName="Tr34KeyBlock_SigningKeyCertificate" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_WrappedKeyBlock" NewName="Tr34KeyBlock_WrappedKeyBlock" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_WrappingKeyCertificate" NewName="Tr34KeyBlock_WrappingKeyCertificate" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_WrappingKeyIdentifier" NewName="Tr34KeyBlock_WrappingKeyIdentifier" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_CertificateAuthorityPublicKeyIdentifier" NewName="TrustedCertificatePublicKey_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyAlgorithm" NewName="KeyAttributes_KeyAlgorithm" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyClass" NewName="KeyAttributes_KeyClass" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt" NewName="KeyModesOfUse_Decrypt" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_DeriveKey" NewName="KeyModesOfUse_DeriveKey" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Encrypt" NewName="KeyModesOfUse_Encrypt" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Generate" NewName="KeyModesOfUse_Generate" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_NoRestrictions" NewName="KeyModesOfUse_NoRestriction" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Sign" NewName="KeyModesOfUse_Sign" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap" NewName="KeyModesOfUse_Unwrap" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify" NewName="KeyModesOfUse_Verify" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap" NewName="KeyModesOfUse_Wrap" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyUsage" NewName="KeyAttributes_KeyUsage" />
+                <Param Name="KeyMaterial_TrustedCertificatePublicKey_PublicKeyCertificate" NewName="TrustedCertificatePublicKey_PublicKeyCertificate" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

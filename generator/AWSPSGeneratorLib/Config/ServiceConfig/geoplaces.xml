@@ -19,7 +19,10 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="Autocomplete" OutputProperty="*" Verb="Invoke" Noun="Autocomplete" ShouldProcessTarget="QueryText" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filter_Circle_Center" NewName="Circle_Center" />
+                <Param Name="Filter_Circle_Radius" NewName="Circle_Radius" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Geocode" OutputProperty="*" Verb="Invoke" Noun="Geocode" ShouldProcessTarget="QueryText" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -39,11 +42,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchText" OutputProperty="*" Verb="Search" Noun="Text" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filter_Circle_Center" NewName="Circle_Center" />
+                <Param Name="Filter_Circle_Radius" NewName="Circle_Radius" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Suggest" OutputProperty="*" Verb="Invoke" Noun="Suggest" ShouldProcessTarget="QueryText" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Filter_Circle_Center" NewName="Circle_Center" />
+                <Param Name="Filter_Circle_Radius" NewName="Circle_Radius" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

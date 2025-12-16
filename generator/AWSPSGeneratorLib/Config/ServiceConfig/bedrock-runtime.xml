@@ -23,15 +23,32 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Converse" OutputProperty="*" Verb="Invoke" Noun="Converse" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ToolConfig_ToolChoice_Any" NewName="ToolChoice_Any" />
+                <Param Name="ToolConfig_ToolChoice_Auto" NewName="ToolChoice_Auto" />
+                <Param Name="ToolConfig_ToolChoice_Tool_Name" NewName="Tool_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ConverseStream" OutputProperty="Stream" Verb="Invoke" Noun="ConverseStream" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ToolConfig_ToolChoice_Any" NewName="ToolChoice_Any" />
+                <Param Name="ToolConfig_ToolChoice_Auto" NewName="ToolChoice_Auto" />
+                <Param Name="ToolConfig_ToolChoice_Tool_Name" NewName="Tool_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CountTokens" OutputProperty="InputTokens" Verb="Get" Noun="CountToken" ShouldProcessTarget="" PipelineParameter="ModelId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Input_Converse_AdditionalModelRequestFields" NewName="Converse_AdditionalModelRequestField" />
+                <Param Name="Input_Converse_Messages" NewName="Converse_Message" />
+                <Param Name="Input_Converse_System" NewName="Converse_System" />
+                <Param Name="Input_Converse_ToolConfig_ToolChoice_Any" NewName="ToolChoice_Any" />
+                <Param Name="Input_Converse_ToolConfig_ToolChoice_Auto" NewName="ToolChoice_Auto" />
+                <Param Name="Input_Converse_ToolConfig_ToolChoice_Tool_Name" NewName="Tool_Name" />
+                <Param Name="Input_Converse_ToolConfig_Tools" NewName="ToolConfig_Tool" />
+                <Param Name="Input_InvokeModel_Body" NewName="InvokeModel_Body" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAsyncInvoke" OutputProperty="*" Verb="Get" Noun="AsyncInvoke" PipelineParameter="InvocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -51,7 +68,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAsyncInvoke" OutputProperty="InvocationArn" Verb="Start" Noun="AsyncInvoke" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="OutputDataConfig_S3OutputDataConfig_BucketOwner" NewName="S3OutputDataConfig_BucketOwner" />
+                <Param Name="OutputDataConfig_S3OutputDataConfig_KmsKeyId" NewName="S3OutputDataConfig_KmsKeyId" />
+                <Param Name="OutputDataConfig_S3OutputDataConfig_S3Uri" NewName="S3OutputDataConfig_S3Uri" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

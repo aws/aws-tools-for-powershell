@@ -88,15 +88,28 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAutomationRuleV2" OutputProperty="*" Verb="New" Noun="AutomationRuleV2" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Criteria_OcsfFindingCriteria_CompositeFilters" NewName="OcsfFindingCriteria_CompositeFilter" />
+                <Param Name="Criteria_OcsfFindingCriteria_CompositeOperator" NewName="OcsfFindingCriteria_CompositeOperator" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfigurationPolicy" OutputProperty="*" Verb="New" Noun="ConfigurationPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConfigurationPolicy_SecurityHub_EnabledStandardIdentifiers" NewName="SecurityHub_EnabledStandardIdentifier" />
+                <Param Name="ConfigurationPolicy_SecurityHub_SecurityControlsConfiguration_DisabledSecurityControlIdentifiers" NewName="SecurityControlsConfiguration_DisabledSecurityControlIdentifier" />
+                <Param Name="ConfigurationPolicy_SecurityHub_SecurityControlsConfiguration_EnabledSecurityControlIdentifiers" NewName="SecurityControlsConfiguration_EnabledSecurityControlIdentifier" />
+                <Param Name="ConfigurationPolicy_SecurityHub_SecurityControlsConfiguration_SecurityControlCustomParameters" NewName="SecurityControlsConfiguration_SecurityControlCustomParameter" />
+                <Param Name="ConfigurationPolicy_SecurityHub_ServiceEnabled" NewName="SecurityHub_ServiceEnabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConnectorV2" OutputProperty="*" Verb="New" Noun="ConnectorV2" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Provider_JiraCloud_ProjectKey" NewName="JiraCloud_ProjectKey" />
+                <Param Name="Provider_ServiceNow_InstanceName" NewName="ServiceNow_InstanceName" />
+                <Param Name="Provider_ServiceNow_SecretArn" NewName="ServiceNow_SecretArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFindingAggregator" OutputProperty="*" Verb="New" Noun="FindingAggregator" ShouldProcessTarget="RegionLinkingMode" PipelineParameter="RegionLinkingMode" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -412,15 +425,27 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAutomationRuleV2" Verb="Update" Noun="AutomationRuleV2" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Criteria_OcsfFindingCriteria_CompositeFilters" NewName="OcsfFindingCriteria_CompositeFilter" />
+                <Param Name="Criteria_OcsfFindingCriteria_CompositeOperator" NewName="OcsfFindingCriteria_CompositeOperator" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfigurationPolicy" OutputProperty="*" Verb="Update" Noun="ConfigurationPolicy" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConfigurationPolicy_SecurityHub_EnabledStandardIdentifiers" NewName="SecurityHub_EnabledStandardIdentifier" />
+                <Param Name="ConfigurationPolicy_SecurityHub_SecurityControlsConfiguration_DisabledSecurityControlIdentifiers" NewName="SecurityControlsConfiguration_DisabledSecurityControlIdentifier" />
+                <Param Name="ConfigurationPolicy_SecurityHub_SecurityControlsConfiguration_EnabledSecurityControlIdentifiers" NewName="SecurityControlsConfiguration_EnabledSecurityControlIdentifier" />
+                <Param Name="ConfigurationPolicy_SecurityHub_SecurityControlsConfiguration_SecurityControlCustomParameters" NewName="SecurityControlsConfiguration_SecurityControlCustomParameter" />
+                <Param Name="ConfigurationPolicy_SecurityHub_ServiceEnabled" NewName="SecurityHub_ServiceEnabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnectorV2" Verb="Update" Noun="ConnectorV2" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Provider_JiraCloud_ProjectKey" NewName="JiraCloud_ProjectKey" />
+                <Param Name="Provider_ServiceNow_SecretArn" NewName="ServiceNow_SecretArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFindingAggregator" OutputProperty="*" Verb="Update" Noun="FindingAggregator" ShouldProcessTarget="FindingAggregatorArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

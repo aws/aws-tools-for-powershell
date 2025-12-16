@@ -27,7 +27,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateChannelHandshake" OutputProperty="ChannelHandshakeDetail" Verb="New" Noun="ChannelHandshake" ShouldProcessTarget="AssociatedResourceIdentifier" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Payload_RevokeServicePeriodPayload_Note" NewName="RevokeServicePeriodPayload_Note" />
+                <Param Name="Payload_RevokeServicePeriodPayload_ProgramManagementAccountIdentifier" NewName="RevokeServicePeriodPayload_ProgramManagementAccountIdentifier" />
+                <Param Name="Payload_StartServicePeriodPayload_EndDate" NewName="StartServicePeriodPayload_EndDate" />
+                <Param Name="Payload_StartServicePeriodPayload_MinimumNoticeDays" NewName="StartServicePeriodPayload_MinimumNoticeDay" />
+                <Param Name="Payload_StartServicePeriodPayload_Note" NewName="StartServicePeriodPayload_Note" />
+                <Param Name="Payload_StartServicePeriodPayload_ProgramManagementAccountIdentifier" NewName="StartServicePeriodPayload_ProgramManagementAccountIdentifier" />
+                <Param Name="Payload_StartServicePeriodPayload_ServicePeriodType" NewName="StartServicePeriodPayload_ServicePeriodType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProgramManagementAccount" OutputProperty="ProgramManagementAccountDetail" Verb="New" Noun="ProgramManagementAccount" ShouldProcessTarget="AccountId,DisplayName" PipelineParameter="" NoPipelineParameter="true">
@@ -35,7 +43,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRelationship" OutputProperty="RelationshipDetail" Verb="New" Noun="Relationship" ShouldProcessTarget="AssociatedAccountId,DisplayName,ProgramManagementAccountIdentifier" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="RequestedSupportPlan_PartnerLedSupport_Coverage" NewName="PartnerLedSupport_Coverage" />
+                <Param Name="RequestedSupportPlan_PartnerLedSupport_Provider" NewName="PartnerLedSupport_Provider" />
+                <Param Name="RequestedSupportPlan_PartnerLedSupport_TamLocation" NewName="PartnerLedSupport_TamLocation" />
+                <Param Name="RequestedSupportPlan_ResoldBusiness_Coverage" NewName="ResoldBusiness_Coverage" />
+                <Param Name="RequestedSupportPlan_ResoldEnterprise_ChargeAccountId" NewName="ResoldEnterprise_ChargeAccountId" />
+                <Param Name="RequestedSupportPlan_ResoldEnterprise_Coverage" NewName="ResoldEnterprise_Coverage" />
+                <Param Name="RequestedSupportPlan_ResoldEnterprise_TamLocation" NewName="ResoldEnterprise_TamLocation" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProgramManagementAccount" Verb="Remove" Noun="ProgramManagementAccount" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
@@ -51,7 +67,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListChannelHandshakes" OutputProperty="Items" Verb="Get" Noun="ChannelHandshakeList" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="HandshakeTypeFilters_ProgramManagementAccountTypeFilters_Programs" NewName="ProgramManagementAccountTypeFilters_Program" />
+                <Param Name="HandshakeTypeFilters_RevokeServicePeriodTypeFilters_ServicePeriodTypes" NewName="RevokeServicePeriodTypeFilters_ServicePeriodType" />
+                <Param Name="HandshakeTypeFilters_StartServicePeriodTypeFilters_ServicePeriodTypes" NewName="StartServicePeriodTypeFilters_ServicePeriodType" />
+                <Param Name="HandshakeTypeSort_ProgramManagementAccountTypeSort_SortBy" NewName="ProgramManagementAccountTypeSort_SortBy" />
+                <Param Name="HandshakeTypeSort_ProgramManagementAccountTypeSort_SortOrder" NewName="ProgramManagementAccountTypeSort_SortOrder" />
+                <Param Name="HandshakeTypeSort_RevokeServicePeriodTypeSort_SortBy" NewName="RevokeServicePeriodTypeSort_SortBy" />
+                <Param Name="HandshakeTypeSort_RevokeServicePeriodTypeSort_SortOrder" NewName="RevokeServicePeriodTypeSort_SortOrder" />
+                <Param Name="HandshakeTypeSort_StartServicePeriodTypeSort_SortBy" NewName="StartServicePeriodTypeSort_SortBy" />
+                <Param Name="HandshakeTypeSort_StartServicePeriodTypeSort_SortOrder" NewName="StartServicePeriodTypeSort_SortOrder" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListProgramManagementAccounts" OutputProperty="Items" Verb="Get" Noun="ProgramManagementAccountList" PipelineParameter="Catalog" NoPipelineParameter="false">
@@ -83,7 +109,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRelationship" OutputProperty="RelationshipDetail" Verb="Update" Noun="Relationship" ShouldProcessTarget="Identifier,ProgramManagementAccountIdentifier" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="RequestedSupportPlan_PartnerLedSupport_Coverage" NewName="PartnerLedSupport_Coverage" />
+                <Param Name="RequestedSupportPlan_PartnerLedSupport_Provider" NewName="PartnerLedSupport_Provider" />
+                <Param Name="RequestedSupportPlan_PartnerLedSupport_TamLocation" NewName="PartnerLedSupport_TamLocation" />
+                <Param Name="RequestedSupportPlan_ResoldBusiness_Coverage" NewName="ResoldBusiness_Coverage" />
+                <Param Name="RequestedSupportPlan_ResoldEnterprise_ChargeAccountId" NewName="ResoldEnterprise_ChargeAccountId" />
+                <Param Name="RequestedSupportPlan_ResoldEnterprise_Coverage" NewName="ResoldEnterprise_Coverage" />
+                <Param Name="RequestedSupportPlan_ResoldEnterprise_TamLocation" NewName="ResoldEnterprise_TamLocation" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

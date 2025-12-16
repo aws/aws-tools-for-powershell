@@ -23,7 +23,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrustAnchor" OutputProperty="TrustAnchor" Verb="New" Noun="TrustAnchor" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Source_SourceData_AcmPcaArn" NewName="SourceData_AcmPcaArn" />
+                <Param Name="Source_SourceData_X509CertificateData" NewName="SourceData_X509CertificateData" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAttributeMapping" OutputProperty="Profile" Verb="Remove" Noun="AttributeMapping" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -135,7 +138,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTrustAnchor" OutputProperty="TrustAnchor" Verb="Update" Noun="TrustAnchor" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Source_SourceData_AcmPcaArn" NewName="SourceData_AcmPcaArn" />
+                <Param Name="Source_SourceData_X509CertificateData" NewName="SourceData_X509CertificateData" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

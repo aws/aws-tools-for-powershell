@@ -75,15 +75,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExecutionHistory" OutputProperty="Events" Verb="Get" Noun="ExecutionHistory" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetExecutionHistory" OutputProperty="Events" Verb="Get" Noun="ExecutionHistory" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActivities" OutputProperty="Activities" Verb="Get" Noun="ActivityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListActivities" OutputProperty="Activities" Verb="Get" Noun="ActivityList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,7 +95,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStateMachines" OutputProperty="StateMachines" Verb="Get" Noun="StateMachineList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStateMachines" OutputProperty="StateMachines" Verb="Get" Noun="StateMachineList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -144,7 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TestState" OutputProperty="*" Verb="Test" Noun="State" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Mock_ErrorOutput_Cause" NewName="ErrorOutput_Cause" />
+                <Param Name="Mock_ErrorOutput_Error" NewName="ErrorOutput_Error" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">

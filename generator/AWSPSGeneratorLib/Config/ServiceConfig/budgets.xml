@@ -20,11 +20,48 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateBudget" Verb="New" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Budget_AutoAdjustData_AutoAdjustType" NewName="AutoAdjustData_AutoAdjustType" />
+                <Param Name="Budget_AutoAdjustData_HistoricalOptions_BudgetAdjustmentPeriod" NewName="HistoricalOptions_BudgetAdjustmentPeriod" />
+                <Param Name="Budget_AutoAdjustData_HistoricalOptions_LookBackAvailablePeriods" NewName="HistoricalOptions_LookBackAvailablePeriod" />
+                <Param Name="Budget_AutoAdjustData_LastAutoAdjustTime" NewName="AutoAdjustData_LastAutoAdjustTime" />
+                <Param Name="Budget_BudgetLimit_Amount" NewName="BudgetLimit_Amount" />
+                <Param Name="Budget_BudgetLimit_Unit" NewName="BudgetLimit_Unit" />
+                <Param Name="Budget_CalculatedSpend_ActualSpend_Amount" NewName="ActualSpend_Amount" />
+                <Param Name="Budget_CalculatedSpend_ActualSpend_Unit" NewName="ActualSpend_Unit" />
+                <Param Name="Budget_CalculatedSpend_ForecastedSpend_Amount" NewName="ForecastedSpend_Amount" />
+                <Param Name="Budget_CalculatedSpend_ForecastedSpend_Unit" NewName="ForecastedSpend_Unit" />
+                <Param Name="Budget_CostTypes_IncludeCredit" NewName="CostTypes_IncludeCredit" />
+                <Param Name="Budget_CostTypes_IncludeDiscount" NewName="CostTypes_IncludeDiscount" />
+                <Param Name="Budget_CostTypes_IncludeOtherSubscription" NewName="CostTypes_IncludeOtherSubscription" />
+                <Param Name="Budget_CostTypes_IncludeRecurring" NewName="CostTypes_IncludeRecurring" />
+                <Param Name="Budget_CostTypes_IncludeRefund" NewName="CostTypes_IncludeRefund" />
+                <Param Name="Budget_CostTypes_IncludeSubscription" NewName="CostTypes_IncludeSubscription" />
+                <Param Name="Budget_CostTypes_IncludeSupport" NewName="CostTypes_IncludeSupport" />
+                <Param Name="Budget_CostTypes_IncludeTax" NewName="CostTypes_IncludeTax" />
+                <Param Name="Budget_CostTypes_IncludeUpfront" NewName="CostTypes_IncludeUpfront" />
+                <Param Name="Budget_CostTypes_UseAmortized" NewName="CostTypes_UseAmortized" />
+                <Param Name="Budget_CostTypes_UseBlended" NewName="CostTypes_UseBlended" />
+                <Param Name="Budget_HealthStatus_LastUpdatedTime" NewName="HealthStatus_LastUpdatedTime" />
+                <Param Name="Budget_HealthStatus_Status" NewName="HealthStatus_Status" />
+                <Param Name="Budget_HealthStatus_StatusReason" NewName="HealthStatus_StatusReason" />
+                <Param Name="Budget_TimePeriod_End" NewName="TimePeriod_End" />
+                <Param Name="Budget_TimePeriod_Start" NewName="TimePeriod_Start" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBudgetAction" OutputProperty="*" Verb="New" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Definition_IamActionDefinition_Groups" NewName="IamActionDefinition_Group" />
+                <Param Name="Definition_IamActionDefinition_PolicyArn" NewName="IamActionDefinition_PolicyArn" />
+                <Param Name="Definition_IamActionDefinition_Roles" NewName="IamActionDefinition_Role" />
+                <Param Name="Definition_IamActionDefinition_Users" NewName="IamActionDefinition_User" />
+                <Param Name="Definition_ScpActionDefinition_PolicyId" NewName="ScpActionDefinition_PolicyId" />
+                <Param Name="Definition_ScpActionDefinition_TargetIds" NewName="ScpActionDefinition_TargetId" />
+                <Param Name="Definition_SsmActionDefinition_ActionSubType" NewName="SsmActionDefinition_ActionSubType" />
+                <Param Name="Definition_SsmActionDefinition_InstanceIds" NewName="SsmActionDefinition_InstanceId" />
+                <Param Name="Definition_SsmActionDefinition_Region" NewName="SsmActionDefinition_Region" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNotification" Verb="New" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -75,19 +112,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" OutputProperty="BudgetPerformanceHistory" Verb="Get" Noun="BudgetPerformanceHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" OutputProperty="BudgetPerformanceHistory" Verb="Get" Noun="BudgetPerformanceHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgets" OutputProperty="Budgets" Verb="Get" Noun="BudgetList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudgets" OutputProperty="Budgets" Verb="Get" Noun="BudgetList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotificationsForBudget" OutputProperty="Notifications" Verb="Get" Noun="NotificationsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeNotificationsForBudget" OutputProperty="Notifications" Verb="Get" Noun="NotificationsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubscribersForNotification" OutputProperty="Subscribers" Verb="Get" Noun="SubscribersForNotification" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSubscribersForNotification" OutputProperty="Subscribers" Verb="Get" Noun="SubscribersForNotification" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,11 +145,48 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBudget" Verb="Update" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="NewBudget_AutoAdjustData_AutoAdjustType" NewName="AutoAdjustData_AutoAdjustType" />
+                <Param Name="NewBudget_AutoAdjustData_HistoricalOptions_BudgetAdjustmentPeriod" NewName="HistoricalOptions_BudgetAdjustmentPeriod" />
+                <Param Name="NewBudget_AutoAdjustData_HistoricalOptions_LookBackAvailablePeriods" NewName="HistoricalOptions_LookBackAvailablePeriod" />
+                <Param Name="NewBudget_AutoAdjustData_LastAutoAdjustTime" NewName="AutoAdjustData_LastAutoAdjustTime" />
+                <Param Name="NewBudget_BudgetLimit_Amount" NewName="BudgetLimit_Amount" />
+                <Param Name="NewBudget_BudgetLimit_Unit" NewName="BudgetLimit_Unit" />
+                <Param Name="NewBudget_CalculatedSpend_ActualSpend_Amount" NewName="ActualSpend_Amount" />
+                <Param Name="NewBudget_CalculatedSpend_ActualSpend_Unit" NewName="ActualSpend_Unit" />
+                <Param Name="NewBudget_CalculatedSpend_ForecastedSpend_Amount" NewName="ForecastedSpend_Amount" />
+                <Param Name="NewBudget_CalculatedSpend_ForecastedSpend_Unit" NewName="ForecastedSpend_Unit" />
+                <Param Name="NewBudget_CostTypes_IncludeCredit" NewName="CostTypes_IncludeCredit" />
+                <Param Name="NewBudget_CostTypes_IncludeDiscount" NewName="CostTypes_IncludeDiscount" />
+                <Param Name="NewBudget_CostTypes_IncludeOtherSubscription" NewName="CostTypes_IncludeOtherSubscription" />
+                <Param Name="NewBudget_CostTypes_IncludeRecurring" NewName="CostTypes_IncludeRecurring" />
+                <Param Name="NewBudget_CostTypes_IncludeRefund" NewName="CostTypes_IncludeRefund" />
+                <Param Name="NewBudget_CostTypes_IncludeSubscription" NewName="CostTypes_IncludeSubscription" />
+                <Param Name="NewBudget_CostTypes_IncludeSupport" NewName="CostTypes_IncludeSupport" />
+                <Param Name="NewBudget_CostTypes_IncludeTax" NewName="CostTypes_IncludeTax" />
+                <Param Name="NewBudget_CostTypes_IncludeUpfront" NewName="CostTypes_IncludeUpfront" />
+                <Param Name="NewBudget_CostTypes_UseAmortized" NewName="CostTypes_UseAmortized" />
+                <Param Name="NewBudget_CostTypes_UseBlended" NewName="CostTypes_UseBlended" />
+                <Param Name="NewBudget_HealthStatus_LastUpdatedTime" NewName="HealthStatus_LastUpdatedTime" />
+                <Param Name="NewBudget_HealthStatus_Status" NewName="HealthStatus_Status" />
+                <Param Name="NewBudget_HealthStatus_StatusReason" NewName="HealthStatus_StatusReason" />
+                <Param Name="NewBudget_TimePeriod_End" NewName="TimePeriod_End" />
+                <Param Name="NewBudget_TimePeriod_Start" NewName="TimePeriod_Start" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBudgetAction" OutputProperty="*" Verb="Update" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Definition_IamActionDefinition_Groups" NewName="IamActionDefinition_Group" />
+                <Param Name="Definition_IamActionDefinition_PolicyArn" NewName="IamActionDefinition_PolicyArn" />
+                <Param Name="Definition_IamActionDefinition_Roles" NewName="IamActionDefinition_Role" />
+                <Param Name="Definition_IamActionDefinition_Users" NewName="IamActionDefinition_User" />
+                <Param Name="Definition_ScpActionDefinition_PolicyId" NewName="ScpActionDefinition_PolicyId" />
+                <Param Name="Definition_ScpActionDefinition_TargetIds" NewName="ScpActionDefinition_TargetId" />
+                <Param Name="Definition_SsmActionDefinition_ActionSubType" NewName="SsmActionDefinition_ActionSubType" />
+                <Param Name="Definition_SsmActionDefinition_InstanceIds" NewName="SsmActionDefinition_InstanceId" />
+                <Param Name="Definition_SsmActionDefinition_Region" NewName="SsmActionDefinition_Region" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateNotification" Verb="Update" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">

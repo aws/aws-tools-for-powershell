@@ -25,7 +25,11 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateAccessPoint" OutputProperty="*" Verb="New" Noun="AccessPoint" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RootDirectory_CreationInfo_OwnerGid" NewName="CreationInfo_OwnerGid" />
+                <Param Name="RootDirectory_CreationInfo_OwnerUid" NewName="CreationInfo_OwnerUid" />
+                <Param Name="RootDirectory_CreationInfo_Permissions" NewName="CreationInfo_Permission" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFileSystem" OutputProperty="*" Verb="New" Noun="FileSystem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -84,7 +88,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFileSystems" OutputProperty="FileSystems" Verb="Get" Noun="FileSystem" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFileSystems" OutputProperty="FileSystems" Verb="Get" Noun="FileSystem" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,7 +96,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMountTargets" OutputProperty="MountTargets" Verb="Get" Noun="MountTarget" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMountTargets" OutputProperty="MountTargets" Verb="Get" Noun="MountTarget" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -104,7 +108,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

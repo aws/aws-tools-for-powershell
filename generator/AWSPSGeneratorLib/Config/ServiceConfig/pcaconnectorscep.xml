@@ -24,7 +24,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorArn" Verb="New" Noun="Connector" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MobileDeviceManagement_Intune_AzureApplicationId" NewName="Intune_AzureApplicationId" />
+                <Param Name="MobileDeviceManagement_Intune_Domain" NewName="Intune_Domain" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteChallenge" Verb="Remove" Noun="Challenge" ShouldProcessTarget="ChallengeArn" PipelineParameter="ChallengeArn" NoPipelineParameter="false" LegacyV4Pagination="true">

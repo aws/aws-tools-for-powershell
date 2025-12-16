@@ -27,11 +27,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAgent" OutputProperty="Agent" Verb="New" Noun="Agent" ShouldProcessTarget="AgentName" PipelineParameter="AgentName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CustomOrchestration_Executor_Lambda" NewName="Executor_Lambda" />
+                <Param Name="MemoryConfiguration_SessionSummaryConfiguration_MaxRecentSessions" NewName="SessionSummaryConfiguration_MaxRecentSession" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAgentActionGroup" OutputProperty="AgentActionGroup" Verb="New" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ApiSchema_S3_S3BucketName" NewName="S3_S3BucketName" />
+                <Param Name="ApiSchema_S3_S3ObjectKey" NewName="S3_S3ObjectKey" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAgentAlias" OutputProperty="AgentAlias" Verb="New" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -59,6 +65,35 @@
                 <Param Name="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn" NewName="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn" />
                 <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ModelArn" NewName="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ModelArn" Alias="BedrockFoundationModelConfiguration_ModelArn" />
                 <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader" NewName="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader" Alias="CrawlerConfiguration_UserAgentHeader" />
+                <Param Name="DataSourceConfiguration_S3Configuration_BucketArn" NewName="S3Configuration_BucketArn" />
+                <Param Name="DataSourceConfiguration_S3Configuration_BucketOwnerAccountId" NewName="S3Configuration_BucketOwnerAccountId" />
+                <Param Name="DataSourceConfiguration_S3Configuration_InclusionPrefixes" NewName="S3Configuration_InclusionPrefix" />
+                <Param Name="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_Domain" NewName="SourceConfiguration_Domain" />
+                <Param Name="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_SiteUrls" NewName="SourceConfiguration_SiteUrl" />
+                <Param Name="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_TenantId" NewName="SourceConfiguration_TenantId" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_MaxPages" NewName="CrawlerLimits_MaxPage" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_RateLimit" NewName="CrawlerLimits_RateLimit" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_ExclusionFilters" NewName="CrawlerConfiguration_ExclusionFilter" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_InclusionFilters" NewName="CrawlerConfiguration_InclusionFilter" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_Scope" NewName="CrawlerConfiguration_Scope" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgent" NewName="CrawlerConfiguration_UserAgent" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration_SeedUrls" NewName="UrlConfiguration_SeedUrl" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy" NewName="ChunkingConfiguration_ChunkingStrategy" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_FixedSizeChunkingConfiguration_MaxTokens" NewName="FixedSizeChunkingConfiguration_MaxToken" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_FixedSizeChunkingConfiguration_OverlapPercentage" NewName="FixedSizeChunkingConfiguration_OverlapPercentage" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_HierarchicalChunkingConfiguration_LevelConfigurations" NewName="HierarchicalChunkingConfiguration_LevelConfiguration" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_HierarchicalChunkingConfiguration_OverlapTokens" NewName="HierarchicalChunkingConfiguration_OverlapToken" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_SemanticChunkingConfiguration_BreakpointPercentileThreshold" NewName="SemanticChunkingConfiguration_BreakpointPercentileThreshold" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_SemanticChunkingConfiguration_BufferSize" NewName="SemanticChunkingConfiguration_BufferSize" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_SemanticChunkingConfiguration_MaxTokens" NewName="SemanticChunkingConfiguration_MaxToken" />
+                <Param Name="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_EnrichmentStrategyConfiguration_Method" NewName="EnrichmentStrategyConfiguration_Method" />
+                <Param Name="VectorIngestionConfiguration_ContextEnrichmentConfiguration_Type" NewName="ContextEnrichmentConfiguration_Type" />
+                <Param Name="VectorIngestionConfiguration_CustomTransformationConfiguration_IntermediateStorage_S3Location_Uri" NewName="S3Location_Uri" />
+                <Param Name="VectorIngestionConfiguration_CustomTransformationConfiguration_Transformations" NewName="CustomTransformationConfiguration_Transformation" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_ParsingModality" NewName="BedrockDataAutomationConfiguration_ParsingModality" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ParsingModality" NewName="BedrockFoundationModelConfiguration_ParsingModality" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ParsingPrompt_ParsingPromptText" NewName="ParsingPrompt_ParsingPromptText" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_ParsingStrategy" NewName="ParsingConfiguration_ParsingStrategy" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -97,6 +132,52 @@
                 <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField" />
+                <Param Name="KnowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration_KendraIndexArn" NewName="KendraKnowledgeBaseConfiguration_KendraIndexArn" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_DatabaseUser" NewName="AuthConfiguration_DatabaseUser" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_ClusterIdentifier" NewName="ProvisionedConfiguration_ClusterIdentifier" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_Type" NewName="AuthConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="AuthConfiguration_UsernamePasswordSecretArn" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_WorkgroupArn" NewName="ServerlessConfiguration_WorkgroupArn" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_Type" NewName="QueryEngineConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_ExecutionTimeoutSeconds" NewName="QueryGenerationConfiguration_ExecutionTimeoutSecond" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_CuratedQueries" NewName="GenerationContext_CuratedQuery" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_Tables" NewName="GenerationContext_Table" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_StorageConfigurations" NewName="RedshiftConfiguration_StorageConfiguration" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_Type" NewName="SqlKnowledgeBaseConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelArn" NewName="VectorKnowledgeBaseConfiguration_EmbeddingModelArn" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio" NewName="BedrockEmbeddingModelConfiguration_Audio" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Dimensions" NewName="BedrockEmbeddingModelConfiguration_Dimension" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType" NewName="BedrockEmbeddingModelConfiguration_EmbeddingDataType" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video" NewName="BedrockEmbeddingModelConfiguration_Video" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocations" NewName="SupplementalDataStorageConfiguration_StorageLocation" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_CollectionName" NewName="MongoDbAtlasConfiguration_CollectionName" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_CredentialsSecretArn" NewName="MongoDbAtlasConfiguration_CredentialsSecretArn" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_DatabaseName" NewName="MongoDbAtlasConfiguration_DatabaseName" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_Endpoint" NewName="MongoDbAtlasConfiguration_Endpoint" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_EndpointServiceName" NewName="MongoDbAtlasConfiguration_EndpointServiceName" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_TextIndexName" NewName="MongoDbAtlasConfiguration_TextIndexName" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_VectorIndexName" NewName="MongoDbAtlasConfiguration_VectorIndexName" />
+                <Param Name="StorageConfiguration_NeptuneAnalyticsConfiguration_GraphArn" NewName="NeptuneAnalyticsConfiguration_GraphArn" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_DomainArn" NewName="OpensearchManagedClusterConfiguration_DomainArn" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_DomainEndpoint" NewName="OpensearchManagedClusterConfiguration_DomainEndpoint" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_VectorIndexName" NewName="OpensearchManagedClusterConfiguration_VectorIndexName" />
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_CollectionArn" NewName="OpensearchServerlessConfiguration_CollectionArn" />
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_VectorIndexName" NewName="OpensearchServerlessConfiguration_VectorIndexName" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_ConnectionString" NewName="PineconeConfiguration_ConnectionString" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_CredentialsSecretArn" NewName="PineconeConfiguration_CredentialsSecretArn" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_Namespace" NewName="PineconeConfiguration_Namespace" />
+                <Param Name="StorageConfiguration_RdsConfiguration_CredentialsSecretArn" NewName="RdsConfiguration_CredentialsSecretArn" />
+                <Param Name="StorageConfiguration_RdsConfiguration_DatabaseName" NewName="RdsConfiguration_DatabaseName" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_CustomMetadataField" NewName="FieldMapping_CustomMetadataField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_PrimaryKeyField" NewName="FieldMapping_PrimaryKeyField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_ResourceArn" NewName="RdsConfiguration_ResourceArn" />
+                <Param Name="StorageConfiguration_RdsConfiguration_TableName" NewName="RdsConfiguration_TableName" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_CredentialsSecretArn" NewName="RedisEnterpriseCloudConfiguration_CredentialsSecretArn" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_Endpoint" NewName="RedisEnterpriseCloudConfiguration_Endpoint" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_VectorIndexName" NewName="RedisEnterpriseCloudConfiguration_VectorIndexName" />
+                <Param Name="StorageConfiguration_S3VectorsConfiguration_IndexArn" NewName="S3VectorsConfiguration_IndexArn" />
+                <Param Name="StorageConfiguration_S3VectorsConfiguration_IndexName" NewName="S3VectorsConfiguration_IndexName" />
+                <Param Name="StorageConfiguration_S3VectorsConfiguration_VectorBucketArn" NewName="S3VectorsConfiguration_VectorBucketArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -305,11 +386,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgent" OutputProperty="Agent" Verb="Update" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CustomOrchestration_Executor_Lambda" NewName="Executor_Lambda" />
+                <Param Name="MemoryConfiguration_SessionSummaryConfiguration_MaxRecentSessions" NewName="SessionSummaryConfiguration_MaxRecentSession" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentActionGroup" OutputProperty="AgentActionGroup" Verb="Update" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ApiSchema_S3_S3BucketName" NewName="S3_S3BucketName" />
+                <Param Name="ApiSchema_S3_S3ObjectKey" NewName="S3_S3ObjectKey" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentAlias" OutputProperty="AgentAlias" Verb="Update" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -345,6 +432,35 @@
                 <Param Name="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn" NewName="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn" />
                 <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ModelArn" NewName="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ModelArn" Alias="BedrockFoundationModelConfiguration_ModelArn" />
                 <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader" NewName="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader" Alias="CrawlerConfiguration_UserAgentHeader" />
+                <Param Name="DataSourceConfiguration_S3Configuration_BucketArn" NewName="S3Configuration_BucketArn" />
+                <Param Name="DataSourceConfiguration_S3Configuration_BucketOwnerAccountId" NewName="S3Configuration_BucketOwnerAccountId" />
+                <Param Name="DataSourceConfiguration_S3Configuration_InclusionPrefixes" NewName="S3Configuration_InclusionPrefix" />
+                <Param Name="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_Domain" NewName="SourceConfiguration_Domain" />
+                <Param Name="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_SiteUrls" NewName="SourceConfiguration_SiteUrl" />
+                <Param Name="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_TenantId" NewName="SourceConfiguration_TenantId" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_MaxPages" NewName="CrawlerLimits_MaxPage" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_RateLimit" NewName="CrawlerLimits_RateLimit" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_ExclusionFilters" NewName="CrawlerConfiguration_ExclusionFilter" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_InclusionFilters" NewName="CrawlerConfiguration_InclusionFilter" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_Scope" NewName="CrawlerConfiguration_Scope" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgent" NewName="CrawlerConfiguration_UserAgent" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration_SeedUrls" NewName="UrlConfiguration_SeedUrl" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy" NewName="ChunkingConfiguration_ChunkingStrategy" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_FixedSizeChunkingConfiguration_MaxTokens" NewName="FixedSizeChunkingConfiguration_MaxToken" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_FixedSizeChunkingConfiguration_OverlapPercentage" NewName="FixedSizeChunkingConfiguration_OverlapPercentage" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_HierarchicalChunkingConfiguration_LevelConfigurations" NewName="HierarchicalChunkingConfiguration_LevelConfiguration" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_HierarchicalChunkingConfiguration_OverlapTokens" NewName="HierarchicalChunkingConfiguration_OverlapToken" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_SemanticChunkingConfiguration_BreakpointPercentileThreshold" NewName="SemanticChunkingConfiguration_BreakpointPercentileThreshold" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_SemanticChunkingConfiguration_BufferSize" NewName="SemanticChunkingConfiguration_BufferSize" />
+                <Param Name="VectorIngestionConfiguration_ChunkingConfiguration_SemanticChunkingConfiguration_MaxTokens" NewName="SemanticChunkingConfiguration_MaxToken" />
+                <Param Name="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_EnrichmentStrategyConfiguration_Method" NewName="EnrichmentStrategyConfiguration_Method" />
+                <Param Name="VectorIngestionConfiguration_ContextEnrichmentConfiguration_Type" NewName="ContextEnrichmentConfiguration_Type" />
+                <Param Name="VectorIngestionConfiguration_CustomTransformationConfiguration_IntermediateStorage_S3Location_Uri" NewName="S3Location_Uri" />
+                <Param Name="VectorIngestionConfiguration_CustomTransformationConfiguration_Transformations" NewName="CustomTransformationConfiguration_Transformation" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_ParsingModality" NewName="BedrockDataAutomationConfiguration_ParsingModality" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ParsingModality" NewName="BedrockFoundationModelConfiguration_ParsingModality" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ParsingPrompt_ParsingPromptText" NewName="ParsingPrompt_ParsingPromptText" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_ParsingStrategy" NewName="ParsingConfiguration_ParsingStrategy" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -379,6 +495,52 @@
                 <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField" />
+                <Param Name="KnowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration_KendraIndexArn" NewName="KendraKnowledgeBaseConfiguration_KendraIndexArn" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_DatabaseUser" NewName="AuthConfiguration_DatabaseUser" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_ClusterIdentifier" NewName="ProvisionedConfiguration_ClusterIdentifier" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_Type" NewName="AuthConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="AuthConfiguration_UsernamePasswordSecretArn" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_WorkgroupArn" NewName="ServerlessConfiguration_WorkgroupArn" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_Type" NewName="QueryEngineConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_ExecutionTimeoutSeconds" NewName="QueryGenerationConfiguration_ExecutionTimeoutSecond" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_CuratedQueries" NewName="GenerationContext_CuratedQuery" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_Tables" NewName="GenerationContext_Table" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_StorageConfigurations" NewName="RedshiftConfiguration_StorageConfiguration" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_Type" NewName="SqlKnowledgeBaseConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelArn" NewName="VectorKnowledgeBaseConfiguration_EmbeddingModelArn" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio" NewName="BedrockEmbeddingModelConfiguration_Audio" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Dimensions" NewName="BedrockEmbeddingModelConfiguration_Dimension" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType" NewName="BedrockEmbeddingModelConfiguration_EmbeddingDataType" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video" NewName="BedrockEmbeddingModelConfiguration_Video" />
+                <Param Name="KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocations" NewName="SupplementalDataStorageConfiguration_StorageLocation" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_CollectionName" NewName="MongoDbAtlasConfiguration_CollectionName" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_CredentialsSecretArn" NewName="MongoDbAtlasConfiguration_CredentialsSecretArn" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_DatabaseName" NewName="MongoDbAtlasConfiguration_DatabaseName" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_Endpoint" NewName="MongoDbAtlasConfiguration_Endpoint" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_EndpointServiceName" NewName="MongoDbAtlasConfiguration_EndpointServiceName" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_TextIndexName" NewName="MongoDbAtlasConfiguration_TextIndexName" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_VectorIndexName" NewName="MongoDbAtlasConfiguration_VectorIndexName" />
+                <Param Name="StorageConfiguration_NeptuneAnalyticsConfiguration_GraphArn" NewName="NeptuneAnalyticsConfiguration_GraphArn" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_DomainArn" NewName="OpensearchManagedClusterConfiguration_DomainArn" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_DomainEndpoint" NewName="OpensearchManagedClusterConfiguration_DomainEndpoint" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_VectorIndexName" NewName="OpensearchManagedClusterConfiguration_VectorIndexName" />
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_CollectionArn" NewName="OpensearchServerlessConfiguration_CollectionArn" />
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_VectorIndexName" NewName="OpensearchServerlessConfiguration_VectorIndexName" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_ConnectionString" NewName="PineconeConfiguration_ConnectionString" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_CredentialsSecretArn" NewName="PineconeConfiguration_CredentialsSecretArn" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_Namespace" NewName="PineconeConfiguration_Namespace" />
+                <Param Name="StorageConfiguration_RdsConfiguration_CredentialsSecretArn" NewName="RdsConfiguration_CredentialsSecretArn" />
+                <Param Name="StorageConfiguration_RdsConfiguration_DatabaseName" NewName="RdsConfiguration_DatabaseName" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_CustomMetadataField" NewName="FieldMapping_CustomMetadataField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_PrimaryKeyField" NewName="FieldMapping_PrimaryKeyField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_ResourceArn" NewName="RdsConfiguration_ResourceArn" />
+                <Param Name="StorageConfiguration_RdsConfiguration_TableName" NewName="RdsConfiguration_TableName" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_CredentialsSecretArn" NewName="RedisEnterpriseCloudConfiguration_CredentialsSecretArn" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_Endpoint" NewName="RedisEnterpriseCloudConfiguration_Endpoint" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_VectorIndexName" NewName="RedisEnterpriseCloudConfiguration_VectorIndexName" />
+                <Param Name="StorageConfiguration_S3VectorsConfiguration_IndexArn" NewName="S3VectorsConfiguration_IndexArn" />
+                <Param Name="StorageConfiguration_S3VectorsConfiguration_IndexName" NewName="S3VectorsConfiguration_IndexName" />
+                <Param Name="StorageConfiguration_S3VectorsConfiguration_VectorBucketArn" NewName="S3VectorsConfiguration_VectorBucketArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

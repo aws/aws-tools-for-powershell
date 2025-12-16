@@ -60,7 +60,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateHealthCheck" OutputProperty="*" Verb="New" Noun="HealthCheck" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="CallerReference" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HealthCheckConfig_AlarmIdentifier_Region" NewName="AlarmIdentifier_Region" />
+                <Param Name="HealthCheckConfig_AlarmIdentifier_Name" NewName="AlarmIdentifier_Name" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateHostedZone" OutputProperty="*" Verb="New" Noun="HostedZone" ShouldProcessTarget="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">

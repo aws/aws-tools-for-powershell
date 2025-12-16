@@ -29,7 +29,51 @@
             </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFlow" OutputProperty="FlowArn" Verb="New" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MetadataCatalogConfig_GlueDataCatalog_DatabaseName" NewName="GlueDataCatalog_DatabaseName" />
+                <Param Name="MetadataCatalogConfig_GlueDataCatalog_RoleArn" NewName="GlueDataCatalog_RoleArn" />
+                <Param Name="MetadataCatalogConfig_GlueDataCatalog_TablePrefix" NewName="GlueDataCatalog_TablePrefix" />
+                <Param Name="SourceFlowConfig_IncrementalPullConfig_DatetimeTypeFieldName" NewName="IncrementalPullConfig_DatetimeTypeFieldName" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Amplitude_Object" NewName="Amplitude_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_CustomConnector_CustomProperties" NewName="CustomConnector_CustomProperty" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Name" NewName="DataTransferApi_Name" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type" NewName="DataTransferApi_Type" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_CustomConnector_EntityName" NewName="CustomConnector_EntityName" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Datadog_Object" NewName="Datadog_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Dynatrace_Object" NewName="Dynatrace_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_GoogleAnalytics_Object" NewName="GoogleAnalytics_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_InforNexus_Object" NewName="InforNexus_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Marketo_Object" NewName="Marketo_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Pardot_Object" NewName="Pardot_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_S3_BucketName" NewName="S3_BucketName" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_S3_BucketPrefix" NewName="S3_BucketPrefix" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType" NewName="S3InputFormatConfig_S3InputFileType" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi" NewName="Salesforce_DataTransferApi" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Salesforce_EnableDynamicFieldUpdate" NewName="Salesforce_EnableDynamicFieldUpdate" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Salesforce_IncludeDeletedRecords" NewName="Salesforce_IncludeDeletedRecord" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Salesforce_Object" NewName="Salesforce_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_SAPOData_ObjectPath" NewName="SAPOData_ObjectPath" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig_MaxPageSize" NewName="PaginationConfig_MaxPageSize" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig_MaxParallelism" NewName="ParallelismConfig_MaxParallelism" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_ServiceNow_Object" NewName="ServiceNow_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Singular_Object" NewName="Singular_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Slack_Object" NewName="Slack_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Trendmicro_Object" NewName="Trendmicro_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_DocumentType" NewName="Veeva_DocumentType" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_IncludeAllVersions" NewName="Veeva_IncludeAllVersion" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_IncludeRenditions" NewName="Veeva_IncludeRendition" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_IncludeSourceFiles" NewName="Veeva_IncludeSourceFile" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_Object" NewName="Veeva_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Zendesk_Object" NewName="Zendesk_Object" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_DataPullMode" NewName="Scheduled_DataPullMode" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_FirstExecutionFrom" NewName="Scheduled_FirstExecutionFrom" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_FlowErrorDeactivationThreshold" NewName="Scheduled_FlowErrorDeactivationThreshold" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_ScheduleEndTime" NewName="Scheduled_ScheduleEndTime" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_ScheduleExpression" NewName="Scheduled_ScheduleExpression" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_ScheduleOffset" NewName="Scheduled_ScheduleOffset" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_ScheduleStartTime" NewName="Scheduled_ScheduleStartTime" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_Timezone" NewName="Scheduled_Timezone" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteConnectorProfile" Verb="Remove" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -81,7 +125,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterConnector" OutputProperty="ConnectorArn" Verb="Register" Noun="Connector" ShouldProcessTarget="ConnectorProvisioningConfig_Lambda_LambdaArn" PipelineParameter="ConnectorLabel" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConnectorProvisioningConfig_Lambda_LambdaArn" NewName="Lambda_LambdaArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResetConnectorMetadataCache" Verb="Reset" Noun="ConnectorMetadataCache" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -115,11 +161,57 @@
             </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnectorRegistration" OutputProperty="ConnectorArn" Verb="Update" Noun="ConnectorRegistration" ShouldProcessTarget="ConnectorLabel" PipelineParameter="ConnectorLabel" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConnectorProvisioningConfig_Lambda_LambdaArn" NewName="Lambda_LambdaArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlow" OutputProperty="FlowStatus" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="MetadataCatalogConfig_GlueDataCatalog_DatabaseName" NewName="GlueDataCatalog_DatabaseName" />
+                <Param Name="MetadataCatalogConfig_GlueDataCatalog_RoleArn" NewName="GlueDataCatalog_RoleArn" />
+                <Param Name="MetadataCatalogConfig_GlueDataCatalog_TablePrefix" NewName="GlueDataCatalog_TablePrefix" />
+                <Param Name="SourceFlowConfig_IncrementalPullConfig_DatetimeTypeFieldName" NewName="IncrementalPullConfig_DatetimeTypeFieldName" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Amplitude_Object" NewName="Amplitude_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_CustomConnector_CustomProperties" NewName="CustomConnector_CustomProperty" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Name" NewName="DataTransferApi_Name" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type" NewName="DataTransferApi_Type" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_CustomConnector_EntityName" NewName="CustomConnector_EntityName" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Datadog_Object" NewName="Datadog_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Dynatrace_Object" NewName="Dynatrace_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_GoogleAnalytics_Object" NewName="GoogleAnalytics_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_InforNexus_Object" NewName="InforNexus_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Marketo_Object" NewName="Marketo_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Pardot_Object" NewName="Pardot_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_S3_BucketName" NewName="S3_BucketName" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_S3_BucketPrefix" NewName="S3_BucketPrefix" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType" NewName="S3InputFormatConfig_S3InputFileType" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi" NewName="Salesforce_DataTransferApi" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Salesforce_EnableDynamicFieldUpdate" NewName="Salesforce_EnableDynamicFieldUpdate" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Salesforce_IncludeDeletedRecords" NewName="Salesforce_IncludeDeletedRecord" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Salesforce_Object" NewName="Salesforce_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_SAPOData_ObjectPath" NewName="SAPOData_ObjectPath" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig_MaxPageSize" NewName="PaginationConfig_MaxPageSize" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig_MaxParallelism" NewName="ParallelismConfig_MaxParallelism" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_ServiceNow_Object" NewName="ServiceNow_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Singular_Object" NewName="Singular_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Slack_Object" NewName="Slack_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Trendmicro_Object" NewName="Trendmicro_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_DocumentType" NewName="Veeva_DocumentType" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_IncludeAllVersions" NewName="Veeva_IncludeAllVersion" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_IncludeRenditions" NewName="Veeva_IncludeRendition" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_IncludeSourceFiles" NewName="Veeva_IncludeSourceFile" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Veeva_Object" NewName="Veeva_Object" />
+                <Param Name="SourceFlowConfig_SourceConnectorProperties_Zendesk_Object" NewName="Zendesk_Object" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_DataPullMode" NewName="Scheduled_DataPullMode" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_FirstExecutionFrom" NewName="Scheduled_FirstExecutionFrom" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_FlowErrorDeactivationThreshold" NewName="Scheduled_FlowErrorDeactivationThreshold" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_ScheduleEndTime" NewName="Scheduled_ScheduleEndTime" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_ScheduleExpression" NewName="Scheduled_ScheduleExpression" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_ScheduleOffset" NewName="Scheduled_ScheduleOffset" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_ScheduleStartTime" NewName="Scheduled_ScheduleStartTime" />
+                <Param Name="TriggerConfig_TriggerProperties_Scheduled_Timezone" NewName="Scheduled_Timezone" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

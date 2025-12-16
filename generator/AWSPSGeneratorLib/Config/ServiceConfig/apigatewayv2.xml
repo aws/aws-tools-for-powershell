@@ -54,7 +54,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="PortalContent_DisplayName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="Authorization_CognitoConfig_AppClientId" NewName="CognitoConfig_AppClientId" />
+                <Param Name="Authorization_CognitoConfig_UserPoolArn" NewName="CognitoConfig_UserPoolArn" />
+                <Param Name="Authorization_CognitoConfig_UserPoolDomain" NewName="CognitoConfig_UserPoolDomain" />
+                <Param Name="EndpointConfiguration_AcmManaged_CertificateArn" NewName="AcmManaged_CertificateArn" />
+                <Param Name="EndpointConfiguration_AcmManaged_DomainName" NewName="AcmManaged_DomainName" />
+                <Param Name="PortalContent_Theme_CustomColors_AccentColor" NewName="CustomColors_AccentColor" />
+                <Param Name="PortalContent_Theme_CustomColors_BackgroundColor" NewName="CustomColors_BackgroundColor" />
+                <Param Name="PortalContent_Theme_CustomColors_ErrorValidationColor" NewName="CustomColors_ErrorValidationColor" />
+                <Param Name="PortalContent_Theme_CustomColors_HeaderColor" NewName="CustomColors_HeaderColor" />
+                <Param Name="PortalContent_Theme_CustomColors_NavigationColor" NewName="CustomColors_NavigationColor" />
+                <Param Name="PortalContent_Theme_CustomColors_TextColor" NewName="CustomColors_TextColor" />
+                <Param Name="PortalContent_Theme_LogoLastUploaded" NewName="Theme_LogoLastUploaded" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePortalProduct" OutputProperty="*" Verb="New" Noun="PortalProduct" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
@@ -66,7 +79,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProductRestEndpointPage" OutputProperty="*" Verb="New" Noun="ProductRestEndpointPage" ShouldProcessTarget="PortalProductId" PipelineParameter="PortalProductId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DisplayContent_Overrides_Body" NewName="Overrides_Body" />
+                <Param Name="DisplayContent_Overrides_Endpoint" NewName="Overrides_Endpoint" />
+                <Param Name="DisplayContent_Overrides_OperationName" NewName="Overrides_OperationName" />
+                <Param Name="RestEndpointIdentifier_IdentifierParts_Method" NewName="IdentifierParts_Method" />
+                <Param Name="RestEndpointIdentifier_IdentifierParts_Path" NewName="IdentifierParts_Path" />
+                <Param Name="RestEndpointIdentifier_IdentifierParts_RestApiId" NewName="IdentifierParts_RestApiId" />
+                <Param Name="RestEndpointIdentifier_IdentifierParts_Stage" NewName="IdentifierParts_Stage" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRoute" OutputProperty="*" Verb="New" Noun="Route" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -402,7 +423,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePortal" OutputProperty="*" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Authorization_CognitoConfig_AppClientId" NewName="CognitoConfig_AppClientId" />
+                <Param Name="Authorization_CognitoConfig_UserPoolArn" NewName="CognitoConfig_UserPoolArn" />
+                <Param Name="Authorization_CognitoConfig_UserPoolDomain" NewName="CognitoConfig_UserPoolDomain" />
+                <Param Name="EndpointConfiguration_AcmManaged_CertificateArn" NewName="AcmManaged_CertificateArn" />
+                <Param Name="EndpointConfiguration_AcmManaged_DomainName" NewName="AcmManaged_DomainName" />
+                <Param Name="PortalContent_Theme_CustomColors_AccentColor" NewName="CustomColors_AccentColor" />
+                <Param Name="PortalContent_Theme_CustomColors_BackgroundColor" NewName="CustomColors_BackgroundColor" />
+                <Param Name="PortalContent_Theme_CustomColors_ErrorValidationColor" NewName="CustomColors_ErrorValidationColor" />
+                <Param Name="PortalContent_Theme_CustomColors_HeaderColor" NewName="CustomColors_HeaderColor" />
+                <Param Name="PortalContent_Theme_CustomColors_NavigationColor" NewName="CustomColors_NavigationColor" />
+                <Param Name="PortalContent_Theme_CustomColors_TextColor" NewName="CustomColors_TextColor" />
+                <Param Name="PortalContent_Theme_LogoLastUploaded" NewName="Theme_LogoLastUploaded" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePortalProduct" OutputProperty="*" Verb="Update" Noun="PortalProduct" ShouldProcessTarget="PortalProductId" PipelineParameter="PortalProductId" NoPipelineParameter="false">
@@ -414,7 +448,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProductRestEndpointPage" OutputProperty="*" Verb="Update" Noun="ProductRestEndpointPage" ShouldProcessTarget="ProductRestEndpointPageId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="DisplayContent_Overrides_Body" NewName="Overrides_Body" />
+                <Param Name="DisplayContent_Overrides_Endpoint" NewName="Overrides_Endpoint" />
+                <Param Name="DisplayContent_Overrides_OperationName" NewName="Overrides_OperationName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoute" OutputProperty="*" Verb="Update" Noun="Route" ShouldProcessTarget="RouteId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">

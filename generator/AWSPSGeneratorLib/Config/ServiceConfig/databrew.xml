@@ -30,11 +30,37 @@
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_Bucket" NewName="DataCatalogInputDefinition_TempDirectory_Bucket" />
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_Key" NewName="DataCatalogInputDefinition_TempDirectory_Key" />
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_BucketOwner" NewName="DataCatalogInputDefinition_TempDirectory_BucketOwner" />
+                <Param Name="FormatOptions_Csv_Delimiter" NewName="Csv_Delimiter" />
+                <Param Name="FormatOptions_Csv_HeaderRow" NewName="Csv_HeaderRow" />
+                <Param Name="FormatOptions_Excel_HeaderRow" NewName="Excel_HeaderRow" />
+                <Param Name="FormatOptions_Excel_SheetIndexes" NewName="Excel_SheetIndex" />
+                <Param Name="FormatOptions_Excel_SheetNames" NewName="Excel_SheetName" />
+                <Param Name="FormatOptions_Json_MultiLine" NewName="Json_MultiLine" />
+                <Param Name="Input_DatabaseInputDefinition_DatabaseTableName" NewName="DatabaseInputDefinition_DatabaseTableName" />
+                <Param Name="Input_DatabaseInputDefinition_GlueConnectionName" NewName="DatabaseInputDefinition_GlueConnectionName" />
+                <Param Name="Input_DatabaseInputDefinition_QueryString" NewName="DatabaseInputDefinition_QueryString" />
+                <Param Name="Input_DataCatalogInputDefinition_CatalogId" NewName="DataCatalogInputDefinition_CatalogId" />
+                <Param Name="Input_DataCatalogInputDefinition_DatabaseName" NewName="DataCatalogInputDefinition_DatabaseName" />
+                <Param Name="Input_DataCatalogInputDefinition_TableName" NewName="DataCatalogInputDefinition_TableName" />
+                <Param Name="Input_Metadata_SourceArn" NewName="Metadata_SourceArn" />
+                <Param Name="Input_S3InputDefinition_Bucket" NewName="S3InputDefinition_Bucket" />
+                <Param Name="Input_S3InputDefinition_BucketOwner" NewName="S3InputDefinition_BucketOwner" />
+                <Param Name="Input_S3InputDefinition_Key" NewName="S3InputDefinition_Key" />
+                <Param Name="PathOptions_FilesLimit_MaxFiles" NewName="FilesLimit_MaxFile" />
+                <Param Name="PathOptions_FilesLimit_Order" NewName="FilesLimit_Order" />
+                <Param Name="PathOptions_FilesLimit_OrderedBy" NewName="FilesLimit_OrderedBy" />
+                <Param Name="PathOptions_LastModifiedDateCondition_Expression" NewName="LastModifiedDateCondition_Expression" />
+                <Param Name="PathOptions_LastModifiedDateCondition_ValuesMap" NewName="LastModifiedDateCondition_ValuesMap" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProfileJob" OutputProperty="Name" Verb="New" Noun="ProfileJob" ShouldProcessTarget="DatasetName" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_DatasetStatisticsConfiguration_IncludedStatistics" NewName="DatasetStatisticsConfiguration_IncludedStatistic" />
+                <Param Name="Configuration_DatasetStatisticsConfiguration_Overrides" NewName="DatasetStatisticsConfiguration_Override" />
+                <Param Name="Configuration_EntityDetectorConfiguration_AllowedStatistics" NewName="EntityDetectorConfiguration_AllowedStatistic" />
+                <Param Name="Configuration_EntityDetectorConfiguration_EntityTypes" NewName="EntityDetectorConfiguration_EntityType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="Name" Verb="New" Noun="Project" ShouldProcessTarget="DatasetName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -150,7 +176,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendProjectSessionAction" OutputProperty="*" Verb="Send" Noun="ProjectSessionAction" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RecipeStep_Action_Operation" NewName="Action_Operation" />
+                <Param Name="RecipeStep_Action_Parameters" NewName="Action_Parameter" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartJobRun" OutputProperty="RunId" Verb="Start" Noun="JobRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -181,11 +210,37 @@
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_Bucket" NewName="DataCatalogInputDefinition_TempDirectory_Bucket" />
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_Key" NewName="DataCatalogInputDefinition_TempDirectory_Key" />
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_BucketOwner" NewName="DataCatalogInputDefinition_TempDirectory_BucketOwner" />
+                <Param Name="FormatOptions_Csv_Delimiter" NewName="Csv_Delimiter" />
+                <Param Name="FormatOptions_Csv_HeaderRow" NewName="Csv_HeaderRow" />
+                <Param Name="FormatOptions_Excel_HeaderRow" NewName="Excel_HeaderRow" />
+                <Param Name="FormatOptions_Excel_SheetIndexes" NewName="Excel_SheetIndex" />
+                <Param Name="FormatOptions_Excel_SheetNames" NewName="Excel_SheetName" />
+                <Param Name="FormatOptions_Json_MultiLine" NewName="Json_MultiLine" />
+                <Param Name="Input_DatabaseInputDefinition_DatabaseTableName" NewName="DatabaseInputDefinition_DatabaseTableName" />
+                <Param Name="Input_DatabaseInputDefinition_GlueConnectionName" NewName="DatabaseInputDefinition_GlueConnectionName" />
+                <Param Name="Input_DatabaseInputDefinition_QueryString" NewName="DatabaseInputDefinition_QueryString" />
+                <Param Name="Input_DataCatalogInputDefinition_CatalogId" NewName="DataCatalogInputDefinition_CatalogId" />
+                <Param Name="Input_DataCatalogInputDefinition_DatabaseName" NewName="DataCatalogInputDefinition_DatabaseName" />
+                <Param Name="Input_DataCatalogInputDefinition_TableName" NewName="DataCatalogInputDefinition_TableName" />
+                <Param Name="Input_Metadata_SourceArn" NewName="Metadata_SourceArn" />
+                <Param Name="Input_S3InputDefinition_Bucket" NewName="S3InputDefinition_Bucket" />
+                <Param Name="Input_S3InputDefinition_BucketOwner" NewName="S3InputDefinition_BucketOwner" />
+                <Param Name="Input_S3InputDefinition_Key" NewName="S3InputDefinition_Key" />
+                <Param Name="PathOptions_FilesLimit_MaxFiles" NewName="FilesLimit_MaxFile" />
+                <Param Name="PathOptions_FilesLimit_Order" NewName="FilesLimit_Order" />
+                <Param Name="PathOptions_FilesLimit_OrderedBy" NewName="FilesLimit_OrderedBy" />
+                <Param Name="PathOptions_LastModifiedDateCondition_Expression" NewName="LastModifiedDateCondition_Expression" />
+                <Param Name="PathOptions_LastModifiedDateCondition_ValuesMap" NewName="LastModifiedDateCondition_ValuesMap" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProfileJob" OutputProperty="Name" Verb="Update" Noun="ProfileJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_DatasetStatisticsConfiguration_IncludedStatistics" NewName="DatasetStatisticsConfiguration_IncludedStatistic" />
+                <Param Name="Configuration_DatasetStatisticsConfiguration_Overrides" NewName="DatasetStatisticsConfiguration_Override" />
+                <Param Name="Configuration_EntityDetectorConfiguration_AllowedStatistics" NewName="EntityDetectorConfiguration_AllowedStatistic" />
+                <Param Name="Configuration_EntityDetectorConfiguration_EntityTypes" NewName="EntityDetectorConfiguration_EntityType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProject" OutputProperty="*" Verb="Update" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">

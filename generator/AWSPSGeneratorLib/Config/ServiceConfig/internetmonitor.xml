@@ -20,7 +20,17 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateMonitor" OutputProperty="*" Verb="New" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HealthEventsConfig_AvailabilityLocalHealthEventsConfig_HealthScoreThreshold" NewName="AvailabilityLocalHealthEventsConfig_HealthScoreThreshold" />
+                <Param Name="HealthEventsConfig_AvailabilityLocalHealthEventsConfig_MinTrafficImpact" NewName="AvailabilityLocalHealthEventsConfig_MinTrafficImpact" />
+                <Param Name="HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status" NewName="AvailabilityLocalHealthEventsConfig_Status" />
+                <Param Name="HealthEventsConfig_PerformanceLocalHealthEventsConfig_HealthScoreThreshold" NewName="PerformanceLocalHealthEventsConfig_HealthScoreThreshold" />
+                <Param Name="HealthEventsConfig_PerformanceLocalHealthEventsConfig_MinTrafficImpact" NewName="PerformanceLocalHealthEventsConfig_MinTrafficImpact" />
+                <Param Name="HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status" NewName="PerformanceLocalHealthEventsConfig_Status" />
+                <Param Name="InternetMeasurementsLogDelivery_S3Config_BucketName" NewName="S3Config_BucketName" />
+                <Param Name="InternetMeasurementsLogDelivery_S3Config_BucketPrefix" NewName="S3Config_BucketPrefix" />
+                <Param Name="InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus" NewName="S3Config_LogDeliveryStatus" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMonitor" Verb="Remove" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -80,7 +90,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMonitor" OutputProperty="*" Verb="Update" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="HealthEventsConfig_AvailabilityLocalHealthEventsConfig_HealthScoreThreshold" NewName="AvailabilityLocalHealthEventsConfig_HealthScoreThreshold" />
+                <Param Name="HealthEventsConfig_AvailabilityLocalHealthEventsConfig_MinTrafficImpact" NewName="AvailabilityLocalHealthEventsConfig_MinTrafficImpact" />
+                <Param Name="HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status" NewName="AvailabilityLocalHealthEventsConfig_Status" />
+                <Param Name="HealthEventsConfig_PerformanceLocalHealthEventsConfig_HealthScoreThreshold" NewName="PerformanceLocalHealthEventsConfig_HealthScoreThreshold" />
+                <Param Name="HealthEventsConfig_PerformanceLocalHealthEventsConfig_MinTrafficImpact" NewName="PerformanceLocalHealthEventsConfig_MinTrafficImpact" />
+                <Param Name="HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status" NewName="PerformanceLocalHealthEventsConfig_Status" />
+                <Param Name="InternetMeasurementsLogDelivery_S3Config_BucketName" NewName="S3Config_BucketName" />
+                <Param Name="InternetMeasurementsLogDelivery_S3Config_BucketPrefix" NewName="S3Config_BucketPrefix" />
+                <Param Name="InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus" NewName="S3Config_LogDeliveryStatus" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

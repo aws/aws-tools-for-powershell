@@ -62,6 +62,18 @@
                 <Param Name="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus" NewName="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus" Alias="BedrockModelSpecification_TraceStatus" />
                 <Param Name="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus" NewName="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus" />
                 <Param Name="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus" NewName="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus" />
+                <Param Name="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_Enabled" NewName="DescriptiveBotBuilder_Enabled" />
+                <Param Name="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_Enabled" NewName="SampleUtteranceGeneration_Enabled" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_AssistedNluMode" NewName="NluImprovement_AssistedNluMode" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_Enabled" NewName="NluImprovement_Enabled" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_CustomDisambiguationMessage" NewName="IntentDisambiguationSettings_CustomDisambiguationMessage" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_Enabled" NewName="IntentDisambiguationSettings_Enabled" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_MaxDisambiguationIntents" NewName="IntentDisambiguationSettings_MaxDisambiguationIntent" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_Enabled" NewName="SlotResolutionImprovement_Enabled" />
+                <Param Name="SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ApiTokenSecretArn" NewName="DeepgramConfig_ApiTokenSecretArn" />
+                <Param Name="SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ModelId" NewName="DeepgramConfig_ModelId" />
+                <Param Name="UnifiedSpeechSettings_SpeechFoundationModel_ModelArn" NewName="SpeechFoundationModel_ModelArn" />
+                <Param Name="UnifiedSpeechSettings_SpeechFoundationModel_VoiceId" NewName="SpeechFoundationModel_VoiceId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -73,8 +85,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateExport" OutputProperty="*" Verb="New" Noun="Export" ShouldProcessTarget="" PipelineParameter="FileFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="CreateExport" OutputProperty="*" Verb="New" Noun="Export" ShouldProcessTarget="FileFormat" PipelineParameter="FileFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="ResourceSpecification_BotExportSpecification_BotId" NewName="BotExportSpecification_BotId" />
+                <Param Name="ResourceSpecification_BotExportSpecification_BotVersion" NewName="BotExportSpecification_BotVersion" />
+                <Param Name="ResourceSpecification_BotLocaleExportSpecification_BotId" NewName="BotLocaleExportSpecification_BotId" />
+                <Param Name="ResourceSpecification_BotLocaleExportSpecification_BotVersion" NewName="BotLocaleExportSpecification_BotVersion" />
+                <Param Name="ResourceSpecification_BotLocaleExportSpecification_LocaleId" NewName="BotLocaleExportSpecification_LocaleId" />
+                <Param Name="ResourceSpecification_CustomVocabularyExportSpecification_BotId" NewName="CustomVocabularyExportSpecification_BotId" />
+                <Param Name="ResourceSpecification_CustomVocabularyExportSpecification_BotVersion" NewName="CustomVocabularyExportSpecification_BotVersion" />
+                <Param Name="ResourceSpecification_CustomVocabularyExportSpecification_LocaleId" NewName="CustomVocabularyExportSpecification_LocaleId" />
+                <Param Name="ResourceSpecification_TestSetExportSpecification_TestSetId" NewName="TestSetExportSpecification_TestSetId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIntent" OutputProperty="*" Verb="New" Noun="Intent" ShouldProcessTarget="IntentName" PipelineParameter="IntentName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -325,6 +347,55 @@
                 <Param Name="IntentClosingSetting_Conditional_Active" NewName="IntentClosingSetting_Conditional_Active" />
                 <Param Name="InitialResponseSetting_Conditional_ConditionalBranches" NewName="InitialResponseSetting_Conditional_ConditionalBranches" />
                 <Param Name="IntentClosingSetting_Conditional_ConditionalBranches" NewName="IntentClosingSetting_Conditional_ConditionalBranches" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_Active" NewName="FulfillmentUpdatesSpecification_Active" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_AllowInterrupt" NewName="StartResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_DelayInSeconds" NewName="StartResponse_DelayInSecond" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_MessageGroups" NewName="StartResponse_MessageGroup" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_TimeoutInSeconds" NewName="FulfillmentUpdatesSpecification_TimeoutInSecond" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_AllowInterrupt" NewName="UpdateResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_FrequencyInSeconds" NewName="UpdateResponse_FrequencyInSecond" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_MessageGroups" NewName="UpdateResponse_MessageGroup" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_AllowInterrupt" NewName="FailureResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_MessageGroups" NewName="FailureResponse_MessageGroup" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_AllowInterrupt" NewName="SuccessResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_MessageGroups" NewName="SuccessResponse_MessageGroup" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_AllowInterrupt" NewName="TimeoutResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_MessageGroups" NewName="TimeoutResponse_MessageGroup" />
+                <Param Name="InitialResponseSetting_InitialResponse_AllowInterrupt" NewName="InitialResponse_AllowInterrupt" />
+                <Param Name="InitialResponseSetting_InitialResponse_MessageGroups" NewName="InitialResponse_MessageGroup" />
+                <Param Name="IntentClosingSetting_ClosingResponse_AllowInterrupt" NewName="ClosingResponse_AllowInterrupt" />
+                <Param Name="IntentClosingSetting_ClosingResponse_MessageGroups" NewName="ClosingResponse_MessageGroup" />
+                <Param Name="IntentConfirmationSetting_ConfirmationConditional_Active" NewName="ConfirmationConditional_Active" />
+                <Param Name="IntentConfirmationSetting_ConfirmationConditional_ConditionalBranches" NewName="ConfirmationConditional_ConditionalBranch" />
+                <Param Name="IntentConfirmationSetting_ConfirmationNextStep_SessionAttributes" NewName="ConfirmationNextStep_SessionAttribute" />
+                <Param Name="IntentConfirmationSetting_ConfirmationResponse_AllowInterrupt" NewName="ConfirmationResponse_AllowInterrupt" />
+                <Param Name="IntentConfirmationSetting_ConfirmationResponse_MessageGroups" NewName="ConfirmationResponse_MessageGroup" />
+                <Param Name="IntentConfirmationSetting_DeclinationConditional_Active" NewName="DeclinationConditional_Active" />
+                <Param Name="IntentConfirmationSetting_DeclinationConditional_ConditionalBranches" NewName="DeclinationConditional_ConditionalBranch" />
+                <Param Name="IntentConfirmationSetting_DeclinationNextStep_SessionAttributes" NewName="DeclinationNextStep_SessionAttribute" />
+                <Param Name="IntentConfirmationSetting_DeclinationResponse_AllowInterrupt" NewName="DeclinationResponse_AllowInterrupt" />
+                <Param Name="IntentConfirmationSetting_DeclinationResponse_MessageGroups" NewName="DeclinationResponse_MessageGroup" />
+                <Param Name="IntentConfirmationSetting_ElicitationCodeHook_EnableCodeHookInvocation" NewName="ElicitationCodeHook_EnableCodeHookInvocation" />
+                <Param Name="IntentConfirmationSetting_ElicitationCodeHook_InvocationLabel" NewName="ElicitationCodeHook_InvocationLabel" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_AllowInterrupt" NewName="PromptSpecification_AllowInterrupt" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_MaxRetries" NewName="PromptSpecification_MaxRetry" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_MessageGroups" NewName="PromptSpecification_MessageGroup" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy" NewName="PromptSpecification_MessageSelectionStrategy" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_PromptAttemptsSpecification" NewName="PromptSpecification_PromptAttemptsSpecification" />
+                <Param Name="QInConnectIntentConfiguration_QInConnectAssistantConfiguration_AssistantArn" NewName="QInConnectAssistantConfiguration_AssistantArn" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_CustomPrompt" NewName="BedrockModelConfiguration_CustomPrompt" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_Guardrail_Identifier" NewName="Guardrail_Identifier" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_Guardrail_Version" NewName="Guardrail_Version" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_ModelArn" NewName="BedrockModelConfiguration_ModelArn" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_TraceStatus" NewName="BedrockModelConfiguration_TraceStatus" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_BedrockKnowledgeStoreConfiguration_BedrockKnowledgeBaseArn" NewName="BedrockKnowledgeStoreConfiguration_BedrockKnowledgeBaseArn" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_BedrockKnowledgeStoreConfiguration_ExactResponse" NewName="BedrockKnowledgeStoreConfiguration_ExactResponse" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_ExactResponse" NewName="KendraConfiguration_ExactResponse" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_DomainEndpoint" NewName="OpensearchConfiguration_DomainEndpoint" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_ExactResponse" NewName="OpensearchConfiguration_ExactResponse" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_ExactResponseFields_QuestionField" NewName="ExactResponseFields_QuestionField" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_IncludeFields" NewName="OpensearchConfiguration_IncludeField" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_IndexName" NewName="OpensearchConfiguration_IndexName" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -413,15 +484,61 @@
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_FailureResponse_AllowInterrupt" NewName="ValueElicitationSetting_SlotCaptureSetting_FailureResponse_AllowInterrupt" />
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureResponse_MessageGroups" NewName="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureResponse_MessageGroups" />
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_FailureResponse_MessageGroups" NewName="ValueElicitationSetting_SlotCaptureSetting_FailureResponse_MessageGroups" />
+                <Param Name="ValueElicitationSetting_DefaultValueSpecification_DefaultValueList" NewName="DefaultValueSpecification_DefaultValueList" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_AllowInterrupt" NewName="PromptSpecification_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_MaxRetries" NewName="PromptSpecification_MaxRetry" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_MessageGroups" NewName="PromptSpecification_MessageGroup" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy" NewName="PromptSpecification_MessageSelectionStrategy" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_PromptAttemptsSpecification" NewName="PromptSpecification_PromptAttemptsSpecification" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_Active" NewName="CaptureConditional_Active" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_ConditionalBranches" NewName="CaptureConditional_ConditionalBranch" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureNextStep_SessionAttributes" NewName="CaptureNextStep_SessionAttribute" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureResponse_AllowInterrupt" NewName="CaptureResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureResponse_MessageGroups" NewName="CaptureResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_Active" NewName="CodeHook_Active" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_EnableCodeHookInvocation" NewName="CodeHook_EnableCodeHookInvocation" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_InvocationLabel" NewName="CodeHook_InvocationLabel" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_Active" NewName="SuccessConditional_Active" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_ConditionalBranches" NewName="SuccessConditional_ConditionalBranch" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes" NewName="SuccessNextStep_SessionAttribute" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessResponse_AllowInterrupt" NewName="SuccessResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessResponse_MessageGroups" NewName="SuccessResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_Active" NewName="TimeoutConditional_Active" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_ConditionalBranches" NewName="TimeoutConditional_ConditionalBranch" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes" NewName="TimeoutNextStep_SessionAttribute" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse_AllowInterrupt" NewName="TimeoutResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse_MessageGroups" NewName="TimeoutResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_ElicitationCodeHook_EnableCodeHookInvocation" NewName="ElicitationCodeHook_EnableCodeHookInvocation" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_ElicitationCodeHook_InvocationLabel" NewName="ElicitationCodeHook_InvocationLabel" />
+                <Param Name="ValueElicitationSetting_SlotResolutionSetting_SlotResolutionStrategy" NewName="SlotResolutionSetting_SlotResolutionStrategy" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_Active" NewName="WaitAndContinueSpecification_Active" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_ContinueResponse_AllowInterrupt" NewName="ContinueResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_ContinueResponse_MessageGroups" NewName="ContinueResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_StillWaitingResponse_AllowInterrupt" NewName="StillWaitingResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_StillWaitingResponse_FrequencyInSeconds" NewName="StillWaitingResponse_FrequencyInSecond" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_StillWaitingResponse_MessageGroups" NewName="StillWaitingResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_StillWaitingResponse_TimeoutInSeconds" NewName="StillWaitingResponse_TimeoutInSecond" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_WaitingResponse_AllowInterrupt" NewName="WaitingResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_WaitingResponse_MessageGroups" NewName="WaitingResponse_MessageGroup" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSlotType" OutputProperty="*" Verb="New" Noun="SlotType" ShouldProcessTarget="SlotTypeName" PipelineParameter="SlotTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExternalSourceSetting_GrammarSlotTypeSetting_Source_KmsKeyArn" NewName="Source_KmsKeyArn" />
+                <Param Name="ExternalSourceSetting_GrammarSlotTypeSetting_Source_S3BucketName" NewName="Source_S3BucketName" />
+                <Param Name="ExternalSourceSetting_GrammarSlotTypeSetting_Source_S3ObjectKey" NewName="Source_S3ObjectKey" />
+                <Param Name="ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy" NewName="AdvancedRecognitionSetting_AudioRecognitionStrategy" />
+                <Param Name="ValueSelectionSetting_RegexFilter_Pattern" NewName="RegexFilter_Pattern" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTestSetDiscrepancyReport" OutputProperty="*" Verb="New" Noun="TestSetDiscrepancyReport" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Target_BotAliasTarget_BotAliasId" NewName="BotAliasTarget_BotAliasId" />
+                <Param Name="Target_BotAliasTarget_BotId" NewName="BotAliasTarget_BotId" />
+                <Param Name="Target_BotAliasTarget_LocaleId" NewName="BotAliasTarget_LocaleId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateUploadUrl" OutputProperty="*" Verb="New" Noun="UploadUrl" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -569,7 +686,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAggregatedUtterances" OutputProperty="*" Verb="Get" Noun="AggregatedUtteranceList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AggregationDuration_RelativeAggregationDuration_TimeDimension" NewName="RelativeAggregationDuration_TimeDimension" />
+                <Param Name="AggregationDuration_RelativeAggregationDuration_TimeValue" NewName="RelativeAggregationDuration_TimeValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBotAliases" OutputProperty="*" Verb="Get" Noun="BotAliasList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -669,7 +789,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTestExecutionResultItems" OutputProperty="TestExecutionResults" Verb="Get" Noun="TestExecutionResultItemList" PipelineParameter="TestExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResultFilterBy_ConversationLevelTestResultsFilterBy_EndToEndResult" NewName="ConversationLevelTestResultsFilterBy_EndToEndResult" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTestExecutions" OutputProperty="TestExecutions" Verb="Get" Noun="TestExecutionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -697,7 +819,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartBotRecommendation" OutputProperty="*" Verb="Start" Noun="BotRecommendation" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TranscriptSourceSetting_S3BucketTranscriptSource_KmsKeyArn" NewName="S3BucketTranscriptSource_KmsKeyArn" />
+                <Param Name="TranscriptSourceSetting_S3BucketTranscriptSource_PathFormat_ObjectPrefixes" NewName="PathFormat_ObjectPrefix" />
+                <Param Name="TranscriptSourceSetting_S3BucketTranscriptSource_S3BucketName" NewName="S3BucketTranscriptSource_S3BucketName" />
+                <Param Name="TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFilter_LexTranscriptFilter_DateRangeFilter_EndDateTime" NewName="DateRangeFilter_EndDateTime" />
+                <Param Name="TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFilter_LexTranscriptFilter_DateRangeFilter_StartDateTime" NewName="DateRangeFilter_StartDateTime" />
+                <Param Name="TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat" NewName="S3BucketTranscriptSource_TranscriptFormat" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartBotResourceGeneration" OutputProperty="*" Verb="Start" Noun="BotResourceGeneration" AnonymousShouldProcessTarget="true" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -705,15 +834,59 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceSpecification_BotImportSpecification_BotName" NewName="BotImportSpecification_BotName" />
+                <Param Name="ResourceSpecification_BotImportSpecification_BotTags" NewName="BotImportSpecification_BotTag" />
+                <Param Name="ResourceSpecification_BotImportSpecification_DataPrivacy_ChildDirected" NewName="DataPrivacy_ChildDirected" />
+                <Param Name="ResourceSpecification_BotImportSpecification_ErrorLogSettings_Enabled" NewName="ErrorLogSettings_Enabled" />
+                <Param Name="ResourceSpecification_BotImportSpecification_IdleSessionTTLInSeconds" NewName="BotImportSpecification_IdleSessionTTLInSecond" />
+                <Param Name="ResourceSpecification_BotImportSpecification_RoleArn" NewName="BotImportSpecification_RoleArn" />
+                <Param Name="ResourceSpecification_BotImportSpecification_TestBotAliasTags" NewName="BotImportSpecification_TestBotAliasTag" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_BotId" NewName="BotLocaleImportSpecification_BotId" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_BotVersion" NewName="BotLocaleImportSpecification_BotVersion" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_LocaleId" NewName="BotLocaleImportSpecification_LocaleId" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_NluIntentConfidenceThreshold" NewName="BotLocaleImportSpecification_NluIntentConfidenceThreshold" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_SpeechDetectionSensitivity" NewName="BotLocaleImportSpecification_SpeechDetectionSensitivity" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ApiTokenSecretArn" NewName="DeepgramConfig_ApiTokenSecretArn" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ModelId" NewName="DeepgramConfig_ModelId" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelPreference" NewName="SpeechRecognitionSettings_SpeechModelPreference" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_ModelArn" NewName="SpeechFoundationModel_ModelArn" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_VoiceId" NewName="SpeechFoundationModel_VoiceId" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_Engine" NewName="VoiceSettings_Engine" />
+                <Param Name="ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_VoiceId" NewName="VoiceSettings_VoiceId" />
+                <Param Name="ResourceSpecification_CustomVocabularyImportSpecification_BotId" NewName="CustomVocabularyImportSpecification_BotId" />
+                <Param Name="ResourceSpecification_CustomVocabularyImportSpecification_BotVersion" NewName="CustomVocabularyImportSpecification_BotVersion" />
+                <Param Name="ResourceSpecification_CustomVocabularyImportSpecification_LocaleId" NewName="CustomVocabularyImportSpecification_LocaleId" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_Description" NewName="TestSetImportResourceSpecification_Description" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_S3BucketName" NewName="ImportInputLocation_S3BucketName" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_S3Path" NewName="ImportInputLocation_S3Path" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_Modality" NewName="TestSetImportResourceSpecification_Modality" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_RoleArn" NewName="TestSetImportResourceSpecification_RoleArn" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_StorageLocation_KmsKeyArn" NewName="StorageLocation_KmsKeyArn" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_StorageLocation_S3BucketName" NewName="StorageLocation_S3BucketName" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_StorageLocation_S3Path" NewName="StorageLocation_S3Path" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_TestSetName" NewName="TestSetImportResourceSpecification_TestSetName" />
+                <Param Name="ResourceSpecification_TestSetImportResourceSpecification_TestSetTags" NewName="TestSetImportResourceSpecification_TestSetTag" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartTestExecution" OutputProperty="*" Verb="Start" Noun="TestExecution" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Target_BotAliasTarget_BotAliasId" NewName="BotAliasTarget_BotAliasId" />
+                <Param Name="Target_BotAliasTarget_BotId" NewName="BotAliasTarget_BotId" />
+                <Param Name="Target_BotAliasTarget_LocaleId" NewName="BotAliasTarget_LocaleId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartTestSetGeneration" OutputProperty="*" Verb="Start" Noun="TestSetGeneration" ShouldProcessTarget="TestSetName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="GenerationDataSource_ConversationLogsDataSource_BotAliasId" NewName="ConversationLogsDataSource_BotAliasId" />
+                <Param Name="GenerationDataSource_ConversationLogsDataSource_BotId" NewName="ConversationLogsDataSource_BotId" />
+                <Param Name="GenerationDataSource_ConversationLogsDataSource_Filter_EndTime" NewName="Filter_EndTime" />
+                <Param Name="GenerationDataSource_ConversationLogsDataSource_Filter_InputMode" NewName="Filter_InputMode" />
+                <Param Name="GenerationDataSource_ConversationLogsDataSource_Filter_StartTime" NewName="Filter_StartTime" />
+                <Param Name="GenerationDataSource_ConversationLogsDataSource_LocaleId" NewName="ConversationLogsDataSource_LocaleId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopBotRecommendation" OutputProperty="*" Verb="Stop" Noun="BotRecommendation" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -753,6 +926,18 @@
                 <Param Name="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus" NewName="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus" Alias="BedrockModelSpecification_TraceStatus" />
                 <Param Name="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus" NewName="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus" />
                 <Param Name="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus" NewName="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus" />
+                <Param Name="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_Enabled" NewName="DescriptiveBotBuilder_Enabled" />
+                <Param Name="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_Enabled" NewName="SampleUtteranceGeneration_Enabled" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_AssistedNluMode" NewName="NluImprovement_AssistedNluMode" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_Enabled" NewName="NluImprovement_Enabled" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_CustomDisambiguationMessage" NewName="IntentDisambiguationSettings_CustomDisambiguationMessage" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_Enabled" NewName="IntentDisambiguationSettings_Enabled" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_MaxDisambiguationIntents" NewName="IntentDisambiguationSettings_MaxDisambiguationIntent" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_Enabled" NewName="SlotResolutionImprovement_Enabled" />
+                <Param Name="SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ApiTokenSecretArn" NewName="DeepgramConfig_ApiTokenSecretArn" />
+                <Param Name="SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ModelId" NewName="DeepgramConfig_ModelId" />
+                <Param Name="UnifiedSpeechSettings_SpeechFoundationModel_ModelArn" NewName="SpeechFoundationModel_ModelArn" />
+                <Param Name="UnifiedSpeechSettings_SpeechFoundationModel_VoiceId" NewName="SpeechFoundationModel_VoiceId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1012,6 +1197,55 @@
                 <Param Name="IntentClosingSetting_Conditional_Active" NewName="IntentClosingSetting_Conditional_Active" />
                 <Param Name="InitialResponseSetting_Conditional_ConditionalBranches" NewName="InitialResponseSetting_Conditional_ConditionalBranches" />
                 <Param Name="IntentClosingSetting_Conditional_ConditionalBranches" NewName="IntentClosingSetting_Conditional_ConditionalBranches" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_Active" NewName="FulfillmentUpdatesSpecification_Active" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_AllowInterrupt" NewName="StartResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_DelayInSeconds" NewName="StartResponse_DelayInSecond" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_MessageGroups" NewName="StartResponse_MessageGroup" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_TimeoutInSeconds" NewName="FulfillmentUpdatesSpecification_TimeoutInSecond" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_AllowInterrupt" NewName="UpdateResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_FrequencyInSeconds" NewName="UpdateResponse_FrequencyInSecond" />
+                <Param Name="FulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_MessageGroups" NewName="UpdateResponse_MessageGroup" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_AllowInterrupt" NewName="FailureResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_MessageGroups" NewName="FailureResponse_MessageGroup" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_AllowInterrupt" NewName="SuccessResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_MessageGroups" NewName="SuccessResponse_MessageGroup" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_AllowInterrupt" NewName="TimeoutResponse_AllowInterrupt" />
+                <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_MessageGroups" NewName="TimeoutResponse_MessageGroup" />
+                <Param Name="InitialResponseSetting_InitialResponse_AllowInterrupt" NewName="InitialResponse_AllowInterrupt" />
+                <Param Name="InitialResponseSetting_InitialResponse_MessageGroups" NewName="InitialResponse_MessageGroup" />
+                <Param Name="IntentClosingSetting_ClosingResponse_AllowInterrupt" NewName="ClosingResponse_AllowInterrupt" />
+                <Param Name="IntentClosingSetting_ClosingResponse_MessageGroups" NewName="ClosingResponse_MessageGroup" />
+                <Param Name="IntentConfirmationSetting_ConfirmationConditional_Active" NewName="ConfirmationConditional_Active" />
+                <Param Name="IntentConfirmationSetting_ConfirmationConditional_ConditionalBranches" NewName="ConfirmationConditional_ConditionalBranch" />
+                <Param Name="IntentConfirmationSetting_ConfirmationNextStep_SessionAttributes" NewName="ConfirmationNextStep_SessionAttribute" />
+                <Param Name="IntentConfirmationSetting_ConfirmationResponse_AllowInterrupt" NewName="ConfirmationResponse_AllowInterrupt" />
+                <Param Name="IntentConfirmationSetting_ConfirmationResponse_MessageGroups" NewName="ConfirmationResponse_MessageGroup" />
+                <Param Name="IntentConfirmationSetting_DeclinationConditional_Active" NewName="DeclinationConditional_Active" />
+                <Param Name="IntentConfirmationSetting_DeclinationConditional_ConditionalBranches" NewName="DeclinationConditional_ConditionalBranch" />
+                <Param Name="IntentConfirmationSetting_DeclinationNextStep_SessionAttributes" NewName="DeclinationNextStep_SessionAttribute" />
+                <Param Name="IntentConfirmationSetting_DeclinationResponse_AllowInterrupt" NewName="DeclinationResponse_AllowInterrupt" />
+                <Param Name="IntentConfirmationSetting_DeclinationResponse_MessageGroups" NewName="DeclinationResponse_MessageGroup" />
+                <Param Name="IntentConfirmationSetting_ElicitationCodeHook_EnableCodeHookInvocation" NewName="ElicitationCodeHook_EnableCodeHookInvocation" />
+                <Param Name="IntentConfirmationSetting_ElicitationCodeHook_InvocationLabel" NewName="ElicitationCodeHook_InvocationLabel" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_AllowInterrupt" NewName="PromptSpecification_AllowInterrupt" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_MaxRetries" NewName="PromptSpecification_MaxRetry" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_MessageGroups" NewName="PromptSpecification_MessageGroup" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy" NewName="PromptSpecification_MessageSelectionStrategy" />
+                <Param Name="IntentConfirmationSetting_PromptSpecification_PromptAttemptsSpecification" NewName="PromptSpecification_PromptAttemptsSpecification" />
+                <Param Name="QInConnectIntentConfiguration_QInConnectAssistantConfiguration_AssistantArn" NewName="QInConnectAssistantConfiguration_AssistantArn" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_CustomPrompt" NewName="BedrockModelConfiguration_CustomPrompt" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_Guardrail_Identifier" NewName="Guardrail_Identifier" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_Guardrail_Version" NewName="Guardrail_Version" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_ModelArn" NewName="BedrockModelConfiguration_ModelArn" />
+                <Param Name="QnAIntentConfiguration_BedrockModelConfiguration_TraceStatus" NewName="BedrockModelConfiguration_TraceStatus" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_BedrockKnowledgeStoreConfiguration_BedrockKnowledgeBaseArn" NewName="BedrockKnowledgeStoreConfiguration_BedrockKnowledgeBaseArn" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_BedrockKnowledgeStoreConfiguration_ExactResponse" NewName="BedrockKnowledgeStoreConfiguration_ExactResponse" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_ExactResponse" NewName="KendraConfiguration_ExactResponse" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_DomainEndpoint" NewName="OpensearchConfiguration_DomainEndpoint" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_ExactResponse" NewName="OpensearchConfiguration_ExactResponse" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_ExactResponseFields_QuestionField" NewName="ExactResponseFields_QuestionField" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_IncludeFields" NewName="OpensearchConfiguration_IncludeField" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_IndexName" NewName="OpensearchConfiguration_IndexName" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1096,11 +1330,53 @@
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_FailureResponse_AllowInterrupt" NewName="ValueElicitationSetting_SlotCaptureSetting_FailureResponse_AllowInterrupt" />
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureResponse_MessageGroups" NewName="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureResponse_MessageGroups" />
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_FailureResponse_MessageGroups" NewName="ValueElicitationSetting_SlotCaptureSetting_FailureResponse_MessageGroups" />
+                <Param Name="ValueElicitationSetting_DefaultValueSpecification_DefaultValueList" NewName="DefaultValueSpecification_DefaultValueList" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_AllowInterrupt" NewName="PromptSpecification_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_MaxRetries" NewName="PromptSpecification_MaxRetry" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_MessageGroups" NewName="PromptSpecification_MessageGroup" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy" NewName="PromptSpecification_MessageSelectionStrategy" />
+                <Param Name="ValueElicitationSetting_PromptSpecification_PromptAttemptsSpecification" NewName="PromptSpecification_PromptAttemptsSpecification" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_Active" NewName="CaptureConditional_Active" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_ConditionalBranches" NewName="CaptureConditional_ConditionalBranch" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureNextStep_SessionAttributes" NewName="CaptureNextStep_SessionAttribute" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureResponse_AllowInterrupt" NewName="CaptureResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CaptureResponse_MessageGroups" NewName="CaptureResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_Active" NewName="CodeHook_Active" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_EnableCodeHookInvocation" NewName="CodeHook_EnableCodeHookInvocation" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_InvocationLabel" NewName="CodeHook_InvocationLabel" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_Active" NewName="SuccessConditional_Active" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_ConditionalBranches" NewName="SuccessConditional_ConditionalBranch" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes" NewName="SuccessNextStep_SessionAttribute" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessResponse_AllowInterrupt" NewName="SuccessResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessResponse_MessageGroups" NewName="SuccessResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_Active" NewName="TimeoutConditional_Active" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_ConditionalBranches" NewName="TimeoutConditional_ConditionalBranch" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes" NewName="TimeoutNextStep_SessionAttribute" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse_AllowInterrupt" NewName="TimeoutResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse_MessageGroups" NewName="TimeoutResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_ElicitationCodeHook_EnableCodeHookInvocation" NewName="ElicitationCodeHook_EnableCodeHookInvocation" />
+                <Param Name="ValueElicitationSetting_SlotCaptureSetting_ElicitationCodeHook_InvocationLabel" NewName="ElicitationCodeHook_InvocationLabel" />
+                <Param Name="ValueElicitationSetting_SlotResolutionSetting_SlotResolutionStrategy" NewName="SlotResolutionSetting_SlotResolutionStrategy" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_Active" NewName="WaitAndContinueSpecification_Active" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_ContinueResponse_AllowInterrupt" NewName="ContinueResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_ContinueResponse_MessageGroups" NewName="ContinueResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_StillWaitingResponse_AllowInterrupt" NewName="StillWaitingResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_StillWaitingResponse_FrequencyInSeconds" NewName="StillWaitingResponse_FrequencyInSecond" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_StillWaitingResponse_MessageGroups" NewName="StillWaitingResponse_MessageGroup" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_StillWaitingResponse_TimeoutInSeconds" NewName="StillWaitingResponse_TimeoutInSecond" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_WaitingResponse_AllowInterrupt" NewName="WaitingResponse_AllowInterrupt" />
+                <Param Name="ValueElicitationSetting_WaitAndContinueSpecification_WaitingResponse_MessageGroups" NewName="WaitingResponse_MessageGroup" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSlotType" OutputProperty="*" Verb="Update" Noun="SlotType" ShouldProcessTarget="SlotTypeId" PipelineParameter="SlotTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ExternalSourceSetting_GrammarSlotTypeSetting_Source_KmsKeyArn" NewName="Source_KmsKeyArn" />
+                <Param Name="ExternalSourceSetting_GrammarSlotTypeSetting_Source_S3BucketName" NewName="Source_S3BucketName" />
+                <Param Name="ExternalSourceSetting_GrammarSlotTypeSetting_Source_S3ObjectKey" NewName="Source_S3ObjectKey" />
+                <Param Name="ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy" NewName="AdvancedRecognitionSetting_AudioRecognitionStrategy" />
+                <Param Name="ValueSelectionSetting_RegexFilter_Pattern" NewName="RegexFilter_Pattern" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTestSet" OutputProperty="*" Verb="Update" Noun="TestSet" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>kinesisanalytics</C2jFilename>
     <AssemblyName>KinesisAnalytics</AssemblyName>
@@ -12,7 +13,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -23,19 +23,54 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddApplicationInput" Verb="Add" Noun="ApplicationInput" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Input_InputParallelism_Count" NewName="InputParallelism_Count" />
+                <Param Name="Input_InputProcessingConfiguration_InputLambdaProcessor_ResourceARN" NewName="InputLambdaProcessor_ResourceARN" />
+                <Param Name="Input_InputProcessingConfiguration_InputLambdaProcessor_RoleARN" NewName="InputLambdaProcessor_RoleARN" />
+                <Param Name="Input_InputSchema_RecordColumns" NewName="InputSchema_RecordColumn" />
+                <Param Name="Input_InputSchema_RecordEncoding" NewName="InputSchema_RecordEncoding" />
+                <Param Name="Input_InputSchema_RecordFormat_MappingParameters_CSVMappingParameters_RecordColumnDelimiter" NewName="CSVMappingParameters_RecordColumnDelimiter" />
+                <Param Name="Input_InputSchema_RecordFormat_MappingParameters_CSVMappingParameters_RecordRowDelimiter" NewName="CSVMappingParameters_RecordRowDelimiter" />
+                <Param Name="Input_InputSchema_RecordFormat_MappingParameters_JSONMappingParameters_RecordRowPath" NewName="JSONMappingParameters_RecordRowPath" />
+                <Param Name="Input_InputSchema_RecordFormat_RecordFormatType" NewName="RecordFormat_RecordFormatType" />
+                <Param Name="Input_KinesisFirehoseInput_ResourceARN" NewName="KinesisFirehoseInput_ResourceARN" />
+                <Param Name="Input_KinesisFirehoseInput_RoleARN" NewName="KinesisFirehoseInput_RoleARN" />
+                <Param Name="Input_KinesisStreamsInput_ResourceARN" NewName="KinesisStreamsInput_ResourceARN" />
+                <Param Name="Input_KinesisStreamsInput_RoleARN" NewName="KinesisStreamsInput_RoleARN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddApplicationInputProcessingConfiguration" Verb="Add" Noun="ApplicationInputProcessingConfiguration" ShouldProcessTarget="CurrentApplicationVersionId" PipelineParameter="CurrentApplicationVersionId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputProcessingConfiguration_InputLambdaProcessor_ResourceARN" NewName="InputLambdaProcessor_ResourceARN" />
+                <Param Name="InputProcessingConfiguration_InputLambdaProcessor_RoleARN" NewName="InputLambdaProcessor_RoleARN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddApplicationOutput" Verb="Add" Noun="ApplicationOutput" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Output_DestinationSchema_RecordFormatType" NewName="DestinationSchema_RecordFormatType" />
+                <Param Name="Output_KinesisFirehoseOutput_ResourceARN" NewName="KinesisFirehoseOutput_ResourceARN" />
+                <Param Name="Output_KinesisFirehoseOutput_RoleARN" NewName="KinesisFirehoseOutput_RoleARN" />
+                <Param Name="Output_KinesisStreamsOutput_ResourceARN" NewName="KinesisStreamsOutput_ResourceARN" />
+                <Param Name="Output_KinesisStreamsOutput_RoleARN" NewName="KinesisStreamsOutput_RoleARN" />
+                <Param Name="Output_LambdaOutput_ResourceARN" NewName="LambdaOutput_ResourceARN" />
+                <Param Name="Output_LambdaOutput_RoleARN" NewName="LambdaOutput_RoleARN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddApplicationReferenceDataSource" Verb="Add" Noun="ApplicationReferenceDataSource" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ReferenceDataSource_ReferenceSchema_RecordColumns" NewName="ReferenceSchema_RecordColumn" />
+                <Param Name="ReferenceDataSource_ReferenceSchema_RecordEncoding" NewName="ReferenceSchema_RecordEncoding" />
+                <Param Name="ReferenceDataSource_ReferenceSchema_RecordFormat_MappingParameters_CSVMappingParameters_RecordColumnDelimiter" NewName="CSVMappingParameters_RecordColumnDelimiter" />
+                <Param Name="ReferenceDataSource_ReferenceSchema_RecordFormat_MappingParameters_CSVMappingParameters_RecordRowDelimiter" NewName="CSVMappingParameters_RecordRowDelimiter" />
+                <Param Name="ReferenceDataSource_ReferenceSchema_RecordFormat_MappingParameters_JSONMappingParameters_RecordRowPath" NewName="JSONMappingParameters_RecordRowPath" />
+                <Param Name="ReferenceDataSource_ReferenceSchema_RecordFormat_RecordFormatType" NewName="RecordFormat_RecordFormatType" />
+                <Param Name="ReferenceDataSource_S3ReferenceDataSource_BucketARN" NewName="S3ReferenceDataSource_BucketARN" />
+                <Param Name="ReferenceDataSource_S3ReferenceDataSource_FileKey" NewName="S3ReferenceDataSource_FileKey" />
+                <Param Name="ReferenceDataSource_S3ReferenceDataSource_ReferenceRoleARN" NewName="S3ReferenceDataSource_ReferenceRoleARN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationSummary" Verb="New" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -67,7 +102,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DiscoverInputSchema" OutputProperty="*" Verb="Find" Noun="InputSchema" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputProcessingConfiguration_InputLambdaProcessor_ResourceARN" NewName="InputLambdaProcessor_ResourceARN" />
+                <Param Name="InputProcessingConfiguration_InputLambdaProcessor_RoleARN" NewName="InputLambdaProcessor_RoleARN" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" Exclude="true" ShouldProcessTarget="" PipelineParameter="ExclusiveStartApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -100,7 +138,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

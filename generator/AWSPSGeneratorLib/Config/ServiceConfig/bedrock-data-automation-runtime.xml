@@ -27,7 +27,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InvokeDataAutomationAsync" OutputProperty="InvocationArn" Verb="Invoke" Noun="DataAutomationAsync" ShouldProcessTarget="DataAutomationConfiguration_DataAutomationProjectArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_EndTimeMillis" NewName="TimestampSegment_EndTimeMilli" />
+                <Param Name="InputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_StartTimeMillis" NewName="TimestampSegment_StartTimeMilli" />
+                <Param Name="NotificationConfiguration_EventBridgeConfiguration_EventBridgeEnabled" NewName="EventBridgeConfiguration_EventBridgeEnabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">

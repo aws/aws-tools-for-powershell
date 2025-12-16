@@ -19,7 +19,33 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateMediaCapturePipeline" OutputProperty="MediaCapturePipeline" Verb="New" Noun="MediaCapturePipeline" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType" NewName="Audio_MuxType" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition" NewName="ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_CanvasOrientation" NewName="GridViewConfiguration_CanvasOrientation" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ContentShareLayout" NewName="GridViewConfiguration_ContentShareLayout" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileAspectRatio" NewName="HorizontalLayoutConfiguration_TileAspectRatio" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileCount" NewName="HorizontalLayoutConfiguration_TileCount" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileOrder" NewName="HorizontalLayoutConfiguration_TileOrder" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TilePosition" NewName="HorizontalLayoutConfiguration_TilePosition" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration_PresenterPosition" NewName="PresenterOnlyConfiguration_PresenterPosition" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileAspectRatio" NewName="VerticalLayoutConfiguration_TileAspectRatio" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileCount" NewName="VerticalLayoutConfiguration_TileCount" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileOrder" NewName="VerticalLayoutConfiguration_TileOrder" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TilePosition" NewName="VerticalLayoutConfiguration_TilePosition" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_BorderColor" NewName="VideoAttribute_BorderColor" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_BorderThickness" NewName="VideoAttribute_BorderThickness" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_CornerRadius" NewName="VideoAttribute_CornerRadius" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_HighlightColor" NewName="VideoAttribute_HighlightColor" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Layout" NewName="CompositedVideo_Layout" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Resolution" NewName="CompositedVideo_Resolution" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType" NewName="Content_MuxType" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State" NewName="Content_State" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType" NewName="Video_MuxType" />
+                <Param Name="ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State" NewName="Video_State" />
+                <Param Name="ChimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_AttendeeIds" NewName="SelectedVideoStreams_AttendeeId" />
+                <Param Name="ChimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_ExternalUserIds" NewName="SelectedVideoStreams_ExternalUserId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMediaConcatenationPipeline" OutputProperty="MediaConcatenationPipeline" Verb="New" Noun="MediaConcatenationPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -27,7 +53,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMediaInsightsPipeline" OutputProperty="MediaInsightsPipeline" Verb="New" Noun="MediaInsightsPipeline" ShouldProcessTarget="MediaInsightsPipelineConfigurationArn" PipelineParameter="MediaInsightsPipelineConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_FragmentSelectorType" NewName="FragmentSelector_FragmentSelectorType" />
+                <Param Name="KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_TimestampRange_EndTimestamp" NewName="TimestampRange_EndTimestamp" />
+                <Param Name="KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_TimestampRange_StartTimestamp" NewName="TimestampRange_StartTimestamp" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="New" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="MediaInsightsPipelineConfigurationName" PipelineParameter="MediaInsightsPipelineConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">

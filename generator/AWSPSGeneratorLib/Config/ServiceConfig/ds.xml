@@ -296,7 +296,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartADAssessment" OutputProperty="AssessmentId" Verb="Start" Noun="ADAssessment" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="AssessmentConfiguration_VpcSettings_SubnetIds" NewName="VpcSettings_SubnetId" />
+                <Param Name="AssessmentConfiguration_VpcSettings_VpcId" NewName="VpcSettings_VpcId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartSchemaExtension" OutputProperty="SchemaExtensionId" Verb="Start" Noun="SchemaExtension" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">

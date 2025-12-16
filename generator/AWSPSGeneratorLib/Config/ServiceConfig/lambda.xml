@@ -51,6 +51,12 @@
                 <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" />
                 <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" />
                 <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" />
+                <Param Name="DestinationConfig_OnFailure_Destination" NewName="OnFailure_Destination" />
+                <Param Name="DestinationConfig_OnSuccess_Destination" NewName="OnSuccess_Destination" />
+                <Param Name="SelfManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs" NewName="SchemaRegistryConfig_AccessConfig" />
+                <Param Name="SelfManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" NewName="SchemaRegistryConfig_EventRecordFormat" />
+                <Param Name="SelfManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" NewName="SchemaRegistryConfig_SchemaRegistryURI" />
+                <Param Name="SelfManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" NewName="SchemaRegistryConfig_SchemaValidationConfig" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -65,6 +71,9 @@
                 <Param Name="Role" Mandatory="true" />
                 <Param Name="Publish" NewName="PublishVersion" AutoApplyAlias="false" />
                 <Param Name="Code_ImageUri" ParameterSetName="FromImage" Mandatory="true" />
+                <Param Name="CapacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn" NewName="LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn" />
+                <Param Name="CapacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu" NewName="LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu" />
+                <Param Name="CapacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency" NewName="LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -299,7 +308,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutFunctionEventInvokeConfig" OutputProperty="*" Verb="Write" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfig_OnFailure_Destination" NewName="OnFailure_Destination" />
+                <Param Name="DestinationConfig_OnSuccess_Destination" NewName="OnSuccess_Destination" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutFunctionRecursionConfig" OutputProperty="RecursiveLoop" Verb="Write" Noun="FunctionRecursionConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -368,6 +380,12 @@
                 <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" />
                 <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" />
                 <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" />
+                <Param Name="DestinationConfig_OnFailure_Destination" NewName="OnFailure_Destination" />
+                <Param Name="DestinationConfig_OnSuccess_Destination" NewName="OnSuccess_Destination" />
+                <Param Name="SelfManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs" NewName="SchemaRegistryConfig_AccessConfig" />
+                <Param Name="SelfManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" NewName="SchemaRegistryConfig_EventRecordFormat" />
+                <Param Name="SelfManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" NewName="SchemaRegistryConfig_SchemaRegistryURI" />
+                <Param Name="SelfManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" NewName="SchemaRegistryConfig_SchemaValidationConfig" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -384,11 +402,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFunctionConfiguration" OutputProperty="*" Verb="Update" Noun="FunctionConfiguration" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="CapacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn" NewName="LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn" />
+                <Param Name="CapacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu" NewName="LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu" />
+                <Param Name="CapacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency" NewName="LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFunctionEventInvokeConfig" OutputProperty="*" Verb="Update" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="DestinationConfig_OnFailure_Destination" NewName="OnFailure_Destination" />
+                <Param Name="DestinationConfig_OnSuccess_Destination" NewName="OnSuccess_Destination" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFunctionUrlConfig" OutputProperty="*" Verb="Update" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">

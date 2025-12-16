@@ -43,7 +43,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFirewallPolicy" OutputProperty="*" Verb="New" Noun="FirewallPolicy" ShouldProcessTarget="FirewallPolicyName" PipelineParameter="FirewallPolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="FirewallPolicy_PolicyVariables_RuleVariables" NewName="PolicyVariables_RuleVariable" />
+                <Param Name="FirewallPolicy_StatefulEngineOptions_FlowTimeouts_TcpIdleTimeoutSeconds" NewName="FlowTimeouts_TcpIdleTimeoutSecond" />
+                <Param Name="FirewallPolicy_StatefulEngineOptions_RuleOrder" NewName="StatefulEngineOptions_RuleOrder" />
+                <Param Name="FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy" NewName="StatefulEngineOptions_StreamExceptionPolicy" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProxy" OutputProperty="*" Verb="New" Noun="Proxy" ShouldProcessTarget="ProxyName" PipelineParameter="" NoPipelineParameter="true">
@@ -63,7 +68,19 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRuleGroup" OutputProperty="*" Verb="New" Noun="RuleGroup" ShouldProcessTarget="RuleGroupName" PipelineParameter="RuleGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="RuleGroup_ReferenceSets_IPSetReferences" NewName="ReferenceSets_IPSetReference" />
+                <Param Name="RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType" NewName="RulesSourceList_GeneratedRulesType" />
+                <Param Name="RuleGroup_RulesSource_RulesSourceList_Targets" NewName="RulesSourceList_Target" />
+                <Param Name="RuleGroup_RulesSource_RulesSourceList_TargetTypes" NewName="RulesSourceList_TargetType" />
+                <Param Name="RuleGroup_RulesSource_RulesString" NewName="RulesSource_RulesString" />
+                <Param Name="RuleGroup_RulesSource_StatefulRules" NewName="RulesSource_StatefulRule" />
+                <Param Name="RuleGroup_RulesSource_StatelessRulesAndCustomActions_CustomActions" NewName="StatelessRulesAndCustomActions_CustomAction" />
+                <Param Name="RuleGroup_RulesSource_StatelessRulesAndCustomActions_StatelessRules" NewName="StatelessRulesAndCustomActions_StatelessRule" />
+                <Param Name="RuleGroup_RuleVariables_IPSets" NewName="RuleVariables_IPSet" />
+                <Param Name="RuleGroup_RuleVariables_PortSets" NewName="RuleVariables_PortSet" />
+                <Param Name="RuleGroup_StatefulRuleOptions_RuleOrder" NewName="StatefulRuleOptions_RuleOrder" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTLSInspectionConfiguration" OutputProperty="*" Verb="New" Noun="TLSInspectionConfiguration" ShouldProcessTarget="TLSInspectionConfigurationName" PipelineParameter="TLSInspectionConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -290,8 +307,13 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallPolicy" OutputProperty="*" Verb="Update" Noun="FirewallPolicy" ShouldProcessTarget="" PipelineParameter="UpdateToken" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="UpdateFirewallPolicy" OutputProperty="*" Verb="Update" Noun="FirewallPolicy" ShouldProcessTarget="UpdateToken" PipelineParameter="UpdateToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="FirewallPolicy_PolicyVariables_RuleVariables" NewName="PolicyVariables_RuleVariable" />
+                <Param Name="FirewallPolicy_StatefulEngineOptions_FlowTimeouts_TcpIdleTimeoutSeconds" NewName="FlowTimeouts_TcpIdleTimeoutSecond" />
+                <Param Name="FirewallPolicy_StatefulEngineOptions_RuleOrder" NewName="StatefulEngineOptions_RuleOrder" />
+                <Param Name="FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy" NewName="StatefulEngineOptions_StreamExceptionPolicy" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFirewallPolicyChangeProtection" OutputProperty="*" Verb="Update" Noun="FirewallPolicyChangeProtection" ShouldProcessTarget="" PipelineParameter="FirewallPolicyChangeProtection" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -322,8 +344,20 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRuleGroup" OutputProperty="*" Verb="Update" Noun="RuleGroup" ShouldProcessTarget="" PipelineParameter="UpdateToken" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="UpdateRuleGroup" OutputProperty="*" Verb="Update" Noun="RuleGroup" ShouldProcessTarget="UpdateToken" PipelineParameter="UpdateToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="RuleGroup_ReferenceSets_IPSetReferences" NewName="ReferenceSets_IPSetReference" />
+                <Param Name="RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType" NewName="RulesSourceList_GeneratedRulesType" />
+                <Param Name="RuleGroup_RulesSource_RulesSourceList_Targets" NewName="RulesSourceList_Target" />
+                <Param Name="RuleGroup_RulesSource_RulesSourceList_TargetTypes" NewName="RulesSourceList_TargetType" />
+                <Param Name="RuleGroup_RulesSource_RulesString" NewName="RulesSource_RulesString" />
+                <Param Name="RuleGroup_RulesSource_StatefulRules" NewName="RulesSource_StatefulRule" />
+                <Param Name="RuleGroup_RulesSource_StatelessRulesAndCustomActions_CustomActions" NewName="StatelessRulesAndCustomActions_CustomAction" />
+                <Param Name="RuleGroup_RulesSource_StatelessRulesAndCustomActions_StatelessRules" NewName="StatelessRulesAndCustomActions_StatelessRule" />
+                <Param Name="RuleGroup_RuleVariables_IPSets" NewName="RuleVariables_IPSet" />
+                <Param Name="RuleGroup_RuleVariables_PortSets" NewName="RuleVariables_PortSet" />
+                <Param Name="RuleGroup_StatefulRuleOptions_RuleOrder" NewName="StatefulRuleOptions_RuleOrder" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSubnetChangeProtection" OutputProperty="*" Verb="Update" Noun="SubnetChangeProtection" ShouldProcessTarget="" PipelineParameter="SubnetChangeProtection" NoPipelineParameter="false" LegacyV4Pagination="true">

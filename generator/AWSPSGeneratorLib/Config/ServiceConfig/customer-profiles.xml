@@ -23,7 +23,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchGetCalculatedAttributeForProfile" OutputProperty="*" Verb="Get" Noun="GetCalculatedAttributeForProfile" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ConditionOverrides_Range_End" NewName="Range_End" />
+                <Param Name="ConditionOverrides_Range_Start" NewName="Range_Start" />
+                <Param Name="ConditionOverrides_Range_Unit" NewName="Range_Unit" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchGetProfile" OutputProperty="*" Verb="Get" Noun="GetProfile" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -31,7 +35,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCalculatedAttributeDefinition" OutputProperty="*" Verb="New" Noun="CalculatedAttributeDefinition" AnonymousShouldProcessTarget="true" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Conditions_Range_TimestampFormat" NewName="Range_TimestampFormat" />
+                <Param Name="Conditions_Range_TimestampSource" NewName="Range_TimestampSource" />
+                <Param Name="Conditions_Range_Unit" NewName="Range_Unit" />
+                <Param Name="Conditions_Range_Value" NewName="Range_Value" />
+                <Param Name="Conditions_Range_ValueRange_End" NewName="ValueRange_End" />
+                <Param Name="Conditions_Range_ValueRange_Start" NewName="ValueRange_Start" />
+                <Param Name="Conditions_Threshold_Operator" NewName="Threshold_Operator" />
+                <Param Name="Conditions_Threshold_Value" NewName="Threshold_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -40,6 +53,19 @@
                 <Param Name="RuleBasedMatching_ConflictResolution_SourceName" NewName="RuleBasedMatching_ConflictResolution_SourceName" />
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" />
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" />
+                <Param Name="Matching_AutoMerging_ConflictResolution_ConflictResolvingModel" NewName="ConflictResolution_ConflictResolvingModel" />
+                <Param Name="Matching_AutoMerging_ConflictResolution_SourceName" NewName="ConflictResolution_SourceName" />
+                <Param Name="Matching_AutoMerging_Consolidation_MatchingAttributesList" NewName="Consolidation_MatchingAttributesList" />
+                <Param Name="Matching_AutoMerging_Enabled" NewName="AutoMerging_Enabled" />
+                <Param Name="Matching_AutoMerging_MinAllowedConfidenceScoreForMerging" NewName="AutoMerging_MinAllowedConfidenceScoreForMerging" />
+                <Param Name="Matching_ExportingConfig_S3Exporting_S3BucketName" NewName="S3Exporting_S3BucketName" />
+                <Param Name="Matching_ExportingConfig_S3Exporting_S3KeyName" NewName="S3Exporting_S3KeyName" />
+                <Param Name="Matching_JobSchedule_DayOfTheWeek" NewName="JobSchedule_DayOfTheWeek" />
+                <Param Name="Matching_JobSchedule_Time" NewName="JobSchedule_Time" />
+                <Param Name="RuleBasedMatching_AttributeTypesSelector_Address" NewName="AttributeTypesSelector_Address" />
+                <Param Name="RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel" NewName="AttributeTypesSelector_AttributeMatchingModel" />
+                <Param Name="RuleBasedMatching_AttributeTypesSelector_EmailAddress" NewName="AttributeTypesSelector_EmailAddress" />
+                <Param Name="RuleBasedMatching_AttributeTypesSelector_PhoneNumber" NewName="AttributeTypesSelector_PhoneNumber" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -56,7 +82,32 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIntegrationWorkflow" OutputProperty="*" Verb="New" Noun="IntegrationWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="IntegrationConfig_AppflowIntegration_Batches" NewName="AppflowIntegration_Batch" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_Description" NewName="FlowDefinition_Description" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_FlowName" NewName="FlowDefinition_FlowName" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_KmsArn" NewName="FlowDefinition_KmsArn" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_ConnectorProfileName" NewName="SourceFlowConfig_ConnectorProfileName" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_ConnectorType" NewName="SourceFlowConfig_ConnectorType" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_IncrementalPullConfig_DatetimeTypeFieldName" NewName="IncrementalPullConfig_DatetimeTypeFieldName" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Marketo_Object" NewName="Marketo_Object" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_S3_BucketName" NewName="S3_BucketName" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_S3_BucketPrefix" NewName="S3_BucketPrefix" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce_EnableDynamicFieldUpdate" NewName="Salesforce_EnableDynamicFieldUpdate" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce_IncludeDeletedRecords" NewName="Salesforce_IncludeDeletedRecord" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce_Object" NewName="Salesforce_Object" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_ServiceNow_Object" NewName="ServiceNow_Object" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Zendesk_Object" NewName="Zendesk_Object" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_Tasks" NewName="FlowDefinition_Task" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode" NewName="Scheduled_DataPullMode" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_FirstExecutionFrom" NewName="Scheduled_FirstExecutionFrom" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_ScheduleEndTime" NewName="Scheduled_ScheduleEndTime" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_ScheduleExpression" NewName="Scheduled_ScheduleExpression" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_ScheduleOffset" NewName="Scheduled_ScheduleOffset" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_ScheduleStartTime" NewName="Scheduled_ScheduleStartTime" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_Timezone" NewName="Scheduled_Timezone" />
+                <Param Name="IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerType" NewName="TriggerConfig_TriggerType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProfile" OutputProperty="ProfileId" Verb="New" Noun="Profile" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -64,7 +115,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRecommender" OutputProperty="*" Verb="New" Noun="Recommender" ShouldProcessTarget="RecommenderName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="RecommenderConfig_EventsConfig_EventParametersList" NewName="EventsConfig_EventParametersList" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSegmentDefinition" OutputProperty="*" Verb="New" Noun="SegmentDefinition" ShouldProcessTarget="SegmentDefinitionName" PipelineParameter="SegmentDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -354,6 +407,25 @@
         <ServiceOperation MethodName="PutIntegration" OutputProperty="*" Verb="Write" Noun="Integration" ShouldProcessTarget="Uri" PipelineParameter="Uri" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ObjectTypeNames" NewName="ObjectTypeNames" />
+                <Param Name="FlowDefinition_SourceFlowConfig_ConnectorProfileName" NewName="SourceFlowConfig_ConnectorProfileName" />
+                <Param Name="FlowDefinition_SourceFlowConfig_ConnectorType" NewName="SourceFlowConfig_ConnectorType" />
+                <Param Name="FlowDefinition_SourceFlowConfig_IncrementalPullConfig_DatetimeTypeFieldName" NewName="IncrementalPullConfig_DatetimeTypeFieldName" />
+                <Param Name="FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Marketo_Object" NewName="Marketo_Object" />
+                <Param Name="FlowDefinition_SourceFlowConfig_SourceConnectorProperties_S3_BucketName" NewName="S3_BucketName" />
+                <Param Name="FlowDefinition_SourceFlowConfig_SourceConnectorProperties_S3_BucketPrefix" NewName="S3_BucketPrefix" />
+                <Param Name="FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce_EnableDynamicFieldUpdate" NewName="Salesforce_EnableDynamicFieldUpdate" />
+                <Param Name="FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce_IncludeDeletedRecords" NewName="Salesforce_IncludeDeletedRecord" />
+                <Param Name="FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce_Object" NewName="Salesforce_Object" />
+                <Param Name="FlowDefinition_SourceFlowConfig_SourceConnectorProperties_ServiceNow_Object" NewName="ServiceNow_Object" />
+                <Param Name="FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Zendesk_Object" NewName="Zendesk_Object" />
+                <Param Name="FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode" NewName="Scheduled_DataPullMode" />
+                <Param Name="FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_FirstExecutionFrom" NewName="Scheduled_FirstExecutionFrom" />
+                <Param Name="FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_ScheduleEndTime" NewName="Scheduled_ScheduleEndTime" />
+                <Param Name="FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_ScheduleExpression" NewName="Scheduled_ScheduleExpression" />
+                <Param Name="FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_ScheduleOffset" NewName="Scheduled_ScheduleOffset" />
+                <Param Name="FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_ScheduleStartTime" NewName="Scheduled_ScheduleStartTime" />
+                <Param Name="FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_Timezone" NewName="Scheduled_Timezone" />
+                <Param Name="FlowDefinition_TriggerConfig_TriggerType" NewName="TriggerConfig_TriggerType" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -394,7 +466,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCalculatedAttributeDefinition" OutputProperty="*" Verb="Update" Noun="CalculatedAttributeDefinition" AnonymousShouldProcessTarget="true" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Conditions_Range_TimestampFormat" NewName="Range_TimestampFormat" />
+                <Param Name="Conditions_Range_TimestampSource" NewName="Range_TimestampSource" />
+                <Param Name="Conditions_Range_Unit" NewName="Range_Unit" />
+                <Param Name="Conditions_Range_Value" NewName="Range_Value" />
+                <Param Name="Conditions_Range_ValueRange_End" NewName="ValueRange_End" />
+                <Param Name="Conditions_Range_ValueRange_Start" NewName="ValueRange_Start" />
+                <Param Name="Conditions_Threshold_Operator" NewName="Threshold_Operator" />
+                <Param Name="Conditions_Threshold_Value" NewName="Threshold_Value" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomain" OutputProperty="*" Verb="Update" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -403,6 +484,19 @@
                 <Param Name="RuleBasedMatching_ConflictResolution_SourceName" NewName="RuleBasedMatching_ConflictResolution_SourceName" />
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" />
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" />
+                <Param Name="Matching_AutoMerging_ConflictResolution_ConflictResolvingModel" NewName="ConflictResolution_ConflictResolvingModel" />
+                <Param Name="Matching_AutoMerging_ConflictResolution_SourceName" NewName="ConflictResolution_SourceName" />
+                <Param Name="Matching_AutoMerging_Consolidation_MatchingAttributesList" NewName="Consolidation_MatchingAttributesList" />
+                <Param Name="Matching_AutoMerging_Enabled" NewName="AutoMerging_Enabled" />
+                <Param Name="Matching_AutoMerging_MinAllowedConfidenceScoreForMerging" NewName="AutoMerging_MinAllowedConfidenceScoreForMerging" />
+                <Param Name="Matching_ExportingConfig_S3Exporting_S3BucketName" NewName="S3Exporting_S3BucketName" />
+                <Param Name="Matching_ExportingConfig_S3Exporting_S3KeyName" NewName="S3Exporting_S3KeyName" />
+                <Param Name="Matching_JobSchedule_DayOfTheWeek" NewName="JobSchedule_DayOfTheWeek" />
+                <Param Name="Matching_JobSchedule_Time" NewName="JobSchedule_Time" />
+                <Param Name="RuleBasedMatching_AttributeTypesSelector_Address" NewName="AttributeTypesSelector_Address" />
+                <Param Name="RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel" NewName="AttributeTypesSelector_AttributeMatchingModel" />
+                <Param Name="RuleBasedMatching_AttributeTypesSelector_EmailAddress" NewName="AttributeTypesSelector_EmailAddress" />
+                <Param Name="RuleBasedMatching_AttributeTypesSelector_PhoneNumber" NewName="AttributeTypesSelector_PhoneNumber" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -419,7 +513,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRecommender" OutputProperty="RecommenderName" Verb="Update" Noun="Recommender" ShouldProcessTarget="RecommenderName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="RecommenderConfig_EventsConfig_EventParametersList" NewName="EventsConfig_EventParametersList" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
