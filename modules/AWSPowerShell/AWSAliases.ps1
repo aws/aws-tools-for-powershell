@@ -32085,6 +32085,10 @@ Set-Alias -Name List-TIDBDbParameterGroups -Value Get-TIDBDbParameterGroupList
 Set-Alias -Name List-TIDBDbParameterGroupList -Value Get-TIDBDbParameterGroupList
 Set-Alias -Name TIDB-ListDbParameterGroups -Value Get-TIDBDbParameterGroupList
 Set-Alias -Name TIDB-ListTagsForResource -Value Get-TIDBResourceTag
+Set-Alias -Name Reboot-TIDBDbCluster -Value Restart-TIDBDbCluster
+Set-Alias -Name TIDB-RebootDbCluster -Value Restart-TIDBDbCluster
+Set-Alias -Name Reboot-TIDBDbInstance -Value Restart-TIDBDbInstance
+Set-Alias -Name TIDB-RebootDbInstance -Value Restart-TIDBDbInstance
 Set-Alias -Name TIDB-TagResource -Value Add-TIDBResourceTag
 Set-Alias -Name TIDB-UntagResource -Value Remove-TIDBResourceTag
 Set-Alias -Name TIDB-UpdateDbCluster -Value Update-TIDBDbCluster

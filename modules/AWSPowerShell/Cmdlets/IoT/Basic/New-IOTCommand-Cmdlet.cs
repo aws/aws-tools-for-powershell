@@ -109,10 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MandatoryParameter
         /// <summary>
         /// <para>
-        /// <para>A list of parameters that are required by the <c>StartCommandExecution</c> API. These
-        /// parameters need to be specified only when using the <c>AWS-IoT-FleetWise</c> namespace.
-        /// You can either specify them here or when running the command using the <c>StartCommandExecution</c>
-        /// API.</para>
+        /// <para>A list of parameters that are used by <c>StartCommandExecution</c> API for execution
+        /// payload generation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,12 +130,36 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.CommandNamespace Namespace { get; set; }
         #endregion
         
+        #region Parameter Preprocessor_AwsJsonSubstitution_OutputFormat
+        /// <summary>
+        /// <para>
+        /// <para>Converts the command preprocessor result to the format defined by this parameter,
+        /// before sending it to the device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.OutputFormat")]
+        public Amazon.IoT.OutputFormat Preprocessor_AwsJsonSubstitution_OutputFormat { get; set; }
+        #endregion
+        
+        #region Parameter PayloadTemplate
+        /// <summary>
+        /// <para>
+        /// <para>The payload template for the dynamic command.</para><note><para>This parameter is required for dynamic commands where the command execution placeholders
+        /// are supplied either from <c>mandatoryParameters</c> or when <c>StartCommandExecution</c>
+        /// is invoked.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PayloadTemplate { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
         /// <para>The IAM role that you must provide when using the <c>AWS-IoT-FleetWise</c> namespace.
         /// The role grants IoT Device Management the permission to access IoT FleetWise resources
-        /// for generating the payload for the command. This field is not required when you use
+        /// for generating the payload for the command. This field is not supported when you use
         /// the <c>AWS-IoT</c> namespace.</para>
         /// </para>
         /// </summary>
@@ -234,6 +256,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.Namespace = this.Namespace;
             context.Payload_Content = this.Payload_Content;
             context.Payload_ContentType = this.Payload_ContentType;
+            context.PayloadTemplate = this.PayloadTemplate;
+            context.Preprocessor_AwsJsonSubstitution_OutputFormat = this.Preprocessor_AwsJsonSubstitution_OutputFormat;
             context.RoleArn = this.RoleArn;
             if (this.Tag != null)
             {
@@ -308,6 +332,44 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 if (requestPayloadIsNull)
                 {
                     request.Payload = null;
+                }
+                if (cmdletContext.PayloadTemplate != null)
+                {
+                    request.PayloadTemplate = cmdletContext.PayloadTemplate;
+                }
+                
+                 // populate Preprocessor
+                var requestPreprocessorIsNull = true;
+                request.Preprocessor = new Amazon.IoT.Model.CommandPreprocessor();
+                Amazon.IoT.Model.AwsJsonSubstitutionCommandPreprocessorConfig requestPreprocessor_preprocessor_AwsJsonSubstitution = null;
+                
+                 // populate AwsJsonSubstitution
+                var requestPreprocessor_preprocessor_AwsJsonSubstitutionIsNull = true;
+                requestPreprocessor_preprocessor_AwsJsonSubstitution = new Amazon.IoT.Model.AwsJsonSubstitutionCommandPreprocessorConfig();
+                Amazon.IoT.OutputFormat requestPreprocessor_preprocessor_AwsJsonSubstitution_preprocessor_AwsJsonSubstitution_OutputFormat = null;
+                if (cmdletContext.Preprocessor_AwsJsonSubstitution_OutputFormat != null)
+                {
+                    requestPreprocessor_preprocessor_AwsJsonSubstitution_preprocessor_AwsJsonSubstitution_OutputFormat = cmdletContext.Preprocessor_AwsJsonSubstitution_OutputFormat;
+                }
+                if (requestPreprocessor_preprocessor_AwsJsonSubstitution_preprocessor_AwsJsonSubstitution_OutputFormat != null)
+                {
+                    requestPreprocessor_preprocessor_AwsJsonSubstitution.OutputFormat = requestPreprocessor_preprocessor_AwsJsonSubstitution_preprocessor_AwsJsonSubstitution_OutputFormat;
+                    requestPreprocessor_preprocessor_AwsJsonSubstitutionIsNull = false;
+                }
+                 // determine if requestPreprocessor_preprocessor_AwsJsonSubstitution should be set to null
+                if (requestPreprocessor_preprocessor_AwsJsonSubstitutionIsNull)
+                {
+                    requestPreprocessor_preprocessor_AwsJsonSubstitution = null;
+                }
+                if (requestPreprocessor_preprocessor_AwsJsonSubstitution != null)
+                {
+                    request.Preprocessor.AwsJsonSubstitution = requestPreprocessor_preprocessor_AwsJsonSubstitution;
+                    requestPreprocessorIsNull = false;
+                }
+                 // determine if request.Preprocessor should be set to null
+                if (requestPreprocessorIsNull)
+                {
+                    request.Preprocessor = null;
                 }
                 if (cmdletContext.RoleArn != null)
                 {
@@ -393,6 +455,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.CommandNamespace Namespace { get; set; }
             public byte[] Payload_Content { get; set; }
             public System.String Payload_ContentType { get; set; }
+            public System.String PayloadTemplate { get; set; }
+            public Amazon.IoT.OutputFormat Preprocessor_AwsJsonSubstitution_OutputFormat { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IoT.Model.CreateCommandResponse, NewIOTCommandCmdlet, object> Select { get; set; } =

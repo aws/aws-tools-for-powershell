@@ -103,6 +103,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-TIDBDbCluster', 
         'Remove-TIDBDbInstance', 
         'Remove-TIDBResourceTag', 
+        'Restart-TIDBDbCluster', 
+        'Restart-TIDBDbInstance', 
         'Update-TIDBDbCluster', 
         'Update-TIDBDbInstance')
 

@@ -1,4 +1,12 @@
-﻿### 4.1.962 (2025-12-15 21:00Z)
+﻿### 4.1.963 (2025-12-16 22:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1186.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT
+    * Modified cmdlet New-IOTCommand: added parameters PayloadTemplate and Preprocessor_AwsJsonSubstitution_OutputFormat.
+  * Amazon Timestream InfluxDB
+    * Added cmdlet Restart-TIDBDbCluster leveraging the RebootDbCluster service API.
+    * Added cmdlet Restart-TIDBDbInstance leveraging the RebootDbInstance service API.
+
+### 4.1.962 (2025-12-15 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1185.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Added cmdlet Get-CWLCWLImportTask leveraging the DescribeImportTasks service API.

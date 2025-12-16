@@ -28,12 +28,18 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Updates the encryption configuration. By default, all Amazon Web Services IoT Core
-    /// data at rest is encrypted using Amazon Web Services owned keys. Amazon Web Services
-    /// IoT Core also supports symmetric customer managed keys from Amazon Web Services Key
-    /// Management Service (KMS). With customer managed keys, you create, own, and manage
-    /// the KMS keys in your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/data-encryption.html">Data
-    /// encryption</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.
+    /// Updates the encryption configuration. By default, Amazon Web Services IoT Core encrypts
+    /// your data at rest using Amazon Web Services owned keys. Amazon Web Services IoT Core
+    /// also supports symmetric customer managed keys from Key Management Service (KMS). With
+    /// customer managed keys, you create, own, and manage the KMS keys in your Amazon Web
+    /// Services account. 
+    /// 
+    ///  
+    /// <para>
+    /// Before using this API, you must set up permissions for Amazon Web Services IoT Core
+    /// to access KMS. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html">Data
+    /// encryption at rest</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTEncryptionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -50,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter EncryptionType
         /// <summary>
         /// <para>
-        /// <para>The type of the Amazon Web Services Key Management Service (KMS) key.</para>
+        /// <para>The type of the KMS key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the customer-managed KMS key.</para>
+        /// <para>The ARN of the customer managedKMS key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

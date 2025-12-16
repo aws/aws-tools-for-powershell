@@ -402,6 +402,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.OutputFormat
+        "New-IOTCommand/Preprocessor_AwsJsonSubstitution_OutputFormat"
+        {
+            $v = "CBOR","JSON"
+            break
+        }
+
         # Amazon.IoT.PackageVersionAction
         "Update-IOTPackageVersion/Action"
         {
@@ -569,6 +576,7 @@ $IOT_map = @{
     "NewAutoRegistrationStatus"=@("Update-IOTCACertificate")
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
     "OtaUpdateStatus"=@("Get-IOTOTAUpdateList")
+    "Preprocessor_AwsJsonSubstitution_OutputFormat"=@("New-IOTCommand")
     "ReplaceDefaultPolicyVersionParams_TemplateName"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
     "ReportType"=@("Get-IOTThingRegistrationTaskReportList")
     "S3_CannedAcl"=@("New-IOTTopicRule","Set-IOTTopicRule")

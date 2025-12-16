@@ -337,6 +337,8 @@ $TIDB_SelectMap = @{
                "Get-TIDBDbInstancesForClusterList",
                "Get-TIDBDbParameterGroupList",
                "Get-TIDBResourceTag",
+               "Restart-TIDBDbCluster",
+               "Restart-TIDBDbInstance",
                "Add-TIDBResourceTag",
                "Remove-TIDBResourceTag",
                "Update-TIDBDbCluster",
