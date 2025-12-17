@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// You can use this operation to generate a DUPKT, CMAC, HMAC or EMV MAC by setting generation
     /// attributes and algorithm to the associated values. The MAC generation encryption key
     /// must have valid values for <c>KeyUsage</c> such as <c>TR31_M7_HMAC_KEY</c> for HMAC
-    /// generation, and the key must have <c>KeyModesOfUse</c> set to <c>Generate</c> and
-    /// <c>Verify</c>.
+    /// generation, and the key must have <c>KeyModesOfUse</c> set to <c>Generate</c>.
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key

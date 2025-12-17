@@ -30,7 +30,8 @@ using Amazon.KafkaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.MSKC
 {
     /// <summary>
-    /// Updates the specified connector.
+    /// Updates the specified connector. For request body, specify only one parameter: either
+    /// <c>capacity</c> or <c>connectorConfiguration</c>.
     /// </summary>
     [Cmdlet("Update", "MSKCConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KafkaConnect.Model.UpdateConnectorResponse")]

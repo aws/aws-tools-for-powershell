@@ -247,9 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <c>ISO_Format_4</c>.</para><para>The <c>ISO_Format_0</c> PIN block format is equivalent to the ANSI X9.8, VISA-1, and
         /// ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a
         /// PIN from 4 to 12 digits in length.</para><para>The <c>ISO_Format_3</c> PIN block format is the same as <c>ISO_Format_0</c> except
-        /// that the fill digits are random values from 10 to 15.</para><para>The <c>ISO_Format_4</c> PIN block format is the only one supporting AES encryption.
-        /// It is similar to <c>ISO_Format_3</c> but doubles the pin block length by padding with
-        /// fill digit A and random values from 10 to 15.</para>
+        /// that the fill digits are random values from 10 to 15.</para><para>The <c>ISO_Format_4</c> PIN block format is the only one supporting AES encryption.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

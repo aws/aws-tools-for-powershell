@@ -101,6 +101,13 @@ $MSKC_Completers = {
             break
         }
 
+        # Amazon.KafkaConnect.NetworkType
+        "New-MSKCConnector/NetworkType"
+        {
+            $v = "DUAL","IPV4"
+            break
+        }
+
 
     }
 
@@ -113,6 +120,7 @@ $MSKC_map = @{
     "ContentType"=@("New-MSKCCustomPlugin")
     "KafkaClusterClientAuthentication_AuthenticationType"=@("New-MSKCConnector")
     "KafkaClusterEncryptionInTransit_EncryptionType"=@("New-MSKCConnector")
+    "NetworkType"=@("New-MSKCConnector")
 }
 
 _awsArgumentCompleterRegistration $MSKC_Completers $MSKC_map

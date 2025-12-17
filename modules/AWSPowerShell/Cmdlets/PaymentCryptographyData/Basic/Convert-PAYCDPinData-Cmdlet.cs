@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter IncomingTranslationAttributes_IsoFormat1
         /// <summary>
         /// <para>
-        /// <para>Parameters that are required for ISO9564 PIN format 1 tranlation.</para>
+        /// <para>Parameters that are required for ISO9564 PIN format 1 translation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter OutgoingTranslationAttributes_IsoFormat1
         /// <summary>
         /// <para>
-        /// <para>Parameters that are required for ISO9564 PIN format 1 tranlation.</para>
+        /// <para>Parameters that are required for ISO9564 PIN format 1 translation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,6 +355,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String OutgoingKeyIdentifier { get; set; }
         #endregion
         
+        #region Parameter IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber
+        /// <summary>
+        /// <para>
+        /// <para>The Primary Account Number (PAN) of the cardholder. A PAN is a unique identifier for
+        /// a payment credit or debit card and associates the card to a specific account holder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber { get; set; }
+        #endregion
+        
         #region Parameter IncomingTranslationAttributes_IsoFormat0_PrimaryAccountNumber
         /// <summary>
         /// <para>
@@ -386,6 +397,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber { get; set; }
+        #endregion
+        
+        #region Parameter OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber
+        /// <summary>
+        /// <para>
+        /// <para>The Primary Account Number (PAN) of the cardholder. A PAN is a unique identifier for
+        /// a payment credit or debit card and associates the card to a specific account holder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber { get; set; }
         #endregion
         
         #region Parameter OutgoingTranslationAttributes_IsoFormat0_PrimaryAccountNumber
@@ -469,6 +491,16 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation { get; set; }
         #endregion
         
+        #region Parameter IncomingAs2805Attributes_SystemTraceAuditNumber
+        /// <summary>
+        /// <para>
+        /// <para>The system trace audit number for the transaction.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IncomingAs2805Attributes_SystemTraceAuditNumber { get; set; }
+        #endregion
+        
         #region Parameter IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock
         /// <summary>
         /// <para>
@@ -487,6 +519,16 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock { get; set; }
+        #endregion
+        
+        #region Parameter IncomingAs2805Attributes_TransactionAmount
+        /// <summary>
+        /// <para>
+        /// <para>The transaction amount for the transaction.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IncomingAs2805Attributes_TransactionAmount { get; set; }
         #endregion
         
         #region Parameter Select
@@ -542,6 +584,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 WriteWarning("You are passing $null as a value for parameter EncryptedPinBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncomingAs2805Attributes_SystemTraceAuditNumber = this.IncomingAs2805Attributes_SystemTraceAuditNumber;
+            context.IncomingAs2805Attributes_TransactionAmount = this.IncomingAs2805Attributes_TransactionAmount;
             context.IncomingDukptAttributes_DukptKeyDerivationType = this.IncomingDukptAttributes_DukptKeyDerivationType;
             context.IncomingDukptAttributes_DukptKeyVariant = this.IncomingDukptAttributes_DukptKeyVariant;
             context.IncomingDukptAttributes_KeySerialNumber = this.IncomingDukptAttributes_KeySerialNumber;
@@ -552,6 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 WriteWarning("You are passing $null as a value for parameter IncomingKeyIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber = this.IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber;
             context.IncomingTranslationAttributes_IsoFormat0_PrimaryAccountNumber = this.IncomingTranslationAttributes_IsoFormat0_PrimaryAccountNumber;
             context.IncomingTranslationAttributes_IsoFormat1 = this.IncomingTranslationAttributes_IsoFormat1;
             context.IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber = this.IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber;
@@ -574,6 +619,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 WriteWarning("You are passing $null as a value for parameter OutgoingKeyIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber = this.OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber;
             context.OutgoingTranslationAttributes_IsoFormat0_PrimaryAccountNumber = this.OutgoingTranslationAttributes_IsoFormat0_PrimaryAccountNumber;
             context.OutgoingTranslationAttributes_IsoFormat1 = this.OutgoingTranslationAttributes_IsoFormat1;
             context.OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber = this.OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber;
@@ -605,6 +651,35 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (cmdletContext.EncryptedPinBlock != null)
             {
                 request.EncryptedPinBlock = cmdletContext.EncryptedPinBlock;
+            }
+            
+             // populate IncomingAs2805Attributes
+            var requestIncomingAs2805AttributesIsNull = true;
+            request.IncomingAs2805Attributes = new Amazon.PaymentCryptographyData.Model.As2805PekDerivationAttributes();
+            System.String requestIncomingAs2805Attributes_incomingAs2805Attributes_SystemTraceAuditNumber = null;
+            if (cmdletContext.IncomingAs2805Attributes_SystemTraceAuditNumber != null)
+            {
+                requestIncomingAs2805Attributes_incomingAs2805Attributes_SystemTraceAuditNumber = cmdletContext.IncomingAs2805Attributes_SystemTraceAuditNumber;
+            }
+            if (requestIncomingAs2805Attributes_incomingAs2805Attributes_SystemTraceAuditNumber != null)
+            {
+                request.IncomingAs2805Attributes.SystemTraceAuditNumber = requestIncomingAs2805Attributes_incomingAs2805Attributes_SystemTraceAuditNumber;
+                requestIncomingAs2805AttributesIsNull = false;
+            }
+            System.String requestIncomingAs2805Attributes_incomingAs2805Attributes_TransactionAmount = null;
+            if (cmdletContext.IncomingAs2805Attributes_TransactionAmount != null)
+            {
+                requestIncomingAs2805Attributes_incomingAs2805Attributes_TransactionAmount = cmdletContext.IncomingAs2805Attributes_TransactionAmount;
+            }
+            if (requestIncomingAs2805Attributes_incomingAs2805Attributes_TransactionAmount != null)
+            {
+                request.IncomingAs2805Attributes.TransactionAmount = requestIncomingAs2805Attributes_incomingAs2805Attributes_TransactionAmount;
+                requestIncomingAs2805AttributesIsNull = false;
+            }
+             // determine if request.IncomingAs2805Attributes should be set to null
+            if (requestIncomingAs2805AttributesIsNull)
+            {
+                request.IncomingAs2805Attributes = null;
             }
             
              // populate IncomingDukptAttributes
@@ -661,6 +736,31 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat1 != null)
             {
                 request.IncomingTranslationAttributes.IsoFormat1 = requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat1;
+                requestIncomingTranslationAttributesIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.Model.TranslationPinDataAs2805Format0 requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0 = null;
+            
+             // populate As2805Format0
+            var requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0IsNull = true;
+            requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0 = new Amazon.PaymentCryptographyData.Model.TranslationPinDataAs2805Format0();
+            System.String requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0_incomingTranslationAttributes_As2805Format0_PrimaryAccountNumber = null;
+            if (cmdletContext.IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber != null)
+            {
+                requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0_incomingTranslationAttributes_As2805Format0_PrimaryAccountNumber = cmdletContext.IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber;
+            }
+            if (requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0_incomingTranslationAttributes_As2805Format0_PrimaryAccountNumber != null)
+            {
+                requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0.PrimaryAccountNumber = requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0_incomingTranslationAttributes_As2805Format0_PrimaryAccountNumber;
+                requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0IsNull = false;
+            }
+             // determine if requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0 should be set to null
+            if (requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0IsNull)
+            {
+                requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0 = null;
+            }
+            if (requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0 != null)
+            {
+                request.IncomingTranslationAttributes.As2805Format0 = requestIncomingTranslationAttributes_incomingTranslationAttributes_As2805Format0;
                 requestIncomingTranslationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat034 requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat0 = null;
@@ -919,6 +1019,31 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 request.OutgoingTranslationAttributes.IsoFormat1 = requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat1;
                 requestOutgoingTranslationAttributesIsNull = false;
             }
+            Amazon.PaymentCryptographyData.Model.TranslationPinDataAs2805Format0 requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0 = null;
+            
+             // populate As2805Format0
+            var requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0IsNull = true;
+            requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0 = new Amazon.PaymentCryptographyData.Model.TranslationPinDataAs2805Format0();
+            System.String requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0_outgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber = null;
+            if (cmdletContext.OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber != null)
+            {
+                requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0_outgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber = cmdletContext.OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber;
+            }
+            if (requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0_outgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber != null)
+            {
+                requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0.PrimaryAccountNumber = requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0_outgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber;
+                requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0IsNull = false;
+            }
+             // determine if requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0 should be set to null
+            if (requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0IsNull)
+            {
+                requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0 = null;
+            }
+            if (requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0 != null)
+            {
+                request.OutgoingTranslationAttributes.As2805Format0 = requestOutgoingTranslationAttributes_outgoingTranslationAttributes_As2805Format0;
+                requestOutgoingTranslationAttributesIsNull = false;
+            }
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat034 requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat0 = null;
             
              // populate IsoFormat0
@@ -1174,10 +1299,13 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EncryptedPinBlock { get; set; }
+            public System.String IncomingAs2805Attributes_SystemTraceAuditNumber { get; set; }
+            public System.String IncomingAs2805Attributes_TransactionAmount { get; set; }
             public Amazon.PaymentCryptographyData.DukptDerivationType IncomingDukptAttributes_DukptKeyDerivationType { get; set; }
             public Amazon.PaymentCryptographyData.DukptKeyVariant IncomingDukptAttributes_DukptKeyVariant { get; set; }
             public System.String IncomingDukptAttributes_KeySerialNumber { get; set; }
             public System.String IncomingKeyIdentifier { get; set; }
+            public System.String IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber { get; set; }
             public System.String IncomingTranslationAttributes_IsoFormat0_PrimaryAccountNumber { get; set; }
             public Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat1 IncomingTranslationAttributes_IsoFormat1 { get; set; }
             public System.String IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber { get; set; }
@@ -1194,6 +1322,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             public Amazon.PaymentCryptographyData.DukptKeyVariant OutgoingDukptAttributes_DukptKeyVariant { get; set; }
             public System.String OutgoingDukptAttributes_KeySerialNumber { get; set; }
             public System.String OutgoingKeyIdentifier { get; set; }
+            public System.String OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber { get; set; }
             public System.String OutgoingTranslationAttributes_IsoFormat0_PrimaryAccountNumber { get; set; }
             public Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat1 OutgoingTranslationAttributes_IsoFormat1 { get; set; }
             public System.String OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber { get; set; }

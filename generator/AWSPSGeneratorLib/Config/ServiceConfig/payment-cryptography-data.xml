@@ -74,6 +74,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateAs2805KekValidation" OutputProperty="*" Verb="New" Noun="As2805KekValidation" ShouldProcessTarget="KeyIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GenerateCardValidationData" OutputProperty="*" Verb="New" Noun="CardValidationData" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="GenerationAttributes_AmexCardSecurityCodeVersion1_CardExpiryDate" NewName="AmexCardSecurityCodeVersion1_CardExpiryDate" />
@@ -248,6 +252,8 @@
                 <Param Name="OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" NewName="OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" />
                 <Param Name="IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" NewName="IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" />
                 <Param Name="OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" NewName="OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" />
+                <Param Name="IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber" NewName="IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber" />
+                <Param Name="OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber" NewName="OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber" />
                 <Param Name="IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" />
                 <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" />
             </Params>

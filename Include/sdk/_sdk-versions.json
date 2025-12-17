@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.154.0",
+    "ProductVersion"    : "4.0.155.0",
     "CoreVersion"       : "4.0.3.6",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -860,7 +860,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "4.0.11.5",
+            "Version" : "4.0.12.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -876,7 +876,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "4.0.13.2",
+            "Version" : "4.0.14.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.38.3",
+            "Version" : "4.0.39.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -2092,7 +2092,7 @@
             "InPreview"               : false
         },
         "KafkaConnect"                    : {
-            "Version" : "4.0.2.8",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -2588,7 +2588,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "4.0.9.3",
+            "Version" : "4.0.10.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -2596,7 +2596,7 @@
             "InPreview"               : false
         },
         "PaymentCryptographyData"             : {
-            "Version" : "4.0.5.9",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -2604,7 +2604,7 @@
             "InPreview"               : false
         },
         "PaymentCryptography"                 : {
-            "Version" : "4.0.6.8",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -2724,7 +2724,7 @@
             "InPreview"               : false
         },
         "InspectorScan"                       : {
-            "Version" : "4.0.2.8",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -3164,7 +3164,7 @@
             "InPreview"               : false
         },
         "GameLiftStreams"                     : {
-            "Version" : "4.0.4.8",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"

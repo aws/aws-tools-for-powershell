@@ -41,17 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     ///  
     /// <para>
     ///  Stream capacity represents the number of concurrent streams that can be active at
-    /// a time. You set stream capacity per location, per stream group. There are two types
-    /// of capacity, always-on and on-demand: 
-    /// </para><ul><li><para><b>Always-on</b>: The streaming capacity that is allocated and ready to handle stream
-    /// requests without delay. You pay for this capacity whether it's in use or not. Best
-    /// for quickest time from streaming request to streaming session. Default is 1 (2 for
-    /// high stream classes) when creating a stream group or adding a location. 
-    /// </para></li><li><para><b>On-demand</b>: The streaming capacity that Amazon GameLift Streams can allocate
-    /// in response to stream requests, and then de-allocate when the session has terminated.
-    /// This offers a cost control measure at the expense of a greater startup time (typically
-    /// under 5 minutes). Default is 0 when creating a stream group or adding a location.
-    /// 
+    /// a time. You set stream capacity per location, per stream group. The following capacity
+    /// settings are available: 
+    /// </para><ul><li><para><b>Always-on capacity</b>: This setting, if non-zero, indicates minimum streaming
+    /// capacity which is allocated to you and is never released back to the service. You
+    /// pay for this base level of capacity at all times, whether used or idle. 
+    /// </para></li><li><para><b>Maximum capacity</b>: This indicates the maximum capacity that the service can
+    /// allocate for you. Newly created streams may take a few minutes to start. Capacity
+    /// is released back to the service when idle. You pay for capacity that is allocated
+    /// to you until it is released. 
+    /// </para></li><li><para><b>Target-idle capacity</b>: This indicates idle capacity which the service pre-allocates
+    /// and holds for you in anticipation of future activity. This helps to insulate your
+    /// users from capacity-allocation delays. You pay for capacity which is held in this
+    /// intentional idle state. 
     /// </para></li></ul><para>
     /// Values for capacity must be whole number multiples of the tenancy value of the stream
     /// group's stream class.
@@ -143,17 +145,30 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>The target stream quality for sessions that are hosted in this stream group. Set a
         /// stream class that is appropriate to the type of content that you're streaming. Stream
         /// class determines the type of computing resources Amazon GameLift Streams uses and
-        /// impacts the cost of streaming. The following options are available: </para><para>A stream class can be one of the following:</para><ul><li><para><b><c>gen5n_win2022</c> (NVIDIA, ultra)</b> Supports applications with extremely
+        /// impacts the cost of streaming. The following options are available: </para><para>A stream class can be one of the following:</para><ul><li><para><b><c>gen6n_pro_win2022</c> (NVIDIA, pro)</b> Supports applications with extremely
+        /// high 3D scene complexity which require maximum resources. Runs applications on Microsoft
+        /// Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions
+        /// up through 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA
+        /// L4 Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 16 vCPUs, 64 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen6n_pro</c> (NVIDIA, pro)</b> Supports applications with extremely high
+        /// 3D scene complexity which require maximum resources. Uses dedicated NVIDIA L4 Tensor
+        /// Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 16 vCPUs, 64 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen6n_ultra_win2022</c> (NVIDIA, ultra)</b> Supports applications with high
+        /// 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports
+        /// DirectX 12. Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications,
+        /// and anti-cheat technology. Uses NVIDIA L4 Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen6n_ultra</c> (NVIDIA, ultra)</b> Supports applications with high 3D scene
+        /// complexity. Uses dedicated NVIDIA L4 Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen6n_high</c> (NVIDIA, high)</b> Supports applications with moderate to high
+        /// 3D scene complexity. Uses NVIDIA L4 Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 4 vCPUs, 16 GB RAM, 12 GB VRAM</para></li><li><para>Tenancy: Supports up to 2 concurrent stream sessions</para></li></ul></li><li><para><b><c>gen6n_medium</c> (NVIDIA, medium)</b> Supports applications with moderate
+        /// 3D scene complexity. Uses NVIDIA L4 Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 2 vCPUs, 8 GB RAM, 6 GB VRAM</para></li><li><para>Tenancy: Supports up to 4 concurrent stream sessions</para></li></ul></li><li><para><b><c>gen6n_small</c> (NVIDIA, small)</b> Supports applications with lightweight
+        /// 3D scene complexity and low CPU usage. Uses NVIDIA L4 Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 1 vCPUs, 4 GB RAM, 2 GB VRAM</para></li><li><para>Tenancy: Supports up to 12 concurrent stream sessions</para></li></ul></li><li><para><b><c>gen5n_win2022</c> (NVIDIA, ultra)</b> Supports applications with extremely
         /// high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base
-        /// and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32
-        /// and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen5n_high</c> (NVIDIA, high)</b> Supports applications with moderate to high
-        /// 3D scene complexity. Uses NVIDIA A10G Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 4 vCPUs, 16 GB RAM, 12 GB VRAM</para></li><li><para>Tenancy: Supports up to 2 concurrent stream sessions</para></li></ul></li><li><para><b><c>gen5n_ultra</c> (NVIDIA, ultra)</b> Supports applications with extremely high
-        /// 3D scene complexity. Uses dedicated NVIDIA A10G Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen4n_win2022</c> (NVIDIA, ultra)</b> Supports applications with extremely
+        /// and supports DirectX 12. Compatible with Unreal Engine versions up through 5.6, 32
+        /// and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen5n_high</c> (NVIDIA, high)</b> Supports applications with moderate to high
+        /// 3D scene complexity. Uses NVIDIA A10G Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 4 vCPUs, 16 GB RAM, 12 GB VRAM</para></li><li><para>Tenancy: Supports up to 2 concurrent stream sessions</para></li></ul></li><li><para><b><c>gen5n_ultra</c> (NVIDIA, ultra)</b> Supports applications with extremely high
+        /// 3D scene complexity. Uses dedicated NVIDIA A10G Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen4n_win2022</c> (NVIDIA, ultra)</b> Supports applications with extremely
         /// high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base
-        /// and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32
-        /// and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen4n_high</c> (NVIDIA, high)</b> Supports applications with moderate to high
-        /// 3D scene complexity. Uses NVIDIA T4 Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 4 vCPUs, 16 GB RAM, 8 GB VRAM</para></li><li><para>Tenancy: Supports up to 2 concurrent stream sessions</para></li></ul></li><li><para><b><c>gen4n_ultra</c> (NVIDIA, ultra)</b> Supports applications with high 3D scene
-        /// complexity. Uses dedicated NVIDIA T4 Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li></ul>
+        /// and supports DirectX 12. Compatible with Unreal Engine versions up through 5.6, 32
+        /// and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen4n_high</c> (NVIDIA, high)</b> Supports applications with moderate to high
+        /// 3D scene complexity. Uses NVIDIA T4 Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 4 vCPUs, 16 GB RAM, 8 GB VRAM</para></li><li><para>Tenancy: Supports up to 2 concurrent stream sessions</para></li></ul></li><li><para><b><c>gen4n_ultra</c> (NVIDIA, ultra)</b> Supports applications with high 3D scene
+        /// complexity. Uses dedicated NVIDIA T4 Tensor Core GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

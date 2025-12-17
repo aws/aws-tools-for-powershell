@@ -286,6 +286,17 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         public System.Int32? SessionLengthSecond { get; set; }
         #endregion
         
+        #region Parameter PerformanceStatsConfiguration_SharedWithClient
+        /// <summary>
+        /// <para>
+        /// <para>Performance stats for the session are streamed to the client when set to <c>true</c>.
+        /// Defaults to <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PerformanceStatsConfiguration_SharedWithClient { get; set; }
+        #endregion
+        
         #region Parameter SignalRequest
         /// <summary>
         /// <para>
@@ -408,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
             {
                 context.Location = new List<System.String>(this.Location);
             }
+            context.PerformanceStatsConfiguration_SharedWithClient = this.PerformanceStatsConfiguration_SharedWithClient;
             context.Protocol = this.Protocol;
             #if MODULAR
             if (this.Protocol == null && ParameterWasBound(nameof(this.Protocol)))
@@ -471,6 +483,25 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
             if (cmdletContext.Location != null)
             {
                 request.Locations = cmdletContext.Location;
+            }
+            
+             // populate PerformanceStatsConfiguration
+            var requestPerformanceStatsConfigurationIsNull = true;
+            request.PerformanceStatsConfiguration = new Amazon.GameLiftStreams.Model.PerformanceStatsConfiguration();
+            System.Boolean? requestPerformanceStatsConfiguration_performanceStatsConfiguration_SharedWithClient = null;
+            if (cmdletContext.PerformanceStatsConfiguration_SharedWithClient != null)
+            {
+                requestPerformanceStatsConfiguration_performanceStatsConfiguration_SharedWithClient = cmdletContext.PerformanceStatsConfiguration_SharedWithClient.Value;
+            }
+            if (requestPerformanceStatsConfiguration_performanceStatsConfiguration_SharedWithClient != null)
+            {
+                request.PerformanceStatsConfiguration.SharedWithClient = requestPerformanceStatsConfiguration_performanceStatsConfiguration_SharedWithClient.Value;
+                requestPerformanceStatsConfigurationIsNull = false;
+            }
+             // determine if request.PerformanceStatsConfiguration should be set to null
+            if (requestPerformanceStatsConfigurationIsNull)
+            {
+                request.PerformanceStatsConfiguration = null;
             }
             if (cmdletContext.Protocol != null)
             {
@@ -551,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
             public System.String Description { get; set; }
             public System.String Identifier { get; set; }
             public List<System.String> Location { get; set; }
+            public System.Boolean? PerformanceStatsConfiguration_SharedWithClient { get; set; }
             public Amazon.GameLiftStreams.Protocol Protocol { get; set; }
             public System.Int32? SessionLengthSecond { get; set; }
             public System.String SignalRequest { get; set; }

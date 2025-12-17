@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter CertificateSubject_Country
         /// <summary>
         /// <para>
-        /// <para>The city you provide to create the certificate signing request.</para>
+        /// <para>The country you provide to create the certificate signing request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36362,7 +36362,7 @@ $GMLS_Completers = {
         # Amazon.GameLiftStreams.StreamClass
         "New-GMLSStreamGroup/StreamClass"
         {
-            $v = "gen4n_high","gen4n_ultra","gen4n_win2022","gen5n_high","gen5n_ultra","gen5n_win2022"
+            $v = "gen4n_high","gen4n_ultra","gen4n_win2022","gen5n_high","gen5n_ultra","gen5n_win2022","gen6n_high","gen6n_medium","gen6n_pro","gen6n_pro_win2022","gen6n_small","gen6n_ultra","gen6n_ultra_win2022"
             break
         }
 
@@ -40126,7 +40126,7 @@ $ISCAN_Completers = {
         # Amazon.InspectorScan.OutputFormat
         "Invoke-ISCANSbomScan/OutputFormat"
         {
-            $v = "CYCLONE_DX_1_5","INSPECTOR"
+            $v = "CYCLONE_DX_1_5","INSPECTOR","INSPECTOR_ALT"
             break
         }
 
@@ -45060,6 +45060,13 @@ $MSKC_Completers = {
             break
         }
 
+        # Amazon.KafkaConnect.NetworkType
+        "New-MSKCConnector/NetworkType"
+        {
+            $v = "DUAL","IPV4"
+            break
+        }
+
 
     }
 
@@ -45072,6 +45079,7 @@ $MSKC_map = @{
     "ContentType"=@("New-MSKCCustomPlugin")
     "KafkaClusterClientAuthentication_AuthenticationType"=@("New-MSKCConnector")
     "KafkaClusterEncryptionInTransit_EncryptionType"=@("New-MSKCConnector")
+    "NetworkType"=@("New-MSKCConnector")
 }
 
 _awsArgumentCompleterRegistration $MSKC_Completers $MSKC_map
@@ -60971,7 +60979,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDMac/VerificationAttributes_Algorithm")
         }
         {
-            $v = "CMAC","HMAC","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","ISO9797_ALGORITHM1","ISO9797_ALGORITHM3"
+            $v = "AS2805_4_1","CMAC","HMAC","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","ISO9797_ALGORITHM1","ISO9797_ALGORITHM3"
             break
         }
 
@@ -61036,6 +61044,13 @@ $PAYCD_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptographyData.RandomKeySendVariantMask
+        "New-PAYCDAs2805KekValidation/RandomKeySendVariantMask"
+        {
+            $v = "VARIANT_MASK_82","VARIANT_MASK_82C0"
+            break
+        }
+
         # Amazon.PaymentCryptographyData.SessionKeyDerivationMode
         {
             ($_ -eq "New-PAYCDMac/EmvMac_SessionKeyDerivationMode") -Or
@@ -61055,6 +61070,7 @@ $PAYCD_Completers = {
             ($_ -eq "Convert-PAYCDKeyMaterial/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "New-PAYCDAs2805KekValidation/KekValidationType_KekValidationRequest_DeriveKeyAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm")
         }
@@ -61112,6 +61128,7 @@ $PAYCD_map = @{
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "KekValidationType_KekValidationRequest_DeriveKeyAlgorithm"=@("New-PAYCDAs2805KekValidation")
     "KeyCheckValueAlgorithm"=@("Convert-PAYCDKeyMaterial")
     "MajorKeyDerivationMode"=@("Test-PAYCDAuthRequestCryptogram")
     "Mastercard_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
@@ -61127,6 +61144,7 @@ $PAYCD_map = @{
     "OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "PinBlockFormat"=@("New-PAYCDMacEmvPinChange","New-PAYCDPinData","Test-PAYCDPinData")
+    "RandomKeySendVariantMask"=@("New-PAYCDAs2805KekValidation")
     "Symmetric_Mode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Symmetric_PaddingType"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "VerificationAttributes_Algorithm"=@("Test-PAYCDMac")
@@ -61186,6 +61204,7 @@ $PAYCD_SelectCompleters = {
 $PAYCD_SelectMap = @{
     "Select"=@("Unprotect-PAYCDData",
                "Protect-PAYCDData",
+               "New-PAYCDAs2805KekValidation",
                "New-PAYCDCardValidationData",
                "New-PAYCDMac",
                "New-PAYCDMacEmvPinChange",
@@ -61208,6 +61227,16 @@ $PAYCC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.PaymentCryptography.As2805KeyVariant
+        {
+            ($_ -eq "Export-PAYCCKey/KeyMaterial_As2805KeyCryptogram_As2805KeyVariant") -Or
+            ($_ -eq "Import-PAYCCKey/KeyMaterial_As2805KeyCryptogram_As2805KeyVariant")
+        }
+        {
+            $v = "DATA_ENCRYPTION_KEY_VARIANT_22","MESSAGE_AUTHENTICATION_KEY_VARIANT_24","PIN_ENCRYPTION_KEY_VARIANT_28","TERMINAL_MAJOR_KEY_VARIANT_00"
+            break
+        }
+
         # Amazon.PaymentCryptography.DeriveKeyUsage
         "New-PAYCCKey/DeriveKeyUsage"
         {
@@ -61219,6 +61248,7 @@ $PAYCC_Completers = {
         {
             ($_ -eq "Import-PAYCCKey/KeyAttributes_KeyAlgorithm") -Or
             ($_ -eq "New-PAYCCKey/KeyAttributes_KeyAlgorithm") -Or
+            ($_ -eq "Import-PAYCCKey/KeyMaterial_As2805KeyCryptogram_KeyAlgorithm") -Or
             ($_ -eq "Import-PAYCCKey/KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm") -Or
             ($_ -eq "Import-PAYCCKey/KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm") -Or
             ($_ -eq "Get-PAYCCParametersForExport/SigningKeyAlgorithm") -Or
@@ -61308,7 +61338,7 @@ $PAYCC_Completers = {
             ($_ -eq "Import-PAYCCKey/KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyUsage")
         }
         {
-            $v = "TR31_B0_BASE_DERIVATION_KEY","TR31_C0_CARD_VERIFICATION_KEY","TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY","TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION","TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS","TR31_E1_EMV_MKEY_CONFIDENTIALITY","TR31_E2_EMV_MKEY_INTEGRITY","TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS","TR31_E5_EMV_MKEY_CARD_PERSONALIZATION","TR31_E6_EMV_MKEY_OTHER","TR31_K0_KEY_ENCRYPTION_KEY","TR31_K1_KEY_BLOCK_PROTECTION_KEY","TR31_K2_TR34_ASYMMETRIC_KEY","TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT","TR31_M1_ISO_9797_1_MAC_KEY","TR31_M3_ISO_9797_3_MAC_KEY","TR31_M6_ISO_9797_5_CMAC_KEY","TR31_M7_HMAC_KEY","TR31_P0_PIN_ENCRYPTION_KEY","TR31_P1_PIN_GENERATION_KEY","TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE","TR31_V1_IBM3624_PIN_VERIFICATION_KEY","TR31_V2_VISA_PIN_VERIFICATION_KEY"
+            $v = "TR31_B0_BASE_DERIVATION_KEY","TR31_C0_CARD_VERIFICATION_KEY","TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY","TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION","TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS","TR31_E1_EMV_MKEY_CONFIDENTIALITY","TR31_E2_EMV_MKEY_INTEGRITY","TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS","TR31_E5_EMV_MKEY_CARD_PERSONALIZATION","TR31_E6_EMV_MKEY_OTHER","TR31_K0_KEY_ENCRYPTION_KEY","TR31_K1_KEY_BLOCK_PROTECTION_KEY","TR31_K2_TR34_ASYMMETRIC_KEY","TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT","TR31_M0_ISO_16609_MAC_KEY","TR31_M1_ISO_9797_1_MAC_KEY","TR31_M3_ISO_9797_3_MAC_KEY","TR31_M6_ISO_9797_5_CMAC_KEY","TR31_M7_HMAC_KEY","TR31_P0_PIN_ENCRYPTION_KEY","TR31_P1_PIN_GENERATION_KEY","TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE","TR31_V1_IBM3624_PIN_VERIFICATION_KEY","TR31_V2_VISA_PIN_VERIFICATION_KEY"
             break
         }
 
@@ -61369,6 +61399,8 @@ $PAYCC_map = @{
     "KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyCheckValueAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyCryptogram_WrappingSpec"=@("Export-PAYCCKey","Import-PAYCCKey")
+    "KeyMaterial_As2805KeyCryptogram_As2805KeyVariant"=@("Export-PAYCCKey","Import-PAYCCKey")
+    "KeyMaterial_As2805KeyCryptogram_KeyAlgorithm"=@("Import-PAYCCKey")
     "KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass"=@("Import-PAYCCKey")
@@ -73381,7 +73413,7 @@ $SM_Completers = {
         # Amazon.SageMaker.ReservedCapacityInstanceType
         "Search-SMTrainingPlanOffering/InstanceType"
         {
-            $v = "ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6e-gb200.36xlarge","ml.trn1.32xlarge","ml.trn2.48xlarge"
+            $v = "ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6-b300.48xlarge","ml.p6e-gb200.36xlarge","ml.trn1.32xlarge","ml.trn2.48xlarge"
             break
         }
 
@@ -73805,7 +73837,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrainingInstanceType
         "New-SMHyperParameterTuningJob/HyperParameterTuningResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6-b300.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
             break
         }
 
