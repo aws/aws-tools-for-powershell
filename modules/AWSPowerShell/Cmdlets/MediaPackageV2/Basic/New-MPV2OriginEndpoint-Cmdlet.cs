@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Segment_Encryption_SpekeKeyProvider_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the certificate that you imported to AWS Certificate Manager to add content
+        /// key encryption to this endpoint. For this feature to work, your DRM key provider must
+        /// support content key encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Segment_Encryption_SpekeKeyProvider_CertificateArn { get; set; }
+        #endregion
+        
         #region Parameter ChannelGroupName
         /// <summary>
         /// <para>
@@ -603,6 +615,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.EncryptionMethod_IsmEncryptionMethod = this.EncryptionMethod_IsmEncryptionMethod;
             context.EncryptionMethod_TsEncryptionMethod = this.EncryptionMethod_TsEncryptionMethod;
             context.Encryption_KeyRotationIntervalSecond = this.Encryption_KeyRotationIntervalSecond;
+            context.Segment_Encryption_SpekeKeyProvider_CertificateArn = this.Segment_Encryption_SpekeKeyProvider_CertificateArn;
             if (this.SpekeKeyProvider_DrmSystem != null)
             {
                 context.SpekeKeyProvider_DrmSystem = new List<System.String>(this.SpekeKeyProvider_DrmSystem);
@@ -880,6 +893,16 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
              // populate SpekeKeyProvider
             var requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProviderIsNull = true;
             requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider = new Amazon.MediaPackageV2.Model.SpekeKeyProvider();
+            System.String requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_CertificateArn = null;
+            if (cmdletContext.Segment_Encryption_SpekeKeyProvider_CertificateArn != null)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_CertificateArn = cmdletContext.Segment_Encryption_SpekeKeyProvider_CertificateArn;
+            }
+            if (requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_CertificateArn != null)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider.CertificateArn = requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_CertificateArn;
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProviderIsNull = false;
+            }
             List<System.String> requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_spekeKeyProvider_DrmSystem = null;
             if (cmdletContext.SpekeKeyProvider_DrmSystem != null)
             {
@@ -1066,6 +1089,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public Amazon.MediaPackageV2.IsmEncryptionMethod EncryptionMethod_IsmEncryptionMethod { get; set; }
             public Amazon.MediaPackageV2.TsEncryptionMethod EncryptionMethod_TsEncryptionMethod { get; set; }
             public System.Int32? Encryption_KeyRotationIntervalSecond { get; set; }
+            public System.String Segment_Encryption_SpekeKeyProvider_CertificateArn { get; set; }
             public List<System.String> SpekeKeyProvider_DrmSystem { get; set; }
             public Amazon.MediaPackageV2.PresetSpeke20Audio EncryptionContractConfiguration_PresetSpeke20Audio { get; set; }
             public Amazon.MediaPackageV2.PresetSpeke20Video EncryptionContractConfiguration_PresetSpeke20Video { get; set; }

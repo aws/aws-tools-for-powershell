@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Convert-PAYCDKeyMaterial', 
         'Convert-PAYCDPinData', 
+        'New-PAYCDAs2805KekValidation', 
         'New-PAYCDCardValidationData', 
         'New-PAYCDMac', 
         'New-PAYCDMacEmvPinChange', 

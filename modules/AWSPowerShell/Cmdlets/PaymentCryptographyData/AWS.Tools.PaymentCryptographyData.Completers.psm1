@@ -223,7 +223,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDMac/VerificationAttributes_Algorithm")
         }
         {
-            $v = "CMAC","HMAC","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","ISO9797_ALGORITHM1","ISO9797_ALGORITHM3"
+            $v = "AS2805_4_1","CMAC","HMAC","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","ISO9797_ALGORITHM1","ISO9797_ALGORITHM3"
             break
         }
 
@@ -288,6 +288,13 @@ $PAYCD_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptographyData.RandomKeySendVariantMask
+        "New-PAYCDAs2805KekValidation/RandomKeySendVariantMask"
+        {
+            $v = "VARIANT_MASK_82","VARIANT_MASK_82C0"
+            break
+        }
+
         # Amazon.PaymentCryptographyData.SessionKeyDerivationMode
         {
             ($_ -eq "New-PAYCDMac/EmvMac_SessionKeyDerivationMode") -Or
@@ -307,6 +314,7 @@ $PAYCD_Completers = {
             ($_ -eq "Convert-PAYCDKeyMaterial/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "New-PAYCDAs2805KekValidation/KekValidationType_KekValidationRequest_DeriveKeyAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm")
         }
@@ -364,6 +372,7 @@ $PAYCD_map = @{
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "KekValidationType_KekValidationRequest_DeriveKeyAlgorithm"=@("New-PAYCDAs2805KekValidation")
     "KeyCheckValueAlgorithm"=@("Convert-PAYCDKeyMaterial")
     "MajorKeyDerivationMode"=@("Test-PAYCDAuthRequestCryptogram")
     "Mastercard_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
@@ -379,6 +388,7 @@ $PAYCD_map = @{
     "OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "PinBlockFormat"=@("New-PAYCDMacEmvPinChange","New-PAYCDPinData","Test-PAYCDPinData")
+    "RandomKeySendVariantMask"=@("New-PAYCDAs2805KekValidation")
     "Symmetric_Mode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Symmetric_PaddingType"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "VerificationAttributes_Algorithm"=@("Test-PAYCDMac")
@@ -438,6 +448,7 @@ $PAYCD_SelectCompleters = {
 $PAYCD_SelectMap = @{
     "Select"=@("Unprotect-PAYCDData",
                "Protect-PAYCDData",
+               "New-PAYCDAs2805KekValidation",
                "New-PAYCDCardValidationData",
                "New-PAYCDMac",
                "New-PAYCDMacEmvPinChange",

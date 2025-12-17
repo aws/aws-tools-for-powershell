@@ -36,17 +36,19 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     ///  
     /// <para>
     ///  Stream capacity represents the number of concurrent streams that can be active at
-    /// a time. You set stream capacity per location, per stream group. There are two types
-    /// of capacity, always-on and on-demand: 
-    /// </para><ul><li><para><b>Always-on</b>: The streaming capacity that is allocated and ready to handle stream
-    /// requests without delay. You pay for this capacity whether it's in use or not. Best
-    /// for quickest time from streaming request to streaming session. Default is 1 (2 for
-    /// high stream classes) when creating a stream group or adding a location. 
-    /// </para></li><li><para><b>On-demand</b>: The streaming capacity that Amazon GameLift Streams can allocate
-    /// in response to stream requests, and then de-allocate when the session has terminated.
-    /// This offers a cost control measure at the expense of a greater startup time (typically
-    /// under 5 minutes). Default is 0 when creating a stream group or adding a location.
-    /// 
+    /// a time. You set stream capacity per location, per stream group. The following capacity
+    /// settings are available: 
+    /// </para><ul><li><para><b>Always-on capacity</b>: This setting, if non-zero, indicates minimum streaming
+    /// capacity which is allocated to you and is never released back to the service. You
+    /// pay for this base level of capacity at all times, whether used or idle. 
+    /// </para></li><li><para><b>Maximum capacity</b>: This indicates the maximum capacity that the service can
+    /// allocate for you. Newly created streams may take a few minutes to start. Capacity
+    /// is released back to the service when idle. You pay for capacity that is allocated
+    /// to you until it is released. 
+    /// </para></li><li><para><b>Target-idle capacity</b>: This indicates idle capacity which the service pre-allocates
+    /// and holds for you in anticipation of future activity. This helps to insulate your
+    /// users from capacity-allocation delays. You pay for capacity which is held in this
+    /// intentional idle state. 
     /// </para></li></ul><para>
     /// Values for capacity must be whole number multiples of the tenancy value of the stream
     /// group's stream class.

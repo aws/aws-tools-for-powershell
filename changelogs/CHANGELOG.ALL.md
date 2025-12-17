@@ -1,4 +1,20 @@
-﻿### 4.1.963 (2025-12-16 22:19Z)
+﻿### 4.1.964 (2025-12-17 21:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1187.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2OriginEndpoint: added parameter Segment_Encryption_SpekeKeyProvider_CertificateArn.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameter Segment_Encryption_SpekeKeyProvider_CertificateArn.
+  * Amazon GameLiftStreams
+    * Modified cmdlet Start-GMLSStreamSession: added parameter PerformanceStatsConfiguration_SharedWithClient.
+  * Amazon Managed Streaming for Kafka Connect
+    * Modified cmdlet New-MSKCConnector: added parameter NetworkType.
+  * Amazon Payment Cryptography Control Plane
+    * Modified cmdlet Export-PAYCCKey: added parameters KeyMaterial_As2805KeyCryptogram_As2805KeyVariant and KeyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier.
+    * Modified cmdlet Import-PAYCCKey: added parameters KeyMaterial_As2805KeyCryptogram_As2805KeyVariant, KeyMaterial_As2805KeyCryptogram_Exportable, KeyMaterial_As2805KeyCryptogram_KeyAlgorithm, KeyMaterial_As2805KeyCryptogram_KeyModesOfUse_Decrypt, KeyMaterial_As2805KeyCryptogram_KeyModesOfUse_DeriveKey, KeyMaterial_As2805KeyCryptogram_KeyModesOfUse_Encrypt, KeyMaterial_As2805KeyCryptogram_KeyModesOfUse_Generate, KeyMaterial_As2805KeyCryptogram_KeyModesOfUse_NoRestriction, KeyMaterial_As2805KeyCryptogram_KeyModesOfUse_Sign, KeyMaterial_As2805KeyCryptogram_KeyModesOfUse_Unwrap, KeyMaterial_As2805KeyCryptogram_KeyModesOfUse_Verify, KeyMaterial_As2805KeyCryptogram_KeyModesOfUse_Wrap, KeyMaterial_As2805KeyCryptogram_WrappedKeyCryptogram and KeyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier.
+  * Amazon Payment Cryptography Data
+    * Added cmdlet New-PAYCDAs2805KekValidation leveraging the GenerateAs2805KekValidation service API.
+    * Modified cmdlet Convert-PAYCDPinData: added parameters IncomingAs2805Attributes_SystemTraceAuditNumber, IncomingAs2805Attributes_TransactionAmount, IncomingTranslationAttributes_As2805Format0_PrimaryAccountNumber and OutgoingTranslationAttributes_As2805Format0_PrimaryAccountNumber.
+
+### 4.1.963 (2025-12-16 22:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1186.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IoT
     * Modified cmdlet New-IOTCommand: added parameters PayloadTemplate and Preprocessor_AwsJsonSubstitution_OutputFormat.

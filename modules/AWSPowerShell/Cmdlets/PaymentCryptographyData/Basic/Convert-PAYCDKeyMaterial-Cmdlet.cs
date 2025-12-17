@@ -28,17 +28,18 @@ using Amazon.PaymentCryptographyData.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCD
 {
     /// <summary>
-    /// Translates an encryption key between different wrapping keys without importing the
-    /// key into Amazon Web Services Payment Cryptography.
+    /// Translates an cryptographic key between different wrapping keys without importing
+    /// the key into Amazon Web Services Payment Cryptography.
     /// 
     ///  
     /// <para>
     /// This operation can be used when key material is frequently rotated, such as during
     /// every card transaction, and there is a need to avoid importing short-lived keys into
     /// Amazon Web Services Payment Cryptography. It translates short-lived transaction keys
-    /// such as Pin Encryption Key (PEK) generated for each transaction and wrapped with an
-    /// ECDH (Elliptic Curve Diffie-Hellman) derived wrapping key to another KEK (Key Encryption
-    /// Key) wrapping key. 
+    /// such as <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/terminology.html#terms.pek">PEK</a>
+    /// generated for each transaction and wrapped with an <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/terminology.html#terms.ecdh">ECDH</a>
+    /// derived wrapping key to another <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/terminology.html#terms.kek">KEK</a>
+    /// wrapping key. 
     /// </para><para>
     /// Before using this operation, you must first request the public key certificate of
     /// the ECC key pair generated within Amazon Web Services Payment Cryptography to establish
@@ -46,9 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// pair, public certificate of receiving ECC key pair, and the key derivation parameters
     /// to generate a derived key. The service uses this derived key to unwrap the incoming
     /// transaction key received as a TR31WrappedKeyBlock and re-wrap using a user provided
-    /// KEK to generate an outgoing Tr31WrappedKeyBlock. For more information on establishing
-    /// ECDH derived keys, see the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/create-keys.html">Creating
-    /// keys</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
+    /// KEK to generate an outgoing Tr31WrappedKeyBlock.
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
@@ -100,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter KeyCheckValueAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The key check value (KCV) algorithm used for calculating the KCV.</para>
+        /// <para>The key check value (KCV) algorithm used for calculating the KCV of the derived key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

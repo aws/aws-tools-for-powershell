@@ -295,13 +295,25 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         public System.Int32? AutoScaling_MinWorkerCount { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the connector. It gives connectors connectivity to either IPv4
+        /// (IPV4) or IPv4 and IPv6 (DUAL) destinations. Defaults to IPV4.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KafkaConnect.NetworkType")]
+        public Amazon.KafkaConnect.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter Plugin
         /// <summary>
         /// <para>
-        /// <important><para>Amazon MSK Connect does not currently support specifying multiple plugins as a list.
+        /// <para><important><para>Amazon MSK Connect does not currently support specifying multiple plugins as a list.
         /// To use more than one plugin for your connector, you can create a single custom plugin
         /// using a ZIP file that bundles multiple plugins together.</para></important><para>Specifies which plugin to use for the connector. You must specify a single-element
-        /// list containing one <c>customPlugin</c> object.</para>
+        /// list containing one <c>customPlugin</c> object.</para></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -558,6 +570,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             context.S3_Bucket = this.S3_Bucket;
             context.S3_Enabled = this.S3_Enabled;
             context.S3_Prefix = this.S3_Prefix;
+            context.NetworkType = this.NetworkType;
             if (this.Plugin != null)
             {
                 context.Plugin = new List<Amazon.KafkaConnect.Model.Plugin>(this.Plugin);
@@ -1002,6 +1015,10 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             {
                 request.LogDelivery = null;
             }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
+            }
             if (cmdletContext.Plugin != null)
             {
                 request.Plugins = cmdletContext.Plugin;
@@ -1127,6 +1144,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             public System.String S3_Bucket { get; set; }
             public System.Boolean? S3_Enabled { get; set; }
             public System.String S3_Prefix { get; set; }
+            public Amazon.KafkaConnect.NetworkType NetworkType { get; set; }
             public List<Amazon.KafkaConnect.Model.Plugin> Plugin { get; set; }
             public System.String ServiceExecutionRoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

@@ -196,6 +196,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter KeyMaterial_As2805KeyCryptogram_As2805KeyVariant
+        /// <summary>
+        /// <para>
+        /// <para>The cryptographic usage of the key under export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.As2805KeyVariant")]
+        public Amazon.PaymentCryptography.As2805KeyVariant KeyMaterial_As2805KeyCryptogram_As2805KeyVariant { get; set; }
+        #endregion
+        
         #region Parameter DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier
         /// <summary>
         /// <para>
@@ -901,6 +912,16 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String Tr34KeyBlock_WrappingKeyCertificate { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KeyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Tr31KeyBlock_WrappingKeyIdentifier
         /// <summary>
         /// <para>
@@ -996,6 +1017,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 WriteWarning("You are passing $null as a value for parameter ExportKeyIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KeyMaterial_As2805KeyCryptogram_As2805KeyVariant = this.KeyMaterial_As2805KeyCryptogram_As2805KeyVariant;
+            context.KeyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier = this.KeyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier;
             context.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier = this.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier;
             context.DerivationData_SharedInformation = this.DerivationData_SharedInformation;
             context.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm = this.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm;
@@ -1139,6 +1162,41 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
              // populate KeyMaterial
             var requestKeyMaterialIsNull = true;
             request.KeyMaterial = new Amazon.PaymentCryptography.Model.ExportKeyMaterial();
+            Amazon.PaymentCryptography.Model.ExportAs2805KeyCryptogram requestKeyMaterial_keyMaterial_As2805KeyCryptogram = null;
+            
+             // populate As2805KeyCryptogram
+            var requestKeyMaterial_keyMaterial_As2805KeyCryptogramIsNull = true;
+            requestKeyMaterial_keyMaterial_As2805KeyCryptogram = new Amazon.PaymentCryptography.Model.ExportAs2805KeyCryptogram();
+            Amazon.PaymentCryptography.As2805KeyVariant requestKeyMaterial_keyMaterial_As2805KeyCryptogram_keyMaterial_As2805KeyCryptogram_As2805KeyVariant = null;
+            if (cmdletContext.KeyMaterial_As2805KeyCryptogram_As2805KeyVariant != null)
+            {
+                requestKeyMaterial_keyMaterial_As2805KeyCryptogram_keyMaterial_As2805KeyCryptogram_As2805KeyVariant = cmdletContext.KeyMaterial_As2805KeyCryptogram_As2805KeyVariant;
+            }
+            if (requestKeyMaterial_keyMaterial_As2805KeyCryptogram_keyMaterial_As2805KeyCryptogram_As2805KeyVariant != null)
+            {
+                requestKeyMaterial_keyMaterial_As2805KeyCryptogram.As2805KeyVariant = requestKeyMaterial_keyMaterial_As2805KeyCryptogram_keyMaterial_As2805KeyCryptogram_As2805KeyVariant;
+                requestKeyMaterial_keyMaterial_As2805KeyCryptogramIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_As2805KeyCryptogram_keyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier = null;
+            if (cmdletContext.KeyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_As2805KeyCryptogram_keyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier = cmdletContext.KeyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier;
+            }
+            if (requestKeyMaterial_keyMaterial_As2805KeyCryptogram_keyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_As2805KeyCryptogram.WrappingKeyIdentifier = requestKeyMaterial_keyMaterial_As2805KeyCryptogram_keyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier;
+                requestKeyMaterial_keyMaterial_As2805KeyCryptogramIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_As2805KeyCryptogram should be set to null
+            if (requestKeyMaterial_keyMaterial_As2805KeyCryptogramIsNull)
+            {
+                requestKeyMaterial_keyMaterial_As2805KeyCryptogram = null;
+            }
+            if (requestKeyMaterial_keyMaterial_As2805KeyCryptogram != null)
+            {
+                request.KeyMaterial.As2805KeyCryptogram = requestKeyMaterial_keyMaterial_As2805KeyCryptogram;
+                requestKeyMaterialIsNull = false;
+            }
             Amazon.PaymentCryptography.Model.ExportTr31KeyBlock requestKeyMaterial_keyMaterial_Tr31KeyBlock = null;
             
              // populate Tr31KeyBlock
@@ -1913,6 +1971,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             public System.String ExportDukptInitialKey_KeySerialNumber { get; set; }
             public Amazon.PaymentCryptography.KeyCheckValueAlgorithm ExportAttributes_KeyCheckValueAlgorithm { get; set; }
             public System.String ExportKeyIdentifier { get; set; }
+            public Amazon.PaymentCryptography.As2805KeyVariant KeyMaterial_As2805KeyCryptogram_As2805KeyVariant { get; set; }
+            public System.String KeyMaterial_As2805KeyCryptogram_WrappingKeyIdentifier { get; set; }
             public System.String DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier { get; set; }
             public System.String DerivationData_SharedInformation { get; set; }
             public Amazon.PaymentCryptography.SymmetricKeyAlgorithm DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm { get; set; }

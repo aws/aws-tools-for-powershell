@@ -107,7 +107,7 @@ $GMLS_Completers = {
         # Amazon.GameLiftStreams.StreamClass
         "New-GMLSStreamGroup/StreamClass"
         {
-            $v = "gen4n_high","gen4n_ultra","gen4n_win2022","gen5n_high","gen5n_ultra","gen5n_win2022"
+            $v = "gen4n_high","gen4n_ultra","gen4n_win2022","gen5n_high","gen5n_ultra","gen5n_win2022","gen6n_high","gen6n_medium","gen6n_pro","gen6n_pro_win2022","gen6n_small","gen6n_ultra","gen6n_ultra_win2022"
             break
         }
 

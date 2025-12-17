@@ -83,7 +83,7 @@ $ISCAN_Completers = {
         # Amazon.InspectorScan.OutputFormat
         "Invoke-ISCANSbomScan/OutputFormat"
         {
-            $v = "CYCLONE_DX_1_5","INSPECTOR"
+            $v = "CYCLONE_DX_1_5","INSPECTOR","INSPECTOR_ALT"
             break
         }
 
