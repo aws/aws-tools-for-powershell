@@ -155,6 +155,7 @@ $ART_SelectMap = @{
                "Get-ARTTermForReport",
                "Get-ARTCustomerAgreementList",
                "Get-ARTReportList",
+               "Get-ARTReportVersionList",
                "Write-ARTAccountSetting")
 }
 

@@ -248,6 +248,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEmailAddressInsights" OutputProperty="MailboxValidation" Verb="Get" Noun="EmailAddressInsight" PipelineParameter="EmailAddress" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEmailIdentity" OutputProperty="*" Verb="Get" Noun="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

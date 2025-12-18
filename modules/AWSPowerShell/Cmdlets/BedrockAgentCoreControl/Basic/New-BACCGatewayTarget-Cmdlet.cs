@@ -46,6 +46,42 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter MetadataConfiguration_AllowedQueryParameter
+        /// <summary>
+        /// <para>
+        /// <para>A list of URL query parameters that are allowed to be propagated from incoming gateway
+        /// URL to the target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataConfiguration_AllowedQueryParameters")]
+        public System.String[] MetadataConfiguration_AllowedQueryParameter { get; set; }
+        #endregion
+        
+        #region Parameter MetadataConfiguration_AllowedRequestHeader
+        /// <summary>
+        /// <para>
+        /// <para>A list of HTTP headers that are allowed to be propagated from incoming client requests
+        /// to the target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataConfiguration_AllowedRequestHeaders")]
+        public System.String[] MetadataConfiguration_AllowedRequestHeader { get; set; }
+        #endregion
+        
+        #region Parameter MetadataConfiguration_AllowedResponseHeader
+        /// <summary>
+        /// <para>
+        /// <para>A list of HTTP headers that are allowed to be propagated from the target response
+        /// back to the client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataConfiguration_AllowedResponseHeaders")]
+        public System.String[] MetadataConfiguration_AllowedResponseHeader { get; set; }
+        #endregion
+        
         #region Parameter Lambda_ToolSchema_S3_BucketOwnerAccountId
         /// <summary>
         /// <para>
@@ -345,6 +381,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter GatewayIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MetadataConfiguration_AllowedQueryParameter != null)
+            {
+                context.MetadataConfiguration_AllowedQueryParameter = new List<System.String>(this.MetadataConfiguration_AllowedQueryParameter);
+            }
+            if (this.MetadataConfiguration_AllowedRequestHeader != null)
+            {
+                context.MetadataConfiguration_AllowedRequestHeader = new List<System.String>(this.MetadataConfiguration_AllowedRequestHeader);
+            }
+            if (this.MetadataConfiguration_AllowedResponseHeader != null)
+            {
+                context.MetadataConfiguration_AllowedResponseHeader = new List<System.String>(this.MetadataConfiguration_AllowedResponseHeader);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -407,6 +455,45 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.GatewayIdentifier != null)
             {
                 request.GatewayIdentifier = cmdletContext.GatewayIdentifier;
+            }
+            
+             // populate MetadataConfiguration
+            var requestMetadataConfigurationIsNull = true;
+            request.MetadataConfiguration = new Amazon.BedrockAgentCoreControl.Model.MetadataConfiguration();
+            List<System.String> requestMetadataConfiguration_metadataConfiguration_AllowedQueryParameter = null;
+            if (cmdletContext.MetadataConfiguration_AllowedQueryParameter != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AllowedQueryParameter = cmdletContext.MetadataConfiguration_AllowedQueryParameter;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_AllowedQueryParameter != null)
+            {
+                request.MetadataConfiguration.AllowedQueryParameters = requestMetadataConfiguration_metadataConfiguration_AllowedQueryParameter;
+                requestMetadataConfigurationIsNull = false;
+            }
+            List<System.String> requestMetadataConfiguration_metadataConfiguration_AllowedRequestHeader = null;
+            if (cmdletContext.MetadataConfiguration_AllowedRequestHeader != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AllowedRequestHeader = cmdletContext.MetadataConfiguration_AllowedRequestHeader;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_AllowedRequestHeader != null)
+            {
+                request.MetadataConfiguration.AllowedRequestHeaders = requestMetadataConfiguration_metadataConfiguration_AllowedRequestHeader;
+                requestMetadataConfigurationIsNull = false;
+            }
+            List<System.String> requestMetadataConfiguration_metadataConfiguration_AllowedResponseHeader = null;
+            if (cmdletContext.MetadataConfiguration_AllowedResponseHeader != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AllowedResponseHeader = cmdletContext.MetadataConfiguration_AllowedResponseHeader;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_AllowedResponseHeader != null)
+            {
+                request.MetadataConfiguration.AllowedResponseHeaders = requestMetadataConfiguration_metadataConfiguration_AllowedResponseHeader;
+                requestMetadataConfigurationIsNull = false;
+            }
+             // determine if request.MetadataConfiguration should be set to null
+            if (requestMetadataConfigurationIsNull)
+            {
+                request.MetadataConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -801,6 +888,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<Amazon.BedrockAgentCoreControl.Model.CredentialProviderConfiguration> CredentialProviderConfiguration { get; set; }
             public System.String Description { get; set; }
             public System.String GatewayIdentifier { get; set; }
+            public List<System.String> MetadataConfiguration_AllowedQueryParameter { get; set; }
+            public List<System.String> MetadataConfiguration_AllowedRequestHeader { get; set; }
+            public List<System.String> MetadataConfiguration_AllowedResponseHeader { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolFilter> ApiGatewayToolConfiguration_ToolFilter { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolOverride> ApiGatewayToolConfiguration_ToolOverride { get; set; }

@@ -92,10 +92,13 @@ $BDA_Completers = {
 
         # Amazon.BedrockDataAutomation.BlueprintStage
         {
+            ($_ -eq "Invoke-BDABlueprintOptimizationAsync/Blueprint_Stage") -Or
             ($_ -eq "Get-BDADataAutomationProjectList/BlueprintFilter_BlueprintStage") -Or
             ($_ -eq "Get-BDABlueprint/BlueprintStage") -Or
             ($_ -eq "New-BDABlueprint/BlueprintStage") -Or
-            ($_ -eq "Update-BDABlueprint/BlueprintStage")
+            ($_ -eq "Update-BDABlueprint/BlueprintStage") -Or
+            ($_ -eq "Copy-BDABlueprintStage/SourceStage") -Or
+            ($_ -eq "Copy-BDABlueprintStage/TargetStage")
         }
         {
             $v = "DEVELOPMENT","LIVE"
@@ -254,6 +257,7 @@ $BDA_Completers = {
 
 $BDA_map = @{
     "AdditionalFileFormat_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "Blueprint_Stage"=@("Invoke-BDABlueprintOptimizationAsync")
     "BlueprintFilter_BlueprintStage"=@("Get-BDADataAutomationProjectList")
     "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
     "BlueprintStageFilter"=@("Get-BDABlueprintList")
@@ -280,6 +284,7 @@ $BDA_map = @{
     "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")
     "ProjectType"=@("New-BDADataAutomationProject")
     "ResourceOwner"=@("Get-BDABlueprintList","Get-BDADataAutomationProjectList")
+    "SourceStage"=@("Copy-BDABlueprintStage")
     "SpeakerLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "Splitter_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Audio_Extraction_Category_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
@@ -292,6 +297,7 @@ $BDA_map = @{
     "StandardOutputConfiguration_Video_Extraction_BoundingBox_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Video_Extraction_Category_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Video_GenerativeField_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "TargetStage"=@("Copy-BDABlueprintStage")
     "Type"=@("New-BDABlueprint")
 }
 
@@ -345,13 +351,16 @@ $BDA_SelectCompleters = {
 }
 
 $BDA_SelectMap = @{
-    "Select"=@("New-BDABlueprint",
+    "Select"=@("Copy-BDABlueprintStage",
+               "New-BDABlueprint",
                "New-BDABlueprintVersion",
                "New-BDADataAutomationProject",
                "Remove-BDABlueprint",
                "Remove-BDADataAutomationProject",
                "Get-BDABlueprint",
+               "Get-BDABlueprintOptimizationStatus",
                "Get-BDADataAutomationProject",
+               "Invoke-BDABlueprintOptimizationAsync",
                "Get-BDABlueprintList",
                "Get-BDADataAutomationProjectList",
                "Get-BDAResourceTag",

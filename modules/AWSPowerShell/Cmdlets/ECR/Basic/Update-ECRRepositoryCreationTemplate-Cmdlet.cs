@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>Updates the list of enumerable strings representing the Amazon ECR repository creation
-        /// scenarios that this template will apply towards. The two supported scenarios are <c>PULL_THROUGH_CACHE</c>
-        /// and <c>REPLICATION</c></para>
+        /// scenarios that this template will apply towards. The supported scenarios are <c>PULL_THROUGH_CACHE</c>,
+        /// <c>REPLICATION</c>, and <c>CREATE_ON_PUSH</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

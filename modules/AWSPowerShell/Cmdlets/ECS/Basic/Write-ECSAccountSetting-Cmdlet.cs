@@ -93,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// the tasks need to be stopped and new tasks launched to replace them. Use <c>fargateTaskRetirementWaitPeriod</c>
         /// to configure the wait time to retire a Fargate task. For information about the Fargate
         /// tasks maintenance, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon
-        /// Web Services Fargate task maintenance</a> in the <i>Amazon ECS Developer Guide</i>.</para></li><li><para><c>tagResourceAuthorization</c> - Amazon ECS is introducing tagging authorization
+        /// Web Services Fargate task maintenance</a> in the <i>Amazon ECS Developer Guide</i>.</para></li><li><para><c>fargateEventWindows</c> - When Amazon Web Services determines that a security
+        /// or infrastructure update is needed for an Amazon ECS task hosted on Fargate, the tasks
+        /// need to be stopped and new tasks launched to replace them. Use <c>fargateEventWindows</c>
+        /// to use EC2 Event Windows associated with Fargate tasks to configure time windows for
+        /// task retirement.</para></li><li><para><c>tagResourceAuthorization</c> - Amazon ECS is introducing tagging authorization
         /// for resource creation. Users must have permissions for actions that create the resource,
         /// such as <c>ecsCreateCluster</c>. If tags are specified when you create a resource,
         /// Amazon Web Services performs additional authorization to verify if users or roles

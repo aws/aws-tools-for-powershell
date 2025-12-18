@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListReportVersions" OutputProperty="Reports" Verb="Get" Noun="ReportVersionList" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutAccountSettings" OutputProperty="AccountSettings" Verb="Write" Noun="AccountSetting" ShouldProcessTarget="NotificationSubscriptionStatus" PipelineParameter="NotificationSubscriptionStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

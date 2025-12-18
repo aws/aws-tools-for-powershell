@@ -3882,7 +3882,7 @@ $APS_Completers = {
             ($_ -eq "Update-APSFleet/Platform")
         }
         {
-            $v = "AMAZON_LINUX2","RHEL8","ROCKY_LINUX8","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            $v = "AMAZON_LINUX2","RHEL8","ROCKY_LINUX8","UBUNTU_PRO_2404","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022","WINDOWS_SERVER_2025"
             break
         }
 
@@ -4767,6 +4767,7 @@ $ARC_SelectMap = @{
                "Get-ARCPlanList",
                "Get-ARCPlansInRegionList",
                "Get-ARCRoute53HealthCheckList",
+               "Get-ARCRoute53HealthCheckInRegionList",
                "Get-ARCResourceTag",
                "Start-ARCPlanExecution",
                "Add-ARCResourceTag",
@@ -4977,6 +4978,7 @@ $ART_SelectMap = @{
                "Get-ARTTermForReport",
                "Get-ARTCustomerAgreementList",
                "Get-ARTReportList",
+               "Get-ARTReportVersionList",
                "Write-ARTAccountSetting")
 }
 
@@ -8800,10 +8802,13 @@ $BDA_Completers = {
 
         # Amazon.BedrockDataAutomation.BlueprintStage
         {
+            ($_ -eq "Invoke-BDABlueprintOptimizationAsync/Blueprint_Stage") -Or
             ($_ -eq "Get-BDADataAutomationProjectList/BlueprintFilter_BlueprintStage") -Or
             ($_ -eq "Get-BDABlueprint/BlueprintStage") -Or
             ($_ -eq "New-BDABlueprint/BlueprintStage") -Or
-            ($_ -eq "Update-BDABlueprint/BlueprintStage")
+            ($_ -eq "Update-BDABlueprint/BlueprintStage") -Or
+            ($_ -eq "Copy-BDABlueprintStage/SourceStage") -Or
+            ($_ -eq "Copy-BDABlueprintStage/TargetStage")
         }
         {
             $v = "DEVELOPMENT","LIVE"
@@ -8962,6 +8967,7 @@ $BDA_Completers = {
 
 $BDA_map = @{
     "AdditionalFileFormat_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "Blueprint_Stage"=@("Invoke-BDABlueprintOptimizationAsync")
     "BlueprintFilter_BlueprintStage"=@("Get-BDADataAutomationProjectList")
     "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
     "BlueprintStageFilter"=@("Get-BDABlueprintList")
@@ -8988,6 +8994,7 @@ $BDA_map = @{
     "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")
     "ProjectType"=@("New-BDADataAutomationProject")
     "ResourceOwner"=@("Get-BDABlueprintList","Get-BDADataAutomationProjectList")
+    "SourceStage"=@("Copy-BDABlueprintStage")
     "SpeakerLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "Splitter_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Audio_Extraction_Category_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
@@ -9000,6 +9007,7 @@ $BDA_map = @{
     "StandardOutputConfiguration_Video_Extraction_BoundingBox_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Video_Extraction_Category_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Video_GenerativeField_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "TargetStage"=@("Copy-BDABlueprintStage")
     "Type"=@("New-BDABlueprint")
 }
 
@@ -9053,13 +9061,16 @@ $BDA_SelectCompleters = {
 }
 
 $BDA_SelectMap = @{
-    "Select"=@("New-BDABlueprint",
+    "Select"=@("Copy-BDABlueprintStage",
+               "New-BDABlueprint",
                "New-BDABlueprintVersion",
                "New-BDADataAutomationProject",
                "Remove-BDABlueprint",
                "Remove-BDADataAutomationProject",
                "Get-BDABlueprint",
+               "Get-BDABlueprintOptimizationStatus",
                "Get-BDADataAutomationProject",
+               "Invoke-BDABlueprintOptimizationAsync",
                "Get-BDABlueprintList",
                "Get-BDADataAutomationProjectList",
                "Get-BDAResourceTag",
@@ -12225,6 +12236,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.ChangeRequestAction
+        "Update-CRSCollaborationChangeRequest/Action"
+        {
+            $v = "APPROVE","CANCEL","COMMIT","DENY"
+            break
+        }
+
         # Amazon.CleanRooms.ChangeRequestStatus
         "Get-CRSCollaborationChangeRequestList/Status"
         {
@@ -12442,6 +12460,7 @@ $CRS_Completers = {
 }
 
 $CRS_map = @{
+    "Action"=@("Update-CRSCollaborationChangeRequest")
     "Aggregation_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisMethod"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
@@ -12593,6 +12612,7 @@ $CRS_SelectMap = @{
                "Remove-CRSResourceTag",
                "Update-CRSAnalysisTemplate",
                "Update-CRSCollaboration",
+               "Update-CRSCollaborationChangeRequest",
                "Update-CRSConfiguredAudienceModelAssociation",
                "Update-CRSConfiguredTable",
                "Update-CRSConfiguredTableAnalysisRule",
@@ -30237,6 +30257,13 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.CapacityOptionType
+        "New-ECSCapacityProvider/ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType"
+        {
+            $v = "ON_DEMAND","SPOT"
+            break
+        }
+
         # Amazon.ECS.ContainerInstanceStatus
         {
             ($_ -eq "Get-ECSContainerInstanceList/Status") -Or
@@ -30486,7 +30513,7 @@ $ECS_Completers = {
             ($_ -eq "Write-ECSAccountSettingDefault/Name")
         }
         {
-            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","defaultLogDriverMode","fargateFIPSMode","fargateTaskRetirementWaitPeriod","guardDutyActivate","serviceLongArnFormat","tagResourceAuthorization","taskLongArnFormat"
+            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","defaultLogDriverMode","fargateEventWindows","fargateFIPSMode","fargateTaskRetirementWaitPeriod","guardDutyActivate","serviceLongArnFormat","tagResourceAuthorization","taskLongArnFormat"
             break
         }
 
@@ -30551,6 +30578,7 @@ $ECS_map = @{
     "IpcMode"=@("Register-ECSTaskDefinition")
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask","New-ECSTaskSet")
     "LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
+    "ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType"=@("New-ECSCapacityProvider")
     "ManagedInstancesProvider_PropagateTag"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
@@ -76481,6 +76509,9 @@ $SES2_Completers = {
             ($_ -eq "Write-SES2AccountVdmAttribute/GuardianAttributes_OptimizedSharedDelivery") -Or
             ($_ -eq "New-SES2ConfigurationSet/GuardianOptions_OptimizedSharedDelivery") -Or
             ($_ -eq "Write-SES2ConfigurationSetVdmOption/GuardianOptions_OptimizedSharedDelivery") -Or
+            ($_ -eq "New-SES2ConfigurationSet/SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled") -Or
+            ($_ -eq "Write-SES2AccountSuppressionAttribute/ValidationAttributes_ConditionThreshold_ConditionThresholdEnabled") -Or
+            ($_ -eq "Write-SES2ConfigurationSetSuppressionOption/ValidationOptions_ConditionThreshold_ConditionThresholdEnabled") -Or
             ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_VdmEnabled")
         }
         {
@@ -76561,6 +76592,17 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.SuppressionConfidenceVerdictThreshold
+        {
+            ($_ -eq "New-SES2ConfigurationSet/SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold") -Or
+            ($_ -eq "Write-SES2AccountSuppressionAttribute/ValidationAttributes_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold") -Or
+            ($_ -eq "Write-SES2ConfigurationSetSuppressionOption/ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold")
+        }
+        {
+            $v = "HIGH","MANAGED","MEDIUM"
+            break
+        }
+
         # Amazon.SimpleEmailV2.SuppressionListImportAction
         "New-SES2ImportJob/SuppressionListDestination_SuppressionListImportAction"
         {
@@ -76621,8 +76663,14 @@ $SES2_map = @{
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
+    "SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled"=@("New-SES2ConfigurationSet")
+    "SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold"=@("New-SES2ConfigurationSet")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
     "TrackingOptions_HttpsPolicy"=@("New-SES2ConfigurationSet")
+    "ValidationAttributes_ConditionThreshold_ConditionThresholdEnabled"=@("Write-SES2AccountSuppressionAttribute")
+    "ValidationAttributes_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold"=@("Write-SES2AccountSuppressionAttribute")
+    "ValidationOptions_ConditionThreshold_ConditionThresholdEnabled"=@("Write-SES2ConfigurationSetSuppressionOption")
+    "ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold"=@("Write-SES2ConfigurationSetSuppressionOption")
     "VdmAttributes_VdmEnabled"=@("Write-SES2AccountVdmAttribute")
 }
 
@@ -76720,6 +76768,7 @@ $SES2_SelectMap = @{
                "Get-SES2DeliverabilityTestReport",
                "Get-SES2DomainDeliverabilityCampaign",
                "Get-SES2DomainStatisticsReport",
+               "Get-SES2EmailAddressInsight",
                "Get-SES2EmailIdentity",
                "Get-SES2EmailIdentityPolicy",
                "Get-SES2EmailTemplate",

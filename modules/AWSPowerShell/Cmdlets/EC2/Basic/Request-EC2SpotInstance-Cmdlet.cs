@@ -91,8 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone.</para><para>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas;
-        /// for example, "us-west-2a, us-west-2b".</para>
+        /// <para>The Availability Zone. For example, <c>us-east-2a</c>.</para><para>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas;
+        /// for example, "<c>us-east-2a</c>, <c>us-east-2b</c>".</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified in the
+        /// request, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,6 +120,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AvailabilityZoneGroup { get; set; }
+        #endregion
+        
+        #region Parameter LaunchSpecification_Placement_AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Availability Zone. For example, <c>use2-az1</c>.</para><para>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas;
+        /// for example, "<c>use2-az1</c>, <c>use2-bz1</c>".</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified in the
+        /// request, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LaunchSpecification_Placement_AvailabilityZoneId { get; set; }
         #endregion
         
         #region Parameter LaunchSpecification_BlockDeviceMapping
@@ -537,6 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.LaunchSpecification_NetworkInterface = new List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification>(this.LaunchSpecification_NetworkInterface);
             }
             context.Placement_AvailabilityZone = this.Placement_AvailabilityZone;
+            context.LaunchSpecification_Placement_AvailabilityZoneId = this.LaunchSpecification_Placement_AvailabilityZoneId;
             context.Placement_GroupName = this.Placement_GroupName;
             context.Placement_Tenancy = this.Placement_Tenancy;
             context.LaunchSpecification_RamdiskId = this.LaunchSpecification_RamdiskId;
@@ -794,6 +808,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestLaunchSpecification_launchSpecification_Placement.AvailabilityZone = requestLaunchSpecification_launchSpecification_Placement_placement_AvailabilityZone;
                 requestLaunchSpecification_launchSpecification_PlacementIsNull = false;
             }
+            System.String requestLaunchSpecification_launchSpecification_Placement_launchSpecification_Placement_AvailabilityZoneId = null;
+            if (cmdletContext.LaunchSpecification_Placement_AvailabilityZoneId != null)
+            {
+                requestLaunchSpecification_launchSpecification_Placement_launchSpecification_Placement_AvailabilityZoneId = cmdletContext.LaunchSpecification_Placement_AvailabilityZoneId;
+            }
+            if (requestLaunchSpecification_launchSpecification_Placement_launchSpecification_Placement_AvailabilityZoneId != null)
+            {
+                requestLaunchSpecification_launchSpecification_Placement.AvailabilityZoneId = requestLaunchSpecification_launchSpecification_Placement_launchSpecification_Placement_AvailabilityZoneId;
+                requestLaunchSpecification_launchSpecification_PlacementIsNull = false;
+            }
             System.String requestLaunchSpecification_launchSpecification_Placement_placement_GroupName = null;
             if (cmdletContext.Placement_GroupName != null)
             {
@@ -949,6 +973,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? LaunchSpecification_MonitoringEnabled { get; set; }
             public List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification> LaunchSpecification_NetworkInterface { get; set; }
             public System.String Placement_AvailabilityZone { get; set; }
+            public System.String LaunchSpecification_Placement_AvailabilityZoneId { get; set; }
             public System.String Placement_GroupName { get; set; }
             public Amazon.EC2.Tenancy Placement_Tenancy { get; set; }
             public System.String LaunchSpecification_RamdiskId { get; set; }

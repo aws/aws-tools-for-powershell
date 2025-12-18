@@ -157,7 +157,7 @@ $APS_Completers = {
             ($_ -eq "Update-APSFleet/Platform")
         }
         {
-            $v = "AMAZON_LINUX2","RHEL8","ROCKY_LINUX8","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            $v = "AMAZON_LINUX2","RHEL8","ROCKY_LINUX8","UBUNTU_PRO_2404","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022","WINDOWS_SERVER_2025"
             break
         }
 

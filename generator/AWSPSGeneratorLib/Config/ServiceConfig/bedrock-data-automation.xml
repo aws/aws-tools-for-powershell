@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CopyBlueprintStage" Verb="Copy" Noun="BlueprintStage" ShouldProcessTarget="BlueprintArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBlueprint" OutputProperty="Blueprint" Verb="New" Noun="Blueprint" ShouldProcessTarget="BlueprintName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -93,7 +97,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBlueprintOptimizationStatus" OutputProperty="*" Verb="Get" Noun="BlueprintOptimizationStatus" PipelineParameter="InvocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataAutomationProject" OutputProperty="Project" Verb="Get" Noun="DataAutomationProject" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeBlueprintOptimizationAsync" OutputProperty="InvocationArn" Verb="Invoke" Noun="BlueprintOptimizationAsync" ShouldProcessTarget="DataAutomationProfileArn" PipelineParameter="DataAutomationProfileArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

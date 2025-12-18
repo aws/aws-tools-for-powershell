@@ -1646,6 +1646,9 @@ Set-Alias -Name ARC-ListPlansInRegion -Value Get-ARCPlansInRegionList
 Set-Alias -Name List-ARCRoute53HealthChecks -Value Get-ARCRoute53HealthCheckList
 Set-Alias -Name List-ARCRoute53HealthCheckList -Value Get-ARCRoute53HealthCheckList
 Set-Alias -Name ARC-ListRoute53HealthChecks -Value Get-ARCRoute53HealthCheckList
+Set-Alias -Name List-ARCRoute53HealthChecksInRegion -Value Get-ARCRoute53HealthCheckInRegionList
+Set-Alias -Name List-ARCRoute53HealthCheckInRegionList -Value Get-ARCRoute53HealthCheckInRegionList
+Set-Alias -Name ARC-ListRoute53HealthChecksInRegion -Value Get-ARCRoute53HealthCheckInRegionList
 Set-Alias -Name ARC-ListTagsForResource -Value Get-ARCResourceTag
 Set-Alias -Name ARC-StartPlanExecution -Value Start-ARCPlanExecution
 Set-Alias -Name ARC-TagResource -Value Add-ARCResourceTag
@@ -1689,6 +1692,9 @@ Set-Alias -Name ART-ListCustomerAgreements -Value Get-ARTCustomerAgreementList
 Set-Alias -Name List-ARTReports -Value Get-ARTReportList
 Set-Alias -Name List-ARTReportList -Value Get-ARTReportList
 Set-Alias -Name ART-ListReports -Value Get-ARTReportList
+Set-Alias -Name List-ARTReportVersions -Value Get-ARTReportVersionList
+Set-Alias -Name List-ARTReportVersionList -Value Get-ARTReportVersionList
+Set-Alias -Name ART-ListReportVersions -Value Get-ARTReportVersionList
 Set-Alias -Name Put-ARTAccountSettings -Value Write-ARTAccountSetting
 Set-Alias -Name Put-ARTAccountSetting -Value Write-ARTAccountSetting
 Set-Alias -Name ART-PutAccountSettings -Value Write-ARTAccountSetting
@@ -3081,6 +3087,7 @@ Set-Alias -Name BDAR-InvokeDataAutomationAsync -Value Invoke-BDARDataAutomationA
 Set-Alias -Name BDAR-ListTagsForResource -Value Get-BDARResourceTag
 Set-Alias -Name BDAR-TagResource -Value Add-BDARResourceTag
 Set-Alias -Name BDAR-UntagResource -Value Remove-BDARResourceTag
+Set-Alias -Name BDA-CopyBlueprintStage -Value Copy-BDABlueprintStage
 Set-Alias -Name Create-BDABlueprint -Value New-BDABlueprint
 Set-Alias -Name BDA-CreateBlueprint -Value New-BDABlueprint
 Set-Alias -Name Create-BDABlueprintVersion -Value New-BDABlueprintVersion
@@ -3092,7 +3099,9 @@ Set-Alias -Name BDA-DeleteBlueprint -Value Remove-BDABlueprint
 Set-Alias -Name Delete-BDADataAutomationProject -Value Remove-BDADataAutomationProject
 Set-Alias -Name BDA-DeleteDataAutomationProject -Value Remove-BDADataAutomationProject
 Set-Alias -Name BDA-GetBlueprint -Value Get-BDABlueprint
+Set-Alias -Name BDA-GetBlueprintOptimizationStatus -Value Get-BDABlueprintOptimizationStatus
 Set-Alias -Name BDA-GetDataAutomationProject -Value Get-BDADataAutomationProject
+Set-Alias -Name BDA-InvokeBlueprintOptimizationAsync -Value Invoke-BDABlueprintOptimizationAsync
 Set-Alias -Name List-BDABlueprints -Value Get-BDABlueprintList
 Set-Alias -Name List-BDABlueprintList -Value Get-BDABlueprintList
 Set-Alias -Name BDA-ListBlueprints -Value Get-BDABlueprintList
@@ -4303,6 +4312,7 @@ Set-Alias -Name CRS-TagResource -Value Add-CRSResourceTag
 Set-Alias -Name CRS-UntagResource -Value Remove-CRSResourceTag
 Set-Alias -Name CRS-UpdateAnalysisTemplate -Value Update-CRSAnalysisTemplate
 Set-Alias -Name CRS-UpdateCollaboration -Value Update-CRSCollaboration
+Set-Alias -Name CRS-UpdateCollaborationChangeRequest -Value Update-CRSCollaborationChangeRequest
 Set-Alias -Name CRS-UpdateConfiguredAudienceModelAssociation -Value Update-CRSConfiguredAudienceModelAssociation
 Set-Alias -Name CRS-UpdateConfiguredTableAnalysisRule -Value Update-CRSConfiguredTableAnalysisRule
 Set-Alias -Name CRS-UpdateConfiguredTableAssociationAnalysisRule -Value Update-CRSConfiguredTableAssociationAnalysisRule
@@ -30341,6 +30351,8 @@ Set-Alias -Name SES2-GetDeliverabilityDashboardOptions -Value Get-SES2Deliverabi
 Set-Alias -Name SES2-GetDeliverabilityTestReport -Value Get-SES2DeliverabilityTestReport
 Set-Alias -Name SES2-GetDomainDeliverabilityCampaign -Value Get-SES2DomainDeliverabilityCampaign
 Set-Alias -Name SES2-GetDomainStatisticsReport -Value Get-SES2DomainStatisticsReport
+Set-Alias -Name Get-SES2EmailAddressInsights -Value Get-SES2EmailAddressInsight
+Set-Alias -Name SES2-GetEmailAddressInsights -Value Get-SES2EmailAddressInsight
 Set-Alias -Name SES2-GetEmailIdentity -Value Get-SES2EmailIdentity
 Set-Alias -Name Get-SES2EmailIdentityPolicies -Value Get-SES2EmailIdentityPolicy
 Set-Alias -Name SES2-GetEmailIdentityPolicies -Value Get-SES2EmailIdentityPolicy

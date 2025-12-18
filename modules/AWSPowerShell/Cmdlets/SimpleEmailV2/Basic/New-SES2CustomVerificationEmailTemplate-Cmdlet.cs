@@ -103,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String SuccessRedirectionURL { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects that define the tags (keys and values) to associate with the custom
+        /// verification email template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SimpleEmailV2.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TemplateContent
         /// <summary>
         /// <para>
@@ -219,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 WriteWarning("You are passing $null as a value for parameter SuccessRedirectionURL which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SimpleEmailV2.Model.Tag>(this.Tag);
+            }
             context.TemplateContent = this.TemplateContent;
             #if MODULAR
             if (this.TemplateContent == null && ParameterWasBound(nameof(this.TemplateContent)))
@@ -267,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (cmdletContext.SuccessRedirectionURL != null)
             {
                 request.SuccessRedirectionURL = cmdletContext.SuccessRedirectionURL;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TemplateContent != null)
             {
@@ -344,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String FailureRedirectionURL { get; set; }
             public System.String FromEmailAddress { get; set; }
             public System.String SuccessRedirectionURL { get; set; }
+            public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }
             public System.String TemplateContent { get; set; }
             public System.String TemplateName { get; set; }
             public System.String TemplateSubject { get; set; }

@@ -70,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String TemplateContent_Subject { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects that define the tags (keys and values) to associate with the email
+        /// template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SimpleEmailV2.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TemplateName
         /// <summary>
         /// <para>
@@ -139,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.CreateEmailTemplateResponse, NewSES2EmailTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SimpleEmailV2.Model.Tag>(this.Tag);
+            }
             context.TemplateContent_Html = this.TemplateContent_Html;
             context.TemplateContent_Subject = this.TemplateContent_Subject;
             context.TemplateContent_Text = this.TemplateContent_Text;
@@ -165,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             // create request
             var request = new Amazon.SimpleEmailV2.Model.CreateEmailTemplateRequest();
             
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
              // populate TemplateContent
             var requestTemplateContentIsNull = true;
@@ -269,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }
             public System.String TemplateContent_Html { get; set; }
             public System.String TemplateContent_Subject { get; set; }
             public System.String TemplateContent_Text { get; set; }

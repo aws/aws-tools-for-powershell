@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para>The platforms the application supports. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are
-        /// supported for Elastic fleets.</para>
+        /// <para>The platforms the application supports. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404
+        /// are supported for Elastic fleets.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
