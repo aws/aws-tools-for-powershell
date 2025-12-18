@@ -60,6 +60,29 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String ArchivingOptions_ArchiveArn { get; set; }
         #endregion
         
+        #region Parameter SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether Auto Validation is enabled for suppression. Set to <c>ENABLED</c>
+        /// to enable the Auto Validation feature, or set to <c>DISABLED</c> to disable it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.FeatureStatus")]
+        public Amazon.SimpleEmailV2.FeatureStatus SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled { get; set; }
+        #endregion
+        
+        #region Parameter SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The confidence level threshold for suppression decisions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.SuppressionConfidenceVerdictThreshold")]
+        public Amazon.SimpleEmailV2.SuppressionConfidenceVerdictThreshold SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold { get; set; }
+        #endregion
+        
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
@@ -295,6 +318,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             {
                 context.SuppressionOptions_SuppressedReason = new List<System.String>(this.SuppressionOptions_SuppressedReason);
             }
+            context.SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled = this.SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled;
+            context.SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold = this.SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SimpleEmailV2.Model.Tag>(this.Tag);
@@ -441,6 +466,71 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestSuppressionOptions_suppressionOptions_SuppressedReason != null)
             {
                 request.SuppressionOptions.SuppressedReasons = requestSuppressionOptions_suppressionOptions_SuppressedReason;
+                requestSuppressionOptionsIsNull = false;
+            }
+            Amazon.SimpleEmailV2.Model.SuppressionValidationOptions requestSuppressionOptions_suppressionOptions_ValidationOptions = null;
+            
+             // populate ValidationOptions
+            var requestSuppressionOptions_suppressionOptions_ValidationOptionsIsNull = true;
+            requestSuppressionOptions_suppressionOptions_ValidationOptions = new Amazon.SimpleEmailV2.Model.SuppressionValidationOptions();
+            Amazon.SimpleEmailV2.Model.SuppressionConditionThreshold requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold = null;
+            
+             // populate ConditionThreshold
+            var requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThresholdIsNull = true;
+            requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold = new Amazon.SimpleEmailV2.Model.SuppressionConditionThreshold();
+            Amazon.SimpleEmailV2.FeatureStatus requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled = null;
+            if (cmdletContext.SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled != null)
+            {
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled = cmdletContext.SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled;
+            }
+            if (requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled != null)
+            {
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold.ConditionThresholdEnabled = requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled;
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThresholdIsNull = false;
+            }
+            Amazon.SimpleEmailV2.Model.SuppressionConfidenceThreshold requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold = null;
+            
+             // populate OverallConfidenceThreshold
+            var requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThresholdIsNull = true;
+            requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold = new Amazon.SimpleEmailV2.Model.SuppressionConfidenceThreshold();
+            Amazon.SimpleEmailV2.SuppressionConfidenceVerdictThreshold requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold = null;
+            if (cmdletContext.SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold != null)
+            {
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold = cmdletContext.SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold;
+            }
+            if (requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold != null)
+            {
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold.ConfidenceVerdictThreshold = requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold;
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThresholdIsNull = false;
+            }
+             // determine if requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold should be set to null
+            if (requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThresholdIsNull)
+            {
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold = null;
+            }
+            if (requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold != null)
+            {
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold.OverallConfidenceThreshold = requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold_suppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold;
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThresholdIsNull = false;
+            }
+             // determine if requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold should be set to null
+            if (requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThresholdIsNull)
+            {
+                requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold = null;
+            }
+            if (requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold != null)
+            {
+                requestSuppressionOptions_suppressionOptions_ValidationOptions.ConditionThreshold = requestSuppressionOptions_suppressionOptions_ValidationOptions_suppressionOptions_ValidationOptions_ConditionThreshold;
+                requestSuppressionOptions_suppressionOptions_ValidationOptionsIsNull = false;
+            }
+             // determine if requestSuppressionOptions_suppressionOptions_ValidationOptions should be set to null
+            if (requestSuppressionOptions_suppressionOptions_ValidationOptionsIsNull)
+            {
+                requestSuppressionOptions_suppressionOptions_ValidationOptions = null;
+            }
+            if (requestSuppressionOptions_suppressionOptions_ValidationOptions != null)
+            {
+                request.SuppressionOptions.ValidationOptions = requestSuppressionOptions_suppressionOptions_ValidationOptions;
                 requestSuppressionOptionsIsNull = false;
             }
              // determine if request.SuppressionOptions should be set to null
@@ -604,6 +694,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.Boolean? ReputationOptions_ReputationMetricsEnabled { get; set; }
             public System.Boolean? SendingOptions_SendingEnabled { get; set; }
             public List<System.String> SuppressionOptions_SuppressedReason { get; set; }
+            public Amazon.SimpleEmailV2.FeatureStatus SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled { get; set; }
+            public Amazon.SimpleEmailV2.SuppressionConfidenceVerdictThreshold SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }
             public System.String TrackingOptions_CustomRedirectDomain { get; set; }
             public Amazon.SimpleEmailV2.HttpsPolicy TrackingOptions_HttpsPolicy { get; set; }

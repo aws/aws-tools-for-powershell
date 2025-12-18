@@ -152,6 +152,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.BurstablePerformance InstanceRequirements_BurstablePerformance { get; set; }
         #endregion
         
+        #region Parameter ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType
+        /// <summary>
+        /// <para>
+        /// <para>The capacity option type. This determines whether Amazon ECS launches On-Demand or
+        /// Spot Instances for your managed instance capacity provider.</para><para>Valid values are:</para><ul><li><para><c>ON_DEMAND</c> - Launches standard On-Demand Instances. On-Demand Instances provide
+        /// predictable pricing and availability.</para></li><li><para><c>SPOT</c> - Launches Spot Instances that use spare Amazon EC2 capacity at reduced
+        /// cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification
+        /// when the capacity is needed back.</para></li></ul><para>The default is On-Demand</para><para>For more information about Amazon EC2 capacity options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance
+        /// purchasing options</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.CapacityOptionType")]
+        public Amazon.ECS.CapacityOptionType ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType { get; set; }
+        #endregion
+        
         #region Parameter Cluster
         /// <summary>
         /// <para>
@@ -832,6 +848,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Cluster = this.Cluster;
             context.InfrastructureOptimization_ScaleInAfter = this.InfrastructureOptimization_ScaleInAfter;
             context.ManagedInstancesProvider_InfrastructureRoleArn = this.ManagedInstancesProvider_InfrastructureRoleArn;
+            context.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType = this.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType;
             context.InstanceLaunchTemplate_Ec2InstanceProfileArn = this.InstanceLaunchTemplate_Ec2InstanceProfileArn;
             context.AcceleratorCount_Max = this.AcceleratorCount_Max;
             context.AcceleratorCount_Min = this.AcceleratorCount_Min;
@@ -1090,6 +1107,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate InstanceLaunchTemplate
             var requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = true;
             requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate = new Amazon.ECS.Model.InstanceLaunchTemplate();
+            Amazon.ECS.CapacityOptionType requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType = null;
+            if (cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType = cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.CapacityOptionType = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType;
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
             System.String requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_instanceLaunchTemplate_Ec2InstanceProfileArn = null;
             if (cmdletContext.InstanceLaunchTemplate_Ec2InstanceProfileArn != null)
             {
@@ -1739,6 +1766,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String Cluster { get; set; }
             public System.Int32? InfrastructureOptimization_ScaleInAfter { get; set; }
             public System.String ManagedInstancesProvider_InfrastructureRoleArn { get; set; }
+            public Amazon.ECS.CapacityOptionType ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType { get; set; }
             public System.String InstanceLaunchTemplate_Ec2InstanceProfileArn { get; set; }
             public System.Int32? AcceleratorCount_Max { get; set; }
             public System.Int32? AcceleratorCount_Min { get; set; }

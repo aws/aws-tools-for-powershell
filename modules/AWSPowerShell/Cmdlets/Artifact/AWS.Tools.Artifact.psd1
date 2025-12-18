@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ARTReport', 
         'Get-ARTReportList', 
         'Get-ARTReportMetadata', 
+        'Get-ARTReportVersionList', 
         'Get-ARTTermForReport', 
         'Write-ARTAccountSetting')
 

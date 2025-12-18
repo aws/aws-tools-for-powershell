@@ -128,6 +128,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.ChangeRequestAction
+        "Update-CRSCollaborationChangeRequest/Action"
+        {
+            $v = "APPROVE","CANCEL","COMMIT","DENY"
+            break
+        }
+
         # Amazon.CleanRooms.ChangeRequestStatus
         "Get-CRSCollaborationChangeRequestList/Status"
         {
@@ -345,6 +352,7 @@ $CRS_Completers = {
 }
 
 $CRS_map = @{
+    "Action"=@("Update-CRSCollaborationChangeRequest")
     "Aggregation_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisMethod"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
@@ -496,6 +504,7 @@ $CRS_SelectMap = @{
                "Remove-CRSResourceTag",
                "Update-CRSAnalysisTemplate",
                "Update-CRSCollaboration",
+               "Update-CRSCollaborationChangeRequest",
                "Update-CRSConfiguredAudienceModelAssociation",
                "Update-CRSConfiguredTable",
                "Update-CRSConfiguredTableAnalysisRule",

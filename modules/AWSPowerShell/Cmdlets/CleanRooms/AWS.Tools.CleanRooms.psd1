@@ -163,6 +163,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Test-CRSPrivacyImpact', 
         'Update-CRSAnalysisTemplate', 
         'Update-CRSCollaboration', 
+        'Update-CRSCollaborationChangeRequest', 
         'Update-CRSConfiguredAudienceModelAssociation', 
         'Update-CRSConfiguredTable', 
         'Update-CRSConfiguredTableAnalysisRule', 

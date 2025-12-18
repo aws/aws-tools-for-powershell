@@ -191,8 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// instance.</para></li><li><para><c>product-code.type</c> - The type of product code (<c>devpay</c> | <c>marketplace</c>).</para></li><li><para><c>ramdisk-id</c> - The RAM disk ID.</para></li><li><para><c>reason</c> - The reason for the current state of the instance (for example, shows
         /// "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code
         /// filter.</para></li><li><para><c>requester-id</c> - The ID of the entity that launched the instance on your behalf
-        /// (for example, Amazon Web Services Management Console, Amazon EC2 Auto Scaling, and
-        /// so on).</para></li><li><para><c>reservation-id</c> - The ID of the instance's reservation. A reservation ID is
+        /// (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</para></li><li><para><c>reservation-id</c> - The ID of the instance's reservation. A reservation ID is
         /// created any time you launch an instance. A reservation ID has a one-to-one relationship
         /// with an instance launch request, but can be associated with more than one instance
         /// if you launch multiple instances using the same launch request. For example, if you

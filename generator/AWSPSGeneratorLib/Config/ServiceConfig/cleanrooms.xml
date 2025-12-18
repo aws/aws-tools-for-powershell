@@ -410,6 +410,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCollaborationChangeRequest" OutputProperty="CollaborationChangeRequest" Verb="Update" Noun="CollaborationChangeRequest" ShouldProcessTarget="ChangeRequestIdentifier,CollaborationIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="Update" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelAssociationIdentifier" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

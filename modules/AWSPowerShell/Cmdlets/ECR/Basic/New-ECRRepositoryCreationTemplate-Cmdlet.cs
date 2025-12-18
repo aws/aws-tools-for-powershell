@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>A list of enumerable strings representing the Amazon ECR repository creation scenarios
-        /// that this template will apply towards. The two supported scenarios are <c>PULL_THROUGH_CACHE</c>
-        /// and <c>REPLICATION</c></para><para />
+        /// that this template will apply towards. The supported scenarios are <c>PULL_THROUGH_CACHE</c>,
+        /// <c>REPLICATION</c>, and <c>CREATE_ON_PUSH</c></para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

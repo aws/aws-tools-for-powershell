@@ -88,11 +88,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-BDAResourceTag', 
+        'Copy-BDABlueprintStage', 
         'Get-BDABlueprint', 
         'Get-BDABlueprintList', 
+        'Get-BDABlueprintOptimizationStatus', 
         'Get-BDADataAutomationProject', 
         'Get-BDADataAutomationProjectList', 
         'Get-BDAResourceTag', 
+        'Invoke-BDABlueprintOptimizationAsync', 
         'New-BDABlueprint', 
         'New-BDABlueprintVersion', 
         'New-BDADataAutomationProject', 

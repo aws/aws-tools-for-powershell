@@ -110,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SES2DomainDeliverabilityCampaign', 
         'Get-SES2DomainDeliverabilityCampaignList', 
         'Get-SES2DomainStatisticsReport', 
+        'Get-SES2EmailAddressInsight', 
         'Get-SES2EmailIdentity', 
         'Get-SES2EmailIdentityList', 
         'Get-SES2EmailIdentityPolicy', 

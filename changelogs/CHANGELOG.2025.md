@@ -1,4 +1,34 @@
-﻿### 5.0.119 (2025-12-17 21:24Z)
+﻿### 5.0.120 (2025-12-18 20:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.156.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ARC - Region switch
+    * Added cmdlet Get-ARCRoute53HealthCheckInRegionList leveraging the ListRoute53HealthChecksInRegion service API.
+  * Amazon Artifact
+    * Added cmdlet Get-ARTReportVersionList leveraging the ListReportVersions service API.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGatewayTarget: added parameters MetadataConfiguration_AllowedQueryParameter, MetadataConfiguration_AllowedRequestHeader and MetadataConfiguration_AllowedResponseHeader.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameters MetadataConfiguration_AllowedQueryParameter, MetadataConfiguration_AllowedRequestHeader and MetadataConfiguration_AllowedResponseHeader.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Update-CRSCollaborationChangeRequest leveraging the UpdateCollaborationChangeRequest service API.
+  * Amazon Data Automation for Amazon Bedrock
+    * Added cmdlet Copy-BDABlueprintStage leveraging the CopyBlueprintStage service API.
+    * Added cmdlet Get-BDABlueprintOptimizationStatus leveraging the GetBlueprintOptimizationStatus service API.
+    * Added cmdlet Invoke-BDABlueprintOptimizationAsync leveraging the InvokeBlueprintOptimizationAsync service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSCapacityProvider: added parameter ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Request-EC2SpotInstance: added parameter LaunchSpecification_Placement_AvailabilityZoneId.
+  * Amazon IoT
+    * Modified cmdlet New-IOTTopicRule: added parameters TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchOpenMs, TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSize, TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSizeByte and TopicRulePayload_ErrorAction_Http_EnableBatching.
+    * Modified cmdlet Set-IOTTopicRule: added parameters TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchOpenMs, TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSize, TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSizeByte and TopicRulePayload_ErrorAction_Http_EnableBatching.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Get-SES2EmailAddressInsight leveraging the GetEmailAddressInsights service API.
+    * Modified cmdlet New-SES2ConfigurationSet: added parameters SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled and SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold.
+    * Modified cmdlet New-SES2CustomVerificationEmailTemplate: added parameter Tag.
+    * Modified cmdlet New-SES2EmailTemplate: added parameter Tag.
+    * Modified cmdlet Write-SES2AccountSuppressionAttribute: added parameters ValidationAttributes_ConditionThreshold_ConditionThresholdEnabled and ValidationAttributes_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold.
+    * Modified cmdlet Write-SES2ConfigurationSetSuppressionOption: added parameters ValidationOptions_ConditionThreshold_ConditionThresholdEnabled and ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold.
+
+### 5.0.119 (2025-12-17 21:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.155.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaPackage v2
     * Modified cmdlet New-MPV2OriginEndpoint: added parameter Segment_Encryption_SpekeKeyProvider_CertificateArn.

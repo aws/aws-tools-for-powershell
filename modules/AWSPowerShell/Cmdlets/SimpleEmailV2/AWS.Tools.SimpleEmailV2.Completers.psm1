@@ -147,6 +147,9 @@ $SES2_Completers = {
             ($_ -eq "Write-SES2AccountVdmAttribute/GuardianAttributes_OptimizedSharedDelivery") -Or
             ($_ -eq "New-SES2ConfigurationSet/GuardianOptions_OptimizedSharedDelivery") -Or
             ($_ -eq "Write-SES2ConfigurationSetVdmOption/GuardianOptions_OptimizedSharedDelivery") -Or
+            ($_ -eq "New-SES2ConfigurationSet/SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled") -Or
+            ($_ -eq "Write-SES2AccountSuppressionAttribute/ValidationAttributes_ConditionThreshold_ConditionThresholdEnabled") -Or
+            ($_ -eq "Write-SES2ConfigurationSetSuppressionOption/ValidationOptions_ConditionThreshold_ConditionThresholdEnabled") -Or
             ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_VdmEnabled")
         }
         {
@@ -227,6 +230,17 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.SuppressionConfidenceVerdictThreshold
+        {
+            ($_ -eq "New-SES2ConfigurationSet/SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold") -Or
+            ($_ -eq "Write-SES2AccountSuppressionAttribute/ValidationAttributes_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold") -Or
+            ($_ -eq "Write-SES2ConfigurationSetSuppressionOption/ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold")
+        }
+        {
+            $v = "HIGH","MANAGED","MEDIUM"
+            break
+        }
+
         # Amazon.SimpleEmailV2.SuppressionListImportAction
         "New-SES2ImportJob/SuppressionListDestination_SuppressionListImportAction"
         {
@@ -287,8 +301,14 @@ $SES2_map = @{
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
+    "SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled"=@("New-SES2ConfigurationSet")
+    "SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold"=@("New-SES2ConfigurationSet")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
     "TrackingOptions_HttpsPolicy"=@("New-SES2ConfigurationSet")
+    "ValidationAttributes_ConditionThreshold_ConditionThresholdEnabled"=@("Write-SES2AccountSuppressionAttribute")
+    "ValidationAttributes_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold"=@("Write-SES2AccountSuppressionAttribute")
+    "ValidationOptions_ConditionThreshold_ConditionThresholdEnabled"=@("Write-SES2ConfigurationSetSuppressionOption")
+    "ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold"=@("Write-SES2ConfigurationSetSuppressionOption")
     "VdmAttributes_VdmEnabled"=@("Write-SES2AccountVdmAttribute")
 }
 
@@ -386,6 +406,7 @@ $SES2_SelectMap = @{
                "Get-SES2DeliverabilityTestReport",
                "Get-SES2DomainDeliverabilityCampaign",
                "Get-SES2DomainStatisticsReport",
+               "Get-SES2EmailAddressInsight",
                "Get-SES2EmailIdentity",
                "Get-SES2EmailIdentityPolicy",
                "Get-SES2EmailTemplate",
