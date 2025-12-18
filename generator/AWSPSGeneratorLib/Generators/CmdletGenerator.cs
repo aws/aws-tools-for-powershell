@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Xml;
-using AWSPowerShellGenerator.Analysis;
+﻿using AWSPowerShellGenerator.Analysis;
 using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Utils;
 using AWSPowerShellGenerator.Writers;
 using AWSPowerShellGenerator.Writers.SourceCode;
-using System.Text;
-using System.Threading;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Text.Json;
+using System.Threading;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace AWSPowerShellGenerator.Generators
 {
@@ -270,6 +273,12 @@ namespace AWSPowerShellGenerator.Generators
                 VerifyAllAssembliesHaveConfiguration(SdkVersionsUtils.ReadSdkVersionFile(SdkAssembliesFolder),
                     ModelCollection, allFoundSdkAssemblies);
             }
+
+            // Determine new service operations based on existing CmdletsList.dat file. This should be done before new CmdletsList.dat is generated later.
+            var existingCmdLetsListDatFilePath = Path.Combine(OutputFolder, GenerationSources.CmdletsListFilename);
+            var serviceNewOperationsMapping = DetermineNewServiceOperations(ModelCollection, existingCmdLetsListDatFilePath);
+            // Save service-> new operations mapping in a JSON file irrespective of errors. In case the mapping list is empty, we can serialize to file with no data.
+            File.WriteAllText(Path.Combine(Options.RootPath, "serviceNewOperationsMapping.json"), JsonSerializer.Serialize(serviceNewOperationsMapping, new JsonSerializerOptions { WriteIndented = true }));
 
             if (Options.GenerateReportOnly)
             {
@@ -842,7 +851,63 @@ namespace AWSPowerShellGenerator.Generators
             
             return newServiceFiles;
         }
-        
+
+        /// <summary>
+        /// Identifies new service ServiceOperations added during generation by inspecting existing CmdLetsList.dat
+        /// </summary>
+        /// <param name="folderPath">Path to the folder containing overrides.xml.</param>
+        /// <param name="configurationsFolder">Path to the directory containing base service XML files.</param>
+        /// <param name="modelCollection">Model collection with updated ConfigModels having new and updated service operations.</param>
+        /// <param name="existingCmdLetsListDatFilePath">Path to existing CmdLetsList.dat file</param>
+        /// <returns>Mapping of C2jFilename to a HashSet of MethodNames for new service operations.</returns>
+        private Dictionary<string, HashSet<string>> DetermineNewServiceOperations(ConfigModelCollection modelCollection, string existingCmdLetsListDatFilePath)
+        {
+            var serviceNewOperationsMapping = new Dictionary<string, HashSet<string>>();
+
+            if (!File.Exists(existingCmdLetsListDatFilePath))
+                return serviceNewOperationsMapping;
+
+            // Load CmdletsList.dat file. Refer Writers > SourceCode > CmdletListTemplate.razor for it's format. <Service> element has ServiceName attribute which is mapped to AssemblyName element in service config.
+            Dictionary<string, HashSet<string>> existingServiceOperations;
+            using (FileStream compressedFileStream = File.OpenRead(existingCmdLetsListDatFilePath))
+            using (var stream = new GZipStream(compressedFileStream, CompressionMode.Decompress))
+            using (var reader = new System.IO.StreamReader(stream))
+            {
+                var doc = XElement.Load(reader);
+                existingServiceOperations = doc.Elements("Service").ToDictionary(
+                        service => service.Attribute("Name")?.Value,
+                        service => new HashSet<string>(
+                            service.Elements("Cmdlet")
+                                   .Select(cmdlet => cmdlet.Attribute("Operations")?.Value)
+                                   .Where(op => op != null)
+                        ));
+            }
+
+            if (existingServiceOperations == null || existingServiceOperations.Count == 0)
+                return serviceNewOperationsMapping;
+
+            foreach (var configModel in modelCollection.ConfigModels.Values)
+            {
+                var serviceAssemblyName = configModel.AssemblyName;
+                var serviceC2jFileName = configModel.C2jFilename;
+
+                var serviceNewMethods = configModel.ServiceOperationsList.Where(so => !so.Exclude).Select(so => so.MethodName);
+                if (existingServiceOperations.ContainsKey(configModel.AssemblyName))
+                {
+                    serviceNewMethods = serviceNewMethods.Except(existingServiceOperations[configModel.AssemblyName]);
+                }
+
+                HashSet<string> serviceNewMethodNames = new HashSet<string>(serviceNewMethods);
+                
+                if (serviceNewMethodNames.Count > 0)
+                {
+                    serviceNewOperationsMapping[configModel.C2jFilename] = serviceNewMethodNames;
+                }
+            }
+
+            return serviceNewOperationsMapping;
+        }
+
         private void DeleteFiles(List<string> files)
         {
             foreach (var file in files)
