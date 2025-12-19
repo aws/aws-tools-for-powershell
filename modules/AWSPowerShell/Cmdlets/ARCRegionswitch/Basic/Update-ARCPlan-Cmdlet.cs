@@ -117,6 +117,20 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         public System.Int32? RecoveryTimeObjectiveMinute { get; set; }
         #endregion
         
+        #region Parameter ReportConfiguration_ReportOutput
+        /// <summary>
+        /// <para>
+        /// <para>The output configuration for the report.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.ARCRegionswitch.Model.ReportOutputConfiguration[] ReportConfiguration_ReportOutput { get; set; }
+        #endregion
+        
         #region Parameter Trigger
         /// <summary>
         /// <para>
@@ -224,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             }
             #endif
             context.RecoveryTimeObjectiveMinute = this.RecoveryTimeObjectiveMinute;
+            if (this.ReportConfiguration_ReportOutput != null)
+            {
+                context.ReportConfiguration_ReportOutput = new List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration>(this.ReportConfiguration_ReportOutput);
+            }
             if (this.Trigger != null)
             {
                 context.Trigger = new List<Amazon.ARCRegionswitch.Model.Trigger>(this.Trigger);
@@ -273,6 +291,25 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             if (cmdletContext.RecoveryTimeObjectiveMinute != null)
             {
                 request.RecoveryTimeObjectiveMinutes = cmdletContext.RecoveryTimeObjectiveMinute.Value;
+            }
+            
+             // populate ReportConfiguration
+            var requestReportConfigurationIsNull = true;
+            request.ReportConfiguration = new Amazon.ARCRegionswitch.Model.ReportConfiguration();
+            List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration> requestReportConfiguration_reportConfiguration_ReportOutput = null;
+            if (cmdletContext.ReportConfiguration_ReportOutput != null)
+            {
+                requestReportConfiguration_reportConfiguration_ReportOutput = cmdletContext.ReportConfiguration_ReportOutput;
+            }
+            if (requestReportConfiguration_reportConfiguration_ReportOutput != null)
+            {
+                request.ReportConfiguration.ReportOutput = requestReportConfiguration_reportConfiguration_ReportOutput;
+                requestReportConfigurationIsNull = false;
+            }
+             // determine if request.ReportConfiguration should be set to null
+            if (requestReportConfigurationIsNull)
+            {
+                request.ReportConfiguration = null;
             }
             if (cmdletContext.Trigger != null)
             {
@@ -342,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             public System.String Description { get; set; }
             public System.String ExecutionRole { get; set; }
             public System.Int32? RecoveryTimeObjectiveMinute { get; set; }
+            public List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration> ReportConfiguration_ReportOutput { get; set; }
             public List<Amazon.ARCRegionswitch.Model.Trigger> Trigger { get; set; }
             public List<Amazon.ARCRegionswitch.Model.Workflow> Workflow { get; set; }
             public System.Func<Amazon.ARCRegionswitch.Model.UpdatePlanResponse, UpdateARCPlanCmdlet, object> Select { get; set; } =

@@ -1270,6 +1270,9 @@
     <Reference Include="AWSSDK.WellArchitected">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WellArchitected.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Wickr">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Wickr.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WorkDocs">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
@@ -2511,6 +2514,9 @@
     </Reference>
     <Reference Include="AWSSDK.WellArchitected">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WellArchitected.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Wickr">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Wickr.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkDocs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkDocs.dll</HintPath>

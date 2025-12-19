@@ -101,9 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter CurrentMetric
         /// <summary>
         /// <para>
-        /// <para>The metrics to retrieve. Specify the name and unit for each metric. The following
-        /// metrics are available. For a description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
-        /// definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</para><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#aftercallwork-real-time">ACW</a></para></dd><dt>AGENTS_AVAILABLE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#available-real-time">Available</a></para></dd><dt>AGENTS_ERROR</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#error-real-time">Error</a></para></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#non-productive-time-real-time">NPT
+        /// <para>The metrics to retrieve. Specify the name or metricId, and unit for each metric. The
+        /// following metrics are available. For a description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
+        /// definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</para><note><para> MetricId should be used to reference custom metrics or out of the box metrics as
+        /// Arn. If using MetricId, the limit is 10 MetricId per request.</para></note><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#aftercallwork-real-time">ACW</a></para></dd><dt>AGENTS_AVAILABLE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#available-real-time">Available</a></para></dd><dt>AGENTS_ERROR</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#error-real-time">Error</a></para></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#non-productive-time-real-time">NPT
         /// (Non-Productive Time)</a></para></dd><dt>AGENTS_ON_CALL</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time">On
         /// contact</a></para></dd><dt>AGENTS_ON_CONTACT</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time">On
         /// contact</a></para></dd><dt>AGENTS_ONLINE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#online-real-time">Online</a></para></dd><dt>AGENTS_STAFFED</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#staffed-real-time">Staffed</a></para></dd><dt>CONTACTS_IN_QUEUE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#in-queue-real-time">In
@@ -143,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// at the instance-level.</para><ul><li><para>If you group by <c>CHANNEL</c>, you should include a Channels filter. VOICE, CHAT,
         /// and TASK channels are supported.</para></li><li><para>If you group by <c>AGENT_STATUS</c>, you must include the <c>QUEUE</c> as the primary
         /// grouping and use queue filter. When you group by <c>AGENT_STATUS</c>, the only metric
-        /// available is the <c>AGENTS_ONLINE</c> metric.</para></li><li><para>If you group by <c>ROUTING_PROFILE</c>, you must include either a queue or routing
+        /// available is the <c>AGENTS_ONLINE</c> metric.</para></li><li><para>If you group by <c>SUBTYPE</c> or <c>VALIDATION_TEST_TYPE</c> as secondary grouping
+        /// then you must include <c>QUEUE</c> as primary grouping and use Queue as filter</para></li><li><para>If you group by <c>ROUTING_PROFILE</c>, you must include either a queue or routing
         /// profile filter. In addition, a routing profile filter is required for metrics <c>CONTACTS_SCHEDULED</c>,
         /// <c>CONTACTS_IN_QUEUE</c>, and <c> OLDEST_CONTACT_AGE</c>.</para></li><li><para>When using the <c>RoutingStepExpression</c> filter, group by <c>ROUTING_STEP_EXPRESSION</c>
         /// is required.</para></li></ul><para />
@@ -239,6 +241,36 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SortCriteria")]
         public Amazon.Connect.Model.CurrentMetricSortCriteria[] SortCriterion { get; set; }
+        #endregion
+        
+        #region Parameter Filters_Subtype
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 10 subtypes can be provided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_Subtypes")]
+        public System.String[] Filters_Subtype { get; set; }
+        #endregion
+        
+        #region Parameter Filters_ValidationTestType
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 10 validationTestTypes can be provided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_ValidationTestTypes")]
+        public System.String[] Filters_ValidationTestType { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -341,6 +373,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 context.Filters_RoutingStepExpression = new List<System.String>(this.Filters_RoutingStepExpression);
             }
+            if (this.Filters_Subtype != null)
+            {
+                context.Filters_Subtype = new List<System.String>(this.Filters_Subtype);
+            }
+            if (this.Filters_ValidationTestType != null)
+            {
+                context.Filters_ValidationTestType = new List<System.String>(this.Filters_ValidationTestType);
+            }
             if (this.Grouping != null)
             {
                 context.Grouping = new List<System.String>(this.Grouping);
@@ -433,6 +473,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_RoutingStepExpression != null)
             {
                 request.Filters.RoutingStepExpressions = requestFilters_filters_RoutingStepExpression;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_Subtype = null;
+            if (cmdletContext.Filters_Subtype != null)
+            {
+                requestFilters_filters_Subtype = cmdletContext.Filters_Subtype;
+            }
+            if (requestFilters_filters_Subtype != null)
+            {
+                request.Filters.Subtypes = requestFilters_filters_Subtype;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_ValidationTestType = null;
+            if (cmdletContext.Filters_ValidationTestType != null)
+            {
+                requestFilters_filters_ValidationTestType = cmdletContext.Filters_ValidationTestType;
+            }
+            if (requestFilters_filters_ValidationTestType != null)
+            {
+                request.Filters.ValidationTestTypes = requestFilters_filters_ValidationTestType;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -568,6 +628,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.Filters.RoutingStepExpressions = requestFilters_filters_RoutingStepExpression;
                 requestFiltersIsNull = false;
             }
+            List<System.String> requestFilters_filters_Subtype = null;
+            if (cmdletContext.Filters_Subtype != null)
+            {
+                requestFilters_filters_Subtype = cmdletContext.Filters_Subtype;
+            }
+            if (requestFilters_filters_Subtype != null)
+            {
+                request.Filters.Subtypes = requestFilters_filters_Subtype;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_ValidationTestType = null;
+            if (cmdletContext.Filters_ValidationTestType != null)
+            {
+                requestFilters_filters_ValidationTestType = cmdletContext.Filters_ValidationTestType;
+            }
+            if (requestFilters_filters_ValidationTestType != null)
+            {
+                request.Filters.ValidationTestTypes = requestFilters_filters_ValidationTestType;
+                requestFiltersIsNull = false;
+            }
              // determine if request.Filters should be set to null
             if (requestFiltersIsNull)
             {
@@ -655,6 +735,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<System.String> Filters_Queue { get; set; }
             public List<System.String> Filters_RoutingProfile { get; set; }
             public List<System.String> Filters_RoutingStepExpression { get; set; }
+            public List<System.String> Filters_Subtype { get; set; }
+            public List<System.String> Filters_ValidationTestType { get; set; }
             public List<System.String> Grouping { get; set; }
             public System.String InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }

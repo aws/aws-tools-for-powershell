@@ -73,6 +73,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Boolean? DisableAllLog { get; set; }
         #endregion
         
+        #region Parameter EventConfiguration
+        /// <summary>
+        /// <para>
+        /// <para> The list of event configurations that override account-level logging. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EventConfigurations")]
+        public Amazon.IoT.Model.LogEventConfiguration[] EventConfiguration { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -130,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             context.DefaultLogLevel = this.DefaultLogLevel;
             context.DisableAllLog = this.DisableAllLog;
+            if (this.EventConfiguration != null)
+            {
+                context.EventConfiguration = new List<Amazon.IoT.Model.LogEventConfiguration>(this.EventConfiguration);
+            }
             context.RoleArn = this.RoleArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -154,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.DisableAllLog != null)
             {
                 request.DisableAllLogs = cmdletContext.DisableAllLog.Value;
+            }
+            if (cmdletContext.EventConfiguration != null)
+            {
+                request.EventConfigurations = cmdletContext.EventConfiguration;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -216,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public Amazon.IoT.LogLevel DefaultLogLevel { get; set; }
             public System.Boolean? DisableAllLog { get; set; }
+            public List<Amazon.IoT.Model.LogEventConfiguration> EventConfiguration { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.IoT.Model.SetV2LoggingOptionsResponse, SetIOTV2LoggingOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

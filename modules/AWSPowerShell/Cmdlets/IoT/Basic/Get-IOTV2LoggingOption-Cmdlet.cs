@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter VerboseOutput
+        /// <summary>
+        /// <para>
+        /// <para> The flag is used to get all the event types and their respective configuration that
+        /// event-based logging supports. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.Boolean? VerboseOutput { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -80,6 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = CreateSelectDelegate<Amazon.IoT.Model.GetV2LoggingOptionsResponse, GetIOTV2LoggingOptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.VerboseOutput = this.VerboseOutput;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -96,6 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.GetV2LoggingOptionsRequest();
             
+            if (cmdletContext.VerboseOutput != null)
+            {
+                request.Verbose = cmdletContext.VerboseOutput.Value;
+            }
             
             CmdletOutput output;
             
@@ -151,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? VerboseOutput { get; set; }
             public System.Func<Amazon.IoT.Model.GetV2LoggingOptionsResponse, GetIOTV2LoggingOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

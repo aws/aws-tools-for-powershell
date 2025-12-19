@@ -113,7 +113,9 @@ $WSW_Completers = {
             ($_ -eq "New-WSWUserSetting/PrintAllowed") -Or
             ($_ -eq "Update-WSWUserSetting/PrintAllowed") -Or
             ($_ -eq "New-WSWUserSetting/UploadAllowed") -Or
-            ($_ -eq "Update-WSWUserSetting/UploadAllowed")
+            ($_ -eq "Update-WSWUserSetting/UploadAllowed") -Or
+            ($_ -eq "New-WSWUserSetting/WebAuthnAllowed") -Or
+            ($_ -eq "Update-WSWUserSetting/WebAuthnAllowed")
         }
         {
             $v = "Disabled","Enabled"
@@ -230,6 +232,7 @@ $WSW_map = @{
     "ToolbarConfiguration_ToolbarType"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "ToolbarConfiguration_VisualMode"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "UploadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
+    "WebAuthnAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
 }
 
 _awsArgumentCompleterRegistration $WSW_Completers $WSW_map

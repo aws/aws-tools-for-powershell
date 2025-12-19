@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>wickr</C2jFilename>
+    <AssemblyName>Wickr</AssemblyName>
+    <ServiceNounPrefix>WIC</ServiceNounPrefix>
+    <ServiceName>AWS Wickr Admin API</ServiceName>
+    <ServiceClientInterface>IAmazonWickr</ServiceClientInterface>
+    <ServiceClient>AmazonWickrClient</ServiceClient>
+    <ServiceModuleGuid>11e00d8d-fd37-4d1a-bf13-9f919311f154</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchCreateUser" OutputProperty="*" Verb="New" Noun="UserBatch" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteUser" OutputProperty="*" Verb="Remove" Noun="UserBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchLookupUserUname" OutputProperty="*" Verb="Find" Noun="UserUnameBatch" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchReinviteUser" OutputProperty="*" Verb="Send" Noun="UserReinvitationBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchResetDevicesForUser" OutputProperty="*" Verb="Reset" Noun="DevicesForUserBatch" ShouldProcessTarget="NetworkId,UserId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchToggleUserSuspendStatus" OutputProperty="*" Verb="Switch" Noun="UserSuspendStatusBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBot" OutputProperty="*" Verb="New" Noun="Bot" ShouldProcessTarget="GroupId,NetworkId,Username" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataRetentionBot" OutputProperty="Message" Verb="New" Noun="DataRetentionBot" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataRetentionBotChallenge" OutputProperty="Challenge" Verb="New" Noun="DataRetentionBotChallenge" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetwork" OutputProperty="*" Verb="New" Noun="Network" ShouldProcessTarget="NetworkName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityGroup" OutputProperty="SecurityGroup" Verb="New" Noun="SecurityGroup" ShouldProcessTarget="NetworkId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBot" OutputProperty="Message" Verb="Remove" Noun="Bot" ShouldProcessTarget="BotId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataRetentionBot" OutputProperty="Message" Verb="Remove" Noun="DataRetentionBot" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetwork" OutputProperty="Message" Verb="Remove" Noun="Network" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecurityGroup" OutputProperty="*" Verb="Remove" Noun="SecurityGroup" ShouldProcessTarget="GroupId,NetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBot" OutputProperty="*" Verb="Get" Noun="Bot" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBotsCount" OutputProperty="*" Verb="Get" Noun="BotsCount" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataRetentionBot" OutputProperty="*" Verb="Get" Noun="DataRetentionBot" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGuestUserHistoryCount" OutputProperty="History" Verb="Get" Noun="GuestUserHistoryCount" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetwork" OutputProperty="*" Verb="Get" Noun="Network" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkSettings" OutputProperty="Settings" Verb="Get" Noun="NetworkSetting" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOidcInfo" OutputProperty="*" Verb="Get" Noun="OidcInfo" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSecurityGroup" OutputProperty="SecurityGroup" Verb="Get" Noun="SecurityGroup" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUsersCount" OutputProperty="*" Verb="Get" Noun="UsersCount" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBlockedGuestUsers" OutputProperty="Blocklist" Verb="Get" Noun="BlockedGuestUserList" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDevicesForUser" OutputProperty="Devices" Verb="Get" Noun="DevicesForUserList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGuestUsers" OutputProperty="Guestlist" Verb="Get" Noun="GuestUserList" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityGroups" OutputProperty="SecurityGroups" Verb="Get" Noun="SecurityGroupList" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityGroupUsers" OutputProperty="Users" Verb="Get" Noun="SecurityGroupUserList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterOidcConfig" OutputProperty="*" Verb="Register" Noun="OidcConfig" ShouldProcessTarget="CompanyId,NetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterOidcConfigTest" OutputProperty="*" Verb="Register" Noun="OidcConfigTest" ShouldProcessTarget="NetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBot" OutputProperty="Message" Verb="Update" Noun="Bot" ShouldProcessTarget="BotId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataRetention" OutputProperty="Message" Verb="Update" Noun="DataRetention" ShouldProcessTarget="NetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGuestUser" OutputProperty="Message" Verb="Update" Noun="GuestUser" ShouldProcessTarget="NetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNetwork" OutputProperty="Message" Verb="Update" Noun="Network" ShouldProcessTarget="NetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNetworkSettings" OutputProperty="Settings" Verb="Update" Noun="NetworkSetting" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityGroup" OutputProperty="SecurityGroup" Verb="Update" Noun="SecurityGroup" ShouldProcessTarget="GroupId,NetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUser" OutputProperty="*" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

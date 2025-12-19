@@ -260,6 +260,36 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.DateTime? StartTime { get; set; }
         #endregion
         
+        #region Parameter Filters_Subtype
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 10 subtypes can be provided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_Subtypes")]
+        public System.String[] Filters_Subtype { get; set; }
+        #endregion
+        
+        #region Parameter Filters_ValidationTestType
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 10 validationTestTypes can be provided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_ValidationTestTypes")]
+        public System.String[] Filters_ValidationTestType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -358,6 +388,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (this.Filters_RoutingStepExpression != null)
             {
                 context.Filters_RoutingStepExpression = new List<System.String>(this.Filters_RoutingStepExpression);
+            }
+            if (this.Filters_Subtype != null)
+            {
+                context.Filters_Subtype = new List<System.String>(this.Filters_Subtype);
+            }
+            if (this.Filters_ValidationTestType != null)
+            {
+                context.Filters_ValidationTestType = new List<System.String>(this.Filters_ValidationTestType);
             }
             if (this.Grouping != null)
             {
@@ -480,6 +518,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_RoutingStepExpression != null)
             {
                 request.Filters.RoutingStepExpressions = requestFilters_filters_RoutingStepExpression;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_Subtype = null;
+            if (cmdletContext.Filters_Subtype != null)
+            {
+                requestFilters_filters_Subtype = cmdletContext.Filters_Subtype;
+            }
+            if (requestFilters_filters_Subtype != null)
+            {
+                request.Filters.Subtypes = requestFilters_filters_Subtype;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_ValidationTestType = null;
+            if (cmdletContext.Filters_ValidationTestType != null)
+            {
+                requestFilters_filters_ValidationTestType = cmdletContext.Filters_ValidationTestType;
+            }
+            if (requestFilters_filters_ValidationTestType != null)
+            {
+                request.Filters.ValidationTestTypes = requestFilters_filters_ValidationTestType;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -618,6 +676,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_RoutingStepExpression != null)
             {
                 request.Filters.RoutingStepExpressions = requestFilters_filters_RoutingStepExpression;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_Subtype = null;
+            if (cmdletContext.Filters_Subtype != null)
+            {
+                requestFilters_filters_Subtype = cmdletContext.Filters_Subtype;
+            }
+            if (requestFilters_filters_Subtype != null)
+            {
+                request.Filters.Subtypes = requestFilters_filters_Subtype;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_ValidationTestType = null;
+            if (cmdletContext.Filters_ValidationTestType != null)
+            {
+                requestFilters_filters_ValidationTestType = cmdletContext.Filters_ValidationTestType;
+            }
+            if (requestFilters_filters_ValidationTestType != null)
+            {
+                request.Filters.ValidationTestTypes = requestFilters_filters_ValidationTestType;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -764,6 +842,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<System.String> Filters_Queue { get; set; }
             public List<System.String> Filters_RoutingProfile { get; set; }
             public List<System.String> Filters_RoutingStepExpression { get; set; }
+            public List<System.String> Filters_Subtype { get; set; }
+            public List<System.String> Filters_ValidationTestType { get; set; }
             public List<System.String> Grouping { get; set; }
             public List<Amazon.Connect.Model.HistoricalMetric> HistoricalMetric { get; set; }
             public System.String InstanceId { get; set; }

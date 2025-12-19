@@ -346,6 +346,18 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public Amazon.WorkSpacesWeb.VisualMode ToolbarConfiguration_VisualMode { get; set; }
         #endregion
         
+        #region Parameter WebAuthnAllowed
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the user can use WebAuthn redirection for passwordless login to
+        /// websites within the streaming session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpacesWeb.EnabledType")]
+        public Amazon.WorkSpacesWeb.EnabledType WebAuthnAllowed { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -454,6 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 WriteWarning("You are passing $null as a value for parameter UserSettingsArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WebAuthnAllowed = this.WebAuthnAllowed;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -741,6 +754,10 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 {
                     request.UserSettingsArn = cmdletContext.UserSettingsArn;
                 }
+                if (cmdletContext.WebAuthnAllowed != null)
+                {
+                    request.WebAuthnAllowed = cmdletContext.WebAuthnAllowed;
+                }
                 
                 CmdletOutput output;
                 
@@ -837,6 +854,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             public Amazon.WorkSpacesWeb.VisualMode ToolbarConfiguration_VisualMode { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType UploadAllowed { get; set; }
             public System.String UserSettingsArn { get; set; }
+            public Amazon.WorkSpacesWeb.EnabledType WebAuthnAllowed { get; set; }
             public System.Func<Amazon.WorkSpacesWeb.Model.UpdateUserSettingsResponse, UpdateWSWUserSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UserSettings;
         }

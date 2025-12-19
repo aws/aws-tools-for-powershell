@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter QuickSightConfiguration_ClientNamespace
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight namespace that is used as the identity provider. For more information
-        /// about QuickSight namespaces, see <a href="https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html">Namespace
+        /// <para>The Amazon Quick Suite namespace that is used as the identity provider. For more information
+        /// about Quick Suite namespaces, see <a href="https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html">Namespace
         /// operations</a>. </para>
         /// </para>
         /// </summary>
