@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <c>TargetArn</c>
         /// and <c>InstanceId</c> are not provided, this API lists numbers claimed to all the
-        /// Amazon Connect instances belonging to your account in the same AWS Region as the request.</para>
+        /// Amazon Connect instances belonging to your account in the same Amazon Web Services
+        /// Region as the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

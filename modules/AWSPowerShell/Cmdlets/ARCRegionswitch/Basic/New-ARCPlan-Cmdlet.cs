@@ -166,6 +166,16 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         public System.String[] PlanRegions { get; set; }
         #endregion
         
+        #region Parameter ReportConfiguration_ReportOutput
+        /// <summary>
+        /// <para>
+        /// <para>The output configuration for the report.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.ARCRegionswitch.Model.ReportOutputConfiguration[] ReportConfiguration_ReportOutput { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -310,6 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.ARC
                 WriteWarning("You are passing $null as a value for parameter PlanRegions which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ReportConfiguration_ReportOutput != null)
+            {
+                context.ReportConfiguration_ReportOutput = new List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration>(this.ReportConfiguration_ReportOutput);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -379,6 +393,25 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             if (cmdletContext.PlanRegions != null)
             {
                 request.Regions = cmdletContext.PlanRegions;
+            }
+            
+             // populate ReportConfiguration
+            var requestReportConfigurationIsNull = true;
+            request.ReportConfiguration = new Amazon.ARCRegionswitch.Model.ReportConfiguration();
+            List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration> requestReportConfiguration_reportConfiguration_ReportOutput = null;
+            if (cmdletContext.ReportConfiguration_ReportOutput != null)
+            {
+                requestReportConfiguration_reportConfiguration_ReportOutput = cmdletContext.ReportConfiguration_ReportOutput;
+            }
+            if (requestReportConfiguration_reportConfiguration_ReportOutput != null)
+            {
+                request.ReportConfiguration.ReportOutput = requestReportConfiguration_reportConfiguration_ReportOutput;
+                requestReportConfigurationIsNull = false;
+            }
+             // determine if request.ReportConfiguration should be set to null
+            if (requestReportConfigurationIsNull)
+            {
+                request.ReportConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -461,6 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             public Amazon.ARCRegionswitch.RecoveryApproach RecoveryApproach { get; set; }
             public System.Int32? RecoveryTimeObjectiveMinute { get; set; }
             public List<System.String> PlanRegions { get; set; }
+            public List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration> ReportConfiguration_ReportOutput { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public List<Amazon.ARCRegionswitch.Model.Trigger> Trigger { get; set; }
             public List<Amazon.ARCRegionswitch.Model.Workflow> Workflow { get; set; }

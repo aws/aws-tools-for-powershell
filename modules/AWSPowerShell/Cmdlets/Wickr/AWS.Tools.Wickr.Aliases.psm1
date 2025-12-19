@@ -1,0 +1,3 @@
+﻿# Wickr
+
+Export-ModuleMember -Alias *

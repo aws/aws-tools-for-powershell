@@ -83865,6 +83865,161 @@ $WAT_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $WAT_SelectCompleters $WAT_SelectMap
+# Argument completions for service AWS Wickr Admin API
+
+
+$WIC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Wickr.AccessLevel
+        "New-WICNetwork/AccessLevel"
+        {
+            $v = "PREMIUM","STANDARD"
+            break
+        }
+
+        # Amazon.Wickr.DataRetentionActionType
+        "Update-WICDataRetention/ActionType"
+        {
+            $v = "DISABLE","ENABLE","PUBKEY_MSG_ACK"
+            break
+        }
+
+        # Amazon.Wickr.SortDirection
+        {
+            ($_ -eq "Get-WICBlockedGuestUserList/SortDirection") -Or
+            ($_ -eq "Get-WICBotList/SortDirection") -Or
+            ($_ -eq "Get-WICDevicesForUserList/SortDirection") -Or
+            ($_ -eq "Get-WICGuestUserList/SortDirection") -Or
+            ($_ -eq "Get-WICNetworkList/SortDirection") -Or
+            ($_ -eq "Get-WICSecurityGroupList/SortDirection") -Or
+            ($_ -eq "Get-WICSecurityGroupUserList/SortDirection") -Or
+            ($_ -eq "Get-WICUserList/SortDirection")
+        }
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.Wickr.Status
+        "Update-WICNetworkSetting/Settings_ReadReceiptConfig_Status"
+        {
+            $v = "DISABLED","ENABLED","FORCE_ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WIC_map = @{
+    "AccessLevel"=@("New-WICNetwork")
+    "ActionType"=@("Update-WICDataRetention")
+    "Settings_ReadReceiptConfig_Status"=@("Update-WICNetworkSetting")
+    "SortDirection"=@("Get-WICBlockedGuestUserList","Get-WICBotList","Get-WICDevicesForUserList","Get-WICGuestUserList","Get-WICNetworkList","Get-WICSecurityGroupList","Get-WICSecurityGroupUserList","Get-WICUserList")
+}
+
+_awsArgumentCompleterRegistration $WIC_Completers $WIC_map
+
+$WIC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.WIC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WIC_SelectMap = @{
+    "Select"=@("New-WICUserBatch",
+               "Remove-WICUserBatch",
+               "Find-WICUserUnameBatch",
+               "Send-WICUserReinvitationBatch",
+               "Reset-WICDevicesForUserBatch",
+               "Switch-WICUserSuspendStatusBatch",
+               "New-WICBot",
+               "New-WICDataRetentionBot",
+               "New-WICDataRetentionBotChallenge",
+               "New-WICNetwork",
+               "New-WICSecurityGroup",
+               "Remove-WICBot",
+               "Remove-WICDataRetentionBot",
+               "Remove-WICNetwork",
+               "Remove-WICSecurityGroup",
+               "Get-WICBot",
+               "Get-WICBotsCount",
+               "Get-WICDataRetentionBot",
+               "Get-WICGuestUserHistoryCount",
+               "Get-WICNetwork",
+               "Get-WICNetworkSetting",
+               "Get-WICOidcInfo",
+               "Get-WICSecurityGroup",
+               "Get-WICUser",
+               "Get-WICUsersCount",
+               "Get-WICBlockedGuestUserList",
+               "Get-WICBotList",
+               "Get-WICDevicesForUserList",
+               "Get-WICGuestUserList",
+               "Get-WICNetworkList",
+               "Get-WICSecurityGroupList",
+               "Get-WICSecurityGroupUserList",
+               "Get-WICUserList",
+               "Register-WICOidcConfig",
+               "Register-WICOidcConfigTest",
+               "Update-WICBot",
+               "Update-WICDataRetention",
+               "Update-WICGuestUser",
+               "Update-WICNetwork",
+               "Update-WICNetworkSetting",
+               "Update-WICSecurityGroup",
+               "Update-WICUser")
+}
+
+_awsArgumentCompleterRegistration $WIC_SelectCompleters $WIC_SelectMap
 # Argument completions for service Amazon Connect Wisdom Service
 
 
@@ -84978,7 +85133,9 @@ $WSW_Completers = {
             ($_ -eq "New-WSWUserSetting/PrintAllowed") -Or
             ($_ -eq "Update-WSWUserSetting/PrintAllowed") -Or
             ($_ -eq "New-WSWUserSetting/UploadAllowed") -Or
-            ($_ -eq "Update-WSWUserSetting/UploadAllowed")
+            ($_ -eq "Update-WSWUserSetting/UploadAllowed") -Or
+            ($_ -eq "New-WSWUserSetting/WebAuthnAllowed") -Or
+            ($_ -eq "Update-WSWUserSetting/WebAuthnAllowed")
         }
         {
             $v = "Disabled","Enabled"
@@ -85095,6 +85252,7 @@ $WSW_map = @{
     "ToolbarConfiguration_ToolbarType"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "ToolbarConfiguration_VisualMode"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "UploadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
+    "WebAuthnAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
 }
 
 _awsArgumentCompleterRegistration $WSW_Completers $WSW_map

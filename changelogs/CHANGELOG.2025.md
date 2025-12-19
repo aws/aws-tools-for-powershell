@@ -1,4 +1,23 @@
-﻿### 4.1.965 (2025-12-18 21:50Z)
+﻿### 4.1.966 (2025-12-19 21:40Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1189.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ARC - Region switch
+    * Modified cmdlet New-ARCPlan: added parameter ReportConfiguration_ReportOutput.
+    * Modified cmdlet Update-ARCPlan: added parameter ReportConfiguration_ReportOutput.
+  * Amazon Connect Service
+    * Modified cmdlet Get-CONNCurrentMetricData: added parameters Filters_Subtype and Filters_ValidationTestType.
+    * Modified cmdlet Get-CONNMetricData: added parameters Filters_Subtype and Filters_ValidationTestType.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameter JobLevelCostAllocationConfiguration_Enabled.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameter JobLevelCostAllocationConfiguration_Enabled.
+  * Amazon IoT
+    * Modified cmdlet Get-IOTV2LoggingOption: added parameters PassThru and VerboseOutput.
+    * Modified cmdlet Set-IOTV2LoggingOption: added parameter EventConfiguration.
+  * Amazon Wickr Admin API. Added cmdlets to support the service. Cmdlets for the service have the noun prefix WIC and can be listed using the command 'Get-AWSCmdletName -Service WIC'.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWUserSetting: added parameter WebAuthnAllowed.
+    * Modified cmdlet Update-WSWUserSetting: added parameter WebAuthnAllowed.
+
+### 4.1.965 (2025-12-18 21:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1188.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ARC - Region switch
     * Added cmdlet Get-ARCRoute53HealthCheckInRegionList leveraging the ListRoute53HealthChecksInRegion service API.

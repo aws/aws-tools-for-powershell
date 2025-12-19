@@ -116,6 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.Boolean? AutoStopConfiguration_Enabled { get; set; }
         #endregion
         
+        #region Parameter JobLevelCostAllocationConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables job level cost allocation for the application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? JobLevelCostAllocationConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLoggingConfiguration_Enabled
         /// <summary>
         /// <para>
@@ -508,6 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             }
             context.InteractiveConfiguration_LivyEndpointEnabled = this.InteractiveConfiguration_LivyEndpointEnabled;
             context.InteractiveConfiguration_StudioEnabled = this.InteractiveConfiguration_StudioEnabled;
+            context.JobLevelCostAllocationConfiguration_Enabled = this.JobLevelCostAllocationConfiguration_Enabled;
             context.MaximumCapacity_Cpu = this.MaximumCapacity_Cpu;
             context.MaximumCapacity_Disk = this.MaximumCapacity_Disk;
             context.MaximumCapacity_Memory = this.MaximumCapacity_Memory;
@@ -719,6 +730,25 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (requestInteractiveConfigurationIsNull)
             {
                 request.InteractiveConfiguration = null;
+            }
+            
+             // populate JobLevelCostAllocationConfiguration
+            var requestJobLevelCostAllocationConfigurationIsNull = true;
+            request.JobLevelCostAllocationConfiguration = new Amazon.EMRServerless.Model.JobLevelCostAllocationConfiguration();
+            System.Boolean? requestJobLevelCostAllocationConfiguration_jobLevelCostAllocationConfiguration_Enabled = null;
+            if (cmdletContext.JobLevelCostAllocationConfiguration_Enabled != null)
+            {
+                requestJobLevelCostAllocationConfiguration_jobLevelCostAllocationConfiguration_Enabled = cmdletContext.JobLevelCostAllocationConfiguration_Enabled.Value;
+            }
+            if (requestJobLevelCostAllocationConfiguration_jobLevelCostAllocationConfiguration_Enabled != null)
+            {
+                request.JobLevelCostAllocationConfiguration.Enabled = requestJobLevelCostAllocationConfiguration_jobLevelCostAllocationConfiguration_Enabled.Value;
+                requestJobLevelCostAllocationConfigurationIsNull = false;
+            }
+             // determine if request.JobLevelCostAllocationConfiguration should be set to null
+            if (requestJobLevelCostAllocationConfigurationIsNull)
+            {
+                request.JobLevelCostAllocationConfiguration = null;
             }
             
              // populate MaximumCapacity
@@ -1071,6 +1101,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public Dictionary<System.String, Amazon.EMRServerless.Model.InitialCapacityConfig> InitialCapacity { get; set; }
             public System.Boolean? InteractiveConfiguration_LivyEndpointEnabled { get; set; }
             public System.Boolean? InteractiveConfiguration_StudioEnabled { get; set; }
+            public System.Boolean? JobLevelCostAllocationConfiguration_Enabled { get; set; }
             public System.String MaximumCapacity_Cpu { get; set; }
             public System.String MaximumCapacity_Disk { get; set; }
             public System.String MaximumCapacity_Memory { get; set; }

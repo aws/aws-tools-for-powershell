@@ -156,9 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>A list of participant types to automatically disconnect when the end customer ends
         /// the chat session, allowing them to continue through disconnect flows such as surveys
-        /// or feedback forms.</para><para>Valid value: <c>AGENT</c>.</para><para>With the <c>DisconnectOnCustomerExit</c> parameter, you can configure automatic agent
-        /// disconnection when end customers end the chat, ensuring that disconnect flows are
-        /// triggered consistently regardless of which participant disconnects first.</para>
+        /// or feedback forms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
