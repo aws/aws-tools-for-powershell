@@ -65,6 +65,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String GroupName { get; set; }
         #endregion
         
+        #region Parameter LinkedGroupId
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LinkedGroupId { get; set; }
+        #endregion
+        
         #region Parameter PartitionCount
         /// <summary>
         /// <para>
@@ -171,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupName = this.GroupName;
+            context.LinkedGroupId = this.LinkedGroupId;
             context.PartitionCount = this.PartitionCount;
             context.SpreadLevel = this.SpreadLevel;
             context.Strategy = this.Strategy;
@@ -197,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
+            }
+            if (cmdletContext.LinkedGroupId != null)
+            {
+                request.LinkedGroupId = cmdletContext.LinkedGroupId;
             }
             if (cmdletContext.PartitionCount != null)
             {
@@ -276,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String GroupName { get; set; }
+            public System.String LinkedGroupId { get; set; }
             public System.Int32? PartitionCount { get; set; }
             public Amazon.EC2.SpreadLevel SpreadLevel { get; set; }
             public Amazon.EC2.PlacementStrategy Strategy { get; set; }
