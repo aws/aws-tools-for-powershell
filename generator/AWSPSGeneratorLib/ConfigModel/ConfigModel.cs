@@ -1241,6 +1241,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public bool IsReservedParameterNameHandled;
 
         /// <summary>
+        /// Set when the generator detects a circular dependency in nested types during parameter flattening.
+        /// The generator will add the circular type to TypesNotToFlatten at service level.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsCircularDependencyDetected;
+
+        /// <summary>
         /// Stores the VerbNounTransformationPattern that was applied during verb processing.
         /// Used to defer noun transformation to the AssignNoun method.
         /// </summary>

@@ -37,7 +37,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 var configModelsToOutput = models.Where(configModel =>
                         configModel.AnalysisErrors.Any() ||
                         overrides.ContainsKey(configModel.C2jFilename) ||
-                        configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.AnalysisErrors.Any() || op.IsReservedParameterNameHandled).Any())
+                        configModel.ServiceOperationsList.Any(op => op.IsAutoConfiguring || op.AnalysisErrors.Any() || op.IsReservedParameterNameHandled || op.IsCircularDependencyDetected))
                     .ToArray();
 
                 bool hasErrors = models.Any(configModel =>
@@ -53,6 +53,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
                 bool hasNewOperations = models.Any(model => model.ServiceOperationsList.Any(op => op.IsAutoConfiguring));
                 bool isReservedParameterNameHandled = models.Any(model => model.ServiceOperationsList.Any(op => op.IsReservedParameterNameHandled));
+                bool isCircularDependencyDetected = models.Any(model => model.ServiceOperationsList.Any(op => op.IsCircularDependencyDetected));
 
                 var doc = new XDocument();
 
@@ -138,16 +139,41 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         .Join(configModel.model.ServiceOperationsList, element => element.Attribute("MethodName").Value, operation => operation.MethodName, (element, operation) => (element, operation))
                         .ToArray();
 
+                    // Handle circular dependency types at service level
+                    // Note: Circular dependency types are added to configModel.model.TypesNotToFlatten during generation in OperationAnalyzer.cs
+                    if (configModel.model.ServiceOperationsList.Any(op => op.IsCircularDependencyDetected))
+                    {
+                        // Get or create the service-level TypesNotToFlatten element
+                        var serviceTypesNotToFlattenElement = configModel.element.Element("TypesNotToFlatten");
+                        if (serviceTypesNotToFlattenElement == null)
+                        {
+                            serviceTypesNotToFlattenElement = new XElement("TypesNotToFlatten");
+                            // Insert before ServiceOperations element
+                            serviceOperationsElement.AddBeforeSelf(serviceTypesNotToFlattenElement);
+                        }
+
+                        // Add all types from the model's TypesNotToFlatten that aren't already in the XML
+                        foreach (var typeName in configModel.model.TypesNotToFlatten)
+                        {
+                            // Only add if not already in the list
+                            if (!serviceTypesNotToFlattenElement.Elements("Type").Any(t => t.Value == typeName))
+                            {
+                                serviceTypesNotToFlattenElement.Add(new XElement("Type", typeName));
+                            }
+                        }
+                    }
+
                     foreach (var operation in operations)
                     {
                         var isConfigurationOverridden = modelOverrides?.MethodNames.Contains(operation.operation.MethodName) ?? false;
 
-                        // We only include in the report new operations (IsAutoConfiguring=true) and operations requiring configuration updated (e.g. reserved parameter name handling).
+                        // We only include in the report new operations (IsAutoConfiguring=true) and operations requiring configuration updated (e.g. reserved parameter name handling, circular dependency detection).
                         // We also retain in the report any operation that was manually configured.
                         if (operation.operation.IsAutoConfiguring ||
                             operation.operation.AnalysisErrors.Any() ||
                             isConfigurationOverridden ||
-                            operation.operation.IsReservedParameterNameHandled)
+                            operation.operation.IsReservedParameterNameHandled ||
+                            operation.operation.IsCircularDependencyDetected)
                         {
                             var firstOperationChildElement = operation.element.Elements().FirstOrDefault();
 
@@ -175,8 +201,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
                                 {
                                     if (operation.operation.Analyzer.AnalyzedParameters.Any())
                                     {
-                                        // If reserved parameter name was handled, then we need to update or add Param element for the parameter customization in the report XML.
                                         var analyzedParametersWithCustomization = operation.operation.Analyzer.AnalyzedParameters.Where(p => p.Customization != null);
+                                        
+                                        // Handle reserved parameter name customizations at operation level
                                         if (operation.operation.IsReservedParameterNameHandled && analyzedParametersWithCustomization.Any())
                                         {
                                             var paramsElement = operation.element.Element("Params");
@@ -202,6 +229,8 @@ namespace AWSPowerShellGenerator.ServiceConfig
                                                 // as DuringGeneration since it could happen for other shortning scenarios. We are already adding info message if reserved parameter handling was done, which is good enough.
                                             }
                                         }
+
+                                        // Note: Circular dependency types are handled at service level (see code before operation loop)
 
                                         // Add XML comment about parameters information.
                                         var parametersComments = operation.operation.Analyzer.AnalyzedParameters.Select(PropertyChangedEventArgs => GetParameterCommentForReport(PropertyChangedEventArgs, operation.operation.Analyzer));
@@ -231,19 +260,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 {
                     doc.Save(filename);
                 }
-                else if (hasNewOperations && !hasErrors)
+                else if ((hasNewOperations || isReservedParameterNameHandled || isCircularDependencyDetected) && !hasErrors)
                 {
-                    Console.WriteLine("New operations were auto-configured without errors and saved in report.xml");
-                    doc.Save(filename);
-                }
-                else if (isReservedParameterNameHandled && !hasErrors)
-                {
-                    Console.WriteLine("Operations had parameters which conflicted with reserved parameter name that were automatically resolved without errors and saved in report.xml");
+                    Console.WriteLine("Service Operations were auto-configured without errors and saved in report.xml");
                     doc.Save(filename);
                 }
                 else
                 {
-                    Console.WriteLine($"Skipping saving report: hasNewOperations:{hasNewOperations}, isReservedParameterNameHandled: {isReservedParameterNameHandled}, hasErrors: {hasErrors} ");
+                    Console.WriteLine($"Skipping saving report: hasNewOperations:{hasNewOperations}, isReservedParameterNameHandled: {isReservedParameterNameHandled}, isCircularDependencyDetected: {isCircularDependencyDetected}, hasErrors: {hasErrors} ");
                 }
             }
             catch (Exception e)
