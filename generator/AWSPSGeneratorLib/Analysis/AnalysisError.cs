@@ -452,5 +452,10 @@ namespace AWSPowerShellGenerator.Analysis
         {
             new InfoMessage(service, operation, $"Reserved paramater name conflict {candidateParameter.AnalyzedName} found. Automatically resolved as {candidateParameter.CmdletParameterName}.");
         }
+
+        public static void CircularDependencyDetected(ConfigModel service, ServiceOperation operation, string typeName)
+        {
+            new InfoMessage(service, operation, $"Circular dependency detected for type '{typeName}'. Type added to TypesNotToFlatten at service level to prevent StackOverflow during parameter flattening.");
+        }
     }
 }

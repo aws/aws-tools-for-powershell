@@ -453,9 +453,15 @@ namespace AWSPowerShellGenerator.Analysis
         /// <param name="isCmdletParameter">
         /// True if the simplified property will represent a parameter on the cmdlet.
         /// </param>
+        /// <param name="visitedTypes">
+        /// HashSet tracking types visited in the current property traversal path to detect circular dependencies.
+        /// </param>
         /// <returns></returns>
-        public SimplePropertyInfo CreateSimplePropertyFor(PropertyInfo property, SimplePropertyInfo parent, bool isCmdletParameter)
+        public SimplePropertyInfo CreateSimplePropertyFor(PropertyInfo property, SimplePropertyInfo parent, bool isCmdletParameter, HashSet<string> visitedTypes = null)
         {
+            visitedTypes ??= new HashSet<string>();
+            
+            string paramName = property.Name;
             var shouldFlatten = true;
 
             string propertyTypeFullName;
@@ -534,6 +540,27 @@ namespace AWSPowerShellGenerator.Analysis
                 propertyTypeFullName = property.PropertyType.FullName;
             }
 
+            if (visitedTypes.Contains(propertyTypeFullName))
+            {
+                // Circular dependency detected!
+
+                // don't flatten if isCmdletParameter is false as this doesn't concern determining Cmdlet Parameters. 
+                if (!isCmdletParameter) 
+                    return null;
+                
+                // Only add to TypesNotToFlatten if not already present
+                if (!CurrentModel.TypesNotToFlatten.Contains(propertyTypeFullName) &&
+                    !AllModels.TypesNotToFlatten.Contains(propertyTypeFullName))
+                {
+                    CurrentModel.TypesNotToFlatten.Add(propertyTypeFullName);
+                    CurrentOperation.IsCircularDependencyDetected = true;
+                    InfoMessage.CircularDependencyDetected(CurrentModel, CurrentOperation, propertyTypeFullName);
+                }
+                
+                // Stop flattening if Circular dependency detected.
+                return null;
+            }
+
             shouldFlatten = ShouldFlattenType(propertyTypeFullName);
 
             var simpleProperty = new SimplePropertyInfo(property,
@@ -554,18 +581,26 @@ namespace AWSPowerShellGenerator.Analysis
             if (shouldFlatten)
             {
                 var propertyTypeProperties = property.PropertyType.GetProperties().Where(p =>
-                    // skip properties that aren't read/write and index properties
                     p.CanWrite && p.CanRead && p.GetIndexParameters().Length == 0
                 ).ToArray();
 
                 if (propertyTypeProperties.Length > 0)
                 {
-                    foreach (var childProperty in propertyTypeProperties
-                        .Select(propertyTypeProperty => CreateSimplePropertyFor(propertyTypeProperty, simpleProperty, isCmdletParameter))
-                        .Where(sp => sp != null))
+                    // Add current type to visited set before processing children
+                    visitedTypes.Add(propertyTypeFullName);
+                    
+                    foreach (var propertyTypeProperty in propertyTypeProperties)
                     {
-                        simpleProperty.Children.Add(childProperty);
+                        // Pass visitedTypes to recursive call to maintain context across entire tree
+                        var childProperty = CreateSimplePropertyFor(propertyTypeProperty, simpleProperty, isCmdletParameter, visitedTypes);
+                        if (childProperty != null)
+                        {
+                            simpleProperty.Children.Add(childProperty);
+                        }
                     }
+                    
+                    // Remove from visited set after processing (backtracking)
+                    visitedTypes.Remove(propertyTypeFullName);
                 }
             }
             return simpleProperty;
