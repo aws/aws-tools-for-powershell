@@ -1,4 +1,9 @@
-﻿### 5.0.121 (2025-12-19 20:59Z)
+﻿### 5.0.122 (2025-12-22 21:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.158.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2PlacementGroup: added parameter LinkedGroupId.
+
+### 5.0.121 (2025-12-19 20:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.157.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ARC - Region switch
     * Modified cmdlet New-ARCPlan: added parameter ReportConfiguration_ReportOutput.

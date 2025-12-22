@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter Accounting_Mode
         /// <summary>
         /// <para>
-        /// <para>The default value for <c>mode</c> is <c>STANDARD</c>. A value of <c>STANDARD</c> means
+        /// <para>The default value for <c>mode</c> is <c>NONE</c>. A value of <c>STANDARD</c> means
         /// Slurm accounting is enabled.</para>
         /// </para>
         /// </summary>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter SlurmRest_Mode
         /// <summary>
         /// <para>
-        /// <para>The default value for <c>mode</c> is <c>STANDARD</c>. A value of <c>STANDARD</c> means
+        /// <para>The default value for <c>mode</c> is <c>NONE</c>. A value of <c>STANDARD</c> means
         /// the Slurm REST API is enabled.</para>
         /// </para>
         /// </summary>

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.157.0",
+    "ProductVersion"    : "4.0.158.0",
     "CoreVersion"       : "4.0.3.6",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -72,7 +72,7 @@
             "InPreview"               : false
         },
         "ConfigService"     : {
-            "Version" : "4.0.4.9",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.64.0",
+            "Version" : "4.0.65.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -876,7 +876,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "4.0.14.0",
+            "Version" : "4.0.15.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -2972,7 +2972,7 @@
             "InPreview"               : false
         },
         "PCS"                                 : {
-            "Version" : "4.0.11.5",
+            "Version" : "4.0.11.6",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"

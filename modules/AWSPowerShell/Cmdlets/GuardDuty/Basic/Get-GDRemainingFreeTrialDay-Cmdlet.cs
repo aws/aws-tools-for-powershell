@@ -54,7 +54,14 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("AccountIds")]
         public System.String[] AccountId { get; set; }
         #endregion
@@ -112,6 +119,12 @@ namespace Amazon.PowerShell.Cmdlets.GD
             {
                 context.AccountId = new List<System.String>(this.AccountId);
             }
+            #if MODULAR
+            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DetectorId = this.DetectorId;
             #if MODULAR
             if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
