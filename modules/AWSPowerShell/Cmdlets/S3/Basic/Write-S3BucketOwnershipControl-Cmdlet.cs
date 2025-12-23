@@ -64,21 +64,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the Amazon S3 bucket whose OwnershipControls you want to set
+        /// <para>The name of the Amazon S3 bucket whose <c>OwnershipControls</c> you want to set.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Indicates the algorithm used to create the checksum for the object when you use the
+        /// <para> Indicates the algorithm used to create the checksum for the object when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
-        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum-<i>algorithm</i></c> or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the
-        /// request with the HTTP status code <c>400 Bad Request</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c> parameter.</para>
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum-<i>algorithm</i></c> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code
+        /// <c>400 Bad Request</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c>
+        /// parameter. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,11 +94,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
+        #region Parameter ContentMD5
+        /// <summary>
+        /// <para>
+        /// <para>The MD5 hash of the <c>OwnershipControls</c> request body. </para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// Web Services SDKs, this field is calculated automatically.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContentMD5 { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, 
-        /// the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +127,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("OwnershipControls_Rules")]
         public Amazon.S3.Model.OwnershipControlsRule[] OwnershipControls_Rule { get; set; }
         #endregion
@@ -158,12 +185,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
+            context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             if (this.OwnershipControls_Rule != null)
             {
                 context.OwnershipControls_Rule = new List<Amazon.S3.Model.OwnershipControlsRule>(this.OwnershipControls_Rule);
             }
-            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
+            #if MODULAR
+            if (this.OwnershipControls_Rule == null && ParameterWasBound(nameof(this.OwnershipControls_Rule)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OwnershipControls_Rule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -183,6 +223,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+            }
+            if (cmdletContext.ContentMD5 != null)
+            {
+                request.ContentMD5 = cmdletContext.ContentMD5;
             }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
@@ -206,10 +254,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestOwnershipControlsIsNull)
             {
                 request.OwnershipControls = null;
-            }
-            if (cmdletContext.ChecksumAlgorithm != null)
-            {
-                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
             
             CmdletOutput output;
@@ -267,9 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+            public System.String ContentMD5 { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public List<Amazon.S3.Model.OwnershipControlsRule> OwnershipControls_Rule { get; set; }
-            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketOwnershipControlsResponse, WriteS3BucketOwnershipControlCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

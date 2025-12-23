@@ -32,6 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     /// <summary>
     /// <c>SearchText</c> searches for geocode and place information. You can then complete
     /// a follow-up query suggested from the <c>Suggest</c> API via a query id.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/search-text.html">Search
+    /// Text</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Search", "GEOPText")]
     [OutputType("Amazon.GeoPlaces.Model.SearchTextResponse")]
@@ -66,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>
         /// <para>The position, in longitude and latitude, that the results should be close to. Typically,
         /// place results returned are ranked higher the closer they are to this position. Stored
-        /// in <c>[lng, lat]</c> and in the WSG84 format.</para><note><para>The fields <c>BiasPosition</c>, <c>FilterBoundingBox</c>, and <c>FilterCircle</c>
-        /// are mutually exclusive.</para></note><para />
+        /// in <c>[lng, lat]</c> and in the WGS 84 format.</para><note><para>Exactly one of the following fields must be set: <c>BiasPosition</c>, <c>Filter.BoundingBox</c>,
+        /// or <c>Filter.Circle</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Circle_Center
         /// <summary>
         /// <para>
-        /// <para>The center position, in longitude and latitude, of the <c>FilterCircle</c>.</para><para />
+        /// <para>The center position in World Geodetic System (WGS 84) format: [longitude, latitude].</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -179,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>
         /// <para>The query Id returned by the suggest API. If passed in the request, the SearchText
         /// API will preform a SearchText query with the improved query terms for the original
-        /// query made to the suggest API.</para><note><para>The fields <c>QueryText</c>, and <c>QueryID</c> are mutually exclusive.</para></note>
+        /// query made to the suggest API.</para><note><para>Exactly one of the following fields must be set: <c>QueryText</c> or <c>QueryId</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para>The free-form text query to match addresses against. This is usually a partially typed
-        /// address from an end user in an address box or form.</para><note><para>The fields <c>QueryText</c>, and <c>QueryID</c> are mutually exclusive.</para></note>
+        /// address from an end user in an address box or form.</para><note><para>Exactly one of the following fields must be set: <c>QueryText</c> or <c>QueryId</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional limit for the number of results returned in a single call.</para>
+        /// <para>An optional limit for the number of results returned in a single call.</para><para>Default value: 20</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

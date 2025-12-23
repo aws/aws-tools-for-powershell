@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The unique identifier of pools to find. This is an array of strings that can be either
-        /// the PoolId or PoolArn.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// the PoolId or PoolArn.</para><important><para>If you are using a shared End User Messaging SMS resource then you must use the full
         /// Amazon Resource Name(ARN).</para></important><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

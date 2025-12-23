@@ -36,6 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     /// to on place type so that you can refine result based on your need. Also, The Reverse
     /// Geocode API can also provide additional features such as time zone information and
     /// the inclusion of political views.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/reverse-geocode.html">Reverse
+    /// Geocode</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "GEOPReverseGeocode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GeoPlaces.Model.ReverseGeocodeResponse")]
@@ -63,6 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdditionalFeatures")]
         public System.String[] AdditionalFeature { get; set; }
+        #endregion
+        
+        #region Parameter Heading
+        /// <summary>
+        /// <para>
+        /// <para>The heading in degrees from true north in a navigation context. The heading is measured
+        /// as the angle clockwise from the North direction.</para><para>Example: North is <c>0</c> degrees, East is <c>90</c> degrees, South is <c>180</c>
+        /// degrees, and West is <c>270</c> degrees.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? Heading { get; set; }
         #endregion
         
         #region Parameter Filter_IncludePlaceType
@@ -132,9 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter QueryPosition
         /// <summary>
         /// <para>
-        /// <para>The position, in <c>[lng, lat]</c> for which you are querying nearby results for.
-        /// Results closer to the position will be ranked higher then results further away from
-        /// the position</para><para />
+        /// <para>The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which
+        /// you are querying nearby results for. Results closer to the position will be ranked
+        /// higher then results further away from the position</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -166,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional limit for the number of results returned in a single call.</para>
+        /// <para>An optional limit for the number of results returned in a single call.</para><para>Default value: 1</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             {
                 context.Filter_IncludePlaceType = new List<System.String>(this.Filter_IncludePlaceType);
             }
+            context.Heading = this.Heading;
             context.IntendedUse = this.IntendedUse;
             context.Key = this.Key;
             context.Language = this.Language;
@@ -282,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             if (requestFilterIsNull)
             {
                 request.Filter = null;
+            }
+            if (cmdletContext.Heading != null)
+            {
+                request.Heading = cmdletContext.Heading.Value;
             }
             if (cmdletContext.IntendedUse != null)
             {
@@ -368,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         {
             public List<System.String> AdditionalFeature { get; set; }
             public List<System.String> Filter_IncludePlaceType { get; set; }
+            public System.Double? Heading { get; set; }
             public Amazon.GeoPlaces.ReverseGeocodeIntendedUse IntendedUse { get; set; }
             public System.String Key { get; set; }
             public System.String Language { get; set; }

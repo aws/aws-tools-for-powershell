@@ -30,7 +30,7 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Describes the current End User MessagingSMS SMS Voice V2 resource quotas for your
+    /// Describes the current End User Messaging SMS SMS Voice V2 resource quotas for your
     /// account. The description for a quota includes the quota name, current usage toward
     /// that quota, and the quota's maximum value.
     /// 
@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// When you establish an Amazon Web Services account, the account has initial quotas
     /// on the maximum number of configuration sets, opt-out lists, phone numbers, and pools
     /// that you can create in a given Region. For more information see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas
-    /// </a> in the <i>End User MessagingSMS User Guide</i>.
+    /// </a> in the <i>End User Messaging SMS User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVAccountLimit")]

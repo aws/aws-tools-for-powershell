@@ -87,18 +87,32 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket in which the object or directory will be renamed.</para>
+        /// <para>The bucket name of the directory bucket containing the object.</para><para> You must use virtual-hosted-style requests in the format <c>Bucket-name.s3express-zone-id.region-code.amazonaws.com</c>.
+        /// Path-style requests are not supported. Directory bucket names must be unique in the
+        /// chosen Availability Zone. Bucket names must follow the format <c>bucket-base-name--zone-id--x-s3
+        /// </c> (for example, <c>amzn-s3-demo-bucket--usw2-az1--x-s3</c>). For information about
+        /// bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter DestinationIfMatch
         /// <summary>
         /// <para>
-        /// <para>If the specified entity tag (ETag) matches the destination object's ETag, Amazon S3
-        /// will process the request.</para>
+        /// <para>Renames the object only if the ETag (entity tag) value provided during the operation
+        /// matches the ETag of the object in S3. The <c>If-Match</c> header field makes the request
+        /// method conditional on ETags. If the ETag values do not match, the operation returns
+        /// a <c>412 Precondition Failed</c> error.</para><para>Expects the ETag value as a string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter DestinationIfModifiedSince
         /// <summary>
         /// <para>
-        /// <para>If the destination object was modified after the specified time, Amazon S3 will process
-        /// the request.</para>
+        /// <para>Renames the object if the destination exists and if it has been modified since the
+        /// specified time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter DestinationIfNoneMatch
         /// <summary>
         /// <para>
-        /// <para>If the specified entity tag (ETag) does not match the destination object's ETag, Amazon S3
-        /// will process the request.</para>
+        /// <para> Renames the object only if the destination does not already exist in the specified
+        /// directory bucket. If the object does exist when you send a request with <c>If-None-Match:*</c>,
+        /// the S3 API will return a <c>412 Precondition Failed</c> error, preventing an overwrite.
+        /// The <c>If-None-Match</c> header prevents overwrites of existing data by validating
+        /// that there's not an object with the same key name already in your directory bucket.</para><para> Expects the <c>*</c> character (asterisk).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter DestinationIfUnmodifiedSince
         /// <summary>
         /// <para>
-        /// <para>If the destination object was not modified after the specified time, Amazon S3 will process
-        /// the request.</para>
+        /// <para>Renames the object if it hasn't been modified since the specified time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,28 +157,42 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>The new key name (full path) for the object or directory.</para>
+        /// <para>Key name of the object to rename.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Key { get; set; }
         #endregion
         
         #region Parameter RenameSource
         /// <summary>
         /// <para>
-        /// <para>The key name (full path) of the source object or directory to be renamed. It must be URL-encoded.</para><para>Format: /bucket-name/object-key</para>
+        /// <para>Specifies the source for the rename operation. The value must be URL encoded.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RenameSource { get; set; }
         #endregion
         
         #region Parameter SourceIfMatch
         /// <summary>
         /// <para>
-        /// <para>If the specified entity tag (ETag) matches the source object's ETag, Amazon S3
-        /// will process the request.</para>
+        /// <para>Renames the object if the source exists and if its entity tag (ETag) matches the specified
+        /// ETag. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SourceIfModifiedSince
         /// <summary>
         /// <para>
-        /// <para>If the source object was modified after the specified time, Amazon S3 will process
-        /// the request.</para>
+        /// <para>Renames the object if the source exists and if it has been modified since the specified
+        /// time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SourceIfNoneMatch
         /// <summary>
         /// <para>
-        /// <para>If the specified entity tag (ETag) does not match the source object's ETag, Amazon S3
-        /// will process the request.</para>
+        /// <para>Renames the object if the source exists and if its entity tag (ETag) is different
+        /// than the specified ETag. If an asterisk (<c>*</c>) character is provided, the operation
+        /// will fail and return a <c>412 Precondition Failed</c> error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SourceIfUnmodifiedSince
         /// <summary>
         /// <para>
-        /// <para>If the source object was not modified after the specified time, Amazon S3 will process
-        /// the request.</para>
+        /// <para>Renames the object if the source exists and hasn't been modified since the specified
+        /// time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,8 +236,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token to ensure that the rename request is idempotent. It's suitable to use the same client token
-        /// across multiple requests when you're retrying a failed operation.</para>
+        /// <para> A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.</para><note><para><c>RenameObject</c> supports idempotency using a client token. To make an idempotent
+        /// API request using <c>RenameObject</c>, specify a client token in the request. You
+        /// should not reuse the same client token for other API requests. If you retry a request
+        /// that completed successfully using the same client token and the same parameters, the
+        /// retry succeeds without performing any further actions. If you retry a successful request
+        /// using the same client token, but one or more of the parameters are different, the
+        /// retry fails and an <c>IdempotentParameterMismatch</c> error is returned. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,17 +295,35 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
-            context.Key = this.Key;
-            context.RenameSource = this.RenameSource;
-            context.DestinationIfMatch = this.DestinationIfMatch;
-            context.DestinationIfNoneMatch = this.DestinationIfNoneMatch;
-            context.DestinationIfModifiedSince = this.DestinationIfModifiedSince;
-            context.DestinationIfUnmodifiedSince = this.DestinationIfUnmodifiedSince;
-            context.SourceIfMatch = this.SourceIfMatch;
-            context.SourceIfNoneMatch = this.SourceIfNoneMatch;
-            context.SourceIfModifiedSince = this.SourceIfModifiedSince;
-            context.SourceIfUnmodifiedSince = this.SourceIfUnmodifiedSince;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ClientToken = this.ClientToken;
+            context.DestinationIfMatch = this.DestinationIfMatch;
+            context.DestinationIfModifiedSince = this.DestinationIfModifiedSince;
+            context.DestinationIfNoneMatch = this.DestinationIfNoneMatch;
+            context.DestinationIfUnmodifiedSince = this.DestinationIfUnmodifiedSince;
+            context.Key = this.Key;
+            #if MODULAR
+            if (this.Key == null && ParameterWasBound(nameof(this.Key)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.RenameSource = this.RenameSource;
+            #if MODULAR
+            if (this.RenameSource == null && ParameterWasBound(nameof(this.RenameSource)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RenameSource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SourceIfMatch = this.SourceIfMatch;
+            context.SourceIfModifiedSince = this.SourceIfModifiedSince;
+            context.SourceIfNoneMatch = this.SourceIfNoneMatch;
+            context.SourceIfUnmodifiedSince = this.SourceIfUnmodifiedSince;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -290,6 +344,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.BucketName = cmdletContext.BucketName;
             }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DestinationIfMatch != null)
+            {
+                request.DestinationIfMatch = cmdletContext.DestinationIfMatch;
+            }
+            if (cmdletContext.DestinationIfModifiedSince != null)
+            {
+                request.DestinationIfModifiedSince = cmdletContext.DestinationIfModifiedSince.Value;
+            }
+            if (cmdletContext.DestinationIfNoneMatch != null)
+            {
+                request.DestinationIfNoneMatch = cmdletContext.DestinationIfNoneMatch;
+            }
+            if (cmdletContext.DestinationIfUnmodifiedSince != null)
+            {
+                request.DestinationIfUnmodifiedSince = cmdletContext.DestinationIfUnmodifiedSince.Value;
+            }
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
@@ -298,41 +372,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.RenameSource = cmdletContext.RenameSource;
             }
-            if (cmdletContext.DestinationIfMatch != null)
-            {
-                request.DestinationIfMatch = cmdletContext.DestinationIfMatch;
-            }
-            if (cmdletContext.DestinationIfNoneMatch != null)
-            {
-                request.DestinationIfNoneMatch = cmdletContext.DestinationIfNoneMatch;
-            }
-            if (cmdletContext.DestinationIfModifiedSince != null)
-            {
-                request.DestinationIfModifiedSince = cmdletContext.DestinationIfModifiedSince.Value;
-            }
-            if (cmdletContext.DestinationIfUnmodifiedSince != null)
-            {
-                request.DestinationIfUnmodifiedSince = cmdletContext.DestinationIfUnmodifiedSince.Value;
-            }
             if (cmdletContext.SourceIfMatch != null)
             {
                 request.SourceIfMatch = cmdletContext.SourceIfMatch;
-            }
-            if (cmdletContext.SourceIfNoneMatch != null)
-            {
-                request.SourceIfNoneMatch = cmdletContext.SourceIfNoneMatch;
             }
             if (cmdletContext.SourceIfModifiedSince != null)
             {
                 request.SourceIfModifiedSince = cmdletContext.SourceIfModifiedSince.Value;
             }
+            if (cmdletContext.SourceIfNoneMatch != null)
+            {
+                request.SourceIfNoneMatch = cmdletContext.SourceIfNoneMatch;
+            }
             if (cmdletContext.SourceIfUnmodifiedSince != null)
             {
                 request.SourceIfUnmodifiedSince = cmdletContext.SourceIfUnmodifiedSince.Value;
-            }
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
             }
             
             CmdletOutput output;
@@ -390,17 +444,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String DestinationIfMatch { get; set; }
+            public System.DateTime? DestinationIfModifiedSince { get; set; }
+            public System.String DestinationIfNoneMatch { get; set; }
+            public System.DateTime? DestinationIfUnmodifiedSince { get; set; }
             public System.String Key { get; set; }
             public System.String RenameSource { get; set; }
-            public System.String DestinationIfMatch { get; set; }
-            public System.String DestinationIfNoneMatch { get; set; }
-            public System.DateTime? DestinationIfModifiedSince { get; set; }
-            public System.DateTime? DestinationIfUnmodifiedSince { get; set; }
             public System.String SourceIfMatch { get; set; }
-            public System.String SourceIfNoneMatch { get; set; }
             public System.DateTime? SourceIfModifiedSince { get; set; }
+            public System.String SourceIfNoneMatch { get; set; }
             public System.DateTime? SourceIfUnmodifiedSince { get; set; }
-            public System.String ClientToken { get; set; }
             public System.Func<Amazon.S3.Model.RenameObjectResponse, RenameS3ObjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

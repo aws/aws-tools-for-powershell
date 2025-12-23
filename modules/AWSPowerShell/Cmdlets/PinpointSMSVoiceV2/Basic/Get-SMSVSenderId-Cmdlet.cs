@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter SenderId
         /// <summary>
         /// <para>
-        /// <para>An array of SenderIdAndCountry objects to search for.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// <para>An array of SenderIdAndCountry objects to search for.</para><important><para>If you are using a shared End User Messaging SMS resource then you must use the full
         /// Amazon Resource Name(ARN).</para></important><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

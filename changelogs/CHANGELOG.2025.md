@@ -1,4 +1,14 @@
-﻿### 5.0.122 (2025-12-22 21:09Z)
+﻿### 5.0.123 (2025-12-23 21:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.159.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Location Service Places V2
+    * Modified cmdlet Invoke-GEOPReverseGeocode: added parameter Heading.
+  * Amazon Pinpoint SMS Voice V2
+    * Modified cmdlet Submit-SMSVRegistrationVersion: added parameter AwsReview.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3BucketOwnershipControl: added parameter ContentMD5.
+    * Modified cmdlet Write-S3BucketTagging: added parameter ContentMD5.
+
+### 5.0.122 (2025-12-22 21:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.158.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud
     * Modified cmdlet New-EC2PlacementGroup: added parameter LinkedGroupId.

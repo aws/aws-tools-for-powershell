@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
     /// Retrieves the JSON text of the resource-based policy document attached to the End
-    /// User MessagingSMS resource. A shared resource can be a Pool, Opt-out list, Sender
+    /// User Messaging SMS resource. A shared resource can be a Pool, Opt-out list, Sender
     /// Id, or Phone number.
     /// </summary>
     [Cmdlet("Get", "SMSVResourcePolicy")]
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the End User MessagingSMS resource attached to the
-        /// resource-based policy.</para>
+        /// <para>The Amazon Resource Name (ARN) of the End User Messaging SMS resource attached to
+        /// the resource-based policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
