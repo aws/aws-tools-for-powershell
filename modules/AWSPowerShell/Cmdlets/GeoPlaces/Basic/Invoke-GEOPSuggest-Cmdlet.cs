@@ -37,6 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     /// The API provides options for filtering results by location and other attributes, and
     /// allows for additional features like phonemes and timezones. The response includes
     /// refined query terms and detailed place information.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/suggest.html">Suggest</a>
+    /// in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "GEOPSuggest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GeoPlaces.Model.SuggestResponse")]
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>
         /// <para>The position, in longitude and latitude, that the results should be close to. Typically,
         /// place results returned are ranked higher the closer they are to this position. Stored
-        /// in <c>[lng, lat]</c> and in the WSG84 format.</para><note><para>The fields <c>BiasPosition</c>, <c>FilterBoundingBox</c>, and <c>FilterCircle</c>
+        /// in <c>[lng, lat]</c> and in the WGS 84 format.</para><note><para>The fields <c>BiasPosition</c>, <c>FilterBoundingBox</c>, and <c>FilterCircle</c>
         /// are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
@@ -93,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Circle_Center
         /// <summary>
         /// <para>
-        /// <para>The center position, in longitude and latitude, of the <c>FilterCircle</c>.</para>
+        /// <para>The center position in World Geodetic System (WGS 84) format: [longitude, latitude].</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para>The free-form text query to match addresses against. This is usually a partially typed
-        /// address from an end user in an address box or form.</para><note><para>The fields <c>QueryText</c>, and <c>QueryID</c> are mutually exclusive.</para></note>
+        /// address from an end user in an address box or form.</para><note><para>The fields <c>QueryText</c> and <c>QueryID</c> are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -202,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional limit for the number of results returned in a single call.</para>
+        /// <para>An optional limit for the number of results returned in a single call.</para><para>Default value: 20</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

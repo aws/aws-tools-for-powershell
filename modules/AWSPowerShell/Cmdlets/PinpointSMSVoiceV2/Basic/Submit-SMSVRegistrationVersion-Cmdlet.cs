@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AwsReview
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to request AWS review of the registration. When enabled, AWS will perform
+        /// additional validation and review of the registration submission before processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AwsReview { get; set; }
+        #endregion
+        
         #region Parameter RegistrationId
         /// <summary>
         /// <para>
@@ -120,6 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 context.Select = (response, cmdlet) => this.RegistrationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AwsReview = this.AwsReview;
             context.RegistrationId = this.RegistrationId;
             #if MODULAR
             if (this.RegistrationId == null && ParameterWasBound(nameof(this.RegistrationId)))
@@ -143,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             // create request
             var request = new Amazon.PinpointSMSVoiceV2.Model.SubmitRegistrationVersionRequest();
             
+            if (cmdletContext.AwsReview != null)
+            {
+                request.AwsReview = cmdletContext.AwsReview.Value;
+            }
             if (cmdletContext.RegistrationId != null)
             {
                 request.RegistrationId = cmdletContext.RegistrationId;
@@ -208,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AwsReview { get; set; }
             public System.String RegistrationId { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.SubmitRegistrationVersionResponse, SubmitSMSVRegistrationVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

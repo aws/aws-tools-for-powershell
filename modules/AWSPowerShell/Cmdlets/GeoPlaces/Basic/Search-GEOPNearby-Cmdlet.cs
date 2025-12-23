@@ -33,6 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     /// chains, food types and more. The API returns details such as a place name, address,
     /// phone, category, food type, contact, opening hours. Also, the API can return phonemes,
     /// time zones and more based on requested parameters.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/search-nearby.html">Search
+    /// Nearby</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Search", "GEOPNearby", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GeoPlaces.Model.SearchNearbyResponse")]
@@ -203,9 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter QueryPosition
         /// <summary>
         /// <para>
-        /// <para>The position, in <c>[lng, lat]</c> for which you are querying nearby results for.
-        /// Results closer to the position will be ranked higher then results further away from
-        /// the position</para>
+        /// <para>The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which
+        /// you are querying nearby results for. Results closer to the position will be ranked
+        /// higher then results further away from the position</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -233,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional limit for the number of results returned in a single call.</para>
+        /// <para>An optional limit for the number of results returned in a single call.</para><para>Default value: 20</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     /// <summary>
     /// <c>GetPlace</c> finds a place by its unique ID. A <c>PlaceId</c> is returned by other
     /// place operations.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/get-place.html">GetPlace</a>
+    /// in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GEOPPlace")]
     [OutputType("Amazon.GeoPlaces.Model.GetPlaceResponse")]

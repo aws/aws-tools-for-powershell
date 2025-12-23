@@ -34,6 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     /// with valid address completion. Also, the API supports the filtering of results based
     /// on geographic location, country, or specific place types, and can be tailored using
     /// optional parameters like language and political views.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/autocomplete.html">Autocomplete</a>
+    /// in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "GEOPAutocomplete", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GeoPlaces.Model.AutocompleteResponse")]
@@ -66,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>
         /// <para>The position in longitude and latitude that the results should be close to. Typically,
         /// place results returned are ranked higher the closer they are to this position. Stored
-        /// in <c>[lng, lat]</c> and in the WSG84 format.</para><note><para>The fields <c>BiasPosition</c>, <c>FilterBoundingBox</c>, and <c>FilterCircle</c>
+        /// in <c>[lng, lat]</c> and in the WGS 84 format.</para><note><para>The fields <c>BiasPosition</c>, <c>FilterBoundingBox</c>, and <c>FilterCircle</c>
         /// are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
@@ -89,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Circle_Center
         /// <summary>
         /// <para>
-        /// <para>The center position, in longitude and latitude, of the <c>FilterCircle</c>.</para>
+        /// <para>The center position in World Geodetic System (WGS 84) format: [longitude, latitude].</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional limit for the number of results returned in a single call. </para>
+        /// <para>An optional limit for the number of results returned in a single call.</para><para>Default value: 5</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

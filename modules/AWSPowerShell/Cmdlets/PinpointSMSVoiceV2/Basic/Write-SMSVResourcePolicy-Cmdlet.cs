@@ -28,11 +28,11 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Attaches a resource-based policy to a End User MessagingSMS resource(phone number,
+    /// Attaches a resource-based policy to a End User Messaging SMS resource(phone number,
     /// sender Id, phone poll, or opt-out list) that is used for sharing the resource. A shared
     /// resource can be a Pool, Opt-out list, Sender Id, or Phone number. For more information
     /// about resource-based policies, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/shared-resources.html">Working
-    /// with shared resources</a> in the <i>End User MessagingSMS User Guide</i>.
+    /// with shared resources</a> in the <i>End User Messaging SMS User Guide</i>.
     /// </summary>
     [Cmdlet("Write", "SMSVResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse")]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the End User MessagingSMS resource to attach the
+        /// <para>The Amazon Resource Name (ARN) of the End User Messaging SMS resource to attach the
         /// resource-based policy to.</para>
         /// </para>
         /// </summary>

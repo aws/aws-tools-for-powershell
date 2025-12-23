@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// <summary>
     /// Request an origination phone number for use in your account. For more information
     /// on phone number request see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html">Request
-    /// a phone number</a> in the <i>End User MessagingSMS User Guide</i>.
+    /// a phone number</a> in the <i>End User Messaging SMS User Guide</i>.
     /// </summary>
     [Cmdlet("New", "SMSVPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.RequestPhoneNumberResponse")]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The name of the OptOutList to associate with the phone number. You can use the OptOutListName
-        /// or OptOutListArn.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// or OptOutListArn.</para><important><para>If you are using a shared End User Messaging SMS resource then you must use the full
         /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The pool to associated with the phone number. You can use the PoolId or PoolArn. </para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// <para>The pool to associated with the phone number. You can use the PoolId or PoolArn. </para><important><para>If you are using a shared End User Messaging SMS resource then you must use the full
         /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
