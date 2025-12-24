@@ -201,14 +201,6 @@
             },
             "InPreview"               : false
         },
-        "ElasticTranscoder"    : {
-            "Version" : "4.0.2.8",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.3.6"
-            },
-            "InPreview"               : false
-        },
         "Glacier"              : {
             "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",

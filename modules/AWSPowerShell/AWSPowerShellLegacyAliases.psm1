@@ -190,9 +190,6 @@ Set-Alias -Name Add-ESTag -Value Add-ESResourceTag
 Set-Alias -Name Get-ESTag -Value Get-ESResourceTag
 Set-Alias -Name Remove-ESTag -Value Remove-ESResourceTag
 
-# ElasticTranscoder
-Set-Alias -Name Update-ETSPipelineNotifications -Value Update-ETSPipelineNotification
-
 # Glacier
 Set-Alias -Name Get-GLCVaultTagsList -Value Get-GLCVaultTagList
 
