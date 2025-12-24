@@ -517,9 +517,6 @@
     <Reference Include="AWSSDK.Elasticsearch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Elasticsearch.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.ElasticTranscoder">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticTranscoder.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.EMRContainers">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EMRContainers.dll</HintPath>
     </Reference>
@@ -1751,9 +1748,6 @@
     </Reference>
     <Reference Include="AWSSDK.Elasticsearch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Elasticsearch.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ElasticTranscoder">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ElasticTranscoder.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EMRContainers">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EMRContainers.dll</HintPath>

@@ -209,7 +209,6 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ElasticLoadBalancingV2.dll',
         'AWSSDK.ElasticMapReduce.dll',
         'AWSSDK.Elasticsearch.dll',
-        'AWSSDK.ElasticTranscoder.dll',
         'AWSSDK.EMRContainers.dll',
         'AWSSDK.EMRServerless.dll',
         'AWSSDK.EntityResolution.dll',

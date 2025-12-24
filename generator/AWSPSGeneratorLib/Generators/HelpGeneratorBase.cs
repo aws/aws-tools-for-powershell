@@ -119,7 +119,6 @@ namespace AWSPowerShellGenerator.Generators
             {"ElasticLoadBalancing", "ELB"},
             {"ElasticBeanstalk", "EB"},
             {"ElasticMapReduce", "EMR"},
-            {"ElasticTranscoder", "ETS"},
             {"SimpleNotificationService", "SNS"},
             {"IdentityManagement", "IAM"},
             {"DatabaseMigrationService", "DMS"},
