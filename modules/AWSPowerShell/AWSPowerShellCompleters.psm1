@@ -52089,6 +52089,18 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.LinkedChannelType
+        {
+            ($_ -eq "New-EMLChannel/LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType") -Or
+            ($_ -eq "Update-EMLChannel/LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType") -Or
+            ($_ -eq "New-EMLChannel/LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType") -Or
+            ($_ -eq "Update-EMLChannel/LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType")
+        }
+        {
+            $v = "FOLLOWING_CHANNEL","PRIMARY_CHANNEL"
+            break
+        }
+
         # Amazon.MediaLive.LogLevel
         {
             ($_ -eq "New-EMLChannel/LogLevel") -Or
@@ -52203,6 +52215,8 @@ $EML_map = @{
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
+    "LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType"=@("New-EMLChannel","Update-EMLChannel")
+    "LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType"=@("New-EMLChannel","Update-EMLChannel")
     "LogLevel"=@("New-EMLChannel","Update-EMLChannel")
     "Maintenance_MaintenanceDay"=@("New-EMLChannel","Update-EMLChannel")
     "Mode"=@("New-EMLSdiSource","Update-EMLSdiSource")

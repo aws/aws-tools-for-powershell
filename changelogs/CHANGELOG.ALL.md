@@ -1,4 +1,11 @@
-﻿### 4.1.968 (2025-12-23 21:38Z)
+﻿### 4.1.969 (2025-12-26 21:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1192.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Elastic Transcoder
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLChannel: added parameters LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType, LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn and LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType.
+    * Modified cmdlet Update-EMLChannel: added parameters LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType, LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn and LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType.
+
+### 4.1.968 (2025-12-23 21:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1191.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Location Service Places V2
     * Modified cmdlet Invoke-GEOPReverseGeocode: added parameter Heading.
