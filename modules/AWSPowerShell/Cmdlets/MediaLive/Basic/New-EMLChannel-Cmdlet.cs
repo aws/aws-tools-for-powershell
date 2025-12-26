@@ -141,6 +141,28 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.InputAttachment[] InputAttachment { get; set; }
         #endregion
         
+        #region Parameter LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType
+        /// <summary>
+        /// <para>
+        /// Specifies this as a follower channel
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.LinkedChannelType")]
+        public Amazon.MediaLive.LinkedChannelType LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType { get; set; }
+        #endregion
+        
+        #region Parameter LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType
+        /// <summary>
+        /// <para>
+        /// Specifies this as a primary channel
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.LinkedChannelType")]
+        public Amazon.MediaLive.LinkedChannelType LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType { get; set; }
+        #endregion
+        
         #region Parameter LogLevel
         /// <summary>
         /// <para>
@@ -194,6 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn
+        /// <summary>
+        /// <para>
+        /// The ARN of the primary channel to follow
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn { get; set; }
         #endregion
         
         #region Parameter Vpc_PublicAddressAllocationId
@@ -397,6 +429,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.InputSpecification_Codec = this.InputSpecification_Codec;
             context.InputSpecification_MaximumBitrate = this.InputSpecification_MaximumBitrate;
             context.InputSpecification_Resolution = this.InputSpecification_Resolution;
+            context.LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType = this.LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType;
+            context.LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn = this.LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn;
+            context.LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType = this.LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType;
             context.LogLevel = this.LogLevel;
             context.Maintenance_MaintenanceDay = this.Maintenance_MaintenanceDay;
             context.Maintenance_MaintenanceStartTime = this.Maintenance_MaintenanceStartTime;
@@ -568,6 +603,75 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.InputSpecification = null;
             }
+            
+             // populate LinkedChannelSettings
+            var requestLinkedChannelSettingsIsNull = true;
+            request.LinkedChannelSettings = new Amazon.MediaLive.Model.LinkedChannelSettings();
+            Amazon.MediaLive.Model.PrimaryChannelSettings requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings = null;
+            
+             // populate PrimaryChannelSettings
+            var requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettingsIsNull = true;
+            requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings = new Amazon.MediaLive.Model.PrimaryChannelSettings();
+            Amazon.MediaLive.LinkedChannelType requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings_linkedChannelSettings_PrimaryChannelSettings_LinkedChannelType = null;
+            if (cmdletContext.LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType != null)
+            {
+                requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings_linkedChannelSettings_PrimaryChannelSettings_LinkedChannelType = cmdletContext.LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType;
+            }
+            if (requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings_linkedChannelSettings_PrimaryChannelSettings_LinkedChannelType != null)
+            {
+                requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings.LinkedChannelType = requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings_linkedChannelSettings_PrimaryChannelSettings_LinkedChannelType;
+                requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettingsIsNull = false;
+            }
+             // determine if requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings should be set to null
+            if (requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettingsIsNull)
+            {
+                requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings = null;
+            }
+            if (requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings != null)
+            {
+                request.LinkedChannelSettings.PrimaryChannelSettings = requestLinkedChannelSettings_linkedChannelSettings_PrimaryChannelSettings;
+                requestLinkedChannelSettingsIsNull = false;
+            }
+            Amazon.MediaLive.Model.FollowerChannelSettings requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings = null;
+            
+             // populate FollowerChannelSettings
+            var requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettingsIsNull = true;
+            requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings = new Amazon.MediaLive.Model.FollowerChannelSettings();
+            Amazon.MediaLive.LinkedChannelType requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings_linkedChannelSettings_FollowerChannelSettings_LinkedChannelType = null;
+            if (cmdletContext.LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType != null)
+            {
+                requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings_linkedChannelSettings_FollowerChannelSettings_LinkedChannelType = cmdletContext.LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType;
+            }
+            if (requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings_linkedChannelSettings_FollowerChannelSettings_LinkedChannelType != null)
+            {
+                requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings.LinkedChannelType = requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings_linkedChannelSettings_FollowerChannelSettings_LinkedChannelType;
+                requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettingsIsNull = false;
+            }
+            System.String requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings_linkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn = null;
+            if (cmdletContext.LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn != null)
+            {
+                requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings_linkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn = cmdletContext.LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn;
+            }
+            if (requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings_linkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn != null)
+            {
+                requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings.PrimaryChannelArn = requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings_linkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn;
+                requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettingsIsNull = false;
+            }
+             // determine if requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings should be set to null
+            if (requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettingsIsNull)
+            {
+                requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings = null;
+            }
+            if (requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings != null)
+            {
+                request.LinkedChannelSettings.FollowerChannelSettings = requestLinkedChannelSettings_linkedChannelSettings_FollowerChannelSettings;
+                requestLinkedChannelSettingsIsNull = false;
+            }
+             // determine if request.LinkedChannelSettings should be set to null
+            if (requestLinkedChannelSettingsIsNull)
+            {
+                request.LinkedChannelSettings = null;
+            }
             if (cmdletContext.LogLevel != null)
             {
                 request.LogLevel = cmdletContext.LogLevel;
@@ -729,6 +833,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }
             public Amazon.MediaLive.InputMaximumBitrate InputSpecification_MaximumBitrate { get; set; }
             public Amazon.MediaLive.InputResolution InputSpecification_Resolution { get; set; }
+            public Amazon.MediaLive.LinkedChannelType LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType { get; set; }
+            public System.String LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn { get; set; }
+            public Amazon.MediaLive.LinkedChannelType LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType { get; set; }
             public Amazon.MediaLive.LogLevel LogLevel { get; set; }
             public Amazon.MediaLive.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
             public System.String Maintenance_MaintenanceStartTime { get; set; }
