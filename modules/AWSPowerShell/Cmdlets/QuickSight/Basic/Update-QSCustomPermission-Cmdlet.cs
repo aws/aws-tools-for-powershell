@@ -398,6 +398,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_Research { get; set; }
         #endregion
         
+        #region Parameter Capabilities_SelfUpgradeUserRole
+        /// <summary>
+        /// <para>
+        /// <para>The ability to enable users to upgrade their user role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SelfUpgradeUserRole { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareAnalyses
         /// <summary>
         /// <para>
@@ -600,6 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_PublishWithoutApproval = this.Capabilities_PublishWithoutApproval;
             context.Capabilities_RenameSharedFolder = this.Capabilities_RenameSharedFolder;
             context.Capabilities_Research = this.Capabilities_Research;
+            context.Capabilities_SelfUpgradeUserRole = this.Capabilities_SelfUpgradeUserRole;
             context.Capabilities_ShareAnalyses = this.Capabilities_ShareAnalyses;
             context.Capabilities_ShareDashboard = this.Capabilities_ShareDashboard;
             context.Capabilities_ShareDataset = this.Capabilities_ShareDataset;
@@ -920,6 +932,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.Research = requestCapabilities_capabilities_Research;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SelfUpgradeUserRole = null;
+            if (cmdletContext.Capabilities_SelfUpgradeUserRole != null)
+            {
+                requestCapabilities_capabilities_SelfUpgradeUserRole = cmdletContext.Capabilities_SelfUpgradeUserRole;
+            }
+            if (requestCapabilities_capabilities_SelfUpgradeUserRole != null)
+            {
+                request.Capabilities.SelfUpgradeUserRole = requestCapabilities_capabilities_SelfUpgradeUserRole;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareAnalyses = null;
             if (cmdletContext.Capabilities_ShareAnalyses != null)
             {
@@ -1109,6 +1131,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_PublishWithoutApproval { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_RenameSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Research { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SelfUpgradeUserRole { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAnalyses { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDashboard { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDataset { get; set; }
