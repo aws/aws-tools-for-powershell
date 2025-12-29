@@ -199,6 +199,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Research") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Research") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_SelfUpgradeUserRole") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_SelfUpgradeUserRole") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareAnalyses") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAnalyses") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareDashboard") -Or
@@ -668,6 +670,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.SelfUpgradeAdminAction
+        "Update-QSSelfUpgrade/Action"
+        {
+            $v = "APPROVE","DENY","VERIFY"
+            break
+        }
+
+        # Amazon.QuickSight.SelfUpgradeStatus
+        "Update-QSSelfUpgradeConfiguration/SelfUpgradeStatus"
+        {
+            $v = "ADMIN_APPROVAL","AUTO_APPROVAL"
+            break
+        }
+
         # Amazon.QuickSight.ServiceType
         {
             ($_ -eq "Remove-QSIdentityPropagationConfig/Service") -Or
@@ -817,6 +833,7 @@ $QS_Completers = {
 }
 
 $QS_map = @{
+    "Action"=@("Update-QSSelfUpgrade")
     "AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationConfig_AuthenticationType"=@("New-QSActionConnector","Update-QSActionConnector")
@@ -854,6 +871,7 @@ $QS_map = @{
     "Capabilities_PublishWithoutApproval"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_RenameSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Research"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_SelfUpgradeUserRole"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareDashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -933,6 +951,7 @@ $QS_map = @{
     "Schedule_RefreshType"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "ScheduleFrequency_Interval"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "ScreenCanvasSizeOptions_ResizeOption"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "SelfUpgradeStatus"=@("Update-QSSelfUpgradeConfiguration")
     "Service"=@("Remove-QSIdentityPropagationConfig","Update-QSIdentityPropagationConfig")
     "SharingModel"=@("New-QSFolder")
     "SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
@@ -1106,6 +1125,7 @@ $QS_SelectMap = @{
                "Get-QSQuickSightQSearchConfiguration",
                "Get-QSRefreshSchedule",
                "Get-QSRoleCustomPermission",
+               "Get-QSSelfUpgradeConfigurationDetail",
                "Get-QSTemplate",
                "Get-QSTemplateAlias",
                "Get-QSTemplateDefinition",
@@ -1150,6 +1170,7 @@ $QS_SelectMap = @{
                "Get-QSNamespaceList",
                "Get-QSRefreshScheduleList",
                "Get-QSRoleMembershipList",
+               "Get-QSSelfUpgradeList",
                "Get-QSResourceTag",
                "Get-QSTemplateAliasList",
                "Get-QSTemplateList",
@@ -1217,6 +1238,8 @@ $QS_SelectMap = @{
                "Update-QSQuickSightQSearchConfiguration",
                "Update-QSRefreshSchedule",
                "Update-QSRoleCustomPermission",
+               "Update-QSSelfUpgrade",
+               "Update-QSSelfUpgradeConfiguration",
                "Update-QSSPICECapacityConfiguration",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",

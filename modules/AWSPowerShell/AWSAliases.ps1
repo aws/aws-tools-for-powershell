@@ -25934,6 +25934,9 @@ Set-Alias -Name Describe-QSRefreshSchedule -Value Get-QSRefreshSchedule
 Set-Alias -Name QS-DescribeRefreshSchedule -Value Get-QSRefreshSchedule
 Set-Alias -Name Describe-QSRoleCustomPermission -Value Get-QSRoleCustomPermission
 Set-Alias -Name QS-DescribeRoleCustomPermission -Value Get-QSRoleCustomPermission
+Set-Alias -Name Describe-QSSelfUpgradeConfiguration -Value Get-QSSelfUpgradeConfigurationDetail
+Set-Alias -Name Describe-QSSelfUpgradeConfigurationDetail -Value Get-QSSelfUpgradeConfigurationDetail
+Set-Alias -Name QS-DescribeSelfUpgradeConfiguration -Value Get-QSSelfUpgradeConfigurationDetail
 Set-Alias -Name Describe-QSTemplateAlias -Value Get-QSTemplateAlias
 Set-Alias -Name QS-DescribeTemplateAlias -Value Get-QSTemplateAlias
 Set-Alias -Name Describe-QSTemplate -Value Get-QSTemplate
@@ -26044,6 +26047,9 @@ Set-Alias -Name QS-ListRefreshSchedules -Value Get-QSRefreshScheduleList
 Set-Alias -Name List-QSRoleMemberships -Value Get-QSRoleMembershipList
 Set-Alias -Name List-QSRoleMembershipList -Value Get-QSRoleMembershipList
 Set-Alias -Name QS-ListRoleMemberships -Value Get-QSRoleMembershipList
+Set-Alias -Name List-QSSelfUpgrades -Value Get-QSSelfUpgradeList
+Set-Alias -Name List-QSSelfUpgradeList -Value Get-QSSelfUpgradeList
+Set-Alias -Name QS-ListSelfUpgrades -Value Get-QSSelfUpgradeList
 Set-Alias -Name QS-ListTagsForResource -Value Get-QSResourceTag
 Set-Alias -Name List-QSTemplateAliases -Value Get-QSTemplateAliasList
 Set-Alias -Name List-QSTemplateAliasList -Value Get-QSTemplateAliasList
@@ -26160,6 +26166,8 @@ Set-Alias -Name QS-UpdateQPersonalizationConfiguration -Value Update-QSQPersonal
 Set-Alias -Name QS-UpdateQuickSightQSearchConfiguration -Value Update-QSQuickSightQSearchConfiguration
 Set-Alias -Name QS-UpdateRefreshSchedule -Value Update-QSRefreshSchedule
 Set-Alias -Name QS-UpdateRoleCustomPermission -Value Update-QSRoleCustomPermission
+Set-Alias -Name QS-UpdateSelfUpgrade -Value Update-QSSelfUpgrade
+Set-Alias -Name QS-UpdateSelfUpgradeConfiguration -Value Update-QSSelfUpgradeConfiguration
 Set-Alias -Name QS-UpdateSPICECapacityConfiguration -Value Update-QSSPICECapacityConfiguration
 Set-Alias -Name QS-UpdateTemplateAlias -Value Update-QSTemplateAlias
 Set-Alias -Name QS-UpdateTemplate -Value Update-QSTemplate

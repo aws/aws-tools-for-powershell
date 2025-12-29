@@ -1,4 +1,14 @@
-﻿### 5.0.124 (2025-12-26 21:03Z)
+﻿### 5.0.125 (2025-12-29 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.161.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSSelfUpgradeConfigurationDetail leveraging the DescribeSelfUpgradeConfiguration service API.
+    * Added cmdlet Get-QSSelfUpgradeList leveraging the ListSelfUpgrades service API.
+    * Added cmdlet Update-QSSelfUpgrade leveraging the UpdateSelfUpgrade service API.
+    * Added cmdlet Update-QSSelfUpgradeConfiguration leveraging the UpdateSelfUpgradeConfiguration service API.
+    * Modified cmdlet New-QSCustomPermission: added parameter Capabilities_SelfUpgradeUserRole.
+    * Modified cmdlet Update-QSCustomPermission: added parameter Capabilities_SelfUpgradeUserRole.
+
+### 5.0.124 (2025-12-26 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.160.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon Elastic Transcoder
   * Amazon Elemental MediaLive

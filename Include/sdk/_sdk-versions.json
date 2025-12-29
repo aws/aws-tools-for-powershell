@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.160.0",
+    "ProductVersion"    : "4.0.161.0",
     "CoreVersion"       : "4.0.3.6",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.10.4",
+            "Version" : "4.0.10.5",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -1012,7 +1012,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.23.0",
+            "Version" : "4.0.24.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -1156,7 +1156,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "4.0.11.1",
+            "Version" : "4.0.12.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"

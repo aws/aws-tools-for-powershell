@@ -764,6 +764,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSelfUpgradeConfiguration" OutputProperty="SelfUpgradeConfiguration" Verb="Get" Noun="SelfUpgradeConfigurationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -996,6 +1000,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRoleMemberships" OutputProperty="MembersList" Verb="Get" Noun="RoleMembershipList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSelfUpgrades" OutputProperty="SelfUpgradeRequestDetails" Verb="Get" Noun="SelfUpgradeList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1507,6 +1515,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoleCustomPermission" OutputProperty="*" Verb="Update" Noun="RoleCustomPermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSelfUpgrade" OutputProperty="SelfUpgradeRequestDetail" Verb="Update" Noun="SelfUpgrade" ShouldProcessTarget="AwsAccountId,UpgradeRequestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSelfUpgradeConfiguration" OutputProperty="*" Verb="Update" Noun="SelfUpgradeConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

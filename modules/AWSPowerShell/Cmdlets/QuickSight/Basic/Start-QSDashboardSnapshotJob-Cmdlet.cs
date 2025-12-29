@@ -105,16 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para><para>
     /// To generate snapshots for registered Quick Sight users, you need to:
     /// </para><ul><li><para>
-    /// Obtain identity-enhanced IAM role session credentials from AWS Security Token Service
-    /// (STS).
+    /// Obtain identity-enhanced IAM role session credentials from Amazon Web Services Security
+    /// Token Service (STS).
     /// </para></li><li><para>
     /// Use these credentials to call the Snapshot Job APIs.
     /// </para></li></ul><para>
     /// Identity-enhanced credentials are credentials that contain information about the end
     /// user (e.g., registered Quick Sight user).
     /// </para><para>
-    /// If your Quick Sight users are backed by <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS
-    /// Identity Center</a>, then you need to set up a <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/setuptrustedtokenissuer.html">trusted
+    /// If your Quick Sight users are backed by <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">Amazon
+    /// Web Services Identity Center</a>, then you need to set up a <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/setuptrustedtokenissuer.html">trusted
     /// token issuer</a>. Then, getting identity-enhanced IAM credentials for a Quick Sight
     /// user will look like the following:
     /// </para><ul><li><para>
