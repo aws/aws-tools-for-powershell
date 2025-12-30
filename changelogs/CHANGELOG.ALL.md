@@ -1,4 +1,9 @@
-﻿### 5.0.125 (2025-12-29 21:06Z)
+﻿### 5.0.126 (2025-12-30 20:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.162.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Modified cmdlet Search-CONNContact: added parameter SearchCriteria_ActiveRegion.
+
+### 5.0.125 (2025-12-29 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.161.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QuickSight
     * Added cmdlet Get-QSSelfUpgradeConfigurationDetail leveraging the DescribeSelfUpgradeConfiguration service API.

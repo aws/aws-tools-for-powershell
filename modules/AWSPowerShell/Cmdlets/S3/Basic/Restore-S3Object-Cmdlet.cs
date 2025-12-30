@@ -154,30 +154,39 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The bucket name containing the object to restore. </para><para><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must 
-        /// provide the alias of the access point in place of the bucket name or specify the access point ARN. When you 
-        /// use this action with an access point for directory buckets, you must provide the access point name in place 
-        /// of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The 
-        /// access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When 
-        /// using this action with an access point through the Amazon Web Services SDKs, you provide the access point 
-        /// ARN in place of the bucket name. For more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in 
-        /// the <i>Amazon S3 User Guide</i>.</para><para><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts 
-        /// hostname. The S3 on Outposts hostname takes the form <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>. When 
-        /// you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access 
-        /// point alias. For more information about S3 on Outposts, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in 
-        /// the <i>Amazon S3 User Guide</i>.</para>
+        /// <para>The bucket name containing the object to restore. </para><para><b>Access points</b> - When you use this action with an access point for general
+        /// purpose buckets, you must provide the alias of the access point in place of the bucket
+        /// name or specify the access point ARN. When you use this action with an access point
+        /// for directory buckets, you must provide the access point name in place of the bucket
+        /// name. When using the access point ARN, you must direct requests to the access point
+        /// hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the Amazon Web Services SDKs,
+        /// you provide the access point ARN in place of the bucket name. For more information
+        /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct
+        /// requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+        /// <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>.
+        /// When you use this action with S3 on Outposts, the destination bucket must be the Outposts
+        /// access point ARN or the access point alias. For more information about S3 on Outposts,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter S3_BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket where the restore results will be placed.
+        /// <para>The name of the bucket where the restore results will be placed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter S3_CannedACL
         /// <summary>
         /// <para>
-        /// The canned ACL to apply to the restore results.
+        /// <para>The canned ACL to apply to the restore results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,9 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>Indicates the algorithm used to create the checksum for the object when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
         /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum</c>
-        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request
-        /// with the HTTP status code <c>400 Bad Request</c>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with the
+        /// HTTP status code <c>400 Bad Request</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
         /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c>
         /// parameter.</para>
         /// </para>
@@ -218,9 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter CopyLifetimeInDays
         /// <summary>
         /// <para>
-        /// <para>Lifetime of the active copy in days. 
-        /// Do not use with restores that specify <c>OutputLocation</c>.</para><para>The Days element is required for regular restores, and must not be provided for 
-        /// select requests.</para>
+        /// <para>Lifetime of the active copy in days. Do not use with restores that specify <c>OutputLocation</c>.</para><para>The Days element is required for regular restores, and must not be provided for select
+        /// requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -231,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The optional description for the job.
+        /// <para>The optional description for the job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,8 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Encryption_EncryptionType
         /// <summary>
         /// <para>
-        /// The server-side encryption algorithm used when storing job results in Amazon S3
-        /// (for example, AES256, <code>aws:kms</code>).
+        /// <para>The server-side encryption algorithm used when storing job results in Amazon S3 (for
+        /// example, AES256, <c>aws:kms</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,17 +310,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// This key indicates the S3 object to restore.
+        /// <para>Object key for which the action was initiated.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Key { get; set; }
         #endregion
         
         #region Parameter Encryption_KMSContext
         /// <summary>
         /// <para>
-        /// If the encryption type is aws:kms, this optional value can be used to specify the encryption context for the restore results.
+        /// <para>If the encryption type is <c>aws:kms</c>, this optional value can be used to specify
+        /// the encryption context for the restore results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,11 +339,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Encryption_KMSKeyId
         /// <summary>
         /// <para>
-        /// If the encryption type is <code>aws:kms</code>, this optional value
-        /// specifies the ID of the symmetric encryption customer managed key to use for encryption
-        /// of job results. Amazon S3 only supports symmetric encryption KMS keys. For more information, see 
-        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">
-        /// Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.
+        /// <para>If the encryption type is <c>aws:kms</c>, this optional value specifies the ID of
+        /// the symmetric encryption customer managed key to use for encryption of job results.
+        /// Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
+        /// keys in KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -339,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter S3_Prefix
         /// <summary>
         /// <para>
-        /// The prefix that is prepended to the restore results for this request.
+        /// <para>The prefix that is prepended to the restore results for this request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,8 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RequestPayer
         /// <summary>
         /// <para>
-        /// Confirms that the requester knows that she or he will be charged for the request.
-        /// Bucket owners need not specify this parameter in their requests.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -362,7 +375,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RestoreRequestType
         /// <summary>
         /// <para>
-        /// Type of restore request.
+        /// <important><para>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon
+        /// S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn
+        /// more</a></para></important><para>Type of restore request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -373,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RetrievalTier
         /// <summary>
         /// <para>
-        /// Retrieval tier at which the restore will be processed.
+        /// <para>Retrieval tier at which the restore will be processed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -384,7 +399,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SelectParameter
         /// <summary>
         /// <para>
-        /// Describes the parameters for Select job types.
+        /// <important><para>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon
+        /// S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn
+        /// more</a></para></important><para>Describes the parameters for Select job types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,7 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter S3_StorageClass
         /// <summary>
         /// <para>
-        /// The class of storage used to store the restore results.
+        /// <para>The class of storage used to store the restore results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -422,7 +439,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Tier
         /// <summary>
         /// <para>
-        /// Tier at which the restore will be processed.
+        /// <para>S3 Glacier related parameters pertaining to this job. Do not use with restores that
+        /// specify <c>OutputLocation</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -433,7 +451,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter S3_UserMetadata
         /// <summary>
         /// <para>
-        /// A map of metadata to store with the restore results in S3.
+        /// <para>A list of metadata to store with the restore results in S3.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,7 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// VersionId used to reference a specific version of the object.
+        /// <para>VersionId used to reference a specific version of the object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -498,34 +520,46 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.CopyLifetimeInDays = this.CopyLifetimeInDays;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Description = this.Description;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
-            context.Tier = this.Tier;
-            context.RetrievalTier = this.RetrievalTier;
-            context.RestoreRequestType = this.RestoreRequestType;
-            context.SelectParameter = this.SelectParameter;
-            context.S3_BucketName = this.S3_BucketName;
-            context.S3_Prefix = this.S3_Prefix;
-            context.Encryption_EncryptionType = this.Encryption_EncryptionType;
-            context.Encryption_KMSKeyId = this.Encryption_KMSKeyId;
-            context.Encryption_KMSContext = this.Encryption_KMSContext;
-            context.S3_CannedACL = this.S3_CannedACL;
+            #if MODULAR
+            if (this.Key == null && ParameterWasBound(nameof(this.Key)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.AccessControlList_Grant != null)
             {
                 context.AccessControlList_Grant = new List<Amazon.S3.Model.S3Grant>(this.AccessControlList_Grant);
             }
             context.Owner_DisplayName = this.Owner_DisplayName;
             context.Owner_Id = this.Owner_Id;
+            context.S3_BucketName = this.S3_BucketName;
+            context.S3_CannedACL = this.S3_CannedACL;
+            context.Encryption_EncryptionType = this.Encryption_EncryptionType;
+            context.Encryption_KMSContext = this.Encryption_KMSContext;
+            context.Encryption_KMSKeyId = this.Encryption_KMSKeyId;
+            context.S3_Prefix = this.S3_Prefix;
+            context.S3_StorageClass = this.S3_StorageClass;
             if (this.Tagging_TagSet != null)
             {
                 context.Tagging_TagSet = new List<Amazon.S3.Model.Tag>(this.Tagging_TagSet);
             }
             context.S3_UserMetadata = this.S3_UserMetadata;
-            context.S3_StorageClass = this.S3_StorageClass;
             context.RequestPayer = this.RequestPayer;
+            context.RestoreRequestType = this.RestoreRequestType;
+            context.RetrievalTier = this.RetrievalTier;
+            context.SelectParameter = this.SelectParameter;
+            context.Tier = this.Tier;
             context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
@@ -555,33 +589,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.Days = cmdletContext.CopyLifetimeInDays.Value;
             }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
-            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
-            }
-            if (cmdletContext.Tier != null)
-            {
-                request.Tier = cmdletContext.Tier;
-            }
-            if (cmdletContext.RetrievalTier != null)
-            {
-                request.RetrievalTier = cmdletContext.RetrievalTier;
-            }
-            if (cmdletContext.RestoreRequestType != null)
-            {
-                request.RestoreRequestType = cmdletContext.RestoreRequestType;
-            }
-            if (cmdletContext.SelectParameter != null)
-            {
-                request.SelectParameters = cmdletContext.SelectParameter;
             }
             
              // populate OutputLocation
@@ -602,16 +620,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 requestOutputLocation_outputLocation_S3.BucketName = requestOutputLocation_outputLocation_S3_s3_BucketName;
                 requestOutputLocation_outputLocation_S3IsNull = false;
             }
-            System.String requestOutputLocation_outputLocation_S3_s3_Prefix = null;
-            if (cmdletContext.S3_Prefix != null)
-            {
-                requestOutputLocation_outputLocation_S3_s3_Prefix = cmdletContext.S3_Prefix;
-            }
-            if (requestOutputLocation_outputLocation_S3_s3_Prefix != null)
-            {
-                requestOutputLocation_outputLocation_S3.Prefix = requestOutputLocation_outputLocation_S3_s3_Prefix;
-                requestOutputLocation_outputLocation_S3IsNull = false;
-            }
             Amazon.S3.S3CannedACL requestOutputLocation_outputLocation_S3_s3_CannedACL = null;
             if (cmdletContext.S3_CannedACL != null)
             {
@@ -622,14 +630,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 requestOutputLocation_outputLocation_S3.CannedACL = requestOutputLocation_outputLocation_S3_s3_CannedACL;
                 requestOutputLocation_outputLocation_S3IsNull = false;
             }
-            Amazon.S3.Model.MetadataCollection requestOutputLocation_outputLocation_S3_s3_UserMetadata = null;
-            if (cmdletContext.S3_UserMetadata != null)
+            System.String requestOutputLocation_outputLocation_S3_s3_Prefix = null;
+            if (cmdletContext.S3_Prefix != null)
             {
-                requestOutputLocation_outputLocation_S3_s3_UserMetadata = cmdletContext.S3_UserMetadata;
+                requestOutputLocation_outputLocation_S3_s3_Prefix = cmdletContext.S3_Prefix;
             }
-            if (requestOutputLocation_outputLocation_S3_s3_UserMetadata != null)
+            if (requestOutputLocation_outputLocation_S3_s3_Prefix != null)
             {
-                requestOutputLocation_outputLocation_S3.UserMetadata = requestOutputLocation_outputLocation_S3_s3_UserMetadata;
+                requestOutputLocation_outputLocation_S3.Prefix = requestOutputLocation_outputLocation_S3_s3_Prefix;
                 requestOutputLocation_outputLocation_S3IsNull = false;
             }
             Amazon.S3.S3StorageClass requestOutputLocation_outputLocation_S3_s3_StorageClass = null;
@@ -640,6 +648,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestOutputLocation_outputLocation_S3_s3_StorageClass != null)
             {
                 requestOutputLocation_outputLocation_S3.StorageClass = requestOutputLocation_outputLocation_S3_s3_StorageClass;
+                requestOutputLocation_outputLocation_S3IsNull = false;
+            }
+            Amazon.S3.Model.MetadataCollection requestOutputLocation_outputLocation_S3_s3_UserMetadata = null;
+            if (cmdletContext.S3_UserMetadata != null)
+            {
+                requestOutputLocation_outputLocation_S3_s3_UserMetadata = cmdletContext.S3_UserMetadata;
+            }
+            if (requestOutputLocation_outputLocation_S3_s3_UserMetadata != null)
+            {
+                requestOutputLocation_outputLocation_S3.UserMetadata = requestOutputLocation_outputLocation_S3_s3_UserMetadata;
                 requestOutputLocation_outputLocation_S3IsNull = false;
             }
             Amazon.S3.Model.Tagging requestOutputLocation_outputLocation_S3_outputLocation_S3_Tagging = null;
@@ -742,16 +760,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption.EncryptionType = requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_EncryptionType;
                 requestOutputLocation_outputLocation_S3_outputLocation_S3_EncryptionIsNull = false;
             }
-            System.String requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSKeyId = null;
-            if (cmdletContext.Encryption_KMSKeyId != null)
-            {
-                requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSKeyId = cmdletContext.Encryption_KMSKeyId;
-            }
-            if (requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSKeyId != null)
-            {
-                requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption.KMSKeyId = requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSKeyId;
-                requestOutputLocation_outputLocation_S3_outputLocation_S3_EncryptionIsNull = false;
-            }
             System.String requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSContext = null;
             if (cmdletContext.Encryption_KMSContext != null)
             {
@@ -760,6 +768,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSContext != null)
             {
                 requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption.KMSContext = requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSContext;
+                requestOutputLocation_outputLocation_S3_outputLocation_S3_EncryptionIsNull = false;
+            }
+            System.String requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSKeyId = null;
+            if (cmdletContext.Encryption_KMSKeyId != null)
+            {
+                requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSKeyId = cmdletContext.Encryption_KMSKeyId;
+            }
+            if (requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSKeyId != null)
+            {
+                requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption.KMSKeyId = requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption_encryption_KMSKeyId;
                 requestOutputLocation_outputLocation_S3_outputLocation_S3_EncryptionIsNull = false;
             }
              // determine if requestOutputLocation_outputLocation_S3_outputLocation_S3_Encryption should be set to null
@@ -790,6 +808,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.RequestPayer != null)
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
+            }
+            if (cmdletContext.RestoreRequestType != null)
+            {
+                request.RestoreRequestType = cmdletContext.RestoreRequestType;
+            }
+            if (cmdletContext.RetrievalTier != null)
+            {
+                request.RetrievalTier = cmdletContext.RetrievalTier;
+            }
+            if (cmdletContext.SelectParameter != null)
+            {
+                request.SelectParameters = cmdletContext.SelectParameter;
+            }
+            if (cmdletContext.Tier != null)
+            {
+                request.Tier = cmdletContext.Tier;
             }
             if (cmdletContext.VersionId != null)
             {
@@ -853,26 +887,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.Int32? CopyLifetimeInDays { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.String Description { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }
-            public Amazon.S3.GlacierJobTier Tier { get; set; }
-            public Amazon.S3.GlacierJobTier RetrievalTier { get; set; }
-            public Amazon.S3.RestoreRequestType RestoreRequestType { get; set; }
-            public Amazon.S3.Model.SelectParameters SelectParameter { get; set; }
-            public System.String S3_BucketName { get; set; }
-            public System.String S3_Prefix { get; set; }
-            public Amazon.S3.ServerSideEncryptionMethod Encryption_EncryptionType { get; set; }
-            public System.String Encryption_KMSKeyId { get; set; }
-            public System.String Encryption_KMSContext { get; set; }
-            public Amazon.S3.S3CannedACL S3_CannedACL { get; set; }
             public List<Amazon.S3.Model.S3Grant> AccessControlList_Grant { get; set; }
             public System.String Owner_DisplayName { get; set; }
             public System.String Owner_Id { get; set; }
+            public System.String S3_BucketName { get; set; }
+            public Amazon.S3.S3CannedACL S3_CannedACL { get; set; }
+            public Amazon.S3.ServerSideEncryptionMethod Encryption_EncryptionType { get; set; }
+            public System.String Encryption_KMSContext { get; set; }
+            public System.String Encryption_KMSKeyId { get; set; }
+            public System.String S3_Prefix { get; set; }
+            public Amazon.S3.S3StorageClass S3_StorageClass { get; set; }
             public List<Amazon.S3.Model.Tag> Tagging_TagSet { get; set; }
             public Amazon.S3.Model.MetadataCollection S3_UserMetadata { get; set; }
-            public Amazon.S3.S3StorageClass S3_StorageClass { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
+            public Amazon.S3.RestoreRequestType RestoreRequestType { get; set; }
+            public Amazon.S3.GlacierJobTier RetrievalTier { get; set; }
+            public Amazon.S3.Model.SelectParameters SelectParameter { get; set; }
+            public Amazon.S3.GlacierJobTier Tier { get; set; }
             public System.String VersionId { get; set; }
             public System.Func<Amazon.S3.Model.RestoreObjectResponse, RestoreS3ObjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

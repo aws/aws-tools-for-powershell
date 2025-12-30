@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.161.0",
+    "ProductVersion"    : "4.0.162.0",
     "CoreVersion"       : "4.0.3.6",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -80,7 +80,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "4.0.6.1",
+            "Version" : "4.0.6.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -300,7 +300,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.16.0",
+            "Version" : "4.0.16.1",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -348,7 +348,7 @@
             "InPreview"               : false
         },
         "SQS"                       : {
-            "Version" : "4.0.2.8",
+            "Version" : "4.0.2.9",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -1012,7 +1012,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.24.0",
+            "Version" : "4.0.25.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -2084,7 +2084,7 @@
             "InPreview"               : false
         },
         "KafkaConnect"                    : {
-            "Version" : "4.0.3.0",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
