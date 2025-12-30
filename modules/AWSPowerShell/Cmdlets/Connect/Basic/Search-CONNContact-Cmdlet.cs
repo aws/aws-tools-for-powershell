@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter SearchCriteria_ActiveRegion
+        /// <summary>
+        /// <para>
+        /// <para>The list of active regions for contacts in ACGR instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_ActiveRegions")]
+        public System.String[] SearchCriteria_ActiveRegion { get; set; }
+        #endregion
+        
         #region Parameter SearchCriteria_AgentId
         /// <summary>
         /// <para>
@@ -468,6 +479,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.SearchCriteria_ActiveRegion != null)
+            {
+                context.SearchCriteria_ActiveRegion = new List<System.String>(this.SearchCriteria_ActiveRegion);
+            }
             if (this.AdditionalTimeRange_Criterion != null)
             {
                 context.AdditionalTimeRange_Criterion = new List<Amazon.Connect.Model.SearchContactsAdditionalTimeRangeCriteria>(this.AdditionalTimeRange_Criterion);
@@ -588,6 +603,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
              // populate SearchCriteria
             var requestSearchCriteriaIsNull = true;
             request.SearchCriteria = new Amazon.Connect.Model.SearchCriteria();
+            List<System.String> requestSearchCriteria_searchCriteria_ActiveRegion = null;
+            if (cmdletContext.SearchCriteria_ActiveRegion != null)
+            {
+                requestSearchCriteria_searchCriteria_ActiveRegion = cmdletContext.SearchCriteria_ActiveRegion;
+            }
+            if (requestSearchCriteria_searchCriteria_ActiveRegion != null)
+            {
+                request.SearchCriteria.ActiveRegions = requestSearchCriteria_searchCriteria_ActiveRegion;
+                requestSearchCriteriaIsNull = false;
+            }
             List<System.String> requestSearchCriteria_searchCriteria_AgentId = null;
             if (cmdletContext.SearchCriteria_AgentId != null)
             {
@@ -1069,6 +1094,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> SearchCriteria_ActiveRegion { get; set; }
             public List<Amazon.Connect.Model.SearchContactsAdditionalTimeRangeCriteria> AdditionalTimeRange_Criterion { get; set; }
             public Amazon.Connect.SearchContactsMatchType AdditionalTimeRange_MatchType { get; set; }
             public List<System.String> AgentHierarchyGroups_L1Id { get; set; }
