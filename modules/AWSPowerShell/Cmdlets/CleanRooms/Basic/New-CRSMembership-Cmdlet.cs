@@ -84,6 +84,20 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String CollaborationIdentifier { get; set; }
         #endregion
         
+        #region Parameter IsMetricsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>An indicator as to whether Amazon CloudWatch metrics have been enabled or disabled
+        /// for the membership.</para><para>Amazon CloudWatch metrics are only available when the collaboration has metrics enabled.
+        /// This option can be set by collaboration members who have the ability to run queries
+        /// (analysis runners) or by members who are configured as payers.</para><para>When <c>true</c>, metrics about query execution are collected in Amazon CloudWatch.
+        /// The default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsMetricsEnabled { get; set; }
+        #endregion
+        
         #region Parameter JobCompute_IsResponsible
         /// <summary>
         /// <para>
@@ -332,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.S3_ResultFormat = this.S3_ResultFormat;
             context.S3_SingleFileOutput = this.S3_SingleFileOutput;
             context.DefaultResultConfiguration_RoleArn = this.DefaultResultConfiguration_RoleArn;
+            context.IsMetricsEnabled = this.IsMetricsEnabled;
             context.JobLogStatus = this.JobLogStatus;
             context.JobCompute_IsResponsible = this.JobCompute_IsResponsible;
             context.ModelInference_IsResponsible = this.ModelInference_IsResponsible;
@@ -530,6 +545,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestDefaultResultConfigurationIsNull)
             {
                 request.DefaultResultConfiguration = null;
+            }
+            if (cmdletContext.IsMetricsEnabled != null)
+            {
+                request.IsMetricsEnabled = cmdletContext.IsMetricsEnabled.Value;
             }
             if (cmdletContext.JobLogStatus != null)
             {
@@ -756,6 +775,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public Amazon.CleanRooms.ResultFormat S3_ResultFormat { get; set; }
             public System.Boolean? S3_SingleFileOutput { get; set; }
             public System.String DefaultResultConfiguration_RoleArn { get; set; }
+            public System.Boolean? IsMetricsEnabled { get; set; }
             public Amazon.CleanRooms.MembershipJobLogStatus JobLogStatus { get; set; }
             public System.Boolean? JobCompute_IsResponsible { get; set; }
             public System.Boolean? ModelInference_IsResponsible { get; set; }

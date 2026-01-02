@@ -266,6 +266,21 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         public System.String ProfileUrl { get; set; }
         #endregion
         
+        #region Parameter Role
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>Role</c> objects containing roles associated with the user.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Roles")]
+        public Amazon.IdentityStore.Model.Role[] Role { get; set; }
+        #endregion
+        
         #region Parameter Timezone
         /// <summary>
         /// <para>
@@ -412,6 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             }
             context.PreferredLanguage = this.PreferredLanguage;
             context.ProfileUrl = this.ProfileUrl;
+            if (this.Role != null)
+            {
+                context.Role = new List<Amazon.IdentityStore.Model.Role>(this.Role);
+            }
             context.Timezone = this.Timezone;
             context.Title = this.Title;
             context.UserName = this.UserName;
@@ -550,6 +569,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             {
                 request.ProfileUrl = cmdletContext.ProfileUrl;
             }
+            if (cmdletContext.Role != null)
+            {
+                request.Roles = cmdletContext.Role;
+            }
             if (cmdletContext.Timezone != null)
             {
                 request.Timezone = cmdletContext.Timezone;
@@ -643,6 +666,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             public List<Amazon.IdentityStore.Model.Photo> Photo { get; set; }
             public System.String PreferredLanguage { get; set; }
             public System.String ProfileUrl { get; set; }
+            public List<Amazon.IdentityStore.Model.Role> Role { get; set; }
             public System.String Timezone { get; set; }
             public System.String Title { get; set; }
             public System.String UserName { get; set; }
