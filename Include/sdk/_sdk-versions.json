@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1194.0",
+    "ProductVersion"    : "3.7.1195.0",
     "CoreVersion"       : "3.7.500.61",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1692,7 +1692,7 @@
             "InPreview"               : false
         },
         "IdentityStore"                   : {
-            "Version" : "3.7.504.10",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.61"
@@ -2516,7 +2516,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "3.7.510.4",
+            "Version" : "3.7.511.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.61"

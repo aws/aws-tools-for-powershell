@@ -178,6 +178,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter IsMetricsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>An indicator as to whether metrics have been enabled or disabled for the collaboration.</para><para>When <c>true</c>, collaboration members can opt in to Amazon CloudWatch metrics for
+        /// their membership queries. The default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsMetricsEnabled { get; set; }
+        #endregion
+        
         #region Parameter JobCompute_IsResponsible
         /// <summary>
         /// <para>
@@ -434,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IsMetricsEnabled = this.IsMetricsEnabled;
             context.JobLogStatus = this.JobLogStatus;
             if (this.Member != null)
             {
@@ -724,6 +736,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.IsMetricsEnabled != null)
+            {
+                request.IsMetricsEnabled = cmdletContext.IsMetricsEnabled.Value;
+            }
             if (cmdletContext.JobLogStatus != null)
             {
                 request.JobLogStatus = cmdletContext.JobLogStatus;
@@ -821,6 +837,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.Boolean? DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName { get; set; }
             public System.Boolean? DataEncryptionMetadata_PreserveNull { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? IsMetricsEnabled { get; set; }
             public Amazon.CleanRooms.CollaborationJobLogStatus JobLogStatus { get; set; }
             public List<Amazon.CleanRooms.Model.MemberSpecification> Member { get; set; }
             public System.String Name { get; set; }
