@@ -220,6 +220,24 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String InputChannel_RoleArn { get; set; }
         #endregion
         
+        #region Parameter InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark
+        /// <summary>
+        /// <para>
+        /// <para>The Spark configuration properties for SQL workloads. This map contains key-value
+        /// pairs that configure Apache Spark settings to optimize performance for your data processing
+        /// jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters
+        /// and each value being 0-500 characters. These properties allow you to adjust compute
+        /// capacity for large datasets and complex workloads.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -315,6 +333,14 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             #endif
             context.Description = this.Description;
             context.Worker_Number = this.Worker_Number;
+            if (this.InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark != null)
+            {
+                context.InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark.Keys)
+                {
+                    context.InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark.Add((String)hashKey, (System.String)(this.InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark[hashKey]));
+                }
+            }
             context.Worker_Type = this.Worker_Type;
             context.ProtectedQueryInputParameters_ResultFormat = this.ProtectedQueryInputParameters_ResultFormat;
             context.SqlParameters_AnalysisTemplateArn = this.SqlParameters_AnalysisTemplateArn;
@@ -450,6 +476,31 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_worker_Type != null)
             {
                 requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker.Type = requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_worker_Type;
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_WorkerIsNull = false;
+            }
+            Amazon.CleanRoomsML.Model.WorkerComputeConfigurationProperties requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties = null;
+            
+             // populate Properties
+            var requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_PropertiesIsNull = true;
+            requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties = new Amazon.CleanRoomsML.Model.WorkerComputeConfigurationProperties();
+            Dictionary<System.String, System.String> requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark = null;
+            if (cmdletContext.InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark != null)
+            {
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark = cmdletContext.InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark;
+            }
+            if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark != null)
+            {
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties.Spark = requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark;
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_PropertiesIsNull = false;
+            }
+             // determine if requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties should be set to null
+            if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_PropertiesIsNull)
+            {
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties = null;
+            }
+            if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties != null)
+            {
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker.Properties = requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties;
                 requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_WorkerIsNull = false;
             }
              // determine if requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker should be set to null
@@ -620,6 +671,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public List<System.String> ConfiguredModelAlgorithmAssociation { get; set; }
             public System.String Description { get; set; }
             public System.Int32? Worker_Number { get; set; }
+            public Dictionary<System.String, System.String> InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark { get; set; }
             public Amazon.CleanRoomsML.WorkerComputeType Worker_Type { get; set; }
             public Amazon.CleanRoomsML.ResultFormat ProtectedQueryInputParameters_ResultFormat { get; set; }
             public System.String SqlParameters_AnalysisTemplateArn { get; set; }

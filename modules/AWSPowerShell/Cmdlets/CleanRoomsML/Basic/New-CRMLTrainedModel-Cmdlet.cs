@@ -269,7 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         #region Parameter ResourceConfig_VolumeSizeInGB
         /// <summary>
         /// <para>
-        /// <para>The maximum size of the instance that is used to train the model.</para>
+        /// <para>The volume size of the instance that is used to train the model. Please see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-volumes.html">EC2
+        /// volume limit</a> for volume size limitations on different instance types.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
