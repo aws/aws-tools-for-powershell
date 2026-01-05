@@ -39,6 +39,10 @@ param (
   [Parameter()]
   [bool] $SkipAWSSDKCoreDlls = $true
 )
+
+# Dot-source utility functions
+. "$PSScriptRoot\Util.ps1"
+
 function DownloadSdkArtifacts {
   [CmdletBinding()]
   param (
@@ -51,20 +55,10 @@ function DownloadSdkArtifacts {
   
   if ($SdkArtifactsUri.Trim().EndsWith('_sdk-versions.json')) {
     Write-Host "Downloading $SdkArtifactsUri"
-    $maxHttpGetAttempts = 10
-    for ($i = 1; $i -le $maxHttpGetAttempts; $i++) {
-      try {
-        Invoke-WebRequest -Uri $SdkArtifactsUri -OutFile ./Include/sdk/_sdk-versions.json
-        break
-      }
-      catch {
-        if ($i -eq $maxHttpGetAttempts) {
-          throw "Error retrieving versions file. $_"
-        }
-        Write-Host "Error downloading versions file, waiting for retry. $_"
-        Start-Sleep -Seconds 30
-      }
-    }
+
+    Invoke-WithExponentialBackoff -ScriptBlock {
+      Invoke-WebRequest -Uri $SdkArtifactsUri -OutFile ./Include/sdk/_sdk-versions.json
+    } -ErrorMessage "Error retrieving versions file"
   }
   elseif ($SdkArtifactsUri.Trim().EndsWith('.zip')) {
     $s3Uri = $null
@@ -74,7 +68,10 @@ function DownloadSdkArtifacts {
     }
     elseif (-Not [Amazon.S3.Util.AmazonS3Uri]::TryParseAmazonS3Uri($SdkArtifactsUri, [ref] $s3Uri)) {
       Write-Host "Downloading $SdkArtifactsUri"
-      Invoke-WebRequest -Uri $SdkArtifactsUri -OutFile ./Include/sdk.zip
+      
+      Invoke-WithExponentialBackoff -ScriptBlock {
+        Invoke-WebRequest -Uri $SdkArtifactsUri -OutFile ./Include/sdk.zip
+      } -ErrorMessage "Error retrieving SDK zip file"
     }
     else {
       Write-Host "Downloading $($s3Uri.Bucket) $($s3Uri.Key)"
