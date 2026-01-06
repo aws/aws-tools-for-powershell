@@ -44,13 +44,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     configModel.AnalysisErrors.Any() ||
                     configModel.ServiceOperationsList.Any(op => op.AnalysisErrors.Any()));
 
-                // This creates a file named 'buildConfigErrors'. It is used as a flag file 
-                // for CDK to send trebuchet an approval for build config failures                
-                if (hasErrors)
-                {
-                    File.WriteAllText(Path.Combine(folderPath, "buildConfigErrors"), string.Empty);
-                }
-
                 bool hasNewOperations = models.Any(model => model.ServiceOperationsList.Any(op => op.IsAutoConfiguring));
                 bool isReservedParameterNameHandled = models.Any(model => model.ServiceOperationsList.Any(op => op.IsReservedParameterNameHandled));
                 bool isCircularDependencyDetected = models.Any(model => model.ServiceOperationsList.Any(op => op.IsCircularDependencyDetected));
@@ -259,6 +252,12 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 if (!generateReportOnly)
                 {
                     doc.Save(filename);
+                    // Create buildConfigErrors flag file only after report.xml is successfully saved and only when there are errors.
+                    // This ensures the flag file is not created if an exception occurs during XML processing or if the report is not saved.
+                    if (hasErrors)
+                    {
+                        File.WriteAllText(Path.Combine(folderPath, "buildConfigErrors"), string.Empty);
+                    }
                 }
                 else if ((hasNewOperations || isReservedParameterNameHandled || isCircularDependencyDetected) && !hasErrors)
                 {
