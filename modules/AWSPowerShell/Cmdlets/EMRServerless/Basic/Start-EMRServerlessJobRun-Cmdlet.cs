@@ -98,6 +98,32 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.Boolean? ManagedPersistenceMonitoringConfiguration_Enabled { get; set; }
         #endregion
         
+        #region Parameter ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the optional encryption context that will be used when encrypting the data.
+        /// An encryption context is a collection of non-secret key-value pairs that represent
+        /// additional authenticated data. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext { get; set; }
+        #endregion
+        
+        #region Parameter ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key ARN to encrypt local disks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLoggingConfiguration_EncryptionKeyArn
         /// <summary>
         /// <para>
@@ -451,6 +477,15 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 context.ConfigurationOverrides_ApplicationConfiguration = new List<Amazon.EMRServerless.Model.Configuration>(this.ConfigurationOverrides_ApplicationConfiguration);
             }
+            if (this.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext != null)
+            {
+                context.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext.Keys)
+                {
+                    context.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext.Add((String)hashKey, (System.String)(this.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext[hashKey]));
+                }
+            }
+            context.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn = this.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn;
             context.CloudWatchLoggingConfiguration_Enabled = this.CloudWatchLoggingConfiguration_Enabled;
             context.CloudWatchLoggingConfiguration_EncryptionKeyArn = this.CloudWatchLoggingConfiguration_EncryptionKeyArn;
             context.CloudWatchLoggingConfiguration_LogGroupName = this.CloudWatchLoggingConfiguration_LogGroupName;
@@ -550,6 +585,41 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (requestConfigurationOverrides_configurationOverrides_ApplicationConfiguration != null)
             {
                 request.ConfigurationOverrides.ApplicationConfiguration = requestConfigurationOverrides_configurationOverrides_ApplicationConfiguration;
+                requestConfigurationOverridesIsNull = false;
+            }
+            Amazon.EMRServerless.Model.DiskEncryptionConfiguration requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration = null;
+            
+             // populate DiskEncryptionConfiguration
+            var requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfigurationIsNull = true;
+            requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration = new Amazon.EMRServerless.Model.DiskEncryptionConfiguration();
+            Dictionary<System.String, System.String> requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration_configurationOverrides_DiskEncryptionConfiguration_EncryptionContext = null;
+            if (cmdletContext.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration_configurationOverrides_DiskEncryptionConfiguration_EncryptionContext = cmdletContext.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration_configurationOverrides_DiskEncryptionConfiguration_EncryptionContext != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration.EncryptionContext = requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration_configurationOverrides_DiskEncryptionConfiguration_EncryptionContext;
+                requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfigurationIsNull = false;
+            }
+            System.String requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration_configurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn = null;
+            if (cmdletContext.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration_configurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn = cmdletContext.ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration_configurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration.EncryptionKeyArn = requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration_configurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn;
+                requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfigurationIsNull = false;
+            }
+             // determine if requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration should be set to null
+            if (requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfigurationIsNull)
+            {
+                requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration = null;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration != null)
+            {
+                request.ConfigurationOverrides.DiskEncryptionConfiguration = requestConfigurationOverrides_configurationOverrides_DiskEncryptionConfiguration;
                 requestConfigurationOverridesIsNull = false;
             }
             Amazon.EMRServerless.Model.MonitoringConfiguration requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration = null;
@@ -967,6 +1037,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.String ApplicationId { get; set; }
             public System.String ClientToken { get; set; }
             public List<Amazon.EMRServerless.Model.Configuration> ConfigurationOverrides_ApplicationConfiguration { get; set; }
+            public Dictionary<System.String, System.String> ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext { get; set; }
+            public System.String ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionKeyArn { get; set; }
             public System.Boolean? CloudWatchLoggingConfiguration_Enabled { get; set; }
             public System.String CloudWatchLoggingConfiguration_EncryptionKeyArn { get; set; }
             public System.String CloudWatchLoggingConfiguration_LogGroupName { get; set; }

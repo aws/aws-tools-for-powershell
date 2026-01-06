@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.164.0",
+    "ProductVersion"    : "4.0.165.0",
     "CoreVersion"       : "4.0.3.7",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -812,7 +812,7 @@
             "InPreview"               : false
         },
         "CostExplorer"                    : {
-            "Version" : "4.0.10.3",
+            "Version" : "4.0.11.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.7"
@@ -2292,7 +2292,7 @@
             "InPreview"               : false
         },
         "EMRServerless"                       : {
-            "Version" : "4.0.7.1",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.7"
