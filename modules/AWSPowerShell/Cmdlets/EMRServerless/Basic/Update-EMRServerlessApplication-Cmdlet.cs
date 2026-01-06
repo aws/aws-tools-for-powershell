@@ -149,6 +149,28 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.Boolean? ManagedPersistenceMonitoringConfiguration_Enabled { get; set; }
         #endregion
         
+        #region Parameter DiskEncryptionConfiguration_EncryptionContext
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the optional encryption context that will be used when encrypting the data.
+        /// An encryption context is a collection of non-secret key-value pairs that represent
+        /// additional authenticated data. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable DiskEncryptionConfiguration_EncryptionContext { get; set; }
+        #endregion
+        
+        #region Parameter DiskEncryptionConfiguration_EncryptionKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key ARN to encrypt local disks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DiskEncryptionConfiguration_EncryptionKeyArn { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLoggingConfiguration_EncryptionKeyArn
         /// <summary>
         /// <para>
@@ -505,6 +527,15 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             context.AutoStopConfiguration_Enabled = this.AutoStopConfiguration_Enabled;
             context.AutoStopConfiguration_IdleTimeoutMinute = this.AutoStopConfiguration_IdleTimeoutMinute;
             context.ClientToken = this.ClientToken;
+            if (this.DiskEncryptionConfiguration_EncryptionContext != null)
+            {
+                context.DiskEncryptionConfiguration_EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DiskEncryptionConfiguration_EncryptionContext.Keys)
+                {
+                    context.DiskEncryptionConfiguration_EncryptionContext.Add((String)hashKey, (System.String)(this.DiskEncryptionConfiguration_EncryptionContext[hashKey]));
+                }
+            }
+            context.DiskEncryptionConfiguration_EncryptionKeyArn = this.DiskEncryptionConfiguration_EncryptionKeyArn;
             context.IdentityCenterConfiguration_IdentityCenterInstanceArn = this.IdentityCenterConfiguration_IdentityCenterInstanceArn;
             context.IdentityCenterConfiguration_UserBackgroundSessionsEnabled = this.IdentityCenterConfiguration_UserBackgroundSessionsEnabled;
             context.ImageConfiguration_ImageUri = this.ImageConfiguration_ImageUri;
@@ -649,6 +680,35 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate DiskEncryptionConfiguration
+            var requestDiskEncryptionConfigurationIsNull = true;
+            request.DiskEncryptionConfiguration = new Amazon.EMRServerless.Model.DiskEncryptionConfiguration();
+            Dictionary<System.String, System.String> requestDiskEncryptionConfiguration_diskEncryptionConfiguration_EncryptionContext = null;
+            if (cmdletContext.DiskEncryptionConfiguration_EncryptionContext != null)
+            {
+                requestDiskEncryptionConfiguration_diskEncryptionConfiguration_EncryptionContext = cmdletContext.DiskEncryptionConfiguration_EncryptionContext;
+            }
+            if (requestDiskEncryptionConfiguration_diskEncryptionConfiguration_EncryptionContext != null)
+            {
+                request.DiskEncryptionConfiguration.EncryptionContext = requestDiskEncryptionConfiguration_diskEncryptionConfiguration_EncryptionContext;
+                requestDiskEncryptionConfigurationIsNull = false;
+            }
+            System.String requestDiskEncryptionConfiguration_diskEncryptionConfiguration_EncryptionKeyArn = null;
+            if (cmdletContext.DiskEncryptionConfiguration_EncryptionKeyArn != null)
+            {
+                requestDiskEncryptionConfiguration_diskEncryptionConfiguration_EncryptionKeyArn = cmdletContext.DiskEncryptionConfiguration_EncryptionKeyArn;
+            }
+            if (requestDiskEncryptionConfiguration_diskEncryptionConfiguration_EncryptionKeyArn != null)
+            {
+                request.DiskEncryptionConfiguration.EncryptionKeyArn = requestDiskEncryptionConfiguration_diskEncryptionConfiguration_EncryptionKeyArn;
+                requestDiskEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.DiskEncryptionConfiguration should be set to null
+            if (requestDiskEncryptionConfigurationIsNull)
+            {
+                request.DiskEncryptionConfiguration = null;
             }
             
              // populate IdentityCenterConfiguration
@@ -1095,6 +1155,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.Boolean? AutoStopConfiguration_Enabled { get; set; }
             public System.Int32? AutoStopConfiguration_IdleTimeoutMinute { get; set; }
             public System.String ClientToken { get; set; }
+            public Dictionary<System.String, System.String> DiskEncryptionConfiguration_EncryptionContext { get; set; }
+            public System.String DiskEncryptionConfiguration_EncryptionKeyArn { get; set; }
             public System.String IdentityCenterConfiguration_IdentityCenterInstanceArn { get; set; }
             public System.Boolean? IdentityCenterConfiguration_UserBackgroundSessionsEnabled { get; set; }
             public System.String ImageConfiguration_ImageUri { get; set; }
