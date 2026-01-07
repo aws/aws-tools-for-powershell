@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// In the China (Ningxia) Region, you can copy images only within the same Region.
     /// </para><para>
     /// In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact
-    /// Amazon Web ServicesSupport.
+    /// Amazon Web Services Support.
     /// </para><important><para>
     /// Before copying a shared image, be sure to verify that it has been shared from the
     /// correct Amazon Web Services account. To determine if an image has been shared and
