@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// 
     ///  <important><para>
     /// Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
-    /// is destroyed. If you need to archive any user data, contact Amazon Web ServicesSupport
+    /// is destroyed. If you need to archive any user data, contact Amazon Web Services Support
     /// before terminating the WorkSpace.
     /// </para></important><para>
     /// You can terminate a WorkSpace that is in any state except <c>SUSPENDED</c>.

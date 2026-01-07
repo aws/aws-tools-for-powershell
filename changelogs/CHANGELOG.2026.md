@@ -1,4 +1,7 @@
-﻿### 4.1.974 (2026-01-06 21:15Z)
+﻿### 4.1.975 (2026-01-07 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1198.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.974 (2026-01-06 21:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1197.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Serverless
     * Modified cmdlet New-EMRServerlessApplication: added parameters DiskEncryptionConfiguration_EncryptionContext and DiskEncryptionConfiguration_EncryptionKeyArn.
