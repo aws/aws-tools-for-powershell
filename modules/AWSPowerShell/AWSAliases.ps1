@@ -15114,6 +15114,7 @@ Set-Alias -Name GLUE-GetJobRuns -Value Get-GLUEJobRunList
 Set-Alias -Name Get-GLUEJobs -Value Get-GLUEJobList
 Set-Alias -Name GLUE-GetJobs -Value Get-GLUEJobList
 Set-Alias -Name GLUE-GetMapping -Value Get-GLUEMapping
+Set-Alias -Name GLUE-GetMaterializedViewRefreshTaskRun -Value Get-GLUEMaterializedViewRefreshTaskRun
 Set-Alias -Name GLUE-GetMLTaskRun -Value Get-GLUEMLTaskRun
 Set-Alias -Name Get-GLUEMLTaskRuns -Value Get-GLUEMLTaskRunList
 Set-Alias -Name GLUE-GetMLTaskRuns -Value Get-GLUEMLTaskRunList
@@ -15214,6 +15215,9 @@ Set-Alias -Name GLUE-ListIntegrationResourceProperties -Value Get-GLUEIntegratio
 Set-Alias -Name List-GLUEJobs -Value Get-GLUEJobNameList
 Set-Alias -Name List-GLUEJobNameList -Value Get-GLUEJobNameList
 Set-Alias -Name GLUE-ListJobs -Value Get-GLUEJobNameList
+Set-Alias -Name List-GLUEMaterializedViewRefreshTaskRuns -Value Get-GLUEMaterializedViewRefreshTaskRunList
+Set-Alias -Name List-GLUEMaterializedViewRefreshTaskRunList -Value Get-GLUEMaterializedViewRefreshTaskRunList
+Set-Alias -Name GLUE-ListMaterializedViewRefreshTaskRuns -Value Get-GLUEMaterializedViewRefreshTaskRunList
 Set-Alias -Name List-GLUEMLTransforms -Value Get-GLUEMLTransformIdentifier
 Set-Alias -Name List-GLUEMLTransformIdentifier -Value Get-GLUEMLTransformIdentifier
 Set-Alias -Name GLUE-ListMLTransforms -Value Get-GLUEMLTransformIdentifier
@@ -15279,6 +15283,7 @@ Set-Alias -Name GLUE-StartDataQualityRulesetEvaluationRun -Value Start-GLUEDataQ
 Set-Alias -Name GLUE-StartExportLabelsTaskRun -Value Start-GLUEExportLabelsTaskRun
 Set-Alias -Name GLUE-StartImportLabelsTaskRun -Value Start-GLUEImportLabelsTaskRun
 Set-Alias -Name GLUE-StartJobRun -Value Start-GLUEJobRun
+Set-Alias -Name GLUE-StartMaterializedViewRefreshTaskRun -Value Start-GLUEMaterializedViewRefreshTaskRun
 Set-Alias -Name GLUE-StartMLEvaluationTaskRun -Value Start-GLUEMLEvaluationTaskRun
 Set-Alias -Name GLUE-StartMLLabelingSetGenerationTaskRun -Value Start-GLUEMLLabelingSetGenerationTaskRun
 Set-Alias -Name GLUE-StartTrigger -Value Start-GLUETrigger
@@ -15287,6 +15292,7 @@ Set-Alias -Name GLUE-StopColumnStatisticsTaskRun -Value Stop-GLUEColumnStatistic
 Set-Alias -Name GLUE-StopColumnStatisticsTaskRunSchedule -Value Stop-GLUEColumnStatisticsTaskRunSchedule
 Set-Alias -Name GLUE-StopCrawler -Value Stop-GLUECrawler
 Set-Alias -Name GLUE-StopCrawlerSchedule -Value Stop-GLUECrawlerSchedule
+Set-Alias -Name GLUE-StopMaterializedViewRefreshTaskRun -Value Stop-GLUEMaterializedViewRefreshTaskRun
 Set-Alias -Name GLUE-StopSession -Value Stop-GLUESession
 Set-Alias -Name GLUE-StopTrigger -Value Stop-GLUETrigger
 Set-Alias -Name GLUE-StopWorkflowRun -Value Stop-GLUEWorkflowRun

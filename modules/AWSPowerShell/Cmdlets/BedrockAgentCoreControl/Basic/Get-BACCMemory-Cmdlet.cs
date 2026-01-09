@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String MemoryId { get; set; }
         #endregion
         
+        #region Parameter View
+        /// <summary>
+        /// <para>
+        /// <para>The level of detail to return for the memory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.MemoryView")]
+        public Amazon.BedrockAgentCoreControl.MemoryView View { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Memory'.
@@ -114,6 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.View = this.View;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.MemoryId != null)
             {
                 request.MemoryId = cmdletContext.MemoryId;
+            }
+            if (cmdletContext.View != null)
+            {
+                request.View = cmdletContext.View;
             }
             
             CmdletOutput output;
@@ -196,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String MemoryId { get; set; }
+            public Amazon.BedrockAgentCoreControl.MemoryView View { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.GetMemoryResponse, GetBACCMemoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Memory;
         }

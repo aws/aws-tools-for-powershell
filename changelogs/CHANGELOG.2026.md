@@ -1,4 +1,14 @@
-﻿### 4.1.975 (2026-01-07 21:05Z)
+﻿### 4.1.976 (2026-01-09 21:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1199.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet Get-BACCMemory: added parameter View.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEMaterializedViewRefreshTaskRun leveraging the GetMaterializedViewRefreshTaskRun service API.
+    * Added cmdlet Get-GLUEMaterializedViewRefreshTaskRunList leveraging the ListMaterializedViewRefreshTaskRuns service API.
+    * Added cmdlet Start-GLUEMaterializedViewRefreshTaskRun leveraging the StartMaterializedViewRefreshTaskRun service API.
+    * Added cmdlet Stop-GLUEMaterializedViewRefreshTaskRun leveraging the StopMaterializedViewRefreshTaskRun service API.
+
+### 4.1.975 (2026-01-07 21:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1198.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.974 (2026-01-06 21:15Z)
