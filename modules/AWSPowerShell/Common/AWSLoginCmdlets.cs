@@ -241,6 +241,7 @@ namespace Amazon.PowerShell.Common
                 var returnedState = httpListenerContext.Request.QueryString?["state"]; // This has CSRF Prevention String
                 var error = httpListenerContext.Request.QueryString["error"];
 
+                // Validate error returned by service. Service might not return "state" if there is an "error". So we should not be validating state before we check for "error".
                 if (error != null)
                 {
                     // Sanitize/validate error parameter
@@ -252,14 +253,25 @@ namespace Amazon.PowerShell.Common
                     // HTML encode if displaying in web page
                     var safeError = WebUtility.HtmlEncode(error);
 
+                    // Send an error response back to the browser before failing the login. The response HTML parses error from query string. So passing value here is only considered in response HTML fails to load from assembly resource and we use fallback HTML.
+                    AWSLoginUtils.SendHtmlResponse(httpListenerContext.Response, safeError);
+
                     throw new Exception($"OAuth error: {safeError}");
                 }
 
-                AWSLoginUtils.SendHtmlResponse(httpListenerContext.Response, error);
+                // In case no error is returned from service, send a generic success response to the browser. It's fine if later, auth code or CSRF token validation fails.
+                AWSLoginUtils.SendHtmlResponse(httpListenerContext.Response, null);
 
+                // Validate that the state parameter matches the CSRF token we generated.
                 if (returnedState != csrfState)
                 {
                     throw new Exception($"State parameter {returnedState} does not match expected value {csrfState}.");
+                }
+
+                // Validate the authorization code before attempting to exchange it for a token. We cannot validate for length (e.g. 2048) since RFC https://datatracker.ietf.org/doc/html/rfc6749#page-24 doesn't restrict it to a certain length.
+                if (string.IsNullOrWhiteSpace(authCode))
+                {
+                    throw new Exception("Authorization code is missing from the OAuth redirect.");
                 }
             }
 
