@@ -23,65 +23,72 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCoreControl;
-using Amazon.BedrockAgentCoreControl.Model;
+using Amazon.Glue;
+using Amazon.Glue.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BACC
+namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieve an existing Amazon Bedrock AgentCore Memory resource.
+    /// Get the associated metadata/information for a task run, given a task run ID.
     /// </summary>
-    [Cmdlet("Get", "BACCMemory")]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.Memory")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetMemory API operation.", Operation = new[] {"GetMemory"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetMemoryResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.Memory or Amazon.BedrockAgentCoreControl.Model.GetMemoryResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.Memory object.",
-        "The service call response (type Amazon.BedrockAgentCoreControl.Model.GetMemoryResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "GLUEMaterializedViewRefreshTaskRun")]
+    [OutputType("Amazon.Glue.Model.MaterializedViewRefreshTaskRun")]
+    [AWSCmdlet("Calls the AWS Glue GetMaterializedViewRefreshTaskRun API operation.", Operation = new[] {"GetMaterializedViewRefreshTaskRun"}, SelectReturnType = typeof(Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunResponse))]
+    [AWSCmdletOutput("Amazon.Glue.Model.MaterializedViewRefreshTaskRun or Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunResponse",
+        "This cmdlet returns an Amazon.Glue.Model.MaterializedViewRefreshTaskRun object.",
+        "The service call response (type Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetBACCMemoryCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class GetGLUEMaterializedViewRefreshTaskRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter MemoryId
+        #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the memory to retrieve.</para>
+        /// <para>The ID of the Data Catalog where the table resides. If none is supplied, the account
+        /// ID is used by default.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemoryId { get; set; }
+        public System.String CatalogId { get; set; }
         #endregion
         
-        #region Parameter View
+        #region Parameter MaterializedViewRefreshTaskRunId
         /// <summary>
         /// <para>
-        /// <para>The level of detail to return for the memory.</para>
+        /// <para>The identifier for the particular materialized view refresh task run.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.MemoryView")]
-        public Amazon.BedrockAgentCoreControl.MemoryView View { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MaterializedViewRefreshTaskRunId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Memory'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.GetMemoryResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.GetMemoryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MaterializedViewRefreshTaskRun'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunResponse).
+        /// Specifying the name of a property of type Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Memory";
+        public string Select { get; set; } = "MaterializedViewRefreshTaskRun";
         #endregion
         
         protected override void StopProcessing()
@@ -100,17 +107,23 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.GetMemoryResponse, GetBACCMemoryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunResponse, GetGLUEMaterializedViewRefreshTaskRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MemoryId = this.MemoryId;
+            context.CatalogId = this.CatalogId;
             #if MODULAR
-            if (this.MemoryId == null && ParameterWasBound(nameof(this.MemoryId)))
+            if (this.CatalogId == null && ParameterWasBound(nameof(this.CatalogId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CatalogId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.View = this.View;
+            context.MaterializedViewRefreshTaskRunId = this.MaterializedViewRefreshTaskRunId;
+            #if MODULAR
+            if (this.MaterializedViewRefreshTaskRunId == null && ParameterWasBound(nameof(this.MaterializedViewRefreshTaskRunId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MaterializedViewRefreshTaskRunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -125,15 +138,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.GetMemoryRequest();
+            var request = new Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunRequest();
             
-            if (cmdletContext.MemoryId != null)
+            if (cmdletContext.CatalogId != null)
             {
-                request.MemoryId = cmdletContext.MemoryId;
+                request.CatalogId = cmdletContext.CatalogId;
             }
-            if (cmdletContext.View != null)
+            if (cmdletContext.MaterializedViewRefreshTaskRunId != null)
             {
-                request.View = cmdletContext.View;
+                request.MaterializedViewRefreshTaskRunId = cmdletContext.MaterializedViewRefreshTaskRunId;
             }
             
             CmdletOutput output;
@@ -168,12 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.GetMemoryResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetMemoryRequest request)
+        private Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetMemory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "GetMaterializedViewRefreshTaskRun");
             try
             {
-                return client.GetMemoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetMaterializedViewRefreshTaskRunAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -190,10 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String MemoryId { get; set; }
-            public Amazon.BedrockAgentCoreControl.MemoryView View { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.GetMemoryResponse, GetBACCMemoryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Memory;
+            public System.String CatalogId { get; set; }
+            public System.String MaterializedViewRefreshTaskRunId { get; set; }
+            public System.Func<Amazon.Glue.Model.GetMaterializedViewRefreshTaskRunResponse, GetGLUEMaterializedViewRefreshTaskRunCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MaterializedViewRefreshTaskRun;
         }
         
     }

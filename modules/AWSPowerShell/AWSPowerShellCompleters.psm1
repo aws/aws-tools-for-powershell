@@ -8314,6 +8314,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.MemoryView
+        "Get-BACCMemory/View"
+        {
+            $v = "full","without_decryption"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.NetworkMode
         {
             ($_ -eq "New-BACCAgentRuntime/NetworkConfiguration_NetworkMode") -Or
@@ -8394,6 +8401,7 @@ $BACC_map = @{
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
+    "View"=@("Get-BACCMemory")
 }
 
 _awsArgumentCompleterRegistration $BACC_Completers $BACC_map
@@ -37910,6 +37918,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEJobRunList",
                "Get-GLUEJobList",
                "Get-GLUEMapping",
+               "Get-GLUEMaterializedViewRefreshTaskRun",
                "Get-GLUEMLTaskRun",
                "Get-GLUEMLTaskRunList",
                "Get-GLUEMLTransform",
@@ -37964,6 +37973,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEEntityList",
                "Get-GLUEIntegrationResourcePropertyList",
                "Get-GLUEJobNameList",
+               "Get-GLUEMaterializedViewRefreshTaskRunList",
                "Get-GLUEMLTransformIdentifier",
                "Get-GLUERegistryList",
                "Get-GLUESchemaList",
@@ -37997,6 +38007,7 @@ $GLUE_SelectMap = @{
                "Start-GLUEExportLabelsTaskRun",
                "Start-GLUEImportLabelsTaskRun",
                "Start-GLUEJobRun",
+               "Start-GLUEMaterializedViewRefreshTaskRun",
                "Start-GLUEMLEvaluationTaskRun",
                "Start-GLUEMLLabelingSetGenerationTaskRun",
                "Start-GLUETrigger",
@@ -38005,6 +38016,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUEColumnStatisticsTaskRunSchedule",
                "Stop-GLUECrawler",
                "Stop-GLUECrawlerSchedule",
+               "Stop-GLUEMaterializedViewRefreshTaskRun",
                "Stop-GLUESession",
                "Stop-GLUETrigger",
                "Stop-GLUEWorkflowRun",

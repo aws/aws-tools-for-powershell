@@ -105,23 +105,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the bucket for which to set the logging parameters.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Indicates the algorithm used to create the checksum for the object when you use the
+        /// <para>Indicates the algorithm used to create the checksum for the request when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
-        /// SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code>
-        /// or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request
-        /// with the HTTP status code <code>400 Bad Request</code>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code>
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum</c>
+        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with the
+        /// HTTP status code <c>400 Bad Request</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -130,12 +136,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
+        #region Parameter ContentMD5
+        /// <summary>
+        /// <para>
+        /// <para>The MD5 hash of the <c>PutBucketLogging</c> request body.</para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// Web Services SDKs, this field is calculated automatically.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContentMD5 { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,11 +162,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter LoggingConfig_Grant
         /// <summary>
         /// <para>
-        /// A collection of grants.
-        /// 
-        /// <para>Buckets that use the bucket owner enforced setting for Object Ownership don't support
+        /// <para>Container for granting information.</para><para>Buckets that use the bucket owner enforced setting for Object Ownership don't support
         /// target grants. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions
-        /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,14 +179,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter PartitionedPrefix_PartitionDateSource
         /// <summary>
         /// <para>
-        /// <para>Specifies the partition date source for the partitioned prefix. 
-        /// <code>PartitionDateSource</code> can be <code>EventTime</code> or 
-        /// <code>DeliveryTime</code>.</para><para>For <code>DeliveryTime</code>, 
-        /// the time in the log file names corresponds to the delivery time for the 
-        /// log files. </para><para> For <code>EventTime</code>, The logs delivered 
-        /// are for a specific day only. The year, month, and day correspond to the 
-        /// day on which the event occurred, and the hour, minutes and seconds are 
-        /// set to 00 in the key.</para>
+        /// <para>Specifies the partition date source for the partitioned prefix. <c>PartitionDateSource</c>
+        /// can be <c>EventTime</c> or <c>DeliveryTime</c>.</para><para>For <c>DeliveryTime</c>, the time in the log file names corresponds to the delivery
+        /// time for the log files. </para><para> For <c>EventTime</c>, The logs delivered are for a specific day only. The year, month,
+        /// and day correspond to the day on which the event occurred, and the hour, minutes and
+        /// seconds are set to 00 in the key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,9 +207,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter LoggingConfig_TargetBucketName
         /// <summary>
         /// <para>
-        /// Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own,
-        /// including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In
-        /// this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.
+        /// <para>Specifies the bucket where you want Amazon S3 to store server access logs. You can
+        /// have your logs delivered to any bucket that you own, including the same bucket that
+        /// is being logged. You can also configure multiple buckets to deliver their logs to
+        /// the same target bucket. In this case, you should choose a different <c>TargetPrefix</c>
+        /// for each source bucket so that the delivered log files can be distinguished by key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,16 +276,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
-            context.LoggingConfig_TargetBucketName = this.LoggingConfig_TargetBucketName;
+            context.ContentMD5 = this.ContentMD5;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             if (this.LoggingConfig_Grant != null)
             {
                 context.LoggingConfig_Grant = new List<Amazon.S3.Model.S3Grant>(this.LoggingConfig_Grant);
             }
+            context.LoggingConfig_TargetBucketName = this.LoggingConfig_TargetBucketName;
             context.PartitionedPrefix_PartitionDateSource = this.PartitionedPrefix_PartitionDateSource;
             context.TargetObjectKeyFormat_SimplePrefix = this.TargetObjectKeyFormat_SimplePrefix;
             context.LoggingConfig_TargetPrefix = this.LoggingConfig_TargetPrefix;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -292,20 +317,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
+            if (cmdletContext.ContentMD5 != null)
+            {
+                request.ContentMD5 = cmdletContext.ContentMD5;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
              // populate LoggingConfig
             var requestLoggingConfigIsNull = true;
             request.LoggingConfig = new Amazon.S3.Model.S3BucketLoggingConfig();
-            System.String requestLoggingConfig_loggingConfig_TargetBucketName = null;
-            if (cmdletContext.LoggingConfig_TargetBucketName != null)
-            {
-                requestLoggingConfig_loggingConfig_TargetBucketName = cmdletContext.LoggingConfig_TargetBucketName;
-            }
-            if (requestLoggingConfig_loggingConfig_TargetBucketName != null)
-            {
-                request.LoggingConfig.TargetBucketName = requestLoggingConfig_loggingConfig_TargetBucketName;
-                requestLoggingConfigIsNull = false;
-            }
             List<Amazon.S3.Model.S3Grant> requestLoggingConfig_loggingConfig_Grant = null;
             if (cmdletContext.LoggingConfig_Grant != null)
             {
@@ -314,6 +337,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestLoggingConfig_loggingConfig_Grant != null)
             {
                 request.LoggingConfig.Grants = requestLoggingConfig_loggingConfig_Grant;
+                requestLoggingConfigIsNull = false;
+            }
+            System.String requestLoggingConfig_loggingConfig_TargetBucketName = null;
+            if (cmdletContext.LoggingConfig_TargetBucketName != null)
+            {
+                requestLoggingConfig_loggingConfig_TargetBucketName = cmdletContext.LoggingConfig_TargetBucketName;
+            }
+            if (requestLoggingConfig_loggingConfig_TargetBucketName != null)
+            {
+                request.LoggingConfig.TargetBucketName = requestLoggingConfig_loggingConfig_TargetBucketName;
                 requestLoggingConfigIsNull = false;
             }
             System.String requestLoggingConfig_loggingConfig_TargetPrefix = null;
@@ -381,10 +414,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.LoggingConfig = null;
             }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
-            }
             
             CmdletOutput output;
             
@@ -442,12 +471,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
-            public System.String LoggingConfig_TargetBucketName { get; set; }
+            public System.String ContentMD5 { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public List<Amazon.S3.Model.S3Grant> LoggingConfig_Grant { get; set; }
+            public System.String LoggingConfig_TargetBucketName { get; set; }
             public Amazon.S3.PartitionDateSource PartitionedPrefix_PartitionDateSource { get; set; }
             public Amazon.S3.Model.SimplePrefix TargetObjectKeyFormat_SimplePrefix { get; set; }
             public System.String LoggingConfig_TargetPrefix { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketLoggingResponse, WriteS3BucketLoggingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

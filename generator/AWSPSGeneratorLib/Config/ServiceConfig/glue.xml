@@ -596,6 +596,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMaterializedViewRefreshTaskRun" OutputProperty="MaterializedViewRefreshTaskRun" Verb="Get" Noun="MaterializedViewRefreshTaskRun" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMLTaskRun" OutputProperty="*" Verb="Get" Noun="MLTaskRun" PipelineParameter="TaskRunId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -858,6 +862,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMaterializedViewRefreshTaskRuns" OutputProperty="MaterializedViewRefreshTaskRuns" Verb="Get" Noun="MaterializedViewRefreshTaskRunList" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMLTransforms" OutputProperty="TransformIds" Verb="Get" Noun="MLTransformIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1020,6 +1028,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartMaterializedViewRefreshTaskRun" OutputProperty="MaterializedViewRefreshTaskRunId" Verb="Start" Noun="MaterializedViewRefreshTaskRun" ShouldProcessTarget="CatalogId,DatabaseName,TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMLEvaluationTaskRun" OutputProperty="TaskRunId" Verb="Start" Noun="MLEvaluationTaskRun" ShouldProcessTarget="TransformId" PipelineParameter="TransformId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1049,6 +1061,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopCrawlerSchedule" Verb="Stop" Noun="CrawlerSchedule" ShouldProcessTarget="CrawlerName" PipelineParameter="CrawlerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopMaterializedViewRefreshTaskRun" Verb="Stop" Noun="MaterializedViewRefreshTaskRun" ShouldProcessTarget="CatalogId,DatabaseName,TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

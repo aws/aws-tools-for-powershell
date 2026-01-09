@@ -171,6 +171,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.MemoryView
+        "Get-BACCMemory/View"
+        {
+            $v = "full","without_decryption"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.NetworkMode
         {
             ($_ -eq "New-BACCAgentRuntime/NetworkConfiguration_NetworkMode") -Or
@@ -251,6 +258,7 @@ $BACC_map = @{
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
+    "View"=@("Get-BACCMemory")
 }
 
 _awsArgumentCompleterRegistration $BACC_Completers $BACC_map
