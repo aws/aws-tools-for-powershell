@@ -1,4 +1,14 @@
-﻿### 4.1.976 (2026-01-09 21:39Z)
+﻿### 4.1.977 (2026-01-12 21:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1200.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Billing
+    * Modified cmdlet New-AWSBBillingView: added parameters DataFilterExpression_CostCategories_Key and DataFilterExpression_CostCategories_Value.
+    * Modified cmdlet Update-AWSBBillingView: added parameters DataFilterExpression_CostCategories_Key and DataFilterExpression_CostCategories_Value.
+  * Amazon Managed integrations for AWS IoT Device Management
+    * Modified cmdlet New-IOTMIManagedThing: added parameters WiFiSimpleSetupConfiguration_EnableAsProvisionee, WiFiSimpleSetupConfiguration_EnableAsProvisioner and WiFiSimpleSetupConfiguration_TimeoutInMinute.
+    * Modified cmdlet Start-IOTMIDeviceDiscovery: added parameters EndDeviceIdentifier and Protocol.
+    * Modified cmdlet Update-IOTMIManagedThing: added parameters WiFiSimpleSetupConfiguration_EnableAsProvisionee, WiFiSimpleSetupConfiguration_EnableAsProvisioner and WiFiSimpleSetupConfiguration_TimeoutInMinute.
+
+### 4.1.976 (2026-01-09 21:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1199.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet Get-BACCMemory: added parameter View.

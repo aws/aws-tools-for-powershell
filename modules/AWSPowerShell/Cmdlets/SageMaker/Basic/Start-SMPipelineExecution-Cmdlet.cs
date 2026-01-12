@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MlflowExperimentName
         /// <summary>
         /// <para>
-        /// <para> The MLflow experiment name of the start execution. </para>
+        /// <para> The MLflow experiment name of the pipeline execution. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -100,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter ProvisioningStatusFilter
         /// <summary>
         /// <para>
-        /// <para>Filter on the status of the device.</para>
+        /// <para>Filter on the status of the device. For more information, see <a href="https://docs.aws.amazon.com/iot-mi/latest/devguide/device-provisioning.html">Device
+        /// Provisioning</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

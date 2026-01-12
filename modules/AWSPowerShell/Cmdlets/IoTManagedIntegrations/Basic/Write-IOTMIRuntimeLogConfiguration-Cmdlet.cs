@@ -28,8 +28,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Set the runtime log configuration for a specific managed thing or for all managed
-    /// things as a group.
+    /// Set the runtime log configuration for a specific managed thing.
     /// </summary>
     [Cmdlet("Write", "IOTMIRuntimeLogConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
