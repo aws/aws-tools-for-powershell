@@ -122,6 +122,27 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public Amazon.IoTManagedIntegrations.DiscoveryType DiscoveryType { get; set; }
         #endregion
         
+        #region Parameter EndDeviceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique id of the end device for capability rediscovery.</para><note><para>This parameter is only available when the discovery type is CONTROLLER_CAPABILITY_REDISCOVERY.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EndDeviceIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Protocol
+        /// <summary>
+        /// <para>
+        /// <para>The protocol type for capability rediscovery (ZWAVE, ZIGBEE, or CUSTOM).</para><note><para>This parameter is only available when the discovery type is CONTROLLER_CAPABILITY_REDISCOVERY.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTManagedIntegrations.ProtocolType")]
+        public Amazon.IoTManagedIntegrations.ProtocolType Protocol { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -232,6 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 WriteWarning("You are passing $null as a value for parameter DiscoveryType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EndDeviceIdentifier = this.EndDeviceIdentifier;
+            context.Protocol = this.Protocol;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
@@ -291,6 +314,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (cmdletContext.DiscoveryType != null)
             {
                 request.DiscoveryType = cmdletContext.DiscoveryType;
+            }
+            if (cmdletContext.EndDeviceIdentifier != null)
+            {
+                request.EndDeviceIdentifier = cmdletContext.EndDeviceIdentifier;
+            }
+            if (cmdletContext.Protocol != null)
+            {
+                request.Protocol = cmdletContext.Protocol;
             }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Tag != null)
@@ -362,6 +393,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             public System.String ControllerIdentifier { get; set; }
             public Dictionary<System.String, System.String> CustomProtocolDetail { get; set; }
             public Amazon.IoTManagedIntegrations.DiscoveryType DiscoveryType { get; set; }
+            public System.String EndDeviceIdentifier { get; set; }
+            public Amazon.IoTManagedIntegrations.ProtocolType Protocol { get; set; }
             [System.ObsoleteAttribute]
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTManagedIntegrations.Model.StartDeviceDiscoveryResponse, StartIOTMIDeviceDiscoveryCmdlet, object> Select { get; set; } =

@@ -81,23 +81,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket to apply the configuration to.
+        /// <para>The bucket name.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Indicates the algorithm used to create the checksum for the object when you use the
+        /// <para>Indicates the algorithm used to create the checksum for the request when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
-        /// SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code>
-        /// or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request
-        /// with the HTTP status code <code>400 Bad Request</code>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code>
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum</c>
+        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with the
+        /// HTTP status code <c>400 Bad Request</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -106,10 +112,24 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
+        #region Parameter ContentMD5
+        /// <summary>
+        /// <para>
+        /// <para>The Base64 encoded 128-bit <c>MD5</c> digest of the data. You must use this header
+        /// as a message integrity check to verify that the request body was not corrupted in
+        /// transit. For more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
+        /// 1864</a>.</para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// Web Services SDKs, this field is calculated automatically.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContentMD5 { get; set; }
+        #endregion
+        
         #region Parameter WebsiteConfiguration_ErrorDocument
         /// <summary>
         /// <para>
-        /// The ErrorDocument value, an object key name to use when a 4XX class error occurs.
+        /// <para>The name of the error document for the website.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RedirectAllRequestsTo_HostName
         /// <summary>
         /// <para>
-        /// Name of the host where requests will be redirected.
+        /// <para>The host name to use in the redirect request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RedirectAllRequestsTo_HttpRedirectCode
         /// <summary>
         /// <para>
-        /// The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+        /// <para>The HTTP redirect code to use on the response. Not required if one of the siblings
+        /// is present.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,12 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter WebsiteConfiguration_IndexDocumentSuffix
         /// <summary>
         /// <para>
-        /// <para>This value is a suffix that is appended to a request that is for a "directory" 
-        /// on the website endpoint (e.g. if the suffix is index.html and
-        /// you make a request to amzn-s3-demo-bucket/images/ the data that
-        /// is returned will be for the object with the key name
-        /// images/index.html)</para><para>The suffix must not be empty and must not include a slash
-        /// character.</para>
+        /// <para>The name of the index document for the website.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RedirectAllRequestsTo_Protocol
         /// <summary>
         /// <para>
-        /// Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
+        /// <para>Protocol to use when redirecting requests. The default is the protocol that is used
+        /// in the original request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,9 +196,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RedirectAllRequestsTo_ReplaceKeyPrefixWith
         /// <summary>
         /// <para>
-        /// The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the
-        /// docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to
-        /// /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.
+        /// <para>The object key prefix to use in the redirect request. For example, to redirect requests
+        /// for all pages with prefix <c>docs/</c> (objects in the <c>docs/</c> folder) to <c>documents/</c>,
+        /// you can set a condition block with <c>KeyPrefixEquals</c> set to <c>docs/</c> and
+        /// in the Redirect set <c>ReplaceKeyPrefixWith</c> to <c>/documents</c>. Not required
+        /// if one of the siblings is present. Can be present only if <c>ReplaceKeyWith</c> is
+        /// not provided.</para><important><para>Replacement must be made for object keys containing special characters (such as carriage
+        /// returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
+        /// XML related object key constraints</a>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,8 +214,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RedirectAllRequestsTo_ReplaceKeyWith
         /// <summary>
         /// <para>
-        /// The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is
-        /// present. Can be present only if ReplaceKeyPrefixWith is not provided.
+        /// <para>The specific object key to use in the redirect request. For example, redirect request
+        /// to <c>error.html</c>. Not required if one of the siblings is present. Can be present
+        /// only if <c>ReplaceKeyPrefixWith</c> is not provided.</para><important><para>Replacement must be made for object keys containing special characters (such as carriage
+        /// returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
+        /// XML related object key constraints</a>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +229,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter WebsiteConfiguration_RoutingRule
         /// <summary>
         /// <para>
-        /// The list of routing rules that can be used for configuring redirects if certain conditions are meet.
+        /// <para>Rules that define when a redirect is applied and the redirect behavior.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,7 +287,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
+            context.ContentMD5 = this.ContentMD5;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.WebsiteConfiguration_ErrorDocument = this.WebsiteConfiguration_ErrorDocument;
             context.WebsiteConfiguration_IndexDocumentSuffix = this.WebsiteConfiguration_IndexDocumentSuffix;
             context.RedirectAllRequestsTo_HostName = this.RedirectAllRequestsTo_HostName;
@@ -270,7 +307,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.WebsiteConfiguration_RoutingRule = new List<Amazon.S3.Model.RoutingRule>(this.WebsiteConfiguration_RoutingRule);
             }
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -294,6 +330,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ChecksumAlgorithm != null)
             {
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+            }
+            if (cmdletContext.ContentMD5 != null)
+            {
+                request.ContentMD5 = cmdletContext.ContentMD5;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
              // populate WebsiteConfiguration
@@ -399,10 +443,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.WebsiteConfiguration = null;
             }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
-            }
             
             CmdletOutput output;
             
@@ -460,6 +500,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+            public System.String ContentMD5 { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String WebsiteConfiguration_ErrorDocument { get; set; }
             public System.String WebsiteConfiguration_IndexDocumentSuffix { get; set; }
             public System.String RedirectAllRequestsTo_HostName { get; set; }
@@ -468,7 +510,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String RedirectAllRequestsTo_ReplaceKeyPrefixWith { get; set; }
             public System.String RedirectAllRequestsTo_ReplaceKeyWith { get; set; }
             public List<Amazon.S3.Model.RoutingRule> WebsiteConfiguration_RoutingRule { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketWebsiteResponse, WriteS3BucketWebsiteCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -62,13 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The desired duration in hours for the training plan offerings.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("DurationHours")]
         public System.Int64? DurationHour { get; set; }
         #endregion
@@ -137,14 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("TargetResources")]
         public System.String[] TargetResource { get; set; }
         #endregion
@@ -216,12 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DurationHour = this.DurationHour;
-            #if MODULAR
-            if (this.DurationHour == null && ParameterWasBound(nameof(this.DurationHour)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DurationHour which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.EndTimeBefore = this.EndTimeBefore;
             context.InstanceCount = this.InstanceCount;
             context.InstanceType = this.InstanceType;
@@ -230,12 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.TargetResource = new List<System.String>(this.TargetResource);
             }
-            #if MODULAR
-            if (this.TargetResource == null && ParameterWasBound(nameof(this.TargetResource)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetResource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.UltraServerCount = this.UltraServerCount;
             context.UltraServerType = this.UltraServerType;
             

@@ -102,6 +102,28 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String CredentialLockerId { get; set; }
         #endregion
         
+        #region Parameter WiFiSimpleSetupConfiguration_EnableAsProvisionee
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the device can act as a provisionee in Wi-Fi Simple Setup, allowing
+        /// it to be configured by other devices.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WiFiSimpleSetupConfiguration_EnableAsProvisionee { get; set; }
+        #endregion
+        
+        #region Parameter WiFiSimpleSetupConfiguration_EnableAsProvisioner
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the device can act as a provisioner in Wi-Fi Simple Setup, allowing
+        /// it to configure other devices.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WiFiSimpleSetupConfiguration_EnableAsProvisioner { get; set; }
+        #endregion
+        
         #region Parameter CapabilityReport_Endpoint
         /// <summary>
         /// <para>
@@ -197,6 +219,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SerialNumber { get; set; }
+        #endregion
+        
+        #region Parameter WiFiSimpleSetupConfiguration_TimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The timeout duration in minutes for Wi-Fi Simple Setup. Valid range is 5 to 15 minutes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WiFiSimpleSetupConfiguration_TimeoutInMinutes")]
+        public System.Int32? WiFiSimpleSetupConfiguration_TimeoutInMinute { get; set; }
         #endregion
         
         #region Parameter CapabilityReport_Version
@@ -299,6 +332,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             context.Name = this.Name;
             context.Owner = this.Owner;
             context.SerialNumber = this.SerialNumber;
+            context.WiFiSimpleSetupConfiguration_EnableAsProvisionee = this.WiFiSimpleSetupConfiguration_EnableAsProvisionee;
+            context.WiFiSimpleSetupConfiguration_EnableAsProvisioner = this.WiFiSimpleSetupConfiguration_EnableAsProvisioner;
+            context.WiFiSimpleSetupConfiguration_TimeoutInMinute = this.WiFiSimpleSetupConfiguration_TimeoutInMinute;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -403,6 +439,45 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 request.SerialNumber = cmdletContext.SerialNumber;
             }
             
+             // populate WiFiSimpleSetupConfiguration
+            var requestWiFiSimpleSetupConfigurationIsNull = true;
+            request.WiFiSimpleSetupConfiguration = new Amazon.IoTManagedIntegrations.Model.WiFiSimpleSetupConfiguration();
+            System.Boolean? requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_EnableAsProvisionee = null;
+            if (cmdletContext.WiFiSimpleSetupConfiguration_EnableAsProvisionee != null)
+            {
+                requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_EnableAsProvisionee = cmdletContext.WiFiSimpleSetupConfiguration_EnableAsProvisionee.Value;
+            }
+            if (requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_EnableAsProvisionee != null)
+            {
+                request.WiFiSimpleSetupConfiguration.EnableAsProvisionee = requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_EnableAsProvisionee.Value;
+                requestWiFiSimpleSetupConfigurationIsNull = false;
+            }
+            System.Boolean? requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_EnableAsProvisioner = null;
+            if (cmdletContext.WiFiSimpleSetupConfiguration_EnableAsProvisioner != null)
+            {
+                requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_EnableAsProvisioner = cmdletContext.WiFiSimpleSetupConfiguration_EnableAsProvisioner.Value;
+            }
+            if (requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_EnableAsProvisioner != null)
+            {
+                request.WiFiSimpleSetupConfiguration.EnableAsProvisioner = requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_EnableAsProvisioner.Value;
+                requestWiFiSimpleSetupConfigurationIsNull = false;
+            }
+            System.Int32? requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_TimeoutInMinute = null;
+            if (cmdletContext.WiFiSimpleSetupConfiguration_TimeoutInMinute != null)
+            {
+                requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_TimeoutInMinute = cmdletContext.WiFiSimpleSetupConfiguration_TimeoutInMinute.Value;
+            }
+            if (requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_TimeoutInMinute != null)
+            {
+                request.WiFiSimpleSetupConfiguration.TimeoutInMinutes = requestWiFiSimpleSetupConfiguration_wiFiSimpleSetupConfiguration_TimeoutInMinute.Value;
+                requestWiFiSimpleSetupConfigurationIsNull = false;
+            }
+             // determine if request.WiFiSimpleSetupConfiguration should be set to null
+            if (requestWiFiSimpleSetupConfigurationIsNull)
+            {
+                request.WiFiSimpleSetupConfiguration = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -472,6 +547,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             public System.String Name { get; set; }
             public System.String Owner { get; set; }
             public System.String SerialNumber { get; set; }
+            public System.Boolean? WiFiSimpleSetupConfiguration_EnableAsProvisionee { get; set; }
+            public System.Boolean? WiFiSimpleSetupConfiguration_EnableAsProvisioner { get; set; }
+            public System.Int32? WiFiSimpleSetupConfiguration_TimeoutInMinute { get; set; }
             public System.Func<Amazon.IoTManagedIntegrations.Model.UpdateManagedThingResponse, UpdateIOTMIManagedThingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

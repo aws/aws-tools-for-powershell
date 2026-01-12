@@ -41328,7 +41328,7 @@ $IOTMI_Completers = {
             ($_ -eq "Get-IOTMIDeviceDiscoveryList/TypeFilter")
         }
         {
-            $v = "CLOUD","CUSTOM","ZIGBEE","ZWAVE"
+            $v = "CLOUD","CONTROLLER_CAPABILITY_REDISCOVERY","CUSTOM","ZIGBEE","ZWAVE"
             break
         }
 
@@ -41354,7 +41354,7 @@ $IOTMI_Completers = {
             ($_ -eq "Update-IOTMINotificationConfiguration/EventType")
         }
         {
-            $v = "ACCOUNT_ASSOCIATION","CONNECTOR_ASSOCIATION","CONNECTOR_ERROR_REPORT","DEVICE_COMMAND","DEVICE_COMMAND_REQUEST","DEVICE_DISCOVERY_STATUS","DEVICE_EVENT","DEVICE_LIFE_CYCLE","DEVICE_OTA","DEVICE_STATE"
+            $v = "ACCOUNT_ASSOCIATION","CONNECTOR_ASSOCIATION","CONNECTOR_ERROR_REPORT","DEVICE_COMMAND","DEVICE_COMMAND_REQUEST","DEVICE_DISCOVERY_STATUS","DEVICE_EVENT","DEVICE_LIFE_CYCLE","DEVICE_OTA","DEVICE_STATE","DEVICE_WSS"
             break
         }
 
@@ -41395,6 +41395,13 @@ $IOTMI_Completers = {
         "New-IOTMIOtaTask/OtaType"
         {
             $v = "CONTINUOUS","ONE_TIME"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.ProtocolType
+        "Start-IOTMIDeviceDiscovery/Protocol"
+        {
+            $v = "CUSTOM","ZIGBEE","ZWAVE"
             break
         }
 
@@ -41484,7 +41491,7 @@ $IOTMI_map = @{
     "OtaMechanism"=@("New-IOTMIOtaTask")
     "OtaSchedulingConfig_EndBehavior"=@("New-IOTMIOtaTask")
     "OtaType"=@("New-IOTMIOtaTask")
-    "Protocol"=@("New-IOTMIOtaTask")
+    "Protocol"=@("New-IOTMIOtaTask","Start-IOTMIDeviceDiscovery")
     "ProvisioningStatusFilter"=@("Get-IOTMIManagedThingList")
     "ProvisioningType"=@("New-IOTMIProvisioningProfile")
     "Role"=@("New-IOTMIManagedThing")

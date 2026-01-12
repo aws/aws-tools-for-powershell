@@ -76,6 +76,16 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         public System.DateTime? TimeRange_EndDateInclusive { get; set; }
         #endregion
         
+        #region Parameter DataFilterExpression_CostCategories_Key
+        /// <summary>
+        /// <para>
+        /// <para> The unique name of the Cost Category. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataFilterExpression_CostCategories_Key { get; set; }
+        #endregion
+        
         #region Parameter Dimensions_Key
         /// <summary>
         /// <para>
@@ -153,6 +163,21 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SourceViews")]
         public System.String[] SourceView { get; set; }
+        #endregion
+        
+        #region Parameter DataFilterExpression_CostCategories_Value
+        /// <summary>
+        /// <para>
+        /// <para> The specific value of the Cost Category. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataFilterExpression_CostCategories_Values")]
+        public System.String[] DataFilterExpression_CostCategories_Value { get; set; }
         #endregion
         
         #region Parameter Dimensions_Value
@@ -245,6 +270,11 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.DataFilterExpression_CostCategories_Key = this.DataFilterExpression_CostCategories_Key;
+            if (this.DataFilterExpression_CostCategories_Value != null)
+            {
+                context.DataFilterExpression_CostCategories_Value = new List<System.String>(this.DataFilterExpression_CostCategories_Value);
+            }
             context.Dimensions_Key = this.Dimensions_Key;
             if (this.Dimensions_Value != null)
             {
@@ -303,6 +333,41 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
              // populate DataFilterExpression
             var requestDataFilterExpressionIsNull = true;
             request.DataFilterExpression = new Amazon.Billing.Model.Expression();
+            Amazon.Billing.Model.CostCategoryValues requestDataFilterExpression_dataFilterExpression_CostCategories = null;
+            
+             // populate CostCategories
+            var requestDataFilterExpression_dataFilterExpression_CostCategoriesIsNull = true;
+            requestDataFilterExpression_dataFilterExpression_CostCategories = new Amazon.Billing.Model.CostCategoryValues();
+            System.String requestDataFilterExpression_dataFilterExpression_CostCategories_dataFilterExpression_CostCategories_Key = null;
+            if (cmdletContext.DataFilterExpression_CostCategories_Key != null)
+            {
+                requestDataFilterExpression_dataFilterExpression_CostCategories_dataFilterExpression_CostCategories_Key = cmdletContext.DataFilterExpression_CostCategories_Key;
+            }
+            if (requestDataFilterExpression_dataFilterExpression_CostCategories_dataFilterExpression_CostCategories_Key != null)
+            {
+                requestDataFilterExpression_dataFilterExpression_CostCategories.Key = requestDataFilterExpression_dataFilterExpression_CostCategories_dataFilterExpression_CostCategories_Key;
+                requestDataFilterExpression_dataFilterExpression_CostCategoriesIsNull = false;
+            }
+            List<System.String> requestDataFilterExpression_dataFilterExpression_CostCategories_dataFilterExpression_CostCategories_Value = null;
+            if (cmdletContext.DataFilterExpression_CostCategories_Value != null)
+            {
+                requestDataFilterExpression_dataFilterExpression_CostCategories_dataFilterExpression_CostCategories_Value = cmdletContext.DataFilterExpression_CostCategories_Value;
+            }
+            if (requestDataFilterExpression_dataFilterExpression_CostCategories_dataFilterExpression_CostCategories_Value != null)
+            {
+                requestDataFilterExpression_dataFilterExpression_CostCategories.Values = requestDataFilterExpression_dataFilterExpression_CostCategories_dataFilterExpression_CostCategories_Value;
+                requestDataFilterExpression_dataFilterExpression_CostCategoriesIsNull = false;
+            }
+             // determine if requestDataFilterExpression_dataFilterExpression_CostCategories should be set to null
+            if (requestDataFilterExpression_dataFilterExpression_CostCategoriesIsNull)
+            {
+                requestDataFilterExpression_dataFilterExpression_CostCategories = null;
+            }
+            if (requestDataFilterExpression_dataFilterExpression_CostCategories != null)
+            {
+                request.DataFilterExpression.CostCategories = requestDataFilterExpression_dataFilterExpression_CostCategories;
+                requestDataFilterExpressionIsNull = false;
+            }
             Amazon.Billing.Model.DimensionValues requestDataFilterExpression_dataFilterExpression_Dimensions = null;
             
              // populate Dimensions
@@ -485,6 +550,8 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String DataFilterExpression_CostCategories_Key { get; set; }
+            public List<System.String> DataFilterExpression_CostCategories_Value { get; set; }
             public Amazon.Billing.Dimension Dimensions_Key { get; set; }
             public List<System.String> Dimensions_Value { get; set; }
             public System.String Tags_Key { get; set; }
