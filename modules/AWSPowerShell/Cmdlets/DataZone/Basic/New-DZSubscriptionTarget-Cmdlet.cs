@@ -166,6 +166,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Provider { get; set; }
         #endregion
         
+        #region Parameter SubscriptionGrantCreationMode
+        /// <summary>
+        /// <para>
+        /// <para> Determines the subscription grant creation mode for this target, defining if grants
+        /// are auto-created upon subscription approval or managed manually. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.SubscriptionGrantCreationMode")]
+        public Amazon.DataZone.SubscriptionGrantCreationMode SubscriptionGrantCreationMode { get; set; }
+        #endregion
+        
         #region Parameter SubscriptionTargetConfig
         /// <summary>
         /// <para>
@@ -311,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.Provider = this.Provider;
+            context.SubscriptionGrantCreationMode = this.SubscriptionGrantCreationMode;
             if (this.SubscriptionTargetConfig != null)
             {
                 context.SubscriptionTargetConfig = new List<Amazon.DataZone.Model.SubscriptionTargetForm>(this.SubscriptionTargetConfig);
@@ -375,6 +388,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Provider != null)
             {
                 request.Provider = cmdletContext.Provider;
+            }
+            if (cmdletContext.SubscriptionGrantCreationMode != null)
+            {
+                request.SubscriptionGrantCreationMode = cmdletContext.SubscriptionGrantCreationMode;
             }
             if (cmdletContext.SubscriptionTargetConfig != null)
             {
@@ -447,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String ManageAccessRole { get; set; }
             public System.String Name { get; set; }
             public System.String Provider { get; set; }
+            public Amazon.DataZone.SubscriptionGrantCreationMode SubscriptionGrantCreationMode { get; set; }
             public List<Amazon.DataZone.Model.SubscriptionTargetForm> SubscriptionTargetConfig { get; set; }
             public System.String Type { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateSubscriptionTargetResponse, NewDZSubscriptionTargetCmdlet, object> Select { get; set; } =

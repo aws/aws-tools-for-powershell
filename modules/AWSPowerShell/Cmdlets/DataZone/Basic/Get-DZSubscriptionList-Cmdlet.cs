@@ -81,6 +81,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String OwningGroupId { get; set; }
         #endregion
         
+        #region Parameter OwningIamPrincipalArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the owning IAM principal.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwningIamPrincipalArn { get; set; }
+        #endregion
+        
         #region Parameter OwningProjectId
         /// <summary>
         /// <para>
@@ -241,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.OwningGroupId = this.OwningGroupId;
+            context.OwningIamPrincipalArn = this.OwningIamPrincipalArn;
             context.OwningProjectId = this.OwningProjectId;
             context.OwningUserId = this.OwningUserId;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -283,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.OwningGroupId != null)
             {
                 request.OwningGroupId = cmdletContext.OwningGroupId;
+            }
+            if (cmdletContext.OwningIamPrincipalArn != null)
+            {
+                request.OwningIamPrincipalArn = cmdletContext.OwningIamPrincipalArn;
             }
             if (cmdletContext.OwningProjectId != null)
             {
@@ -398,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OwningGroupId { get; set; }
+            public System.String OwningIamPrincipalArn { get; set; }
             public System.String OwningProjectId { get; set; }
             public System.String OwningUserId { get; set; }
             [System.ObsoleteAttribute]
