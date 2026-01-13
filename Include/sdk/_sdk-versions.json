@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1200.0",
+    "ProductVersion"    : "3.7.1201.0",
     "CoreVersion"       : "3.7.500.65",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -2668,7 +2668,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.510.13",
+            "Version" : "3.7.511.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.65"
@@ -2676,7 +2676,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.513.15",
+            "Version" : "3.7.514.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.65"

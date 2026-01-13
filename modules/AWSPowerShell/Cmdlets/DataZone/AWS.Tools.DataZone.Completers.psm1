@@ -487,6 +487,16 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.SubscriptionGrantCreationMode
+        {
+            ($_ -eq "New-DZSubscriptionTarget/SubscriptionGrantCreationMode") -Or
+            ($_ -eq "Update-DZSubscriptionTarget/SubscriptionGrantCreationMode")
+        }
+        {
+            $v = "AUTOMATIC","MANUAL"
+            break
+        }
+
         # Amazon.DataZone.SubscriptionGrantStatus
         "Update-DZSubscriptionGrantStatus/Status"
         {
@@ -640,6 +650,7 @@ $DZ_map = @{
     "SortBy"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
     "SortOrder"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
     "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZJobRunList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","New-DZProjectProfile","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZProjectProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
+    "SubscriptionGrantCreationMode"=@("New-DZSubscriptionTarget","Update-DZSubscriptionTarget")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")

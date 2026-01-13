@@ -1,4 +1,13 @@
-﻿### 4.1.977 (2026-01-12 21:28Z)
+﻿### 4.1.978 (2026-01-13 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1201.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet Get-DZSubscriptionGrantList: added parameter OwningIamPrincipalArn.
+    * Modified cmdlet Get-DZSubscriptionList: added parameter OwningIamPrincipalArn.
+    * Modified cmdlet Get-DZSubscriptionRequestList: added parameter OwningIamPrincipalArn.
+    * Modified cmdlet New-DZSubscriptionTarget: added parameter SubscriptionGrantCreationMode.
+    * Modified cmdlet Update-DZSubscriptionTarget: added parameter SubscriptionGrantCreationMode.
+
+### 4.1.977 (2026-01-12 21:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1200.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Billing
     * Modified cmdlet New-AWSBBillingView: added parameters DataFilterExpression_CostCategories_Key and DataFilterExpression_CostCategories_Value.
