@@ -31,6 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
 {
     /// <summary>
     /// Creates a new WhatsApp message template from a custom definition.
+    /// 
+    ///  <note><para>
+    /// Amazon Web Services End User Messaging Social does not store any WhatsApp message
+    /// template content.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SOCIALWhatsAppMessageTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SocialMessaging.Model.CreateWhatsAppMessageTemplateResponse")]

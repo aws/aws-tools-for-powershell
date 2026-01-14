@@ -115,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// or data size. If <c>FeatureType</c> is <c>spectrum</c>, then <c>LimitType</c> must
         /// be <c>data-scanned</c>. If <c>FeatureType</c> is <c>concurrency-scaling</c>, then
         /// <c>LimitType</c> must be <c>time</c>. If <c>FeatureType</c> is <c>cross-region-datasharing</c>,
-        /// then <c>LimitType</c> must be <c>data-scanned</c>. </para>
+        /// then <c>LimitType</c> must be <c>data-scanned</c>. If <c>FeatureType</c> is <c>extra-compute-for-automatic-optimization</c>,
+        /// then <c>LimitType</c> must be <c>time</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

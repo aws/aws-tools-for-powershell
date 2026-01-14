@@ -30,74 +30,27 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Associates a set of queues with a routing profile.
+    /// Associates a set of hours of operations with another hours of operation. Refer to
+    /// Administrator Guide <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">
+    /// here </a> for more information on inheriting overrides from parent hours of operation(s).
     /// </summary>
-    [Cmdlet("Join", "CONNRoutingProfileQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Add", "CONNHoursOfOperation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service AssociateRoutingProfileQueues API operation.", Operation = new[] {"AssociateRoutingProfileQueues"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service AssociateHoursOfOperations API operation.", Operation = new[] {"AssociateHoursOfOperations"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateHoursOfOperationsResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateHoursOfOperationsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Connect.Model.AssociateHoursOfOperationsResponse) be returned by specifying '-Select *'."
     )]
-    public partial class JoinCONNRoutingProfileQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class AddCONNHoursOfOperationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter InstanceId
+        #region Parameter HoursOfOperationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter ManualAssignmentQueueConfig
-        /// <summary>
-        /// <para>
-        /// <para>The manual assignment queues to associate with this routing profile.</para><para>Note: Use this config for chat, email, and task contacts. It does not support voice
-        /// contacts.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ManualAssignmentQueueConfigs")]
-        public Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig[] ManualAssignmentQueueConfig { get; set; }
-        #endregion
-        
-        #region Parameter QueueConfig
-        /// <summary>
-        /// <para>
-        /// <para>The queues to associate with this routing profile.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("QueueConfigs")]
-        public Amazon.Connect.Model.RoutingProfileQueueConfig[] QueueConfig { get; set; }
-        #endregion
-        
-        #region Parameter RoutingProfileId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the routing profile.</para>
+        /// <para>The identifier of the child hours of operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,13 +61,54 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoutingProfileId { get; set; }
+        public System.String HoursOfOperationId { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter ParentHoursOfOperationConfig
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARNs) of the parent hours of operation resources to associate
+        /// with the child hours of operation resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("ParentHoursOfOperationConfigs")]
+        public Amazon.Connect.Model.ParentHoursOfOperationConfig[] ParentHoursOfOperationConfig { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.AssociateHoursOfOperationsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Join-CONNRoutingProfileQueue (AssociateRoutingProfileQueues)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HoursOfOperationId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CONNHoursOfOperation (AssociateHoursOfOperations)"))
             {
                 return;
             }
@@ -153,9 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse, JoinCONNRoutingProfileQueueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.AssociateHoursOfOperationsResponse, AddCONNHoursOfOperationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.HoursOfOperationId = this.HoursOfOperationId;
+            #if MODULAR
+            if (this.HoursOfOperationId == null && ParameterWasBound(nameof(this.HoursOfOperationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter HoursOfOperationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -163,19 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ManualAssignmentQueueConfig != null)
+            if (this.ParentHoursOfOperationConfig != null)
             {
-                context.ManualAssignmentQueueConfig = new List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig>(this.ManualAssignmentQueueConfig);
+                context.ParentHoursOfOperationConfig = new List<Amazon.Connect.Model.ParentHoursOfOperationConfig>(this.ParentHoursOfOperationConfig);
             }
-            if (this.QueueConfig != null)
-            {
-                context.QueueConfig = new List<Amazon.Connect.Model.RoutingProfileQueueConfig>(this.QueueConfig);
-            }
-            context.RoutingProfileId = this.RoutingProfileId;
             #if MODULAR
-            if (this.RoutingProfileId == null && ParameterWasBound(nameof(this.RoutingProfileId)))
+            if (this.ParentHoursOfOperationConfig == null && ParameterWasBound(nameof(this.ParentHoursOfOperationConfig)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoutingProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ParentHoursOfOperationConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -192,23 +188,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.AssociateRoutingProfileQueuesRequest();
+            var request = new Amazon.Connect.Model.AssociateHoursOfOperationsRequest();
             
+            if (cmdletContext.HoursOfOperationId != null)
+            {
+                request.HoursOfOperationId = cmdletContext.HoursOfOperationId;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.ManualAssignmentQueueConfig != null)
+            if (cmdletContext.ParentHoursOfOperationConfig != null)
             {
-                request.ManualAssignmentQueueConfigs = cmdletContext.ManualAssignmentQueueConfig;
-            }
-            if (cmdletContext.QueueConfig != null)
-            {
-                request.QueueConfigs = cmdletContext.QueueConfig;
-            }
-            if (cmdletContext.RoutingProfileId != null)
-            {
-                request.RoutingProfileId = cmdletContext.RoutingProfileId;
+                request.ParentHoursOfOperationConfigs = cmdletContext.ParentHoursOfOperationConfig;
             }
             
             CmdletOutput output;
@@ -243,12 +235,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.AssociateRoutingProfileQueuesRequest request)
+        private Amazon.Connect.Model.AssociateHoursOfOperationsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.AssociateHoursOfOperationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "AssociateRoutingProfileQueues");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "AssociateHoursOfOperations");
             try
             {
-                return client.AssociateRoutingProfileQueuesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.AssociateHoursOfOperationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -265,11 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String HoursOfOperationId { get; set; }
             public System.String InstanceId { get; set; }
-            public List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig> ManualAssignmentQueueConfig { get; set; }
-            public List<Amazon.Connect.Model.RoutingProfileQueueConfig> QueueConfig { get; set; }
-            public System.String RoutingProfileId { get; set; }
-            public System.Func<Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse, JoinCONNRoutingProfileQueueCmdlet, object> Select { get; set; } =
+            public List<Amazon.Connect.Model.ParentHoursOfOperationConfig> ParentHoursOfOperationConfig { get; set; }
+            public System.Func<Amazon.Connect.Model.AssociateHoursOfOperationsResponse, AddCONNHoursOfOperationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

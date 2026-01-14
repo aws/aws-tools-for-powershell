@@ -7058,6 +7058,9 @@ Set-Alias -Name Associate-CONNEmailAddressAlias -Value Add-CONNEmailAddressAlias
 Set-Alias -Name CONN-AssociateEmailAddressAlias -Value Add-CONNEmailAddressAlias
 Set-Alias -Name Associate-CONNFlow -Value Add-CONNFlow
 Set-Alias -Name CONN-AssociateFlow -Value Add-CONNFlow
+Set-Alias -Name Associate-CONNHoursOfOperations -Value Add-CONNHoursOfOperation
+Set-Alias -Name Associate-CONNHoursOfOperation -Value Add-CONNHoursOfOperation
+Set-Alias -Name CONN-AssociateHoursOfOperations -Value Add-CONNHoursOfOperation
 Set-Alias -Name Associate-CONNInstanceStorageConfig -Value Add-CONNInstanceStorageConfig
 Set-Alias -Name CONN-AssociateInstanceStorageConfig -Value Add-CONNInstanceStorageConfig
 Set-Alias -Name Associate-CONNLambdaFunction -Value Add-CONNLambdaFunction
@@ -7327,6 +7330,9 @@ Set-Alias -Name Disassociate-CONNEmailAddressAlias -Value Remove-CONNEmailAddres
 Set-Alias -Name CONN-DisassociateEmailAddressAlias -Value Remove-CONNEmailAddressAlias
 Set-Alias -Name Disassociate-CONNFlow -Value Remove-CONNFlow
 Set-Alias -Name CONN-DisassociateFlow -Value Remove-CONNFlow
+Set-Alias -Name Disassociate-CONNHoursOfOperations -Value Unregister-CONNHoursOfOperation
+Set-Alias -Name Disassociate-CONNHoursOfOperation -Value Unregister-CONNHoursOfOperation
+Set-Alias -Name CONN-DisassociateHoursOfOperations -Value Unregister-CONNHoursOfOperation
 Set-Alias -Name Disassociate-CONNInstanceStorageConfig -Value Remove-CONNInstanceStorageConfig
 Set-Alias -Name CONN-DisassociateInstanceStorageConfig -Value Remove-CONNInstanceStorageConfig
 Set-Alias -Name Disassociate-CONNLambdaFunction -Value Remove-CONNLambdaFunction
@@ -7397,6 +7403,9 @@ Set-Alias -Name CONN-ListAuthenticationProfiles -Value Get-CONNAuthenticationPro
 Set-Alias -Name List-CONNBots -Value Get-CONNBotList
 Set-Alias -Name List-CONNBotList -Value Get-CONNBotList
 Set-Alias -Name CONN-ListBots -Value Get-CONNBotList
+Set-Alias -Name List-CONNChildHoursOfOperations -Value Get-CONNChildHoursOfOperationList
+Set-Alias -Name List-CONNChildHoursOfOperationList -Value Get-CONNChildHoursOfOperationList
+Set-Alias -Name CONN-ListChildHoursOfOperations -Value Get-CONNChildHoursOfOperationList
 Set-Alias -Name List-CONNContactEvaluations -Value Get-CONNContactEvaluationList
 Set-Alias -Name List-CONNContactEvaluationList -Value Get-CONNContactEvaluationList
 Set-Alias -Name CONN-ListContactEvaluations -Value Get-CONNContactEvaluationList

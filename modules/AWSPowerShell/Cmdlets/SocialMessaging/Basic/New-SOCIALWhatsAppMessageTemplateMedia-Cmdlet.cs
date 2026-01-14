@@ -75,7 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         #region Parameter SourceS3File_Key
         /// <summary>
         /// <para>
-        /// <para>The object key of the media file.</para>
+        /// <para>The S3 key prefix that defines the storage location of your media files. The prefix
+        /// works like a folder path in S3, and is combined with the WhatsApp mediaId to create
+        /// the final file path.</para><para>For example, if a media file's WhatsApp mediaId is <c>123.ogg</c>, and the key is
+        /// <c>audio/example.ogg</c>, the final file path is <c>audio/example.ogg123.ogg</c>.</para><para>For the same mediaId, a key of <c>audio/</c> results in the file path <c>audio/123.ogg</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

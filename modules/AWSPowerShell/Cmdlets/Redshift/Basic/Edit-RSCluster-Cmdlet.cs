@@ -238,6 +238,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Boolean? EnhancedVpcRouting { get; set; }
         #endregion
         
+        #region Parameter ExtraComputeForAutomaticOptimization
+        /// <summary>
+        /// <para>
+        /// <para>If <c>true</c>, allocates additional compute resources for running automatic optimization
+        /// operations.</para><para>Default: false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExtraComputeForAutomaticOptimization { get; set; }
+        #endregion
+        
         #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>
@@ -513,6 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ElasticIp = this.ElasticIp;
             context.Encrypted = this.Encrypted;
             context.EnhancedVpcRouting = this.EnhancedVpcRouting;
+            context.ExtraComputeForAutomaticOptimization = this.ExtraComputeForAutomaticOptimization;
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
             context.IpAddressType = this.IpAddressType;
@@ -596,6 +608,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.EnhancedVpcRouting != null)
             {
                 request.EnhancedVpcRouting = cmdletContext.EnhancedVpcRouting.Value;
+            }
+            if (cmdletContext.ExtraComputeForAutomaticOptimization != null)
+            {
+                request.ExtraComputeForAutomaticOptimization = cmdletContext.ExtraComputeForAutomaticOptimization.Value;
             }
             if (cmdletContext.HsmClientCertificateIdentifier != null)
             {
@@ -732,6 +748,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String ElasticIp { get; set; }
             public System.Boolean? Encrypted { get; set; }
             public System.Boolean? EnhancedVpcRouting { get; set; }
+            public System.Boolean? ExtraComputeForAutomaticOptimization { get; set; }
             public System.String HsmClientCertificateIdentifier { get; set; }
             public System.String HsmConfigurationIdentifier { get; set; }
             public System.String IpAddressType { get; set; }

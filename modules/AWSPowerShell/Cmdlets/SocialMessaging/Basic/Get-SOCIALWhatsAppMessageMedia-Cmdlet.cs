@@ -77,7 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         #region Parameter DestinationS3File_Key
         /// <summary>
         /// <para>
-        /// <para>The object key of the media file.</para>
+        /// <para>The S3 key prefix that defines the storage location of your media files. The prefix
+        /// works like a folder path in S3, and is combined with the WhatsApp mediaId to create
+        /// the final file path.</para><para>For example, if a media file's WhatsApp mediaId is <c>123.ogg</c>, and the key is
+        /// <c>audio/example.ogg</c>, the final file path is <c>audio/example.ogg123.ogg</c>.</para><para>For the same mediaId, a key of <c>audio/</c> results in the file path <c>audio/123.ogg</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         /// <para>
         /// <para>The unique identifier of the originating phone number for the WhatsApp message media.
         /// The phone number identifiers are formatted as <c>phone-number-id-01234567890123456789012345678901</c>.
-        /// Use <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html">GetLinkedWhatsAppBusinessAccount</a>
+        /// Use <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html">GetLinkedWhatsAppBusinessAccount</a>
         /// to find a phone number's id.</para>
         /// </para>
         /// </summary>

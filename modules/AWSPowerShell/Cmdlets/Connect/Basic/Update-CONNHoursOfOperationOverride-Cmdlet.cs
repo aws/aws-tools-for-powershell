@@ -45,6 +45,59 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter RecurrenceConfig_RecurrencePattern_ByMonth
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which month the event should occur in (1-12, where 1=January, 12=December).
+        /// Used with YEARLY frequency to schedule events in specific month. </para><para>Note: It does not accept multiple values in the same list</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32[] RecurrenceConfig_RecurrencePattern_ByMonth { get; set; }
+        #endregion
+        
+        #region Parameter RecurrenceConfig_RecurrencePattern_ByMonthDay
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which day of the month the event should occur on (1-31). Used with MONTHLY
+        /// or YEARLY frequency to schedule events on specific date within a month.</para><para> Examples: [15] for events on the 15th of each month, [-1] for events on the last
+        /// day of month. </para><para>Note: It does not accept multiple values in the same list. If a specified day doesn't
+        /// exist in a particular month (e.g., day 31 in February), the event will be skipped
+        /// for that month. This field cannot be used simultaneously with ByWeekdayOccurrence
+        /// as they represent different scheduling approaches (specific dates vs. relative weekday
+        /// positions).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32[] RecurrenceConfig_RecurrencePattern_ByMonthDay { get; set; }
+        #endregion
+        
+        #region Parameter RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which occurrence of a weekday within the month the event should occur on.
+        /// Must be used with MONTHLY or YEARLY frequency. </para><para>Example: 2 corresponds to second occurrence of the weekday in the month. -1 corresponds
+        /// to last occurrence of the weekday in the month </para><para>The weekday itself is specified separately in the HoursOfOperationConfig. Example:
+        /// To schedule the recurring event for the 2nd Thursday of April every year, set ByWeekdayOccurrence=[2],
+        /// Day=THURSDAY, ByMonth=[4], Frequency: YEARLY and INTERVAL=1.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32[] RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence { get; set; }
+        #endregion
+        
         #region Parameter Config
         /// <summary>
         /// <para>
@@ -88,6 +141,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EffectiveTill { get; set; }
+        #endregion
+        
+        #region Parameter RecurrenceConfig_RecurrencePattern_Frequency
+        /// <summary>
+        /// <para>
+        /// <para>Defines how often the pattern repeats. This is the base unit for the recurrence schedule
+        /// and works in conjunction with the Interval field to determine the exact repetition
+        /// sequence.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.RecurrenceFrequency")]
+        public Amazon.Connect.RecurrenceFrequency RecurrenceConfig_RecurrencePattern_Frequency { get; set; }
         #endregion
         
         #region Parameter HoursOfOperationId
@@ -141,6 +207,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter RecurrenceConfig_RecurrencePattern_Interval
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the number of frequency units between each occurrence. Must be a positive
+        /// integer. </para><para> Examples: To repeat every week, set Interval=1 with WEEKLY frequency. To repeat every
+        /// two months, set Interval=2 with MONTHLY frequency.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RecurrenceConfig_RecurrencePattern_Interval { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -149,6 +227,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OverrideType
+        /// <summary>
+        /// <para>
+        /// <para>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</para><para>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build
+        /// your list of overrides</a> in the <i> Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.OverrideType")]
+        public Amazon.Connect.OverrideType OverrideType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -225,6 +315,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Name = this.Name;
+            context.OverrideType = this.OverrideType;
+            if (this.RecurrenceConfig_RecurrencePattern_ByMonth != null)
+            {
+                context.RecurrenceConfig_RecurrencePattern_ByMonth = new List<System.Int32>(this.RecurrenceConfig_RecurrencePattern_ByMonth);
+            }
+            if (this.RecurrenceConfig_RecurrencePattern_ByMonthDay != null)
+            {
+                context.RecurrenceConfig_RecurrencePattern_ByMonthDay = new List<System.Int32>(this.RecurrenceConfig_RecurrencePattern_ByMonthDay);
+            }
+            if (this.RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence != null)
+            {
+                context.RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence = new List<System.Int32>(this.RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence);
+            }
+            context.RecurrenceConfig_RecurrencePattern_Frequency = this.RecurrenceConfig_RecurrencePattern_Frequency;
+            context.RecurrenceConfig_RecurrencePattern_Interval = this.RecurrenceConfig_RecurrencePattern_Interval;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -272,6 +377,84 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.OverrideType != null)
+            {
+                request.OverrideType = cmdletContext.OverrideType;
+            }
+            
+             // populate RecurrenceConfig
+            var requestRecurrenceConfigIsNull = true;
+            request.RecurrenceConfig = new Amazon.Connect.Model.RecurrenceConfig();
+            Amazon.Connect.Model.RecurrencePattern requestRecurrenceConfig_recurrenceConfig_RecurrencePattern = null;
+            
+             // populate RecurrencePattern
+            var requestRecurrenceConfig_recurrenceConfig_RecurrencePatternIsNull = true;
+            requestRecurrenceConfig_recurrenceConfig_RecurrencePattern = new Amazon.Connect.Model.RecurrencePattern();
+            List<System.Int32> requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByMonth = null;
+            if (cmdletContext.RecurrenceConfig_RecurrencePattern_ByMonth != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByMonth = cmdletContext.RecurrenceConfig_RecurrencePattern_ByMonth;
+            }
+            if (requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByMonth != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern.ByMonth = requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByMonth;
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePatternIsNull = false;
+            }
+            List<System.Int32> requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByMonthDay = null;
+            if (cmdletContext.RecurrenceConfig_RecurrencePattern_ByMonthDay != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByMonthDay = cmdletContext.RecurrenceConfig_RecurrencePattern_ByMonthDay;
+            }
+            if (requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByMonthDay != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern.ByMonthDay = requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByMonthDay;
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePatternIsNull = false;
+            }
+            List<System.Int32> requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByWeekdayOccurrence = null;
+            if (cmdletContext.RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByWeekdayOccurrence = cmdletContext.RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence;
+            }
+            if (requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByWeekdayOccurrence != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern.ByWeekdayOccurrence = requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_ByWeekdayOccurrence;
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePatternIsNull = false;
+            }
+            Amazon.Connect.RecurrenceFrequency requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_Frequency = null;
+            if (cmdletContext.RecurrenceConfig_RecurrencePattern_Frequency != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_Frequency = cmdletContext.RecurrenceConfig_RecurrencePattern_Frequency;
+            }
+            if (requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_Frequency != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern.Frequency = requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_Frequency;
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePatternIsNull = false;
+            }
+            System.Int32? requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_Interval = null;
+            if (cmdletContext.RecurrenceConfig_RecurrencePattern_Interval != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_Interval = cmdletContext.RecurrenceConfig_RecurrencePattern_Interval.Value;
+            }
+            if (requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_Interval != null)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern.Interval = requestRecurrenceConfig_recurrenceConfig_RecurrencePattern_recurrenceConfig_RecurrencePattern_Interval.Value;
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePatternIsNull = false;
+            }
+             // determine if requestRecurrenceConfig_recurrenceConfig_RecurrencePattern should be set to null
+            if (requestRecurrenceConfig_recurrenceConfig_RecurrencePatternIsNull)
+            {
+                requestRecurrenceConfig_recurrenceConfig_RecurrencePattern = null;
+            }
+            if (requestRecurrenceConfig_recurrenceConfig_RecurrencePattern != null)
+            {
+                request.RecurrenceConfig.RecurrencePattern = requestRecurrenceConfig_recurrenceConfig_RecurrencePattern;
+                requestRecurrenceConfigIsNull = false;
+            }
+             // determine if request.RecurrenceConfig should be set to null
+            if (requestRecurrenceConfigIsNull)
+            {
+                request.RecurrenceConfig = null;
             }
             
             CmdletOutput output;
@@ -336,6 +519,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String HoursOfOperationOverrideId { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public Amazon.Connect.OverrideType OverrideType { get; set; }
+            public List<System.Int32> RecurrenceConfig_RecurrencePattern_ByMonth { get; set; }
+            public List<System.Int32> RecurrenceConfig_RecurrencePattern_ByMonthDay { get; set; }
+            public List<System.Int32> RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence { get; set; }
+            public Amazon.Connect.RecurrenceFrequency RecurrenceConfig_RecurrencePattern_Frequency { get; set; }
+            public System.Int32? RecurrenceConfig_RecurrencePattern_Interval { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateHoursOfOperationOverrideResponse, UpdateCONNHoursOfOperationOverrideCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

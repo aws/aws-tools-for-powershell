@@ -1,4 +1,22 @@
-﻿### 5.0.133 (2026-01-13 21:13Z)
+﻿### 5.0.134 (2026-01-14 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.170.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNHoursOfOperation leveraging the AssociateHoursOfOperations service API.
+    * Added cmdlet Get-CONNChildHoursOfOperationList leveraging the ListChildHoursOfOperations service API.
+    * Added cmdlet Unregister-CONNHoursOfOperation leveraging the DisassociateHoursOfOperations service API.
+    * Modified cmdlet New-CONNHoursOfOperation: added parameter ParentHoursOfOperationConfig.
+    * Modified cmdlet New-CONNHoursOfOperationOverride: added parameters OverrideType, RecurrenceConfig_RecurrencePattern_ByMonth, RecurrenceConfig_RecurrencePattern_ByMonthDay, RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence, RecurrenceConfig_RecurrencePattern_Frequency and RecurrenceConfig_RecurrencePattern_Interval.
+    * Modified cmdlet Update-CONNHoursOfOperationOverride: added parameters OverrideType, RecurrenceConfig_RecurrencePattern_ByMonth, RecurrenceConfig_RecurrencePattern_ByMonthDay, RecurrenceConfig_RecurrencePattern_ByWeekdayOccurrence, RecurrenceConfig_RecurrencePattern_Frequency and RecurrenceConfig_RecurrencePattern_Interval.
+  * Amazon End User Messaging Social
+    * Modified cmdlet Update-SOCIALWhatsAppMessageTemplate: added parameters CtaUrlLinkTrackingOptedOut and ParameterFormat.
+  * Amazon Redshift
+    * Modified cmdlet Edit-RSCluster: added parameter ExtraComputeForAutomaticOptimization.
+    * Modified cmdlet New-RSCluster: added parameter ExtraComputeForAutomaticOptimization.
+  * Amazon Redshift Serverless
+    * Modified cmdlet New-RSSWorkgroup: added parameter ExtraComputeForAutomaticOptimization.
+    * Modified cmdlet Update-RSSWorkgroup: added parameter ExtraComputeForAutomaticOptimization.
+
+### 5.0.133 (2026-01-13 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.169.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Modified cmdlet Get-DZSubscriptionGrantList: added parameter OwningIamPrincipalArn.

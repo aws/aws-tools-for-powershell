@@ -117,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// The limit of 10 array members applies to the maximum number of RoutingProfileManualAssignmentQueueConfig
         /// objects that can be passed during a CreateRoutingProfile API request. It is different
         /// from the quota of 50 queues per routing profile per instance that is listed in Amazon
-        /// Connect service quotas.</para><para />
+        /// Connect service quotas.</para><para>Note: Use this config for chat, email, and task contacts. It does not support voice
+        /// contacts.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

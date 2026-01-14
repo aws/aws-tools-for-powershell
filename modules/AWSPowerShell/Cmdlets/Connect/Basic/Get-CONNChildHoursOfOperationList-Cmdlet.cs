@@ -23,80 +23,90 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.CostExplorer;
-using Amazon.CostExplorer.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CE
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Returns the name, Amazon Resource Name (ARN), <c>NumberOfRules</c> and effective dates
-    /// of all cost categories defined in the account. You have the option to use <c>EffectiveOn</c>
-    /// and <c>SupportedResourceTypes</c> to return a list of cost categories that were active
-    /// on a specific date. If there is no <c>EffectiveOn</c> specified, you’ll see cost categories
-    /// that are effective on the current date. If cost category is still effective, <c>EffectiveEnd</c>
-    /// is omitted in the response. <c>ListCostCategoryDefinitions</c> supports pagination.
-    /// The request can have a <c>MaxResults</c> range up to 100.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides information about the child hours of operations for the specified parent
+    /// hours of operation.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about child hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/">Link
+    /// overrides from different hours of operation</a> in the <i> Administrator Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CECostCategoryDefinitionList")]
-    [OutputType("Amazon.CostExplorer.Model.CostCategoryReference")]
-    [AWSCmdlet("Calls the AWS Cost Explorer ListCostCategoryDefinitions API operation.", Operation = new[] {"ListCostCategoryDefinitions"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse))]
-    [AWSCmdletOutput("Amazon.CostExplorer.Model.CostCategoryReference or Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse",
-        "This cmdlet returns a collection of Amazon.CostExplorer.Model.CostCategoryReference objects.",
-        "The service call response (type Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CONNChildHoursOfOperationList")]
+    [OutputType("Amazon.Connect.Model.ListChildHoursOfOperationsResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service ListChildHoursOfOperations API operation.", Operation = new[] {"ListChildHoursOfOperations"}, SelectReturnType = typeof(Amazon.Connect.Model.ListChildHoursOfOperationsResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.ListChildHoursOfOperationsResponse",
+        "This cmdlet returns an Amazon.Connect.Model.ListChildHoursOfOperationsResponse object containing multiple properties."
     )]
-    public partial class GetCECostCategoryDefinitionListCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
+    public partial class GetCONNChildHoursOfOperationListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EffectiveOn
+        #region Parameter HoursOfOperationId
         /// <summary>
         /// <para>
-        /// <para>The date when the cost category was effective. </para>
+        /// <para>The identifier of the parent hours of operation.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EffectiveOn { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String HoursOfOperationId { get; set; }
         #endregion
         
-        #region Parameter SupportedResourceType
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para> Filter cost category definitions that are supported by given resource types based
-        /// on the latest version. If the filter is present, the result only includes Cost Categories
-        /// that supports input resource type. If the filter isn't provided, no filtering is applied.
-        /// The valid values are <c>billing:rispgroupsharing</c> and <c>billing:billingview</c>.
-        /// </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SupportedResourceTypes")]
-        public System.String[] SupportedResourceType { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of entries a paginated response contains. </para>
+        /// <para>The maximum number of results to return per page. The default MaxResult size is 100.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next set of results. Amazon Web Services provides the token
-        /// when the response from a previous call has more results than the maximum page size.
-        /// </para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -109,13 +119,13 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CostCategoryReferences'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse).
-        /// Specifying the name of a property of type Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListChildHoursOfOperationsResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.ListChildHoursOfOperationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CostCategoryReferences";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -144,16 +154,34 @@ namespace Amazon.PowerShell.Cmdlets.CE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse, GetCECostCategoryDefinitionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListChildHoursOfOperationsResponse, GetCONNChildHoursOfOperationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EffectiveOn = this.EffectiveOn;
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            if (this.SupportedResourceType != null)
+            context.HoursOfOperationId = this.HoursOfOperationId;
+            #if MODULAR
+            if (this.HoursOfOperationId == null && ParameterWasBound(nameof(this.HoursOfOperationId)))
             {
-                context.SupportedResourceType = new List<System.String>(this.SupportedResourceType);
+                WriteWarning("You are passing $null as a value for parameter HoursOfOperationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,19 +198,19 @@ namespace Amazon.PowerShell.Cmdlets.CE
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.CostExplorer.Model.ListCostCategoryDefinitionsRequest();
+            var request = new Amazon.Connect.Model.ListChildHoursOfOperationsRequest();
             
-            if (cmdletContext.EffectiveOn != null)
+            if (cmdletContext.HoursOfOperationId != null)
             {
-                request.EffectiveOn = cmdletContext.EffectiveOn;
+                request.HoursOfOperationId = cmdletContext.HoursOfOperationId;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.SupportedResourceType != null)
-            {
-                request.SupportedResourceTypes = cmdletContext.SupportedResourceType;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -241,12 +269,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region AWS Service Operation Call
         
-        private Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ListCostCategoryDefinitionsRequest request)
+        private Amazon.Connect.Model.ListChildHoursOfOperationsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListChildHoursOfOperationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ListCostCategoryDefinitions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListChildHoursOfOperations");
             try
             {
-                return client.ListCostCategoryDefinitionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListChildHoursOfOperationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -263,12 +291,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EffectiveOn { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public System.String HoursOfOperationId { get; set; }
+            public System.String InstanceId { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> SupportedResourceType { get; set; }
-            public System.Func<Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse, GetCECostCategoryDefinitionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CostCategoryReferences;
+            public System.Func<Amazon.Connect.Model.ListChildHoursOfOperationsResponse, GetCONNChildHoursOfOperationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
