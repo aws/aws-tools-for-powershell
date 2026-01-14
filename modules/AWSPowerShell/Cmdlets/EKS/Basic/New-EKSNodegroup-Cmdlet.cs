@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
     /// managed nodes with launch templates</a>.
     /// </para><para>
-    /// An Amazon EKS managed node group is an Amazon EC2 Amazon EC2 Auto Scaling group and
-    /// associated Amazon EC2 instances that are managed by Amazon Web Services for an Amazon
-    /// EKS cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
+    /// An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated
+    /// Amazon EC2 instances that are managed by Amazon Web Services for an Amazon EKS cluster.
+    /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
     /// node groups</a> in the <i>Amazon EKS User Guide</i>.
     /// </para><note><para>
     /// Windows AMI types are only supported for commercial Amazon Web Services Regions that

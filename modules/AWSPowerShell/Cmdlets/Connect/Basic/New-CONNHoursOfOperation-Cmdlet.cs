@@ -103,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ParentHoursOfOperationConfig
+        /// <summary>
+        /// <para>
+        /// <para>Configuration for parent hours of operations. Eg: ResourceArn. </para><para>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link
+        /// overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ParentHoursOfOperationConfigs")]
+        public Amazon.Connect.Model.ParentHoursOfOperationConfig[] ParentHoursOfOperationConfig { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -219,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ParentHoursOfOperationConfig != null)
+            {
+                context.ParentHoursOfOperationConfig = new List<Amazon.Connect.Model.ParentHoursOfOperationConfig>(this.ParentHoursOfOperationConfig);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -265,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ParentHoursOfOperationConfig != null)
+            {
+                request.ParentHoursOfOperationConfigs = cmdletContext.ParentHoursOfOperationConfig;
             }
             if (cmdletContext.Tag != null)
             {
@@ -339,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.Connect.Model.ParentHoursOfOperationConfig> ParentHoursOfOperationConfig { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TimeZone { get; set; }
             public System.Func<Amazon.Connect.Model.CreateHoursOfOperationResponse, NewCONNHoursOfOperationCmdlet, object> Select { get; set; } =

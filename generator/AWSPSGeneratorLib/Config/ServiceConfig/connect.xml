@@ -51,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateHoursOfOperations" Verb="Add" Noun="HoursOfOperation" ShouldProcessTarget="HoursOfOperationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateInstanceStorageConfig" OutputProperty="AssociationId" Verb="Add" Noun="InstanceStorageConfig" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType" />
@@ -630,6 +634,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateHoursOfOperations" Verb="Unregister" Noun="HoursOfOperation" ShouldProcessTarget="HoursOfOperationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateInstanceStorageConfig" Verb="Remove" Noun="InstanceStorageConfig" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -769,6 +777,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBots" OutputProperty="LexBots" Verb="Get" Noun="BotList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChildHoursOfOperations" OutputProperty="*" Verb="Get" Noun="ChildHoursOfOperationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

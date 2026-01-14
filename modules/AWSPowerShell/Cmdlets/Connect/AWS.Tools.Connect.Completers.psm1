@@ -493,6 +493,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.OverrideType
+        {
+            ($_ -eq "New-CONNHoursOfOperationOverride/OverrideType") -Or
+            ($_ -eq "Update-CONNHoursOfOperationOverride/OverrideType")
+        }
+        {
+            $v = "CLOSED","OPEN","STANDARD"
+            break
+        }
+
         # Amazon.Connect.ParticipantRole
         {
             ($_ -eq "New-CONNPushNotificationRegistration/ContactConfiguration_ParticipantRole") -Or
@@ -538,6 +548,16 @@ $CONN_Completers = {
         "Get-CONNRealtimeContactAnalysisSegmentsV2List/OutputType"
         {
             $v = "Raw","Redacted"
+            break
+        }
+
+        # Amazon.Connect.RecurrenceFrequency
+        {
+            ($_ -eq "New-CONNHoursOfOperationOverride/RecurrenceConfig_RecurrencePattern_Frequency") -Or
+            ($_ -eq "Update-CONNHoursOfOperationOverride/RecurrenceConfig_RecurrencePattern_Frequency")
+        }
+        {
+            $v = "MONTHLY","WEEKLY","YEARLY"
             break
         }
 
@@ -829,6 +849,7 @@ $CONN_map = @{
     "NumberCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
     "OutboundStrategy_Type"=@("Start-CONNOutboundVoiceContact")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
+    "OverrideType"=@("New-CONNHoursOfOperationOverride","Update-CONNHoursOfOperationOverride")
     "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
     "ParticipantConfiguration_ResponseMode"=@("Start-CONNChatContact")
@@ -838,6 +859,7 @@ $CONN_map = @{
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
+    "RecurrenceConfig_RecurrencePattern_Frequency"=@("New-CONNHoursOfOperationOverride","Update-CONNHoursOfOperationOverride")
     "RehydrationType"=@("New-CONNPersistentContactAssociation")
     "ResourceType"=@("Add-CONNFlow","Add-CONNInstanceStorageConfig","Get-CONNFlowAssociation","Get-CONNFlowAssociationBatch","Get-CONNFlowAssociationList","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNFlow","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
@@ -941,6 +963,7 @@ $CONN_SelectMap = @{
                "Add-CONNDefaultVocabulary",
                "Add-CONNEmailAddressAlias",
                "Add-CONNFlow",
+               "Add-CONNHoursOfOperation",
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
                "Add-CONNLexBot",
@@ -1069,6 +1092,7 @@ $CONN_SelectMap = @{
                "Remove-CONNBot",
                "Remove-CONNEmailAddressAlias",
                "Remove-CONNFlow",
+               "Unregister-CONNHoursOfOperation",
                "Remove-CONNInstanceStorageConfig",
                "Remove-CONNLambdaFunction",
                "Remove-CONNLexBot",
@@ -1104,6 +1128,7 @@ $CONN_SelectMap = @{
                "Get-CONNAssociatedContactList",
                "Get-CONNAuthenticationProfileList",
                "Get-CONNBotList",
+               "Get-CONNChildHoursOfOperationList",
                "Get-CONNContactEvaluationList",
                "Get-CONNContactFlowModuleAliasList",
                "Get-CONNContactFlowModuleList",

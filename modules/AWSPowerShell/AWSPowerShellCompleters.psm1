@@ -19908,6 +19908,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.OverrideType
+        {
+            ($_ -eq "New-CONNHoursOfOperationOverride/OverrideType") -Or
+            ($_ -eq "Update-CONNHoursOfOperationOverride/OverrideType")
+        }
+        {
+            $v = "CLOSED","OPEN","STANDARD"
+            break
+        }
+
         # Amazon.Connect.ParticipantRole
         {
             ($_ -eq "New-CONNPushNotificationRegistration/ContactConfiguration_ParticipantRole") -Or
@@ -19953,6 +19963,16 @@ $CONN_Completers = {
         "Get-CONNRealtimeContactAnalysisSegmentsV2List/OutputType"
         {
             $v = "Raw","Redacted"
+            break
+        }
+
+        # Amazon.Connect.RecurrenceFrequency
+        {
+            ($_ -eq "New-CONNHoursOfOperationOverride/RecurrenceConfig_RecurrencePattern_Frequency") -Or
+            ($_ -eq "Update-CONNHoursOfOperationOverride/RecurrenceConfig_RecurrencePattern_Frequency")
+        }
+        {
+            $v = "MONTHLY","WEEKLY","YEARLY"
             break
         }
 
@@ -20244,6 +20264,7 @@ $CONN_map = @{
     "NumberCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
     "OutboundStrategy_Type"=@("Start-CONNOutboundVoiceContact")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
+    "OverrideType"=@("New-CONNHoursOfOperationOverride","Update-CONNHoursOfOperationOverride")
     "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
     "ParticipantConfiguration_ResponseMode"=@("Start-CONNChatContact")
@@ -20253,6 +20274,7 @@ $CONN_map = @{
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
+    "RecurrenceConfig_RecurrencePattern_Frequency"=@("New-CONNHoursOfOperationOverride","Update-CONNHoursOfOperationOverride")
     "RehydrationType"=@("New-CONNPersistentContactAssociation")
     "ResourceType"=@("Add-CONNFlow","Add-CONNInstanceStorageConfig","Get-CONNFlowAssociation","Get-CONNFlowAssociationBatch","Get-CONNFlowAssociationList","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNFlow","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
@@ -20356,6 +20378,7 @@ $CONN_SelectMap = @{
                "Add-CONNDefaultVocabulary",
                "Add-CONNEmailAddressAlias",
                "Add-CONNFlow",
+               "Add-CONNHoursOfOperation",
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
                "Add-CONNLexBot",
@@ -20484,6 +20507,7 @@ $CONN_SelectMap = @{
                "Remove-CONNBot",
                "Remove-CONNEmailAddressAlias",
                "Remove-CONNFlow",
+               "Unregister-CONNHoursOfOperation",
                "Remove-CONNInstanceStorageConfig",
                "Remove-CONNLambdaFunction",
                "Remove-CONNLexBot",
@@ -20519,6 +20543,7 @@ $CONN_SelectMap = @{
                "Get-CONNAssociatedContactList",
                "Get-CONNAuthenticationProfileList",
                "Get-CONNBotList",
+               "Get-CONNChildHoursOfOperationList",
                "Get-CONNContactEvaluationList",
                "Get-CONNContactFlowModuleAliasList",
                "Get-CONNContactFlowModuleList",
@@ -30803,7 +30828,7 @@ $EKS_Completers = {
         # Amazon.EKS.AMITypes
         "New-EKSNodegroup/AmiType"
         {
-            $v = "AL2023_ARM_64_NVIDIA","AL2023_ARM_64_STANDARD","AL2023_x86_64_NEURON","AL2023_x86_64_NVIDIA","AL2023_x86_64_STANDARD","AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_ARM_64_FIPS","BOTTLEROCKET_ARM_64_NVIDIA","BOTTLEROCKET_x86_64","BOTTLEROCKET_x86_64_FIPS","BOTTLEROCKET_x86_64_NVIDIA","CUSTOM","WINDOWS_CORE_2019_x86_64","WINDOWS_CORE_2022_x86_64","WINDOWS_FULL_2019_x86_64","WINDOWS_FULL_2022_x86_64"
+            $v = "AL2023_ARM_64_NVIDIA","AL2023_ARM_64_STANDARD","AL2023_x86_64_NEURON","AL2023_x86_64_NVIDIA","AL2023_x86_64_STANDARD","AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_ARM_64_FIPS","BOTTLEROCKET_ARM_64_NVIDIA","BOTTLEROCKET_ARM_64_NVIDIA_FIPS","BOTTLEROCKET_x86_64","BOTTLEROCKET_x86_64_FIPS","BOTTLEROCKET_x86_64_NVIDIA","BOTTLEROCKET_x86_64_NVIDIA_FIPS","CUSTOM","WINDOWS_CORE_2019_x86_64","WINDOWS_CORE_2022_x86_64","WINDOWS_FULL_2019_x86_64","WINDOWS_FULL_2022_x86_64"
             break
         }
 
@@ -67282,7 +67307,7 @@ $RS_Completers = {
             ($_ -eq "New-RSUsageLimit/FeatureType")
         }
         {
-            $v = "concurrency-scaling","cross-region-datasharing","spectrum"
+            $v = "concurrency-scaling","cross-region-datasharing","extra-compute-for-automatic-optimization","spectrum"
             break
         }
 

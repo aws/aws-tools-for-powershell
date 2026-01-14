@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <para>An array of parameters to set for advanced control over a database. The options are
         /// <c>auto_mv</c>, <c>datestyle</c>, <c>enable_case_sensitive_identifier</c>, <c>enable_user_activity_logging</c>,
         /// <c>query_group</c>, <c>search_path</c>, <c>require_ssl</c>, <c>use_fips_ssl</c>, and
-        /// query monitoring metrics that let you define performance boundaries. For more information
+        /// either <c>wlm_json_configuration</c> or query monitoring metrics that let you define
+        /// performance boundaries. You can either specify individual query monitoring metrics
+        /// (such as <c>max_scan_row_count</c>, <c>max_query_execution_time</c>) or use <c>wlm_json_configuration</c>
+        /// to define query queues with rules, but not both. If you're using <c>wlm_json_configuration</c>,
+        /// the maximum size of <c>parameterValue</c> is 8000 characters. For more information
         /// about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
         /// Query monitoring metrics for Amazon Redshift Serverless</a>.</para>
         /// </para>
@@ -96,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnhancedVpcRouting { get; set; }
+        #endregion
+        
+        #region Parameter ExtraComputeForAutomaticOptimization
+        /// <summary>
+        /// <para>
+        /// <para>If <c>true</c>, allocates additional compute resources for running automatic optimization
+        /// operations.</para><para>Default: false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExtraComputeForAutomaticOptimization { get; set; }
         #endregion
         
         #region Parameter IpAddressType
@@ -283,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 context.ConfigParameter = new List<Amazon.RedshiftServerless.Model.ConfigParameter>(this.ConfigParameter);
             }
             context.EnhancedVpcRouting = this.EnhancedVpcRouting;
+            context.ExtraComputeForAutomaticOptimization = this.ExtraComputeForAutomaticOptimization;
             context.IpAddressType = this.IpAddressType;
             context.MaxCapacity = this.MaxCapacity;
             context.Port = this.Port;
@@ -332,6 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.EnhancedVpcRouting != null)
             {
                 request.EnhancedVpcRouting = cmdletContext.EnhancedVpcRouting.Value;
+            }
+            if (cmdletContext.ExtraComputeForAutomaticOptimization != null)
+            {
+                request.ExtraComputeForAutomaticOptimization = cmdletContext.ExtraComputeForAutomaticOptimization.Value;
             }
             if (cmdletContext.IpAddressType != null)
             {
@@ -458,6 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             public System.Int32? BaseCapacity { get; set; }
             public List<Amazon.RedshiftServerless.Model.ConfigParameter> ConfigParameter { get; set; }
             public System.Boolean? EnhancedVpcRouting { get; set; }
+            public System.Boolean? ExtraComputeForAutomaticOptimization { get; set; }
             public System.String IpAddressType { get; set; }
             public System.Int32? MaxCapacity { get; set; }
             public System.Int32? Port { get; set; }

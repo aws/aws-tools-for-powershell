@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CtaUrlLinkTrackingOptedOut
+        /// <summary>
+        /// <para>
+        /// <para>When true, disables click tracking for call-to-action URL buttons in the template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CtaUrlLinkTrackingOptedOut { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -74,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MetaTemplateId { get; set; }
+        #endregion
+        
+        #region Parameter ParameterFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format specification for parameters in the template, this can be either 'named'
+        /// or 'positional'.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParameterFormat { get; set; }
         #endregion
         
         #region Parameter TemplateCategory
@@ -160,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CtaUrlLinkTrackingOptedOut = this.CtaUrlLinkTrackingOptedOut;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -174,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 WriteWarning("You are passing $null as a value for parameter MetaTemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ParameterFormat = this.ParameterFormat;
             context.TemplateCategory = this.TemplateCategory;
             context.TemplateComponent = this.TemplateComponent;
             
@@ -196,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 // create request
                 var request = new Amazon.SocialMessaging.Model.UpdateWhatsAppMessageTemplateRequest();
                 
+                if (cmdletContext.CtaUrlLinkTrackingOptedOut != null)
+                {
+                    request.CtaUrlLinkTrackingOptedOut = cmdletContext.CtaUrlLinkTrackingOptedOut.Value;
+                }
                 if (cmdletContext.Id != null)
                 {
                     request.Id = cmdletContext.Id;
@@ -203,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 if (cmdletContext.MetaTemplateId != null)
                 {
                     request.MetaTemplateId = cmdletContext.MetaTemplateId;
+                }
+                if (cmdletContext.ParameterFormat != null)
+                {
+                    request.ParameterFormat = cmdletContext.ParameterFormat;
                 }
                 if (cmdletContext.TemplateCategory != null)
                 {
@@ -282,8 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CtaUrlLinkTrackingOptedOut { get; set; }
             public System.String Id { get; set; }
             public System.String MetaTemplateId { get; set; }
+            public System.String ParameterFormat { get; set; }
             public System.String TemplateCategory { get; set; }
             public byte[] TemplateComponent { get; set; }
             public System.Func<Amazon.SocialMessaging.Model.UpdateWhatsAppMessageTemplateResponse, UpdateSOCIALWhatsAppMessageTemplateCmdlet, object> Select { get; set; } =
