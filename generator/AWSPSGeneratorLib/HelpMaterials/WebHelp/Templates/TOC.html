@@ -27,6 +27,8 @@
             var params = parseUri($(window.parent.location).attr('href')).queryKey;
             if (params && params.page) {
                 AWSTOCObj.setContentPane("./items/" + params.page);
+            } else {
+                AWSTOCObj.setContentPane("./items/pstoolsref-welcome.html");
             }
 
             if (params && params.tocid) {

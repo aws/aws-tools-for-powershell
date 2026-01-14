@@ -105,6 +105,9 @@
     <Content Include="HelpMaterials\WebHelp\StaticContent\resources\pagescript.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\parentloader.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="HelpMaterials\WebHelp\StaticContent\resources\parseuri.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

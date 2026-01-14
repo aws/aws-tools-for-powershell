@@ -74,11 +74,11 @@ namespace AWSPowerShellGenerator.Writers.Help
 
                         // every page needs a title, meta description and canonical url to satisfy indexing
                         writer.WriteLine("<meta name=\"description\" content=\"{0}\">", GetMetaDescription());
-                        writer.WriteLine("<title>{0} | AWS Tools for PowerShell</title>", GetTitle());                        
+                        writer.WriteLine("<title>{0} | AWS Tools for PowerShell</title>", GetTitle());
                         writer.WriteLine("<script type=\"text/javascript\" src=\"/assets/js/awsdocs-boot.js\"></script>");
-                        writer.WriteLine("<link rel=\"canonical\" href=\"http://docs.aws.amazon.com/powershell/v5/reference/index.html?page={0}&tocid={1}\"/>",
-                                         this.GenerateFilename(),
-                                         this.GetTOCID());
+                        writer.WriteLine("<meta name=\"aws-tocid\" content=\"{0}\"/>", this.GetTOCID());
+                        writer.WriteLine("<link rel=\"canonical\" href=\"https://docs.aws.amazon.com/powershell/v5/reference/items/{0}\"/>",
+                                         this.GenerateFilename());
 
                     writer.WriteLine("</head>");
 
@@ -209,6 +209,7 @@ namespace AWSPowerShellGenerator.Writers.Help
             writer.WriteLine("<script type=\"text/javascript\">jQuery.noConflict();</script>");
             writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/parseuri.js\"></script>", RelativePathToRoot);
             writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/pagescript.js\"></script>", RelativePathToRoot);
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/parentloader.js\"></script>", RelativePathToRoot);
             writer.WriteLine("<!-- BEGIN-SECTION -->");
             writer.WriteLine("<script type=\"text/javascript\">");
             writer.WriteLine("jQuery(function ($) {");
