@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityCenterInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM Identity Center instance that authenticates
-        /// monitor users.</para>
+        /// <para>The Amazon Resource Name of the IAM Identity Center instance that authenticates monitor
+        /// users.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that the monitor uses to connect to
-        /// Deadline Cloud. Every user that signs in to the monitor using IAM Identity Center
-        /// uses this role to access Deadline Cloud resources.</para>
+        /// <para>The Amazon Resource Name of the IAM role that the monitor uses to connect to Deadline
+        /// Cloud. Every user that signs in to the monitor using IAM Identity Center uses this
+        /// role to access Deadline Cloud resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

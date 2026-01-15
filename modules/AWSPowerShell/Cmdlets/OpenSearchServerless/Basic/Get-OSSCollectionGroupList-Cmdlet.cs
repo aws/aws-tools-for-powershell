@@ -30,57 +30,21 @@ using Amazon.OpenSearchServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.OSS
 {
     /// <summary>
-    /// Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating
-    /// and managing Amazon OpenSearch Serverless collections</a>.
-    /// 
-    ///  <note><para>
-    /// Make sure to include an empty request body {} if you don't include any collection
-    /// filters in the request.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Returns a list of collection groups. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating
+    /// and managing Amazon OpenSearch Serverless collections</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "OSSCollectionList")]
-    [OutputType("Amazon.OpenSearchServerless.Model.CollectionSummary")]
-    [AWSCmdlet("Calls the OpenSearch Serverless ListCollections API operation.", Operation = new[] {"ListCollections"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.ListCollectionsResponse))]
-    [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.CollectionSummary or Amazon.OpenSearchServerless.Model.ListCollectionsResponse",
-        "This cmdlet returns a collection of Amazon.OpenSearchServerless.Model.CollectionSummary objects.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.ListCollectionsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "OSSCollectionGroupList")]
+    [OutputType("Amazon.OpenSearchServerless.Model.CollectionGroupSummary")]
+    [AWSCmdlet("Calls the OpenSearch Serverless ListCollectionGroups API operation.", Operation = new[] {"ListCollectionGroups"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.ListCollectionGroupsResponse))]
+    [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.CollectionGroupSummary or Amazon.OpenSearchServerless.Model.ListCollectionGroupsResponse",
+        "This cmdlet returns a collection of Amazon.OpenSearchServerless.Model.CollectionGroupSummary objects.",
+        "The service call response (type Amazon.OpenSearchServerless.Model.ListCollectionGroupsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOSSCollectionListCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
+    public partial class GetOSSCollectionGroupListCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
-        
-        #region Parameter CollectionFilters_CollectionGroupName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the collection group to filter by.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CollectionFilters_CollectionGroupName { get; set; }
-        #endregion
-        
-        #region Parameter CollectionFilters_Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the collection.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CollectionFilters_Name { get; set; }
-        #endregion
-        
-        #region Parameter CollectionFilters_Status
-        /// <summary>
-        /// <para>
-        /// <para>The current status of the collection.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.OpenSearchServerless.CollectionStatus")]
-        public Amazon.OpenSearchServerless.CollectionStatus CollectionFilters_Status { get; set; }
-        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -102,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <c>ListCollections</c> operation returns a <c>nextToken</c>, you can
-        /// include the returned <c>nextToken</c> in subsequent <c>ListCollections</c> operations,
-        /// which returns results in the next page.</para>
+        /// <para>If your initial <c>ListCollectionGroups</c> operation returns a <c>nextToken</c>,
+        /// you can include the returned <c>nextToken</c> in subsequent <c>ListCollectionGroups</c>
+        /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -117,13 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CollectionSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.ListCollectionsResponse).
-        /// Specifying the name of a property of type Amazon.OpenSearchServerless.Model.ListCollectionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CollectionGroupSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.ListCollectionGroupsResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchServerless.Model.ListCollectionGroupsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CollectionSummaries";
+        public string Select { get; set; } = "CollectionGroupSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -131,7 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -153,12 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.ListCollectionsResponse, GetOSSCollectionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.ListCollectionGroupsResponse, GetOSSCollectionGroupListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.CollectionFilters_CollectionGroupName = this.CollectionFilters_CollectionGroupName;
-            context.CollectionFilters_Name = this.CollectionFilters_Name;
-            context.CollectionFilters_Status = this.CollectionFilters_Status;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -186,47 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.OpenSearchServerless.Model.ListCollectionsRequest();
+            var request = new Amazon.OpenSearchServerless.Model.ListCollectionGroupsRequest();
             
-            
-             // populate CollectionFilters
-            var requestCollectionFiltersIsNull = true;
-            request.CollectionFilters = new Amazon.OpenSearchServerless.Model.CollectionFilters();
-            System.String requestCollectionFilters_collectionFilters_CollectionGroupName = null;
-            if (cmdletContext.CollectionFilters_CollectionGroupName != null)
-            {
-                requestCollectionFilters_collectionFilters_CollectionGroupName = cmdletContext.CollectionFilters_CollectionGroupName;
-            }
-            if (requestCollectionFilters_collectionFilters_CollectionGroupName != null)
-            {
-                request.CollectionFilters.CollectionGroupName = requestCollectionFilters_collectionFilters_CollectionGroupName;
-                requestCollectionFiltersIsNull = false;
-            }
-            System.String requestCollectionFilters_collectionFilters_Name = null;
-            if (cmdletContext.CollectionFilters_Name != null)
-            {
-                requestCollectionFilters_collectionFilters_Name = cmdletContext.CollectionFilters_Name;
-            }
-            if (requestCollectionFilters_collectionFilters_Name != null)
-            {
-                request.CollectionFilters.Name = requestCollectionFilters_collectionFilters_Name;
-                requestCollectionFiltersIsNull = false;
-            }
-            Amazon.OpenSearchServerless.CollectionStatus requestCollectionFilters_collectionFilters_Status = null;
-            if (cmdletContext.CollectionFilters_Status != null)
-            {
-                requestCollectionFilters_collectionFilters_Status = cmdletContext.CollectionFilters_Status;
-            }
-            if (requestCollectionFilters_collectionFilters_Status != null)
-            {
-                request.CollectionFilters.Status = requestCollectionFilters_collectionFilters_Status;
-                requestCollectionFiltersIsNull = false;
-            }
-             // determine if request.CollectionFilters should be set to null
-            if (requestCollectionFiltersIsNull)
-            {
-                request.CollectionFilters = null;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -235,7 +156,6 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -269,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -289,12 +209,12 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         #region AWS Service Operation Call
         
-        private Amazon.OpenSearchServerless.Model.ListCollectionsResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.ListCollectionsRequest request)
+        private Amazon.OpenSearchServerless.Model.ListCollectionGroupsResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.ListCollectionGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "ListCollections");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "ListCollectionGroups");
             try
             {
-                return client.ListCollectionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListCollectionGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -311,13 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CollectionFilters_CollectionGroupName { get; set; }
-            public System.String CollectionFilters_Name { get; set; }
-            public Amazon.OpenSearchServerless.CollectionStatus CollectionFilters_Status { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.OpenSearchServerless.Model.ListCollectionsResponse, GetOSSCollectionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CollectionSummaries;
+            public System.Func<Amazon.OpenSearchServerless.Model.ListCollectionGroupsResponse, GetOSSCollectionGroupListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CollectionGroupSummaries;
         }
         
     }

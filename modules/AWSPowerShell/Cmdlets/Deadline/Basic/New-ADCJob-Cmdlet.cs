@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Attachments_FileSystem
         /// <summary>
         /// <para>
-        /// <para>The file system.</para>
+        /// <para>The file system location for the attachments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Attachments_Manifest
         /// <summary>
         /// <para>
-        /// <para>A list of manifests which describe job attachment configurations.</para><para />
+        /// <para>The manifest properties for the attachments.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

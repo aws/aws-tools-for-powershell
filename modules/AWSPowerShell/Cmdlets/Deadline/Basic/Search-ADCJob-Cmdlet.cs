@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ItemOffset
         /// <summary>
         /// <para>
-        /// <para>Defines how far into the scrollable list to start the return of results.</para>
+        /// <para>The offset for the search results.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of items per page for the resource.</para>
+        /// <para>Specifies the number of results to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

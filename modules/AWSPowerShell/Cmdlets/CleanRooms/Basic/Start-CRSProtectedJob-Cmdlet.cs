@@ -102,6 +102,22 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.Int32? Worker_Number { get; set; }
         #endregion
         
+        #region Parameter JobParameters_Parameter
+        /// <summary>
+        /// <para>
+        /// <para>Runtime configuration values passed to the PySpark analysis script. Parameter names
+        /// and types must match those defined in the analysis template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JobParameters_Parameters")]
+        public System.Collections.Hashtable JobParameters_Parameter { get; set; }
+        #endregion
+        
         #region Parameter Worker_Type
         /// <summary>
         /// <para>
@@ -186,6 +202,14 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter JobParameters_AnalysisTemplateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.JobParameters_Parameter != null)
+            {
+                context.JobParameters_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.JobParameters_Parameter.Keys)
+                {
+                    context.JobParameters_Parameter.Add((String)hashKey, (System.String)(this.JobParameters_Parameter[hashKey]));
+                }
+            }
             context.MembershipIdentifier = this.MembershipIdentifier;
             #if MODULAR
             if (this.MembershipIdentifier == null && ParameterWasBound(nameof(this.MembershipIdentifier)))
@@ -273,6 +297,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestJobParameters_jobParameters_AnalysisTemplateArn != null)
             {
                 request.JobParameters.AnalysisTemplateArn = requestJobParameters_jobParameters_AnalysisTemplateArn;
+                requestJobParametersIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestJobParameters_jobParameters_Parameter = null;
+            if (cmdletContext.JobParameters_Parameter != null)
+            {
+                requestJobParameters_jobParameters_Parameter = cmdletContext.JobParameters_Parameter;
+            }
+            if (requestJobParameters_jobParameters_Parameter != null)
+            {
+                request.JobParameters.Parameters = requestJobParameters_jobParameters_Parameter;
                 requestJobParametersIsNull = false;
             }
              // determine if request.JobParameters should be set to null
@@ -395,6 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.Int32? Worker_Number { get; set; }
             public Amazon.CleanRooms.ProtectedJobWorkerComputeType Worker_Type { get; set; }
             public System.String JobParameters_AnalysisTemplateArn { get; set; }
+            public Dictionary<System.String, System.String> JobParameters_Parameter { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.String Member_AccountId { get; set; }
             public Amazon.CleanRooms.ProtectedJobType Type { get; set; }

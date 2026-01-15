@@ -30,73 +30,89 @@ using Amazon.OpenSearchServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.OSS
 {
     /// <summary>
-    /// Creates a new OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating
-    /// and managing Amazon OpenSearch Serverless collections</a>.
+    /// Creates a collection group within OpenSearch Serverless. Collection groups let you
+    /// manage OpenSearch Compute Units (OCUs) at a group level, with multiple collections
+    /// sharing the group's capacity limits.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-collection-groups.html">Managing
+    /// collection groups</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "OSSCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.OpenSearchServerless.Model.CreateCollectionDetail")]
-    [AWSCmdlet("Calls the OpenSearch Serverless CreateCollection API operation.", Operation = new[] {"CreateCollection"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.CreateCollectionResponse))]
-    [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.CreateCollectionDetail or Amazon.OpenSearchServerless.Model.CreateCollectionResponse",
-        "This cmdlet returns an Amazon.OpenSearchServerless.Model.CreateCollectionDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.CreateCollectionResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("New", "OSSCollectionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.OpenSearchServerless.Model.CreateCollectionGroupDetail")]
+    [AWSCmdlet("Calls the OpenSearch Serverless CreateCollectionGroup API operation.", Operation = new[] {"CreateCollectionGroup"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.CreateCollectionGroupResponse))]
+    [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.CreateCollectionGroupDetail or Amazon.OpenSearchServerless.Model.CreateCollectionGroupResponse",
+        "This cmdlet returns an Amazon.OpenSearchServerless.Model.CreateCollectionGroupDetail object.",
+        "The service call response (type Amazon.OpenSearchServerless.Model.CreateCollectionGroupResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewOSSCollectionCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
+    public partial class NewOSSCollectionGroupCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EncryptionConfig_AWSOwnedKey
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether to use an Amazon Web Services-owned key for encryption.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? EncryptionConfig_AWSOwnedKey { get; set; }
-        #endregion
-        
-        #region Parameter CollectionGroupName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the collection group to associate with the collection.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CollectionGroupName { get; set; }
-        #endregion
-        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Description of the collection.</para>
+        /// <para>A description of the collection group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter EncryptionConfig_KmsKeyArn
+        #region Parameter CapacityLimits_MaxIndexingCapacityInOCU
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Web Services Key Management Service key used to encrypt the
-        /// collection.</para>
+        /// <para>The maximum indexing capacity for collections in the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EncryptionConfig_KmsKeyArn { get; set; }
+        public System.Single? CapacityLimits_MaxIndexingCapacityInOCU { get; set; }
+        #endregion
+        
+        #region Parameter CapacityLimits_MaxSearchCapacityInOCU
+        /// <summary>
+        /// <para>
+        /// <para>The maximum search capacity for collections in the group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? CapacityLimits_MaxSearchCapacityInOCU { get; set; }
+        #endregion
+        
+        #region Parameter CapacityLimits_MinIndexingCapacityInOCU
+        /// <summary>
+        /// <para>
+        /// <para>The minimum indexing capacity for collections in the group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? CapacityLimits_MinIndexingCapacityInOCU { get; set; }
+        #endregion
+        
+        #region Parameter CapacityLimits_MinSearchCapacityInOCU
+        /// <summary>
+        /// <para>
+        /// <para>The minimum search capacity for collections in the group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? CapacityLimits_MinSearchCapacityInOCU { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the collection.</para>
+        /// <para>The name of the collection group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -104,24 +120,19 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter VectorOptions_ServerlessVectorAcceleration
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether serverless vector acceleration is enabled for the collection.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus")]
-        public Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus VectorOptions_ServerlessVectorAcceleration { get; set; }
-        #endregion
-        
         #region Parameter StandbyReplica
         /// <summary>
         /// <para>
-        /// <para>Indicates whether standby replicas should be used for a collection.</para>
+        /// <para>Indicates whether standby replicas should be used for a collection group.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("StandbyReplicas")]
         [AWSConstantClassSource("Amazon.OpenSearchServerless.StandbyReplicas")]
         public Amazon.OpenSearchServerless.StandbyReplicas StandbyReplica { get; set; }
@@ -131,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// <summary>
         /// <para>
         /// <para>An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless
-        /// collection.</para><para />
+        /// collection group.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -141,17 +152,6 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.OpenSearchServerless.Model.Tag[] Tag { get; set; }
-        #endregion
-        
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>The type of collection.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.OpenSearchServerless.CollectionType")]
-        public Amazon.OpenSearchServerless.CollectionType Type { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -166,13 +166,13 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CreateCollectionDetail'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.CreateCollectionResponse).
-        /// Specifying the name of a property of type Amazon.OpenSearchServerless.Model.CreateCollectionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CreateCollectionGroupDetail'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.CreateCollectionGroupResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchServerless.Model.CreateCollectionGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CreateCollectionDetail";
+        public string Select { get; set; } = "CreateCollectionGroupDetail";
         #endregion
         
         #region Parameter Force
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-OSSCollection (CreateCollection)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-OSSCollectionGroup (CreateCollectionGroup)"))
             {
                 return;
             }
@@ -207,14 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.CreateCollectionResponse, NewOSSCollectionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.CreateCollectionGroupResponse, NewOSSCollectionGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CapacityLimits_MaxIndexingCapacityInOCU = this.CapacityLimits_MaxIndexingCapacityInOCU;
+            context.CapacityLimits_MaxSearchCapacityInOCU = this.CapacityLimits_MaxSearchCapacityInOCU;
+            context.CapacityLimits_MinIndexingCapacityInOCU = this.CapacityLimits_MinIndexingCapacityInOCU;
+            context.CapacityLimits_MinSearchCapacityInOCU = this.CapacityLimits_MinSearchCapacityInOCU;
             context.ClientToken = this.ClientToken;
-            context.CollectionGroupName = this.CollectionGroupName;
             context.Description = this.Description;
-            context.EncryptionConfig_AWSOwnedKey = this.EncryptionConfig_AWSOwnedKey;
-            context.EncryptionConfig_KmsKeyArn = this.EncryptionConfig_KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -223,12 +224,16 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             }
             #endif
             context.StandbyReplica = this.StandbyReplica;
+            #if MODULAR
+            if (this.StandbyReplica == null && ParameterWasBound(nameof(this.StandbyReplica)))
+            {
+                WriteWarning("You are passing $null as a value for parameter StandbyReplica which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.OpenSearchServerless.Model.Tag>(this.Tag);
             }
-            context.Type = this.Type;
-            context.VectorOptions_ServerlessVectorAcceleration = this.VectorOptions_ServerlessVectorAcceleration;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -243,48 +248,64 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpenSearchServerless.Model.CreateCollectionRequest();
+            var request = new Amazon.OpenSearchServerless.Model.CreateCollectionGroupRequest();
             
+            
+             // populate CapacityLimits
+            var requestCapacityLimitsIsNull = true;
+            request.CapacityLimits = new Amazon.OpenSearchServerless.Model.CollectionGroupCapacityLimits();
+            System.Single? requestCapacityLimits_capacityLimits_MaxIndexingCapacityInOCU = null;
+            if (cmdletContext.CapacityLimits_MaxIndexingCapacityInOCU != null)
+            {
+                requestCapacityLimits_capacityLimits_MaxIndexingCapacityInOCU = cmdletContext.CapacityLimits_MaxIndexingCapacityInOCU.Value;
+            }
+            if (requestCapacityLimits_capacityLimits_MaxIndexingCapacityInOCU != null)
+            {
+                request.CapacityLimits.MaxIndexingCapacityInOCU = requestCapacityLimits_capacityLimits_MaxIndexingCapacityInOCU.Value;
+                requestCapacityLimitsIsNull = false;
+            }
+            System.Single? requestCapacityLimits_capacityLimits_MaxSearchCapacityInOCU = null;
+            if (cmdletContext.CapacityLimits_MaxSearchCapacityInOCU != null)
+            {
+                requestCapacityLimits_capacityLimits_MaxSearchCapacityInOCU = cmdletContext.CapacityLimits_MaxSearchCapacityInOCU.Value;
+            }
+            if (requestCapacityLimits_capacityLimits_MaxSearchCapacityInOCU != null)
+            {
+                request.CapacityLimits.MaxSearchCapacityInOCU = requestCapacityLimits_capacityLimits_MaxSearchCapacityInOCU.Value;
+                requestCapacityLimitsIsNull = false;
+            }
+            System.Single? requestCapacityLimits_capacityLimits_MinIndexingCapacityInOCU = null;
+            if (cmdletContext.CapacityLimits_MinIndexingCapacityInOCU != null)
+            {
+                requestCapacityLimits_capacityLimits_MinIndexingCapacityInOCU = cmdletContext.CapacityLimits_MinIndexingCapacityInOCU.Value;
+            }
+            if (requestCapacityLimits_capacityLimits_MinIndexingCapacityInOCU != null)
+            {
+                request.CapacityLimits.MinIndexingCapacityInOCU = requestCapacityLimits_capacityLimits_MinIndexingCapacityInOCU.Value;
+                requestCapacityLimitsIsNull = false;
+            }
+            System.Single? requestCapacityLimits_capacityLimits_MinSearchCapacityInOCU = null;
+            if (cmdletContext.CapacityLimits_MinSearchCapacityInOCU != null)
+            {
+                requestCapacityLimits_capacityLimits_MinSearchCapacityInOCU = cmdletContext.CapacityLimits_MinSearchCapacityInOCU.Value;
+            }
+            if (requestCapacityLimits_capacityLimits_MinSearchCapacityInOCU != null)
+            {
+                request.CapacityLimits.MinSearchCapacityInOCU = requestCapacityLimits_capacityLimits_MinSearchCapacityInOCU.Value;
+                requestCapacityLimitsIsNull = false;
+            }
+             // determine if request.CapacityLimits should be set to null
+            if (requestCapacityLimitsIsNull)
+            {
+                request.CapacityLimits = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.CollectionGroupName != null)
-            {
-                request.CollectionGroupName = cmdletContext.CollectionGroupName;
-            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
-            }
-            
-             // populate EncryptionConfig
-            var requestEncryptionConfigIsNull = true;
-            request.EncryptionConfig = new Amazon.OpenSearchServerless.Model.EncryptionConfig();
-            System.Boolean? requestEncryptionConfig_encryptionConfig_AWSOwnedKey = null;
-            if (cmdletContext.EncryptionConfig_AWSOwnedKey != null)
-            {
-                requestEncryptionConfig_encryptionConfig_AWSOwnedKey = cmdletContext.EncryptionConfig_AWSOwnedKey.Value;
-            }
-            if (requestEncryptionConfig_encryptionConfig_AWSOwnedKey != null)
-            {
-                request.EncryptionConfig.AWSOwnedKey = requestEncryptionConfig_encryptionConfig_AWSOwnedKey.Value;
-                requestEncryptionConfigIsNull = false;
-            }
-            System.String requestEncryptionConfig_encryptionConfig_KmsKeyArn = null;
-            if (cmdletContext.EncryptionConfig_KmsKeyArn != null)
-            {
-                requestEncryptionConfig_encryptionConfig_KmsKeyArn = cmdletContext.EncryptionConfig_KmsKeyArn;
-            }
-            if (requestEncryptionConfig_encryptionConfig_KmsKeyArn != null)
-            {
-                request.EncryptionConfig.KmsKeyArn = requestEncryptionConfig_encryptionConfig_KmsKeyArn;
-                requestEncryptionConfigIsNull = false;
-            }
-             // determine if request.EncryptionConfig should be set to null
-            if (requestEncryptionConfigIsNull)
-            {
-                request.EncryptionConfig = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -297,29 +318,6 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
-            }
-            
-             // populate VectorOptions
-            var requestVectorOptionsIsNull = true;
-            request.VectorOptions = new Amazon.OpenSearchServerless.Model.VectorOptions();
-            Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus requestVectorOptions_vectorOptions_ServerlessVectorAcceleration = null;
-            if (cmdletContext.VectorOptions_ServerlessVectorAcceleration != null)
-            {
-                requestVectorOptions_vectorOptions_ServerlessVectorAcceleration = cmdletContext.VectorOptions_ServerlessVectorAcceleration;
-            }
-            if (requestVectorOptions_vectorOptions_ServerlessVectorAcceleration != null)
-            {
-                request.VectorOptions.ServerlessVectorAcceleration = requestVectorOptions_vectorOptions_ServerlessVectorAcceleration;
-                requestVectorOptionsIsNull = false;
-            }
-             // determine if request.VectorOptions should be set to null
-            if (requestVectorOptionsIsNull)
-            {
-                request.VectorOptions = null;
             }
             
             CmdletOutput output;
@@ -354,12 +352,12 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         #region AWS Service Operation Call
         
-        private Amazon.OpenSearchServerless.Model.CreateCollectionResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.CreateCollectionRequest request)
+        private Amazon.OpenSearchServerless.Model.CreateCollectionGroupResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.CreateCollectionGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "CreateCollection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "CreateCollectionGroup");
             try
             {
-                return client.CreateCollectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CreateCollectionGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -376,18 +374,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Single? CapacityLimits_MaxIndexingCapacityInOCU { get; set; }
+            public System.Single? CapacityLimits_MaxSearchCapacityInOCU { get; set; }
+            public System.Single? CapacityLimits_MinIndexingCapacityInOCU { get; set; }
+            public System.Single? CapacityLimits_MinSearchCapacityInOCU { get; set; }
             public System.String ClientToken { get; set; }
-            public System.String CollectionGroupName { get; set; }
             public System.String Description { get; set; }
-            public System.Boolean? EncryptionConfig_AWSOwnedKey { get; set; }
-            public System.String EncryptionConfig_KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public Amazon.OpenSearchServerless.StandbyReplicas StandbyReplica { get; set; }
             public List<Amazon.OpenSearchServerless.Model.Tag> Tag { get; set; }
-            public Amazon.OpenSearchServerless.CollectionType Type { get; set; }
-            public Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus VectorOptions_ServerlessVectorAcceleration { get; set; }
-            public System.Func<Amazon.OpenSearchServerless.Model.CreateCollectionResponse, NewOSSCollectionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CreateCollectionDetail;
+            public System.Func<Amazon.OpenSearchServerless.Model.CreateCollectionGroupResponse, NewOSSCollectionGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CreateCollectionGroupDetail;
         }
         
     }

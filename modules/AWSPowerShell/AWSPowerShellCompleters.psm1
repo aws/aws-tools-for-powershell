@@ -33800,7 +33800,7 @@ $EVS_Completers = {
         # Amazon.Evs.VcfVersion
         "New-EVSEnvironment/VcfVersion"
         {
-            $v = "VCF-5.2.1"
+            $v = "VCF-5.2.1","VCF-5.2.2"
             break
         }
 
@@ -33874,6 +33874,7 @@ $EVS_SelectMap = @{
                "Remove-EVSEnvironmentHost",
                "Unregister-EVSEipFromVlan",
                "Get-EVSEnvironment",
+               "Get-EVSVersion",
                "Get-EVSEnvironmentHostList",
                "Get-EVSEnvironmentList",
                "Get-EVSEnvironmentVlanList",
@@ -46932,6 +46933,13 @@ $LKF_Completers = {
             break
         }
 
+        # Amazon.LakeFormation.CredentialsScope
+        "Get-LKFTemporaryDataLocationCredential/CredentialsScope"
+        {
+            $v = "READ","READWRITE"
+            break
+        }
+
         # Amazon.LakeFormation.DataLakeResourceType
         "Get-LKFPermissionList/ResourceType"
         {
@@ -47004,6 +47012,7 @@ $LKF_Completers = {
 
 $LKF_map = @{
     "ApplicationStatus"=@("Update-LKFLakeFormationIdentityCenterConfiguration")
+    "CredentialsScope"=@("Get-LKFTemporaryDataLocationCredential")
     "ExternalFiltering_Status"=@("New-LKFLakeFormationIdentityCenterConfiguration","Update-LKFLakeFormationIdentityCenterConfiguration")
     "LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
     "ResourceShareType"=@("Get-LKFLFTagList")
@@ -47094,6 +47103,7 @@ $LKF_SelectMap = @{
                "Get-LKFQueryStatistic",
                "Get-LKFResourceLFTag",
                "Get-LKFTableObject",
+               "Get-LKFTemporaryDataLocationCredential",
                "Get-LKFTemporaryGluePartitionCredential",
                "Get-LKFTemporaryGlueTableCredential",
                "Get-LKFWorkUnitResult",
@@ -59057,7 +59067,10 @@ $OSS_Completers = {
         }
 
         # Amazon.OpenSearchServerless.StandbyReplicas
-        "New-OSSCollection/StandbyReplica"
+        {
+            ($_ -eq "New-OSSCollection/StandbyReplica") -Or
+            ($_ -eq "New-OSSCollectionGroup/StandbyReplica")
+        }
         {
             $v = "DISABLED","ENABLED"
             break
@@ -59084,7 +59097,7 @@ $OSS_map = @{
     "IamIdentityCenterOptions_UserAttribute"=@("New-OSSSecurityConfig")
     "IamIdentityCenterOptionsUpdates_GroupAttribute"=@("Update-OSSSecurityConfig")
     "IamIdentityCenterOptionsUpdates_UserAttribute"=@("Update-OSSSecurityConfig")
-    "StandbyReplica"=@("New-OSSCollection")
+    "StandbyReplica"=@("New-OSSCollection","New-OSSCollectionGroup")
     "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSLifecyclePolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSLifecyclePolicy","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSLifecyclePolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSLifecyclePolicy","Update-OSSSecurityPolicy")
     "VectorOptions_ServerlessVectorAcceleration"=@("New-OSSCollection")
     "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")
@@ -59141,11 +59154,13 @@ $OSS_SelectCompleters = {
 
 $OSS_SelectMap = @{
     "Select"=@("Get-OSSGetCollection",
+               "Get-OSSCollectionGroup",
                "Get-OSSGetEffectiveLifecyclePolicy",
                "Get-OSSGetLifecyclePolicy",
                "Get-OSSGetVpcEndpoint",
                "New-OSSAccessPolicy",
                "New-OSSCollection",
+               "New-OSSCollectionGroup",
                "New-OSSIndex",
                "New-OSSLifecyclePolicy",
                "New-OSSSecurityConfig",
@@ -59153,6 +59168,7 @@ $OSS_SelectMap = @{
                "New-OSSVpcEndpoint",
                "Remove-OSSAccessPolicy",
                "Remove-OSSCollection",
+               "Remove-OSSCollectionGroup",
                "Remove-OSSIndex",
                "Remove-OSSLifecyclePolicy",
                "Remove-OSSSecurityConfig",
@@ -59165,6 +59181,7 @@ $OSS_SelectMap = @{
                "Get-OSSSecurityConfig",
                "Get-OSSSecurityPolicy",
                "Get-OSSAccessPolicyList",
+               "Get-OSSCollectionGroupList",
                "Get-OSSCollectionList",
                "Get-OSSLifecyclePolicyList",
                "Get-OSSSecurityConfigList",
@@ -59176,6 +59193,7 @@ $OSS_SelectMap = @{
                "Update-OSSAccessPolicy",
                "Update-OSSAccountSetting",
                "Update-OSSCollection",
+               "Update-OSSCollectionGroup",
                "Update-OSSIndex",
                "Update-OSSLifecyclePolicy",
                "Update-OSSSecurityConfig",

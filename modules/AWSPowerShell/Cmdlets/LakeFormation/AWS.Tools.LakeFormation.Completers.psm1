@@ -87,6 +87,13 @@ $LKF_Completers = {
             break
         }
 
+        # Amazon.LakeFormation.CredentialsScope
+        "Get-LKFTemporaryDataLocationCredential/CredentialsScope"
+        {
+            $v = "READ","READWRITE"
+            break
+        }
+
         # Amazon.LakeFormation.DataLakeResourceType
         "Get-LKFPermissionList/ResourceType"
         {
@@ -159,6 +166,7 @@ $LKF_Completers = {
 
 $LKF_map = @{
     "ApplicationStatus"=@("Update-LKFLakeFormationIdentityCenterConfiguration")
+    "CredentialsScope"=@("Get-LKFTemporaryDataLocationCredential")
     "ExternalFiltering_Status"=@("New-LKFLakeFormationIdentityCenterConfiguration","Update-LKFLakeFormationIdentityCenterConfiguration")
     "LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
     "ResourceShareType"=@("Get-LKFLFTagList")
@@ -249,6 +257,7 @@ $LKF_SelectMap = @{
                "Get-LKFQueryStatistic",
                "Get-LKFResourceLFTag",
                "Get-LKFTableObject",
+               "Get-LKFTemporaryDataLocationCredential",
                "Get-LKFTemporaryGluePartitionCredential",
                "Get-LKFTemporaryGlueTableCredential",
                "Get-LKFWorkUnitResult",

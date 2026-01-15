@@ -161,6 +161,22 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.DateTime? Fixed_StartTime { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Each tag consists of a tag key and a tag value. Tag keys and values are both required,
+        /// but tag values can be empty strings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -252,6 +268,14 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             #endif
             context.Fixed_EndTime = this.Fixed_EndTime;
             context.Fixed_StartTime = this.Fixed_StartTime;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.UsageTrackingResource_QueueId = this.UsageTrackingResource_QueueId;
             
             // allow further manipulation of loaded context prior to processing
@@ -337,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.Schedule = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
              // populate UsageTrackingResource
             var requestUsageTrackingResourceIsNull = true;
@@ -419,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String FarmId { get; set; }
             public System.DateTime? Fixed_EndTime { get; set; }
             public System.DateTime? Fixed_StartTime { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String UsageTrackingResource_QueueId { get; set; }
             public System.Func<Amazon.Deadline.Model.CreateBudgetResponse, NewADCBudgetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BudgetId;
