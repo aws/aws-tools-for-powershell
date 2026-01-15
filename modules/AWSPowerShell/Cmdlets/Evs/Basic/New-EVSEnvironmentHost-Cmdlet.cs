@@ -28,7 +28,7 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Creates an ESXi host and adds it to an Amazon EVS environment. Amazon EVS supports
+    /// Creates an ESX host and adds it to an Amazon EVS environment. Amazon EVS supports
     /// 4-16 hosts per environment.
     /// 
     ///  
@@ -36,11 +36,16 @@ namespace Amazon.PowerShell.Cmdlets.EVS
     /// This action can only be used after the Amazon EVS environment is deployed.
     /// </para><para>
     /// You can use the <c>dedicatedHostId</c> parameter to specify an Amazon EC2 Dedicated
-    /// Host for ESXi host creation.
+    /// Host for ESX host creation.
     /// </para><para>
     ///  You can use the <c>placementGroupId</c> parameter to specify a cluster or partition
     /// placement group to launch EC2 instances into.
     /// </para><note><para>
+    /// If you don't specify an ESX version when adding hosts using <c>CreateEnvironmentHost</c>
+    /// action, Amazon EVS automatically uses the default ESX version associated with your
+    /// environment's VCF version. To find the default ESX version for a particular VCF version,
+    /// use the <c>GetVersions</c> action.
+    /// </para></note><note><para>
     /// You cannot use the <c>dedicatedHostId</c> and <c>placementGroupId</c> parameters together
     /// in the same <c>CreateEnvironmentHost</c> action. This results in a <c>ValidationException</c>
     /// response.
@@ -84,6 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         public System.String EnvironmentId { get; set; }
         #endregion
         
+        #region Parameter EsxVersion
+        /// <summary>
+        /// <para>
+        /// <para>The ESX version to use for the host.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EsxVersion { get; set; }
+        #endregion
+        
         #region Parameter Host_HostName
         /// <summary>
         /// <para>
@@ -105,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter Host_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The EC2 instance type that represents the host.</para>
+        /// <para>The EC2 instance type that represents the host.</para><note><para>Currently, Amazon EVS supports only the <c>i4i.metal</c> instance type.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -229,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EsxVersion = this.EsxVersion;
             context.Host_DedicatedHostId = this.Host_DedicatedHostId;
             context.Host_HostName = this.Host_HostName;
             #if MODULAR
@@ -275,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
+            }
+            if (cmdletContext.EsxVersion != null)
+            {
+                request.EsxVersion = cmdletContext.EsxVersion;
             }
             
              // populate Host
@@ -398,6 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         {
             public System.String ClientToken { get; set; }
             public System.String EnvironmentId { get; set; }
+            public System.String EsxVersion { get; set; }
             public System.String Host_DedicatedHostId { get; set; }
             public System.String Host_HostName { get; set; }
             public Amazon.Evs.InstanceType Host_InstanceType { get; set; }

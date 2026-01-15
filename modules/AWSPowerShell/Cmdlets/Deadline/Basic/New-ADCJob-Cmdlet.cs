@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Attachments_FileSystem
         /// <summary>
         /// <para>
-        /// <para>The file system.</para>
+        /// <para>The file system location for the attachments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Attachments_Manifest
         /// <summary>
         /// <para>
-        /// <para>A list of manifests which describe job attachment configurations.</para>
+        /// <para>The manifest properties for the attachments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

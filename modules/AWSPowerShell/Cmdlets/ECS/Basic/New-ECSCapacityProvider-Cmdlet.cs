@@ -200,6 +200,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String[] InstanceRequirements_ExcludedInstanceType { get; set; }
         #endregion
         
+        #region Parameter ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether to enable FIPS 140-2 validated cryptographic modules on EC2 instances
+        /// launched by the capacity provider. If <c>true</c>, instances use FIPS-compliant cryptographic
+        /// algorithms and modules for enhanced security compliance. If <c>false</c>, instances
+        /// use standard cryptographic implementations.</para><para>If not specified, instances are launched with FIPS enabled in AWS GovCloud (US) regions
+        /// and FIPS disabled in other regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled { get; set; }
+        #endregion
+        
         #region Parameter ManagedInstancesProvider_InfrastructureRoleArn
         /// <summary>
         /// <para>
@@ -819,6 +833,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.ManagedInstancesProvider_InfrastructureRoleArn = this.ManagedInstancesProvider_InfrastructureRoleArn;
             context.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType = this.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType;
             context.InstanceLaunchTemplate_Ec2InstanceProfileArn = this.InstanceLaunchTemplate_Ec2InstanceProfileArn;
+            context.ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled = this.ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled;
             context.AcceleratorCount_Max = this.AcceleratorCount_Max;
             context.AcceleratorCount_Min = this.AcceleratorCount_Min;
             if (this.InstanceRequirements_AcceleratorManufacturer != null)
@@ -1094,6 +1109,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_instanceLaunchTemplate_Ec2InstanceProfileArn != null)
             {
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.Ec2InstanceProfileArn = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_instanceLaunchTemplate_Ec2InstanceProfileArn;
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            System.Boolean? requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_FipsEnabled = null;
+            if (cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_FipsEnabled = cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled.Value;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_FipsEnabled != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.FipsEnabled = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_FipsEnabled.Value;
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
             }
             Amazon.ECS.ManagedInstancesMonitoringOptions requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_instanceLaunchTemplate_Monitoring = null;
@@ -1743,6 +1768,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String ManagedInstancesProvider_InfrastructureRoleArn { get; set; }
             public Amazon.ECS.CapacityOptionType ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType { get; set; }
             public System.String InstanceLaunchTemplate_Ec2InstanceProfileArn { get; set; }
+            public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled { get; set; }
             public System.Int32? AcceleratorCount_Max { get; set; }
             public System.Int32? AcceleratorCount_Min { get; set; }
             public List<System.String> InstanceRequirements_AcceleratorManufacturer { get; set; }

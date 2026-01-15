@@ -1,4 +1,31 @@
-﻿### 4.1.979 (2026-01-14 21:25Z)
+﻿### 4.1.980 (2026-01-15 21:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1203.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCBudget: added parameter Tag.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Start-CRSProtectedJob: added parameter JobParameters_Parameter.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSCapacityProvider: added parameter ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled.
+  * Amazon Elastic VMware Service
+    * Added cmdlet Get-EVSVersion leveraging the GetVersions service API.
+    * Modified cmdlet New-EVSEnvironmentHost: added parameter EsxVersion.
+  * Amazon Lake Formation
+    * Added cmdlet Get-LKFTemporaryDataLocationCredential leveraging the GetTemporaryDataLocationCredentials service API.
+    * Modified cmdlet Register-LKFResource: added parameter ExpectedResourceOwnerAccount.
+    * Modified cmdlet Update-LKFResource: added parameter ExpectedResourceOwnerAccount.
+  * Amazon OpenSearch Serverless
+    * Added cmdlet Get-OSSCollectionGroup leveraging the BatchGetCollectionGroup service API.
+    * Added cmdlet Get-OSSCollectionGroupList leveraging the ListCollectionGroups service API.
+    * Added cmdlet New-OSSCollectionGroup leveraging the CreateCollectionGroup service API.
+    * Added cmdlet Remove-OSSCollectionGroup leveraging the DeleteCollectionGroup service API.
+    * Added cmdlet Update-OSSCollectionGroup leveraging the UpdateCollectionGroup service API.
+    * Modified cmdlet Get-OSSCollectionList: added parameter CollectionFilters_CollectionGroupName.
+    * Modified cmdlet New-OSSCollection: added parameters CollectionGroupName, EncryptionConfig_AWSOwnedKey and EncryptionConfig_KmsKeyArn.
+  * Amazon Q Connect
+    * [Breaking Change] Modified cmdlet New-QCAIPrompt: removed parameters TextAIPromptInferenceConfiguration_MaxTokensToSample, TextAIPromptInferenceConfiguration_Temperature, TextAIPromptInferenceConfiguration_TopK and TextAIPromptInferenceConfiguration_TopP; added parameters InferenceConfiguration_MaxTokensToSample, InferenceConfiguration_Temperature, InferenceConfiguration_TopK and InferenceConfiguration_TopP.
+    * [Breaking Change] Modified cmdlet Update-QCAIPrompt: removed parameters TextAIPromptInferenceConfiguration_MaxTokensToSample, TextAIPromptInferenceConfiguration_Temperature, TextAIPromptInferenceConfiguration_TopK and TextAIPromptInferenceConfiguration_TopP; added parameters InferenceConfiguration_MaxTokensToSample, InferenceConfiguration_Temperature, InferenceConfiguration_TopK and InferenceConfiguration_TopP.
+
+### 4.1.979 (2026-01-14 21:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1202.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Add-CONNHoursOfOperation leveraging the AssociateHoursOfOperations service API.

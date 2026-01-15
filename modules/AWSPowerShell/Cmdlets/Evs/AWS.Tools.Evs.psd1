@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EVSEnvironmentList', 
         'Get-EVSEnvironmentVlanList', 
         'Get-EVSResourceTag', 
+        'Get-EVSVersion', 
         'New-EVSEnvironment', 
         'New-EVSEnvironmentHost', 
         'Register-EVSEipToVlan', 

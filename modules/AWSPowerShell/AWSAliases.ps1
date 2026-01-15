@@ -13695,6 +13695,8 @@ Set-Alias -Name EVS-DeleteEnvironmentHost -Value Remove-EVSEnvironmentHost
 Set-Alias -Name Disassociate-EVSEipFromVlan -Value Unregister-EVSEipFromVlan
 Set-Alias -Name EVS-DisassociateEipFromVlan -Value Unregister-EVSEipFromVlan
 Set-Alias -Name EVS-GetEnvironment -Value Get-EVSEnvironment
+Set-Alias -Name Get-EVSVersions -Value Get-EVSVersion
+Set-Alias -Name EVS-GetVersions -Value Get-EVSVersion
 Set-Alias -Name List-EVSEnvironmentHosts -Value Get-EVSEnvironmentHostList
 Set-Alias -Name List-EVSEnvironmentHostList -Value Get-EVSEnvironmentHostList
 Set-Alias -Name EVS-ListEnvironmentHosts -Value Get-EVSEnvironmentHostList
@@ -19067,6 +19069,8 @@ Set-Alias -Name Get-LKFResourceLFTags -Value Get-LKFResourceLFTag
 Set-Alias -Name LKF-GetResourceLFTags -Value Get-LKFResourceLFTag
 Set-Alias -Name Get-LKFTableObjects -Value Get-LKFTableObject
 Set-Alias -Name LKF-GetTableObjects -Value Get-LKFTableObject
+Set-Alias -Name Get-LKFTemporaryDataLocationCredentials -Value Get-LKFTemporaryDataLocationCredential
+Set-Alias -Name LKF-GetTemporaryDataLocationCredentials -Value Get-LKFTemporaryDataLocationCredential
 Set-Alias -Name Get-LKFTemporaryGluePartitionCredentials -Value Get-LKFTemporaryGluePartitionCredential
 Set-Alias -Name LKF-GetTemporaryGluePartitionCredentials -Value Get-LKFTemporaryGluePartitionCredential
 Set-Alias -Name Get-LKFTemporaryGlueTableCredentials -Value Get-LKFTemporaryGlueTableCredential
@@ -23685,6 +23689,7 @@ Set-Alias -Name Upgrade-OSDomain -Value Update-OSDomain
 Set-Alias -Name OS-UpgradeDomain -Value Update-OSDomain
 Set-Alias -Name Get-OSSCollection -Value Get-OSSGetCollection
 Set-Alias -Name OSS-BatchGetCollection -Value Get-OSSGetCollection
+Set-Alias -Name OSS-BatchGetCollectionGroup -Value Get-OSSCollectionGroup
 Set-Alias -Name Get-OSSEffectiveLifecyclePolicy -Value Get-OSSGetEffectiveLifecyclePolicy
 Set-Alias -Name OSS-BatchGetEffectiveLifecyclePolicy -Value Get-OSSGetEffectiveLifecyclePolicy
 Set-Alias -Name Get-OSSLifecyclePolicy -Value Get-OSSGetLifecyclePolicy
@@ -23695,6 +23700,8 @@ Set-Alias -Name Create-OSSAccessPolicy -Value New-OSSAccessPolicy
 Set-Alias -Name OSS-CreateAccessPolicy -Value New-OSSAccessPolicy
 Set-Alias -Name Create-OSSCollection -Value New-OSSCollection
 Set-Alias -Name OSS-CreateCollection -Value New-OSSCollection
+Set-Alias -Name Create-OSSCollectionGroup -Value New-OSSCollectionGroup
+Set-Alias -Name OSS-CreateCollectionGroup -Value New-OSSCollectionGroup
 Set-Alias -Name Create-OSSIndex -Value New-OSSIndex
 Set-Alias -Name OSS-CreateIndex -Value New-OSSIndex
 Set-Alias -Name Create-OSSLifecyclePolicy -Value New-OSSLifecyclePolicy
@@ -23709,6 +23716,8 @@ Set-Alias -Name Delete-OSSAccessPolicy -Value Remove-OSSAccessPolicy
 Set-Alias -Name OSS-DeleteAccessPolicy -Value Remove-OSSAccessPolicy
 Set-Alias -Name Delete-OSSCollection -Value Remove-OSSCollection
 Set-Alias -Name OSS-DeleteCollection -Value Remove-OSSCollection
+Set-Alias -Name Delete-OSSCollectionGroup -Value Remove-OSSCollectionGroup
+Set-Alias -Name OSS-DeleteCollectionGroup -Value Remove-OSSCollectionGroup
 Set-Alias -Name Delete-OSSIndex -Value Remove-OSSIndex
 Set-Alias -Name OSS-DeleteIndex -Value Remove-OSSIndex
 Set-Alias -Name Delete-OSSLifecyclePolicy -Value Remove-OSSLifecyclePolicy
@@ -23730,6 +23739,9 @@ Set-Alias -Name OSS-GetSecurityPolicy -Value Get-OSSSecurityPolicy
 Set-Alias -Name List-OSSAccessPolicies -Value Get-OSSAccessPolicyList
 Set-Alias -Name List-OSSAccessPolicyList -Value Get-OSSAccessPolicyList
 Set-Alias -Name OSS-ListAccessPolicies -Value Get-OSSAccessPolicyList
+Set-Alias -Name List-OSSCollectionGroups -Value Get-OSSCollectionGroupList
+Set-Alias -Name List-OSSCollectionGroupList -Value Get-OSSCollectionGroupList
+Set-Alias -Name OSS-ListCollectionGroups -Value Get-OSSCollectionGroupList
 Set-Alias -Name List-OSSCollections -Value Get-OSSCollectionList
 Set-Alias -Name List-OSSCollectionList -Value Get-OSSCollectionList
 Set-Alias -Name OSS-ListCollections -Value Get-OSSCollectionList
@@ -23752,6 +23764,7 @@ Set-Alias -Name OSS-UpdateAccessPolicy -Value Update-OSSAccessPolicy
 Set-Alias -Name Update-OSSAccountSettings -Value Update-OSSAccountSetting
 Set-Alias -Name OSS-UpdateAccountSettings -Value Update-OSSAccountSetting
 Set-Alias -Name OSS-UpdateCollection -Value Update-OSSCollection
+Set-Alias -Name OSS-UpdateCollectionGroup -Value Update-OSSCollectionGroup
 Set-Alias -Name OSS-UpdateIndex -Value Update-OSSIndex
 Set-Alias -Name OSS-UpdateLifecyclePolicy -Value Update-OSSLifecyclePolicy
 Set-Alias -Name OSS-UpdateSecurityConfig -Value Update-OSSSecurityConfig

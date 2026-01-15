@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ExpectedResourceOwnerAccount
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account that owns the Glue tables associated with specific
+        /// Amazon S3 locations. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedResourceOwnerAccount { get; set; }
+        #endregion
+        
         #region Parameter HybridAccessEnabled
         /// <summary>
         /// <para>
@@ -159,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ExpectedResourceOwnerAccount = this.ExpectedResourceOwnerAccount;
             context.HybridAccessEnabled = this.HybridAccessEnabled;
             context.ResourceArn = this.ResourceArn;
             #if MODULAR
@@ -191,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             // create request
             var request = new Amazon.LakeFormation.Model.UpdateResourceRequest();
             
+            if (cmdletContext.ExpectedResourceOwnerAccount != null)
+            {
+                request.ExpectedResourceOwnerAccount = cmdletContext.ExpectedResourceOwnerAccount;
+            }
             if (cmdletContext.HybridAccessEnabled != null)
             {
                 request.HybridAccessEnabled = cmdletContext.HybridAccessEnabled.Value;
@@ -268,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ExpectedResourceOwnerAccount { get; set; }
             public System.Boolean? HybridAccessEnabled { get; set; }
             public System.String ResourceArn { get; set; }
             public System.String RoleArn { get; set; }

@@ -22,42 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Deadline;
-using Amazon.Deadline.Model;
+using Amazon.OpenSearchServerless;
+using Amazon.OpenSearchServerless.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ADC
+namespace Amazon.PowerShell.Cmdlets.OSS
 {
     /// <summary>
-    /// Modifies the settings for a Deadline Cloud monitor. You can modify one or all of the
-    /// settings when you call <c>UpdateMonitor</c>.
+    /// Deletes a collection group. You can only delete empty collection groups that contain
+    /// no collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating
+    /// and managing Amazon OpenSearch Serverless collections</a>.
     /// </summary>
-    [Cmdlet("Update", "ADCMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "OSSCollectionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWSDeadlineCloud UpdateMonitor API operation.", Operation = new[] {"UpdateMonitor"}, SelectReturnType = typeof(Amazon.Deadline.Model.UpdateMonitorResponse))]
-    [AWSCmdletOutput("None or Amazon.Deadline.Model.UpdateMonitorResponse",
+    [AWSCmdlet("Calls the OpenSearch Serverless DeleteCollectionGroup API operation.", Operation = new[] {"DeleteCollectionGroup"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.DeleteCollectionGroupResponse))]
+    [AWSCmdletOutput("None or Amazon.OpenSearchServerless.Model.DeleteCollectionGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.UpdateMonitorResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.OpenSearchServerless.Model.DeleteCollectionGroupResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateADCMonitorCmdlet : AmazonDeadlineClientCmdlet, IExecutor
+    public partial class RemoveOSSCollectionGroupCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DisplayName
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The new value to use for the monitor's display name.</para><important><para>This field can store any content. Escape or encode this content before displaying
-        /// it on a webpage or any other system that might interpret the content of this field.</para></important>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DisplayName { get; set; }
-        #endregion
-        
-        #region Parameter MonitorId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the monitor to update.</para>
+        /// <para>The unique identifier of the collection group to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,33 +58,23 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MonitorId { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
-        #region Parameter RoleArn
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name of the new IAM role to use with the monitor.</para>
+        /// <para>Unique, case-sensitive identifier to ensure idempotency of the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RoleArn { get; set; }
-        #endregion
-        
-        #region Parameter Subdomain
-        /// <summary>
-        /// <para>
-        /// <para>The new value of the subdomain to use when forming the monitor URL.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Subdomain { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Deadline.Model.UpdateMonitorResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.DeleteCollectionGroupResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,10 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MonitorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MonitorId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -126,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MonitorId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ADCMonitor (UpdateMonitor)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-OSSCollectionGroup (DeleteCollectionGroup)"))
             {
                 return;
             }
@@ -140,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Deadline.Model.UpdateMonitorResponse, UpdateADCMonitorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.DeleteCollectionGroupResponse, RemoveOSSCollectionGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,19 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.MonitorId;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DisplayName = this.DisplayName;
-            context.MonitorId = this.MonitorId;
+            context.ClientToken = this.ClientToken;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.MonitorId == null && ParameterWasBound(nameof(this.MonitorId)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter MonitorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RoleArn = this.RoleArn;
-            context.Subdomain = this.Subdomain;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,23 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Deadline.Model.UpdateMonitorRequest();
+            var request = new Amazon.OpenSearchServerless.Model.DeleteCollectionGroupRequest();
             
-            if (cmdletContext.DisplayName != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.DisplayName = cmdletContext.DisplayName;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.MonitorId != null)
+            if (cmdletContext.Id != null)
             {
-                request.MonitorId = cmdletContext.MonitorId;
-            }
-            if (cmdletContext.RoleArn != null)
-            {
-                request.RoleArn = cmdletContext.RoleArn;
-            }
-            if (cmdletContext.Subdomain != null)
-            {
-                request.Subdomain = cmdletContext.Subdomain;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -227,15 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         #region AWS Service Operation Call
         
-        private Amazon.Deadline.Model.UpdateMonitorResponse CallAWSServiceOperation(IAmazonDeadline client, Amazon.Deadline.Model.UpdateMonitorRequest request)
+        private Amazon.OpenSearchServerless.Model.DeleteCollectionGroupResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.DeleteCollectionGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSDeadlineCloud", "UpdateMonitor");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "DeleteCollectionGroup");
             try
             {
                 #if DESKTOP
-                return client.UpdateMonitor(request);
+                return client.DeleteCollectionGroup(request);
                 #elif CORECLR
-                return client.UpdateMonitorAsync(request).GetAwaiter().GetResult();
+                return client.DeleteCollectionGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -255,11 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DisplayName { get; set; }
-            public System.String MonitorId { get; set; }
-            public System.String RoleArn { get; set; }
-            public System.String Subdomain { get; set; }
-            public System.Func<Amazon.Deadline.Model.UpdateMonitorResponse, UpdateADCMonitorCmdlet, object> Select { get; set; } =
+            public System.String ClientToken { get; set; }
+            public System.String Id { get; set; }
+            public System.Func<Amazon.OpenSearchServerless.Model.DeleteCollectionGroupResponse, RemoveOSSCollectionGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

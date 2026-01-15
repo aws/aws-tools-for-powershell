@@ -90,7 +90,7 @@ $EVS_Completers = {
         # Amazon.Evs.VcfVersion
         "New-EVSEnvironment/VcfVersion"
         {
-            $v = "VCF-5.2.1"
+            $v = "VCF-5.2.1","VCF-5.2.2"
             break
         }
 
@@ -164,6 +164,7 @@ $EVS_SelectMap = @{
                "Remove-EVSEnvironmentHost",
                "Unregister-EVSEipFromVlan",
                "Get-EVSEnvironment",
+               "Get-EVSVersion",
                "Get-EVSEnvironmentHostList",
                "Get-EVSEnvironmentList",
                "Get-EVSEnvironmentVlanList",

@@ -38,7 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.EVS
     /// </para><para>
     /// It can take several hours to create an environment. After the deployment completes,
     /// you can configure VCF in the vSphere user interface according to your needs.
-    /// </para><note><para>
+    /// </para><important><para>
+    /// When creating a new environment, the default ESX version for the selected VCF version
+    /// will be used, you cannot choose a specific ESX version in <c>CreateEnvironment</c>
+    /// action. When a host has been added with a specific ESX version, it can only be upgraded
+    /// using vCenter Lifecycle Manager.
+    /// </para></important><note><para>
     /// You cannot use the <c>dedicatedHostId</c> and <c>placementGroupId</c> parameters together
     /// in the same <c>CreateEnvironment</c> action. This results in a <c>ValidationException</c>
     /// response.
@@ -301,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter Hosts
         /// <summary>
         /// <para>
-        /// <para>The ESXi hosts to add to the environment. Amazon EVS requires that you provide details
+        /// <para>The ESX hosts to add to the environment. Amazon EVS requires that you provide details
         /// for a minimum of 4 hosts during environment creation.</para><para>For each host, you must provide the desired hostname, EC2 SSH keypair name, and EC2
         /// instance type. Optionally, you can also provide a partition or cluster placement group
         /// to use, or use Amazon EC2 Dedicated Hosts.</para>
@@ -602,8 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter VcfVersion
         /// <summary>
         /// <para>
-        /// <para> The VCF version to use for the environment. Amazon EVS only supports VCF version
-        /// 5.2.1 at this time.</para>
+        /// <para> The VCF version to use for the environment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -626,7 +630,8 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// appliances and hosts. The VPC cannot be used with any other deployed Amazon EVS environment.
         /// Amazon EVS does not provide multi-VPC support for environments at this time.</para><para>Amazon EVS does not support the following Amazon Web Services networking options for
         /// NSX overlay connectivity: cross-Region VPC peering, Amazon S3 gateway endpoints, or
-        /// Amazon Web Services Direct Connect virtual private gateway associations.</para><note><para>Ensure that you specify a VPC that is adequately sized to accommodate the {evws} subnets.</para></note>
+        /// Amazon Web Services Direct Connect virtual private gateway associations.</para><note><para>Ensure that you specify a VPC that is adequately sized to accommodate the Amazon EVS
+        /// subnets.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

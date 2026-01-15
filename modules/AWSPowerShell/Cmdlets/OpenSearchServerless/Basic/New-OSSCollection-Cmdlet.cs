@@ -43,6 +43,26 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EncryptionConfig_AWSOwnedKey
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to use an Amazon Web Services-owned key for encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EncryptionConfig_AWSOwnedKey { get; set; }
+        #endregion
+        
+        #region Parameter CollectionGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the collection group to associate with the collection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CollectionGroupName { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -51,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfig_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon Web Services Key Management Service key used to encrypt the
+        /// collection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfig_KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter Name
@@ -189,7 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.CollectionGroupName = this.CollectionGroupName;
             context.Description = this.Description;
+            context.EncryptionConfig_AWSOwnedKey = this.EncryptionConfig_AWSOwnedKey;
+            context.EncryptionConfig_KmsKeyArn = this.EncryptionConfig_KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -224,9 +258,42 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.CollectionGroupName != null)
+            {
+                request.CollectionGroupName = cmdletContext.CollectionGroupName;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate EncryptionConfig
+            var requestEncryptionConfigIsNull = true;
+            request.EncryptionConfig = new Amazon.OpenSearchServerless.Model.EncryptionConfig();
+            System.Boolean? requestEncryptionConfig_encryptionConfig_AWSOwnedKey = null;
+            if (cmdletContext.EncryptionConfig_AWSOwnedKey != null)
+            {
+                requestEncryptionConfig_encryptionConfig_AWSOwnedKey = cmdletContext.EncryptionConfig_AWSOwnedKey.Value;
+            }
+            if (requestEncryptionConfig_encryptionConfig_AWSOwnedKey != null)
+            {
+                request.EncryptionConfig.AWSOwnedKey = requestEncryptionConfig_encryptionConfig_AWSOwnedKey.Value;
+                requestEncryptionConfigIsNull = false;
+            }
+            System.String requestEncryptionConfig_encryptionConfig_KmsKeyArn = null;
+            if (cmdletContext.EncryptionConfig_KmsKeyArn != null)
+            {
+                requestEncryptionConfig_encryptionConfig_KmsKeyArn = cmdletContext.EncryptionConfig_KmsKeyArn;
+            }
+            if (requestEncryptionConfig_encryptionConfig_KmsKeyArn != null)
+            {
+                request.EncryptionConfig.KmsKeyArn = requestEncryptionConfig_encryptionConfig_KmsKeyArn;
+                requestEncryptionConfigIsNull = false;
+            }
+             // determine if request.EncryptionConfig should be set to null
+            if (requestEncryptionConfigIsNull)
+            {
+                request.EncryptionConfig = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -325,7 +392,10 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String CollectionGroupName { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? EncryptionConfig_AWSOwnedKey { get; set; }
+            public System.String EncryptionConfig_KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public Amazon.OpenSearchServerless.StandbyReplicas StandbyReplica { get; set; }
             public List<Amazon.OpenSearchServerless.Model.Tag> Tag { get; set; }

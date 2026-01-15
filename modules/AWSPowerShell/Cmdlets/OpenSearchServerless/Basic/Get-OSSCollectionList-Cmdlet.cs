@@ -48,6 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CollectionFilters_CollectionGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the collection group to filter by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CollectionFilters_CollectionGroupName { get; set; }
+        #endregion
+        
         #region Parameter CollectionFilters_Name
         /// <summary>
         /// <para>
@@ -119,6 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
                 context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.ListCollectionsResponse, GetOSSCollectionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CollectionFilters_CollectionGroupName = this.CollectionFilters_CollectionGroupName;
             context.CollectionFilters_Name = this.CollectionFilters_Name;
             context.CollectionFilters_Status = this.CollectionFilters_Status;
             context.MaxResult = this.MaxResult;
@@ -143,6 +154,16 @@ namespace Amazon.PowerShell.Cmdlets.OSS
              // populate CollectionFilters
             var requestCollectionFiltersIsNull = true;
             request.CollectionFilters = new Amazon.OpenSearchServerless.Model.CollectionFilters();
+            System.String requestCollectionFilters_collectionFilters_CollectionGroupName = null;
+            if (cmdletContext.CollectionFilters_CollectionGroupName != null)
+            {
+                requestCollectionFilters_collectionFilters_CollectionGroupName = cmdletContext.CollectionFilters_CollectionGroupName;
+            }
+            if (requestCollectionFilters_collectionFilters_CollectionGroupName != null)
+            {
+                request.CollectionFilters.CollectionGroupName = requestCollectionFilters_collectionFilters_CollectionGroupName;
+                requestCollectionFiltersIsNull = false;
+            }
             System.String requestCollectionFilters_collectionFilters_Name = null;
             if (cmdletContext.CollectionFilters_Name != null)
             {
@@ -237,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CollectionFilters_CollectionGroupName { get; set; }
             public System.String CollectionFilters_Name { get; set; }
             public Amazon.OpenSearchServerless.CollectionStatus CollectionFilters_Status { get; set; }
             public System.Int32? MaxResult { get; set; }
