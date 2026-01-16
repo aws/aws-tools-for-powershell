@@ -91,6 +91,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LWIZDeployment', 
         'Get-LWIZDeploymentEventList', 
         'Get-LWIZDeploymentList', 
+        'Get-LWIZDeploymentPatternVersion', 
+        'Get-LWIZDeploymentPatternVersionList', 
         'Get-LWIZResourceTag', 
         'Get-LWIZWorkload', 
         'Get-LWIZWorkloadDeploymentPattern', 
@@ -98,7 +100,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LWIZWorkloadList', 
         'New-LWIZDeployment', 
         'Remove-LWIZDeployment', 
-        'Remove-LWIZResourceTag')
+        'Remove-LWIZResourceTag', 
+        'Update-LWIZDeployment')
 
     # Variables to export from this module
     VariablesToExport = '*'

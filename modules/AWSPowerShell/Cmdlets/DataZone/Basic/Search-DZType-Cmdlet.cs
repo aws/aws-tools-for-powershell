@@ -115,6 +115,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter Filters_Filter_IntValue
+        /// <summary>
+        /// <para>
+        /// <para>A search filter integer value in Amazon DataZone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Filters_Filter_IntValue { get; set; }
+        #endregion
+        
         #region Parameter Managed
         /// <summary>
         /// <para>
@@ -129,6 +139,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? Managed { get; set; }
+        #endregion
+        
+        #region Parameter Filters_Filter_Operator
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the search filter operator.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.FilterOperator")]
+        public Amazon.DataZone.FilterOperator Filters_Filter_Operator { get; set; }
         #endregion
         
         #region Parameter Filters_Or
@@ -200,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Filter_Value
         /// <summary>
         /// <para>
-        /// <para>A search filter value in Amazon DataZone.</para>
+        /// <para>A search filter string value in Amazon DataZone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,6 +329,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Filters_And = new List<Amazon.DataZone.Model.FilterClause>(this.Filters_And);
             }
             context.Filter_Attribute = this.Filter_Attribute;
+            context.Filters_Filter_IntValue = this.Filters_Filter_IntValue;
+            context.Filters_Filter_Operator = this.Filters_Filter_Operator;
             context.Filter_Value = this.Filter_Value;
             if (this.Filters_Or != null)
             {
@@ -395,6 +418,26 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestFilters_filters_Filter_filter_Attribute != null)
             {
                 requestFilters_filters_Filter.Attribute = requestFilters_filters_Filter_filter_Attribute;
+                requestFilters_filters_FilterIsNull = false;
+            }
+            System.Int64? requestFilters_filters_Filter_filters_Filter_IntValue = null;
+            if (cmdletContext.Filters_Filter_IntValue != null)
+            {
+                requestFilters_filters_Filter_filters_Filter_IntValue = cmdletContext.Filters_Filter_IntValue.Value;
+            }
+            if (requestFilters_filters_Filter_filters_Filter_IntValue != null)
+            {
+                requestFilters_filters_Filter.IntValue = requestFilters_filters_Filter_filters_Filter_IntValue.Value;
+                requestFilters_filters_FilterIsNull = false;
+            }
+            Amazon.DataZone.FilterOperator requestFilters_filters_Filter_filters_Filter_Operator = null;
+            if (cmdletContext.Filters_Filter_Operator != null)
+            {
+                requestFilters_filters_Filter_filters_Filter_Operator = cmdletContext.Filters_Filter_Operator;
+            }
+            if (requestFilters_filters_Filter_filters_Filter_Operator != null)
+            {
+                requestFilters_filters_Filter.Operator = requestFilters_filters_Filter_filters_Filter_Operator;
                 requestFilters_filters_FilterIsNull = false;
             }
             System.String requestFilters_filters_Filter_filter_Value = null;
@@ -553,6 +596,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainIdentifier { get; set; }
             public List<Amazon.DataZone.Model.FilterClause> Filters_And { get; set; }
             public System.String Filter_Attribute { get; set; }
+            public System.Int64? Filters_Filter_IntValue { get; set; }
+            public Amazon.DataZone.FilterOperator Filters_Filter_Operator { get; set; }
             public System.String Filter_Value { get; set; }
             public List<Amazon.DataZone.Model.FilterClause> Filters_Or { get; set; }
             public System.Boolean? Managed { get; set; }

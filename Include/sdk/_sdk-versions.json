@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.171.0",
+    "ProductVersion"    : "4.0.172.0",
     "CoreVersion"       : "4.0.3.9",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -202,7 +202,7 @@
             "InPreview"               : false
         },
         "Glacier"              : {
-            "Version" : "4.0.3.3",
+            "Version" : "4.0.3.4",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.9",
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.40.1",
+            "Version" : "4.0.40.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.9"
@@ -1012,7 +1012,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.26.1",
+            "Version" : "4.0.27.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.9"
@@ -2380,7 +2380,7 @@
             "InPreview"               : false
         },
         "ResourceExplorer2"                   : {
-            "Version" : "4.0.2.16",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.9"
@@ -2684,7 +2684,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "4.0.18.1",
+            "Version" : "4.0.19.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.9"
@@ -2692,7 +2692,7 @@
             "InPreview"               : false
         },
         "LaunchWizard"                        : {
-            "Version" : "4.0.2.11",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.9"

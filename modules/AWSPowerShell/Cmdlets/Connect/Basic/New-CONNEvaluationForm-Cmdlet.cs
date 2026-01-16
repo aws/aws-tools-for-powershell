@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ReviewConfiguration_EligibilityDay
+        /// <summary>
+        /// <para>
+        /// <para>Number of days during which a request for review can be submitted for evaluations
+        /// created from this form.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReviewConfiguration_EligibilityDays")]
+        public System.Int32? ReviewConfiguration_EligibilityDay { get; set; }
+        #endregion
+        
         #region Parameter AutoEvaluationConfiguration_Enabled
         /// <summary>
         /// <para>
@@ -149,6 +161,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Connect.EvaluationFormScoringMode")]
         public Amazon.Connect.EvaluationFormScoringMode ScoringStrategy_Mode { get; set; }
+        #endregion
+        
+        #region Parameter ReviewConfiguration_ReviewNotificationRecipient
+        /// <summary>
+        /// <para>
+        /// <para>List of recipients who should be notified when a review is requested.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReviewConfiguration_ReviewNotificationRecipients")]
+        public Amazon.Connect.Model.EvaluationReviewNotificationRecipient[] ReviewConfiguration_ReviewNotificationRecipient { get; set; }
         #endregion
         
         #region Parameter ScoringStrategy_Status
@@ -276,6 +303,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.LanguageConfiguration_FormLanguage = this.LanguageConfiguration_FormLanguage;
+            context.ReviewConfiguration_EligibilityDay = this.ReviewConfiguration_EligibilityDay;
+            if (this.ReviewConfiguration_ReviewNotificationRecipient != null)
+            {
+                context.ReviewConfiguration_ReviewNotificationRecipient = new List<Amazon.Connect.Model.EvaluationReviewNotificationRecipient>(this.ReviewConfiguration_ReviewNotificationRecipient);
+            }
             context.ScoringStrategy_Mode = this.ScoringStrategy_Mode;
             context.ScoringStrategy_Status = this.ScoringStrategy_Status;
             if (this.Tag != null)
@@ -367,6 +399,35 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestLanguageConfigurationIsNull)
             {
                 request.LanguageConfiguration = null;
+            }
+            
+             // populate ReviewConfiguration
+            var requestReviewConfigurationIsNull = true;
+            request.ReviewConfiguration = new Amazon.Connect.Model.EvaluationReviewConfiguration();
+            System.Int32? requestReviewConfiguration_reviewConfiguration_EligibilityDay = null;
+            if (cmdletContext.ReviewConfiguration_EligibilityDay != null)
+            {
+                requestReviewConfiguration_reviewConfiguration_EligibilityDay = cmdletContext.ReviewConfiguration_EligibilityDay.Value;
+            }
+            if (requestReviewConfiguration_reviewConfiguration_EligibilityDay != null)
+            {
+                request.ReviewConfiguration.EligibilityDays = requestReviewConfiguration_reviewConfiguration_EligibilityDay.Value;
+                requestReviewConfigurationIsNull = false;
+            }
+            List<Amazon.Connect.Model.EvaluationReviewNotificationRecipient> requestReviewConfiguration_reviewConfiguration_ReviewNotificationRecipient = null;
+            if (cmdletContext.ReviewConfiguration_ReviewNotificationRecipient != null)
+            {
+                requestReviewConfiguration_reviewConfiguration_ReviewNotificationRecipient = cmdletContext.ReviewConfiguration_ReviewNotificationRecipient;
+            }
+            if (requestReviewConfiguration_reviewConfiguration_ReviewNotificationRecipient != null)
+            {
+                request.ReviewConfiguration.ReviewNotificationRecipients = requestReviewConfiguration_reviewConfiguration_ReviewNotificationRecipient;
+                requestReviewConfigurationIsNull = false;
+            }
+             // determine if request.ReviewConfiguration should be set to null
+            if (requestReviewConfigurationIsNull)
+            {
+                request.ReviewConfiguration = null;
             }
             
              // populate ScoringStrategy
@@ -486,6 +547,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InstanceId { get; set; }
             public List<Amazon.Connect.Model.EvaluationFormItem> Item { get; set; }
             public Amazon.Connect.EvaluationFormLanguageCode LanguageConfiguration_FormLanguage { get; set; }
+            public System.Int32? ReviewConfiguration_EligibilityDay { get; set; }
+            public List<Amazon.Connect.Model.EvaluationReviewNotificationRecipient> ReviewConfiguration_ReviewNotificationRecipient { get; set; }
             public Amazon.Connect.EvaluationFormScoringMode ScoringStrategy_Mode { get; set; }
             public Amazon.Connect.EvaluationFormScoringStatus ScoringStrategy_Status { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
