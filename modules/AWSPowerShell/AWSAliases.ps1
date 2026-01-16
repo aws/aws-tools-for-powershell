@@ -19271,11 +19271,15 @@ Set-Alias -Name LWIZ-CreateDeployment -Value New-LWIZDeployment
 Set-Alias -Name Delete-LWIZDeployment -Value Remove-LWIZDeployment
 Set-Alias -Name LWIZ-DeleteDeployment -Value Remove-LWIZDeployment
 Set-Alias -Name LWIZ-GetDeployment -Value Get-LWIZDeployment
+Set-Alias -Name LWIZ-GetDeploymentPatternVersion -Value Get-LWIZDeploymentPatternVersion
 Set-Alias -Name LWIZ-GetWorkload -Value Get-LWIZWorkload
 Set-Alias -Name LWIZ-GetWorkloadDeploymentPattern -Value Get-LWIZWorkloadDeploymentPattern
 Set-Alias -Name List-LWIZDeploymentEvents -Value Get-LWIZDeploymentEventList
 Set-Alias -Name List-LWIZDeploymentEventList -Value Get-LWIZDeploymentEventList
 Set-Alias -Name LWIZ-ListDeploymentEvents -Value Get-LWIZDeploymentEventList
+Set-Alias -Name List-LWIZDeploymentPatternVersions -Value Get-LWIZDeploymentPatternVersionList
+Set-Alias -Name List-LWIZDeploymentPatternVersionList -Value Get-LWIZDeploymentPatternVersionList
+Set-Alias -Name LWIZ-ListDeploymentPatternVersions -Value Get-LWIZDeploymentPatternVersionList
 Set-Alias -Name List-LWIZDeployments -Value Get-LWIZDeploymentList
 Set-Alias -Name List-LWIZDeploymentList -Value Get-LWIZDeploymentList
 Set-Alias -Name LWIZ-ListDeployments -Value Get-LWIZDeploymentList
@@ -19288,6 +19292,7 @@ Set-Alias -Name List-LWIZWorkloadList -Value Get-LWIZWorkloadList
 Set-Alias -Name LWIZ-ListWorkloads -Value Get-LWIZWorkloadList
 Set-Alias -Name LWIZ-TagResource -Value Add-LWIZResourceTag
 Set-Alias -Name LWIZ-UntagResource -Value Remove-LWIZResourceTag
+Set-Alias -Name LWIZ-UpdateDeployment -Value Update-LWIZDeployment
 Set-Alias -Name Create-LMBBotVersion -Value New-LMBBotVersion
 Set-Alias -Name LMB-CreateBotVersion -Value New-LMBBotVersion
 Set-Alias -Name Create-LMBIntentVersion -Value New-LMBIntentVersion

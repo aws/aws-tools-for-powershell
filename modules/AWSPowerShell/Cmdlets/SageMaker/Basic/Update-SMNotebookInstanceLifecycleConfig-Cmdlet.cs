@@ -30,6 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Updates a notebook instance lifecycle configuration created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html">CreateNotebookInstanceLifecycleConfig</a>
     /// API.
+    /// 
+    ///  <note><para>
+    /// Updates to lifecycle configurations affect all notebook instances using that configuration
+    /// upon their next start. Lifecycle configuration scripts execute with root access and
+    /// the notebook instance's IAM execution role privileges. Grant this permission only
+    /// to trusted principals. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Customize
+    /// a Notebook Instance Using a Lifecycle Configuration Script</a> for security best practices.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SMNotebookInstanceLifecycleConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

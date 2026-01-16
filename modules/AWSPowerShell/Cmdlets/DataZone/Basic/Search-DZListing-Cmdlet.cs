@@ -47,18 +47,25 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     /// The SearchListings API gives users flexibility in specifying what kind of search is
     /// run.
     /// </para><para>
-    /// To run a free-text search, the <c>searchText</c> parameter must be supplied. By default,
-    /// all searchable fields are indexed for semantic search and will return semantic matches
-    /// for SearchListings queries. To prevent semantic search indexing for a custom form
-    /// attribute, see the <a href="https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html">CreateFormType
+    /// To run a standard free-text search, the <c>searchText</c> parameter must be supplied.
+    /// By default, all searchable fields are indexed for semantic search and will return
+    /// semantic matches for SearchListings queries. To prevent semantic search indexing for
+    /// a custom form attribute, see the <a href="https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html">CreateFormType
     /// API documentation</a>. To run a lexical search query, enclose the query with double
     /// quotes (""). This will disable semantic search even for fields that have semantic
     /// search enabled and will only return results that contain the keywords wrapped by double
     /// quotes (order of tokens in the query is not enforced). Free-text search is supported
     /// for all attributes annotated with @amazon.datazone#searchable.
     /// </para><para>
-    /// To run a filtered search, provide filter clause using the filters parameter. To filter
-    /// on glossary terms, use the special attribute <c>__DataZoneGlossaryTerms</c>.
+    /// To run a filtered search, provide filter clause using the <c>filters</c> parameter.
+    /// To filter on glossary terms, use the special attribute <c>__DataZoneGlossaryTerms</c>.
+    /// To filter on an indexed numeric attribute (i.e., a numeric attribute annotated with
+    /// <c>@amazon.datazone#sortable</c>), provide a filter using the <c>intValue</c> parameter.
+    /// The filters parameter can also be used to run more advanced free-text searches that
+    /// target specific attributes (attributes must be annotated with <c>@amazon.datazone#searchable</c>
+    /// for free-text search). Create/update timestamp filtering is supported using the special
+    /// <c>creationTime</c>/<c>lastUpdatedTime</c> attributes. Filter types can be mixed and
+    /// matched to power complex queries.
     /// </para><para>
     ///  To find out whether an attribute has been annotated and indexed for a given search
     /// type, use the GetFormType API to retrieve the form containing the attribute.
@@ -148,6 +155,27 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter Filters_Filter_IntValue
+        /// <summary>
+        /// <para>
+        /// <para>A search filter integer value in Amazon DataZone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Filters_Filter_IntValue { get; set; }
+        #endregion
+        
+        #region Parameter Filters_Filter_Operator
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the search filter operator.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.FilterOperator")]
+        public Amazon.DataZone.FilterOperator Filters_Filter_Operator { get; set; }
+        #endregion
+        
         #region Parameter Filters_Or
         /// <summary>
         /// <para>
@@ -192,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Filter_Value
         /// <summary>
         /// <para>
-        /// <para>A search filter value in Amazon DataZone.</para>
+        /// <para>A search filter string value in Amazon DataZone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,6 +352,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Filters_And = new List<Amazon.DataZone.Model.FilterClause>(this.Filters_And);
             }
             context.Filter_Attribute = this.Filter_Attribute;
+            context.Filters_Filter_IntValue = this.Filters_Filter_IntValue;
+            context.Filters_Filter_Operator = this.Filters_Filter_Operator;
             context.Filter_Value = this.Filter_Value;
             if (this.Filters_Or != null)
             {
@@ -407,6 +437,26 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestFilters_filters_Filter_filter_Attribute != null)
             {
                 requestFilters_filters_Filter.Attribute = requestFilters_filters_Filter_filter_Attribute;
+                requestFilters_filters_FilterIsNull = false;
+            }
+            System.Int64? requestFilters_filters_Filter_filters_Filter_IntValue = null;
+            if (cmdletContext.Filters_Filter_IntValue != null)
+            {
+                requestFilters_filters_Filter_filters_Filter_IntValue = cmdletContext.Filters_Filter_IntValue.Value;
+            }
+            if (requestFilters_filters_Filter_filters_Filter_IntValue != null)
+            {
+                requestFilters_filters_Filter.IntValue = requestFilters_filters_Filter_filters_Filter_IntValue.Value;
+                requestFilters_filters_FilterIsNull = false;
+            }
+            Amazon.DataZone.FilterOperator requestFilters_filters_Filter_filters_Filter_Operator = null;
+            if (cmdletContext.Filters_Filter_Operator != null)
+            {
+                requestFilters_filters_Filter_filters_Filter_Operator = cmdletContext.Filters_Filter_Operator;
+            }
+            if (requestFilters_filters_Filter_filters_Filter_Operator != null)
+            {
+                requestFilters_filters_Filter.Operator = requestFilters_filters_Filter_filters_Filter_Operator;
                 requestFilters_filters_FilterIsNull = false;
             }
             System.String requestFilters_filters_Filter_filter_Value = null;
@@ -565,6 +615,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainIdentifier { get; set; }
             public List<Amazon.DataZone.Model.FilterClause> Filters_And { get; set; }
             public System.String Filter_Attribute { get; set; }
+            public System.Int64? Filters_Filter_IntValue { get; set; }
+            public Amazon.DataZone.FilterOperator Filters_Filter_Operator { get; set; }
             public System.String Filter_Value { get; set; }
             public List<Amazon.DataZone.Model.FilterClause> Filters_Or { get; set; }
             public System.Int32? MaxResult { get; set; }

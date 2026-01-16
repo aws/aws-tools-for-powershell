@@ -23067,6 +23067,17 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.FilterOperator
+        {
+            ($_ -eq "Search-DZListing/Filters_Filter_Operator") -Or
+            ($_ -eq "Search-DZResource/Filters_Filter_Operator") -Or
+            ($_ -eq "Search-DZType/Filters_Filter_Operator")
+        }
+        {
+            $v = "EQ","GE","GT","LE","LT","TEXT_SEARCH"
+            break
+        }
+
         # Amazon.DataZone.FilterStatus
         "Get-DZAssetFilterList/Status"
         {
@@ -23474,6 +23485,7 @@ $DZ_map = @{
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
     "EntityType"=@("Add-DZEntityOwner","Add-DZGovernedTerm","Add-DZPolicyGrant","Get-DZBatchAttributesMetadata","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZGovernedTerm","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint","Set-DZBatchAttributesMetadata")
     "EnvironmentDeploymentDetails_OverallDeploymentStatus"=@("Update-DZProject")
+    "Filters_Filter_Operator"=@("Search-DZListing","Search-DZResource","Search-DZType")
     "GlueConnectionInput_ConnectionType"=@("New-DZConnection")
     "GroupType"=@("Search-DZGroupProfile")
     "OAuth2Properties_OAuth2GrantType"=@("New-DZConnection")
@@ -47636,15 +47648,18 @@ $LWIZ_SelectMap = @{
     "Select"=@("New-LWIZDeployment",
                "Remove-LWIZDeployment",
                "Get-LWIZDeployment",
+               "Get-LWIZDeploymentPatternVersion",
                "Get-LWIZWorkload",
                "Get-LWIZWorkloadDeploymentPattern",
                "Get-LWIZDeploymentEventList",
+               "Get-LWIZDeploymentPatternVersionList",
                "Get-LWIZDeploymentList",
                "Get-LWIZResourceTag",
                "Get-LWIZWorkloadDeploymentPatternList",
                "Get-LWIZWorkloadList",
                "Add-LWIZResourceTag",
-               "Remove-LWIZResourceTag")
+               "Remove-LWIZResourceTag",
+               "Update-LWIZDeployment")
 }
 
 _awsArgumentCompleterRegistration $LWIZ_SelectCompleters $LWIZ_SelectMap

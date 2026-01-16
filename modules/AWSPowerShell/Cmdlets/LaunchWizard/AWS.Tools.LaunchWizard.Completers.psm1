@@ -126,15 +126,18 @@ $LWIZ_SelectMap = @{
     "Select"=@("New-LWIZDeployment",
                "Remove-LWIZDeployment",
                "Get-LWIZDeployment",
+               "Get-LWIZDeploymentPatternVersion",
                "Get-LWIZWorkload",
                "Get-LWIZWorkloadDeploymentPattern",
                "Get-LWIZDeploymentEventList",
+               "Get-LWIZDeploymentPatternVersionList",
                "Get-LWIZDeploymentList",
                "Get-LWIZResourceTag",
                "Get-LWIZWorkloadDeploymentPatternList",
                "Get-LWIZWorkloadList",
                "Add-LWIZResourceTag",
-               "Remove-LWIZResourceTag")
+               "Remove-LWIZResourceTag",
+               "Update-LWIZDeployment")
 }
 
 _awsArgumentCompleterRegistration $LWIZ_SelectCompleters $LWIZ_SelectMap
