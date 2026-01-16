@@ -280,6 +280,7 @@ namespace AWSPowerShellGenerator.Utils
                 compatiblePowerShellVersion: 5,
                 compatiblePowerShellMinorVersion: 1,
                 assemblies: AwsToolsCommonSdkAssemblies.Concat(AdditionalAssemblies),
+                formatsToProcessFiles: new string[] { "AWS.Tools.Common.Format.ps1xml" },
                 nestedModulesFiles: new string[] { "AWS.Tools.Common.Completers.psm1",
                                                    "AWS.Tools.Common.Aliases.psm1" },
                 fileList: new string[] { "AWS.Tools.Common.dll-Help.xml" },
