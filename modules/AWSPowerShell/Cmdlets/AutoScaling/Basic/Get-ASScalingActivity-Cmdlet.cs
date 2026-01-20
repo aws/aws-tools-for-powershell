@@ -63,10 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ActivityId
         /// <summary>
         /// <para>
-        /// <para>The activity IDs of the desired scaling activities. If you omit this property, all
-        /// activities for the past six weeks are described. If unknown activities are requested,
-        /// they are ignored with no error. If you specify an Auto Scaling group, the results
-        /// are limited to that group.</para><para>Array Members: Maximum number of 50 IDs.</para><para />
+        /// <para> The activity IDs of the desired scaling activities. If unknown activity IDs are requested,
+        /// they are ignored with no error. Only activities started within the last six weeks
+        /// can be returned regardless of the activity IDs specified. If other filters are specified
+        /// with the request, only results matching all filter criteria can be returned. </para><para>Array Members: Maximum number of 50 IDs.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -81,11 +81,37 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the Auto Scaling group.</para>
+        /// <para>The name of the Auto Scaling group.</para><important><para> Omitting this property performs an account-wide operation, which can result in slower
+        /// or timed-out requests. </para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para> One or more filters to limit the results based on specific criteria. The following
+        /// filters are supported: </para><ul><li><para><c>StartTimeLowerBound</c> - The earliest scaling activities to return based on the
+        /// activity start time. Scaling activities with a start time earlier than this value
+        /// are not included in the results. Only activities started within the last six weeks
+        /// can be returned regardless of the value specified. </para></li><li><para><c>StartTimeUpperBound</c> - The latest scaling activities to return based on the
+        /// activity start time. Scaling activities with a start time later than this value are
+        /// not included in the results. Only activities started within the last six weeks can
+        /// be returned regardless of the value specified. </para></li><li><para><c>Status</c> - The <c>StatusCode</c> value of the scaling activity. This filter
+        /// can only be used in combination with the <c>AutoScalingGroupName</c> parameter. For
+        /// valid <c>StatusCode</c> values, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_Activity.html">Activity</a>
+        /// in the <i>Amazon EC2 Auto Scaling API Reference</i>. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.AutoScaling.Model.Filter[] Filter { get; set; }
         #endregion
         
         #region Parameter IncludeDeletedGroup
@@ -176,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.ActivityId = new List<System.String>(this.ActivityId);
             }
             context.AutoScalingGroupName = this.AutoScalingGroupName;
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.AutoScaling.Model.Filter>(this.Filter);
+            }
             context.IncludeDeletedGroup = this.IncludeDeletedGroup;
             context.MaxRecord = this.MaxRecord;
             #if !MODULAR
@@ -214,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.IncludeDeletedGroup != null)
             {
@@ -285,6 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.IncludeDeletedGroup != null)
             {
@@ -398,6 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             public List<System.String> ActivityId { get; set; }
             public System.String AutoScalingGroupName { get; set; }
+            public List<Amazon.AutoScaling.Model.Filter> Filter { get; set; }
             public System.Boolean? IncludeDeletedGroup { get; set; }
             public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }

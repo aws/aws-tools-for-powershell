@@ -225,6 +225,17 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public System.Int64? CapacitySpecification_ReadCapacityUnit { get; set; }
         #endregion
         
+        #region Parameter WarmThroughputSpecification_ReadUnitsPerSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of read capacity units per second to pre-warm the table for read capacity
+        /// throughput. The minimum value is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? WarmThroughputSpecification_ReadUnitsPerSecond { get; set; }
+        #endregion
+        
         #region Parameter ReplicaSpecification
         /// <summary>
         /// <para>
@@ -448,6 +459,17 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public System.Int64? CapacitySpecification_WriteCapacityUnit { get; set; }
         #endregion
         
+        #region Parameter WarmThroughputSpecification_WriteUnitsPerSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of write capacity units per second to pre-warm the table for write capacity
+        /// throughput. The minimum value is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? WarmThroughputSpecification_WriteUnitsPerSecond { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceArn'.
@@ -546,6 +568,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
             }
             #endif
             context.Ttl_Status = this.Ttl_Status;
+            context.WarmThroughputSpecification_ReadUnitsPerSecond = this.WarmThroughputSpecification_ReadUnitsPerSecond;
+            context.WarmThroughputSpecification_WriteUnitsPerSecond = this.WarmThroughputSpecification_WriteUnitsPerSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -996,6 +1020,35 @@ namespace Amazon.PowerShell.Cmdlets.KS
                 request.Ttl = null;
             }
             
+             // populate WarmThroughputSpecification
+            var requestWarmThroughputSpecificationIsNull = true;
+            request.WarmThroughputSpecification = new Amazon.Keyspaces.Model.WarmThroughputSpecification();
+            System.Int64? requestWarmThroughputSpecification_warmThroughputSpecification_ReadUnitsPerSecond = null;
+            if (cmdletContext.WarmThroughputSpecification_ReadUnitsPerSecond != null)
+            {
+                requestWarmThroughputSpecification_warmThroughputSpecification_ReadUnitsPerSecond = cmdletContext.WarmThroughputSpecification_ReadUnitsPerSecond.Value;
+            }
+            if (requestWarmThroughputSpecification_warmThroughputSpecification_ReadUnitsPerSecond != null)
+            {
+                request.WarmThroughputSpecification.ReadUnitsPerSecond = requestWarmThroughputSpecification_warmThroughputSpecification_ReadUnitsPerSecond.Value;
+                requestWarmThroughputSpecificationIsNull = false;
+            }
+            System.Int64? requestWarmThroughputSpecification_warmThroughputSpecification_WriteUnitsPerSecond = null;
+            if (cmdletContext.WarmThroughputSpecification_WriteUnitsPerSecond != null)
+            {
+                requestWarmThroughputSpecification_warmThroughputSpecification_WriteUnitsPerSecond = cmdletContext.WarmThroughputSpecification_WriteUnitsPerSecond.Value;
+            }
+            if (requestWarmThroughputSpecification_warmThroughputSpecification_WriteUnitsPerSecond != null)
+            {
+                request.WarmThroughputSpecification.WriteUnitsPerSecond = requestWarmThroughputSpecification_warmThroughputSpecification_WriteUnitsPerSecond.Value;
+                requestWarmThroughputSpecificationIsNull = false;
+            }
+             // determine if request.WarmThroughputSpecification should be set to null
+            if (requestWarmThroughputSpecificationIsNull)
+            {
+                request.WarmThroughputSpecification = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -1081,6 +1134,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
             public List<Amazon.Keyspaces.Model.ReplicaSpecification> ReplicaSpecification { get; set; }
             public System.String TableName { get; set; }
             public Amazon.Keyspaces.TimeToLiveStatus Ttl_Status { get; set; }
+            public System.Int64? WarmThroughputSpecification_ReadUnitsPerSecond { get; set; }
+            public System.Int64? WarmThroughputSpecification_WriteUnitsPerSecond { get; set; }
             public System.Func<Amazon.Keyspaces.Model.UpdateTableResponse, UpdateKSTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResourceArn;
         }
