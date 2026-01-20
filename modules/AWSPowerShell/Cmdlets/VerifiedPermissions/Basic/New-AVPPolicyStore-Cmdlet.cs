@@ -53,6 +53,16 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EncryptionSettings_Default
+        /// <summary>
+        /// <para>
+        /// <para>Use AWS owned encryption keys for encrypting policy store data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.VerifiedPermissions.Model.Unit EncryptionSettings_Default { get; set; }
+        #endregion
+        
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
@@ -74,6 +84,29 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionSettings_KmsEncryptionSettings_EncryptionContext
+        /// <summary>
+        /// <para>
+        /// <para>User-defined, additional context to be added to encryption processes. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable EncryptionSettings_KmsEncryptionSettings_EncryptionContext { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionSettings_KmsEncryptionSettings_Key
+        /// <summary>
+        /// <para>
+        /// <para>The customer-managed KMS key <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a>, alias or ID to be used for encryption processes. </para><para>Users can provide the full KMS key ARN, a KMS key alias, or a KMS key ID, but it will
+        /// be mapped to the full KMS key ARN after policy store creation, and referenced when
+        /// encrypting child resources. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionSettings_KmsEncryptionSettings_Key { get; set; }
         #endregion
         
         #region Parameter ValidationSettings_Mode
@@ -193,6 +226,16 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             context.ClientToken = this.ClientToken;
             context.DeletionProtection = this.DeletionProtection;
             context.Description = this.Description;
+            context.EncryptionSettings_Default = this.EncryptionSettings_Default;
+            if (this.EncryptionSettings_KmsEncryptionSettings_EncryptionContext != null)
+            {
+                context.EncryptionSettings_KmsEncryptionSettings_EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EncryptionSettings_KmsEncryptionSettings_EncryptionContext.Keys)
+                {
+                    context.EncryptionSettings_KmsEncryptionSettings_EncryptionContext.Add((String)hashKey, (System.String)(this.EncryptionSettings_KmsEncryptionSettings_EncryptionContext[hashKey]));
+                }
+            }
+            context.EncryptionSettings_KmsEncryptionSettings_Key = this.EncryptionSettings_KmsEncryptionSettings_Key;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -235,6 +278,60 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate EncryptionSettings
+            var requestEncryptionSettingsIsNull = true;
+            request.EncryptionSettings = new Amazon.VerifiedPermissions.Model.EncryptionSettings();
+            Amazon.VerifiedPermissions.Model.Unit requestEncryptionSettings_encryptionSettings_Default = null;
+            if (cmdletContext.EncryptionSettings_Default != null)
+            {
+                requestEncryptionSettings_encryptionSettings_Default = cmdletContext.EncryptionSettings_Default;
+            }
+            if (requestEncryptionSettings_encryptionSettings_Default != null)
+            {
+                request.EncryptionSettings.Default = requestEncryptionSettings_encryptionSettings_Default;
+                requestEncryptionSettingsIsNull = false;
+            }
+            Amazon.VerifiedPermissions.Model.KmsEncryptionSettings requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings = null;
+            
+             // populate KmsEncryptionSettings
+            var requestEncryptionSettings_encryptionSettings_KmsEncryptionSettingsIsNull = true;
+            requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings = new Amazon.VerifiedPermissions.Model.KmsEncryptionSettings();
+            Dictionary<System.String, System.String> requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings_encryptionSettings_KmsEncryptionSettings_EncryptionContext = null;
+            if (cmdletContext.EncryptionSettings_KmsEncryptionSettings_EncryptionContext != null)
+            {
+                requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings_encryptionSettings_KmsEncryptionSettings_EncryptionContext = cmdletContext.EncryptionSettings_KmsEncryptionSettings_EncryptionContext;
+            }
+            if (requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings_encryptionSettings_KmsEncryptionSettings_EncryptionContext != null)
+            {
+                requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings.EncryptionContext = requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings_encryptionSettings_KmsEncryptionSettings_EncryptionContext;
+                requestEncryptionSettings_encryptionSettings_KmsEncryptionSettingsIsNull = false;
+            }
+            System.String requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings_encryptionSettings_KmsEncryptionSettings_Key = null;
+            if (cmdletContext.EncryptionSettings_KmsEncryptionSettings_Key != null)
+            {
+                requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings_encryptionSettings_KmsEncryptionSettings_Key = cmdletContext.EncryptionSettings_KmsEncryptionSettings_Key;
+            }
+            if (requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings_encryptionSettings_KmsEncryptionSettings_Key != null)
+            {
+                requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings.Key = requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings_encryptionSettings_KmsEncryptionSettings_Key;
+                requestEncryptionSettings_encryptionSettings_KmsEncryptionSettingsIsNull = false;
+            }
+             // determine if requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings should be set to null
+            if (requestEncryptionSettings_encryptionSettings_KmsEncryptionSettingsIsNull)
+            {
+                requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings = null;
+            }
+            if (requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings != null)
+            {
+                request.EncryptionSettings.KmsEncryptionSettings = requestEncryptionSettings_encryptionSettings_KmsEncryptionSettings;
+                requestEncryptionSettingsIsNull = false;
+            }
+             // determine if request.EncryptionSettings should be set to null
+            if (requestEncryptionSettingsIsNull)
+            {
+                request.EncryptionSettings = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -323,6 +420,9 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             public System.String ClientToken { get; set; }
             public Amazon.VerifiedPermissions.DeletionProtection DeletionProtection { get; set; }
             public System.String Description { get; set; }
+            public Amazon.VerifiedPermissions.Model.Unit EncryptionSettings_Default { get; set; }
+            public Dictionary<System.String, System.String> EncryptionSettings_KmsEncryptionSettings_EncryptionContext { get; set; }
+            public System.String EncryptionSettings_KmsEncryptionSettings_Key { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.VerifiedPermissions.ValidationMode ValidationSettings_Mode { get; set; }
             public System.Func<Amazon.VerifiedPermissions.Model.CreatePolicyStoreResponse, NewAVPPolicyStoreCmdlet, object> Select { get; set; } =

@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Strategy
         /// <summary>
         /// <para>
-        /// <para>The strategy to use for the instance refresh. The only valid value is <c>Rolling</c>.</para>
+        /// <para>The strategy to use for the instance refresh. The default value is <c>Rolling</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

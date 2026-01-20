@@ -47,6 +47,44 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter InstanceConfigurationFilter_BillingMode
+        /// <summary>
+        /// <para>
+        /// <para>Filters WorkSpace Instance types based on supported billing modes. Allows customers
+        /// to search for instance types that support their preferred billing model, such as HOURLY
+        /// or MONTHLY billing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkspacesInstances.BillingMode")]
+        public Amazon.WorkspacesInstances.BillingMode InstanceConfigurationFilter_BillingMode { get; set; }
+        #endregion
+        
+        #region Parameter InstanceConfigurationFilter_PlatformType
+        /// <summary>
+        /// <para>
+        /// <para>Filters WorkSpace Instance types by operating system platform. Allows customers to
+        /// find instances that support their desired OS, such as Windows, Linux/UNIX, Ubuntu
+        /// Pro, RHEL, or SUSE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkspacesInstances.PlatformTypeEnum")]
+        public Amazon.WorkspacesInstances.PlatformTypeEnum InstanceConfigurationFilter_PlatformType { get; set; }
+        #endregion
+        
+        #region Parameter InstanceConfigurationFilter_Tenancy
+        /// <summary>
+        /// <para>
+        /// <para>Filters WorkSpace Instance types by tenancy model. Allows customers to find instances
+        /// that match their tenancy requirements, such as SHARED or DEDICATED.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkspacesInstances.InstanceConfigurationTenancyEnum")]
+        public Amazon.WorkspacesInstances.InstanceConfigurationTenancyEnum InstanceConfigurationFilter_Tenancy { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -109,6 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
                 context.Select = CreateSelectDelegate<Amazon.WorkspacesInstances.Model.ListInstanceTypesResponse, GetWKSIInstanceTypeListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.InstanceConfigurationFilter_BillingMode = this.InstanceConfigurationFilter_BillingMode;
+            context.InstanceConfigurationFilter_PlatformType = this.InstanceConfigurationFilter_PlatformType;
+            context.InstanceConfigurationFilter_Tenancy = this.InstanceConfigurationFilter_Tenancy;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -129,6 +170,45 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             // create request and set iteration invariants
             var request = new Amazon.WorkspacesInstances.Model.ListInstanceTypesRequest();
             
+            
+             // populate InstanceConfigurationFilter
+            var requestInstanceConfigurationFilterIsNull = true;
+            request.InstanceConfigurationFilter = new Amazon.WorkspacesInstances.Model.InstanceConfigurationFilter();
+            Amazon.WorkspacesInstances.BillingMode requestInstanceConfigurationFilter_instanceConfigurationFilter_BillingMode = null;
+            if (cmdletContext.InstanceConfigurationFilter_BillingMode != null)
+            {
+                requestInstanceConfigurationFilter_instanceConfigurationFilter_BillingMode = cmdletContext.InstanceConfigurationFilter_BillingMode;
+            }
+            if (requestInstanceConfigurationFilter_instanceConfigurationFilter_BillingMode != null)
+            {
+                request.InstanceConfigurationFilter.BillingMode = requestInstanceConfigurationFilter_instanceConfigurationFilter_BillingMode;
+                requestInstanceConfigurationFilterIsNull = false;
+            }
+            Amazon.WorkspacesInstances.PlatformTypeEnum requestInstanceConfigurationFilter_instanceConfigurationFilter_PlatformType = null;
+            if (cmdletContext.InstanceConfigurationFilter_PlatformType != null)
+            {
+                requestInstanceConfigurationFilter_instanceConfigurationFilter_PlatformType = cmdletContext.InstanceConfigurationFilter_PlatformType;
+            }
+            if (requestInstanceConfigurationFilter_instanceConfigurationFilter_PlatformType != null)
+            {
+                request.InstanceConfigurationFilter.PlatformType = requestInstanceConfigurationFilter_instanceConfigurationFilter_PlatformType;
+                requestInstanceConfigurationFilterIsNull = false;
+            }
+            Amazon.WorkspacesInstances.InstanceConfigurationTenancyEnum requestInstanceConfigurationFilter_instanceConfigurationFilter_Tenancy = null;
+            if (cmdletContext.InstanceConfigurationFilter_Tenancy != null)
+            {
+                requestInstanceConfigurationFilter_instanceConfigurationFilter_Tenancy = cmdletContext.InstanceConfigurationFilter_Tenancy;
+            }
+            if (requestInstanceConfigurationFilter_instanceConfigurationFilter_Tenancy != null)
+            {
+                request.InstanceConfigurationFilter.Tenancy = requestInstanceConfigurationFilter_instanceConfigurationFilter_Tenancy;
+                requestInstanceConfigurationFilterIsNull = false;
+            }
+             // determine if request.InstanceConfigurationFilter should be set to null
+            if (requestInstanceConfigurationFilterIsNull)
+            {
+                request.InstanceConfigurationFilter = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -218,6 +298,9 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.WorkspacesInstances.BillingMode InstanceConfigurationFilter_BillingMode { get; set; }
+            public Amazon.WorkspacesInstances.PlatformTypeEnum InstanceConfigurationFilter_PlatformType { get; set; }
+            public Amazon.WorkspacesInstances.InstanceConfigurationTenancyEnum InstanceConfigurationFilter_Tenancy { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.WorkspacesInstances.Model.ListInstanceTypesResponse, GetWKSIInstanceTypeListCmdlet, object> Select { get; set; } =

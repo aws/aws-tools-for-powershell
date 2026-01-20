@@ -101,6 +101,16 @@ $WKSI_Completers = {
             break
         }
 
+        # Amazon.WorkspacesInstances.BillingMode
+        {
+            ($_ -eq "New-WKSIWorkspaceInstance/BillingConfiguration_BillingMode") -Or
+            ($_ -eq "Get-WKSIInstanceTypeList/InstanceConfigurationFilter_BillingMode")
+        }
+        {
+            $v = "HOURLY","MONTHLY"
+            break
+        }
+
         # Amazon.WorkspacesInstances.CapacityReservationPreferenceEnum
         "New-WKSIWorkspaceInstance/CapacityReservationSpecification_CapacityReservationPreference"
         {
@@ -150,6 +160,13 @@ $WKSI_Completers = {
             break
         }
 
+        # Amazon.WorkspacesInstances.InstanceConfigurationTenancyEnum
+        "Get-WKSIInstanceTypeList/InstanceConfigurationFilter_Tenancy"
+        {
+            $v = "DEDICATED","SHARED"
+            break
+        }
+
         # Amazon.WorkspacesInstances.InstanceInterruptionBehaviorEnum
         "New-WKSIWorkspaceInstance/SpotOptions_InstanceInterruptionBehavior"
         {
@@ -168,6 +185,13 @@ $WKSI_Completers = {
         "New-WKSIWorkspaceInstance/InstanceMarketOptions_MarketType"
         {
             $v = "capacity-block","spot"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.PlatformTypeEnum
+        "Get-WKSIInstanceTypeList/InstanceConfigurationFilter_PlatformType"
+        {
+            $v = "Linux/UNIX","Red Hat BYOL Linux","Red Hat Enterprise Linux","SUSE Linux","Ubuntu Pro Linux","Windows","Windows BYOL"
             break
         }
 
@@ -201,10 +225,14 @@ $WKSI_Completers = {
 }
 
 $WKSI_map = @{
+    "BillingConfiguration_BillingMode"=@("New-WKSIWorkspaceInstance")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("New-WKSIWorkspaceInstance")
     "CpuOptions_AmdSevSnp"=@("New-WKSIWorkspaceInstance")
     "CreditSpecification_CpuCredit"=@("New-WKSIWorkspaceInstance")
     "DisassociateMode"=@("Dismount-WKSIVolume")
+    "InstanceConfigurationFilter_BillingMode"=@("Get-WKSIInstanceTypeList")
+    "InstanceConfigurationFilter_PlatformType"=@("Get-WKSIInstanceTypeList")
+    "InstanceConfigurationFilter_Tenancy"=@("Get-WKSIInstanceTypeList")
     "InstanceMarketOptions_MarketType"=@("New-WKSIWorkspaceInstance")
     "MaintenanceOptions_AutoRecovery"=@("New-WKSIWorkspaceInstance")
     "MetadataOptions_HttpEndpoint"=@("New-WKSIWorkspaceInstance")

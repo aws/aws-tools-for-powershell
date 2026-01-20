@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
 {
     /// <summary>
     /// Deletes the specified WorkSpace
+    /// 
+    ///  <important><para>
+    /// Usage of this API will result in deletion of the resource in question.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "WKSIWorkspaceInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

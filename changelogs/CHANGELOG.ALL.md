@@ -1,4 +1,17 @@
-﻿### 4.1.981 (2026-01-16 21:34Z)
+﻿### 4.1.982 (2026-01-20 22:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1205.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Auto Scaling
+    * Modified cmdlet Get-ASScalingActivity: added parameter Filter.
+  * Amazon Keyspaces
+    * Modified cmdlet New-KSTable: added parameters WarmThroughputSpecification_ReadUnitsPerSecond and WarmThroughputSpecification_WriteUnitsPerSecond.
+    * Modified cmdlet Update-KSTable: added parameters WarmThroughputSpecification_ReadUnitsPerSecond and WarmThroughputSpecification_WriteUnitsPerSecond.
+  * Amazon Verified Permissions
+    * Modified cmdlet New-AVPPolicyStore: added parameters EncryptionSettings_Default, EncryptionSettings_KmsEncryptionSettings_EncryptionContext and EncryptionSettings_KmsEncryptionSettings_Key.
+  * Amazon Workspaces Instances
+    * Modified cmdlet Get-WKSIInstanceTypeList: added parameters InstanceConfigurationFilter_BillingMode, InstanceConfigurationFilter_PlatformType and InstanceConfigurationFilter_Tenancy.
+    * Modified cmdlet New-WKSIWorkspaceInstance: added parameter BillingConfiguration_BillingMode.
+
+### 4.1.981 (2026-01-16 21:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1204.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Modified cmdlet New-CONNEvaluationForm: added parameters ReviewConfiguration_EligibilityDay and ReviewConfiguration_ReviewNotificationRecipient.

@@ -114,6 +114,19 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
         public Amazon.WorkspacesInstances.BandwidthWeightingEnum NetworkPerformanceOptions_BandwidthWeighting { get; set; }
         #endregion
         
+        #region Parameter BillingConfiguration_BillingMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the billing mode for WorkSpace Instances. MONTHLY provides fixed monthly
+        /// rates for predictable budgeting, while HOURLY enables pay-per-second billing for actual
+        /// usage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkspacesInstances.BillingMode")]
+        public Amazon.WorkspacesInstances.BillingMode BillingConfiguration_BillingMode { get; set; }
+        #endregion
+        
         #region Parameter ManagedInstance_BlockDeviceMapping
         /// <summary>
         /// <para>
@@ -716,6 +729,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
                 context.Select = CreateSelectDelegate<Amazon.WorkspacesInstances.Model.CreateWorkspaceInstanceResponse, NewWKSIWorkspaceInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BillingConfiguration_BillingMode = this.BillingConfiguration_BillingMode;
             context.ClientToken = this.ClientToken;
             if (this.ManagedInstance_BlockDeviceMapping != null)
             {
@@ -813,6 +827,25 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             // create request
             var request = new Amazon.WorkspacesInstances.Model.CreateWorkspaceInstanceRequest();
             
+            
+             // populate BillingConfiguration
+            var requestBillingConfigurationIsNull = true;
+            request.BillingConfiguration = new Amazon.WorkspacesInstances.Model.BillingConfiguration();
+            Amazon.WorkspacesInstances.BillingMode requestBillingConfiguration_billingConfiguration_BillingMode = null;
+            if (cmdletContext.BillingConfiguration_BillingMode != null)
+            {
+                requestBillingConfiguration_billingConfiguration_BillingMode = cmdletContext.BillingConfiguration_BillingMode;
+            }
+            if (requestBillingConfiguration_billingConfiguration_BillingMode != null)
+            {
+                request.BillingConfiguration.BillingMode = requestBillingConfiguration_billingConfiguration_BillingMode;
+                requestBillingConfigurationIsNull = false;
+            }
+             // determine if request.BillingConfiguration should be set to null
+            if (requestBillingConfigurationIsNull)
+            {
+                request.BillingConfiguration = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -1666,6 +1699,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.WorkspacesInstances.BillingMode BillingConfiguration_BillingMode { get; set; }
             public System.String ClientToken { get; set; }
             public List<Amazon.WorkspacesInstances.Model.BlockDeviceMappingRequest> ManagedInstance_BlockDeviceMapping { get; set; }
             public Amazon.WorkspacesInstances.CapacityReservationPreferenceEnum CapacityReservationSpecification_CapacityReservationPreference { get; set; }

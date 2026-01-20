@@ -465,7 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para> Specifies the action when a termination lifecycle hook is abandoned due to failure,
-        /// timeout, or explicit abandonment (calling CompleteLifecycleAction). </para><para> Set to <c>Retain</c> to move instances to a <c>Retained</c> state. Set to <c>Terminate</c>
+        /// timeout, or explicit abandonment (calling CompleteLifecycleAction). </para><para> Set to <c>retain</c> to move instances to a retained state. Set to <c>terminate</c>
         /// for default termination behavior. </para><para> Retained instances don't count toward desired capacity and remain until you call
         /// <c>TerminateInstanceInAutoScalingGroup</c>. </para>
         /// </para>
