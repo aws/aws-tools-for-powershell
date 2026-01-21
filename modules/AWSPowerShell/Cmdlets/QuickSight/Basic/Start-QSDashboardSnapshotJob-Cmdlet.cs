@@ -34,12 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// can request one or several of the following format configurations in each API call.
     /// 
     ///  <ul><li><para>
-    /// 1 Paginated PDF
+    /// 1 PDF
     /// </para></li><li><para>
     /// 1 Excel workbook that includes up to 5 table or pivot table visuals
     /// </para></li><li><para>
     /// 5 CSVs from table or pivot table visuals
-    /// </para></li></ul><para>
+    /// </para></li></ul><note><para>
+    /// Exporting CSV, Excel, or Pixel Perfect PDF reports requires Pixel Perfect Report Add-on.
+    /// </para></note><para>
     /// The status of a submitted job can be polled with the <c>DescribeDashboardSnapshotJob</c>
     /// API. When you call the <c>DescribeDashboardSnapshotJob</c> API, check the <c>JobStatus</c>
     /// field in the response. Once the job reaches a <c>COMPLETED</c> or <c>FAILED</c> status,

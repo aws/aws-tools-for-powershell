@@ -102,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DryRun { get; set; }
         #endregion
         
+        #region Parameter EbsCardIndex
+        /// <summary>
+        /// <para>
+        /// <para>The index of the EBS card. Some instance types support multiple EBS cards. The default
+        /// EBS card index is 0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EbsCardIndex { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -191,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.DryRun = this.DryRun;
+            context.EbsCardIndex = this.EbsCardIndex;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -228,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
+            }
+            if (cmdletContext.EbsCardIndex != null)
+            {
+                request.EbsCardIndex = cmdletContext.EbsCardIndex.Value;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -294,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String Device { get; set; }
             public System.Boolean? DryRun { get; set; }
+            public System.Int32? EbsCardIndex { get; set; }
             public System.String InstanceId { get; set; }
             public System.String VolumeId { get; set; }
             public System.Func<Amazon.EC2.Model.AttachVolumeResponse, AddEC2VolumeCmdlet, object> Select { get; set; } =
