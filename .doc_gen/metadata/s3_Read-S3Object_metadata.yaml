@@ -9,12 +9,12 @@ s3_GetObject:
       - sdk_version: 4
         sdk_action: Read-S3Object
         excerpts:
-        - description: '<emphasis role="bold">Example 1: This command retrieves item "sample.txt" from bucket "test-files" and saves it to a file named "local-sample.txt" in the current location. The file "local-sample.txt" does not have to exist before this command is called.</emphasis>'
+        - description: '<emphasis role="bold">Example 1: This command retrieves item "sample.txt" from bucket "amzn-s3-demo-bucket" and saves it to a file named "local-sample.txt" in the current location. The file "local-sample.txt" does not have to exist before this command is called.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:
           - .doc_gen/snippet_files/s3_Read-S3Object.1.1.ps1
-        - description: '<emphasis role="bold">Example 2: This command retrieves virtual directory "DIR" from bucket "test-files" and saves it to a folder named "Local-DIR" in the current location. The folder "Local-DIR" does not have to exist before this command is called.</emphasis>'
+        - description: '<emphasis role="bold">Example 2: This command retrieves virtual directory "DIR" from bucket "amzn-s3-demo-bucket" and saves it to a folder named "Local-DIR" in the current location. The folder "Local-DIR" does not have to exist before this command is called.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:
