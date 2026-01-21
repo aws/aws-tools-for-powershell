@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String BrowserIdentifier { get; set; }
         #endregion
         
+        #region Parameter Extension
+        /// <summary>
+        /// <para>
+        /// <para>A list of browser extensions to load into the browser session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Extensions")]
+        public Amazon.BedrockAgentCore.Model.BrowserExtension[] Extension { get; set; }
+        #endregion
+        
         #region Parameter ViewPort_Height
         /// <summary>
         /// <para>
@@ -220,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             }
             #endif
             context.ClientToken = this.ClientToken;
+            if (this.Extension != null)
+            {
+                context.Extension = new List<Amazon.BedrockAgentCore.Model.BrowserExtension>(this.Extension);
+            }
             context.Name = this.Name;
             context.SessionTimeoutSecond = this.SessionTimeoutSecond;
             context.TraceId = this.TraceId;
@@ -249,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.Extension != null)
+            {
+                request.Extensions = cmdletContext.Extension;
             }
             if (cmdletContext.Name != null)
             {
@@ -358,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             public System.String BrowserIdentifier { get; set; }
             public System.String ClientToken { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.BrowserExtension> Extension { get; set; }
             public System.String Name { get; set; }
             public System.Int32? SessionTimeoutSecond { get; set; }
             public System.String TraceId { get; set; }
