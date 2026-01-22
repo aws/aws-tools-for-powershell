@@ -57,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter EncryptionSettings_Default
         /// <summary>
         /// <para>
-        /// <para>Use AWS owned encryption keys for encrypting policy store data.</para>
+        /// <para>This is the default encryption setting. The policy store uses an Amazon Web Services
+        /// owned key for encrypting data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

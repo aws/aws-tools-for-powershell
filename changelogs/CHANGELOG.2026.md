@@ -1,4 +1,12 @@
-﻿### 5.0.138 (2026-01-21 21:12Z)
+﻿### 5.0.139 (2026-01-22 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.175.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Auto Scaling
+    * Modified cmdlet New-ASAutoScalingGroup: added parameter DeletionProtection.
+    * Modified cmdlet Update-ASAutoScalingGroup: added parameter DeletionProtection.
+  * Amazon GameLift Service
+    * Modified cmdlet New-GMLScript: added parameter NodeJsVersion.
+
+### 5.0.138 (2026-01-21 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.174.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock AgentCore Data Plane Fronting Layer
     * Modified cmdlet Start-BACBrowserSession: added parameter Extension.

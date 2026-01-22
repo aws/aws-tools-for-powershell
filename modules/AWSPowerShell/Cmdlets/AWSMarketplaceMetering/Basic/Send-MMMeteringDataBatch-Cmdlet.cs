@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.MM
 {
     /// <summary>
     /// <important><para>
-    ///  The <c>CustomerIdentifier</c> parameter is scheduled for deprecation on March 31,
-    /// 2026. Use <c>CustomerAWSAccountID</c> instead.
-    /// </para><para>
-    /// These parameters are mutually exclusive. You can't specify both <c>CustomerIdentifier</c>
-    /// and <c>CustomerAWSAccountID</c> in the same request. 
+    ///  The <c>CustomerIdentifier</c> and <c>CustomerAWSAccountID</c> are mutually exclusive
+    /// parameters. You must use one or the other, but not both in the same API request. For
+    /// new implementations, we recommend using the <c>CustomerAWSAccountID</c>. Your current
+    /// integration will continue to work. When updating your implementation, consider migrating
+    /// to <c>CustomerAWSAccountID</c> for improved integration. 
     /// </para></important><para>
     /// To post metering records for customers, SaaS applications call <c>BatchMeterUsage</c>,
     /// which is used for metering SaaS flexible consumption pricing (FCP). Identical requests

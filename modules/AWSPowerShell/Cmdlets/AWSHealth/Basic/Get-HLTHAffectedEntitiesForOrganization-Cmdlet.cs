@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para>
+        /// <para>The maximum number of items to return in one batch, between 1 and 100, inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

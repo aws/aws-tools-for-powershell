@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para>
+        /// <para>The maximum number of items to return in one batch, between 1 and 100, inclusive.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -588,7 +588,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 }
                 
                 ProcessOutput(output);
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 10));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
             
             
             if (useParameterSelect)

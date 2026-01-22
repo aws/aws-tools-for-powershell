@@ -100,6 +100,16 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.DeletionProtection
+        {
+            ($_ -eq "New-ASAutoScalingGroup/DeletionProtection") -Or
+            ($_ -eq "Update-ASAutoScalingGroup/DeletionProtection")
+        }
+        {
+            $v = "none","prevent-all-deletion","prevent-force-deletion"
+            break
+        }
+
         # Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior
         {
             ($_ -eq "New-ASAutoScalingGroup/AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior") -Or
@@ -210,6 +220,7 @@ $AS_map = @{
     "AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
+    "DeletionProtection"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
     "MetadataOptions_HttpToken"=@("New-ASLaunchConfiguration")
     "PoolState"=@("Write-ASWarmPool")
