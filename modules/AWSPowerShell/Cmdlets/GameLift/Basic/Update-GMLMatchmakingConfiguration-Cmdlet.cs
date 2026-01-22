@@ -146,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A set of key-value pairs that can store custom data in a game session. For example:
         /// <c>{"Key": "difficulty", "Value": "novice"}</c>. This information is added to the
         /// new <c>GameSession</c> object that is created for a successful match. This parameter
-        /// is not used if <c>FlexMatchMode</c> is set to <c>STANDALONE</c>.</para>
+        /// is not used if <c>FlexMatchMode</c> is set to <c>STANDALONE</c>.</para><note><para>Avoid using periods (".") in property keys if you plan to search for game sessions
+        /// by properties. Property keys containing periods cannot be searched and will be filtered
+        /// out from search results due to search index limitations.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

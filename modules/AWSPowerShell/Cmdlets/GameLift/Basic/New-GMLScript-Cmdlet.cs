@@ -104,6 +104,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NodeJsVersion
+        /// <summary>
+        /// <para>
+        /// <para>The Node.js version used for execution of your Realtime script. The valid values are
+        /// <c>10.x | 24.x</c>. By default, <c>NodeJsVersion</c> is <c>10.x</c>. This value cannot
+        /// be updated later. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NodeJsVersion { get; set; }
+        #endregion
+        
         #region Parameter StorageLocation_ObjectVersion
         /// <summary>
         /// <para>
@@ -237,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
+            context.NodeJsVersion = this.NodeJsVersion;
             context.StorageLocation_Bucket = this.StorageLocation_Bucket;
             context.StorageLocation_Key = this.StorageLocation_Key;
             context.StorageLocation_ObjectVersion = this.StorageLocation_ObjectVersion;
@@ -270,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 if (cmdletContext.Name != null)
                 {
                     request.Name = cmdletContext.Name;
+                }
+                if (cmdletContext.NodeJsVersion != null)
+                {
+                    request.NodeJsVersion = cmdletContext.NodeJsVersion;
                 }
                 
                  // populate StorageLocation
@@ -403,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public System.String NodeJsVersion { get; set; }
             public System.String StorageLocation_Bucket { get; set; }
             public System.String StorageLocation_Key { get; set; }
             public System.String StorageLocation_ObjectVersion { get; set; }

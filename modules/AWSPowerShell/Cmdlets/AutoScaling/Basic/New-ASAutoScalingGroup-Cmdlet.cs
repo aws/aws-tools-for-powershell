@@ -205,6 +205,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Int32? DefaultInstanceWarmup { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para> The deletion protection setting for the Auto Scaling group. This setting helps safeguard
+        /// your Auto Scaling group and its instances by controlling whether the <c>DeleteAutoScalingGroup</c>
+        /// operation is allowed. When deletion protection is enabled, users cannot delete the
+        /// Auto Scaling group according to the specified protection level until the setting is
+        /// changed back to a less restrictive level. </para><para> The valid values are <c>none</c>, <c>prevent-force-deletion</c>, and <c>prevent-all-deletion</c>.
+        /// </para><para> Default: <c>none</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AutoScaling.DeletionProtection")]
+        public Amazon.AutoScaling.DeletionProtection DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
@@ -703,6 +719,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.Context = this.Context;
             context.DefaultCooldown = this.DefaultCooldown;
             context.DefaultInstanceWarmup = this.DefaultInstanceWarmup;
+            context.DeletionProtection = this.DeletionProtection;
             context.DesiredCapacity = this.DesiredCapacity;
             context.DesiredCapacityType = this.DesiredCapacityType;
             context.HealthCheckGracePeriod = this.HealthCheckGracePeriod;
@@ -901,6 +918,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.DefaultInstanceWarmup != null)
             {
                 request.DefaultInstanceWarmup = cmdletContext.DefaultInstanceWarmup.Value;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection;
             }
             if (cmdletContext.DesiredCapacity != null)
             {
@@ -1161,6 +1182,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String Context { get; set; }
             public System.Int32? DefaultCooldown { get; set; }
             public System.Int32? DefaultInstanceWarmup { get; set; }
+            public Amazon.AutoScaling.DeletionProtection DeletionProtection { get; set; }
             public System.Int32? DesiredCapacity { get; set; }
             public System.String DesiredCapacityType { get; set; }
             public System.Int32? HealthCheckGracePeriod { get; set; }

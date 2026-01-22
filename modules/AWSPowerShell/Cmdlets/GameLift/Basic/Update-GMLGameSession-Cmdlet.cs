@@ -62,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <c>{"Key": "difficulty", "Value": "novice"}</c>. You can use this parameter to modify
         /// game properties in an active game session. This action adds new properties and modifies
         /// existing properties. There is no way to delete properties. For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update
-        /// the value of a game property</a>. </para>
+        /// the value of a game property</a>. </para><note><para>Avoid using periods (".") in property keys if you plan to search for game sessions
+        /// by properties. Property keys containing periods cannot be searched and will be filtered
+        /// out from search results due to search index limitations.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
