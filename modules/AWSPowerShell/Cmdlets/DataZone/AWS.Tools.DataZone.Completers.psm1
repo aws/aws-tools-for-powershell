@@ -763,6 +763,7 @@ $DZ_SelectMap = @{
                "Remove-DZAssetFilter",
                "Remove-DZAssetType",
                "Remove-DZConnection",
+               "Remove-DZDataExportConfiguration",
                "Remove-DZDataProduct",
                "Remove-DZDataSource",
                "Remove-DZDomain",

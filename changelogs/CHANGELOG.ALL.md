@@ -1,4 +1,23 @@
-﻿### 5.0.139 (2026-01-22 21:00Z)
+﻿### 5.0.140 (2026-01-23 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.176.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNTestCaseDetail leveraging the DescribeTestCase service API.
+    * Added cmdlet Get-CONNTestCaseExecutionList leveraging the ListTestCaseExecutions service API.
+    * Added cmdlet Get-CONNTestCaseExecutionRecordList leveraging the ListTestCaseExecutionRecords service API.
+    * Added cmdlet Get-CONNTestCaseExecutionSummary leveraging the GetTestCaseExecutionSummary service API.
+    * Added cmdlet Get-CONNTestCaseList leveraging the ListTestCases service API.
+    * Added cmdlet New-CONNTestCase leveraging the CreateTestCase service API.
+    * Added cmdlet Remove-CONNTestCase leveraging the DeleteTestCase service API.
+    * Added cmdlet Search-CONNTestCase leveraging the SearchTestCases service API.
+    * Added cmdlet Start-CONNTestCaseExecution leveraging the StartTestCaseExecution service API.
+    * Added cmdlet Stop-CONNTestCaseExecution leveraging the StopTestCaseExecution service API.
+    * Added cmdlet Update-CONNTestCase leveraging the UpdateTestCase service API.
+  * Amazon DataZone
+    * Added cmdlet Remove-DZDataExportConfiguration leveraging the DeleteDataExportConfiguration service API.
+  * Amazon Q Connect
+    * [Breaking Change] Modified cmdlet Update-QCAssistantAIAgent: removed parameter OrchestratorConfigurationList; added parameter OrchestratorUseCase.
+
+### 5.0.139 (2026-01-22 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.175.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Auto Scaling
     * Modified cmdlet New-ASAutoScalingGroup: added parameter DeletionProtection.

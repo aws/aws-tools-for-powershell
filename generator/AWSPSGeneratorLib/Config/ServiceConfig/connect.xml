@@ -273,6 +273,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTestCase" OutputProperty="*" Verb="New" Noun="TestCase" ShouldProcessTarget="TestCaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTrafficDistributionGroup" OutputProperty="*" Verb="New" Noun="TrafficDistributionGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -450,6 +454,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTestCase" Verb="Remove" Noun="TestCase" ShouldProcessTarget="TestCaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTrafficDistributionGroup" Verb="Remove" Noun="TrafficDistributionGroup" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -583,6 +591,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSecurityProfile" OutputProperty="SecurityProfile" Verb="Get" Noun="SecurityProfile" PipelineParameter="SecurityProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTestCase" OutputProperty="TestCase" Verb="Get" Noun="TestCaseDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -737,6 +749,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTaskTemplate" OutputProperty="*" Verb="Get" Noun="TaskTemplate" PipelineParameter="TaskTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTestCaseExecutionSummary" OutputProperty="*" Verb="Get" Noun="TestCaseExecutionSummary" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -953,6 +969,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTaskTemplates" OutputProperty="TaskTemplates" Verb="Get" Noun="TaskTemplateList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestCaseExecutionRecords" OutputProperty="ExecutionRecords" Verb="Get" Noun="TestCaseExecutionRecordList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestCaseExecutions" OutputProperty="TestCaseExecutions" Verb="Get" Noun="TestCaseExecutionList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestCases" OutputProperty="TestCaseSummaryList" Verb="Get" Noun="TestCaseList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1299,6 +1327,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchTestCases" OutputProperty="*" Verb="Search" Noun="TestCase" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchUserHierarchyGroups" OutputProperty="*" Verb="Search" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
@@ -1473,6 +1505,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartTestCaseExecution" OutputProperty="*" Verb="Start" Noun="TestCaseExecution" ShouldProcessTarget="InstanceId,TestCaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartWebRTCContact" OutputProperty="*" Verb="Start" Noun="WebRTCContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AllowedCapabilities_Agent_ScreenShare" NewName="Agent_ScreenShare" />
@@ -1495,6 +1531,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopContactStreaming" Verb="Stop" Noun="ContactStreaming" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTestCaseExecution" Verb="Stop" Noun="TestCaseExecution" ShouldProcessTarget="TestCaseExecutionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1724,6 +1764,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTaskTemplate" OutputProperty="*" Verb="Update" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTestCase" Verb="Update" Noun="TestCase" ShouldProcessTarget="TestCaseId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -199,6 +199,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DZAssetFilter', 
         'Remove-DZAssetType', 
         'Remove-DZConnection', 
+        'Remove-DZDataExportConfiguration', 
         'Remove-DZDataProduct', 
         'Remove-DZDataSource', 
         'Remove-DZDomain', 

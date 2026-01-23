@@ -7166,6 +7166,8 @@ Set-Alias -Name Create-CONNSecurityProfile -Value New-CONNSecurityProfile
 Set-Alias -Name CONN-CreateSecurityProfile -Value New-CONNSecurityProfile
 Set-Alias -Name Create-CONNTaskTemplate -Value New-CONNTaskTemplate
 Set-Alias -Name CONN-CreateTaskTemplate -Value New-CONNTaskTemplate
+Set-Alias -Name Create-CONNTestCase -Value New-CONNTestCase
+Set-Alias -Name CONN-CreateTestCase -Value New-CONNTestCase
 Set-Alias -Name Create-CONNTrafficDistributionGroup -Value New-CONNTrafficDistributionGroup
 Set-Alias -Name CONN-CreateTrafficDistributionGroup -Value New-CONNTrafficDistributionGroup
 Set-Alias -Name Create-CONNUseCase -Value New-CONNUseCase
@@ -7234,6 +7236,8 @@ Set-Alias -Name Delete-CONNSecurityProfile -Value Remove-CONNSecurityProfile
 Set-Alias -Name CONN-DeleteSecurityProfile -Value Remove-CONNSecurityProfile
 Set-Alias -Name Delete-CONNTaskTemplate -Value Remove-CONNTaskTemplate
 Set-Alias -Name CONN-DeleteTaskTemplate -Value Remove-CONNTaskTemplate
+Set-Alias -Name Delete-CONNTestCase -Value Remove-CONNTestCase
+Set-Alias -Name CONN-DeleteTestCase -Value Remove-CONNTestCase
 Set-Alias -Name Delete-CONNTrafficDistributionGroup -Value Remove-CONNTrafficDistributionGroup
 Set-Alias -Name CONN-DeleteTrafficDistributionGroup -Value Remove-CONNTrafficDistributionGroup
 Set-Alias -Name Delete-CONNUseCase -Value Remove-CONNUseCase
@@ -7305,6 +7309,9 @@ Set-Alias -Name Describe-CONNRule -Value Get-CONNRule
 Set-Alias -Name CONN-DescribeRule -Value Get-CONNRule
 Set-Alias -Name Describe-CONNSecurityProfile -Value Get-CONNSecurityProfile
 Set-Alias -Name CONN-DescribeSecurityProfile -Value Get-CONNSecurityProfile
+Set-Alias -Name Describe-CONNTestCase -Value Get-CONNTestCaseDetail
+Set-Alias -Name Describe-CONNTestCaseDetail -Value Get-CONNTestCaseDetail
+Set-Alias -Name CONN-DescribeTestCase -Value Get-CONNTestCaseDetail
 Set-Alias -Name Describe-CONNTrafficDistributionGroup -Value Get-CONNTrafficDistributionGroup
 Set-Alias -Name CONN-DescribeTrafficDistributionGroup -Value Get-CONNTrafficDistributionGroup
 Set-Alias -Name Describe-CONNUser -Value Get-CONNUser
@@ -7379,6 +7386,7 @@ Set-Alias -Name CONN-GetMetricData -Value Get-CONNMetricData
 Set-Alias -Name CONN-GetMetricDataV2 -Value Get-CONNMetricDataV2
 Set-Alias -Name CONN-GetPromptFile -Value Get-CONNPromptFile
 Set-Alias -Name CONN-GetTaskTemplate -Value Get-CONNTaskTemplate
+Set-Alias -Name CONN-GetTestCaseExecutionSummary -Value Get-CONNTestCaseExecutionSummary
 Set-Alias -Name CONN-GetTrafficDistribution -Value Get-CONNTrafficDistribution
 Set-Alias -Name CONN-ImportPhoneNumber -Value Import-CONNPhoneNumber
 Set-Alias -Name CONN-ImportWorkspaceMedia -Value Import-CONNWorkspaceMedia
@@ -7533,6 +7541,15 @@ Set-Alias -Name CONN-ListTagsForResource -Value Get-CONNResourceTag
 Set-Alias -Name List-CONNTaskTemplates -Value Get-CONNTaskTemplateList
 Set-Alias -Name List-CONNTaskTemplateList -Value Get-CONNTaskTemplateList
 Set-Alias -Name CONN-ListTaskTemplates -Value Get-CONNTaskTemplateList
+Set-Alias -Name List-CONNTestCaseExecutionRecords -Value Get-CONNTestCaseExecutionRecordList
+Set-Alias -Name List-CONNTestCaseExecutionRecordList -Value Get-CONNTestCaseExecutionRecordList
+Set-Alias -Name CONN-ListTestCaseExecutionRecords -Value Get-CONNTestCaseExecutionRecordList
+Set-Alias -Name List-CONNTestCaseExecutions -Value Get-CONNTestCaseExecutionList
+Set-Alias -Name List-CONNTestCaseExecutionList -Value Get-CONNTestCaseExecutionList
+Set-Alias -Name CONN-ListTestCaseExecutions -Value Get-CONNTestCaseExecutionList
+Set-Alias -Name List-CONNTestCases -Value Get-CONNTestCaseList
+Set-Alias -Name List-CONNTestCaseList -Value Get-CONNTestCaseList
+Set-Alias -Name CONN-ListTestCases -Value Get-CONNTestCaseList
 Set-Alias -Name List-CONNTrafficDistributionGroups -Value Get-CONNTrafficDistributionGroupList
 Set-Alias -Name List-CONNTrafficDistributionGroupList -Value Get-CONNTrafficDistributionGroupList
 Set-Alias -Name CONN-ListTrafficDistributionGroups -Value Get-CONNTrafficDistributionGroupList
@@ -7618,6 +7635,8 @@ Set-Alias -Name Search-CONNRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name CONN-SearchRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name Search-CONNSecurityProfiles -Value Search-CONNSecurityProfile
 Set-Alias -Name CONN-SearchSecurityProfiles -Value Search-CONNSecurityProfile
+Set-Alias -Name Search-CONNTestCases -Value Search-CONNTestCase
+Set-Alias -Name CONN-SearchTestCases -Value Search-CONNTestCase
 Set-Alias -Name Search-CONNUserHierarchyGroups -Value Search-CONNUserHierarchyGroup
 Set-Alias -Name CONN-SearchUserHierarchyGroups -Value Search-CONNUserHierarchyGroup
 Set-Alias -Name Search-CONNUsers -Value Search-CONNUser
@@ -7644,11 +7663,13 @@ Set-Alias -Name CONN-StartOutboundEmailContact -Value Start-CONNOutboundEmailCon
 Set-Alias -Name CONN-StartOutboundVoiceContact -Value Start-CONNOutboundVoiceContact
 Set-Alias -Name CONN-StartScreenSharing -Value Start-CONNScreenSharing
 Set-Alias -Name CONN-StartTaskContact -Value Start-CONNTaskContact
+Set-Alias -Name CONN-StartTestCaseExecution -Value Start-CONNTestCaseExecution
 Set-Alias -Name CONN-StartWebRTCContact -Value Start-CONNWebRTCContact
 Set-Alias -Name CONN-StopContact -Value Stop-CONNContact
 Set-Alias -Name CONN-StopContactMediaProcessing -Value Stop-CONNContactMediaProcessing
 Set-Alias -Name CONN-StopContactRecording -Value Stop-CONNContactRecording
 Set-Alias -Name CONN-StopContactStreaming -Value Stop-CONNContactStreaming
+Set-Alias -Name CONN-StopTestCaseExecution -Value Stop-CONNTestCaseExecution
 Set-Alias -Name CONN-SubmitContactEvaluation -Value Submit-CONNContactEvaluation
 Set-Alias -Name CONN-SuspendContactRecording -Value Suspend-CONNContactRecording
 Set-Alias -Name Tag-CONNContact -Value Add-CONNContactTag
@@ -7709,6 +7730,7 @@ Set-Alias -Name CONN-UpdateRoutingProfileQueues -Value Update-CONNRoutingProfile
 Set-Alias -Name CONN-UpdateRule -Value Update-CONNRule
 Set-Alias -Name CONN-UpdateSecurityProfile -Value Update-CONNSecurityProfile
 Set-Alias -Name CONN-UpdateTaskTemplate -Value Update-CONNTaskTemplate
+Set-Alias -Name CONN-UpdateTestCase -Value Update-CONNTestCase
 Set-Alias -Name CONN-UpdateTrafficDistribution -Value Update-CONNTrafficDistribution
 Set-Alias -Name CONN-UpdateUserHierarchy -Value Update-CONNUserHierarchy
 Set-Alias -Name CONN-UpdateUserHierarchyGroupName -Value Update-CONNUserHierarchyGroupName
@@ -8555,6 +8577,8 @@ Set-Alias -Name Delete-DZAssetType -Value Remove-DZAssetType
 Set-Alias -Name DZ-DeleteAssetType -Value Remove-DZAssetType
 Set-Alias -Name Delete-DZConnection -Value Remove-DZConnection
 Set-Alias -Name DZ-DeleteConnection -Value Remove-DZConnection
+Set-Alias -Name Delete-DZDataExportConfiguration -Value Remove-DZDataExportConfiguration
+Set-Alias -Name DZ-DeleteDataExportConfiguration -Value Remove-DZDataExportConfiguration
 Set-Alias -Name Delete-DZDataProduct -Value Remove-DZDataProduct
 Set-Alias -Name DZ-DeleteDataProduct -Value Remove-DZDataProduct
 Set-Alias -Name Delete-DZDataSource -Value Remove-DZDataSource

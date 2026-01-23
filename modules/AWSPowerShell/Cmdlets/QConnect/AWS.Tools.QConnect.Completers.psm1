@@ -268,7 +268,7 @@ $QC_Completers = {
         # Amazon.QConnect.TargetType
         "Write-QCFeedback/TargetType"
         {
-            $v = "RECOMMENDATION","RESULT"
+            $v = "MESSAGE","RECOMMENDATION","RESULT"
             break
         }
 
