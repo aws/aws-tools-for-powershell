@@ -12,6 +12,16 @@
 <!--- Include details of your testing environment, and the tests you ran to -->
 <!--- see how your change affects other areas of the code, etc. -->
 
+## Breaking Changes Assessment
+
+1. Identify all breaking changes including the following details:
+    * What functionality was changed?
+    * How will this impact customers?
+    * Why does this need to be a breaking change and what are the most notable non-breaking alternatives?
+    * Are best practices being followed?
+    * How have you tested this breaking change?
+2. Has a senior/+ engineer been assigned to review this PR?
+
 ## Screenshots (if appropriate)
 
 ## Types of changes
