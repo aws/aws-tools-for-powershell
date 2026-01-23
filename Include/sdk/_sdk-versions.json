@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1207.0",
+    "ProductVersion"    : "3.7.1208.0",
     "CoreVersion"       : "3.7.500.71",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1004,7 +1004,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.523.3",
+            "Version" : "3.7.524.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.71"
@@ -2676,7 +2676,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.515.3",
+            "Version" : "3.7.516.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.71"
@@ -2788,7 +2788,7 @@
             "InPreview"               : false
         },
         "QConnect"                            : {
-            "Version" : "3.7.505.4",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.71"

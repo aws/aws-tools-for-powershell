@@ -660,6 +660,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.StringComparisonType
         {
+            ($_ -eq "Search-CONNTestCase/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNAgentStatus/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactEvaluation/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactFlow/StringCondition_ComparisonType") -Or
@@ -703,6 +704,38 @@ $CONN_Completers = {
         }
         {
             $v = "ACTIVE","INACTIVE"
+            break
+        }
+
+        # Amazon.Connect.TestCaseEntryPointType
+        {
+            ($_ -eq "New-CONNTestCase/EntryPoint_Type") -Or
+            ($_ -eq "Update-CONNTestCase/EntryPoint_Type")
+        }
+        {
+            $v = "VOICE_CALL"
+            break
+        }
+
+        # Amazon.Connect.TestCaseExecutionStatus
+        {
+            ($_ -eq "Get-CONNTestCaseExecutionList/Status") -Or
+            ($_ -eq "Get-CONNTestCaseExecutionRecordList/Status")
+        }
+        {
+            $v = "FAILED","INITIATED","IN_PROGRESS","PASSED","STOPPED"
+            break
+        }
+
+        # Amazon.Connect.TestCaseStatus
+        {
+            ($_ -eq "Search-CONNTestCase/SearchCriteria_StatusCondition") -Or
+            ($_ -eq "Get-CONNTestCaseDetail/Status") -Or
+            ($_ -eq "New-CONNTestCase/Status") -Or
+            ($_ -eq "Update-CONNTestCase/Status")
+        }
+        {
+            $v = "PUBLISHED","SAVED"
             break
         }
 
@@ -830,6 +863,7 @@ $CONN_map = @{
     "DeviceType"=@("New-CONNPushNotificationRegistration")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
     "EntityType"=@("Add-CONNSecurityProfile","Get-CONNEntitySecurityProfileList","Unregister-CONNSecurityProfile")
+    "EntryPoint_Type"=@("New-CONNTestCase","Update-CONNTestCase")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
     "FailureMode"=@("Start-CONNContactMediaProcessing")
@@ -868,7 +902,8 @@ $CONN_map = @{
     "SearchableSegmentAttributes_MatchType"=@("Search-CONNContact")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
     "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
-    "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
+    "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNTestCase")
+    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNTestCase")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
     "SearchCriteria_ViewStatusCondition"=@("Search-CONNView")
     "SearchCriteria_ViewTypeCondition"=@("Search-CONNView")
@@ -881,7 +916,7 @@ $CONN_map = @{
     "SourceEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
-    "Status"=@("Get-CONNTaskTemplateList","New-CONNContactFlow","New-CONNDataTable","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
+    "Status"=@("Get-CONNTaskTemplateList","Get-CONNTestCaseDetail","Get-CONNTestCaseExecutionList","Get-CONNTestCaseExecutionRecordList","New-CONNContactFlow","New-CONNDataTable","New-CONNTaskTemplate","New-CONNTestCase","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNTestCase","Update-CONNViewContent")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
@@ -1012,6 +1047,7 @@ $CONN_SelectMap = @{
                "New-CONNRule",
                "New-CONNSecurityProfile",
                "New-CONNTaskTemplate",
+               "New-CONNTestCase",
                "New-CONNTrafficDistributionGroup",
                "New-CONNUseCase",
                "New-CONNUser",
@@ -1046,6 +1082,7 @@ $CONN_SelectMap = @{
                "Remove-CONNRule",
                "Remove-CONNSecurityProfile",
                "Remove-CONNTaskTemplate",
+               "Remove-CONNTestCase",
                "Remove-CONNTrafficDistributionGroup",
                "Remove-CONNUseCase",
                "Remove-CONNUser",
@@ -1080,6 +1117,7 @@ $CONN_SelectMap = @{
                "Get-CONNRoutingProfile",
                "Get-CONNRule",
                "Get-CONNSecurityProfile",
+               "Get-CONNTestCaseDetail",
                "Get-CONNTrafficDistributionGroup",
                "Get-CONNUser",
                "Get-CONNUserHierarchyGroup",
@@ -1118,6 +1156,7 @@ $CONN_SelectMap = @{
                "Get-CONNMetricDataV2",
                "Get-CONNPromptFile",
                "Get-CONNTaskTemplate",
+               "Get-CONNTestCaseExecutionSummary",
                "Get-CONNTrafficDistribution",
                "Import-CONNPhoneNumber",
                "Import-CONNWorkspaceMedia",
@@ -1172,6 +1211,9 @@ $CONN_SelectMap = @{
                "Get-CONNSecurityProfileList",
                "Get-CONNResourceTag",
                "Get-CONNTaskTemplateList",
+               "Get-CONNTestCaseExecutionRecordList",
+               "Get-CONNTestCaseExecutionList",
+               "Get-CONNTestCaseList",
                "Get-CONNTrafficDistributionGroupList",
                "Get-CONNTrafficDistributionGroupUserList",
                "Get-CONNUseCaseList",
@@ -1208,6 +1250,7 @@ $CONN_SelectMap = @{
                "Search-CONNResourceTag",
                "Search-CONNRoutingProfile",
                "Search-CONNSecurityProfile",
+               "Search-CONNTestCase",
                "Search-CONNUserHierarchyGroup",
                "Search-CONNUser",
                "Search-CONNView",
@@ -1228,11 +1271,13 @@ $CONN_SelectMap = @{
                "Start-CONNOutboundVoiceContact",
                "Start-CONNScreenSharing",
                "Start-CONNTaskContact",
+               "Start-CONNTestCaseExecution",
                "Start-CONNWebRTCContact",
                "Stop-CONNContact",
                "Stop-CONNContactMediaProcessing",
                "Stop-CONNContactRecording",
                "Stop-CONNContactStreaming",
+               "Stop-CONNTestCaseExecution",
                "Submit-CONNContactEvaluation",
                "Suspend-CONNContactRecording",
                "Add-CONNContactTag",
@@ -1284,6 +1329,7 @@ $CONN_SelectMap = @{
                "Update-CONNRule",
                "Update-CONNSecurityProfile",
                "Update-CONNTaskTemplate",
+               "Update-CONNTestCase",
                "Update-CONNTrafficDistribution",
                "Update-CONNUserHierarchy",
                "Update-CONNUserHierarchyGroupName",

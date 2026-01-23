@@ -95,14 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
-        #region Parameter OrchestratorConfigurationList
+        #region Parameter OrchestratorUseCase
         /// <summary>
         /// <para>
-        /// <para>The updated list of orchestrator configurations for the assistant AI Agent.</para>
+        /// <para>The orchestrator use case for the AI Agent being added.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.QConnect.Model.OrchestratorConfigurationEntry[] OrchestratorConfigurationList { get; set; }
+        public System.String OrchestratorUseCase { get; set; }
         #endregion
         
         #region Parameter Select
@@ -188,10 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 WriteWarning("You are passing $null as a value for parameter Configuration_AiAgentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.OrchestratorConfigurationList != null)
-            {
-                context.OrchestratorConfigurationList = new List<Amazon.QConnect.Model.OrchestratorConfigurationEntry>(this.OrchestratorConfigurationList);
-            }
+            context.OrchestratorUseCase = this.OrchestratorUseCase;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -235,9 +232,9 @@ namespace Amazon.PowerShell.Cmdlets.QC
             {
                 request.Configuration = null;
             }
-            if (cmdletContext.OrchestratorConfigurationList != null)
+            if (cmdletContext.OrchestratorUseCase != null)
             {
-                request.OrchestratorConfigurationList = cmdletContext.OrchestratorConfigurationList;
+                request.OrchestratorUseCase = cmdletContext.OrchestratorUseCase;
             }
             
             CmdletOutput output;
@@ -303,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public Amazon.QConnect.AIAgentType AiAgentType { get; set; }
             public System.String AssistantId { get; set; }
             public System.String Configuration_AiAgentId { get; set; }
-            public List<Amazon.QConnect.Model.OrchestratorConfigurationEntry> OrchestratorConfigurationList { get; set; }
+            public System.String OrchestratorUseCase { get; set; }
             public System.Func<Amazon.QConnect.Model.UpdateAssistantAIAgentResponse, UpdateQCAssistantAIAgentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Assistant;
         }
