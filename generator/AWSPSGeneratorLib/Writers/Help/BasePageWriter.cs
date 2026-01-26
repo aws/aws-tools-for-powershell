@@ -61,6 +61,7 @@ namespace AWSPowerShellGenerator.Writers.Help
             {
                 writer.WriteLine("<html>");
                     writer.WriteLine("<head>");
+                        writer.WriteLine("<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\">");
                         writer.WriteLine("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>");
 
                         writer.WriteLine("<meta name=\"guide-name\" content=\"Cmdlet Reference\"/>");
