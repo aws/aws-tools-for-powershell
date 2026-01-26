@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Stops an experiment that is currently running. If you stop an experiment, you can't
-    /// resume it or restart it.
+    /// resume it or restart it.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Stop", "CWEVDExperiment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvidently.Model.StopExperimentResponse")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.StopExperimentResponse",
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.StopExperimentResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class StopCWEVDExperimentCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

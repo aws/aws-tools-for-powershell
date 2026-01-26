@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Returns configuration details about all the projects in the current Region in your
-    /// account.
+    /// account.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDProjectList")]
     [OutputType("Amazon.CloudWatchEvidently.Model.ProjectSummary")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns a collection of Amazon.CloudWatchEvidently.Model.ProjectSummary objects.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.ListProjectsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDProjectListCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

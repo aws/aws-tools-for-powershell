@@ -28,7 +28,7 @@ using Amazon.CloudWatchEvidently.Model;
 namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
-    /// Returns configuration details about all the features in the specified project.
+    /// Returns configuration details about all the features in the specified project.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDFeatureList")]
     [OutputType("Amazon.CloudWatchEvidently.Model.FeatureSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns a collection of Amazon.CloudWatchEvidently.Model.FeatureSummary objects.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.ListFeaturesResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDFeatureListCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

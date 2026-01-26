@@ -1,4 +1,16 @@
-﻿### 4.1.985 (2026-01-23 20:58Z)
+﻿### 4.1.986 (2026-01-26 21:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1209.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Cases
+    * Modified cmdlet New-CCASCase: added parameter Tag.
+    * Modified cmdlet New-CCASTemplate: added parameter TagPropagationConfiguration.
+    * Modified cmdlet Update-CCASTemplate: added parameter TagPropagationConfiguration.
+  * Amazon Ground Station
+    * Modified cmdlet New-GSConfig: added parameters ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn, ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn and ConfigData_TelemetrySinkConfig_TelemetrySinkType.
+    * Modified cmdlet New-GSMissionProfile: added parameter TelemetrySinkConfigArn.
+    * Modified cmdlet Update-GSConfig: added parameters ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn, ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn and ConfigData_TelemetrySinkConfig_TelemetrySinkType.
+    * Modified cmdlet Update-GSMissionProfile: added parameter TelemetrySinkConfigArn.
+
+### 4.1.985 (2026-01-23 20:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1208.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Get-CONNTestCaseDetail leveraging the DescribeTestCase service API.

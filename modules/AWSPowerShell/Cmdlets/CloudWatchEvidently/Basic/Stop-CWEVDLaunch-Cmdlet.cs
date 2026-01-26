@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// able to resume it or restart it. Also, it will not be evaluated as a rule for traffic
     /// allocation, and the traffic that was allocated to the launch will instead be available
     /// to the feature's experiment, if there is one. Otherwise, all traffic will be served
-    /// the default variation after the launch is stopped.
+    /// the default variation after the launch is stopped.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Stop", "CWEVDLaunch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvidently.Model.StopLaunchResponse")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.StopLaunchResponse",
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.StopLaunchResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class StopCWEVDLaunchCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

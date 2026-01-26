@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1208.0",
+    "ProductVersion"    : "3.7.1209.0",
     "CoreVersion"       : "3.7.500.71",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.541.0",
+            "Version" : "3.7.542.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.71"
@@ -1308,7 +1308,7 @@
             "InPreview"               : false
         },
         "GroundStation"                   : {
-            "Version" : "3.7.502.29",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.71"
@@ -2188,7 +2188,7 @@
             "InPreview"               : false
         },
         "CloudWatchEvidently"                 : {
-            "Version" : "3.7.502.37",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.71"
@@ -2364,7 +2364,7 @@
             "InPreview"               : false
         },
         "ConnectCases"                        : {
-            "Version" : "3.7.505.30",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.71"

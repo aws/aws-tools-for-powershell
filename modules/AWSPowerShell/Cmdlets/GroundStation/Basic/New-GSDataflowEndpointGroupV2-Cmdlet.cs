@@ -28,15 +28,15 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Creates a <c>DataflowEndpointGroupV2</c> containing the specified list of <c>DataflowEndpoint</c>
-    /// objects.
+    /// Creates a <c>DataflowEndpoint</c> group containing the specified list of Ground Station
+    /// Agent based endpoints.
     /// 
     ///  
     /// <para>
-    /// The <c>name</c> field in each endpoint is used in your mission profile <c>DataflowEndpointConfig</c>
+    /// The <c>name</c> field in each endpoint is used in your mission profile <c> DataflowEndpointConfig</c>
     /// to specify which endpoints to use during a contact.
     /// </para><para>
-    /// When a contact uses multiple <c>DataflowEndpointConfig</c> objects, each <c>Config</c>
+    /// When a contact uses multiple <c>DataflowEndpointConfig</c> objects, each <c> Config</c>
     /// must match a <c>DataflowEndpoint</c> in the same group.
     /// </para>
     /// </summary>
@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ContactPostPassDurationSecond
         /// <summary>
         /// <para>
-        /// <para>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow
-        /// Endpoint Group will be in a <c>POSTPASS</c> state. A Ground Station Dataflow Endpoint
-        /// Group State Change event will be emitted when the Dataflow Endpoint Group enters and
-        /// exits the <c>POSTPASS</c> state.</para>
+        /// <para> Amount of time, in seconds, after a contact ends that the Ground Station Dataflow
+        /// Endpoint Group will be in a <c>POSTPASS</c> state. A <a href="https://docs.aws.amazon.com/ground-station/latest/ug/monitoring.automating-events.html">Ground
+        /// Station Dataflow Endpoint Group State Change event</a> will be emitted when the Dataflow
+        /// Endpoint Group enters and exits the <c>POSTPASS</c> state. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ContactPrePassDurationSecond
         /// <summary>
         /// <para>
-        /// <para>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow
-        /// Endpoint Group will be in a <c>PREPASS</c> state. A Ground Station Dataflow Endpoint
-        /// Group State Change event will be emitted when the Dataflow Endpoint Group enters and
-        /// exits the <c>PREPASS</c> state.</para>
+        /// <para> Amount of time, in seconds, before a contact starts that the Ground Station Dataflow
+        /// Endpoint Group will be in a <c>PREPASS</c> state. A <a href="https://docs.aws.amazon.com/ground-station/latest/ug/monitoring.automating-events.html">Ground
+        /// Station Dataflow Endpoint Group State Change event</a> will be emitted when the Dataflow
+        /// Endpoint Group enters and exits the <c>PREPASS</c> state. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

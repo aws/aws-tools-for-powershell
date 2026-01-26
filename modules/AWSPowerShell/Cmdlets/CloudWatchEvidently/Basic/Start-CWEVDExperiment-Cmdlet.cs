@@ -28,7 +28,7 @@ using Amazon.CloudWatchEvidently.Model;
 namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
-    /// Starts an existing experiment. To create an experiment, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html">CreateExperiment</a>.
+    /// Starts an existing experiment. To create an experiment, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html">CreateExperiment</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Start", "CWEVDExperiment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvidently.Model.StartExperimentResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.StartExperimentResponse",
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.StartExperimentResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class StartCWEVDExperimentCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

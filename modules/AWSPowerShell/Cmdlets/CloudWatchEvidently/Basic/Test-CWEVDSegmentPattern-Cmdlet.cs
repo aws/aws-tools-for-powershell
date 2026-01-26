@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Use this operation to test a rules pattern that you plan to use to create an audience
-    /// segment. For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.
+    /// segment. For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Test", "CWEVDSegmentPattern")]
     [OutputType("System.Boolean")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns a System.Boolean object.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.TestSegmentPatternResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class TestCWEVDSegmentPatternCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

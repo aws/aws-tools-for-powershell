@@ -28,7 +28,7 @@ using Amazon.CloudWatchEvidently.Model;
 namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
-    /// Use this operation to find which experiments or launches are using a specified segment.
+    /// Use this operation to find which experiments or launches are using a specified segment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDSegmentReferenceList")]
     [OutputType("Amazon.CloudWatchEvidently.Model.RefResource")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns a collection of Amazon.CloudWatchEvidently.Model.RefResource objects.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.ListSegmentReferencesResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDSegmentReferenceListCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

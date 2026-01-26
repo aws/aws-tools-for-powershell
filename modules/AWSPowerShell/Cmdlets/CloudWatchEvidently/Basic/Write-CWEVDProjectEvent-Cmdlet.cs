@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Sends performance events to Evidently. These events can be used to evaluate a launch
-    /// or an experiment.
+    /// or an experiment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Write", "CWEVDProjectEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvidently.Model.PutProjectEventsResponse")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.PutProjectEventsResponse",
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.PutProjectEventsResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class WriteCWEVDProjectEventCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

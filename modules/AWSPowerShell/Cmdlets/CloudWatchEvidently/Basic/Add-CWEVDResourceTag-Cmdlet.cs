@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// Amazon Web Services resources</a>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "CWEVDResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -59,6 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.CloudWatchEvidently.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class AddCWEVDResourceTagCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

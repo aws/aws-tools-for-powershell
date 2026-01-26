@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// The pattern that you define for a segment is matched against the value of <c>evaluationContext</c>,
     /// which is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a>
     /// operation, when Evidently assigns a feature variation to a user.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "CWEVDSegment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvidently.Model.Segment")]
@@ -54,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Segment object.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.CreateSegmentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class NewCWEVDSegmentCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

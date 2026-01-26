@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Returns information about the specified segment. Specify the segment you want to view
-    /// by specifying its ARN.
+    /// by specifying its ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDSegment")]
     [OutputType("Amazon.CloudWatchEvidently.Model.Segment")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Segment object.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.GetSegmentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDSegmentCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

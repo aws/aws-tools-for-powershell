@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// <para>
     /// Experiment results are available up to 63 days after the start of the experiment.
     /// They are not available after that because of CloudWatch data retention policies.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDExperimentResult")]
     [OutputType("Amazon.CloudWatchEvidently.Model.GetExperimentResultsResponse")]
@@ -47,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.GetExperimentResultsResponse",
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.GetExperimentResultsResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDExperimentResultCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

@@ -133,6 +133,19 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public Amazon.ConnectCases.TemplateStatus Status { get; set; }
         #endregion
         
+        #region Parameter TagPropagationConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Defines tag propagation configuration for resources created within a domain. Tags
+        /// specified here will be automatically applied to resources being created for the specified
+        /// resource type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagPropagationConfigurations")]
+        public Amazon.ConnectCases.Model.TagPropagationConfiguration[] TagPropagationConfiguration { get; set; }
+        #endregion
+        
         #region Parameter TemplateId
         /// <summary>
         /// <para>
@@ -230,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 context.Rule = new List<Amazon.ConnectCases.Model.TemplateRule>(this.Rule);
             }
             context.Status = this.Status;
+            if (this.TagPropagationConfiguration != null)
+            {
+                context.TagPropagationConfiguration = new List<Amazon.ConnectCases.Model.TagPropagationConfiguration>(this.TagPropagationConfiguration);
+            }
             context.TemplateId = this.TemplateId;
             #if MODULAR
             if (this.TemplateId == null && ParameterWasBound(nameof(this.TemplateId)))
@@ -295,6 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.TagPropagationConfiguration != null)
+            {
+                request.TagPropagationConfigurations = cmdletContext.TagPropagationConfiguration;
             }
             if (cmdletContext.TemplateId != null)
             {
@@ -368,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public List<Amazon.ConnectCases.Model.RequiredField> RequiredField { get; set; }
             public List<Amazon.ConnectCases.Model.TemplateRule> Rule { get; set; }
             public Amazon.ConnectCases.TemplateStatus Status { get; set; }
+            public List<Amazon.ConnectCases.Model.TagPropagationConfiguration> TagPropagationConfiguration { get; set; }
             public System.String TemplateId { get; set; }
             public System.Func<Amazon.ConnectCases.Model.UpdateTemplateResponse, UpdateCCASTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

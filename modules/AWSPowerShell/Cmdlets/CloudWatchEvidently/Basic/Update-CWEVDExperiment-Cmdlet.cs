@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// <para>
     /// Don't use this operation to update an experiment's tag. Instead, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>.
     /// 
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "CWEVDExperiment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvidently.Model.Experiment")]
@@ -43,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Experiment object.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.UpdateExperimentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class UpdateCWEVDExperimentCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

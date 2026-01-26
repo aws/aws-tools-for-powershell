@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     /// 
     ///  
     /// <para>
-    /// If <c>statusList</c> contains AVAILABLE, the request must include <c>groundStation</c>,
+    /// If <c>statusList</c> contains AVAILABLE, the request must include <c> groundStation</c>,
     /// <c>missionprofileArn</c>, and <c>satelliteArn</c>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

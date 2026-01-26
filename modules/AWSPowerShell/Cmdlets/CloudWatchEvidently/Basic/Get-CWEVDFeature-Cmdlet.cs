@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Returns the details about one feature. You must already know the feature name. To
-    /// retrieve a list of features in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html">ListFeatures</a>.
+    /// retrieve a list of features in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html">ListFeatures</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDFeature")]
     [OutputType("Amazon.CloudWatchEvidently.Model.Feature")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Feature object.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.GetFeatureResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDFeatureCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

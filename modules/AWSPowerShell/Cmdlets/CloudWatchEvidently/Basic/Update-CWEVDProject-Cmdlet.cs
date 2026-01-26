@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// </para><para>
     /// Don't use this operation to update the tags of a project. Instead, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>.
     /// 
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "CWEVDProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvidently.Model.Project")]
@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Project object.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.UpdateProjectResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class UpdateCWEVDProjectCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

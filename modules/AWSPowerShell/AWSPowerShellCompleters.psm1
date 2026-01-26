@@ -38793,7 +38793,7 @@ $GS_Completers = {
             ($_ -eq "Update-GSConfig/ConfigType")
         }
         {
-            $v = "antenna-downlink","antenna-downlink-demod-decode","antenna-uplink","dataflow-endpoint","s3-recording","tracking","uplink-echo"
+            $v = "antenna-downlink","antenna-downlink-demod-decode","antenna-uplink","dataflow-endpoint","s3-recording","telemetry-sink","tracking","uplink-echo"
             break
         }
 
@@ -38801,6 +38801,16 @@ $GS_Completers = {
         "Get-GSEphemerideList/EphemerisType"
         {
             $v = "AZ_EL","OEM","SERVICE_MANAGED","TLE"
+            break
+        }
+
+        # Amazon.GroundStation.TelemetrySinkType
+        {
+            ($_ -eq "New-GSConfig/ConfigData_TelemetrySinkConfig_TelemetrySinkType") -Or
+            ($_ -eq "Update-GSConfig/ConfigData_TelemetrySinkConfig_TelemetrySinkType")
+        }
+        {
+            $v = "KINESIS_DATA_STREAM"
             break
         }
 
@@ -38815,6 +38825,7 @@ $GS_Completers = {
 $GS_map = @{
     "AggregateStatus_Status"=@("Update-GSAgentStatus")
     "AzElData_AngleUnit"=@("New-GSEphemeris")
+    "ConfigData_TelemetrySinkConfig_TelemetrySinkType"=@("New-GSConfig","Update-GSConfig")
     "ConfigType"=@("Get-GSConfig","Remove-GSConfig","Update-GSConfig")
     "EphemerisType"=@("Get-GSEphemerideList")
 }

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Deletes an Evidently project. Before you can delete a project, you must delete all
-    /// the features that the project contains. To delete a feature, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteFeature.html">DeleteFeature</a>.
+    /// the features that the project contains. To delete a feature, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteFeature.html">DeleteFeature</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "CWEVDProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.CloudWatchEvidently.Model.DeleteProjectResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class RemoveCWEVDProjectCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

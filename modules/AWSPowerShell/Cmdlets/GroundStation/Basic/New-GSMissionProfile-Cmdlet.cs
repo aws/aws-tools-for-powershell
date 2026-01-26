@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter DataflowEdge
         /// <summary>
         /// <para>
-        /// <para>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i><c>Config</c>
+        /// <para>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i><c> Config</c>
         /// and a <i>to</i><c>Config</c>.</para>
         /// </para>
         /// </summary>
@@ -174,6 +174,16 @@ namespace Amazon.PowerShell.Cmdlets.GS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter TelemetrySinkConfigArn
+        /// <summary>
+        /// <para>
+        /// <para>ARN of a telemetry sink <c>Config</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TelemetrySinkConfigArn { get; set; }
         #endregion
         
         #region Parameter TrackingConfigArn
@@ -297,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.TelemetrySinkConfigArn = this.TelemetrySinkConfigArn;
             context.TrackingConfigArn = this.TrackingConfigArn;
             #if MODULAR
             if (this.TrackingConfigArn == null && ParameterWasBound(nameof(this.TrackingConfigArn)))
@@ -387,6 +398,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TelemetrySinkConfigArn != null)
+            {
+                request.TelemetrySinkConfigArn = cmdletContext.TelemetrySinkConfigArn;
+            }
             if (cmdletContext.TrackingConfigArn != null)
             {
                 request.TrackingConfigArn = cmdletContext.TrackingConfigArn;
@@ -462,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             public System.String StreamsKmsKey_KmsKeyArn { get; set; }
             public System.String StreamsKmsRole { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String TelemetrySinkConfigArn { get; set; }
             public System.String TrackingConfigArn { get; set; }
             public System.Func<Amazon.GroundStation.Model.CreateMissionProfileResponse, NewGSMissionProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MissionProfileId;

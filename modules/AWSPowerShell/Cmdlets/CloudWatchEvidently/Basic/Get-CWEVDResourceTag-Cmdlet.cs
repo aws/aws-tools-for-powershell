@@ -28,7 +28,7 @@ using Amazon.CloudWatchEvidently.Model;
 namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
-    /// Displays the tags associated with an Evidently resource.
+    /// Displays the tags associated with an Evidently resource.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDResourceTag")]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDResourceTagCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

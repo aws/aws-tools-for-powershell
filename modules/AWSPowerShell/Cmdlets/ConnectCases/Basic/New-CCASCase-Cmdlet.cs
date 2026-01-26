@@ -89,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public Amazon.ConnectCases.Model.FieldValue[] Field { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of of key-value pairs that represent tags on a resource. Tags are used to organize,
+        /// track, or control access for this resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter TemplateId
         /// <summary>
         /// <para>
@@ -211,6 +223,14 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #endif
             context.PerformedBy_CustomEntity = this.PerformedBy_CustomEntity;
             context.PerformedBy_UserArn = this.PerformedBy_UserArn;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.TemplateId = this.TemplateId;
             #if MODULAR
             if (this.TemplateId == null && ParameterWasBound(nameof(this.TemplateId)))
@@ -274,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestPerformedByIsNull)
             {
                 request.PerformedBy = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TemplateId != null)
             {
@@ -345,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public List<Amazon.ConnectCases.Model.FieldValue> Field { get; set; }
             public System.String PerformedBy_CustomEntity { get; set; }
             public System.String PerformedBy_UserArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TemplateId { get; set; }
             public System.Func<Amazon.ConnectCases.Model.CreateCaseResponse, NewCCASCaseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
