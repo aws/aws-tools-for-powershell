@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Returns the details about one experiment. You must already know the experiment name.
-    /// To retrieve a list of experiments in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html">ListExperiments</a>.
+    /// To retrieve a list of experiments in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html">ListExperiments</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDExperiment")]
     [OutputType("Amazon.CloudWatchEvidently.Model.Experiment")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Experiment object.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.GetExperimentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDExperimentCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

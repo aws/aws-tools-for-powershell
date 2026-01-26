@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// </para><para>
     /// If the user is not assigned to a launch or experiment, they are served the default
     /// variation.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDFeatureEvaluation")]
     [OutputType("Amazon.CloudWatchEvidently.Model.EvaluateFeatureResponse")]
@@ -71,6 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.EvaluateFeatureResponse",
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.EvaluateFeatureResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDFeatureEvaluationCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

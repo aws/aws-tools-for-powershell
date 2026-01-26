@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// <para>
     /// To stop a launch without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopLaunch.html">StopLaunch</a>.
     /// 
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "CWEVDLaunch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.CloudWatchEvidently.Model.DeleteLaunchResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class RemoveCWEVDLaunchCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

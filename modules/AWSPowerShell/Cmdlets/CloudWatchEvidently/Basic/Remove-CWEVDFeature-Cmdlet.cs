@@ -30,7 +30,7 @@ using Amazon.CloudWatchEvidently.Model;
 namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
-    /// Deletes an Evidently feature.
+    /// Deletes an Evidently feature.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "CWEVDFeature", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.CloudWatchEvidently.Model.DeleteFeatureResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class RemoveCWEVDFeatureCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

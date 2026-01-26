@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Returns configuration details about all the projects in the current Region in your
-    /// account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDProjectList")]
     [OutputType("Amazon.CloudWatchEvidently.Model.ProjectSummary")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns a collection of Amazon.CloudWatchEvidently.Model.ProjectSummary objects.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.ListProjectsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDProjectListCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

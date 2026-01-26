@@ -138,6 +138,26 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public Amazon.GroundStation.Model.DataflowEndpointConfig ConfigData_DataflowEndpointConfig { get; set; }
         #endregion
         
+        #region Parameter ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn
+        /// <summary>
+        /// <para>
+        /// <para>ARN of the Kinesis Data Stream to deliver telemetry to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn { get; set; }
+        #endregion
+        
+        #region Parameter ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>ARN of the IAM Role used by AWS Ground Station to deliver telemetry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -177,6 +197,17 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public System.String S3RecordingConfig_RoleArn { get; set; }
         #endregion
         
+        #region Parameter ConfigData_TelemetrySinkConfig_TelemetrySinkType
+        /// <summary>
+        /// <para>
+        /// <para>The type of telemetry sink.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GroundStation.TelemetrySinkType")]
+        public Amazon.GroundStation.TelemetrySinkType ConfigData_TelemetrySinkConfig_TelemetrySinkType { get; set; }
+        #endregion
+        
         #region Parameter ConfigData_TrackingConfig
         /// <summary>
         /// <para>
@@ -191,8 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ConfigData_UplinkEchoConfig
         /// <summary>
         /// <para>
-        /// <para>Information about an uplink echo <c>Config</c>.</para><para>Parameters from the <c>AntennaUplinkConfig</c>, corresponding to the specified <c>AntennaUplinkConfigArn</c>,
-        /// are used when this <c>UplinkEchoConfig</c> is used in a contact.</para>
+        /// <para>Information about an uplink echo <c>Config</c>.</para><para>Parameters from the <c>AntennaUplinkConfig</c>, corresponding to the specified <c>
+        /// AntennaUplinkConfigArn</c>, are used when this <c>UplinkEchoConfig</c> is used in
+        /// a contact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,6 +284,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
             context.S3RecordingConfig_BucketArn = this.S3RecordingConfig_BucketArn;
             context.S3RecordingConfig_Prefix = this.S3RecordingConfig_Prefix;
             context.S3RecordingConfig_RoleArn = this.S3RecordingConfig_RoleArn;
+            context.ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn = this.ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn;
+            context.ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn = this.ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn;
+            context.ConfigData_TelemetrySinkConfig_TelemetrySinkType = this.ConfigData_TelemetrySinkConfig_TelemetrySinkType;
             context.ConfigData_TrackingConfig = this.ConfigData_TrackingConfig;
             context.ConfigData_UplinkEchoConfig = this.ConfigData_UplinkEchoConfig;
             context.ConfigId = this.ConfigId;
@@ -353,6 +388,81 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (requestConfigData_configData_UplinkEchoConfig != null)
             {
                 request.ConfigData.UplinkEchoConfig = requestConfigData_configData_UplinkEchoConfig;
+                requestConfigDataIsNull = false;
+            }
+            Amazon.GroundStation.Model.TelemetrySinkConfig requestConfigData_configData_TelemetrySinkConfig = null;
+            
+             // populate TelemetrySinkConfig
+            var requestConfigData_configData_TelemetrySinkConfigIsNull = true;
+            requestConfigData_configData_TelemetrySinkConfig = new Amazon.GroundStation.Model.TelemetrySinkConfig();
+            Amazon.GroundStation.TelemetrySinkType requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkType = null;
+            if (cmdletContext.ConfigData_TelemetrySinkConfig_TelemetrySinkType != null)
+            {
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkType = cmdletContext.ConfigData_TelemetrySinkConfig_TelemetrySinkType;
+            }
+            if (requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkType != null)
+            {
+                requestConfigData_configData_TelemetrySinkConfig.TelemetrySinkType = requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkType;
+                requestConfigData_configData_TelemetrySinkConfigIsNull = false;
+            }
+            Amazon.GroundStation.Model.TelemetrySinkData requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData = null;
+            
+             // populate TelemetrySinkData
+            var requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkDataIsNull = true;
+            requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData = new Amazon.GroundStation.Model.TelemetrySinkData();
+            Amazon.GroundStation.Model.KinesisDataStreamData requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData = null;
+            
+             // populate KinesisDataStreamData
+            var requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamDataIsNull = true;
+            requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData = new Amazon.GroundStation.Model.KinesisDataStreamData();
+            System.String requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn = null;
+            if (cmdletContext.ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn != null)
+            {
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn = cmdletContext.ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn;
+            }
+            if (requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn != null)
+            {
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData.KinesisDataStreamArn = requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn;
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamDataIsNull = false;
+            }
+            System.String requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn = null;
+            if (cmdletContext.ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn != null)
+            {
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn = cmdletContext.ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn;
+            }
+            if (requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn != null)
+            {
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData.KinesisRoleArn = requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn;
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamDataIsNull = false;
+            }
+             // determine if requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData should be set to null
+            if (requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamDataIsNull)
+            {
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData = null;
+            }
+            if (requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData != null)
+            {
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData.KinesisDataStreamData = requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData_configData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData;
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkDataIsNull = false;
+            }
+             // determine if requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData should be set to null
+            if (requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkDataIsNull)
+            {
+                requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData = null;
+            }
+            if (requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData != null)
+            {
+                requestConfigData_configData_TelemetrySinkConfig.TelemetrySinkData = requestConfigData_configData_TelemetrySinkConfig_configData_TelemetrySinkConfig_TelemetrySinkData;
+                requestConfigData_configData_TelemetrySinkConfigIsNull = false;
+            }
+             // determine if requestConfigData_configData_TelemetrySinkConfig should be set to null
+            if (requestConfigData_configData_TelemetrySinkConfigIsNull)
+            {
+                requestConfigData_configData_TelemetrySinkConfig = null;
+            }
+            if (requestConfigData_configData_TelemetrySinkConfig != null)
+            {
+                request.ConfigData.TelemetrySinkConfig = requestConfigData_configData_TelemetrySinkConfig;
                 requestConfigDataIsNull = false;
             }
             Amazon.GroundStation.Model.S3RecordingConfig requestConfigData_configData_S3RecordingConfig = null;
@@ -479,6 +589,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
             public System.String S3RecordingConfig_BucketArn { get; set; }
             public System.String S3RecordingConfig_Prefix { get; set; }
             public System.String S3RecordingConfig_RoleArn { get; set; }
+            public System.String ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisDataStreamArn { get; set; }
+            public System.String ConfigData_TelemetrySinkConfig_TelemetrySinkData_KinesisDataStreamData_KinesisRoleArn { get; set; }
+            public Amazon.GroundStation.TelemetrySinkType ConfigData_TelemetrySinkConfig_TelemetrySinkType { get; set; }
             public Amazon.GroundStation.Model.TrackingConfig ConfigData_TrackingConfig { get; set; }
             public Amazon.GroundStation.Model.UplinkEchoConfig ConfigData_UplinkEchoConfig { get; set; }
             public System.String ConfigId { get; set; }

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Deletes a segment. You can't delete a segment that is being used in a launch or experiment,
-    /// even if that launch or experiment is not currently running.
+    /// even if that launch or experiment is not currently running.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "CWEVDSegment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.CloudWatchEvidently.Model.DeleteSegmentResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class RemoveCWEVDSegmentCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

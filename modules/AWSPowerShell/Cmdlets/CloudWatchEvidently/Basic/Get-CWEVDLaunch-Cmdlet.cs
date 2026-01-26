@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// Returns the details about one launch. You must already know the launch name. To retrieve
-    /// a list of launches in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html">ListLaunches</a>.
+    /// a list of launches in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html">ListLaunches</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDLaunch")]
     [OutputType("Amazon.CloudWatchEvidently.Model.Launch")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Launch object.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.GetLaunchResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDLaunchCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

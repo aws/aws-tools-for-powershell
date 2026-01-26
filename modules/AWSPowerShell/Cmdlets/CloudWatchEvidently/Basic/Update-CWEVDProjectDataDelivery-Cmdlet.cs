@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// <para>
     /// You can't specify both <c>cloudWatchLogs</c> and <c>s3Destination</c> in the same
     /// operation.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "CWEVDProjectDataDelivery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvidently.Model.Project")]
@@ -48,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Project object.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.UpdateProjectDataDeliveryResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class UpdateCWEVDProjectDataDeliveryCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         

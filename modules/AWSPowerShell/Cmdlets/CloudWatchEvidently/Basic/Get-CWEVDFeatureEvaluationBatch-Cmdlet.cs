@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// </para><para>
     /// If the user is not assigned to a launch or experiment, they are served the default
     /// variation.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWEVDFeatureEvaluationBatch")]
     [OutputType("Amazon.CloudWatchEvidently.Model.EvaluationResult")]
@@ -61,6 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         "This cmdlet returns a collection of Amazon.CloudWatchEvidently.Model.EvaluationResult objects.",
         "The service call response (type Amazon.CloudWatchEvidently.Model.BatchEvaluateFeatureResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS CloudWatch Evidently has been deprecated since 11/17/2025.")]
     public partial class GetCWEVDFeatureEvaluationBatchCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         
