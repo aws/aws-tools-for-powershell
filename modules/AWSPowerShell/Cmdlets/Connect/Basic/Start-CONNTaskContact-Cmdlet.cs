@@ -79,6 +79,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Attachment
+        /// <summary>
+        /// <para>
+        /// <para>List of S3 presigned URLs of task attachments and their file name. You can have a
+        /// maximum of 5 attachments per task.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Attachments")]
+        public Amazon.Connect.Model.TaskAttachment[] Attachment { get; set; }
+        #endregion
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>
@@ -321,6 +337,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.StartTaskContactResponse, StartCONNTaskContactCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Attachment != null)
+            {
+                context.Attachment = new List<Amazon.Connect.Model.TaskAttachment>(this.Attachment);
+            }
             if (this.Attribute != null)
             {
                 context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -383,6 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.StartTaskContactRequest();
             
+            if (cmdletContext.Attachment != null)
+            {
+                request.Attachments = cmdletContext.Attachment;
+            }
             if (cmdletContext.Attribute != null)
             {
                 request.Attributes = cmdletContext.Attribute;
@@ -490,6 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Connect.Model.TaskAttachment> Attachment { get; set; }
             public Dictionary<System.String, System.String> Attribute { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ContactFlowId { get; set; }

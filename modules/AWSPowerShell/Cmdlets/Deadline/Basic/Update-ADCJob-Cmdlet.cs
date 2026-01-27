@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>The updated job description.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter FarmId
         /// <summary>
         /// <para>
@@ -134,10 +144,20 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.Int32? MaxWorkerCount { get; set; }
         #endregion
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The updated job name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>The job priority to update.</para>
+        /// <para>The updated job priority.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
             context.FarmId = this.FarmId;
             #if MODULAR
             if (this.FarmId == null && ParameterWasBound(nameof(this.FarmId)))
@@ -246,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.MaxFailedTasksCount = this.MaxFailedTasksCount;
             context.MaxRetriesPerTask = this.MaxRetriesPerTask;
             context.MaxWorkerCount = this.MaxWorkerCount;
+            context.Name = this.Name;
             context.Priority = this.Priority;
             context.QueueId = this.QueueId;
             #if MODULAR
@@ -275,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.FarmId != null)
             {
                 request.FarmId = cmdletContext.FarmId;
@@ -298,6 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (cmdletContext.MaxWorkerCount != null)
             {
                 request.MaxWorkerCount = cmdletContext.MaxWorkerCount.Value;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             if (cmdletContext.Priority != null)
             {
@@ -367,12 +397,14 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
             public System.String FarmId { get; set; }
             public System.String JobId { get; set; }
             public Amazon.Deadline.UpdateJobLifecycleStatus LifecycleStatus { get; set; }
             public System.Int32? MaxFailedTasksCount { get; set; }
             public System.Int32? MaxRetriesPerTask { get; set; }
             public System.Int32? MaxWorkerCount { get; set; }
+            public System.String Name { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String QueueId { get; set; }
             public Amazon.Deadline.JobTargetTaskRunStatus TargetTaskRunStatus { get; set; }

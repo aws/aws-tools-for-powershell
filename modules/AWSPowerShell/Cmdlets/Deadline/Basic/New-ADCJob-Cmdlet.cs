@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DescriptionOverride
+        /// <summary>
+        /// <para>
+        /// <para>A custom description to override the job description derived from the job template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DescriptionOverride { get; set; }
+        #endregion
+        
         #region Parameter FarmId
         /// <summary>
         /// <para>
@@ -122,6 +132,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? MaxWorkerCount { get; set; }
+        #endregion
+        
+        #region Parameter NameOverride
+        /// <summary>
+        /// <para>
+        /// <para>A custom name to override the job name derived from the job template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NameOverride { get; set; }
         #endregion
         
         #region Parameter Parameter
@@ -288,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 context.Attachments_Manifest = new List<Amazon.Deadline.Model.ManifestProperties>(this.Attachments_Manifest);
             }
             context.ClientToken = this.ClientToken;
+            context.DescriptionOverride = this.DescriptionOverride;
             context.FarmId = this.FarmId;
             #if MODULAR
             if (this.FarmId == null && ParameterWasBound(nameof(this.FarmId)))
@@ -298,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.MaxFailedTasksCount = this.MaxFailedTasksCount;
             context.MaxRetriesPerTask = this.MaxRetriesPerTask;
             context.MaxWorkerCount = this.MaxWorkerCount;
+            context.NameOverride = this.NameOverride;
             if (this.Parameter != null)
             {
                 context.Parameter = new Dictionary<System.String, Amazon.Deadline.Model.JobParameter>(StringComparer.Ordinal);
@@ -374,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.DescriptionOverride != null)
+            {
+                request.DescriptionOverride = cmdletContext.DescriptionOverride;
+            }
             if (cmdletContext.FarmId != null)
             {
                 request.FarmId = cmdletContext.FarmId;
@@ -389,6 +415,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (cmdletContext.MaxWorkerCount != null)
             {
                 request.MaxWorkerCount = cmdletContext.MaxWorkerCount.Value;
+            }
+            if (cmdletContext.NameOverride != null)
+            {
+                request.NameOverride = cmdletContext.NameOverride;
             }
             if (cmdletContext.Parameter != null)
             {
@@ -480,10 +510,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public Amazon.Deadline.JobAttachmentsFileSystem Attachments_FileSystem { get; set; }
             public List<Amazon.Deadline.Model.ManifestProperties> Attachments_Manifest { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String DescriptionOverride { get; set; }
             public System.String FarmId { get; set; }
             public System.Int32? MaxFailedTasksCount { get; set; }
             public System.Int32? MaxRetriesPerTask { get; set; }
             public System.Int32? MaxWorkerCount { get; set; }
+            public System.String NameOverride { get; set; }
             public Dictionary<System.String, Amazon.Deadline.Model.JobParameter> Parameter { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String QueueId { get; set; }

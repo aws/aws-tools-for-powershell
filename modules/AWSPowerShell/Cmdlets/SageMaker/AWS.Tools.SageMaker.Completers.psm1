@@ -711,6 +711,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.IdleResourceSharing
+        {
+            ($_ -eq "New-SMClusterSchedulerConfig/SchedulerConfig_IdleResourceSharing") -Or
+            ($_ -eq "Update-SMClusterSchedulerConfig/SchedulerConfig_IdleResourceSharing")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.SageMaker.ImageSortBy
         "Get-SMImageList/SortBy"
         {
@@ -1955,6 +1965,7 @@ $SM_map = @{
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "S3DataSource_S3DataType"=@("New-SMTransformJob")
     "SchedulerConfig_FairShare"=@("New-SMClusterSchedulerConfig","Update-SMClusterSchedulerConfig")
+    "SchedulerConfig_IdleResourceSharing"=@("New-SMClusterSchedulerConfig","Update-SMClusterSchedulerConfig")
     "SearchExpression_Operator"=@("Search-SMResource")
     "ServerlessJobConfig_CustomizationTechnique"=@("New-SMTrainingJob")
     "ServerlessJobConfig_EvaluationType"=@("New-SMTrainingJob")

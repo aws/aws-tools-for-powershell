@@ -44,6 +44,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit
+        /// <summary>
+        /// <para>
+        /// <para>The absolute limits on compute resources that can be borrowed from idle compute. When
+        /// specified, these limits define the maximum amount of specific resource types (such
+        /// as accelerators, vCPU, or memory) that an entity can borrow, regardless of the percentage-based
+        /// <c>BorrowLimit</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimits")]
+        public Amazon.SageMaker.Model.ComputeQuotaResourceConfig[] ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit { get; set; }
+        #endregion
+        
         #region Parameter ActivationState
         /// <summary>
         /// <para>
@@ -227,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ComputeQuotaConfig_ComputeQuotaResource = new List<Amazon.SageMaker.Model.ComputeQuotaResourceConfig>(this.ComputeQuotaConfig_ComputeQuotaResource);
             }
             context.ComputeQuotaConfig_PreemptTeamTask = this.ComputeQuotaConfig_PreemptTeamTask;
+            if (this.ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit != null)
+            {
+                context.ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit = new List<Amazon.SageMaker.Model.ComputeQuotaResourceConfig>(this.ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit);
+            }
             context.ResourceSharingConfig_BorrowLimit = this.ResourceSharingConfig_BorrowLimit;
             context.ResourceSharingConfig_Strategy = this.ResourceSharingConfig_Strategy;
             context.ComputeQuotaId = this.ComputeQuotaId;
@@ -295,6 +317,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate ResourceSharingConfig
             var requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfigIsNull = true;
             requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig = new Amazon.SageMaker.Model.ResourceSharingConfig();
+            List<Amazon.SageMaker.Model.ComputeQuotaResourceConfig> requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig_computeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit = null;
+            if (cmdletContext.ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit != null)
+            {
+                requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig_computeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit = cmdletContext.ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit;
+            }
+            if (requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig_computeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit != null)
+            {
+                requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig.AbsoluteBorrowLimits = requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig_computeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit;
+                requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfigIsNull = false;
+            }
             System.Int32? requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig_resourceSharingConfig_BorrowLimit = null;
             if (cmdletContext.ResourceSharingConfig_BorrowLimit != null)
             {
@@ -429,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ActivationState ActivationState { get; set; }
             public List<Amazon.SageMaker.Model.ComputeQuotaResourceConfig> ComputeQuotaConfig_ComputeQuotaResource { get; set; }
             public Amazon.SageMaker.PreemptTeamTasks ComputeQuotaConfig_PreemptTeamTask { get; set; }
+            public List<Amazon.SageMaker.Model.ComputeQuotaResourceConfig> ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit { get; set; }
             public System.Int32? ResourceSharingConfig_BorrowLimit { get; set; }
             public Amazon.SageMaker.ResourceSharingStrategy ResourceSharingConfig_Strategy { get; set; }
             public System.String ComputeQuotaId { get; set; }
