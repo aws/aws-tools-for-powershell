@@ -81,6 +81,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.FairShare SchedulerConfig_FairShare { get; set; }
         #endregion
         
+        #region Parameter SchedulerConfig_IdleResourceSharing
+        /// <summary>
+        /// <para>
+        /// <para>Configuration for sharing idle compute resources across entities in the cluster. When
+        /// enabled, unallocated resources are automatically calculated and made available for
+        /// entities to borrow. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.IdleResourceSharing")]
+        public Amazon.SageMaker.IdleResourceSharing SchedulerConfig_IdleResourceSharing { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -179,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.SchedulerConfig_FairShare = this.SchedulerConfig_FairShare;
+            context.SchedulerConfig_IdleResourceSharing = this.SchedulerConfig_IdleResourceSharing;
             if (this.SchedulerConfig_PriorityClass != null)
             {
                 context.SchedulerConfig_PriorityClass = new List<Amazon.SageMaker.Model.PriorityClass>(this.SchedulerConfig_PriorityClass);
@@ -227,6 +241,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSchedulerConfig_schedulerConfig_FairShare != null)
             {
                 request.SchedulerConfig.FairShare = requestSchedulerConfig_schedulerConfig_FairShare;
+                requestSchedulerConfigIsNull = false;
+            }
+            Amazon.SageMaker.IdleResourceSharing requestSchedulerConfig_schedulerConfig_IdleResourceSharing = null;
+            if (cmdletContext.SchedulerConfig_IdleResourceSharing != null)
+            {
+                requestSchedulerConfig_schedulerConfig_IdleResourceSharing = cmdletContext.SchedulerConfig_IdleResourceSharing;
+            }
+            if (requestSchedulerConfig_schedulerConfig_IdleResourceSharing != null)
+            {
+                request.SchedulerConfig.IdleResourceSharing = requestSchedulerConfig_schedulerConfig_IdleResourceSharing;
                 requestSchedulerConfigIsNull = false;
             }
             List<Amazon.SageMaker.Model.PriorityClass> requestSchedulerConfig_schedulerConfig_PriorityClass = null;
@@ -313,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public Amazon.SageMaker.FairShare SchedulerConfig_FairShare { get; set; }
+            public Amazon.SageMaker.IdleResourceSharing SchedulerConfig_IdleResourceSharing { get; set; }
             public List<Amazon.SageMaker.Model.PriorityClass> SchedulerConfig_PriorityClass { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateClusterSchedulerConfigResponse, NewSMClusterSchedulerConfigCmdlet, object> Select { get; set; } =

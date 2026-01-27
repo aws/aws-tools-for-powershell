@@ -1,4 +1,17 @@
-﻿### 4.1.986 (2026-01-26 21:33Z)
+﻿### 4.1.987 (2026-01-27 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1210.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCJob: added parameters DescriptionOverride and NameOverride.
+    * Modified cmdlet Update-ADCJob: added parameters Description and Name.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNTaskContact: added parameter Attachment.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMClusterSchedulerConfig: added parameter SchedulerConfig_IdleResourceSharing.
+    * Modified cmdlet New-SMComputeQuota: added parameter ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit.
+    * Modified cmdlet Update-SMClusterSchedulerConfig: added parameter SchedulerConfig_IdleResourceSharing.
+    * Modified cmdlet Update-SMComputeQuota: added parameter ComputeQuotaConfig_ResourceSharingConfig_AbsoluteBorrowLimit.
+
+### 4.1.986 (2026-01-26 21:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1209.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Cases
     * Modified cmdlet New-CCASCase: added parameter Tag.

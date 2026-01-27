@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Attachment
+        /// <summary>
+        /// <para>
+        /// <para>List of S3 presigned URLs of task attachments and their file name. You can have a
+        /// maximum of 5 attachments per task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Attachments")]
+        public Amazon.Connect.Model.TaskAttachment[] Attachment { get; set; }
+        #endregion
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>
@@ -324,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Attachment != null)
+            {
+                context.Attachment = new List<Amazon.Connect.Model.TaskAttachment>(this.Attachment);
+            }
             if (this.Attribute != null)
             {
                 context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -386,6 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.StartTaskContactRequest();
             
+            if (cmdletContext.Attachment != null)
+            {
+                request.Attachments = cmdletContext.Attachment;
+            }
             if (cmdletContext.Attribute != null)
             {
                 request.Attributes = cmdletContext.Attribute;
@@ -499,6 +519,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Connect.Model.TaskAttachment> Attachment { get; set; }
             public Dictionary<System.String, System.String> Attribute { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ContactFlowId { get; set; }
