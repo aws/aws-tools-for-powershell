@@ -163,6 +163,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Test-S3Bucket', 
         'Update-S3BucketMetadataInventoryTableConfiguration', 
         'Update-S3BucketMetadataJournalTableConfiguration', 
+        'Update-S3ObjectEncryption', 
         'Write-S3BucketAbac', 
         'Write-S3BucketAccelerateConfiguration', 
         'Write-S3BucketAnalyticsConfiguration', 

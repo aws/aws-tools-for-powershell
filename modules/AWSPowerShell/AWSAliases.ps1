@@ -28385,6 +28385,7 @@ Set-Alias -Name S3-RestoreObject -Value Restore-S3Object
 Set-Alias -Name S3-SelectObjectContent -Value Select-S3ObjectContent
 Set-Alias -Name S3-UpdateBucketMetadataInventoryTableConfiguration -Value Update-S3BucketMetadataInventoryTableConfiguration
 Set-Alias -Name S3-UpdateBucketMetadataJournalTableConfiguration -Value Update-S3BucketMetadataJournalTableConfiguration
+Set-Alias -Name S3-UpdateObjectEncryption -Value Update-S3ObjectEncryption
 Set-Alias -Name S3-WriteGetObjectResponse -Value Write-S3GetObjectResponse
 Set-Alias -Name Get-S3Content -Value Read-S3Object
 Set-Alias -Name Associate-S3CAccessGrantsIdentityCenter -Value Connect-S3CAccessGrantsIdentityCenter

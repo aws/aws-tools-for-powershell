@@ -330,8 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager
-        /// secret.</para>
+        /// <para>The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,8 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager
-        /// secret.</para>
+        /// <para>The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,8 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SrtCaller_EncryptionConfiguration_EncryptionKey_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager
-        /// secret.</para>
+        /// <para>The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -366,8 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SrtListener_EncryptionConfiguration_EncryptionKey_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager
-        /// secret.</para>
+        /// <para>The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -391,7 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Secrets Manager secret used for transit encryption.</para>
+        /// <para>The ARN of the Secrets Manager secret used for transit encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -402,7 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Secrets Manager secret used for transit encryption.</para>
+        /// <para>The ARN of the Secrets Manager secret used for transit encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -413,7 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SrtCaller_EncryptionConfiguration_EncryptionKey_SecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Secrets Manager secret used for transit encryption.</para>
+        /// <para>The ARN of the Secrets Manager secret used for transit encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,7 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Secrets Manager secret used for transit encryption.</para>
+        /// <para>The ARN of the Secrets Manager secret used for transit encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

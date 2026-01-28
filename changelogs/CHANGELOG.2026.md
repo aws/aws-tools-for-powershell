@@ -1,4 +1,25 @@
-﻿### 4.1.987 (2026-01-27 21:36Z)
+﻿### 4.1.988 (2026-01-28 21:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1211.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPool: added parameters LambdaConfig_InboundFederation_LambdaArn and LambdaConfig_InboundFederation_LambdaVersion.
+    * Modified cmdlet Update-CGIPUserPool: added parameters LambdaConfig_InboundFederation_LambdaArn and LambdaConfig_InboundFederation_LambdaVersion.
+  * Amazon Connect Service
+    * Modified cmdlet Search-CONNContact: added parameters SearchCriteria_ContactTags_AndCondition, SearchCriteria_ContactTags_OrCondition, SearchCriteria_ContactTags_TagCondition_TagKey and SearchCriteria_ContactTags_TagCondition_TagValue.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Search-EC2TransitGatewayRoute: added parameters NextToken and NoAutoIteration.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNFlow: added parameters EncodingConfig_EncodingProfile and EncodingConfig_VideoMaxBitrate.
+    * Modified cmdlet Update-EMCNFlow: added parameters EncodingConfig_EncodingProfile and EncodingConfig_VideoMaxBitrate.
+    * Modified cmdlet Update-EMCNFlowSource: added parameter NdiSourceSettings_SourceName.
+  * Amazon Lambda
+    * Modified cmdlet New-LMEventSourceMapping: added parameter LoggingConfig_SystemLogLevel.
+    * Modified cmdlet Update-LMEventSourceMapping: added parameter LoggingConfig_SystemLogLevel.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CJob: added parameters Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled and Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn.
+  * Amazon Simple Storage Service (S3)
+    * Added cmdlet Update-S3ObjectEncryption leveraging the UpdateObjectEncryption service API.
+
+### 4.1.987 (2026-01-27 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1210.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet New-ADCJob: added parameters DescriptionOverride and NameOverride.

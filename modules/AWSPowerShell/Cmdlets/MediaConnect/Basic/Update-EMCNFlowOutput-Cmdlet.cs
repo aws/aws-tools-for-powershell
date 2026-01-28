@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NdiProgramName
         /// <summary>
         /// <para>
-        /// <para> A suffix for the names of the NDI sources that the flow creates. If a custom name
+        /// <para> A suffix for the name of the NDI® sender that the flow creates. If a custom name
         /// isn't specified, MediaConnect uses the output name. </para>
         /// </para>
         /// </summary>
@@ -248,8 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SecretsManager_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager
-        /// secret.</para>
+        /// <para>The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SecretsManager_SecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Secrets Manager secret used for transit encryption.</para>
+        /// <para>The ARN of the Secrets Manager secret used for transit encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

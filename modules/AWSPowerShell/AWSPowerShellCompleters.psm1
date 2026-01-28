@@ -17850,6 +17850,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.InboundFederationLambdaVersionType
+        {
+            ($_ -eq "New-CGIPUserPool/LambdaConfig_InboundFederation_LambdaVersion") -Or
+            ($_ -eq "Update-CGIPUserPool/LambdaConfig_InboundFederation_LambdaVersion")
+        }
+        {
+            $v = "V1_0"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.MessageActionType
         "New-CGIPUserAdmin/MessageAction"
         {
@@ -17960,6 +17970,7 @@ $CGIP_map = @{
     "Enforcement"=@("New-CGIPTerm","Update-CGIPTerm")
     "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")
     "HighAction_EventAction"=@("Set-CGIPRiskConfiguration")
+    "LambdaConfig_InboundFederation_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "LowAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MediumAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MessageAction"=@("New-CGIPUserAdmin")
@@ -47316,6 +47327,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.EventSourceMappingSystemLogLevel
+        {
+            ($_ -eq "New-LMEventSourceMapping/LoggingConfig_SystemLogLevel") -Or
+            ($_ -eq "Update-LMEventSourceMapping/LoggingConfig_SystemLogLevel")
+        }
+        {
+            $v = "DEBUG","INFO","WARN"
+            break
+        }
+
         # Amazon.Lambda.EventSourcePosition
         "New-LMEventSourceMapping/StartingPosition"
         {
@@ -47510,7 +47531,7 @@ $LM_map = @{
     "InvokeMode"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
     "LoggingConfig_ApplicationLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "LoggingConfig_LogFormat"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
-    "LoggingConfig_SystemLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "LoggingConfig_SystemLogLevel"=@("New-LMEventSourceMapping","Publish-LMFunction","Update-LMEventSourceMapping","Update-LMFunctionConfiguration")
     "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
     "PublishTo"=@("Publish-LMFunction","Publish-LMVersion","Update-LMFunctionCode")
@@ -51409,6 +51430,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.EncodingProfile
+        {
+            ($_ -eq "New-EMCNFlow/EncodingConfig_EncodingProfile") -Or
+            ($_ -eq "Update-EMCNFlow/EncodingConfig_EncodingProfile")
+        }
+        {
+            $v = "CONTRIBUTION_H264_DEFAULT","DISTRIBUTION_H264_DEFAULT"
+            break
+        }
+
         # Amazon.MediaConnect.EntitlementStatus
         "Update-EMCNFlowEntitlement/EntitlementStatus"
         {
@@ -51444,7 +51475,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNFlow/FlowSize")
         }
         {
-            $v = "LARGE","MEDIUM"
+            $v = "LARGE","LARGE_4X","MEDIUM"
             break
         }
 
@@ -51658,6 +51689,7 @@ $EMCN_Completers = {
 $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "DesiredState"=@("Update-EMCNBridgeState")
+    "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
     "Failover_SourcePriorityMode"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "FlowSize"=@("New-EMCNFlow","Update-EMCNFlow")
@@ -71053,6 +71085,7 @@ $S3_Completers = {
             ($_ -eq "Set-S3BucketEncryption/ChecksumAlgorithm") -Or
             ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/ChecksumAlgorithm") -Or
+            ($_ -eq "Update-S3ObjectEncryption/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketAbac/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketAccelerateConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketLogging/ChecksumAlgorithm") -Or
@@ -71238,6 +71271,7 @@ $S3_Completers = {
             ($_ -eq "Get-S3Version/RequestPayer") -Or
             ($_ -eq "Remove-S3Object/RequestPayer") -Or
             ($_ -eq "Restore-S3Object/RequestPayer") -Or
+            ($_ -eq "Update-S3ObjectEncryption/RequestPayer") -Or
             ($_ -eq "Write-S3Object/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/RequestPayer") -Or
@@ -71362,7 +71396,7 @@ $S3_map = @{
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Write-S3BucketAbac","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Update-S3ObjectEncryption","Write-S3BucketAbac","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
@@ -71385,7 +71419,7 @@ $S3_map = @{
     "RecordExpiration_Expiration"=@("New-S3BucketMetadataConfiguration")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
-    "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Restore-S3Object","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Restore-S3Object","Update-S3ObjectEncryption","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
@@ -71542,6 +71576,7 @@ $S3_SelectMap = @{
                "Select-S3ObjectContent",
                "Update-S3BucketMetadataInventoryTableConfiguration",
                "Update-S3BucketMetadataJournalTableConfiguration",
+               "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
                "Copy-S3Object",
                "Get-S3MultipartUpload",

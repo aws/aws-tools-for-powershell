@@ -126,6 +126,19 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.Boolean? S3PutObjectCopy_BucketKeyEnabled { get; set; }
         #endregion
         
+        #region Parameter Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
+        /// server-side encryption using Key Management Service (KMS) keys (SSE-KMS). If this
+        /// value isn't specified, it defaults to <c>false</c>. Setting this value to <c>true</c>
+        /// causes Amazon S3 to use an S3 Bucket Key for update object encryption with SSE-KMS.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled { get; set; }
+        #endregion
+        
         #region Parameter S3PutObjectRetention_BypassGovernanceRetention
         /// <summary>
         /// <para>
@@ -578,6 +591,18 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS_KeyId")]
         public System.String SSEKMS_KeyId { get; set; }
+        #endregion
+        
+        #region Parameter Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon Web Services KMS key Amazon Resource Name (ARN) to use for the
+        /// updated server-side encryption type. Required if <c>UpdateObjectEncryption</c> specifies
+        /// <c>SSEKMS</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn { get; set; }
         #endregion
         
         #region Parameter ManifestOutputLocation_ManifestFormat
@@ -1318,6 +1343,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 context.S3PutObjectTagging_TagSet = new List<Amazon.S3Control.Model.S3Tag>(this.S3PutObjectTagging_TagSet);
             }
             context.Operation_S3ReplicateObject = this.Operation_S3ReplicateObject;
+            context.Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled = this.Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled;
+            context.Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn = this.Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn;
             context.Priority = this.Priority;
             #if MODULAR
             if (this.Priority == null && ParameterWasBound(nameof(this.Priority)))
@@ -1955,6 +1982,71 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectTagging != null)
             {
                 request.Operation.S3PutObjectTagging = requestOperation_operation_S3PutObjectTagging;
+                requestOperationIsNull = false;
+            }
+            Amazon.S3Control.Model.S3UpdateObjectEncryptionOperation requestOperation_operation_S3UpdateObjectEncryption = null;
+            
+             // populate S3UpdateObjectEncryption
+            var requestOperation_operation_S3UpdateObjectEncryptionIsNull = true;
+            requestOperation_operation_S3UpdateObjectEncryption = new Amazon.S3Control.Model.S3UpdateObjectEncryptionOperation();
+            Amazon.S3Control.Model.ObjectEncryption requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption = null;
+            
+             // populate ObjectEncryption
+            var requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryptionIsNull = true;
+            requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption = new Amazon.S3Control.Model.ObjectEncryption();
+            Amazon.S3Control.Model.S3UpdateObjectEncryptionSSEKMS requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS = null;
+            
+             // populate SSEKMS
+            var requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMSIsNull = true;
+            requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS = new Amazon.S3Control.Model.S3UpdateObjectEncryptionSSEKMS();
+            System.Boolean? requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled = null;
+            if (cmdletContext.Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled != null)
+            {
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled = cmdletContext.Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled.Value;
+            }
+            if (requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled != null)
+            {
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS.BucketKeyEnabled = requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled.Value;
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMSIsNull = false;
+            }
+            System.String requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn = null;
+            if (cmdletContext.Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn != null)
+            {
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn = cmdletContext.Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn;
+            }
+            if (requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn != null)
+            {
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS.KMSKeyArn = requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn;
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMSIsNull = false;
+            }
+             // determine if requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS should be set to null
+            if (requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMSIsNull)
+            {
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS = null;
+            }
+            if (requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS != null)
+            {
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption.SSEKMS = requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS;
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryptionIsNull = false;
+            }
+             // determine if requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption should be set to null
+            if (requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryptionIsNull)
+            {
+                requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption = null;
+            }
+            if (requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption != null)
+            {
+                requestOperation_operation_S3UpdateObjectEncryption.ObjectEncryption = requestOperation_operation_S3UpdateObjectEncryption_operation_S3UpdateObjectEncryption_ObjectEncryption;
+                requestOperation_operation_S3UpdateObjectEncryptionIsNull = false;
+            }
+             // determine if requestOperation_operation_S3UpdateObjectEncryption should be set to null
+            if (requestOperation_operation_S3UpdateObjectEncryptionIsNull)
+            {
+                requestOperation_operation_S3UpdateObjectEncryption = null;
+            }
+            if (requestOperation_operation_S3UpdateObjectEncryption != null)
+            {
+                request.Operation.S3UpdateObjectEncryption = requestOperation_operation_S3UpdateObjectEncryption;
                 requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3ComputeObjectChecksumOperation requestOperation_operation_S3ComputeObjectChecksum = null;
@@ -2664,6 +2756,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.DateTime? Retention_RetainUntilDate { get; set; }
             public List<Amazon.S3Control.Model.S3Tag> S3PutObjectTagging_TagSet { get; set; }
             public Amazon.S3Control.Model.S3ReplicateObjectOperation Operation_S3ReplicateObject { get; set; }
+            public System.Boolean? Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_BucketKeyEnabled { get; set; }
+            public System.String Operation_S3UpdateObjectEncryption_ObjectEncryption_SSEKMS_KMSKeyArn { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String Report_Bucket { get; set; }
             public System.Boolean? Report_Enabled { get; set; }

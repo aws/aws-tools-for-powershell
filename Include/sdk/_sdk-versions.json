@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1210.0",
+    "ProductVersion"    : "3.7.1211.0",
     "CoreVersion"       : "3.7.500.72",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.543.0",
+            "Version" : "3.7.544.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.72"
@@ -236,7 +236,7 @@
             "InPreview"               : false
         },
         "Lambda"               : {
-            "Version" : "3.7.510.19",
+            "Version" : "3.7.511.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.72"
@@ -300,7 +300,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.509.13",
+            "Version" : "3.7.510.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.72"
@@ -524,7 +524,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "3.7.503.34",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.72"
@@ -852,7 +852,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "3.7.506.16",
+            "Version" : "3.7.507.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.72"
@@ -1004,7 +1004,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.525.0",
+            "Version" : "3.7.526.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.72"
@@ -1116,7 +1116,7 @@
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "3.7.504.22",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.72"
@@ -1204,7 +1204,7 @@
             "InPreview"               : false
         },
         "MediaConnect"                    : {
-            "Version" : "3.7.504.26",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.72"

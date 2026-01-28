@@ -67,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String[] SearchCriteria_AgentId { get; set; }
         #endregion
         
+        #region Parameter SearchCriteria_ContactTags_AndCondition
+        /// <summary>
+        /// <para>
+        /// <para>A list of conditions which would be applied together with an <c>AND</c> condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_ContactTags_AndConditions")]
+        public Amazon.Connect.Model.TagCondition[] SearchCriteria_ContactTags_AndCondition { get; set; }
+        #endregion
+        
         #region Parameter SearchCriteria_Channel
         /// <summary>
         /// <para>
@@ -295,6 +306,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.SearchContactsMatchType SearchableSegmentAttributes_MatchType { get; set; }
         #endregion
         
+        #region Parameter SearchCriteria_ContactTags_OrCondition
+        /// <summary>
+        /// <para>
+        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_ContactTags_OrConditions")]
+        public Amazon.Connect.Model.TagCondition[][] SearchCriteria_ContactTags_OrCondition { get; set; }
+        #endregion
+        
         #region Parameter Sort_Order
         /// <summary>
         /// <para>
@@ -353,6 +375,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SearchCriteria_RoutingCriteria_Steps")]
         public Amazon.Connect.Model.SearchableRoutingCriteriaStep[] RoutingCriteria_Step { get; set; }
+        #endregion
+        
+        #region Parameter SearchCriteria_ContactTags_TagCondition_TagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tag key in the tag condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SearchCriteria_ContactTags_TagCondition_TagKey { get; set; }
+        #endregion
+        
+        #region Parameter SearchCriteria_ContactTags_TagCondition_TagValue
+        /// <summary>
+        /// <para>
+        /// <para>The tag value in the tag condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SearchCriteria_ContactTags_TagCondition_TagValue { get; set; }
         #endregion
         
         #region Parameter TimeRange_Type
@@ -521,6 +563,20 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Transcript_Criterion = new List<Amazon.Connect.Model.TranscriptCriteria>(this.Transcript_Criterion);
             }
             context.Transcript_MatchType = this.Transcript_MatchType;
+            if (this.SearchCriteria_ContactTags_AndCondition != null)
+            {
+                context.SearchCriteria_ContactTags_AndCondition = new List<Amazon.Connect.Model.TagCondition>(this.SearchCriteria_ContactTags_AndCondition);
+            }
+            if (this.SearchCriteria_ContactTags_OrCondition != null)
+            {
+                context.SearchCriteria_ContactTags_OrCondition = new List<List<Amazon.Connect.Model.TagCondition>>();
+                foreach (var innerList in this.SearchCriteria_ContactTags_OrCondition)
+                {
+                    context.SearchCriteria_ContactTags_OrCondition.Add(new List<Amazon.Connect.Model.TagCondition>(innerList));
+                }
+            }
+            context.SearchCriteria_ContactTags_TagCondition_TagKey = this.SearchCriteria_ContactTags_TagCondition_TagKey;
+            context.SearchCriteria_ContactTags_TagCondition_TagValue = this.SearchCriteria_ContactTags_TagCondition_TagValue;
             if (this.SearchCriteria_InitiationMethod != null)
             {
                 context.SearchCriteria_InitiationMethod = new List<System.String>(this.SearchCriteria_InitiationMethod);
@@ -868,6 +924,76 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.SearchCriteria.SearchableSegmentAttributes = requestSearchCriteria_searchCriteria_SearchableSegmentAttributes;
                 requestSearchCriteriaIsNull = false;
             }
+            Amazon.Connect.Model.ControlPlaneTagFilter requestSearchCriteria_searchCriteria_ContactTags = null;
+            
+             // populate ContactTags
+            var requestSearchCriteria_searchCriteria_ContactTagsIsNull = true;
+            requestSearchCriteria_searchCriteria_ContactTags = new Amazon.Connect.Model.ControlPlaneTagFilter();
+            List<Amazon.Connect.Model.TagCondition> requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_AndCondition = null;
+            if (cmdletContext.SearchCriteria_ContactTags_AndCondition != null)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_AndCondition = cmdletContext.SearchCriteria_ContactTags_AndCondition;
+            }
+            if (requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_AndCondition != null)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags.AndConditions = requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_AndCondition;
+                requestSearchCriteria_searchCriteria_ContactTagsIsNull = false;
+            }
+            List<List<Amazon.Connect.Model.TagCondition>> requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_OrCondition = null;
+            if (cmdletContext.SearchCriteria_ContactTags_OrCondition != null)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_OrCondition = cmdletContext.SearchCriteria_ContactTags_OrCondition;
+            }
+            if (requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_OrCondition != null)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags.OrConditions = requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_OrCondition;
+                requestSearchCriteria_searchCriteria_ContactTagsIsNull = false;
+            }
+            Amazon.Connect.Model.TagCondition requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition = null;
+            
+             // populate TagCondition
+            var requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagConditionIsNull = true;
+            requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition = new Amazon.Connect.Model.TagCondition();
+            System.String requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition_searchCriteria_ContactTags_TagCondition_TagKey = null;
+            if (cmdletContext.SearchCriteria_ContactTags_TagCondition_TagKey != null)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition_searchCriteria_ContactTags_TagCondition_TagKey = cmdletContext.SearchCriteria_ContactTags_TagCondition_TagKey;
+            }
+            if (requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition_searchCriteria_ContactTags_TagCondition_TagKey != null)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition.TagKey = requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition_searchCriteria_ContactTags_TagCondition_TagKey;
+                requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagConditionIsNull = false;
+            }
+            System.String requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition_searchCriteria_ContactTags_TagCondition_TagValue = null;
+            if (cmdletContext.SearchCriteria_ContactTags_TagCondition_TagValue != null)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition_searchCriteria_ContactTags_TagCondition_TagValue = cmdletContext.SearchCriteria_ContactTags_TagCondition_TagValue;
+            }
+            if (requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition_searchCriteria_ContactTags_TagCondition_TagValue != null)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition.TagValue = requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition_searchCriteria_ContactTags_TagCondition_TagValue;
+                requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagConditionIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition should be set to null
+            if (requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagConditionIsNull)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition = null;
+            }
+            if (requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition != null)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags.TagCondition = requestSearchCriteria_searchCriteria_ContactTags_searchCriteria_ContactTags_TagCondition;
+                requestSearchCriteria_searchCriteria_ContactTagsIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_ContactTags should be set to null
+            if (requestSearchCriteria_searchCriteria_ContactTagsIsNull)
+            {
+                requestSearchCriteria_searchCriteria_ContactTags = null;
+            }
+            if (requestSearchCriteria_searchCriteria_ContactTags != null)
+            {
+                request.SearchCriteria.ContactTags = requestSearchCriteria_searchCriteria_ContactTags;
+                requestSearchCriteriaIsNull = false;
+            }
             Amazon.Connect.Model.AgentHierarchyGroups requestSearchCriteria_searchCriteria_AgentHierarchyGroups = null;
             
              // populate AgentHierarchyGroups
@@ -1106,6 +1232,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<System.String> SearchCriteria_Channel { get; set; }
             public List<Amazon.Connect.Model.TranscriptCriteria> Transcript_Criterion { get; set; }
             public Amazon.Connect.SearchContactsMatchType Transcript_MatchType { get; set; }
+            public List<Amazon.Connect.Model.TagCondition> SearchCriteria_ContactTags_AndCondition { get; set; }
+            public List<List<Amazon.Connect.Model.TagCondition>> SearchCriteria_ContactTags_OrCondition { get; set; }
+            public System.String SearchCriteria_ContactTags_TagCondition_TagKey { get; set; }
+            public System.String SearchCriteria_ContactTags_TagCondition_TagValue { get; set; }
             public List<System.String> SearchCriteria_InitiationMethod { get; set; }
             public Amazon.Connect.SearchContactsMatchType Name_MatchType { get; set; }
             public List<System.String> Name_SearchText { get; set; }

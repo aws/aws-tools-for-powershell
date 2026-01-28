@@ -225,6 +225,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.InboundFederationLambdaVersionType
+        {
+            ($_ -eq "New-CGIPUserPool/LambdaConfig_InboundFederation_LambdaVersion") -Or
+            ($_ -eq "Update-CGIPUserPool/LambdaConfig_InboundFederation_LambdaVersion")
+        }
+        {
+            $v = "V1_0"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.MessageActionType
         "New-CGIPUserAdmin/MessageAction"
         {
@@ -335,6 +345,7 @@ $CGIP_map = @{
     "Enforcement"=@("New-CGIPTerm","Update-CGIPTerm")
     "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")
     "HighAction_EventAction"=@("Set-CGIPRiskConfiguration")
+    "LambdaConfig_InboundFederation_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "LowAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MediumAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MessageAction"=@("New-CGIPUserAdmin")

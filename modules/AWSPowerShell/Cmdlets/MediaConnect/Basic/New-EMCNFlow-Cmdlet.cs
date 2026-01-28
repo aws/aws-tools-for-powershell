@@ -76,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.ContentQualityAnalysisState SourceMonitoringConfig_ContentQualityAnalysisState { get; set; }
         #endregion
         
+        #region Parameter EncodingConfig_EncodingProfile
+        /// <summary>
+        /// <para>
+        /// <para> The encoding profile to use when transcoding the NDI source content to a transport
+        /// stream. You can change this value while the flow is running. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.EncodingProfile")]
+        public Amazon.MediaConnect.EncodingProfile EncodingConfig_EncodingProfile { get; set; }
+        #endregion
+        
         #region Parameter Entitlement
         /// <summary>
         /// <para>
@@ -104,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// <summary>
         /// <para>
         /// <para> Determines the processing capacity and feature set of the flow. Set this optional
-        /// parameter to <c>LARGE</c> if you want to enable NDI outputs on the flow. </para>
+        /// parameter to <c>LARGE</c> if you want to enable NDI sources or outputs on the flow.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,8 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NdiConfig_NdiState
         /// <summary>
         /// <para>
-        /// <para>A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED
-        /// to add NDI outputs. Default is DISABLED. </para>
+        /// <para>A setting that controls whether NDI® sources or outputs can be used in the flow. </para><para> The default value is <c>DISABLED</c>. This value must be set as <c>ENABLED</c> for
+        /// your flow to support NDI sources or outputs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -272,6 +285,19 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaConnect.ThumbnailState")]
         public Amazon.MediaConnect.ThumbnailState SourceMonitoringConfig_ThumbnailState { get; set; }
+        #endregion
+        
+        #region Parameter EncodingConfig_VideoMaxBitrate
+        /// <summary>
+        /// <para>
+        /// <para> The maximum video bitrate to use when transcoding the NDI source to a transport stream.
+        /// This parameter enables you to override the default video bitrate within the encoding
+        /// profile's supported range. </para><para> The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you don't
+        /// specify a value, MediaConnect uses the default value of 20,000,000 bps. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EncodingConfig_VideoMaxBitrate { get; set; }
         #endregion
         
         #region Parameter SourceMonitoringConfig_VideoMonitoringSetting
@@ -359,6 +385,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AvailabilityZone = this.AvailabilityZone;
+            context.EncodingConfig_EncodingProfile = this.EncodingConfig_EncodingProfile;
+            context.EncodingConfig_VideoMaxBitrate = this.EncodingConfig_VideoMaxBitrate;
             if (this.Entitlement != null)
             {
                 context.Entitlement = new List<Amazon.MediaConnect.Model.GrantEntitlementRequest>(this.Entitlement);
@@ -436,6 +464,35 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            
+             // populate EncodingConfig
+            var requestEncodingConfigIsNull = true;
+            request.EncodingConfig = new Amazon.MediaConnect.Model.EncodingConfig();
+            Amazon.MediaConnect.EncodingProfile requestEncodingConfig_encodingConfig_EncodingProfile = null;
+            if (cmdletContext.EncodingConfig_EncodingProfile != null)
+            {
+                requestEncodingConfig_encodingConfig_EncodingProfile = cmdletContext.EncodingConfig_EncodingProfile;
+            }
+            if (requestEncodingConfig_encodingConfig_EncodingProfile != null)
+            {
+                request.EncodingConfig.EncodingProfile = requestEncodingConfig_encodingConfig_EncodingProfile;
+                requestEncodingConfigIsNull = false;
+            }
+            System.Int32? requestEncodingConfig_encodingConfig_VideoMaxBitrate = null;
+            if (cmdletContext.EncodingConfig_VideoMaxBitrate != null)
+            {
+                requestEncodingConfig_encodingConfig_VideoMaxBitrate = cmdletContext.EncodingConfig_VideoMaxBitrate.Value;
+            }
+            if (requestEncodingConfig_encodingConfig_VideoMaxBitrate != null)
+            {
+                request.EncodingConfig.VideoMaxBitrate = requestEncodingConfig_encodingConfig_VideoMaxBitrate.Value;
+                requestEncodingConfigIsNull = false;
+            }
+             // determine if request.EncodingConfig should be set to null
+            if (requestEncodingConfigIsNull)
+            {
+                request.EncodingConfig = null;
             }
             if (cmdletContext.Entitlement != null)
             {
@@ -712,6 +769,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public Amazon.MediaConnect.EncodingProfile EncodingConfig_EncodingProfile { get; set; }
+            public System.Int32? EncodingConfig_VideoMaxBitrate { get; set; }
             public List<Amazon.MediaConnect.Model.GrantEntitlementRequest> Entitlement { get; set; }
             public Amazon.MediaConnect.FlowSize FlowSize { get; set; }
             public Dictionary<System.String, System.String> FlowTag { get; set; }

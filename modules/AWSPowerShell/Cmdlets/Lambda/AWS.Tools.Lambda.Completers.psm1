@@ -127,6 +127,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.EventSourceMappingSystemLogLevel
+        {
+            ($_ -eq "New-LMEventSourceMapping/LoggingConfig_SystemLogLevel") -Or
+            ($_ -eq "Update-LMEventSourceMapping/LoggingConfig_SystemLogLevel")
+        }
+        {
+            $v = "DEBUG","INFO","WARN"
+            break
+        }
+
         # Amazon.Lambda.EventSourcePosition
         "New-LMEventSourceMapping/StartingPosition"
         {
@@ -321,7 +331,7 @@ $LM_map = @{
     "InvokeMode"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
     "LoggingConfig_ApplicationLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "LoggingConfig_LogFormat"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
-    "LoggingConfig_SystemLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "LoggingConfig_SystemLogLevel"=@("New-LMEventSourceMapping","Publish-LMFunction","Update-LMEventSourceMapping","Update-LMFunctionConfiguration")
     "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
     "PublishTo"=@("Publish-LMFunction","Publish-LMVersion","Update-LMFunctionCode")
