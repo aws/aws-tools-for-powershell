@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Accordingly, this section describes the latest API. The previous version of the API
     /// supported filtering based only on an object key name prefix, which is supported for
     /// backward compatibility. For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.
-    /// </para></note><dl><dt>Rules</dt><dt>Permissions</dt><dt>HTTP Host header syntax</dt><dd><para>
+    /// </para></note><dl><dt>Rules</dt><dd><para>
     /// You specify the lifecycle configuration in your request body. The lifecycle configuration
     /// is specified as XML consisting of one or more rules. An Amazon S3 Lifecycle configuration
     /// can have up to 1,000 rules. This limit is not adjustable.
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object
     /// Lifecycle Management</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html">Lifecycle
     /// Configuration Elements</a>.
-    /// </para></dd><dd><ul><li><para><b>General purpose bucket permissions</b> - By default, all Amazon S3 resources are
+    /// </para></dd><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - By default, all Amazon S3 resources are
     /// private, including buckets, objects, and related subresources (for example, lifecycle
     /// configuration and website configuration). Only the resource owner (that is, the Amazon
     /// Web Services account that created it) can access the resource. The resource owner
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// and Zonal endpoints for directory buckets in Availability Zones</a> in the <i>Amazon
     /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts
     /// for directory buckets in Local Zones</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para></note></li></ul></dd><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <c>s3express-control.<i>region</i>.amazonaws.com</c>.
+    /// </para></note></li></ul></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <c>s3express-control.<i>region</i>.amazonaws.com</c>.
     /// </para><para>
     /// The following operations are related to <c>PutBucketLifecycleConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a></para></li></ul></dd></dl><important><para>

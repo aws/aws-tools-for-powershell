@@ -123,6 +123,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.EncodingProfile
+        {
+            ($_ -eq "New-EMCNFlow/EncodingConfig_EncodingProfile") -Or
+            ($_ -eq "Update-EMCNFlow/EncodingConfig_EncodingProfile")
+        }
+        {
+            $v = "CONTRIBUTION_H264_DEFAULT","DISTRIBUTION_H264_DEFAULT"
+            break
+        }
+
         # Amazon.MediaConnect.EntitlementStatus
         "Update-EMCNFlowEntitlement/EntitlementStatus"
         {
@@ -158,7 +168,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNFlow/FlowSize")
         }
         {
-            $v = "LARGE","MEDIUM"
+            $v = "LARGE","LARGE_4X","MEDIUM"
             break
         }
 
@@ -372,6 +382,7 @@ $EMCN_Completers = {
 $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "DesiredState"=@("Update-EMCNBridgeState")
+    "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
     "Failover_SourcePriorityMode"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "FlowSize"=@("New-EMCNFlow","Update-EMCNFlow")

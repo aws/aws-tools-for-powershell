@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.178.0",
+    "ProductVersion"    : "4.0.179.0",
     "CoreVersion"       : "4.0.3.11",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.11.0",
+            "Version" : "4.0.12.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.10"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.69.0",
+            "Version" : "4.0.70.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.10"
@@ -236,7 +236,7 @@
             "InPreview"               : false
         },
         "Lambda"               : {
-            "Version" : "4.0.12.5",
+            "Version" : "4.0.13.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.10"
@@ -300,7 +300,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.17.3",
+            "Version" : "4.0.18.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.10"
@@ -524,7 +524,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "4.0.4.12",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.10"
@@ -852,7 +852,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "4.0.12.4",
+            "Version" : "4.0.13.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.10"
@@ -1012,7 +1012,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.29.0",
+            "Version" : "4.0.30.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.10"
@@ -1124,7 +1124,7 @@
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "4.0.8.9",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.10"
@@ -1212,7 +1212,7 @@
             "InPreview"               : false
         },
         "MediaConnect"                    : {
-            "Version" : "4.0.5.8",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.10"

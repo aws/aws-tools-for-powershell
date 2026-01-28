@@ -409,9 +409,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MetricsConfig_Metric
         /// <summary>
         /// <para>
-        /// <para> The metrics you want your event source mapping to produce. Include <c>EventCount</c>
-        /// to receive event source mapping metrics related to the number of events processed
-        /// by your event source mapping. For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">
+        /// <para> The metrics you want your event source mapping to produce, including <c>EventCount</c>,
+        /// <c>ErrorCount</c>, <c>KafkaMetrics</c>. </para><ul><li><para><c>EventCount</c> to receive metrics related to the number of events processed by
+        /// your event source mapping.</para></li><li><para><c>ErrorCount</c> (Amazon MSK and self-managed Apache Kafka) to receive metrics related
+        /// to the number of errors in your event source mapping processing.</para></li><li><para><c>KafkaMetrics</c> (Amazon MSK and self-managed Apache Kafka) to receive metrics
+        /// related to the Kafka consumers from your event source mapping.</para></li></ul><para> For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">
         /// Event source mapping metrics</a>. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -532,6 +534,21 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public Amazon.Lambda.Model.SourceAccessConfiguration[] SourceAccessConfiguration { get; set; }
         #endregion
         
+        #region Parameter LoggingConfig_SystemLogLevel
+        /// <summary>
+        /// <para>
+        /// <para> The log level you want your event source mapping to use. Lambda event poller only
+        /// sends system logs at the selected level of detail and lower, where <c>DEBUG</c> is
+        /// the highest level and <c>WARN</c> is the lowest. For more information about these
+        /// metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">
+        /// Event source mapping logging</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.EventSourceMappingSystemLogLevel")]
+        public Amazon.Lambda.EventSourceMappingSystemLogLevel LoggingConfig_SystemLogLevel { get; set; }
+        #endregion
+        
         #region Parameter TumblingWindowInSecond
         /// <summary>
         /// <para>
@@ -637,6 +654,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.FunctionResponseType = new List<System.String>(this.FunctionResponseType);
             }
             context.KMSKeyArn = this.KMSKeyArn;
+            context.LoggingConfig_SystemLogLevel = this.LoggingConfig_SystemLogLevel;
             context.MaximumBatchingWindowInSecond = this.MaximumBatchingWindowInSecond;
             context.MaximumRecordAgeInSecond = this.MaximumRecordAgeInSecond;
             context.MaximumRetryAttempt = this.MaximumRetryAttempt;
@@ -903,6 +921,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.KMSKeyArn = cmdletContext.KMSKeyArn;
             }
+            
+             // populate LoggingConfig
+            var requestLoggingConfigIsNull = true;
+            request.LoggingConfig = new Amazon.Lambda.Model.EventSourceMappingLoggingConfig();
+            Amazon.Lambda.EventSourceMappingSystemLogLevel requestLoggingConfig_loggingConfig_SystemLogLevel = null;
+            if (cmdletContext.LoggingConfig_SystemLogLevel != null)
+            {
+                requestLoggingConfig_loggingConfig_SystemLogLevel = cmdletContext.LoggingConfig_SystemLogLevel;
+            }
+            if (requestLoggingConfig_loggingConfig_SystemLogLevel != null)
+            {
+                request.LoggingConfig.SystemLogLevel = requestLoggingConfig_loggingConfig_SystemLogLevel;
+                requestLoggingConfigIsNull = false;
+            }
+             // determine if request.LoggingConfig should be set to null
+            if (requestLoggingConfigIsNull)
+            {
+                request.LoggingConfig = null;
+            }
             if (cmdletContext.MaximumBatchingWindowInSecond != null)
             {
                 request.MaximumBatchingWindowInSeconds = cmdletContext.MaximumBatchingWindowInSecond.Value;
@@ -1154,6 +1191,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String FunctionName { get; set; }
             public List<System.String> FunctionResponseType { get; set; }
             public System.String KMSKeyArn { get; set; }
+            public Amazon.Lambda.EventSourceMappingSystemLogLevel LoggingConfig_SystemLogLevel { get; set; }
             public System.Int32? MaximumBatchingWindowInSecond { get; set; }
             public System.Int32? MaximumRecordAgeInSecond { get; set; }
             public System.Int32? MaximumRetryAttempt { get; set; }

@@ -514,6 +514,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String CustomSMSSender_LambdaArn { get; set; }
         #endregion
         
+        #region Parameter LambdaConfig_InboundFederation_LambdaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda
+        /// trigger.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LambdaConfig_InboundFederation_LambdaArn { get; set; }
+        #endregion
+        
         #region Parameter PreTokenGenerationConfig_LambdaArn
         /// <summary>
         /// <para>
@@ -551,6 +562,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [Alias("LambdaConfig_CustomSMSSender_LambdaVersion")]
         [AWSConstantClassSource("Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType")]
         public Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType CustomSMSSender_LambdaVersion { get; set; }
+        #endregion
+        
+        #region Parameter LambdaConfig_InboundFederation_LambdaVersion
+        /// <summary>
+        /// <para>
+        /// <para>The user pool trigger version of the request that Amazon Cognito sends to your Lambda
+        /// function. Higher-numbered versions add fields that support new features.</para><para>You must use a <c>LambdaVersion</c> of <c>V1_0</c> with an inbound federation function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.InboundFederationLambdaVersionType")]
+        public Amazon.CognitoIdentityProvider.InboundFederationLambdaVersionType LambdaConfig_InboundFederation_LambdaVersion { get; set; }
         #endregion
         
         #region Parameter PreTokenGenerationConfig_LambdaVersion
@@ -1053,6 +1076,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.CustomSMSSender_LambdaArn = this.CustomSMSSender_LambdaArn;
             context.CustomSMSSender_LambdaVersion = this.CustomSMSSender_LambdaVersion;
             context.LambdaConfig_DefineAuthChallenge = this.LambdaConfig_DefineAuthChallenge;
+            context.LambdaConfig_InboundFederation_LambdaArn = this.LambdaConfig_InboundFederation_LambdaArn;
+            context.LambdaConfig_InboundFederation_LambdaVersion = this.LambdaConfig_InboundFederation_LambdaVersion;
             context.LambdaConfig_KMSKeyID = this.LambdaConfig_KMSKeyID;
             context.LambdaConfig_PostAuthentication = this.LambdaConfig_PostAuthentication;
             context.LambdaConfig_PostConfirmation = this.LambdaConfig_PostConfirmation;
@@ -1518,6 +1543,41 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 request.LambdaConfig.CustomSMSSender = requestLambdaConfig_lambdaConfig_CustomSMSSender;
                 requestLambdaConfigIsNull = false;
             }
+            Amazon.CognitoIdentityProvider.Model.InboundFederationLambdaType requestLambdaConfig_lambdaConfig_InboundFederation = null;
+            
+             // populate InboundFederation
+            var requestLambdaConfig_lambdaConfig_InboundFederationIsNull = true;
+            requestLambdaConfig_lambdaConfig_InboundFederation = new Amazon.CognitoIdentityProvider.Model.InboundFederationLambdaType();
+            System.String requestLambdaConfig_lambdaConfig_InboundFederation_lambdaConfig_InboundFederation_LambdaArn = null;
+            if (cmdletContext.LambdaConfig_InboundFederation_LambdaArn != null)
+            {
+                requestLambdaConfig_lambdaConfig_InboundFederation_lambdaConfig_InboundFederation_LambdaArn = cmdletContext.LambdaConfig_InboundFederation_LambdaArn;
+            }
+            if (requestLambdaConfig_lambdaConfig_InboundFederation_lambdaConfig_InboundFederation_LambdaArn != null)
+            {
+                requestLambdaConfig_lambdaConfig_InboundFederation.LambdaArn = requestLambdaConfig_lambdaConfig_InboundFederation_lambdaConfig_InboundFederation_LambdaArn;
+                requestLambdaConfig_lambdaConfig_InboundFederationIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.InboundFederationLambdaVersionType requestLambdaConfig_lambdaConfig_InboundFederation_lambdaConfig_InboundFederation_LambdaVersion = null;
+            if (cmdletContext.LambdaConfig_InboundFederation_LambdaVersion != null)
+            {
+                requestLambdaConfig_lambdaConfig_InboundFederation_lambdaConfig_InboundFederation_LambdaVersion = cmdletContext.LambdaConfig_InboundFederation_LambdaVersion;
+            }
+            if (requestLambdaConfig_lambdaConfig_InboundFederation_lambdaConfig_InboundFederation_LambdaVersion != null)
+            {
+                requestLambdaConfig_lambdaConfig_InboundFederation.LambdaVersion = requestLambdaConfig_lambdaConfig_InboundFederation_lambdaConfig_InboundFederation_LambdaVersion;
+                requestLambdaConfig_lambdaConfig_InboundFederationIsNull = false;
+            }
+             // determine if requestLambdaConfig_lambdaConfig_InboundFederation should be set to null
+            if (requestLambdaConfig_lambdaConfig_InboundFederationIsNull)
+            {
+                requestLambdaConfig_lambdaConfig_InboundFederation = null;
+            }
+            if (requestLambdaConfig_lambdaConfig_InboundFederation != null)
+            {
+                request.LambdaConfig.InboundFederation = requestLambdaConfig_lambdaConfig_InboundFederation;
+                requestLambdaConfigIsNull = false;
+            }
             Amazon.CognitoIdentityProvider.Model.PreTokenGenerationVersionConfigType requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig = null;
             
              // populate PreTokenGenerationConfig
@@ -1979,6 +2039,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String CustomSMSSender_LambdaArn { get; set; }
             public Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType CustomSMSSender_LambdaVersion { get; set; }
             public System.String LambdaConfig_DefineAuthChallenge { get; set; }
+            public System.String LambdaConfig_InboundFederation_LambdaArn { get; set; }
+            public Amazon.CognitoIdentityProvider.InboundFederationLambdaVersionType LambdaConfig_InboundFederation_LambdaVersion { get; set; }
             public System.String LambdaConfig_KMSKeyID { get; set; }
             public System.String LambdaConfig_PostAuthentication { get; set; }
             public System.String LambdaConfig_PostConfirmation { get; set; }

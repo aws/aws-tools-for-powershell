@@ -31,6 +31,27 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
     /// Updates the source of a flow.
+    /// 
+    ///  <note><para>
+    ///  Because <c>UpdateFlowSources</c> and <c>UpdateFlow</c> are separate operations, you
+    /// can't change both the source type AND the flow size in a single request. 
+    /// </para><ul><li><para>
+    /// If you have a <c>MEDIUM</c> flow and you want to change the flow source to NDI®:
+    /// </para><ul><li><para>
+    /// First, use the <c>UpdateFlow</c> operation to upgrade the flow size to <c>LARGE</c>.
+    /// 
+    /// </para></li><li><para>
+    /// After that, you can then use the <c>UpdateFlowSource</c> operation to configure the
+    /// NDI source. 
+    /// </para></li></ul></li><li><para>
+    /// If you're switching from an NDI source to a transport stream (TS) source and want
+    /// to downgrade the flow size: 
+    /// </para><ul><li><para>
+    /// First, use the <c>UpdateFlowSource</c> operation to change the flow source type. 
+    /// </para></li><li><para>
+    /// After that, you can then use the <c>UpdateFlow</c> operation to downgrade the flow
+    /// size to <c>MEDIUM</c>.
+    /// </para></li></ul></li></ul></note>
     /// </summary>
     [Cmdlet("Update", "EMCNFlowSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.Source")]
@@ -214,8 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SecretsManager_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager
-        /// secret.</para>
+        /// <para>The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SecretsManager_SecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Secrets Manager secret used for transit encryption.</para>
+        /// <para>The ARN of the Secrets Manager secret used for transit encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,6 +322,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? SourceListenerPort { get; set; }
+        #endregion
+        
+        #region Parameter NdiSourceSettings_SourceName
+        /// <summary>
+        /// <para>
+        /// <para> The exact name of an existing NDI sender that's registered with your discovery server.
+        /// If included, the format of this name must be <c>MACHINENAME (ProgramName)</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NdiSourceSettings_SourceName { get; set; }
         #endregion
         
         #region Parameter StreamId
@@ -415,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 context.MediaStreamSourceConfiguration = new List<Amazon.MediaConnect.Model.MediaStreamSourceConfigurationRequest>(this.MediaStreamSourceConfiguration);
             }
             context.MinLatency = this.MinLatency;
+            context.NdiSourceSettings_SourceName = this.NdiSourceSettings_SourceName;
             context.Protocol = this.Protocol;
             context.RouterIntegrationState = this.RouterIntegrationState;
             context.EncryptionKeyConfiguration_Automatic = this.EncryptionKeyConfiguration_Automatic;
@@ -534,6 +566,25 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.MinLatency != null)
             {
                 request.MinLatency = cmdletContext.MinLatency.Value;
+            }
+            
+             // populate NdiSourceSettings
+            var requestNdiSourceSettingsIsNull = true;
+            request.NdiSourceSettings = new Amazon.MediaConnect.Model.NdiSourceSettings();
+            System.String requestNdiSourceSettings_ndiSourceSettings_SourceName = null;
+            if (cmdletContext.NdiSourceSettings_SourceName != null)
+            {
+                requestNdiSourceSettings_ndiSourceSettings_SourceName = cmdletContext.NdiSourceSettings_SourceName;
+            }
+            if (requestNdiSourceSettings_ndiSourceSettings_SourceName != null)
+            {
+                request.NdiSourceSettings.SourceName = requestNdiSourceSettings_ndiSourceSettings_SourceName;
+                requestNdiSourceSettingsIsNull = false;
+            }
+             // determine if request.NdiSourceSettings should be set to null
+            if (requestNdiSourceSettingsIsNull)
+            {
+                request.NdiSourceSettings = null;
             }
             if (cmdletContext.Protocol != null)
             {
@@ -721,6 +772,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? MaxSyncBuffer { get; set; }
             public List<Amazon.MediaConnect.Model.MediaStreamSourceConfigurationRequest> MediaStreamSourceConfiguration { get; set; }
             public System.Int32? MinLatency { get; set; }
+            public System.String NdiSourceSettings_SourceName { get; set; }
             public Amazon.MediaConnect.Protocol Protocol { get; set; }
             public Amazon.MediaConnect.State RouterIntegrationState { get; set; }
             public Amazon.MediaConnect.Model.AutomaticEncryptionKeyConfiguration EncryptionKeyConfiguration_Automatic { get; set; }

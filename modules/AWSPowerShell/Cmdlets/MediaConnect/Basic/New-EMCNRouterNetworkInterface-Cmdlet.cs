@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter RegionName
         /// <summary>
         /// <para>
-        /// <para>The AWS Region for the router network interface. Defaults to the current region if
-        /// not specified.</para>
+        /// <para>The Amazon Web Services Region for the router network interface. Defaults to the current
+        /// region if not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
