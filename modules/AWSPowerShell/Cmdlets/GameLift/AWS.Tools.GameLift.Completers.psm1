@@ -345,6 +345,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.ZeroCapacityStrategy
+        "Update-GMLFleetCapacity/ManagedCapacityConfiguration_ZeroCapacityStrategy"
+        {
+            $v = "MANUAL","SCALE_TO_AND_FROM_ZERO"
+            break
+        }
+
 
     }
 
@@ -373,6 +380,7 @@ $GML_map = @{
     "HealthCheck"=@("Update-GMLGameServer")
     "InstanceRoleCredentialsProvider"=@("New-GMLFleet")
     "LogConfiguration_LogDestination"=@("New-GMLContainerFleet","Update-GMLContainerFleet")
+    "ManagedCapacityConfiguration_ZeroCapacityStrategy"=@("Update-GMLFleetCapacity")
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLContainerFleet","New-GMLFleet","Update-GMLContainerFleet","Update-GMLFleetAttribute")
     "OperatingSystem"=@("New-GMLBuild","New-GMLContainerGroupDefinition","Update-GMLContainerGroupDefinition")

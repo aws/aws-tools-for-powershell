@@ -1,4 +1,9 @@
-﻿### 4.1.988 (2026-01-28 21:35Z)
+﻿### 4.1.989 (2026-01-29 21:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1212.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon GameLift Service
+    * Modified cmdlet Update-GMLFleetCapacity: added parameters ManagedCapacityConfiguration_ScaleInAfterInactivityMinute and ManagedCapacityConfiguration_ZeroCapacityStrategy.
+
+### 4.1.988 (2026-01-28 21:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1211.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPUserPool: added parameters LambdaConfig_InboundFederation_LambdaArn and LambdaConfig_InboundFederation_LambdaVersion.
