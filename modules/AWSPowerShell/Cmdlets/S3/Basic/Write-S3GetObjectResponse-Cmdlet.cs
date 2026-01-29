@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter AcceptRange
         /// <summary>
         /// <para>
-        /// Indicates that a range of bytes was specified.
+        /// <para>Indicates that a range of bytes was specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The object data</para>.
+        /// <para>The object data.</para>
         /// </para>
         /// <para>The cmdlet accepts a parameter of type string, string[], System.IO.FileInfo or System.IO.Stream.</para>
         /// </summary>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter CacheControl
         /// <summary>
         /// <para>
-        /// Specifies caching behavior along the request/reply chain.
+        /// <para>Specifies caching behavior along the request/reply chain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,8 +140,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>This header can be used as a data integrity check to verify that the data received
         /// is the same data that was originally sent. This specifies the Base64 encoded, 32-bit
-        /// <c>CRC-32</c> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
-        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// <c>CRC32</c> checksum of the object returned by the Object Lambda function. This may
+        /// not match the checksum for the object stored in Amazon S3. Amazon S3 will perform
+        /// validation of the checksum values only when the original <c>GetObject</c> request
+        /// required checksum validation. For more information about checksums, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>Only one checksum header can be specified at a time. If you supply multiple checksum
+        /// headers, this request will fail.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +157,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>This header can be used as a data integrity check to verify that the data received
         /// is the same data that was originally sent. This specifies the Base64 encoded, 32-bit
-        /// <c>CRC-32C</c> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
-        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// <c>CRC32C</c> checksum of the object returned by the Object Lambda function. This
+        /// may not match the checksum for the object stored in Amazon S3. Amazon S3 will perform
+        /// validation of the checksum values only when the original <c>GetObject</c> request
+        /// required checksum validation. For more information about checksums, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>Only one checksum header can be specified at a time. If you supply multiple checksum
+        /// headers, this request will fail.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>This header can be used as a data integrity check to verify that the data received
-        /// is the same data that was originally sent. This specifies the Base64 encoded, 32-bit
-        /// <c>CRC-64NVME</c> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
-        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// is the same data that was originally sent. This header specifies the Base64 encoded,
+        /// 64-bit <c>CRC64NVME</c> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,8 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>This header can be used as a data integrity check to verify that the data received
         /// is the same data that was originally sent. This specifies the Base64 encoded, 160-bit
-        /// <c>SHA-1</c> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
-        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// <c>SHA1</c> digest of the object returned by the Object Lambda function. This may
+        /// not match the checksum for the object stored in Amazon S3. Amazon S3 will perform
+        /// validation of the checksum values only when the original <c>GetObject</c> request
+        /// required checksum validation. For more information about checksums, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>Only one checksum header can be specified at a time. If you supply multiple checksum
+        /// headers, this request will fail.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,8 +204,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>This header can be used as a data integrity check to verify that the data received
         /// is the same data that was originally sent. This specifies the Base64 encoded, 256-bit
-        /// <c>SHA-256</c> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
-        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// <c>SHA256</c> digest of the object returned by the Object Lambda function. This may
+        /// not match the checksum for the object stored in Amazon S3. Amazon S3 will perform
+        /// validation of the checksum values only when the original <c>GetObject</c> request
+        /// required checksum validation. For more information about checksums, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>Only one checksum header can be specified at a time. If you supply multiple checksum
+        /// headers, this request will fail.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentDisposition
         /// <summary>
         /// <para>
-        /// Specifies presentational information for the object.
+        /// <para>Specifies presentational information for the object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentEncoding
         /// <summary>
         /// <para>
-        /// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+        /// <para>Specifies what content encodings have been applied to the object and thus what decoding
+        /// mechanisms must be applied to obtain the media-type referenced by the Content-Type
+        /// header field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentLanguage
         /// <summary>
         /// <para>
-        /// The language the content is in.
+        /// <para>The language the content is in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentLength
         /// <summary>
         /// <para>
-        /// The size of the body in bytes.
+        /// <para>The size of the content body in bytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentRange
         /// <summary>
         /// <para>
-        /// The portion of the object returned in the response.
+        /// <para>The portion of the object returned in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// A standard MIME type describing the format of the object data.
+        /// <para>A standard MIME type describing the format of the object data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter DeleteMarker
         /// <summary>
         /// <para>
-        /// Specifies whether an object stored in Amazon S3 is (<code>true</code>) or is not (<code>false</code>) a delete marker.
+        /// <para>Specifies whether an object stored in Amazon S3 is (<c>true</c>) or is not (<c>false</c>)
+        /// a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working
+        /// with delete markers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +293,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ErrorCode
         /// <summary>
         /// <para>
-        /// A string that uniquely identifies an error condition. Returned in &lt;Code&gt; tag of error XML response for corresponding GetObject call. Cannot be used with successful <code>StatusCode</code> header or when transformed object is provided in body.
+        /// <para>A string that uniquely identifies an error condition. Returned in the &lt;Code&gt;
+        /// tag of the error XML response for a corresponding <c>GetObject</c> call. Cannot be
+        /// used with a successful <c>StatusCode</c> header or when the transformed object is
+        /// provided in the body. All error codes from S3 are sentence-cased. The regular expression
+        /// (regex) value is <c>"^[A-Z][a-zA-Z]+$"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,7 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ErrorMessage
         /// <summary>
         /// <para>
-        /// Contains a generic description of the error condition. Returned in &lt;Message&gt; tag of error XML response for corresponding GetObject call. Cannot be used with successful <code>StatusCode</code> header or when transformed object is provided in body.
+        /// <para>Contains a generic description of the error condition. Returned in the &lt;Message&gt;
+        /// tag of the error XML response for a corresponding <c>GetObject</c> call. Cannot be
+        /// used with a successful <c>StatusCode</c> header or when the transformed object is
+        /// provided in body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,7 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Expiration
         /// <summary>
         /// <para>
-        /// If object stored in Amazon S3 expiration is configured (see PUT Bucket lifecycle) it includes expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.
+        /// <para>If the object expiration is configured (see PUT Bucket lifecycle), the response includes
+        /// this header. It includes the <c>expiry-date</c> and <c>rule-id</c> key-value pairs
+        /// that provide the object expiration information. The value of the <c>rule-id</c> is
+        /// URL-encoded. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Expire
         /// <summary>
         /// <para>
-        /// The date and time at which the object is no longer cacheable.
+        /// <para>The date and time at which the object is no longer cacheable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,7 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter LastModified
         /// <summary>
         /// <para>
-        /// Date and time the object was last modified.
+        /// <para>The date and time that the object was last modified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,7 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MissingMeta
         /// <summary>
         /// <para>
-        /// Set to the number of metadata entries not returned in <code>x-amz-meta</code> headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
+        /// <para>Set to the number of metadata entries not returned in <c>x-amz-meta</c> headers. This
+        /// can happen if you create metadata using an API like SOAP that supports more flexible
+        /// metadata than the REST API. For example, using SOAP, you can create metadata whose
+        /// values are not legal HTTP headers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -334,7 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ObjectLockLegalHoldStatus
         /// <summary>
         /// <para>
-        /// Indicates whether object stored in Amazon S3 has an active legal hold.
+        /// <para>Indicates whether an object stored in Amazon S3 has an active legal hold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -345,7 +378,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ObjectLockMode
         /// <summary>
         /// <para>
-        /// Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.
+        /// <para>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more
+        /// information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object
+        /// Lock</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -356,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ObjectLockRetainUntilDate
         /// <summary>
         /// <para>
-        /// Date and time when Object Lock is configured to expire.
+        /// <para>The date and time when Object Lock is configured to expire.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -366,7 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter PartsCount
         /// <summary>
         /// <para>
-        /// The count of parts this object has.
+        /// <para>The count of parts this object has.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,7 +411,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ReplicationStatus
         /// <summary>
         /// <para>
-        /// Indicates if request involves bucket that is either a source or destination in a Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.
+        /// <para>Indicates if request involves bucket that is either a source or destination in a Replication
+        /// rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -387,7 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RequestCharged
         /// <summary>
         /// <para>
-        /// If present, indicates that the requester was successfully charged for the request.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -398,27 +434,43 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RequestRoute
         /// <summary>
         /// <para>
-        /// Route prefix to the HTTP URL generated.
+        /// <para>Route prefix to the HTTP URL generated.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RequestRoute { get; set; }
         #endregion
         
         #region Parameter RequestToken
         /// <summary>
         /// <para>
-        /// A single use encrypted token that maps <code>WriteGetObjectResponse</code> to the end user <code>GetObject</code> request.
+        /// <para>A single use encrypted token that maps <c>WriteGetObjectResponse</c> to the end user
+        /// <c>GetObject</c> request.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RequestToken { get; set; }
         #endregion
         
         #region Parameter Restore
         /// <summary>
         /// <para>
-        /// Provides information about object restoration operation and expiration time of the restored object copy.
+        /// <para>Provides information about object restoration operation and expiration time of the
+        /// restored object copy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -428,7 +480,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ServerSideEncryptionMethod
         /// <summary>
         /// <para>
-        /// <para>The server-side encryption algorithm used when storing requested object in Amazon S3 or Amazon FSx.</para><note><para>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <c>aws:fsx</c>.</para></note>
+        /// <para> The server-side encryption algorithm used when storing requested object in Amazon
+        /// S3 or Amazon FSx.</para><note><para>When accessing data stored in Amazon FSx file systems using S3 access points, the
+        /// only valid server side encryption option is <c>aws:fsx</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -439,7 +493,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SSECustomerAlgorithm
         /// <summary>
         /// <para>
-        /// Encryption algorithm used if server-side encryption with a customer-provided encryption key was specified for object stored in Amazon S3.
+        /// <para>Encryption algorithm used if server-side encryption with a customer-provided encryption
+        /// key was specified for object stored in Amazon S3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -450,7 +505,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SSECustomerKeyMD5
         /// <summary>
         /// <para>
-        /// 128-bit MD5 digest of customer-provided encryption key used in Amazon S3 to encrypt data stored in S3. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys</a>.
+        /// <para> 128-bit MD5 digest of customer-provided encryption key used in Amazon S3 to encrypt
+        /// data stored in S3. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Protecting
+        /// data using server-side encryption with customer-provided encryption keys (SSE-C)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -460,9 +517,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SSEKMSKeyId
         /// <summary>
         /// <para>
-        /// <para> If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon
-        /// Web Services KMS) symmetric encryption customer managed key that was used for stored
-        /// in Amazon S3 object. </para>
+        /// <para> If present, specifies the ID (Key ID, Key ARN, or Key Alias) of the Amazon Web Services
+        /// Key Management Service (Amazon Web Services KMS) symmetric encryption customer managed
+        /// key that was used for stored in Amazon S3 object. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -472,8 +529,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// <para>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request.
-        /// The following is a list of status codes. </para><ul><li><para><i>200 - OK</i></para></li><li><para><i>206 - Partial Content</i></para></li><li><para><i>304 - Not Modified</i></para></li><li><para><i>400 - Bad Request</i></para></li><li><para><i>401 - Unauthorized</i></para></li><li><para><i>403 - Forbidden</i></para></li><li><para><i>404 - Not Found</i></para></li><li><para><i>405 - Method Not Allowed</i></para></li><li><para><i>409 - Conflict</i></para></li><li><para><i>411 - Length Required</i></para></li><li><para><i>412 - Precondition Failed</i></para></li><li><para><i>416 - Range Not Satisfiable</i></para></li><li><para><i>500 - Internal Server Error</i></para></li><li><para><i>503 - Service Unavailable</i></para></li></ul>
+        /// <para>The integer status code for an HTTP response of a corresponding <c>GetObject</c> request.
+        /// The following is a list of status codes.</para><ul><li><para><c>200 - OK</c></para></li><li><para><c>206 - Partial Content</c></para></li><li><para><c>304 - Not Modified</c></para></li><li><para><c>400 - Bad Request</c></para></li><li><para><c>401 - Unauthorized</c></para></li><li><para><c>403 - Forbidden</c></para></li><li><para><c>404 - Not Found</c></para></li><li><para><c>405 - Method Not Allowed</c></para></li><li><para><c>409 - Conflict</c></para></li><li><para><c>411 - Length Required</c></para></li><li><para><c>412 - Precondition Failed</c></para></li><li><para><c>416 - Range Not Satisfiable</c></para></li><li><para><c>500 - Internal Server Error</c></para></li><li><para><c>503 - Service Unavailable</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -483,7 +540,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter StorageClass
         /// <summary>
         /// <para>
-        /// The class of storage used to store object in Amazon S3.
+        /// <para>Provides storage class information of the object. Amazon S3 returns this header for
+        /// all objects except for S3 Standard storage class objects.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+        /// Classes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -494,7 +553,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter TagCount
         /// <summary>
         /// <para>
-        /// The number of tags, if any, on the object.
+        /// <para>The number of tags, if any, on the object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -504,7 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// VersionId used to reference a specific version of the object.
+        /// <para>An ID used to reference a specific version of the object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -514,7 +573,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ETag
         /// <summary>
         /// <para>
-        /// An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
+        /// <para>An opaque identifier assigned by a web server to a specific version of a resource
+        /// found at a URL. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -566,12 +626,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.WriteGetObjectResponseResponse, WriteS3GetObjectResponseCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.RequestRoute = this.RequestRoute;
-            context.RequestToken = this.RequestToken;
-            context.StatusCode = this.StatusCode;
-            context.ErrorCode = this.ErrorCode;
-            context.ErrorMessage = this.ErrorMessage;
             context.AcceptRange = this.AcceptRange;
+            context.Body = this.Body;
+            context.BucketKeyEnabled = this.BucketKeyEnabled;
             context.CacheControl = this.CacheControl;
             context.ChecksumCRC32 = this.ChecksumCRC32;
             context.ChecksumCRC32C = this.ChecksumCRC32C;
@@ -585,27 +642,42 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ContentRange = this.ContentRange;
             context.ContentType = this.ContentType;
             context.DeleteMarker = this.DeleteMarker;
+            context.ErrorCode = this.ErrorCode;
+            context.ErrorMessage = this.ErrorMessage;
             context.ETag = this.ETag;
-            context.Expire = this.Expire;
             context.Expiration = this.Expiration;
+            context.Expire = this.Expire;
             context.LastModified = this.LastModified;
             context.MissingMeta = this.MissingMeta;
-            context.ObjectLockMode = this.ObjectLockMode;
             context.ObjectLockLegalHoldStatus = this.ObjectLockLegalHoldStatus;
+            context.ObjectLockMode = this.ObjectLockMode;
             context.ObjectLockRetainUntilDate = this.ObjectLockRetainUntilDate;
             context.PartsCount = this.PartsCount;
             context.ReplicationStatus = this.ReplicationStatus;
             context.RequestCharged = this.RequestCharged;
+            context.RequestRoute = this.RequestRoute;
+            #if MODULAR
+            if (this.RequestRoute == null && ParameterWasBound(nameof(this.RequestRoute)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RequestRoute which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.RequestToken = this.RequestToken;
+            #if MODULAR
+            if (this.RequestToken == null && ParameterWasBound(nameof(this.RequestToken)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RequestToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Restore = this.Restore;
             context.ServerSideEncryptionMethod = this.ServerSideEncryptionMethod;
             context.SSECustomerAlgorithm = this.SSECustomerAlgorithm;
-            context.SSEKMSKeyId = this.SSEKMSKeyId;
             context.SSECustomerKeyMD5 = this.SSECustomerKeyMD5;
+            context.SSEKMSKeyId = this.SSEKMSKeyId;
+            context.StatusCode = this.StatusCode;
             context.StorageClass = this.StorageClass;
             context.TagCount = this.TagCount;
             context.VersionId = this.VersionId;
-            context.BucketKeyEnabled = this.BucketKeyEnabled;
-            context.Body = this.Body;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -626,29 +698,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 // create request
                 var request = new Amazon.S3.Model.WriteGetObjectResponseRequest();
                 
-                if (cmdletContext.RequestRoute != null)
-                {
-                    request.RequestRoute = cmdletContext.RequestRoute;
-                }
-                if (cmdletContext.RequestToken != null)
-                {
-                    request.RequestToken = cmdletContext.RequestToken;
-                }
-                if (cmdletContext.StatusCode != null)
-                {
-                    request.StatusCode = cmdletContext.StatusCode.Value;
-                }
-                if (cmdletContext.ErrorCode != null)
-                {
-                    request.ErrorCode = cmdletContext.ErrorCode;
-                }
-                if (cmdletContext.ErrorMessage != null)
-                {
-                    request.ErrorMessage = cmdletContext.ErrorMessage;
-                }
                 if (cmdletContext.AcceptRange != null)
                 {
                     request.AcceptRanges = cmdletContext.AcceptRange;
+                }
+                if (cmdletContext.Body != null)
+                {
+                    _BodyStream = Amazon.PowerShell.Common.StreamParameterConverter.TransformToStream(cmdletContext.Body);
+                    request.Body = _BodyStream;
+                }
+                if (cmdletContext.BucketKeyEnabled != null)
+                {
+                    request.BucketKeyEnabled = cmdletContext.BucketKeyEnabled.Value;
                 }
                 if (cmdletContext.CacheControl != null)
                 {
@@ -702,17 +763,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     request.DeleteMarker = cmdletContext.DeleteMarker.Value;
                 }
+                if (cmdletContext.ErrorCode != null)
+                {
+                    request.ErrorCode = cmdletContext.ErrorCode;
+                }
+                if (cmdletContext.ErrorMessage != null)
+                {
+                    request.ErrorMessage = cmdletContext.ErrorMessage;
+                }
                 if (cmdletContext.ETag != null)
                 {
                     request.ETag = cmdletContext.ETag;
                 }
-                if (cmdletContext.Expire != null)
-                {
-                    request.Expires = cmdletContext.Expire.Value;
-                }
                 if (cmdletContext.Expiration != null)
                 {
                     request.Expiration = cmdletContext.Expiration;
+                }
+                if (cmdletContext.Expire != null)
+                {
+                    request.Expires = cmdletContext.Expire.Value;
                 }
                 if (cmdletContext.LastModified != null)
                 {
@@ -722,13 +791,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     request.MissingMeta = cmdletContext.MissingMeta.Value;
                 }
-                if (cmdletContext.ObjectLockMode != null)
-                {
-                    request.ObjectLockMode = cmdletContext.ObjectLockMode;
-                }
                 if (cmdletContext.ObjectLockLegalHoldStatus != null)
                 {
                     request.ObjectLockLegalHoldStatus = cmdletContext.ObjectLockLegalHoldStatus;
+                }
+                if (cmdletContext.ObjectLockMode != null)
+                {
+                    request.ObjectLockMode = cmdletContext.ObjectLockMode;
                 }
                 if (cmdletContext.ObjectLockRetainUntilDate != null)
                 {
@@ -746,6 +815,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     request.RequestCharged = cmdletContext.RequestCharged;
                 }
+                if (cmdletContext.RequestRoute != null)
+                {
+                    request.RequestRoute = cmdletContext.RequestRoute;
+                }
+                if (cmdletContext.RequestToken != null)
+                {
+                    request.RequestToken = cmdletContext.RequestToken;
+                }
                 if (cmdletContext.Restore != null)
                 {
                     request.Restore = cmdletContext.Restore;
@@ -758,13 +835,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     request.SSECustomerAlgorithm = cmdletContext.SSECustomerAlgorithm;
                 }
+                if (cmdletContext.SSECustomerKeyMD5 != null)
+                {
+                    request.SSECustomerKeyMD5 = cmdletContext.SSECustomerKeyMD5;
+                }
                 if (cmdletContext.SSEKMSKeyId != null)
                 {
                     request.SSEKMSKeyId = cmdletContext.SSEKMSKeyId;
                 }
-                if (cmdletContext.SSECustomerKeyMD5 != null)
+                if (cmdletContext.StatusCode != null)
                 {
-                    request.SSECustomerKeyMD5 = cmdletContext.SSECustomerKeyMD5;
+                    request.StatusCode = cmdletContext.StatusCode.Value;
                 }
                 if (cmdletContext.StorageClass != null)
                 {
@@ -777,15 +858,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (cmdletContext.VersionId != null)
                 {
                     request.VersionId = cmdletContext.VersionId;
-                }
-                if (cmdletContext.BucketKeyEnabled != null)
-                {
-                    request.BucketKeyEnabled = cmdletContext.BucketKeyEnabled.Value;
-                }
-                if (cmdletContext.Body != null)
-                {
-                    _BodyStream = Amazon.PowerShell.Common.StreamParameterConverter.TransformToStream(cmdletContext.Body);
-                    request.Body = _BodyStream;
                 }
                 
                 CmdletOutput output;
@@ -850,12 +922,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String RequestRoute { get; set; }
-            public System.String RequestToken { get; set; }
-            public System.Int32? StatusCode { get; set; }
-            public System.String ErrorCode { get; set; }
-            public System.String ErrorMessage { get; set; }
             public System.String AcceptRange { get; set; }
+            public object Body { get; set; }
+            public System.Boolean? BucketKeyEnabled { get; set; }
             public System.String CacheControl { get; set; }
             public System.String ChecksumCRC32 { get; set; }
             public System.String ChecksumCRC32C { get; set; }
@@ -869,27 +938,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ContentRange { get; set; }
             public System.String ContentType { get; set; }
             public System.Boolean? DeleteMarker { get; set; }
+            public System.String ErrorCode { get; set; }
+            public System.String ErrorMessage { get; set; }
             public System.String ETag { get; set; }
-            public System.DateTime? Expire { get; set; }
             public System.String Expiration { get; set; }
+            public System.DateTime? Expire { get; set; }
             public System.DateTime? LastModified { get; set; }
             public System.Int32? MissingMeta { get; set; }
-            public Amazon.S3.ObjectLockMode ObjectLockMode { get; set; }
             public Amazon.S3.ObjectLockLegalHoldStatus ObjectLockLegalHoldStatus { get; set; }
+            public Amazon.S3.ObjectLockMode ObjectLockMode { get; set; }
             public System.DateTime? ObjectLockRetainUntilDate { get; set; }
             public System.Int32? PartsCount { get; set; }
             public Amazon.S3.ReplicationStatus ReplicationStatus { get; set; }
             public Amazon.S3.RequestCharged RequestCharged { get; set; }
+            public System.String RequestRoute { get; set; }
+            public System.String RequestToken { get; set; }
             public System.String Restore { get; set; }
             public Amazon.S3.ServerSideEncryptionMethod ServerSideEncryptionMethod { get; set; }
             public Amazon.S3.ServerSideEncryptionCustomerMethod SSECustomerAlgorithm { get; set; }
-            public System.String SSEKMSKeyId { get; set; }
             public System.String SSECustomerKeyMD5 { get; set; }
+            public System.String SSEKMSKeyId { get; set; }
+            public System.Int32? StatusCode { get; set; }
             public Amazon.S3.S3StorageClass StorageClass { get; set; }
             public System.Int32? TagCount { get; set; }
             public System.String VersionId { get; set; }
-            public System.Boolean? BucketKeyEnabled { get; set; }
-            public object Body { get; set; }
             public System.Func<Amazon.S3.Model.WriteGetObjectResponseResponse, WriteS3GetObjectResponseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The maximum time, in seconds, that a new game session placement request remains in
         /// the queue. When a request exceeds this time, the game session placement changes to
-        /// a <c>TIMED_OUT</c> status.</para>
+        /// a <c>TIMED_OUT</c> status.</para><note><para>The minimum value is 10 and the maximum value is 600.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
