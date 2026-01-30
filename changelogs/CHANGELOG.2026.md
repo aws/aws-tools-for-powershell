@@ -1,4 +1,7 @@
-﻿### 4.1.989 (2026-01-29 21:47Z)
+﻿### 4.1.990 (2026-01-30 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1213.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.989 (2026-01-29 21:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1212.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon GameLift Service
     * Modified cmdlet Update-GMLFleetCapacity: added parameters ManagedCapacityConfiguration_ScaleInAfterInactivityMinute and ManagedCapacityConfiguration_ZeroCapacityStrategy.
