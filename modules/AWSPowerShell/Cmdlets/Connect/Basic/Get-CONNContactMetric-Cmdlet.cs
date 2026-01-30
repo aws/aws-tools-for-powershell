@@ -30,22 +30,25 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Retrieves the position of the contact in the queue.
+    /// Retrieves contact metric data for a specified contact.
     /// 
     ///  
     /// <para><b>Use cases</b></para><para>
-    /// Following are common uses cases for position in queue:
+    /// Following are common use cases for position in queue and estimated wait time:
     /// </para><ul><li><para>
-    /// Understand the expected wait experience of a contact.
+    /// Customer-Facing Wait Time Announcements - Display or announce the estimated wait time
+    /// and position in queue to customers before or during their queue experience. 
     /// </para></li><li><para>
-    /// Inform customers of their position in queue and potentially offer a callback.
+    /// Callback Offerings - Offer customers a callback option when the estimated wait time
+    /// or position in queue exceeds a defined threshold. 
     /// </para></li><li><para>
-    /// Make data-driven routing decisions between primary and alternative queues.
+    /// Queue Routing Decisions - Route incoming contacts to less congested queues by comparing
+    /// estimated wait time and position in queue across multiple queues. 
     /// </para></li><li><para>
-    /// Enhance queue visibility and leverage agent proficiencies to streamline contact routing.
+    /// Self-Service Deflection - Redirect customers to self-service options like chatbots
+    /// or FAQs when estimated wait time is high or position in queue is unfavorable. 
     /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
-    /// The only way to retrieve the position of the contact in queue is by using this API.
-    /// You can't retrieve the position by using flows and attributes.
+    /// Metrics are only available while the contact is actively in queue.
     /// </para></li><li><para>
     /// For more information, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Position
     /// in queue</a> metric in the <i>Amazon Connect Administrator Guide</i>. 
@@ -103,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>A list of contact-level metrics to retrieve.</para><para />
+        /// <para>A list of contact level metrics to retrieve.Supported metrics include POSITION_IN_QUEUE
+        /// (the contact's current position in the queue) and ESTIMATED_WAIT_TIME (the predicted
+        /// time in seconds until the contact is connected to an agent)</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
