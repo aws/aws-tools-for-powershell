@@ -1,4 +1,12 @@
-﻿### 4.1.990 (2026-01-30 21:27Z)
+﻿### 4.1.991 (2026-02-02 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1214.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCEvaluator: added parameter Tag.
+    * Modified cmdlet New-BACCOnlineEvaluationConfig: added parameter Tag.
+  * Amazon Multi-party Approval
+    * Modified cmdlet Update-MPAApprovalTeam: added parameter UpdateAction.
+
+### 4.1.990 (2026-01-30 21:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1213.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.989 (2026-01-29 21:47Z)

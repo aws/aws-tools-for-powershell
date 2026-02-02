@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.MPA
         public System.Int32? MofN_MinApprovalsRequired { get; set; }
         #endregion
         
+        #region Parameter UpdateAction
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>UpdateAction</c> to perform when updating the team.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UpdateActions")]
+        public System.String[] UpdateAction { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'VersionId'.
@@ -174,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.MPA
             }
             #endif
             context.Description = this.Description;
+            if (this.UpdateAction != null)
+            {
+                context.UpdateAction = new List<System.String>(this.UpdateAction);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -235,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.MPA
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.UpdateAction != null)
+            {
+                request.UpdateActions = cmdletContext.UpdateAction;
             }
             
             CmdletOutput output;
@@ -301,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.MPA
             public List<Amazon.MPA.Model.ApprovalTeamRequestApprover> Approver { get; set; }
             public System.String Arn { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> UpdateAction { get; set; }
             public System.Func<Amazon.MPA.Model.UpdateApprovalTeamResponse, UpdateMPAApprovalTeamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VersionId;
         }
