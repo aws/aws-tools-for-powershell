@@ -31,15 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.MPA
 {
     /// <summary>
     /// Returns a list of the versions for policies. Policies define the permissions for team
-    /// resources.
-    /// 
-    ///  
-    /// <para>
-    /// The protected operation for a service integration might require specific permissions.
-    /// For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How
-    /// other services work with Multi-party approval</a> in the <i>Multi-party approval User
-    /// Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MPAPolicyVersionList")]
     [OutputType("Amazon.MPA.Model.PolicyVersionSummary")]

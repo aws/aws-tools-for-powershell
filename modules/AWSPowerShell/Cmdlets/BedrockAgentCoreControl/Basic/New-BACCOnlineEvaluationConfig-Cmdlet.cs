@@ -211,6 +211,23 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.Int32? SessionConfig_SessionTimeoutMinute { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of tag keys and values to assign to an AgentCore Online Evaluation Config. Tags
+        /// enable you to categorize your resources in different ways, for example, by purpose,
+        /// owner, or environment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -324,6 +341,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             #endif
             context.SessionConfig_SessionTimeoutMinute = this.SessionConfig_SessionTimeoutMinute;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -477,6 +502,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Rule = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -543,6 +572,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<Amazon.BedrockAgentCoreControl.Model.Filter> Rule_Filter { get; set; }
             public System.Double? SamplingConfig_SamplingPercentage { get; set; }
             public System.Int32? SessionConfig_SessionTimeoutMinute { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateOnlineEvaluationConfigResponse, NewBACCOnlineEvaluationConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
