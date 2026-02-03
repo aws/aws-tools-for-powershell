@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-SSOADMNPermissionSetProvision', 
+        'Add-SSOADMNRegion', 
         'Add-SSOADMNResourceTag', 
         'Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet', 
         'Dismount-SSOADMNManagedPolicyFromPermissionSet', 
@@ -125,6 +126,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SSOADMNPermissionSetProvisioningStatus', 
         'Get-SSOADMNPermissionSetProvisioningStatusList', 
         'Get-SSOADMNPermissionSetsProvisionedToAccountList', 
+        'Get-SSOADMNRegion', 
+        'Get-SSOADMNRegionList', 
         'Get-SSOADMNResourceTag', 
         'Get-SSOADMNTrustedTokenIssuer', 
         'Get-SSOADMNTrustedTokenIssuerList', 
@@ -148,6 +151,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SSOADMNInstanceAccessControlAttributeConfiguration', 
         'Remove-SSOADMNPermissionsBoundaryFromPermissionSet', 
         'Remove-SSOADMNPermissionSet', 
+        'Remove-SSOADMNRegion', 
         'Remove-SSOADMNResourceTag', 
         'Remove-SSOADMNTrustedTokenIssuer', 
         'Update-SSOADMNApplication', 

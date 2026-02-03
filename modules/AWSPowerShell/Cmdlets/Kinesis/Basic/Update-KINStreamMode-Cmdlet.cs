@@ -73,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String StreamARN { get; set; }
         #endregion
         
+        #region Parameter StreamId
+        /// <summary>
+        /// <para>
+        /// <para>Not Implemented. Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamId { get; set; }
+        #endregion
+        
         #region Parameter StreamModeDetails_StreamMode
         /// <summary>
         /// <para>
@@ -157,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter StreamARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamId = this.StreamId;
             context.StreamModeDetails_StreamMode = this.StreamModeDetails_StreamMode;
             #if MODULAR
             if (this.StreamModeDetails_StreamMode == null && ParameterWasBound(nameof(this.StreamModeDetails_StreamMode)))
@@ -184,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.StreamARN != null)
             {
                 request.StreamARN = cmdletContext.StreamARN;
+            }
+            if (cmdletContext.StreamId != null)
+            {
+                request.StreamId = cmdletContext.StreamId;
             }
             
              // populate StreamModeDetails
@@ -264,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String StreamARN { get; set; }
+            public System.String StreamId { get; set; }
             public Amazon.Kinesis.StreamMode StreamModeDetails_StreamMode { get; set; }
             public System.Int32? WarmThroughputMiBp { get; set; }
             public System.Func<Amazon.Kinesis.Model.UpdateStreamModeResponse, UpdateKINStreamModeCmdlet, object> Select { get; set; } =

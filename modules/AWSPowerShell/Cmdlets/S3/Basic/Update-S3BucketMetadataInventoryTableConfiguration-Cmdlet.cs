@@ -68,17 +68,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The general purpose bucket that you want to update the inventory table configuration for.
+        /// <para> The general purpose bucket that corresponds to the metadata configuration that you
+        /// want to enable or disable an inventory table for. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// The checksum algorithm to use with your inventory table configuration update.
+        /// <para> The checksum algorithm to use with your inventory table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,10 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter InventoryTableConfiguration_ConfigurationState
         /// <summary>
         /// <para>
-        /// The state of the inventory table configuration.
+        /// <para> The configuration state of the inventory table, indicating whether the inventory
+        /// table is enabled or disabled. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.S3.InventoryConfigurationState")]
         public Amazon.S3.InventoryConfigurationState InventoryTableConfiguration_ConfigurationState { get; set; }
         #endregion
@@ -100,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// The <c>Content-MD5</c> header for the inventory table configuration update.
+        /// <para> The <c>Content-MD5</c> header for the inventory table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,9 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. If the account ID that you provide does not 
-        /// match the actual owner of the bucket, the request fails with the HTTP status code 
-        /// <c>403 Forbidden</c> (access denied).
+        /// <para> The expected owner of the general purpose bucket that corresponds to the metadata
+        /// table configuration that you want to enable or disable an inventory table for. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,12 +208,24 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.InventoryTableConfiguration_ConfigurationState = this.InventoryTableConfiguration_ConfigurationState;
+            #if MODULAR
+            if (this.InventoryTableConfiguration_ConfigurationState == null && ParameterWasBound(nameof(this.InventoryTableConfiguration_ConfigurationState)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InventoryTableConfiguration_ConfigurationState which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
             context.EncryptionConfiguration_SseAlgorithm = this.EncryptionConfiguration_SseAlgorithm;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -227,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ContentMD5 != null)
             {
                 request.ContentMD5 = cmdletContext.ContentMD5;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
              // populate InventoryTableConfiguration
@@ -281,10 +311,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestInventoryTableConfigurationIsNull)
             {
                 request.InventoryTableConfiguration = null;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -344,10 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ContentMD5 { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public Amazon.S3.InventoryConfigurationState InventoryTableConfiguration_ConfigurationState { get; set; }
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public Amazon.S3.TableSseAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.UpdateBucketMetadataInventoryTableConfigurationResponse, UpdateS3BucketMetadataInventoryTableConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

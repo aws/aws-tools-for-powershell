@@ -1,4 +1,48 @@
-﻿### 5.0.146 (2026-02-02 20:56Z)
+﻿### 5.0.147 (2026-02-03 21:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.183.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Kinesis
+    * Modified cmdlet Write-KINRecord: added parameter StreamId.
+    * Modified cmdlet Add-KINResourceTag: added parameter StreamId.
+    * Modified cmdlet Add-KINTagsToStream: added parameter StreamId.
+    * Modified cmdlet Disable-KINEnhancedMonitoring: added parameter StreamId.
+    * Modified cmdlet Enable-KINEnhancedMonitoring: added parameter StreamId.
+    * Modified cmdlet Get-KINRecord: added parameter StreamId.
+    * Modified cmdlet Get-KINResourcePolicy: added parameter StreamId.
+    * Modified cmdlet Get-KINResourceTag: added parameter StreamId.
+    * Modified cmdlet Get-KINShardIterator: added parameter StreamId.
+    * Modified cmdlet Get-KINShardList: added parameter StreamId.
+    * Modified cmdlet Get-KINStream: added parameter StreamId.
+    * Modified cmdlet Get-KINStreamConsumer: added parameter StreamId.
+    * Modified cmdlet Get-KINStreamConsumerList: added parameter StreamId.
+    * Modified cmdlet Get-KINStreamSummary: added parameter StreamId.
+    * Modified cmdlet Get-KINTagsForStream: added parameter StreamId.
+    * Modified cmdlet Merge-KINShard: added parameter StreamId.
+    * Modified cmdlet Register-KINStreamConsumer: added parameter StreamId.
+    * Modified cmdlet Remove-KINResourcePolicy: added parameter StreamId.
+    * Modified cmdlet Remove-KINResourceTag: added parameter StreamId.
+    * Modified cmdlet Remove-KINStream: added parameter StreamId.
+    * Modified cmdlet Remove-KINTagsFromStream: added parameter StreamId.
+    * Modified cmdlet Request-KINStreamRetentionPeriodDecrease: added parameter StreamId.
+    * Modified cmdlet Request-KINStreamRetentionPeriodIncrease: added parameter StreamId.
+    * Modified cmdlet Split-KINShard: added parameter StreamId.
+    * Modified cmdlet Start-KINStreamEncryption: added parameter StreamId.
+    * Modified cmdlet Stop-KINStreamEncryption: added parameter StreamId.
+    * Modified cmdlet Unregister-KINStreamConsumer: added parameter StreamId.
+    * Modified cmdlet Update-KINMaxRecordSize: added parameter StreamId.
+    * Modified cmdlet Update-KINShardCount: added parameter StreamId.
+    * Modified cmdlet Update-KINStreamMode: added parameter StreamId.
+    * Modified cmdlet Update-KINStreamWarmThroughput: added parameter StreamId.
+    * Modified cmdlet Write-KINMultipleRecord: added parameter StreamId.
+    * Modified cmdlet Write-KINResourcePolicy: added parameter StreamId.
+  * Amazon Location Service Maps V2
+    * Modified cmdlet Get-GEOMStyleDescriptor: added parameter Building.
+  * Amazon Single Sign-On Admin
+    * Added cmdlet Add-SSOADMNRegion leveraging the AddRegion service API.
+    * Added cmdlet Get-SSOADMNRegion leveraging the DescribeRegion service API.
+    * Added cmdlet Get-SSOADMNRegionList leveraging the ListRegions service API.
+    * Added cmdlet Remove-SSOADMNRegion leveraging the RemoveRegion service API.
+
+### 5.0.146 (2026-02-02 20:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.182.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCEvaluator: added parameter Tag.

@@ -23,87 +23,85 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
+using Amazon.SSOAdmin;
+using Amazon.SSOAdmin.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.KIN
+namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Removes tags from the specified Kinesis resource. Removed tags are deleted and can't
-    /// be recovered after this operation completes successfully.
+    /// Adds a Region to an IAM Identity Center instance. This operation initiates an asynchronous
+    /// workflow to replicate the IAM Identity Center instance to the target Region. The Region
+    /// status is set to ADDING at first and changes to ACTIVE when the workflow completes.
+    /// 
+    ///  
+    /// <para>
+    /// To use this operation, your IAM Identity Center instance and the target Region must
+    /// meet the requirements described in the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-iam-identity-center.html#multi-region-prerequisites">IAM
+    /// Identity Center User Guide</a>. 
+    /// </para><para>
+    /// The following actions are related to <c>AddRegion</c>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html">RemoveRegion</a></para></li><li><para><a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html">DescribeRegion</a></para></li><li><para><a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html">ListRegions</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Remove", "KINResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kinesis UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Kinesis.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Kinesis.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.UntagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Add", "SSOADMNRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SSOAdmin.RegionStatus")]
+    [AWSCmdlet("Calls the AWS Single Sign-On Admin AddRegion API operation.", Operation = new[] {"AddRegion"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.AddRegionResponse))]
+    [AWSCmdletOutput("Amazon.SSOAdmin.RegionStatus or Amazon.SSOAdmin.Model.AddRegionResponse",
+        "This cmdlet returns an Amazon.SSOAdmin.RegionStatus object.",
+        "The service call response (type Amazon.SSOAdmin.Model.AddRegionResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveKINResourceTagCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class AddSSOADMNRegionCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceARN
+        #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Kinesis resource from which to remove tags.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceARN { get; set; }
-        #endregion
-        
-        #region Parameter StreamId
-        /// <summary>
-        /// <para>
-        /// <para>Not Implemented. Reserved for future use.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String StreamId { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>A list of tag key-value pairs. Existing tags of the resource whose keys are members
-        /// of this list will be removed from the Kinesis resource.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The Amazon Resource Name (ARN) of the IAM Identity Center instance to replicate to
+        /// the target Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        public System.String InstanceArn { get; set; }
+        #endregion
+        
+        #region Parameter RegionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Web Services Region to add to the IAM Identity Center instance.
+        /// The Region name must be 1-32 characters long and follow the pattern of Amazon Web
+        /// Services Region names (for example, us-east-1).</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RegionName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSOAdmin.Model.AddRegionResponse).
+        /// Specifying the name of a property of type Amazon.SSOAdmin.Model.AddRegionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Status";
         #endregion
         
         #region Parameter Force
@@ -125,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KINResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RegionName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-SSOADMNRegion (AddRegion)"))
             {
                 return;
             }
@@ -138,25 +136,21 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.UntagResourceResponse, RemoveKINResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SSOAdmin.Model.AddRegionResponse, AddSSOADMNRegionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ResourceARN = this.ResourceARN;
+            context.InstanceArn = this.InstanceArn;
             #if MODULAR
-            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            if (this.InstanceArn == null && ParameterWasBound(nameof(this.InstanceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.StreamId = this.StreamId;
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
+            context.RegionName = this.RegionName;
             #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            if (this.RegionName == null && ParameterWasBound(nameof(this.RegionName)))
             {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RegionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -173,19 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.UntagResourceRequest();
+            var request = new Amazon.SSOAdmin.Model.AddRegionRequest();
             
-            if (cmdletContext.ResourceARN != null)
+            if (cmdletContext.InstanceArn != null)
             {
-                request.ResourceARN = cmdletContext.ResourceARN;
+                request.InstanceArn = cmdletContext.InstanceArn;
             }
-            if (cmdletContext.StreamId != null)
+            if (cmdletContext.RegionName != null)
             {
-                request.StreamId = cmdletContext.StreamId;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKeys = cmdletContext.TagKey;
+                request.RegionName = cmdletContext.RegionName;
             }
             
             CmdletOutput output;
@@ -220,12 +210,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.UntagResourceRequest request)
+        private Amazon.SSOAdmin.Model.AddRegionResponse CallAWSServiceOperation(IAmazonSSOAdmin client, Amazon.SSOAdmin.Model.AddRegionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Single Sign-On Admin", "AddRegion");
             try
             {
-                return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.AddRegionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -242,11 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceARN { get; set; }
-            public System.String StreamId { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.Kinesis.Model.UntagResourceResponse, RemoveKINResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String InstanceArn { get; set; }
+            public System.String RegionName { get; set; }
+            public System.Func<Amazon.SSOAdmin.Model.AddRegionResponse, AddSSOADMNRegionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Status;
         }
         
     }

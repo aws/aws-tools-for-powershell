@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// After 8 hours, any request with the same client token is treated as a new request.
         /// Do not resubmit the same request with the same client token for more than 8 hours,
         /// or the result might not be idempotent.</para><para>If you submit a request with the same client token but a change in other parameters
-        /// within the 8-hour idempotency window, DynamoDB returns an <c>ImportConflictException</c>.</para>
+        /// within the 8-hour idempotency window, DynamoDB returns an <c>ExportConflictException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

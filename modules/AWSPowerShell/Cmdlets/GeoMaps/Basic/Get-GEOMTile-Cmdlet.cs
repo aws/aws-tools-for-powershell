@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         #region Parameter Tileset
         /// <summary>
         /// <para>
-        /// <para>Specifies the desired tile set.</para><para>Valid Values: <c>raster.satellite | vector.basemap</c></para>
+        /// <para>Specifies the desired tile set.</para><para>Valid Values: <c>raster.satellite | vector.basemap | vector.traffic | raster.dem</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

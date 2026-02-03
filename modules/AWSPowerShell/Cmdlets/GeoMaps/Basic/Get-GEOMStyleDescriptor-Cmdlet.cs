@@ -50,6 +50,19 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Building
+        /// <summary>
+        /// <para>
+        /// <para>Adjusts how building details are rendered on the map.</para><para>The following building styles are currently supported:</para><ul><li><para><c>Buildings3D</c>: Displays buildings as three-dimensional extrusions on the map.</para></li></ul><para><c>Buildings3D</c> is valid only for the <c>Standard</c> and <c>Monochrome</c> map
+        /// styles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Buildings")]
+        [AWSConstantClassSource("Amazon.GeoMaps.Buildings")]
+        public Amazon.GeoMaps.Buildings Building { get; set; }
+        #endregion
+        
         #region Parameter ColorScheme
         /// <summary>
         /// <para>
@@ -67,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <para>
         /// <para>Displays the shape and steepness of terrain features using elevation lines. The density
         /// value controls how densely the available contour line information is rendered on the
-        /// map.</para><para>This parameter is valid only for the <c>Standard</c> map style.</para>
+        /// map.</para><para>This parameter is valid only for the <c>Standard</c>, <c>Monochrome</c>, and <c>Hybrid</c>
+        /// map styles.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <summary>
         /// <para>
         /// <para>Adjusts how physical terrain details are rendered on the map.</para><para>The following terrain styles are currently supported:</para><ul><li><para><c>Hillshade</c>: Displays the physical terrain details through shading and highlighting
-        /// of elevation change and geographic features.</para></li></ul><para>This parameter is valid only for the <c>Standard</c> map style.</para>
+        /// of elevation change and geographic features.</para></li><li><para><c>Terrain3D</c>: Displays physical terrain details and elevations as a three-dimensional
+        /// model.</para></li></ul><para><c>Hillshade</c> is valid only for the <c>Standard</c> and <c>Monochrome</c> map
+        /// styles.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
                 context.Select = CreateSelectDelegate<Amazon.GeoMaps.Model.GetStyleDescriptorResponse, GetGEOMStyleDescriptorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Building = this.Building;
             context.ColorScheme = this.ColorScheme;
             context.ContourDensity = this.ContourDensity;
             context.Key = this.Key;
@@ -218,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             // create request
             var request = new Amazon.GeoMaps.Model.GetStyleDescriptorRequest();
             
+            if (cmdletContext.Building != null)
+            {
+                request.Buildings = cmdletContext.Building;
+            }
             if (cmdletContext.ColorScheme != null)
             {
                 request.ColorScheme = cmdletContext.ColorScheme;
@@ -305,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.GeoMaps.Buildings Building { get; set; }
             public Amazon.GeoMaps.ColorScheme ColorScheme { get; set; }
             public Amazon.GeoMaps.ContourDensity ContourDensity { get; set; }
             public System.String Key { get; set; }
