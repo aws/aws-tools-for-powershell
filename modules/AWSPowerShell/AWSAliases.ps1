@@ -31373,6 +31373,7 @@ Set-Alias -Name SSMI-UpdateRelatedItems -Value Update-SSMIRelatedItem
 Set-Alias -Name SSMI-UpdateReplicationSet -Value Update-SSMIReplicationSet
 Set-Alias -Name SSMI-UpdateResponsePlan -Value Update-SSMIResponsePlan
 Set-Alias -Name SSMI-UpdateTimelineEvent -Value Update-SSMITimelineEvent
+Set-Alias -Name SSOADMN-AddRegion -Value Add-SSOADMNRegion
 Set-Alias -Name Attach-SSOADMNCustomerManagedPolicyReferenceToPermissionSet -Value Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet
 Set-Alias -Name SSOADMN-AttachCustomerManagedPolicyReferenceToPermissionSet -Value Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet
 Set-Alias -Name Attach-SSOADMNManagedPolicyToPermissionSet -Value Mount-SSOADMNManagedPolicyToPermissionSet
@@ -31433,6 +31434,8 @@ Set-Alias -Name Describe-SSOADMNPermissionSet -Value Get-SSOADMNPermissionSet
 Set-Alias -Name SSOADMN-DescribePermissionSet -Value Get-SSOADMNPermissionSet
 Set-Alias -Name Describe-SSOADMNPermissionSetProvisioningStatus -Value Get-SSOADMNPermissionSetProvisioningStatus
 Set-Alias -Name SSOADMN-DescribePermissionSetProvisioningStatus -Value Get-SSOADMNPermissionSetProvisioningStatus
+Set-Alias -Name Describe-SSOADMNRegion -Value Get-SSOADMNRegion
+Set-Alias -Name SSOADMN-DescribeRegion -Value Get-SSOADMNRegion
 Set-Alias -Name Describe-SSOADMNTrustedTokenIssuer -Value Get-SSOADMNTrustedTokenIssuer
 Set-Alias -Name SSOADMN-DescribeTrustedTokenIssuer -Value Get-SSOADMNTrustedTokenIssuer
 Set-Alias -Name Detach-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet -Value Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet
@@ -31500,6 +31503,9 @@ Set-Alias -Name SSOADMN-ListPermissionSets -Value Get-SSOADMNPermissionSetList
 Set-Alias -Name List-SSOADMNPermissionSetsProvisionedToAccount -Value Get-SSOADMNPermissionSetsProvisionedToAccountList
 Set-Alias -Name List-SSOADMNPermissionSetsProvisionedToAccountList -Value Get-SSOADMNPermissionSetsProvisionedToAccountList
 Set-Alias -Name SSOADMN-ListPermissionSetsProvisionedToAccount -Value Get-SSOADMNPermissionSetsProvisionedToAccountList
+Set-Alias -Name List-SSOADMNRegions -Value Get-SSOADMNRegionList
+Set-Alias -Name List-SSOADMNRegionList -Value Get-SSOADMNRegionList
+Set-Alias -Name SSOADMN-ListRegions -Value Get-SSOADMNRegionList
 Set-Alias -Name SSOADMN-ListTagsForResource -Value Get-SSOADMNResourceTag
 Set-Alias -Name List-SSOADMNTrustedTokenIssuers -Value Get-SSOADMNTrustedTokenIssuerList
 Set-Alias -Name List-SSOADMNTrustedTokenIssuerList -Value Get-SSOADMNTrustedTokenIssuerList
@@ -31521,6 +31527,7 @@ Set-Alias -Name Put-SSOADMNInlinePolicyToPermissionSet -Value Write-SSOADMNInlin
 Set-Alias -Name SSOADMN-PutInlinePolicyToPermissionSet -Value Write-SSOADMNInlinePolicyToPermissionSet
 Set-Alias -Name Put-SSOADMNPermissionsBoundaryToPermissionSet -Value Write-SSOADMNPermissionsBoundaryToPermissionSet
 Set-Alias -Name SSOADMN-PutPermissionsBoundaryToPermissionSet -Value Write-SSOADMNPermissionsBoundaryToPermissionSet
+Set-Alias -Name SSOADMN-RemoveRegion -Value Remove-SSOADMNRegion
 Set-Alias -Name SSOADMN-TagResource -Value Add-SSOADMNResourceTag
 Set-Alias -Name SSOADMN-UntagResource -Value Remove-SSOADMNResourceTag
 Set-Alias -Name SSOADMN-UpdateApplication -Value Update-SSOADMNApplication

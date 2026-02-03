@@ -287,7 +287,8 @@ $SSOADMN_SelectCompleters = {
 }
 
 $SSOADMN_SelectMap = @{
-    "Select"=@("Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet",
+    "Select"=@("Add-SSOADMNRegion",
+               "Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet",
                "Mount-SSOADMNManagedPolicyToPermissionSet",
                "New-SSOADMNAccountAssignment",
                "New-SSOADMNApplication",
@@ -317,6 +318,7 @@ $SSOADMN_SelectMap = @{
                "Get-SSOADMNInstanceAccessControlAttributeConfiguration",
                "Get-SSOADMNPermissionSet",
                "Get-SSOADMNPermissionSetProvisioningStatus",
+               "Get-SSOADMNRegion",
                "Get-SSOADMNTrustedTokenIssuer",
                "Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet",
                "Dismount-SSOADMNManagedPolicyFromPermissionSet",
@@ -345,6 +347,7 @@ $SSOADMN_SelectMap = @{
                "Get-SSOADMNPermissionSetProvisioningStatusList",
                "Get-SSOADMNPermissionSetList",
                "Get-SSOADMNPermissionSetsProvisionedToAccountList",
+               "Get-SSOADMNRegionList",
                "Get-SSOADMNResourceTag",
                "Get-SSOADMNTrustedTokenIssuerList",
                "Add-SSOADMNPermissionSetProvision",
@@ -355,6 +358,7 @@ $SSOADMN_SelectMap = @{
                "Write-SSOADMNApplicationSessionConfiguration",
                "Write-SSOADMNInlinePolicyToPermissionSet",
                "Write-SSOADMNPermissionsBoundaryToPermissionSet",
+               "Remove-SSOADMNRegion",
                "Add-SSOADMNResourceTag",
                "Remove-SSOADMNResourceTag",
                "Update-SSOADMNApplication",

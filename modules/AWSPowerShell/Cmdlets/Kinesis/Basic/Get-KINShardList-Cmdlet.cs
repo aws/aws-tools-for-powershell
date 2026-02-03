@@ -104,6 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.DateTime? StreamCreationTimestamp { get; set; }
         #endregion
         
+        #region Parameter StreamId
+        /// <summary>
+        /// <para>
+        /// <para>Not Implemented. Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamId { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
@@ -265,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             context.ShardFilter_Type = this.ShardFilter_Type;
             context.StreamARN = this.StreamARN;
             context.StreamCreationTimestamp = this.StreamCreationTimestamp;
+            context.StreamId = this.StreamId;
             context.StreamName = this.StreamName;
             
             // allow further manipulation of loaded context prior to processing
@@ -341,6 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.StreamCreationTimestamp != null)
             {
                 request.StreamCreationTimestamp = cmdletContext.StreamCreationTimestamp.Value;
+            }
+            if (cmdletContext.StreamId != null)
+            {
+                request.StreamId = cmdletContext.StreamId;
             }
             if (cmdletContext.StreamName != null)
             {
@@ -451,6 +466,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.StreamCreationTimestamp != null)
             {
                 request.StreamCreationTimestamp = cmdletContext.StreamCreationTimestamp.Value;
+            }
+            if (cmdletContext.StreamId != null)
+            {
+                request.StreamId = cmdletContext.StreamId;
             }
             if (cmdletContext.StreamName != null)
             {
@@ -583,6 +602,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             public Amazon.Kinesis.ShardFilterType ShardFilter_Type { get; set; }
             public System.String StreamARN { get; set; }
             public System.DateTime? StreamCreationTimestamp { get; set; }
+            public System.String StreamId { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.ListShardsResponse, GetKINShardListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Shards;

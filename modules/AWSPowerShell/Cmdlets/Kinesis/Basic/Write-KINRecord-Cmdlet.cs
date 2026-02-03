@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>
         /// <para>The data blob to put into the record, which is base64-encoded when the blob is serialized.
         /// When the data blob (the payload before base64-encoding) is added to the partition
-        /// key size, the total size must not exceed the maximum record size (1 MiB).</para>
+        /// key size, the total size must not exceed the maximum record size (10 MiB).</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -159,6 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StreamARN { get; set; }
+        #endregion
+        
+        #region Parameter StreamId
+        /// <summary>
+        /// <para>
+        /// <para>Not Implemented. Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamId { get; set; }
         #endregion
         
         #region Parameter StreamName
@@ -250,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             #endif
             context.SequenceNumberForOrdering = this.SequenceNumberForOrdering;
             context.StreamARN = this.StreamARN;
+            context.StreamId = this.StreamId;
             context.StreamName = this.StreamName;
             
             // allow further manipulation of loaded context prior to processing
@@ -291,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 if (cmdletContext.StreamARN != null)
                 {
                     request.StreamARN = cmdletContext.StreamARN;
+                }
+                if (cmdletContext.StreamId != null)
+                {
+                    request.StreamId = cmdletContext.StreamId;
                 }
                 if (cmdletContext.StreamName != null)
                 {
@@ -370,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             public System.String PartitionKey { get; set; }
             public System.String SequenceNumberForOrdering { get; set; }
             public System.String StreamARN { get; set; }
+            public System.String StreamId { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.PutRecordResponse, WriteKINRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

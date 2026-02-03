@@ -82,6 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String StreamARN { get; set; }
         #endregion
         
+        #region Parameter StreamId
+        /// <summary>
+        /// <para>
+        /// <para>Not Implemented. Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamId { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
@@ -161,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             #endif
             context.StreamARN = this.StreamARN;
+            context.StreamId = this.StreamId;
             context.StreamName = this.StreamName;
             
             // allow further manipulation of loaded context prior to processing
@@ -185,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.StreamARN != null)
             {
                 request.StreamARN = cmdletContext.StreamARN;
+            }
+            if (cmdletContext.StreamId != null)
+            {
+                request.StreamId = cmdletContext.StreamId;
             }
             if (cmdletContext.StreamName != null)
             {
@@ -253,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             public System.Int32? RetentionPeriodHour { get; set; }
             public System.String StreamARN { get; set; }
+            public System.String StreamId { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse, RequestKINStreamRetentionPeriodDecreaseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

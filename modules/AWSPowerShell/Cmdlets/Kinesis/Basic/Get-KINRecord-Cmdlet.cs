@@ -130,6 +130,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String StreamARN { get; set; }
         #endregion
         
+        #region Parameter StreamId
+        /// <summary>
+        /// <para>
+        /// <para>Not Implemented. Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamId { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -197,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             #endif
             context.StreamARN = this.StreamARN;
+            context.StreamId = this.StreamId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -224,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.StreamARN != null)
             {
                 request.StreamARN = cmdletContext.StreamARN;
+            }
+            if (cmdletContext.StreamId != null)
+            {
+                request.StreamId = cmdletContext.StreamId;
             }
             
             CmdletOutput output;
@@ -289,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             public System.Int32? Limit { get; set; }
             public System.String ShardIterator { get; set; }
             public System.String StreamARN { get; set; }
+            public System.String StreamId { get; set; }
             public System.Func<Amazon.Kinesis.Model.GetRecordsResponse, GetKINRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

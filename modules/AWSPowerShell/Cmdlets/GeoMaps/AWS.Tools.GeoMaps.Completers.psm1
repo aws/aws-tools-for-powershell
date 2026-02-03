@@ -80,6 +80,13 @@ $GEOM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GeoMaps.Buildings
+        "Get-GEOMStyleDescriptor/Building"
+        {
+            $v = "Buildings3D"
+            break
+        }
+
         # Amazon.GeoMaps.ColorScheme
         {
             ($_ -eq "Get-GEOMSprite/ColorScheme") -Or
@@ -139,7 +146,7 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.Terrain
         "Get-GEOMStyleDescriptor/Terrain"
         {
-            $v = "Hillshade"
+            $v = "Hillshade","Terrain3D"
             break
         }
 
@@ -166,6 +173,7 @@ $GEOM_Completers = {
 }
 
 $GEOM_map = @{
+    "Building"=@("Get-GEOMStyleDescriptor")
     "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
     "ContourDensity"=@("Get-GEOMStyleDescriptor")
     "LabelSize"=@("Get-GEOMStaticMap")

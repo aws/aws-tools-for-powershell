@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String ResourceARN { get; set; }
         #endregion
         
+        #region Parameter StreamId
+        /// <summary>
+        /// <para>
+        /// <para>Not Implemented. Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamId { get; set; }
+        #endregion
+        
         #region Parameter TagKey
         /// <summary>
         /// <para>
@@ -147,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamId = this.StreamId;
             if (this.TagKey != null)
             {
                 context.TagKey = new List<System.String>(this.TagKey);
@@ -176,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.ResourceARN != null)
             {
                 request.ResourceARN = cmdletContext.ResourceARN;
+            }
+            if (cmdletContext.StreamId != null)
+            {
+                request.StreamId = cmdletContext.StreamId;
             }
             if (cmdletContext.TagKey != null)
             {
@@ -243,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceARN { get; set; }
+            public System.String StreamId { get; set; }
             public List<System.String> TagKey { get; set; }
             public System.Func<Amazon.Kinesis.Model.UntagResourceResponse, RemoveKINResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -36917,6 +36917,13 @@ $GEOM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GeoMaps.Buildings
+        "Get-GEOMStyleDescriptor/Building"
+        {
+            $v = "Buildings3D"
+            break
+        }
+
         # Amazon.GeoMaps.ColorScheme
         {
             ($_ -eq "Get-GEOMSprite/ColorScheme") -Or
@@ -36976,7 +36983,7 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.Terrain
         "Get-GEOMStyleDescriptor/Terrain"
         {
-            $v = "Hillshade"
+            $v = "Hillshade","Terrain3D"
             break
         }
 
@@ -37003,6 +37010,7 @@ $GEOM_Completers = {
 }
 
 $GEOM_map = @{
+    "Building"=@("Get-GEOMStyleDescriptor")
     "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
     "ContourDensity"=@("Get-GEOMStyleDescriptor")
     "LabelSize"=@("Get-GEOMStaticMap")
@@ -79679,7 +79687,8 @@ $SSOADMN_SelectCompleters = {
 }
 
 $SSOADMN_SelectMap = @{
-    "Select"=@("Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet",
+    "Select"=@("Add-SSOADMNRegion",
+               "Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet",
                "Mount-SSOADMNManagedPolicyToPermissionSet",
                "New-SSOADMNAccountAssignment",
                "New-SSOADMNApplication",
@@ -79709,6 +79718,7 @@ $SSOADMN_SelectMap = @{
                "Get-SSOADMNInstanceAccessControlAttributeConfiguration",
                "Get-SSOADMNPermissionSet",
                "Get-SSOADMNPermissionSetProvisioningStatus",
+               "Get-SSOADMNRegion",
                "Get-SSOADMNTrustedTokenIssuer",
                "Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet",
                "Dismount-SSOADMNManagedPolicyFromPermissionSet",
@@ -79737,6 +79747,7 @@ $SSOADMN_SelectMap = @{
                "Get-SSOADMNPermissionSetProvisioningStatusList",
                "Get-SSOADMNPermissionSetList",
                "Get-SSOADMNPermissionSetsProvisionedToAccountList",
+               "Get-SSOADMNRegionList",
                "Get-SSOADMNResourceTag",
                "Get-SSOADMNTrustedTokenIssuerList",
                "Add-SSOADMNPermissionSetProvision",
@@ -79747,6 +79758,7 @@ $SSOADMN_SelectMap = @{
                "Write-SSOADMNApplicationSessionConfiguration",
                "Write-SSOADMNInlinePolicyToPermissionSet",
                "Write-SSOADMNPermissionsBoundaryToPermissionSet",
+               "Remove-SSOADMNRegion",
                "Add-SSOADMNResourceTag",
                "Remove-SSOADMNResourceTag",
                "Update-SSOADMNApplication",

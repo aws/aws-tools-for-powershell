@@ -105,6 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String StreamARN { get; set; }
         #endregion
         
+        #region Parameter StreamId
+        /// <summary>
+        /// <para>
+        /// <para>Not Implemented. Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -193,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter StreamARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamId = this.StreamId;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -224,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.StreamARN != null)
             {
                 request.StreamARN = cmdletContext.StreamARN;
+            }
+            if (cmdletContext.StreamId != null)
+            {
+                request.StreamId = cmdletContext.StreamId;
             }
             if (cmdletContext.Tag != null)
             {
@@ -292,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             public System.String ConsumerName { get; set; }
             public System.String StreamARN { get; set; }
+            public System.String StreamId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Kinesis.Model.RegisterStreamConsumerResponse, RegisterKINStreamConsumerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Consumer;

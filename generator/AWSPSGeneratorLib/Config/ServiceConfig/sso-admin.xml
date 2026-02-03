@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddRegion" OutputProperty="Status" Verb="Add" Noun="Region" ShouldProcessTarget="RegionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AttachCustomerManagedPolicyReferenceToPermissionSet" Verb="Mount" Noun="CustomerManagedPolicyReferenceToPermissionSet" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -147,6 +151,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegion" OutputProperty="*" Verb="Get" Noun="Region" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTrustedTokenIssuer" OutputProperty="*" Verb="Get" Noun="TrustedTokenIssuer" PipelineParameter="TrustedTokenIssuerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -259,6 +267,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRegions" OutputProperty="Regions" Verb="Get" Noun="RegionList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -305,6 +317,10 @@
                 <Param Name="PermissionsBoundary_CustomerManagedPolicyReference_Name" NewName="CustomerManagedPolicyReference_Name" />
                 <Param Name="PermissionsBoundary_CustomerManagedPolicyReference_Path" NewName="CustomerManagedPolicyReference_Path" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveRegion" OutputProperty="Status" Verb="Remove" Noun="Region" ShouldProcessTarget="RegionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">

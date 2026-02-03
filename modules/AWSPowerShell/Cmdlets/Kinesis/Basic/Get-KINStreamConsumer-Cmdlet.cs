@@ -88,6 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String StreamARN { get; set; }
         #endregion
         
+        #region Parameter StreamId
+        /// <summary>
+        /// <para>
+        /// <para>Not Implemented. Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ConsumerDescription'.
@@ -137,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             context.ConsumerARN = this.ConsumerARN;
             context.ConsumerName = this.ConsumerName;
             context.StreamARN = this.StreamARN;
+            context.StreamId = this.StreamId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.StreamARN != null)
             {
                 request.StreamARN = cmdletContext.StreamARN;
+            }
+            if (cmdletContext.StreamId != null)
+            {
+                request.StreamId = cmdletContext.StreamId;
             }
             
             CmdletOutput output;
@@ -229,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             public System.String ConsumerARN { get; set; }
             public System.String ConsumerName { get; set; }
             public System.String StreamARN { get; set; }
+            public System.String StreamId { get; set; }
             public System.Func<Amazon.Kinesis.Model.DescribeStreamConsumerResponse, GetKINStreamConsumerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConsumerDescription;
         }

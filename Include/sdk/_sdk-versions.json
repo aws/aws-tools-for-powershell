@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1214.0",
+    "ProductVersion"    : "3.7.1215.0",
     "CoreVersion"       : "3.7.500.75",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.510.4",
+            "Version" : "3.7.511.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.75"
@@ -228,7 +228,7 @@
             "InPreview"               : false
         },
         "Kinesis"              : {
-            "Version" : "3.7.505.34",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.75"
@@ -676,7 +676,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "3.7.501.43",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.75"
@@ -716,7 +716,7 @@
             "InPreview"               : false
         },
         "Organizations"                   : {
-            "Version" : "3.7.509.22",
+            "Version" : "3.7.509.23",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.75"
@@ -1460,7 +1460,7 @@
             "InPreview"               : false
         },
         "MarketplaceCatalog"              : {
-            "Version" : "3.7.503.26",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.75"
@@ -1716,7 +1716,7 @@
             "InPreview"               : false
         },
         "SSOAdmin"                        : {
-            "Version" : "3.7.503.37",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.75"
@@ -2996,7 +2996,7 @@
             "InPreview"               : false
         },
         "GeoMaps"                             : {
-            "Version" : "3.7.503.38",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.75"
