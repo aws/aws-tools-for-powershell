@@ -39,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// It runs on its own set of Amazon EC2 instances.
     /// </para><para>
     /// The cluster control plane is provisioned across multiple Availability Zones and fronted
-    /// by an ELB Network Load Balancer. Amazon EKS also provisions elastic network interfaces
-    /// in your VPC subnets to provide connectivity from the control plane instances to the
-    /// nodes (for example, to support <c>kubectl exec</c>, <c>logs</c>, and <c>proxy</c>
-    /// data flows).
+    /// by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic
+    /// network interfaces in your VPC subnets to provide connectivity from the control plane
+    /// instances to the nodes (for example, to support <c>kubectl exec</c>, <c>logs</c>,
+    /// and <c>proxy</c> data flows).
     /// </para><para>
     /// Amazon EKS nodes run in your Amazon Web Services account and connect to your cluster's
     /// control plane over the Kubernetes API server endpoint and a certificate file that

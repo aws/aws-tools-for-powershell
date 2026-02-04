@@ -148,6 +148,16 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public Amazon.BedrockRuntime.Model.AutoToolChoice ToolChoice_Auto { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_TextFormat_Structure_JsonSchema_Description
+        /// <summary>
+        /// <para>
+        /// <para> A description of the JSON schema. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_TextFormat_Structure_JsonSchema_Description { get; set; }
+        #endregion
+        
         #region Parameter GuardrailConfig_GuardrailIdentifier
         /// <summary>
         /// <para>
@@ -232,6 +242,16 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public System.String ModelId { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_TextFormat_Structure_JsonSchema_Name
+        /// <summary>
+        /// <para>
+        /// <para> The name of the JSON schema. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_TextFormat_Structure_JsonSchema_Name { get; set; }
+        #endregion
+        
         #region Parameter Tool_Name
         /// <summary>
         /// <para>
@@ -264,6 +284,17 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Collections.Hashtable RequestMetadata { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_TextFormat_Structure_JsonSchema_Schema
+        /// <summary>
+        /// <para>
+        /// <para> The JSON schema to constrain the model's output. For more information, see <a href="https://json-schema.org/understanding-json-schema/reference">JSON
+        /// Schema Reference</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_TextFormat_Structure_JsonSchema_Schema { get; set; }
         #endregion
         
         #region Parameter InferenceConfig_StopSequence
@@ -350,6 +381,17 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.BedrockRuntime.GuardrailTrace")]
         public Amazon.BedrockRuntime.GuardrailTrace GuardrailConfig_Trace { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_TextFormat_Type
+        /// <summary>
+        /// <para>
+        /// <para> The type of structured output format. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockRuntime.OutputFormatType")]
+        public Amazon.BedrockRuntime.OutputFormatType OutputConfig_TextFormat_Type { get; set; }
         #endregion
         
         #region Parameter ServiceTier_Type
@@ -452,6 +494,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputConfig_TextFormat_Structure_JsonSchema_Description = this.OutputConfig_TextFormat_Structure_JsonSchema_Description;
+            context.OutputConfig_TextFormat_Structure_JsonSchema_Name = this.OutputConfig_TextFormat_Structure_JsonSchema_Name;
+            context.OutputConfig_TextFormat_Structure_JsonSchema_Schema = this.OutputConfig_TextFormat_Structure_JsonSchema_Schema;
+            context.OutputConfig_TextFormat_Type = this.OutputConfig_TextFormat_Type;
             context.PerformanceConfig_Latency = this.PerformanceConfig_Latency;
             if (this.PromptVariable != null)
             {
@@ -610,6 +656,100 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             if (cmdletContext.ModelId != null)
             {
                 request.ModelId = cmdletContext.ModelId;
+            }
+            
+             // populate OutputConfig
+            var requestOutputConfigIsNull = true;
+            request.OutputConfig = new Amazon.BedrockRuntime.Model.OutputConfig();
+            Amazon.BedrockRuntime.Model.OutputFormat requestOutputConfig_outputConfig_TextFormat = null;
+            
+             // populate TextFormat
+            var requestOutputConfig_outputConfig_TextFormatIsNull = true;
+            requestOutputConfig_outputConfig_TextFormat = new Amazon.BedrockRuntime.Model.OutputFormat();
+            Amazon.BedrockRuntime.OutputFormatType requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Type = null;
+            if (cmdletContext.OutputConfig_TextFormat_Type != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Type = cmdletContext.OutputConfig_TextFormat_Type;
+            }
+            if (requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Type != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat.Type = requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Type;
+                requestOutputConfig_outputConfig_TextFormatIsNull = false;
+            }
+            Amazon.BedrockRuntime.Model.OutputFormatStructure requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure = null;
+            
+             // populate Structure
+            var requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_StructureIsNull = true;
+            requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure = new Amazon.BedrockRuntime.Model.OutputFormatStructure();
+            Amazon.BedrockRuntime.Model.JsonSchemaDefinition requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema = null;
+            
+             // populate JsonSchema
+            var requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchemaIsNull = true;
+            requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema = new Amazon.BedrockRuntime.Model.JsonSchemaDefinition();
+            System.String requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Description = null;
+            if (cmdletContext.OutputConfig_TextFormat_Structure_JsonSchema_Description != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Description = cmdletContext.OutputConfig_TextFormat_Structure_JsonSchema_Description;
+            }
+            if (requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Description != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema.Description = requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Description;
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchemaIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Name = null;
+            if (cmdletContext.OutputConfig_TextFormat_Structure_JsonSchema_Name != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Name = cmdletContext.OutputConfig_TextFormat_Structure_JsonSchema_Name;
+            }
+            if (requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Name != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema.Name = requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Name;
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchemaIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Schema = null;
+            if (cmdletContext.OutputConfig_TextFormat_Structure_JsonSchema_Schema != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Schema = cmdletContext.OutputConfig_TextFormat_Structure_JsonSchema_Schema;
+            }
+            if (requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Schema != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema.Schema = requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema_outputConfig_TextFormat_Structure_JsonSchema_Schema;
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchemaIsNull = false;
+            }
+             // determine if requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema should be set to null
+            if (requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchemaIsNull)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema = null;
+            }
+            if (requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure.JsonSchema = requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure_outputConfig_TextFormat_Structure_JsonSchema;
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_StructureIsNull = false;
+            }
+             // determine if requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure should be set to null
+            if (requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_StructureIsNull)
+            {
+                requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure = null;
+            }
+            if (requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure != null)
+            {
+                requestOutputConfig_outputConfig_TextFormat.Structure = requestOutputConfig_outputConfig_TextFormat_outputConfig_TextFormat_Structure;
+                requestOutputConfig_outputConfig_TextFormatIsNull = false;
+            }
+             // determine if requestOutputConfig_outputConfig_TextFormat should be set to null
+            if (requestOutputConfig_outputConfig_TextFormatIsNull)
+            {
+                requestOutputConfig_outputConfig_TextFormat = null;
+            }
+            if (requestOutputConfig_outputConfig_TextFormat != null)
+            {
+                request.OutputConfig.TextFormat = requestOutputConfig_outputConfig_TextFormat;
+                requestOutputConfigIsNull = false;
+            }
+             // determine if request.OutputConfig should be set to null
+            if (requestOutputConfigIsNull)
+            {
+                request.OutputConfig = null;
             }
             
              // populate PerformanceConfig
@@ -813,6 +953,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public System.Single? InferenceConfig_TopP { get; set; }
             public List<Amazon.BedrockRuntime.Model.Message> Message { get; set; }
             public System.String ModelId { get; set; }
+            public System.String OutputConfig_TextFormat_Structure_JsonSchema_Description { get; set; }
+            public System.String OutputConfig_TextFormat_Structure_JsonSchema_Name { get; set; }
+            public System.String OutputConfig_TextFormat_Structure_JsonSchema_Schema { get; set; }
+            public Amazon.BedrockRuntime.OutputFormatType OutputConfig_TextFormat_Type { get; set; }
             public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
             public Dictionary<System.String, Amazon.BedrockRuntime.Model.PromptVariableValues> PromptVariable { get; set; }
             public Dictionary<System.String, System.String> RequestMetadata { get; set; }

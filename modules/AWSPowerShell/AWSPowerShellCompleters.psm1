@@ -9146,6 +9146,16 @@ $BDRR_Completers = {
             break
         }
 
+        # Amazon.BedrockRuntime.OutputFormatType
+        {
+            ($_ -eq "Invoke-BDRRConverse/OutputConfig_TextFormat_Type") -Or
+            ($_ -eq "Invoke-BDRRConverseStream/OutputConfig_TextFormat_Type")
+        }
+        {
+            $v = "json_schema"
+            break
+        }
+
         # Amazon.BedrockRuntime.PerformanceConfigLatency
         {
             ($_ -eq "Invoke-BDRRConverse/PerformanceConfig_Latency") -Or
@@ -9205,6 +9215,7 @@ $BDRR_Completers = {
 $BDRR_map = @{
     "GuardrailConfig_StreamProcessingMode"=@("Invoke-BDRRConverseStream")
     "GuardrailConfig_Trace"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
+    "OutputConfig_TextFormat_Type"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "OutputScope"=@("Invoke-BDRRGuardrail")
     "PerformanceConfig_Latency"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "PerformanceConfigLatency"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
@@ -52145,6 +52156,16 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.Algorithm
+        {
+            ($_ -eq "New-EMLInput/SrtSettings_SrtListenerSettings_Decryption_Algorithm") -Or
+            ($_ -eq "Update-EMLInput/SrtSettings_SrtListenerSettings_Decryption_Algorithm")
+        }
+        {
+            $v = "AES128","AES192","AES256"
+            break
+        }
+
         # Amazon.MediaLive.CdiInputResolution
         {
             ($_ -eq "New-EMLChannel/CdiInputSpecification_Resolution") -Or
@@ -52282,7 +52303,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputType
         "New-EMLInput/Type"
         {
-            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MEDIACONNECT_ROUTER","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SDI","SMPTE_2110_RECEIVER_GROUP","SRT_CALLER","TS_FILE","UDP_PUSH","URL_PULL"
+            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MEDIACONNECT_ROUTER","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SDI","SMPTE_2110_RECEIVER_GROUP","SRT_CALLER","SRT_LISTENER","TS_FILE","UDP_PUSH","URL_PULL"
             break
         }
 
@@ -52421,6 +52442,7 @@ $EML_map = @{
     "RenewalSettings_AutomaticRenewal"=@("New-EMLOfferingPurchase","Update-EMLReservation")
     "Role"=@("New-EMLNode","New-EMLNodeRegistrationScript","Update-EMLNode")
     "RouterSettings_EncryptionType"=@("New-EMLInput")
+    "SrtSettings_SrtListenerSettings_Decryption_Algorithm"=@("New-EMLInput","Update-EMLInput")
     "State"=@("Update-EMLNodeState")
     "Statistic"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
     "TargetResourceType"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")

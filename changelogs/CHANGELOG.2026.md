@@ -1,4 +1,21 @@
-﻿### 4.1.992 (2026-02-03 21:19Z)
+﻿### 4.1.993 (2026-02-04 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1216.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRConverse: added parameters OutputConfig_TextFormat_Structure_JsonSchema_Description, OutputConfig_TextFormat_Structure_JsonSchema_Name, OutputConfig_TextFormat_Structure_JsonSchema_Schema and OutputConfig_TextFormat_Type.
+    * Modified cmdlet Invoke-BDRRConverseStream: added parameters OutputConfig_TextFormat_Structure_JsonSchema_Description, OutputConfig_TextFormat_Structure_JsonSchema_Name, OutputConfig_TextFormat_Structure_JsonSchema_Schema and OutputConfig_TextFormat_Type.
+  * Amazon Connect Cases
+    * Modified cmdlet New-CCASField: added parameter Attributes_Text_IsMultiline.
+    * Modified cmdlet Update-CCASField: added parameter Attributes_Text_IsMultiline.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLChannel: added parameter ChannelSecurityGroup.
+    * Modified cmdlet New-EMLInput: added parameters SrtSettings_SrtListenerSettings_Decryption_Algorithm, SrtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn, SrtSettings_SrtListenerSettings_MinimumLatency and SrtSettings_SrtListenerSettings_StreamId.
+    * Modified cmdlet Update-EMLChannel: added parameter ChannelSecurityGroup.
+    * Modified cmdlet Update-EMLInput: added parameters SrtSettings_SrtListenerSettings_Decryption_Algorithm, SrtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn, SrtSettings_SrtListenerSettings_MinimumLatency and SrtSettings_SrtListenerSettings_StreamId.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWPortal: added parameter PortalCustomDomain.
+    * Modified cmdlet Update-WSWPortal: added parameter PortalCustomDomain.
+
+### 4.1.992 (2026-02-03 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1215.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Kinesis
     * Modified cmdlet Write-KINRecord: added parameter StreamId.

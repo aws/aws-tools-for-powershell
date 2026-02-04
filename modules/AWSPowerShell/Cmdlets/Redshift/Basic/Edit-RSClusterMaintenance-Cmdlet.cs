@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>An integer indicating the duration of the maintenance window in days. If you specify
-        /// a duration, you can't specify an end time. The duration must be 45 days or less.</para>
+        /// a duration, you can't specify an end time. The duration must be 60 days or less.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

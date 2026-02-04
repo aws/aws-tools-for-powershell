@@ -112,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public System.String PortalArn { get; set; }
         #endregion
         
+        #region Parameter PortalCustomDomain
+        /// <summary>
+        /// <para>
+        /// <para>The custom domain of the web portal that users access in order to start streaming
+        /// sessions. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PortalCustomDomain { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Portal'.
@@ -185,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 WriteWarning("You are passing $null as a value for parameter PortalArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PortalCustomDomain = this.PortalCustomDomain;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -220,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             if (cmdletContext.PortalArn != null)
             {
                 request.PortalArn = cmdletContext.PortalArn;
+            }
+            if (cmdletContext.PortalCustomDomain != null)
+            {
+                request.PortalCustomDomain = cmdletContext.PortalCustomDomain;
             }
             
             CmdletOutput output;
@@ -287,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             public Amazon.WorkSpacesWeb.InstanceType InstanceType { get; set; }
             public System.Int32? MaxConcurrentSession { get; set; }
             public System.String PortalArn { get; set; }
+            public System.String PortalCustomDomain { get; set; }
             public System.Func<Amazon.WorkSpacesWeb.Model.UpdatePortalResponse, UpdateWSWPortalCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Portal;
         }
