@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter SrtSettings_SrtListenerSettings_Decryption_Algorithm
+        /// <summary>
+        /// <para>
+        /// Required. The decryption algorithm.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.Algorithm")]
+        public Amazon.MediaLive.Algorithm SrtSettings_SrtListenerSettings_Decryption_Algorithm { get; set; }
+        #endregion
+        
         #region Parameter Destination
         /// <summary>
         /// <para>
@@ -131,6 +142,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.MediaConnectFlowRequest[] MediaConnectFlow { get; set; }
         #endregion
         
+        #region Parameter SrtSettings_SrtListenerSettings_MinimumLatency
+        /// <summary>
+        /// <para>
+        /// Required. The preferred latency in milliseconds
+        /// for packet loss and recovery. Range 120-15000.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SrtSettings_SrtListenerSettings_MinimumLatency { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -139,6 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter SrtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn
+        /// <summary>
+        /// <para>
+        /// Required. The ARN for the secret in
+        /// Secrets Manager that holds the passphrase.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SrtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -241,6 +274,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.SrtCallerSourceRequest[] SrtSettings_SrtCallerSource { get; set; }
         #endregion
         
+        #region Parameter SrtSettings_SrtListenerSettings_StreamId
+        /// <summary>
+        /// <para>
+        /// Optional. The stream ID if the upstream system
+        /// uses this identifier.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SrtSettings_SrtListenerSettings_StreamId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Input'.
@@ -333,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.SrtSettings_SrtCallerSource = new List<Amazon.MediaLive.Model.SrtCallerSourceRequest>(this.SrtSettings_SrtCallerSource);
             }
+            context.SrtSettings_SrtListenerSettings_Decryption_Algorithm = this.SrtSettings_SrtListenerSettings_Decryption_Algorithm;
+            context.SrtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn = this.SrtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn;
+            context.SrtSettings_SrtListenerSettings_MinimumLatency = this.SrtSettings_SrtListenerSettings_MinimumLatency;
+            context.SrtSettings_SrtListenerSettings_StreamId = this.SrtSettings_SrtListenerSettings_StreamId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -456,6 +504,76 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 request.SrtSettings.SrtCallerSources = requestSrtSettings_srtSettings_SrtCallerSource;
                 requestSrtSettingsIsNull = false;
             }
+            Amazon.MediaLive.Model.SrtListenerSettingsRequest requestSrtSettings_srtSettings_SrtListenerSettings = null;
+            
+             // populate SrtListenerSettings
+            var requestSrtSettings_srtSettings_SrtListenerSettingsIsNull = true;
+            requestSrtSettings_srtSettings_SrtListenerSettings = new Amazon.MediaLive.Model.SrtListenerSettingsRequest();
+            System.Int32? requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_MinimumLatency = null;
+            if (cmdletContext.SrtSettings_SrtListenerSettings_MinimumLatency != null)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_MinimumLatency = cmdletContext.SrtSettings_SrtListenerSettings_MinimumLatency.Value;
+            }
+            if (requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_MinimumLatency != null)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings.MinimumLatency = requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_MinimumLatency.Value;
+                requestSrtSettings_srtSettings_SrtListenerSettingsIsNull = false;
+            }
+            System.String requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_StreamId = null;
+            if (cmdletContext.SrtSettings_SrtListenerSettings_StreamId != null)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_StreamId = cmdletContext.SrtSettings_SrtListenerSettings_StreamId;
+            }
+            if (requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_StreamId != null)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings.StreamId = requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_StreamId;
+                requestSrtSettings_srtSettings_SrtListenerSettingsIsNull = false;
+            }
+            Amazon.MediaLive.Model.SrtListenerDecryptionRequest requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption = null;
+            
+             // populate Decryption
+            var requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_DecryptionIsNull = true;
+            requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption = new Amazon.MediaLive.Model.SrtListenerDecryptionRequest();
+            Amazon.MediaLive.Algorithm requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption_srtSettings_SrtListenerSettings_Decryption_Algorithm = null;
+            if (cmdletContext.SrtSettings_SrtListenerSettings_Decryption_Algorithm != null)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption_srtSettings_SrtListenerSettings_Decryption_Algorithm = cmdletContext.SrtSettings_SrtListenerSettings_Decryption_Algorithm;
+            }
+            if (requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption_srtSettings_SrtListenerSettings_Decryption_Algorithm != null)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption.Algorithm = requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption_srtSettings_SrtListenerSettings_Decryption_Algorithm;
+                requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_DecryptionIsNull = false;
+            }
+            System.String requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption_srtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn = null;
+            if (cmdletContext.SrtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn != null)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption_srtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn = cmdletContext.SrtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn;
+            }
+            if (requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption_srtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn != null)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption.PassphraseSecretArn = requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption_srtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn;
+                requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_DecryptionIsNull = false;
+            }
+             // determine if requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption should be set to null
+            if (requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_DecryptionIsNull)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption = null;
+            }
+            if (requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption != null)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings.Decryption = requestSrtSettings_srtSettings_SrtListenerSettings_srtSettings_SrtListenerSettings_Decryption;
+                requestSrtSettings_srtSettings_SrtListenerSettingsIsNull = false;
+            }
+             // determine if requestSrtSettings_srtSettings_SrtListenerSettings should be set to null
+            if (requestSrtSettings_srtSettings_SrtListenerSettingsIsNull)
+            {
+                requestSrtSettings_srtSettings_SrtListenerSettings = null;
+            }
+            if (requestSrtSettings_srtSettings_SrtListenerSettings != null)
+            {
+                request.SrtSettings.SrtListenerSettings = requestSrtSettings_srtSettings_SrtListenerSettings;
+                requestSrtSettingsIsNull = false;
+            }
              // determine if request.SrtSettings should be set to null
             if (requestSrtSettingsIsNull)
             {
@@ -529,6 +647,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public List<Amazon.MediaLive.Model.InputSourceRequest> Source { get; set; }
             public System.String SpecialRouterSettings_RouterArn { get; set; }
             public List<Amazon.MediaLive.Model.SrtCallerSourceRequest> SrtSettings_SrtCallerSource { get; set; }
+            public Amazon.MediaLive.Algorithm SrtSettings_SrtListenerSettings_Decryption_Algorithm { get; set; }
+            public System.String SrtSettings_SrtListenerSettings_Decryption_PassphraseSecretArn { get; set; }
+            public System.Int32? SrtSettings_SrtListenerSettings_MinimumLatency { get; set; }
+            public System.String SrtSettings_SrtListenerSettings_StreamId { get; set; }
             public System.Func<Amazon.MediaLive.Model.UpdateInputResponse, UpdateEMLInputCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Input;
         }

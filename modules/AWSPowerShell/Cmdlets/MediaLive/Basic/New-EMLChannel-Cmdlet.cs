@@ -68,6 +68,23 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String AnywhereSettings_ChannelPlacementGroupId { get; set; }
         #endregion
         
+        #region Parameter ChannelSecurityGroup
+        /// <summary>
+        /// <para>
+        /// A list of IDs for all the Input
+        /// Security Groups attached to the channel.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelSecurityGroups")]
+        public System.String[] ChannelSecurityGroup { get; set; }
+        #endregion
+        
         #region Parameter AnywhereSettings_ClusterId
         /// <summary>
         /// <para>
@@ -416,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.CdiInputSpecification_Resolution = this.CdiInputSpecification_Resolution;
             context.ChannelClass = this.ChannelClass;
             context.ChannelEngineVersion_Version = this.ChannelEngineVersion_Version;
+            if (this.ChannelSecurityGroup != null)
+            {
+                context.ChannelSecurityGroup = new List<System.String>(this.ChannelSecurityGroup);
+            }
             if (this.Destination != null)
             {
                 context.Destination = new List<Amazon.MediaLive.Model.OutputDestination>(this.Destination);
@@ -547,6 +568,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (requestChannelEngineVersionIsNull)
             {
                 request.ChannelEngineVersion = null;
+            }
+            if (cmdletContext.ChannelSecurityGroup != null)
+            {
+                request.ChannelSecurityGroups = cmdletContext.ChannelSecurityGroup;
             }
             if (cmdletContext.Destination != null)
             {
@@ -826,6 +851,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public Amazon.MediaLive.CdiInputResolution CdiInputSpecification_Resolution { get; set; }
             public Amazon.MediaLive.ChannelClass ChannelClass { get; set; }
             public System.String ChannelEngineVersion_Version { get; set; }
+            public List<System.String> ChannelSecurityGroup { get; set; }
             public List<Amazon.MediaLive.Model.OutputDestination> Destination { get; set; }
             public System.Boolean? DryRun { get; set; }
             public Amazon.MediaLive.Model.EncoderSettings EncoderSetting { get; set; }

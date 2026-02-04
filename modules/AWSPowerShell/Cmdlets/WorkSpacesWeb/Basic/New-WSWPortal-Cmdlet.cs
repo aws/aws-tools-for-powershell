@@ -117,6 +117,17 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public System.Int32? MaxConcurrentSession { get; set; }
         #endregion
         
+        #region Parameter PortalCustomDomain
+        /// <summary>
+        /// <para>
+        /// <para>The custom domain of the web portal that users access in order to start streaming
+        /// sessions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PortalCustomDomain { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -207,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             context.DisplayName = this.DisplayName;
             context.InstanceType = this.InstanceType;
             context.MaxConcurrentSession = this.MaxConcurrentSession;
+            context.PortalCustomDomain = this.PortalCustomDomain;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.WorkSpacesWeb.Model.Tag>(this.Tag);
@@ -254,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             if (cmdletContext.MaxConcurrentSession != null)
             {
                 request.MaxConcurrentSessions = cmdletContext.MaxConcurrentSession.Value;
+            }
+            if (cmdletContext.PortalCustomDomain != null)
+            {
+                request.PortalCustomDomain = cmdletContext.PortalCustomDomain;
             }
             if (cmdletContext.Tag != null)
             {
@@ -321,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             public System.String DisplayName { get; set; }
             public Amazon.WorkSpacesWeb.InstanceType InstanceType { get; set; }
             public System.Int32? MaxConcurrentSession { get; set; }
+            public System.String PortalCustomDomain { get; set; }
             public List<Amazon.WorkSpacesWeb.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.WorkSpacesWeb.Model.CreatePortalResponse, NewWSWPortalCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

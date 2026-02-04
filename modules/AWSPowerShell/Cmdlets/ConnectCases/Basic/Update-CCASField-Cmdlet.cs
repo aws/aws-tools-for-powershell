@@ -89,6 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String FieldId { get; set; }
         #endregion
         
+        #region Parameter Attributes_Text_IsMultiline
+        /// <summary>
+        /// <para>
+        /// <para>Attribute that defines rendering component and validation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Attributes_Text_IsMultiline { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -144,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.UpdateFieldResponse, UpdateCCASFieldCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Attributes_Text_IsMultiline = this.Attributes_Text_IsMultiline;
             context.Description = this.Description;
             context.DomainId = this.DomainId;
             #if MODULAR
@@ -176,6 +187,40 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             // create request
             var request = new Amazon.ConnectCases.Model.UpdateFieldRequest();
             
+            
+             // populate Attributes
+            var requestAttributesIsNull = true;
+            request.Attributes = new Amazon.ConnectCases.Model.FieldAttributes();
+            Amazon.ConnectCases.Model.TextAttributes requestAttributes_attributes_Text = null;
+            
+             // populate Text
+            var requestAttributes_attributes_TextIsNull = true;
+            requestAttributes_attributes_Text = new Amazon.ConnectCases.Model.TextAttributes();
+            System.Boolean? requestAttributes_attributes_Text_attributes_Text_IsMultiline = null;
+            if (cmdletContext.Attributes_Text_IsMultiline != null)
+            {
+                requestAttributes_attributes_Text_attributes_Text_IsMultiline = cmdletContext.Attributes_Text_IsMultiline.Value;
+            }
+            if (requestAttributes_attributes_Text_attributes_Text_IsMultiline != null)
+            {
+                requestAttributes_attributes_Text.IsMultiline = requestAttributes_attributes_Text_attributes_Text_IsMultiline.Value;
+                requestAttributes_attributes_TextIsNull = false;
+            }
+             // determine if requestAttributes_attributes_Text should be set to null
+            if (requestAttributes_attributes_TextIsNull)
+            {
+                requestAttributes_attributes_Text = null;
+            }
+            if (requestAttributes_attributes_Text != null)
+            {
+                request.Attributes.Text = requestAttributes_attributes_Text;
+                requestAttributesIsNull = false;
+            }
+             // determine if request.Attributes should be set to null
+            if (requestAttributesIsNull)
+            {
+                request.Attributes = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -247,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Attributes_Text_IsMultiline { get; set; }
             public System.String Description { get; set; }
             public System.String DomainId { get; set; }
             public System.String FieldId { get; set; }

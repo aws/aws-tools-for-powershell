@@ -118,6 +118,16 @@ $BDRR_Completers = {
             break
         }
 
+        # Amazon.BedrockRuntime.OutputFormatType
+        {
+            ($_ -eq "Invoke-BDRRConverse/OutputConfig_TextFormat_Type") -Or
+            ($_ -eq "Invoke-BDRRConverseStream/OutputConfig_TextFormat_Type")
+        }
+        {
+            $v = "json_schema"
+            break
+        }
+
         # Amazon.BedrockRuntime.PerformanceConfigLatency
         {
             ($_ -eq "Invoke-BDRRConverse/PerformanceConfig_Latency") -Or
@@ -177,6 +187,7 @@ $BDRR_Completers = {
 $BDRR_map = @{
     "GuardrailConfig_StreamProcessingMode"=@("Invoke-BDRRConverseStream")
     "GuardrailConfig_Trace"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
+    "OutputConfig_TextFormat_Type"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "OutputScope"=@("Invoke-BDRRGuardrail")
     "PerformanceConfig_Latency"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "PerformanceConfigLatency"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
