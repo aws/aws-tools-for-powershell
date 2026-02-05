@@ -145,6 +145,24 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ConnectorOAuth2GrantType
+        "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"
+        {
+            $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER"
+            break
+        }
+
+        # Amazon.Glue.ContentType
+        {
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ContentType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ContentType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_ContentType")
+        }
+        {
+            $v = "APPLICATION_JSON","URL_ENCODED"
+            break
+        }
+
         # Amazon.Glue.CrawlerLineageSettings
         {
             ($_ -eq "New-GLUECrawler/LineageConfiguration_CrawlerLineageSetting") -Or
@@ -230,6 +248,19 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.HTTPMethod
+        {
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RequestMethod") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_RequestMethod") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_RequestMethod") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_GlobalSourceConfiguration_RequestMethod") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_ValidationEndpointConfiguration_RequestMethod")
+        }
+        {
+            $v = "GET","POST"
+            break
+        }
+
         # Amazon.Glue.IcebergStructTypeEnum
         "New-GLUETable/Schema_Type"
         {
@@ -241,6 +272,13 @@ $GLUE_Completers = {
         "Write-GLUEDataQualityProfileAnnotation/InclusionAnnotation"
         {
             $v = "EXCLUDE","INCLUDE"
+            break
+        }
+
+        # Amazon.Glue.IntegrationType
+        "Register-GLUEConnectionType/IntegrationType"
+        {
+            $v = "REST"
             break
         }
 
@@ -286,6 +324,64 @@ $GLUE_Completers = {
         "Test-GLUEConnection/OAuth2Properties_OAuth2GrantType"
         {
             $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER"
+            break
+        }
+
+        # Amazon.Glue.PropertyLocation
+        {
+            ($_ -eq "Register-GLUEConnectionType/ConnectionProperties_Url_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_OffsetParameter_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_OffsetParameter_PropertyLocation")
+        }
+        {
+            $v = "BODY","HEADER","PATH","QUERY_PARAM"
+            break
+        }
+
+        # Amazon.Glue.PropertyType
+        {
+            ($_ -eq "Register-GLUEConnectionType/ConnectionProperties_Url_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_PropertyType") -Or
+            ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_PropertyType")
+        }
+        {
+            $v = "READ_ONLY","SECRET","SECRET_OR_USER_INPUT","UNUSED","USER_INPUT"
             break
         }
 
@@ -476,6 +572,47 @@ $GLUE_map = @{
     "CatalogInput_AllowFullTableExternalDataAccess"=@("New-GLUECatalog","Update-GLUECatalog")
     "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
+    "ConnectionProperties_Url_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectionProperties_Url_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ContentType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RequestMethod"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ContentType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_RequestMethod"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_ContentType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_RequestMethod"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_PropertyLocation"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_PropertyType"=@("Register-GLUEConnectionType")
+    "ConnectorAuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("Register-GLUEConnectionType")
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "CsvClassifier_Serde"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "DataFormat"=@("Get-GLUESchemaVersionValidity","New-GLUESchema")
@@ -490,6 +627,7 @@ $GLUE_map = @{
     "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
     "InclusionAnnotation"=@("Write-GLUEDataQualityProfileAnnotation")
+    "IntegrationType"=@("Register-GLUEConnectionType")
     "JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
     "JobMode"=@("New-GLUEJob")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
@@ -501,6 +639,16 @@ $GLUE_map = @{
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
+    "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
+    "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation"=@("Register-GLUEConnectionType")
+    "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
+    "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_OffsetParameter_PropertyLocation"=@("Register-GLUEConnectionType")
+    "RestConfiguration_GlobalSourceConfiguration_RequestMethod"=@("Register-GLUEConnectionType")
+    "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
+    "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation"=@("Register-GLUEConnectionType")
+    "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
+    "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_OffsetParameter_PropertyLocation"=@("Register-GLUEConnectionType")
+    "RestConfiguration_ValidationEndpointConfiguration_RequestMethod"=@("Register-GLUEConnectionType")
     "Schema_Type"=@("New-GLUETable")
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
@@ -624,6 +772,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUEColumnStatisticsForTable",
                "Remove-GLUEColumnStatisticsTaskSetting",
                "Remove-GLUEConnection",
+               "Remove-GLUEConnectionType",
                "Remove-GLUECrawler",
                "Remove-GLUECustomEntityType",
                "Remove-GLUEDatabase",
@@ -768,6 +917,7 @@ $GLUE_SelectMap = @{
                "Write-GLUESchemaVersionMetadata",
                "Write-GLUEWorkflowRunProperty",
                "Find-GLUESchemaVersionMetadata",
+               "Register-GLUEConnectionType",
                "Register-GLUESchemaVersion",
                "Remove-GLUESchemaVersionMetadata",
                "Reset-GLUEJobBookmark",

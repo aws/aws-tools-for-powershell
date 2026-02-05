@@ -28,7 +28,14 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Retrieves details about the resource shares that you own or that are shared with you.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves details about the resource shares that you own or that are shared with you.
+    /// 
+    ///  <note><para>
+    /// Always check the <c>NextToken</c> response parameter for a <c>null</c> value when
+    /// calling a paginated operation. These operations can occasionally return an empty set
+    /// of results even when there are more results available. The <c>NextToken</c> response
+    /// parameter value is <c>null</c><i>only</i> when there are no more results to display.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RAMResourceShare")]
     [OutputType("Amazon.RAM.Model.ResourceShare")]

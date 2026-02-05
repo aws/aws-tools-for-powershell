@@ -28,29 +28,23 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Lists the tags associated with the specified resource.
-    /// 
-    ///  <note><para>
-    /// This feature is currently available only for AgentCore Runtime, Browser, Browser Profile,
-    /// Code Interpreter tool, and Gateway.
-    /// </para></note>
+    /// Deletes a browser profile.
     /// </summary>
-    [Cmdlet("Get", "BACCResourceTag")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "BACCBrowserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteBrowserProfile API operation.", Operation = new[] {"DeleteBrowserProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse object containing multiple properties."
     )]
-    public partial class GetBACCResourceTagCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class RemoveBACCBrowserProfileCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</para>
+        /// <para>The unique identifier of the browser profile to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,34 +55,60 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ProfileId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier to ensure idempotency of the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ProfileId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ProfileId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ProfileId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProfileId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACCBrowserProfile (DeleteBrowserProfile)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -98,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse, GetBACCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse, RemoveBACCBrowserProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -107,14 +127,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ProfileId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ClientToken = this.ClientToken;
+            context.ProfileId = this.ProfileId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,11 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.ProfileId != null)
+            {
+                request.ProfileId = cmdletContext.ProfileId;
             }
             
             CmdletOutput output;
@@ -170,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteBrowserProfile");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.DeleteBrowserProfile(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteBrowserProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -198,9 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse, GetBACCResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.String ClientToken { get; set; }
+            public System.String ProfileId { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse, RemoveBACCBrowserProfileCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

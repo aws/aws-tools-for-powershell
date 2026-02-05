@@ -54,6 +54,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBrowserProfile" OutputProperty="*" Verb="New" Noun="BrowserProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeInterpreter" OutputProperty="*" Verb="New" Noun="CodeInterpreter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="NetworkConfiguration_VpcConfig_SecurityGroups" NewName="VpcConfig_SecurityGroup" />
@@ -184,6 +188,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBrowserProfile" OutputProperty="*" Verb="Remove" Noun="BrowserProfile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCodeInterpreter" OutputProperty="*" Verb="Remove" Noun="CodeInterpreter" ShouldProcessTarget="CodeInterpreterId" PipelineParameter="CodeInterpreterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -241,6 +249,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBrowser" OutputProperty="*" Verb="Get" Noun="Browser" PipelineParameter="BrowserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBrowserProfile" OutputProperty="*" Verb="Get" Noun="BrowserProfile" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -309,6 +321,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApiKeyCredentialProviders" OutputProperty="CredentialProviders" Verb="Get" Noun="ApiKeyCredentialProviderList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBrowserProfiles" OutputProperty="ProfileSummaries" Verb="Get" Noun="BrowserProfileList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

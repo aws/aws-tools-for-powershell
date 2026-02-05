@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
     /// Retrieves detailed information about a specific code interpreter session in Amazon
-    /// Bedrock. This operation returns the session's configuration, current status, and metadata.
+    /// Bedrock AgentCore. This operation returns the session's configuration, current status,
+    /// and metadata.
     /// 
     ///  
     /// <para>

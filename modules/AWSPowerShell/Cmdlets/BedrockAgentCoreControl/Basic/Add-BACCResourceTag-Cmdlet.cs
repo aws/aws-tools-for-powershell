@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// When a resource is deleted, the tags associated with that resource are also deleted.
     /// 
     ///  <note><para>
-    /// This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter
-    /// tool, and Gateway.
+    /// This feature is currently available only for AgentCore Runtime, Browser, Browser Profile,
+    /// Code Interpreter tool, and Gateway.
     /// </para></note>
     /// </summary>
     [Cmdlet("Add", "BACCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

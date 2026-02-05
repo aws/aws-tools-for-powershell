@@ -22,35 +22,38 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.BedrockAgentCoreControl;
-using Amazon.BedrockAgentCoreControl.Model;
+using Amazon.Glue;
+using Amazon.Glue.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BACC
+namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Lists the tags associated with the specified resource.
+    /// Deletes a custom connection type in Glue.
     /// 
-    ///  <note><para>
-    /// This feature is currently available only for AgentCore Runtime, Browser, Browser Profile,
-    /// Code Interpreter tool, and Gateway.
-    /// </para></note>
+    ///  
+    /// <para>
+    /// The connection type must exist and be registered before it can be deleted. This operation
+    /// supports cleanup of connection type resources and helps maintain proper lifecycle
+    /// management of custom connection types.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "BACCResourceTag")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "GLUEConnectionType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Glue DeleteConnectionType API operation.", Operation = new[] {"DeleteConnectionType"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteConnectionTypeResponse))]
+    [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteConnectionTypeResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Glue.Model.DeleteConnectionTypeResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetBACCResourceTagCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class RemoveGLUEConnectionTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter ConnectionType
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</para>
+        /// <para>The name of the connection type to delete. Must reference an existing registered connection
+        /// type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,34 +64,49 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ConnectionType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DeleteConnectionTypeResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConnectionType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConnectionType' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionType' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionType), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GLUEConnectionType (DeleteConnectionType)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -98,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse, GetBACCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.DeleteConnectionTypeResponse, RemoveGLUEConnectionTypeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -107,14 +125,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ConnectionType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ConnectionType = this.ConnectionType;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ConnectionType == null && ParameterWasBound(nameof(this.ConnectionType)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConnectionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,11 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceRequest();
+            var request = new Amazon.Glue.Model.DeleteConnectionTypeRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ConnectionType != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ConnectionType = cmdletContext.ConnectionType;
             }
             
             CmdletOutput output;
@@ -170,15 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceRequest request)
+        private Amazon.Glue.Model.DeleteConnectionTypeResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.DeleteConnectionTypeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "DeleteConnectionType");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.DeleteConnectionType(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteConnectionTypeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -198,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse, GetBACCResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.String ConnectionType { get; set; }
+            public System.Func<Amazon.Glue.Model.DeleteConnectionTypeResponse, RemoveGLUEConnectionTypeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

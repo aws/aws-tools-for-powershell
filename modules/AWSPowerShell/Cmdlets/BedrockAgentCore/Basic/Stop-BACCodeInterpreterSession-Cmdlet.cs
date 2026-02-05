@@ -28,9 +28,9 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Terminates an active code interpreter session in Amazon Bedrock. This operation stops
-    /// the session, releases associated resources, and makes the session unavailable for
-    /// further use.
+    /// Terminates an active code interpreter session in Amazon Bedrock AgentCore. This operation
+    /// stops the session, releases associated resources, and makes the session unavailable
+    /// for further use.
     /// 
     ///  
     /// <para>
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
-        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
-        /// request, but does not return an error.</para>
+        /// than one time. If this token matches a previous request, Amazon Bedrock AgentCore
+        /// ignores the request, but does not return an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

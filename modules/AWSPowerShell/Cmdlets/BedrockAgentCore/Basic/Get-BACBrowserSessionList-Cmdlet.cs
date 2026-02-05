@@ -28,9 +28,9 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Retrieves a list of browser sessions in Amazon Bedrock that match the specified criteria.
-    /// This operation returns summary information about each session, including identifiers,
-    /// status, and timestamps.
+    /// Retrieves a list of browser sessions in Amazon Bedrock AgentCore that match the specified
+    /// criteria. This operation returns summary information about each session, including
+    /// identifiers, status, and timestamps.
     /// 
     ///  
     /// <para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// <para>
         /// <para>The token for the next set of results. Use the value returned in the previous response
         /// in the next request to retrieve the next set of results. If not specified, Amazon
-        /// Bedrock returns the first page of results.</para>
+        /// Bedrock AgentCore returns the first page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

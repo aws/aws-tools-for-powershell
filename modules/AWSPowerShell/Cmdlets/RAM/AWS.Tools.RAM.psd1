@@ -112,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RAMResourceShareInvitation', 
         'Get-RAMResourceSharePermissionList', 
         'Get-RAMResourceTypeList', 
+        'Get-RAMSourceAssociationList', 
         'New-RAMPermission', 
         'New-RAMPermissionVersion', 
         'New-RAMResourceShare', 

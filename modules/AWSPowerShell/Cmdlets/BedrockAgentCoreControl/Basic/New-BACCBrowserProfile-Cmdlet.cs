@@ -28,15 +28,17 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Creates a custom code interpreter.
+    /// Creates a browser profile in Amazon Bedrock AgentCore. A browser profile stores persistent
+    /// browser data such as cookies, local storage, session storage, and browsing history
+    /// that can be saved from browser sessions and reused in subsequent sessions.
     /// </summary>
-    [Cmdlet("New", "BACCCodeInterpreter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateCodeInterpreter API operation.", Operation = new[] {"CreateCodeInterpreter"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse object containing multiple properties."
+    [Cmdlet("New", "BACCBrowserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateBrowserProfile API operation.", Operation = new[] {"CreateBrowserProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse object containing multiple properties."
     )]
-    public partial class NewBACCCodeInterpreterCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class NewBACCBrowserProfileCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
@@ -46,28 +48,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the code interpreter.</para>
+        /// <para>A description of the browser profile. Use this field to describe the purpose or contents
+        /// of the profile.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter ExecutionRoleArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the code
-        /// interpreter to access Amazon Web Services services.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ExecutionRoleArn { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the code interpreter. The name must be unique within your account.</para>
+        /// <para>The name of the browser profile. The name must be unique within your account and can
+        /// contain alphanumeric characters and underscores.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,50 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter NetworkConfiguration_NetworkMode
-        /// <summary>
-        /// <para>
-        /// <para>The network mode for the code interpreter. This field specifies how the code interpreter
-        /// connects to the network.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.CodeInterpreterNetworkMode")]
-        public Amazon.BedrockAgentCoreControl.CodeInterpreterNetworkMode NetworkConfiguration_NetworkMode { get; set; }
-        #endregion
-        
-        #region Parameter VpcConfig_SecurityGroup
-        /// <summary>
-        /// <para>
-        /// <para>The security groups associated with the VPC configuration.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("NetworkConfiguration_VpcConfig_SecurityGroups")]
-        public System.String[] VpcConfig_SecurityGroup { get; set; }
-        #endregion
-        
-        #region Parameter VpcConfig_Subnet
-        /// <summary>
-        /// <para>
-        /// <para>The subnets associated with the VPC configuration.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("NetworkConfiguration_VpcConfig_Subnets")]
-        public System.String[] VpcConfig_Subnet { get; set; }
-        #endregion
-        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A map of tag keys and values to assign to the code interpreter. Tags enable you to
+        /// <para>A map of tag keys and values to assign to the browser profile. Tags enable you to
         /// categorize your resources in different ways, for example, by purpose, owner, or environment.</para>
         /// </para>
         /// </summary>
@@ -148,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BACCCodeInterpreter (CreateCodeInterpreter)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BACCBrowserProfile (CreateBrowserProfile)"))
             {
                 return;
             }
@@ -195,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse, NewBACCCodeInterpreterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse, NewBACCBrowserProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -209,7 +162,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
-            context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -217,21 +169,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.NetworkConfiguration_NetworkMode = this.NetworkConfiguration_NetworkMode;
-            #if MODULAR
-            if (this.NetworkConfiguration_NetworkMode == null && ParameterWasBound(nameof(this.NetworkConfiguration_NetworkMode)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NetworkConfiguration_NetworkMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.VpcConfig_SecurityGroup != null)
-            {
-                context.VpcConfig_SecurityGroup = new List<System.String>(this.VpcConfig_SecurityGroup);
-            }
-            if (this.VpcConfig_Subnet != null)
-            {
-                context.VpcConfig_Subnet = new List<System.String>(this.VpcConfig_Subnet);
-            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -254,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -264,67 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.ExecutionRoleArn != null)
-            {
-                request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            
-             // populate NetworkConfiguration
-            var requestNetworkConfigurationIsNull = true;
-            request.NetworkConfiguration = new Amazon.BedrockAgentCoreControl.Model.CodeInterpreterNetworkConfiguration();
-            Amazon.BedrockAgentCoreControl.CodeInterpreterNetworkMode requestNetworkConfiguration_networkConfiguration_NetworkMode = null;
-            if (cmdletContext.NetworkConfiguration_NetworkMode != null)
-            {
-                requestNetworkConfiguration_networkConfiguration_NetworkMode = cmdletContext.NetworkConfiguration_NetworkMode;
-            }
-            if (requestNetworkConfiguration_networkConfiguration_NetworkMode != null)
-            {
-                request.NetworkConfiguration.NetworkMode = requestNetworkConfiguration_networkConfiguration_NetworkMode;
-                requestNetworkConfigurationIsNull = false;
-            }
-            Amazon.BedrockAgentCoreControl.Model.VpcConfig requestNetworkConfiguration_networkConfiguration_VpcConfig = null;
-            
-             // populate VpcConfig
-            var requestNetworkConfiguration_networkConfiguration_VpcConfigIsNull = true;
-            requestNetworkConfiguration_networkConfiguration_VpcConfig = new Amazon.BedrockAgentCoreControl.Model.VpcConfig();
-            List<System.String> requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_SecurityGroup = null;
-            if (cmdletContext.VpcConfig_SecurityGroup != null)
-            {
-                requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_SecurityGroup = cmdletContext.VpcConfig_SecurityGroup;
-            }
-            if (requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_SecurityGroup != null)
-            {
-                requestNetworkConfiguration_networkConfiguration_VpcConfig.SecurityGroups = requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_SecurityGroup;
-                requestNetworkConfiguration_networkConfiguration_VpcConfigIsNull = false;
-            }
-            List<System.String> requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_Subnet = null;
-            if (cmdletContext.VpcConfig_Subnet != null)
-            {
-                requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_Subnet = cmdletContext.VpcConfig_Subnet;
-            }
-            if (requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_Subnet != null)
-            {
-                requestNetworkConfiguration_networkConfiguration_VpcConfig.Subnets = requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_Subnet;
-                requestNetworkConfiguration_networkConfiguration_VpcConfigIsNull = false;
-            }
-             // determine if requestNetworkConfiguration_networkConfiguration_VpcConfig should be set to null
-            if (requestNetworkConfiguration_networkConfiguration_VpcConfigIsNull)
-            {
-                requestNetworkConfiguration_networkConfiguration_VpcConfig = null;
-            }
-            if (requestNetworkConfiguration_networkConfiguration_VpcConfig != null)
-            {
-                request.NetworkConfiguration.VpcConfig = requestNetworkConfiguration_networkConfiguration_VpcConfig;
-                requestNetworkConfigurationIsNull = false;
-            }
-             // determine if request.NetworkConfiguration should be set to null
-            if (requestNetworkConfigurationIsNull)
-            {
-                request.NetworkConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -363,15 +242,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateCodeInterpreter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateBrowserProfile");
             try
             {
                 #if DESKTOP
-                return client.CreateCodeInterpreter(request);
+                return client.CreateBrowserProfile(request);
                 #elif CORECLR
-                return client.CreateCodeInterpreterAsync(request).GetAwaiter().GetResult();
+                return client.CreateBrowserProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -393,13 +272,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
-            public System.String ExecutionRoleArn { get; set; }
             public System.String Name { get; set; }
-            public Amazon.BedrockAgentCoreControl.CodeInterpreterNetworkMode NetworkConfiguration_NetworkMode { get; set; }
-            public List<System.String> VpcConfig_SecurityGroup { get; set; }
-            public List<System.String> VpcConfig_Subnet { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse, NewBACCCodeInterpreterCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse, NewBACCBrowserProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -1,4 +1,24 @@
-﻿### 4.1.993 (2026-02-04 21:11Z)
+﻿### 4.1.994 (2026-02-05 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1217.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Get-BACCBrowserProfile leveraging the GetBrowserProfile service API.
+    * Added cmdlet Get-BACCBrowserProfileList leveraging the ListBrowserProfiles service API.
+    * Added cmdlet New-BACCBrowserProfile leveraging the CreateBrowserProfile service API.
+    * Added cmdlet Remove-BACCBrowserProfile leveraging the DeleteBrowserProfile service API.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Save-BACBrowserSessionProfile leveraging the SaveBrowserSessionProfile service API.
+    * Modified cmdlet Start-BACBrowserSession: added parameter ProfileConfiguration_ProfileIdentifier.
+  * Amazon Glue
+    * Added cmdlet Register-GLUEConnectionType leveraging the RegisterConnectionType service API.
+    * Added cmdlet Remove-GLUEConnectionType leveraging the DeleteConnectionType service API.
+  * Amazon Resource Access Manager (RAM)
+    * Added cmdlet Get-RAMSourceAssociationList leveraging the ListSourceAssociations service API.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRConnector: added parameters As2Config_AsyncMdnConfig_ServerId and As2Config_AsyncMdnConfig_Url.
+    * Modified cmdlet Start-TFRFileTransfer: added parameter CustomHttpHeader.
+    * Modified cmdlet Update-TFRConnector: added parameters As2Config_AsyncMdnConfig_ServerId and As2Config_AsyncMdnConfig_Url.
+
+### 4.1.993 (2026-02-04 21:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1216.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Runtime
     * Modified cmdlet Invoke-BDRRConverse: added parameters OutputConfig_TextFormat_Structure_JsonSchema_Description, OutputConfig_TextFormat_Structure_JsonSchema_Name, OutputConfig_TextFormat_Structure_JsonSchema_Schema and OutputConfig_TextFormat_Type.

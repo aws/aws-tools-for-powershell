@@ -28,26 +28,32 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Terminates an active browser session in Amazon Bedrock AgentCore. This operation stops
-    /// the session, releases associated resources, and makes the session unavailable for
-    /// further use.
+    /// Saves the current state of a browser session as a reusable profile in Amazon Bedrock
+    /// AgentCore. A browser profile captures persistent browser data such as cookies and
+    /// local storage from an active session, enabling you to reuse this data in future browser
+    /// sessions.
     /// 
     ///  
     /// <para>
-    /// To stop a browser session, you must specify both the browser identifier and the session
-    /// ID. Once stopped, a session cannot be restarted; you must create a new session using
-    /// <c>StartBrowserSession</c>.
+    /// To save a browser session profile, you must specify the profile identifier, browser
+    /// identifier, and session ID. The session must be active when saving the profile. Once
+    /// saved, the profile can be used with the <c>StartBrowserSession</c> operation to initialize
+    /// new sessions with the stored browser state.
     /// </para><para>
-    /// The following operations are related to <c>StopBrowserSession</c>:
+    /// Browser profiles are useful for scenarios that require persistent authentication,
+    /// maintaining user preferences across sessions, or continuing tasks that depend on previously
+    /// stored browser data.
+    /// </para><para>
+    /// The following operations are related to <c>SaveBrowserSessionProfile</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html">StartBrowserSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html">GetBrowserSession</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Stop", "BACBrowserSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer StopBrowserSession API operation.", Operation = new[] {"StopBrowserSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse object containing multiple properties."
+    [Cmdlet("Save", "BACBrowserSessionProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer SaveBrowserSessionProfile API operation.", Operation = new[] {"SaveBrowserSessionProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse object containing multiple properties."
     )]
-    public partial class StopBACBrowserSessionCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
+    public partial class SaveBACBrowserSessionProfileCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -55,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter BrowserIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the browser associated with the session.</para>
+        /// <para>The unique identifier of the browser associated with the session from which to save
+        /// the profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,10 +76,31 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String BrowserIdentifier { get; set; }
         #endregion
         
+        #region Parameter ProfileIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the browser profile. This identifier is used to reference
+        /// the profile when starting new browser sessions. The identifier must follow the pattern
+        /// of an alphanumeric name (up to 48 characters) followed by a hyphen and a 10-character
+        /// alphanumeric suffix.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProfileIdentifier { get; set; }
+        #endregion
+        
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the browser session to stop.</para>
+        /// <para>The unique identifier of the browser session from which to save the profile. The session
+        /// must be active when saving the profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -121,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SessionId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-BACBrowserSession (StopBrowserSession)"))
+            var targetParameterNames = new string[]
+            {
+                nameof(this.SessionId),
+                nameof(this.BrowserIdentifier),
+                nameof(this.ProfileIdentifier)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Save-BACBrowserSessionProfile (SaveBrowserSessionProfile)"))
             {
                 return;
             }
@@ -157,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse, StopBACBrowserSessionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse, SaveBACBrowserSessionProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BrowserIdentifier = this.BrowserIdentifier;
@@ -168,6 +202,13 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.ProfileIdentifier = this.ProfileIdentifier;
+            #if MODULAR
+            if (this.ProfileIdentifier == null && ParameterWasBound(nameof(this.ProfileIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProfileIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.SessionId = this.SessionId;
             #if MODULAR
             if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
@@ -191,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCore.Model.StopBrowserSessionRequest();
+            var request = new Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileRequest();
             
             if (cmdletContext.BrowserIdentifier != null)
             {
@@ -200,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.ProfileIdentifier != null)
+            {
+                request.ProfileIdentifier = cmdletContext.ProfileIdentifier;
             }
             if (cmdletContext.SessionId != null)
             {
@@ -246,15 +291,15 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.StopBrowserSessionRequest request)
+        private Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "StopBrowserSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "SaveBrowserSessionProfile");
             try
             {
                 #if DESKTOP
-                return client.StopBrowserSession(request);
+                return client.SaveBrowserSessionProfile(request);
                 #elif CORECLR
-                return client.StopBrowserSessionAsync(request).GetAwaiter().GetResult();
+                return client.SaveBrowserSessionProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -276,10 +321,11 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             public System.String BrowserIdentifier { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String ProfileIdentifier { get; set; }
             public System.String SessionId { get; set; }
             public System.String TraceId { get; set; }
             public System.String TraceParent { get; set; }
-            public System.Func<Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse, StopBACBrowserSessionCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse, SaveBACBrowserSessionProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

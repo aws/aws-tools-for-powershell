@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The action to perform. Valid values are ACTIVATE (to shift traffic to the target Region)
-        /// or DEACTIVATE (to shift traffic away from the target Region).</para>
+        /// <para>The action to perform. Valid values are <c>activate</c> (to shift traffic to the target
+        /// Region) or <c>deactivate</c> (to shift traffic away from the target Region).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>The plan execution mode. Valid values are <c>Practice</c>, for testing without making
-        /// actual changes, or <c>Recovery</c>, for actual traffic shifting and application recovery.</para>
+        /// <para>The plan execution mode. Valid values are <c>graceful</c>, for starting the execution
+        /// in graceful mode, or <c>ungraceful</c>, for starting the execution in ungraceful mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

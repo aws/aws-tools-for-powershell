@@ -95,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace to filter memory records by.</para>
+        /// <para>The namespace prefix to filter memory records by. Searches for memory records in namespaces
+        /// that start with the provided prefix.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

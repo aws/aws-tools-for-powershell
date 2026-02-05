@@ -22,39 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// The <c>ListConnectionTypes</c> API provides a discovery mechanism to learn available
-    /// connection types in Glue. The response contains a list of connection types with high-level
-    /// details of what is supported for each connection type, including both built-in connection
-    /// types and custom connection types registered via <c>RegisterConnectionType</c>. The
-    /// connection types listed are the set of supported options for the <c>ConnectionType</c>
-    /// value in the <c>CreateConnection</c> API.
-    /// 
-    ///  
-    /// <para>
-    /// See also: <c>DescribeConnectionType</c>, <c>RegisterConnectionType</c>, <c>DeleteConnectionType</c></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all browser profiles in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GLUEConnectionTypeList")]
-    [OutputType("Amazon.Glue.Model.ConnectionTypeBrief")]
-    [AWSCmdlet("Calls the AWS Glue ListConnectionTypes API operation.", Operation = new[] {"ListConnectionTypes"}, SelectReturnType = typeof(Amazon.Glue.Model.ListConnectionTypesResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.ConnectionTypeBrief or Amazon.Glue.Model.ListConnectionTypesResponse",
-        "This cmdlet returns a collection of Amazon.Glue.Model.ConnectionTypeBrief objects.",
-        "The service call response (type Amazon.Glue.Model.ListConnectionTypesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BACCBrowserProfileList")]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.BrowserProfileSummary")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListBrowserProfiles API operation.", Operation = new[] {"ListBrowserProfiles"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.BrowserProfileSummary or Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse",
+        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.BrowserProfileSummary objects.",
+        "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGLUEConnectionTypeListCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class GetBACCBrowserProfileListCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return.</para>
+        /// <para>The maximum number of results to return in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A continuation token, if this is a continuation call.</para>
+        /// <para>A token to retrieve the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -78,13 +71,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConnectionTypes'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.ListConnectionTypesResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.ListConnectionTypesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProfileSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ConnectionTypes";
+        public string Select { get; set; } = "ProfileSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -109,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.ListConnectionTypesResponse, GetGLUEConnectionTypeListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse, GetBACCBrowserProfileListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -130,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Glue.Model.ListConnectionTypesRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesRequest();
             
             if (cmdletContext.MaxResult != null)
             {
@@ -193,15 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.ListConnectionTypesResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.ListConnectionTypesRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "ListConnectionTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListBrowserProfiles");
             try
             {
                 #if DESKTOP
-                return client.ListConnectionTypes(request);
+                return client.ListBrowserProfiles(request);
                 #elif CORECLR
-                return client.ListConnectionTypesAsync(request).GetAwaiter().GetResult();
+                return client.ListBrowserProfilesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -223,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Glue.Model.ListConnectionTypesResponse, GetGLUEConnectionTypeListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ConnectionTypes;
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse, GetBACCBrowserProfileListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ProfileSummaries;
         }
         
     }

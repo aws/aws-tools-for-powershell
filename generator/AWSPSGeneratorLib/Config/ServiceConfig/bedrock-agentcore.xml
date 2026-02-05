@@ -136,6 +136,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SaveBrowserSessionProfile" OutputProperty="*" Verb="Save" Noun="BrowserSessionProfile" ShouldProcessTarget="SessionId,BrowserIdentifier,ProfileIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartBrowserSession" OutputProperty="*" Verb="Start" Noun="BrowserSession" ShouldProcessTarget="BrowserIdentifier" PipelineParameter="BrowserIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

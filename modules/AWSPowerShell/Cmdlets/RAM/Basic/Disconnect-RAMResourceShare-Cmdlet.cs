@@ -28,8 +28,8 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Removes the specified principals or resources from participating in the specified
-    /// resource share.
+    /// Removes the specified principals, resources, or source constraints from participating
+    /// in the specified resource share.
     /// </summary>
     [Cmdlet("Disconnect", "RAMResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RAM.Model.ResourceShareAssociation")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies a list of one or more principals that no longer are to have access to the
         /// resources in this resource share.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <c>123456789012</c></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
+        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li><li><para>A service principal name, for example: <c>service-id.amazonaws.com</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
         /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
         /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note>
         /// </para>
@@ -94,8 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>Specifies from which source accounts the service principal no longer has access to
-        /// the resources in this resource share.</para>
+        /// <para>Specifies source constraints (accounts, ARNs, organization IDs, or organization paths)
+        /// to remove from the resource share. This enables granular management of source constraints
+        /// while maintaining service principal associations. At least one source must remain
+        /// when service principals are present.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

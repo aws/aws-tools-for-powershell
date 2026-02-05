@@ -224,6 +224,7 @@ $BAC_SelectMap = @{
                "Get-BACMemoryRecordList",
                "Get-BACSessionList",
                "Invoke-BACMemoryRecord",
+               "Save-BACBrowserSessionProfile",
                "Start-BACBrowserSession",
                "Start-BACCodeInterpreterSession",
                "Start-BACMemoryExtractionJob",

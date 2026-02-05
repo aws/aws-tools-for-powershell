@@ -199,7 +199,7 @@ $TFR_Completers = {
             ($_ -eq "Update-TFRConnector/As2Config_MdnResponse")
         }
         {
-            $v = "NONE","SYNC"
+            $v = "ASYNC","NONE","SYNC"
             break
         }
 

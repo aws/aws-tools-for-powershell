@@ -28,8 +28,8 @@ using Amazon.NeptuneGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
-    /// Create a private graph endpoint to allow private access from to the graph from within
-    /// a VPC. You can attach security groups to the private graph endpoint.
+    /// Create a private graph endpoint to allow private access to the graph from within a
+    /// VPC. You can attach security groups to the private graph endpoint.
     /// 
     ///  <note><para>
     /// VPC endpoint charges apply.
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>Security groups to be attached to the private graph endpoint..</para>
+        /// <para>Security groups to be attached to the private graph endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

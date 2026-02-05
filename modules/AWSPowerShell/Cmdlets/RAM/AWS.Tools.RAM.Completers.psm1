@@ -126,17 +126,18 @@ $RAM_Completers = {
         # Amazon.RAM.ResourceShareAssociationStatus
         {
             ($_ -eq "Get-RAMPermissionAssociationList/AssociationStatus") -Or
-            ($_ -eq "Get-RAMResourceShareAssociation/AssociationStatus")
+            ($_ -eq "Get-RAMResourceShareAssociation/AssociationStatus") -Or
+            ($_ -eq "Get-RAMSourceAssociationList/AssociationStatus")
         }
         {
-            $v = "ASSOCIATED","ASSOCIATING","DISASSOCIATED","DISASSOCIATING","FAILED"
+            $v = "ASSOCIATED","ASSOCIATING","DISASSOCIATED","DISASSOCIATING","FAILED","RESTORING","SUSPENDED","SUSPENDING"
             break
         }
 
         # Amazon.RAM.ResourceShareAssociationType
         "Get-RAMResourceShareAssociation/AssociationType"
         {
-            $v = "PRINCIPAL","RESOURCE"
+            $v = "PRINCIPAL","RESOURCE","SOURCE"
             break
         }
 
@@ -156,7 +157,7 @@ $RAM_Completers = {
 }
 
 $RAM_map = @{
-    "AssociationStatus"=@("Get-RAMPermissionAssociationList","Get-RAMResourceShareAssociation")
+    "AssociationStatus"=@("Get-RAMPermissionAssociationList","Get-RAMResourceShareAssociation","Get-RAMSourceAssociationList")
     "AssociationType"=@("Get-RAMResourceShareAssociation")
     "FeatureSet"=@("Get-RAMPermissionAssociationList")
     "PermissionType"=@("Get-RAMPermissionList")
@@ -242,6 +243,7 @@ $RAM_SelectMap = @{
                "Get-RAMResourceList",
                "Get-RAMResourceSharePermissionList",
                "Get-RAMResourceTypeList",
+               "Get-RAMSourceAssociationList",
                "Convert-RAMPermissionCreatedFromPolicy",
                "Convert-RAMPolicyBasedResourceShareToPromoted",
                "Deny-RAMResourceShareInvitation",

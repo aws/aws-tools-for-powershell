@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies the name of the resource type that this customer managed permission applies
         /// to.</para><para>The format is <c><i>&lt;service-code&gt;</i>:<i>&lt;resource-type&gt;</i></c> and
-        /// is not case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the
-        /// string <c>ec2:subnet</c>. To see the list of valid values for this parameter, query
-        /// the <a>ListResourceTypes</a> operation.</para>
+        /// is case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the string
+        /// <c>ec2:Subnet</c>. To see the list of valid values for this parameter, query the <a>ListResourceTypes</a>
+        /// operation. This value must match the display name of the resource (available in <c>ListResourceTypes</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

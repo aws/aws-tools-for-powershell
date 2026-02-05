@@ -28,63 +28,78 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Retrieves the current status of the asynchronous tasks performed by RAM when you perform
-    /// the <a>ReplacePermissionAssociationsWork</a> operation.
+    /// Lists source associations for resource shares. Source associations control which sources
+    /// can be used with service principals in resource shares. This operation provides visibility
+    /// into source associations for resource share owners.
     /// 
-    ///  <note><para>
-    /// Always check the <c>NextToken</c> response parameter for a <c>null</c> value when
-    /// calling a paginated operation. These operations can occasionally return an empty set
-    /// of results even when there are more results available. The <c>NextToken</c> response
-    /// parameter value is <c>null</c><i>only</i> when there are no more results to display.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    ///  
+    /// <para>
+    /// You can filter the results by resource share Amazon Resource Name (ARN), source ID,
+    /// source type, or association status. We recommend using pagination to ensure that the
+    /// operation returns quickly and successfully.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "RAMReplacePermissionAssociationsWorkList")]
-    [OutputType("Amazon.RAM.Model.ReplacePermissionAssociationsWork")]
-    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ListReplacePermissionAssociationsWork API operation.", Operation = new[] {"ListReplacePermissionAssociationsWork"}, SelectReturnType = typeof(Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse))]
-    [AWSCmdletOutput("Amazon.RAM.Model.ReplacePermissionAssociationsWork or Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse",
-        "This cmdlet returns a collection of Amazon.RAM.Model.ReplacePermissionAssociationsWork objects.",
-        "The service call response (type Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "RAMSourceAssociationList")]
+    [OutputType("Amazon.RAM.Model.AssociatedSource")]
+    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ListSourceAssociations API operation.", Operation = new[] {"ListSourceAssociations"}, SelectReturnType = typeof(Amazon.RAM.Model.ListSourceAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.RAM.Model.AssociatedSource or Amazon.RAM.Model.ListSourceAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.RAM.Model.AssociatedSource objects.",
+        "The service call response (type Amazon.RAM.Model.ListSourceAssociationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetRAMReplacePermissionAssociationsWorkListCmdlet : AmazonRAMClientCmdlet, IExecutor
+    public partial class GetRAMSourceAssociationListCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Status
+        #region Parameter AssociationStatus
         /// <summary>
         /// <para>
-        /// <para>Specifies that you want to see only the details about requests with a status that
-        /// matches this value.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.RAM.ReplacePermissionAssociationsWorkStatus")]
-        public Amazon.RAM.ReplacePermissionAssociationsWorkStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter WorkId
-        /// <summary>
-        /// <para>
-        /// <para>A list of IDs. These values come from the <c>id</c>field of the <c>replacePermissionAssociationsWork</c>structure
-        /// returned by the <a>ReplacePermissionAssociations</a> operation. </para>
+        /// <para>The status of the source associations that you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("WorkIds")]
-        public System.String[] WorkId { get; set; }
+        [AWSConstantClassSource("Amazon.RAM.ResourceShareAssociationStatus")]
+        public Amazon.RAM.ResourceShareAssociationStatus AssociationStatus { get; set; }
+        #endregion
+        
+        #region Parameter ResourceShareArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARNs) of the resource shares for which you want to retrieve
+        /// source associations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceShareArns")]
+        public System.String[] ResourceShareArn { get; set; }
+        #endregion
+        
+        #region Parameter SourceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the source for which you want to retrieve associations. This can
+        /// be an account ID, Amazon Resource Name (ARN), organization ID, or organization path.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceId { get; set; }
+        #endregion
+        
+        #region Parameter SourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of source for which you want to retrieve associations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceType { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the total number of results that you want included on each page of the response.
-        /// If you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the number you specify, the <c>NextToken</c>
-        /// response element is returned with a value (not null). Include the specified value
-        /// as the <c>NextToken</c> request parameter in the next call to the operation to get
-        /// the next part of the results. Note that the service might return fewer results than
-        /// the maximum even when there are more results available. You should check <c>NextToken</c>
-        /// after every operation to ensure that you receive all of the results.</para>
+        /// <para>The maximum number of results to return in a single call. To retrieve the remaining
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,10 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Specifies that you want to receive the next page of results. Valid only if you received
-        /// a <c>NextToken</c> response in the previous request. If you did, it indicates that
-        /// more output is available. Set this parameter to the value provided by the previous
-        /// call's <c>NextToken</c> response to request the next page of results.</para>
+        /// <para>The pagination token that indicates the next set of results to retrieve.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -111,23 +123,13 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReplacePermissionAssociationsWorks'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse).
-        /// Specifying the name of a property of type Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SourceAssociations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.ListSourceAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.RAM.Model.ListSourceAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ReplacePermissionAssociationsWorks";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Status parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "SourceAssociations";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -150,28 +152,20 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse, GetRAMReplacePermissionAssociationsWorkListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RAM.Model.ListSourceAssociationsResponse, GetRAMSourceAssociationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Status;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssociationStatus = this.AssociationStatus;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.Status = this.Status;
-            if (this.WorkId != null)
+            if (this.ResourceShareArn != null)
             {
-                context.WorkId = new List<System.String>(this.WorkId);
+                context.ResourceShareArn = new List<System.String>(this.ResourceShareArn);
             }
+            context.SourceId = this.SourceId;
+            context.SourceType = this.SourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,24 +179,30 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.RAM.Model.ListReplacePermissionAssociationsWorkRequest();
+            var request = new Amazon.RAM.Model.ListSourceAssociationsRequest();
             
+            if (cmdletContext.AssociationStatus != null)
+            {
+                request.AssociationStatus = cmdletContext.AssociationStatus;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Status != null)
+            if (cmdletContext.ResourceShareArn != null)
             {
-                request.Status = cmdletContext.Status;
+                request.ResourceShareArns = cmdletContext.ResourceShareArn;
             }
-            if (cmdletContext.WorkId != null)
+            if (cmdletContext.SourceId != null)
             {
-                request.WorkIds = cmdletContext.WorkId;
+                request.SourceId = cmdletContext.SourceId;
+            }
+            if (cmdletContext.SourceType != null)
+            {
+                request.SourceType = cmdletContext.SourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -261,15 +261,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region AWS Service Operation Call
         
-        private Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.ListReplacePermissionAssociationsWorkRequest request)
+        private Amazon.RAM.Model.ListSourceAssociationsResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.ListSourceAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "ListReplacePermissionAssociationsWork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "ListSourceAssociations");
             try
             {
                 #if DESKTOP
-                return client.ListReplacePermissionAssociationsWork(request);
+                return client.ListSourceAssociations(request);
                 #elif CORECLR
-                return client.ListReplacePermissionAssociationsWorkAsync(request).GetAwaiter().GetResult();
+                return client.ListSourceAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -289,12 +289,14 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.RAM.ResourceShareAssociationStatus AssociationStatus { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.RAM.ReplacePermissionAssociationsWorkStatus Status { get; set; }
-            public List<System.String> WorkId { get; set; }
-            public System.Func<Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse, GetRAMReplacePermissionAssociationsWorkListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ReplacePermissionAssociationsWorks;
+            public List<System.String> ResourceShareArn { get; set; }
+            public System.String SourceId { get; set; }
+            public System.String SourceType { get; set; }
+            public System.Func<Amazon.RAM.Model.ListSourceAssociationsResponse, GetRAMSourceAssociationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SourceAssociations;
         }
         
     }
