@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which
-        /// identifies the Gremlin CSV format or OPENCYPHER, which identies the openCypher load
+        /// identifies the Gremlin CSV format or OPENCYPHER, which identifies the openCypher load
         /// format.</para>
         /// </para>
         /// </summary>

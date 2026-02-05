@@ -30,9 +30,9 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Creates and initializes a browser session in Amazon Bedrock. The session enables agents
-    /// to navigate and interact with web content, extract information from websites, and
-    /// perform web-based tasks as part of their response generation.
+    /// Creates and initializes a browser session in Amazon Bedrock AgentCore. The session
+    /// enables agents to navigate and interact with web content, extract information from
+    /// websites, and perform web-based tasks as part of their response generation.
     /// 
     ///  
     /// <para>
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// operation.
     /// </para><para>
     /// The following operations are related to <c>StartBrowserSession</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html">GetBrowserSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_UpdateBrowserStream.html">UpdateBrowserStream</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html">StopBrowserSession</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html">GetBrowserSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_UpdateBrowserStream.html">UpdateBrowserStream</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_SaveBrowserSessionProfile.html">SaveBrowserSessionProfile</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html">StopBrowserSession</a></para></li></ul>
     /// </summary>
     [Cmdlet("Start", "BACBrowserSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.StartBrowserSessionResponse")]
@@ -111,6 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ProfileConfiguration_ProfileIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the browser profile. This identifier is used to reference
+        /// the profile when starting new browser sessions or saving session data to the profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProfileConfiguration_ProfileIdentifier { get; set; }
+        #endregion
+        
         #region Parameter SessionTimeoutSecond
         /// <summary>
         /// <para>
@@ -159,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
-        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
-        /// request, but does not return an error. This parameter helps prevent the creation of
-        /// duplicate sessions if there are temporary network issues.</para>
+        /// than one time. If this token matches a previous request, Amazon Bedrock AgentCore
+        /// ignores the request, but does not return an error. This parameter helps prevent the
+        /// creation of duplicate sessions if there are temporary network issues.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 context.Extension = new List<Amazon.BedrockAgentCore.Model.BrowserExtension>(this.Extension);
             }
             context.Name = this.Name;
+            context.ProfileConfiguration_ProfileIdentifier = this.ProfileConfiguration_ProfileIdentifier;
             context.SessionTimeoutSecond = this.SessionTimeoutSecond;
             context.TraceId = this.TraceId;
             context.TraceParent = this.TraceParent;
@@ -263,6 +275,25 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate ProfileConfiguration
+            var requestProfileConfigurationIsNull = true;
+            request.ProfileConfiguration = new Amazon.BedrockAgentCore.Model.BrowserProfileConfiguration();
+            System.String requestProfileConfiguration_profileConfiguration_ProfileIdentifier = null;
+            if (cmdletContext.ProfileConfiguration_ProfileIdentifier != null)
+            {
+                requestProfileConfiguration_profileConfiguration_ProfileIdentifier = cmdletContext.ProfileConfiguration_ProfileIdentifier;
+            }
+            if (requestProfileConfiguration_profileConfiguration_ProfileIdentifier != null)
+            {
+                request.ProfileConfiguration.ProfileIdentifier = requestProfileConfiguration_profileConfiguration_ProfileIdentifier;
+                requestProfileConfigurationIsNull = false;
+            }
+             // determine if request.ProfileConfiguration should be set to null
+            if (requestProfileConfigurationIsNull)
+            {
+                request.ProfileConfiguration = null;
             }
             if (cmdletContext.SessionTimeoutSecond != null)
             {
@@ -364,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String ClientToken { get; set; }
             public List<Amazon.BedrockAgentCore.Model.BrowserExtension> Extension { get; set; }
             public System.String Name { get; set; }
+            public System.String ProfileConfiguration_ProfileIdentifier { get; set; }
             public System.Int32? SessionTimeoutSecond { get; set; }
             public System.String TraceId { get; set; }
             public System.String TraceParent { get; set; }

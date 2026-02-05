@@ -23,89 +23,48 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.RAM;
-using Amazon.RAM.Model;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.RAM
+namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Retrieves the current status of the asynchronous tasks performed by RAM when you perform
-    /// the <a>ReplacePermissionAssociationsWork</a> operation.
-    /// 
-    ///  <note><para>
-    /// Always check the <c>NextToken</c> response parameter for a <c>null</c> value when
-    /// calling a paginated operation. These operations can occasionally return an empty set
-    /// of results even when there are more results available. The <c>NextToken</c> response
-    /// parameter value is <c>null</c><i>only</i> when there are no more results to display.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all browser profiles in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "RAMReplacePermissionAssociationsWorkList")]
-    [OutputType("Amazon.RAM.Model.ReplacePermissionAssociationsWork")]
-    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ListReplacePermissionAssociationsWork API operation.", Operation = new[] {"ListReplacePermissionAssociationsWork"}, SelectReturnType = typeof(Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse))]
-    [AWSCmdletOutput("Amazon.RAM.Model.ReplacePermissionAssociationsWork or Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse",
-        "This cmdlet returns a collection of Amazon.RAM.Model.ReplacePermissionAssociationsWork objects.",
-        "The service call response (type Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BACCBrowserProfileList")]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.BrowserProfileSummary")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListBrowserProfiles API operation.", Operation = new[] {"ListBrowserProfiles"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.BrowserProfileSummary or Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse",
+        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.BrowserProfileSummary objects.",
+        "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetRAMReplacePermissionAssociationsWorkListCmdlet : AmazonRAMClientCmdlet, IExecutor
+    public partial class GetBACCBrowserProfileListCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>Specifies that you want to see only the details about requests with a status that
-        /// matches this value.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.RAM.ReplacePermissionAssociationsWorkStatus")]
-        public Amazon.RAM.ReplacePermissionAssociationsWorkStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter WorkId
-        /// <summary>
-        /// <para>
-        /// <para>A list of IDs. These values come from the <c>id</c>field of the <c>replacePermissionAssociationsWork</c>structure
-        /// returned by the <a>ReplacePermissionAssociations</a> operation. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("WorkIds")]
-        public System.String[] WorkId { get; set; }
-        #endregion
-        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the total number of results that you want included on each page of the response.
-        /// If you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the number you specify, the <c>NextToken</c>
-        /// response element is returned with a value (not null). Include the specified value
-        /// as the <c>NextToken</c> request parameter in the next call to the operation to get
-        /// the next part of the results. Note that the service might return fewer results than
-        /// the maximum even when there are more results available. You should check <c>NextToken</c>
-        /// after every operation to ensure that you receive all of the results.</para>
+        /// <para>The maximum number of results to return in the response.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Specifies that you want to receive the next page of results. Valid only if you received
-        /// a <c>NextToken</c> response in the previous request. If you did, it indicates that
-        /// more output is available. Set this parameter to the value provided by the previous
-        /// call's <c>NextToken</c> response to request the next page of results.</para>
+        /// <para>A token to retrieve the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -118,13 +77,13 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReplacePermissionAssociationsWorks'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse).
-        /// Specifying the name of a property of type Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProfileSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ReplacePermissionAssociationsWorks";
+        public string Select { get; set; } = "ProfileSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -153,16 +112,20 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse, GetRAMReplacePermissionAssociationsWorkListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse, GetBACCBrowserProfileListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.Status = this.Status;
-            if (this.WorkId != null)
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
             {
-                context.WorkId = new List<System.String>(this.WorkId);
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
             }
+            #endif
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,19 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.RAM.Model.ListReplacePermissionAssociationsWorkRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesRequest();
             
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
-            }
-            if (cmdletContext.WorkId != null)
-            {
-                request.WorkIds = cmdletContext.WorkId;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -250,12 +205,12 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region AWS Service Operation Call
         
-        private Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.ListReplacePermissionAssociationsWorkRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "ListReplacePermissionAssociationsWork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListBrowserProfiles");
             try
             {
-                return client.ListReplacePermissionAssociationsWorkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListBrowserProfilesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -272,12 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.RAM.ReplacePermissionAssociationsWorkStatus Status { get; set; }
-            public List<System.String> WorkId { get; set; }
-            public System.Func<Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse, GetRAMReplacePermissionAssociationsWorkListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ReplacePermissionAssociationsWorks;
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse, GetBACCBrowserProfileListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ProfileSummaries;
         }
         
     }

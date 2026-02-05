@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier to ensure that the operation completes no more
-        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
-        /// request but does not return an error.</para>
+        /// than one time. If this token matches a previous request, Amazon Bedrock AgentCore
+        /// ignores the request but does not return an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

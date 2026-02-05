@@ -31,7 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
     /// Lists the principals that you are sharing resources with or that are sharing resources
-    /// with you.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// with you.
+    /// 
+    ///  <note><para>
+    /// Always check the <c>NextToken</c> response parameter for a <c>null</c> value when
+    /// calling a paginated operation. These operations can occasionally return an empty set
+    /// of results even when there are more results available. The <c>NextToken</c> response
+    /// parameter value is <c>null</c><i>only</i> when there are no more results to display.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RAMPrincipalList")]
     [OutputType("Amazon.RAM.Model.Principal")]
@@ -50,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies that you want to list information for only the listed principals.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <c>123456789012</c></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
+        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li><li><para>A service principal name, for example: <c>service-id.amazonaws.com</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
         /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
         /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

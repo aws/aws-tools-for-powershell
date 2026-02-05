@@ -23,38 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// The <c>DescribeConnectionType</c> API provides full details of the supported options
-    /// for a given connection type in Glue. The response includes authentication configuration
-    /// details that show supported authentication types and properties, and RestConfiguration
-    /// for custom REST-based connection types registered via <c>RegisterConnectionType</c>.
-    /// 
-    ///  
-    /// <para>
-    /// See also: <c>ListConnectionTypes</c>, <c>RegisterConnectionType</c>, <c>DeleteConnectionType</c></para>
+    /// Gets information about a browser profile.
     /// </summary>
-    [Cmdlet("Get", "GLUEConnectionType")]
-    [OutputType("Amazon.Glue.Model.DescribeConnectionTypeResponse")]
-    [AWSCmdlet("Calls the AWS Glue DescribeConnectionType API operation.", Operation = new[] {"DescribeConnectionType"}, SelectReturnType = typeof(Amazon.Glue.Model.DescribeConnectionTypeResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.DescribeConnectionTypeResponse",
-        "This cmdlet returns an Amazon.Glue.Model.DescribeConnectionTypeResponse object containing multiple properties."
+    [Cmdlet("Get", "BACCBrowserProfile")]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetBrowserProfile API operation.", Operation = new[] {"GetBrowserProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileResponse object containing multiple properties."
     )]
-    public partial class GetGLUEConnectionTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class GetBACCBrowserProfileCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ConnectionType
+        #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The name of the connection type to be described.</para>
+        /// <para>The unique identifier of the browser profile to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,14 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionType { get; set; }
+        public System.String ProfileId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DescribeConnectionTypeResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.DescribeConnectionTypeResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,14 +88,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.DescribeConnectionTypeResponse, GetGLUEConnectionTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileResponse, GetBACCBrowserProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ConnectionType = this.ConnectionType;
+            context.ProfileId = this.ProfileId;
             #if MODULAR
-            if (this.ConnectionType == null && ParameterWasBound(nameof(this.ConnectionType)))
+            if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -119,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.DescribeConnectionTypeRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileRequest();
             
-            if (cmdletContext.ConnectionType != null)
+            if (cmdletContext.ProfileId != null)
             {
-                request.ConnectionType = cmdletContext.ConnectionType;
+                request.ProfileId = cmdletContext.ProfileId;
             }
             
             CmdletOutput output;
@@ -158,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.DescribeConnectionTypeResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.DescribeConnectionTypeRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "DescribeConnectionType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetBrowserProfile");
             try
             {
-                return client.DescribeConnectionTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetBrowserProfileAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -180,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionType { get; set; }
-            public System.Func<Amazon.Glue.Model.DescribeConnectionTypeResponse, GetGLUEConnectionTypeCmdlet, object> Select { get; set; } =
+            public System.String ProfileId { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.GetBrowserProfileResponse, GetBACCBrowserProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

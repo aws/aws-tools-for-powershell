@@ -266,6 +266,22 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String SecurityPolicyName { get; set; }
         #endregion
         
+        #region Parameter As2Config_AsyncMdnConfig_ServerId
+        /// <summary>
+        /// <para>
+        /// <para>A list of server identifiers that can handle asynchronous MDN responses. You can specify
+        /// between 1 and 10 server IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("As2Config_AsyncMdnConfig_ServerIds")]
+        public System.String[] As2Config_AsyncMdnConfig_ServerId { get; set; }
+        #endregion
+        
         #region Parameter As2Config_SigningAlgorithm
         /// <summary>
         /// <para>
@@ -305,6 +321,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SftpConfig_TrustedHostKeys")]
         public System.String[] SftpConfig_TrustedHostKey { get; set; }
+        #endregion
+        
+        #region Parameter As2Config_AsyncMdnConfig_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL endpoint where asynchronous MDN responses should be sent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String As2Config_AsyncMdnConfig_Url { get; set; }
         #endregion
         
         #region Parameter Url
@@ -378,6 +404,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AccessRole = this.AccessRole;
+            if (this.As2Config_AsyncMdnConfig_ServerId != null)
+            {
+                context.As2Config_AsyncMdnConfig_ServerId = new List<System.String>(this.As2Config_AsyncMdnConfig_ServerId);
+            }
+            context.As2Config_AsyncMdnConfig_Url = this.As2Config_AsyncMdnConfig_Url;
             context.As2Config_BasicAuthSecretId = this.As2Config_BasicAuthSecretId;
             context.As2Config_Compression = this.As2Config_Compression;
             context.As2Config_EncryptionAlgorithm = this.As2Config_EncryptionAlgorithm;
@@ -528,6 +559,41 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestAs2Config_as2Config_SigningAlgorithm != null)
             {
                 request.As2Config.SigningAlgorithm = requestAs2Config_as2Config_SigningAlgorithm;
+                requestAs2ConfigIsNull = false;
+            }
+            Amazon.Transfer.Model.As2AsyncMdnConnectorConfig requestAs2Config_as2Config_AsyncMdnConfig = null;
+            
+             // populate AsyncMdnConfig
+            var requestAs2Config_as2Config_AsyncMdnConfigIsNull = true;
+            requestAs2Config_as2Config_AsyncMdnConfig = new Amazon.Transfer.Model.As2AsyncMdnConnectorConfig();
+            List<System.String> requestAs2Config_as2Config_AsyncMdnConfig_as2Config_AsyncMdnConfig_ServerId = null;
+            if (cmdletContext.As2Config_AsyncMdnConfig_ServerId != null)
+            {
+                requestAs2Config_as2Config_AsyncMdnConfig_as2Config_AsyncMdnConfig_ServerId = cmdletContext.As2Config_AsyncMdnConfig_ServerId;
+            }
+            if (requestAs2Config_as2Config_AsyncMdnConfig_as2Config_AsyncMdnConfig_ServerId != null)
+            {
+                requestAs2Config_as2Config_AsyncMdnConfig.ServerIds = requestAs2Config_as2Config_AsyncMdnConfig_as2Config_AsyncMdnConfig_ServerId;
+                requestAs2Config_as2Config_AsyncMdnConfigIsNull = false;
+            }
+            System.String requestAs2Config_as2Config_AsyncMdnConfig_as2Config_AsyncMdnConfig_Url = null;
+            if (cmdletContext.As2Config_AsyncMdnConfig_Url != null)
+            {
+                requestAs2Config_as2Config_AsyncMdnConfig_as2Config_AsyncMdnConfig_Url = cmdletContext.As2Config_AsyncMdnConfig_Url;
+            }
+            if (requestAs2Config_as2Config_AsyncMdnConfig_as2Config_AsyncMdnConfig_Url != null)
+            {
+                requestAs2Config_as2Config_AsyncMdnConfig.Url = requestAs2Config_as2Config_AsyncMdnConfig_as2Config_AsyncMdnConfig_Url;
+                requestAs2Config_as2Config_AsyncMdnConfigIsNull = false;
+            }
+             // determine if requestAs2Config_as2Config_AsyncMdnConfig should be set to null
+            if (requestAs2Config_as2Config_AsyncMdnConfigIsNull)
+            {
+                requestAs2Config_as2Config_AsyncMdnConfig = null;
+            }
+            if (requestAs2Config_as2Config_AsyncMdnConfig != null)
+            {
+                request.As2Config.AsyncMdnConfig = requestAs2Config_as2Config_AsyncMdnConfig;
                 requestAs2ConfigIsNull = false;
             }
              // determine if request.As2Config should be set to null
@@ -690,6 +756,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccessRole { get; set; }
+            public List<System.String> As2Config_AsyncMdnConfig_ServerId { get; set; }
+            public System.String As2Config_AsyncMdnConfig_Url { get; set; }
             public System.String As2Config_BasicAuthSecretId { get; set; }
             public Amazon.Transfer.CompressionEnum As2Config_Compression { get; set; }
             public Amazon.Transfer.EncryptionAlg As2Config_EncryptionAlgorithm { get; set; }

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.184.0",
+    "ProductVersion"    : "4.0.185.0",
     "CoreVersion"       : "4.0.3.12",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -372,7 +372,7 @@
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "4.0.8.3",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -756,7 +756,7 @@
             "InPreview"               : false
         },
         "Athena"                          : {
-            "Version" : "4.0.3.8",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -788,7 +788,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.24.3",
+            "Version" : "4.0.25.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -828,7 +828,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "4.0.15.0",
+            "Version" : "4.0.16.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -1132,7 +1132,7 @@
             "InPreview"               : false
         },
         "RAM"                             : {
-            "Version" : "4.0.2.13",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -1180,7 +1180,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "4.0.5.8",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -2836,7 +2836,7 @@
             "InPreview"               : false
         },
         "NeptuneGraph"                        : {
-            "Version" : "4.0.2.13",
+            "Version" : "4.0.2.14",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -3228,7 +3228,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "4.0.9.1",
+            "Version" : "4.0.10.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -3236,7 +3236,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.15.0",
+            "Version" : "4.0.16.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -3244,7 +3244,7 @@
             "InPreview"               : false
         },
         "ARCRegionswitch"                     : {
-            "Version" : "4.0.3.5",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"

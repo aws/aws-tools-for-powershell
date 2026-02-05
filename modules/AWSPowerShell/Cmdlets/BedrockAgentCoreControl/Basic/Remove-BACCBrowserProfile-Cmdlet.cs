@@ -23,38 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// The <c>DescribeConnectionType</c> API provides full details of the supported options
-    /// for a given connection type in Glue. The response includes authentication configuration
-    /// details that show supported authentication types and properties, and RestConfiguration
-    /// for custom REST-based connection types registered via <c>RegisterConnectionType</c>.
-    /// 
-    ///  
-    /// <para>
-    /// See also: <c>ListConnectionTypes</c>, <c>RegisterConnectionType</c>, <c>DeleteConnectionType</c></para>
+    /// Deletes a browser profile.
     /// </summary>
-    [Cmdlet("Get", "GLUEConnectionType")]
-    [OutputType("Amazon.Glue.Model.DescribeConnectionTypeResponse")]
-    [AWSCmdlet("Calls the AWS Glue DescribeConnectionType API operation.", Operation = new[] {"DescribeConnectionType"}, SelectReturnType = typeof(Amazon.Glue.Model.DescribeConnectionTypeResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.DescribeConnectionTypeResponse",
-        "This cmdlet returns an Amazon.Glue.Model.DescribeConnectionTypeResponse object containing multiple properties."
+    [Cmdlet("Remove", "BACCBrowserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteBrowserProfile API operation.", Operation = new[] {"DeleteBrowserProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse object containing multiple properties."
     )]
-    public partial class GetGLUEConnectionTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveBACCBrowserProfileCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ConnectionType
+        #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The name of the connection type to be described.</para>
+        /// <para>The unique identifier of the browser profile to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,18 +58,38 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionType { get; set; }
+        public System.String ProfileId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier to ensure idempotency of the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DescribeConnectionTypeResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.DescribeConnectionTypeResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -88,6 +101,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProfileId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACCBrowserProfile (DeleteBrowserProfile)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -95,14 +114,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.DescribeConnectionTypeResponse, GetGLUEConnectionTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse, RemoveBACCBrowserProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ConnectionType = this.ConnectionType;
+            context.ClientToken = this.ClientToken;
+            context.ProfileId = this.ProfileId;
             #if MODULAR
-            if (this.ConnectionType == null && ParameterWasBound(nameof(this.ConnectionType)))
+            if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -119,11 +139,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.DescribeConnectionTypeRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileRequest();
             
-            if (cmdletContext.ConnectionType != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ConnectionType = cmdletContext.ConnectionType;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.ProfileId != null)
+            {
+                request.ProfileId = cmdletContext.ProfileId;
             }
             
             CmdletOutput output;
@@ -158,12 +182,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.DescribeConnectionTypeResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.DescribeConnectionTypeRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "DescribeConnectionType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteBrowserProfile");
             try
             {
-                return client.DescribeConnectionTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteBrowserProfileAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -180,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionType { get; set; }
-            public System.Func<Amazon.Glue.Model.DescribeConnectionTypeResponse, GetGLUEConnectionTypeCmdlet, object> Select { get; set; } =
+            public System.String ClientToken { get; set; }
+            public System.String ProfileId { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse, RemoveBACCBrowserProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

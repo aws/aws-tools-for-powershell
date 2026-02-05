@@ -32,9 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// <summary>
     /// The <c>ListConnectionTypes</c> API provides a discovery mechanism to learn available
     /// connection types in Glue. The response contains a list of connection types with high-level
-    /// details of what is supported for each connection type. The connection types listed
-    /// are the set of supported options for the <c>ConnectionType</c> value in the <c>CreateConnection</c>
-    /// API.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// details of what is supported for each connection type, including both built-in connection
+    /// types and custom connection types registered via <c>RegisterConnectionType</c>. The
+    /// connection types listed are the set of supported options for the <c>ConnectionType</c>
+    /// value in the <c>CreateConnection</c> API.
+    /// 
+    ///  
+    /// <para>
+    /// See also: <c>DescribeConnectionType</c>, <c>RegisterConnectionType</c>, <c>DeleteConnectionType</c></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUEConnectionTypeList")]
     [OutputType("Amazon.Glue.Model.ConnectionTypeBrief")]

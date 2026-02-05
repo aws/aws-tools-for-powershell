@@ -30,7 +30,7 @@ using Amazon.NeptuneGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
-    /// Deletes the specifed graph snapshot.
+    /// Deletes the specified graph snapshot.
     /// </summary>
     [Cmdlet("Remove", "NEPTGGraphSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.NeptuneGraph.Model.DeleteGraphSnapshotResponse")]

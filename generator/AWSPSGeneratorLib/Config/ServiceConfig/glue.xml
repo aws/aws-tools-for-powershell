@@ -312,6 +312,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectionType" Verb="Remove" Noun="ConnectionType" ShouldProcessTarget="ConnectionType" PipelineParameter="ConnectionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCrawler" Verb="Remove" Noun="Crawler" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -937,6 +941,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="QuerySchemaVersionMetadata" OutputProperty="*" Verb="Find" Noun="SchemaVersionMetadata" PipelineParameter="SchemaVersionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterConnectionType" OutputProperty="ConnectionTypeArn" Verb="Register" Noun="ConnectionType" ShouldProcessTarget="ConnectionType" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

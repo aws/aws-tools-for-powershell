@@ -30,10 +30,10 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Adds the specified list of principals and list of resources to a resource share. Principals
-    /// that already have access to this resource share immediately receive access to the
-    /// added resources. Newly added principals immediately receive access to the resources
-    /// shared in this resource share.
+    /// Adds the specified list of principals, resources, and source constraints to a resource
+    /// share. Principals that already have access to this resource share immediately receive
+    /// access to the added resources. Newly added principals immediately receive access to
+    /// the resources shared in this resource share.
     /// </summary>
     [Cmdlet("Connect", "RAMResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RAM.Model.ResourceShareAssociation")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>Specifies a list of principals to whom you want to the resource share. This can be
         /// <c>null</c> if you want to add only resources.</para><para>What the principals can do with the resources in the share is determined by the RAM
         /// permissions that you associate with the resource share. See <a>AssociateResourceSharePermission</a>.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <c>123456789012</c></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
+        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li><li><para>A service principal name, for example: <c>service-id.amazonaws.com</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
         /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
         /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -107,8 +107,12 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>Specifies from which source accounts the service principal has access to the resources
-        /// in this resource share.</para><para />
+        /// <para>Specifies source constraints (accounts, ARNs, organization IDs, or organization paths)
+        /// that limit when service principals can access resources in this resource share. When
+        /// a service principal attempts to access a shared resource, validation is performed
+        /// to ensure the request originates from one of the specified sources. This helps prevent
+        /// confused deputy attacks by applying constraints on where service principals can access
+        /// resources from.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

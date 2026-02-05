@@ -2880,6 +2880,8 @@ Set-Alias -Name Create-BACCApiKeyCredentialProvider -Value New-BACCApiKeyCredent
 Set-Alias -Name BACC-CreateApiKeyCredentialProvider -Value New-BACCApiKeyCredentialProvider
 Set-Alias -Name Create-BACCBrowser -Value New-BACCBrowser
 Set-Alias -Name BACC-CreateBrowser -Value New-BACCBrowser
+Set-Alias -Name Create-BACCBrowserProfile -Value New-BACCBrowserProfile
+Set-Alias -Name BACC-CreateBrowserProfile -Value New-BACCBrowserProfile
 Set-Alias -Name Create-BACCCodeInterpreter -Value New-BACCCodeInterpreter
 Set-Alias -Name BACC-CreateCodeInterpreter -Value New-BACCCodeInterpreter
 Set-Alias -Name Create-BACCEvaluator -Value New-BACCEvaluator
@@ -2908,6 +2910,8 @@ Set-Alias -Name Delete-BACCApiKeyCredentialProvider -Value Remove-BACCApiKeyCred
 Set-Alias -Name BACC-DeleteApiKeyCredentialProvider -Value Remove-BACCApiKeyCredentialProvider
 Set-Alias -Name Delete-BACCBrowser -Value Remove-BACCBrowser
 Set-Alias -Name BACC-DeleteBrowser -Value Remove-BACCBrowser
+Set-Alias -Name Delete-BACCBrowserProfile -Value Remove-BACCBrowserProfile
+Set-Alias -Name BACC-DeleteBrowserProfile -Value Remove-BACCBrowserProfile
 Set-Alias -Name Delete-BACCCodeInterpreter -Value Remove-BACCCodeInterpreter
 Set-Alias -Name BACC-DeleteCodeInterpreter -Value Remove-BACCCodeInterpreter
 Set-Alias -Name Delete-BACCEvaluator -Value Remove-BACCEvaluator
@@ -2934,6 +2938,7 @@ Set-Alias -Name BACC-GetAgentRuntime -Value Get-BACCAgentRuntime
 Set-Alias -Name BACC-GetAgentRuntimeEndpoint -Value Get-BACCAgentRuntimeEndpoint
 Set-Alias -Name BACC-GetApiKeyCredentialProvider -Value Get-BACCApiKeyCredentialProvider
 Set-Alias -Name BACC-GetBrowser -Value Get-BACCBrowser
+Set-Alias -Name BACC-GetBrowserProfile -Value Get-BACCBrowserProfile
 Set-Alias -Name BACC-GetCodeInterpreter -Value Get-BACCCodeInterpreter
 Set-Alias -Name BACC-GetEvaluator -Value Get-BACCEvaluator
 Set-Alias -Name BACC-GetGateway -Value Get-BACCGateway
@@ -2959,6 +2964,9 @@ Set-Alias -Name BACC-ListAgentRuntimeVersions -Value Get-BACCAgentRuntimeVersion
 Set-Alias -Name List-BACCApiKeyCredentialProviders -Value Get-BACCApiKeyCredentialProviderList
 Set-Alias -Name List-BACCApiKeyCredentialProviderList -Value Get-BACCApiKeyCredentialProviderList
 Set-Alias -Name BACC-ListApiKeyCredentialProviders -Value Get-BACCApiKeyCredentialProviderList
+Set-Alias -Name List-BACCBrowserProfiles -Value Get-BACCBrowserProfileList
+Set-Alias -Name List-BACCBrowserProfileList -Value Get-BACCBrowserProfileList
+Set-Alias -Name BACC-ListBrowserProfiles -Value Get-BACCBrowserProfileList
 Set-Alias -Name List-BACCBrowsers -Value Get-BACCBrowserList
 Set-Alias -Name List-BACCBrowserList -Value Get-BACCBrowserList
 Set-Alias -Name BACC-ListBrowsers -Value Get-BACCBrowserList
@@ -3074,6 +3082,7 @@ Set-Alias -Name BAC-ListSessions -Value Get-BACSessionList
 Set-Alias -Name Retrieve-BACMemoryRecords -Value Invoke-BACMemoryRecord
 Set-Alias -Name Retrieve-BACMemoryRecord -Value Invoke-BACMemoryRecord
 Set-Alias -Name BAC-RetrieveMemoryRecords -Value Invoke-BACMemoryRecord
+Set-Alias -Name BAC-SaveBrowserSessionProfile -Value Save-BACBrowserSessionProfile
 Set-Alias -Name BAC-StartBrowserSession -Value Start-BACBrowserSession
 Set-Alias -Name BAC-StartCodeInterpreterSession -Value Start-BACCodeInterpreterSession
 Set-Alias -Name BAC-StartMemoryExtractionJob -Value Start-BACMemoryExtractionJob
@@ -15029,6 +15038,8 @@ Set-Alias -Name Delete-GLUEColumnStatisticsTaskSetting -Value Remove-GLUEColumnS
 Set-Alias -Name GLUE-DeleteColumnStatisticsTaskSettings -Value Remove-GLUEColumnStatisticsTaskSetting
 Set-Alias -Name Delete-GLUEConnection -Value Remove-GLUEConnection
 Set-Alias -Name GLUE-DeleteConnection -Value Remove-GLUEConnection
+Set-Alias -Name Delete-GLUEConnectionType -Value Remove-GLUEConnectionType
+Set-Alias -Name GLUE-DeleteConnectionType -Value Remove-GLUEConnectionType
 Set-Alias -Name Delete-GLUECrawler -Value Remove-GLUECrawler
 Set-Alias -Name GLUE-DeleteCrawler -Value Remove-GLUECrawler
 Set-Alias -Name Delete-GLUECustomEntityType -Value Remove-GLUECustomEntityType
@@ -15299,6 +15310,7 @@ Set-Alias -Name Put-GLUEWorkflowRunProperty -Value Write-GLUEWorkflowRunProperty
 Set-Alias -Name GLUE-PutWorkflowRunProperties -Value Write-GLUEWorkflowRunProperty
 Set-Alias -Name Query-GLUESchemaVersionMetadata -Value Find-GLUESchemaVersionMetadata
 Set-Alias -Name GLUE-QuerySchemaVersionMetadata -Value Find-GLUESchemaVersionMetadata
+Set-Alias -Name GLUE-RegisterConnectionType -Value Register-GLUEConnectionType
 Set-Alias -Name GLUE-RegisterSchemaVersion -Value Register-GLUESchemaVersion
 Set-Alias -Name GLUE-RemoveSchemaVersionMetadata -Value Remove-GLUESchemaVersionMetadata
 Set-Alias -Name GLUE-ResetJobBookmark -Value Reset-GLUEJobBookmark
@@ -26302,6 +26314,9 @@ Set-Alias -Name RAM-ListResourceSharePermissions -Value Get-RAMResourceSharePerm
 Set-Alias -Name List-RAMResourceTypes -Value Get-RAMResourceTypeList
 Set-Alias -Name List-RAMResourceTypeList -Value Get-RAMResourceTypeList
 Set-Alias -Name RAM-ListResourceTypes -Value Get-RAMResourceTypeList
+Set-Alias -Name List-RAMSourceAssociations -Value Get-RAMSourceAssociationList
+Set-Alias -Name List-RAMSourceAssociationList -Value Get-RAMSourceAssociationList
+Set-Alias -Name RAM-ListSourceAssociations -Value Get-RAMSourceAssociationList
 Set-Alias -Name Promote-RAMPermissionCreatedFromPolicy -Value Convert-RAMPermissionCreatedFromPolicy
 Set-Alias -Name RAM-PromotePermissionCreatedFromPolicy -Value Convert-RAMPermissionCreatedFromPolicy
 Set-Alias -Name Promote-RAMResourceShareCreatedFromPolicy -Value Convert-RAMPolicyBasedResourceShareToPromoted

@@ -32,7 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     /// <summary>
     /// Lists information about the managed permission and its associations to any resource
     /// shares that use this managed permission. This lets you see which resource shares use
-    /// which versions of the specified managed permission.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// which versions of the specified managed permission.
+    /// 
+    ///  <note><para>
+    /// Always check the <c>NextToken</c> response parameter for a <c>null</c> value when
+    /// calling a paginated operation. These operations can occasionally return an empty set
+    /// of results even when there are more results available. The <c>NextToken</c> response
+    /// parameter value is <c>null</c><i>only</i> when there are no more results to display.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RAMPermissionAssociationList")]
     [OutputType("Amazon.RAM.Model.AssociatedPermission")]

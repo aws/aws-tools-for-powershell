@@ -30,22 +30,23 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// The <c>DescribeConnectionType</c> API provides full details of the supported options
-    /// for a given connection type in Glue. The response includes authentication configuration
-    /// details that show supported authentication types and properties, and RestConfiguration
-    /// for custom REST-based connection types registered via <c>RegisterConnectionType</c>.
+    /// Deletes a custom connection type in Glue.
     /// 
     ///  
     /// <para>
-    /// See also: <c>ListConnectionTypes</c>, <c>RegisterConnectionType</c>, <c>DeleteConnectionType</c></para>
+    /// The connection type must exist and be registered before it can be deleted. This operation
+    /// supports cleanup of connection type resources and helps maintain proper lifecycle
+    /// management of custom connection types.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "GLUEConnectionType")]
-    [OutputType("Amazon.Glue.Model.DescribeConnectionTypeResponse")]
-    [AWSCmdlet("Calls the AWS Glue DescribeConnectionType API operation.", Operation = new[] {"DescribeConnectionType"}, SelectReturnType = typeof(Amazon.Glue.Model.DescribeConnectionTypeResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.DescribeConnectionTypeResponse",
-        "This cmdlet returns an Amazon.Glue.Model.DescribeConnectionTypeResponse object containing multiple properties."
+    [Cmdlet("Remove", "GLUEConnectionType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Glue DeleteConnectionType API operation.", Operation = new[] {"DeleteConnectionType"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteConnectionTypeResponse))]
+    [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteConnectionTypeResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Glue.Model.DeleteConnectionTypeResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetGLUEConnectionTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveGLUEConnectionTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -54,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ConnectionType
         /// <summary>
         /// <para>
-        /// <para>The name of the connection type to be described.</para>
+        /// <para>The name of the connection type to delete. Must reference an existing registered connection
+        /// type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,13 +72,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DescribeConnectionTypeResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.DescribeConnectionTypeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DeleteConnectionTypeResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -88,6 +99,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionType), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GLUEConnectionType (DeleteConnectionType)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -95,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.DescribeConnectionTypeResponse, GetGLUEConnectionTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.DeleteConnectionTypeResponse, RemoveGLUEConnectionTypeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ConnectionType = this.ConnectionType;
@@ -119,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.DescribeConnectionTypeRequest();
+            var request = new Amazon.Glue.Model.DeleteConnectionTypeRequest();
             
             if (cmdletContext.ConnectionType != null)
             {
@@ -158,12 +175,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.DescribeConnectionTypeResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.DescribeConnectionTypeRequest request)
+        private Amazon.Glue.Model.DeleteConnectionTypeResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.DeleteConnectionTypeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "DescribeConnectionType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "DeleteConnectionType");
             try
             {
-                return client.DescribeConnectionTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteConnectionTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -181,8 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConnectionType { get; set; }
-            public System.Func<Amazon.Glue.Model.DescribeConnectionTypeResponse, GetGLUEConnectionTypeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Glue.Model.DeleteConnectionTypeResponse, RemoveGLUEConnectionTypeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

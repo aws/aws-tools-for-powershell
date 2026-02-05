@@ -80,6 +80,22 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String ConnectorId { get; set; }
         #endregion
         
+        #region Parameter CustomHttpHeader
+        /// <summary>
+        /// <para>
+        /// <para>An array of key-value pairs that represent custom HTTP headers to include in AS2 messages.
+        /// These headers are added to the AS2 message when sending files to your trading partner.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomHttpHeaders")]
+        public Amazon.Transfer.Model.CustomHttpHeader[] CustomHttpHeader { get; set; }
+        #endregion
+        
         #region Parameter LocalDirectoryPath
         /// <summary>
         /// <para>
@@ -189,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter ConnectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.CustomHttpHeader != null)
+            {
+                context.CustomHttpHeader = new List<Amazon.Transfer.Model.CustomHttpHeader>(this.CustomHttpHeader);
+            }
             context.LocalDirectoryPath = this.LocalDirectoryPath;
             context.RemoteDirectoryPath = this.RemoteDirectoryPath;
             if (this.RetrieveFilePath != null)
@@ -218,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.ConnectorId != null)
             {
                 request.ConnectorId = cmdletContext.ConnectorId;
+            }
+            if (cmdletContext.CustomHttpHeader != null)
+            {
+                request.CustomHttpHeaders = cmdletContext.CustomHttpHeader;
             }
             if (cmdletContext.LocalDirectoryPath != null)
             {
@@ -291,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConnectorId { get; set; }
+            public List<Amazon.Transfer.Model.CustomHttpHeader> CustomHttpHeader { get; set; }
             public System.String LocalDirectoryPath { get; set; }
             public System.String RemoteDirectoryPath { get; set; }
             public List<System.String> RetrieveFilePath { get; set; }

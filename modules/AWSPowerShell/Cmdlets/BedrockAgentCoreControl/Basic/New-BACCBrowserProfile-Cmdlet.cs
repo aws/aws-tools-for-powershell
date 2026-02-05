@@ -30,30 +30,38 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Removes the specified tags from the specified resource.
-    /// 
-    ///  <note><para>
-    /// This feature is currently available only for AgentCore Runtime, Browser, Browser Profile,
-    /// Code Interpreter tool, and Gateway.
-    /// </para></note>
+    /// Creates a browser profile in Amazon Bedrock AgentCore. A browser profile stores persistent
+    /// browser data such as cookies, local storage, session storage, and browsing history
+    /// that can be saved from browser sessions and reused in subsequent sessions.
     /// </summary>
-    [Cmdlet("Remove", "BACCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("New", "BACCBrowserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateBrowserProfile API operation.", Operation = new[] {"CreateBrowserProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse object containing multiple properties."
     )]
-    public partial class RemoveBACCResourceTagCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class NewBACCBrowserProfileCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceArn
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that you want to untag.</para>
+        /// <para>A description of the browser profile. Use this field to describe the purpose or contents
+        /// of the profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the browser profile. The name must be unique within your account and can
+        /// contain alphanumeric characters and underscores.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,35 +72,42 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys of the tags to remove from the resource.</para><para />
+        /// <para>A map of tag keys and values to assign to the browser profile. Tags enable you to
+        /// categorize your resources in different ways, for example, by purpose, owner, or environment.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier to ensure that the operation completes no more
+        /// than one time. If this token matches a previous request, Amazon Bedrock AgentCore
+        /// ignores the request but does not return an error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACCResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BACCBrowserProfile (CreateBrowserProfile)"))
             {
                 return;
             }
@@ -131,26 +146,26 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse, RemoveBACCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse, NewBACCBrowserProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ResourceArn = this.ResourceArn;
+            context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
+            if (this.Tag != null)
             {
-                context.TagKey = new List<System.String>(this.TagKey);
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
             }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -165,15 +180,23 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.UntagResourceRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.Description != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -208,12 +231,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UntagResourceRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateBrowserProfile");
             try
             {
-                return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CreateBrowserProfileAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -230,10 +253,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse, RemoveBACCResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateBrowserProfileResponse, NewBACCBrowserProfileCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
