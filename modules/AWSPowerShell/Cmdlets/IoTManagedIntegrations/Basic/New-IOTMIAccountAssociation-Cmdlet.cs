@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter GeneralAuthorization_AuthMaterialName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the authorization material.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GeneralAuthorization_AuthMaterialName { get; set; }
+        #endregion
+        
         #region Parameter ConnectorDestinationId
         /// <summary>
         /// <para>
@@ -176,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             }
             #endif
             context.Description = this.Description;
+            context.GeneralAuthorization_AuthMaterialName = this.GeneralAuthorization_AuthMaterialName;
             context.Name = this.Name;
             if (this.Tag != null)
             {
@@ -212,6 +223,25 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate GeneralAuthorization
+            var requestGeneralAuthorizationIsNull = true;
+            request.GeneralAuthorization = new Amazon.IoTManagedIntegrations.Model.GeneralAuthorizationName();
+            System.String requestGeneralAuthorization_generalAuthorization_AuthMaterialName = null;
+            if (cmdletContext.GeneralAuthorization_AuthMaterialName != null)
+            {
+                requestGeneralAuthorization_generalAuthorization_AuthMaterialName = cmdletContext.GeneralAuthorization_AuthMaterialName;
+            }
+            if (requestGeneralAuthorization_generalAuthorization_AuthMaterialName != null)
+            {
+                request.GeneralAuthorization.AuthMaterialName = requestGeneralAuthorization_generalAuthorization_AuthMaterialName;
+                requestGeneralAuthorizationIsNull = false;
+            }
+             // determine if request.GeneralAuthorization should be set to null
+            if (requestGeneralAuthorizationIsNull)
+            {
+                request.GeneralAuthorization = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -285,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             public System.String ClientToken { get; set; }
             public System.String ConnectorDestinationId { get; set; }
             public System.String Description { get; set; }
+            public System.String GeneralAuthorization_AuthMaterialName { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTManagedIntegrations.Model.CreateAccountAssociationResponse, NewIOTMIAccountAssociationCmdlet, object> Select { get; set; } =

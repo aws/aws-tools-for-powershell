@@ -52,6 +52,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String SecretsManager_Arn { get; set; }
         #endregion
         
+        #region Parameter AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd
+        /// <summary>
+        /// <para>
+        /// <para>The authorization materials to add.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IoTManagedIntegrations.Model.AuthMaterial[] AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd { get; set; }
+        #endregion
+        
+        #region Parameter AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate
+        /// <summary>
+        /// <para>
+        /// <para>The authorization materials to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IoTManagedIntegrations.Model.AuthMaterial[] AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate { get; set; }
+        #endregion
+        
         #region Parameter AuthType
         /// <summary>
         /// <para>
@@ -206,6 +226,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd != null)
+            {
+                context.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd = new List<Amazon.IoTManagedIntegrations.Model.AuthMaterial>(this.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd);
+            }
+            if (this.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate != null)
+            {
+                context.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate = new List<Amazon.IoTManagedIntegrations.Model.AuthMaterial>(this.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate);
+            }
             context.OAuthUpdate_OAuthCompleteRedirectUrl = this.OAuthUpdate_OAuthCompleteRedirectUrl;
             context.ProactiveRefreshTokenRenewal_DaysBeforeRenewal = this.ProactiveRefreshTokenRenewal_DaysBeforeRenewal;
             context.ProactiveRefreshTokenRenewal_Enabled = this.ProactiveRefreshTokenRenewal_Enabled;
@@ -241,6 +269,41 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
              // populate AuthConfig
             var requestAuthConfigIsNull = true;
             request.AuthConfig = new Amazon.IoTManagedIntegrations.Model.AuthConfigUpdate();
+            Amazon.IoTManagedIntegrations.Model.GeneralAuthorizationUpdate requestAuthConfig_authConfig_GeneralAuthorizationUpdate = null;
+            
+             // populate GeneralAuthorizationUpdate
+            var requestAuthConfig_authConfig_GeneralAuthorizationUpdateIsNull = true;
+            requestAuthConfig_authConfig_GeneralAuthorizationUpdate = new Amazon.IoTManagedIntegrations.Model.GeneralAuthorizationUpdate();
+            List<Amazon.IoTManagedIntegrations.Model.AuthMaterial> requestAuthConfig_authConfig_GeneralAuthorizationUpdate_authConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd = null;
+            if (cmdletContext.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd != null)
+            {
+                requestAuthConfig_authConfig_GeneralAuthorizationUpdate_authConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd = cmdletContext.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd;
+            }
+            if (requestAuthConfig_authConfig_GeneralAuthorizationUpdate_authConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd != null)
+            {
+                requestAuthConfig_authConfig_GeneralAuthorizationUpdate.AuthMaterialsToAdd = requestAuthConfig_authConfig_GeneralAuthorizationUpdate_authConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd;
+                requestAuthConfig_authConfig_GeneralAuthorizationUpdateIsNull = false;
+            }
+            List<Amazon.IoTManagedIntegrations.Model.AuthMaterial> requestAuthConfig_authConfig_GeneralAuthorizationUpdate_authConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate = null;
+            if (cmdletContext.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate != null)
+            {
+                requestAuthConfig_authConfig_GeneralAuthorizationUpdate_authConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate = cmdletContext.AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate;
+            }
+            if (requestAuthConfig_authConfig_GeneralAuthorizationUpdate_authConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate != null)
+            {
+                requestAuthConfig_authConfig_GeneralAuthorizationUpdate.AuthMaterialsToUpdate = requestAuthConfig_authConfig_GeneralAuthorizationUpdate_authConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate;
+                requestAuthConfig_authConfig_GeneralAuthorizationUpdateIsNull = false;
+            }
+             // determine if requestAuthConfig_authConfig_GeneralAuthorizationUpdate should be set to null
+            if (requestAuthConfig_authConfig_GeneralAuthorizationUpdateIsNull)
+            {
+                requestAuthConfig_authConfig_GeneralAuthorizationUpdate = null;
+            }
+            if (requestAuthConfig_authConfig_GeneralAuthorizationUpdate != null)
+            {
+                request.AuthConfig.GeneralAuthorizationUpdate = requestAuthConfig_authConfig_GeneralAuthorizationUpdate;
+                requestAuthConfigIsNull = false;
+            }
             Amazon.IoTManagedIntegrations.Model.OAuthUpdate requestAuthConfig_authConfig_OAuthUpdate = null;
             
              // populate OAuthUpdate
@@ -412,6 +475,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.IoTManagedIntegrations.Model.AuthMaterial> AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd { get; set; }
+            public List<Amazon.IoTManagedIntegrations.Model.AuthMaterial> AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate { get; set; }
             public System.String OAuthUpdate_OAuthCompleteRedirectUrl { get; set; }
             public System.Int32? ProactiveRefreshTokenRenewal_DaysBeforeRenewal { get; set; }
             public System.Boolean? ProactiveRefreshTokenRenewal_Enabled { get; set; }

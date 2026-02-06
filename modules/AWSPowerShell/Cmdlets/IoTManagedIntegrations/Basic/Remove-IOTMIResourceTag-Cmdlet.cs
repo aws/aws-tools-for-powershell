@@ -28,7 +28,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Remove tags for the specified resource.
+    /// Removes tags from a specified resource.
     /// </summary>
     [Cmdlet("Remove", "IOTMIResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to which to add tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource from which to remove tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Project_AwsPartition
         /// <summary>
         /// <para>
-        /// <para>AWS partition where the opportunity will be deployed. Possible values: 'aws-eusc'
-        /// for AWS European Sovereign Cloud, <c>null</c> for all other partitions</para>
+        /// <para>AWS partition where the opportunity will be deployed. Possible values: <c>aws-eusc</c>
+        /// for AWS European Sovereign Cloud, <c>null</c> for all other partitions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

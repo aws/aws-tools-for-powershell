@@ -238,7 +238,7 @@ $PC_Completers = {
         # Amazon.PartnerCentralSelling.OpportunitySortName
         "Get-PCOpportunityList/Sort_SortBy"
         {
-            $v = "CustomerCompanyName","Identifier","LastModifiedDate"
+            $v = "CreatedDate","CustomerCompanyName","Identifier","LastModifiedDate"
             break
         }
 

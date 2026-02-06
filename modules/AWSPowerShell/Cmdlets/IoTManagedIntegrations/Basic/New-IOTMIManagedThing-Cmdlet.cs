@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter AuthenticationMaterial
         /// <summary>
         /// <para>
-        /// <para>The authentication material defining the device connectivity setup requests. The authentication
+        /// <para>The authentication material defining the device connectivity setup requests. The authorization
         /// materials used are the device bar code.</para>
         /// </para>
         /// </summary>

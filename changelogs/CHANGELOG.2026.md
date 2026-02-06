@@ -1,4 +1,19 @@
-﻿### 4.1.994 (2026-02-05 21:13Z)
+﻿### 4.1.995 (2026-02-06 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1218.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCJob: added parameter Tag.
+  * Amazon Managed integrations for AWS IoT Device Management
+    * Modified cmdlet New-IOTMIAccountAssociation: added parameter GeneralAuthorization_AuthMaterialName.
+    * Modified cmdlet New-IOTMIConnectorDestination: added parameter AuthConfig_GeneralAuthorization.
+    * Modified cmdlet New-IOTMIProvisioningProfile: added parameter ClaimCertificate.
+    * Modified cmdlet Start-IOTMIDeviceDiscovery: added parameter ConnectorDeviceIdList.
+    * Modified cmdlet Update-IOTMIConnectorDestination: added parameters AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToAdd and AuthConfig_GeneralAuthorizationUpdate_AuthMaterialsToUpdate.
+  * Amazon Partner Central Selling API
+    * Modified cmdlet Get-PCOpportunityList: added parameters CreatedDate_AfterCreatedDate and CreatedDate_BeforeCreatedDate.
+  * Amazon Runtime for Amazon Bedrock Data Automation
+    * Modified cmdlet Invoke-BDARDataAutomation: added parameter OutputConfiguration_S3Uri.
+
+### 4.1.994 (2026-02-05 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1217.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Get-BACCBrowserProfile leveraging the GetBrowserProfile service API.

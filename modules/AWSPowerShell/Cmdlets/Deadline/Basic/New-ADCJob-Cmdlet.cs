@@ -204,6 +204,18 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String StorageProfileId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to add to your job. Each tag consists of a tag key and a tag value. Tag keys
+        /// and values are both required, but tag values can be empty strings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetTaskRunStatus
         /// <summary>
         /// <para>
@@ -331,6 +343,14 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             #endif
             context.SourceJobId = this.SourceJobId;
             context.StorageProfileId = this.StorageProfileId;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.TargetTaskRunStatus = this.TargetTaskRunStatus;
             context.Template = this.Template;
             context.TemplateType = this.TemplateType;
@@ -427,6 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.StorageProfileId = cmdletContext.StorageProfileId;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.TargetTaskRunStatus != null)
             {
                 request.TargetTaskRunStatus = cmdletContext.TargetTaskRunStatus;
@@ -514,6 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String QueueId { get; set; }
             public System.String SourceJobId { get; set; }
             public System.String StorageProfileId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Deadline.CreateJobTargetTaskRunStatus TargetTaskRunStatus { get; set; }
             public System.String Template { get; set; }
             public Amazon.Deadline.JobTemplateType TemplateType { get; set; }

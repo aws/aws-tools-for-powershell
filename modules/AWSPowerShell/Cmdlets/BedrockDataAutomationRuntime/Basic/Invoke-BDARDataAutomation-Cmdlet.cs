@@ -122,6 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         public System.String InputConfiguration_S3Uri { get; set; }
         #endregion
         
+        #region Parameter OutputConfiguration_S3Uri
+        /// <summary>
+        /// <para>
+        /// <para>S3 uri.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfiguration_S3Uri { get; set; }
+        #endregion
+        
         #region Parameter DataAutomationConfiguration_Stage
         /// <summary>
         /// <para>
@@ -219,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
             context.InputConfiguration_Byte = this.InputConfiguration_Byte;
             context.InputConfiguration_S3Uri = this.InputConfiguration_S3Uri;
+            context.OutputConfiguration_S3Uri = this.OutputConfiguration_S3Uri;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -336,6 +347,25 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
                     request.InputConfiguration = null;
                 }
                 
+                 // populate OutputConfiguration
+                var requestOutputConfigurationIsNull = true;
+                request.OutputConfiguration = new Amazon.BedrockDataAutomationRuntime.Model.OutputConfiguration();
+                System.String requestOutputConfiguration_outputConfiguration_S3Uri = null;
+                if (cmdletContext.OutputConfiguration_S3Uri != null)
+                {
+                    requestOutputConfiguration_outputConfiguration_S3Uri = cmdletContext.OutputConfiguration_S3Uri;
+                }
+                if (requestOutputConfiguration_outputConfiguration_S3Uri != null)
+                {
+                    request.OutputConfiguration.S3Uri = requestOutputConfiguration_outputConfiguration_S3Uri;
+                    requestOutputConfigurationIsNull = false;
+                }
+                 // determine if request.OutputConfiguration should be set to null
+                if (requestOutputConfigurationIsNull)
+                {
+                    request.OutputConfiguration = null;
+                }
+                
                 CmdletOutput output;
                 
                 // issue call
@@ -412,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public byte[] InputConfiguration_Byte { get; set; }
             public System.String InputConfiguration_S3Uri { get; set; }
+            public System.String OutputConfiguration_S3Uri { get; set; }
             public System.Func<Amazon.BedrockDataAutomationRuntime.Model.InvokeDataAutomationResponse, InvokeBDARDataAutomationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -28,7 +28,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Add tags for the specified resource.
+    /// Adds tags to a specified resource.
     /// </summary>
     [Cmdlet("Add", "IOTMIResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to which to add tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to which to add tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A set of key/value pairs that are used to manage the resource</para>
+        /// <para>A set of key/value pairs that are used to manage the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
