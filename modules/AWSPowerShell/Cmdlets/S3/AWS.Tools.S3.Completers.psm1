@@ -152,7 +152,7 @@ $S3_Completers = {
             ($_ -eq "Get-S3Version/Encoding")
         }
         {
-            $v = "Url"
+            $v = "url"
             break
         }
 
@@ -269,7 +269,7 @@ $S3_Completers = {
         # Amazon.S3.ReplicationStatus
         "Write-S3GetObjectResponse/ReplicationStatus"
         {
-            $v = "COMPLETED","FAILED","PENDING","REPLICA"
+            $v = "COMPLETE","COMPLETED","FAILED","PENDING","REPLICA"
             break
         }
 
@@ -326,7 +326,7 @@ $S3_Completers = {
             ($_ -eq "Restore-S3Object/S3_CannedACL")
         }
         {
-            $v = "authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","log-delivery-write","NoACL","private","public-read","public-read-write"
+            $v = "","authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","log-delivery-write","private","public-read","public-read-write"
             break
         }
 

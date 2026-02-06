@@ -66,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CreatedDate_AfterCreatedDate
+        /// <summary>
+        /// <para>
+        /// <para>Filter opportunities created after this date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? CreatedDate_AfterCreatedDate { get; set; }
+        #endregion
+        
         #region Parameter LastModifiedDate_AfterLastModifiedDate
         /// <summary>
         /// <para>
@@ -75,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? LastModifiedDate_AfterLastModifiedDate { get; set; }
+        #endregion
+        
+        #region Parameter CreatedDate_BeforeCreatedDate
+        /// <summary>
+        /// <para>
+        /// <para>Filter opportunities created before this date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? CreatedDate_BeforeCreatedDate { get; set; }
         #endregion
         
         #region Parameter LastModifiedDate_BeforeLastModifiedDate
@@ -276,6 +296,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CreatedDate_AfterCreatedDate = this.CreatedDate_AfterCreatedDate;
+            context.CreatedDate_BeforeCreatedDate = this.CreatedDate_BeforeCreatedDate;
             if (this.CustomerCompanyName != null)
             {
                 context.CustomerCompanyName = new List<System.String>(this.CustomerCompanyName);
@@ -328,6 +350,35 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (cmdletContext.Catalog != null)
             {
                 request.Catalog = cmdletContext.Catalog;
+            }
+            
+             // populate CreatedDate
+            var requestCreatedDateIsNull = true;
+            request.CreatedDate = new Amazon.PartnerCentralSelling.Model.CreatedDateFilter();
+            System.DateTime? requestCreatedDate_createdDate_AfterCreatedDate = null;
+            if (cmdletContext.CreatedDate_AfterCreatedDate != null)
+            {
+                requestCreatedDate_createdDate_AfterCreatedDate = cmdletContext.CreatedDate_AfterCreatedDate.Value;
+            }
+            if (requestCreatedDate_createdDate_AfterCreatedDate != null)
+            {
+                request.CreatedDate.AfterCreatedDate = requestCreatedDate_createdDate_AfterCreatedDate.Value;
+                requestCreatedDateIsNull = false;
+            }
+            System.DateTime? requestCreatedDate_createdDate_BeforeCreatedDate = null;
+            if (cmdletContext.CreatedDate_BeforeCreatedDate != null)
+            {
+                requestCreatedDate_createdDate_BeforeCreatedDate = cmdletContext.CreatedDate_BeforeCreatedDate.Value;
+            }
+            if (requestCreatedDate_createdDate_BeforeCreatedDate != null)
+            {
+                request.CreatedDate.BeforeCreatedDate = requestCreatedDate_createdDate_BeforeCreatedDate.Value;
+                requestCreatedDateIsNull = false;
+            }
+             // determine if request.CreatedDate should be set to null
+            if (requestCreatedDateIsNull)
+            {
+                request.CreatedDate = null;
             }
             if (cmdletContext.CustomerCompanyName != null)
             {
@@ -488,6 +539,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Catalog { get; set; }
+            public System.DateTime? CreatedDate_AfterCreatedDate { get; set; }
+            public System.DateTime? CreatedDate_BeforeCreatedDate { get; set; }
             public List<System.String> CustomerCompanyName { get; set; }
             public List<System.String> Identifier { get; set; }
             public System.DateTime? LastModifiedDate_AfterLastModifiedDate { get; set; }

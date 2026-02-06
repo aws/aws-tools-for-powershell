@@ -30,7 +30,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// List tags for the specified resource.
+    /// Lists the tags for a specified resource.
     /// </summary>
     [Cmdlet("Get", "IOTMIResourceTag")]
     [OutputType("System.String")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource for which to list tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which to list tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

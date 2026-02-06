@@ -83,7 +83,7 @@ $IOTMI_Completers = {
         # Amazon.IoTManagedIntegrations.AuthMaterialType
         "New-IOTMIManagedThing/AuthenticationMaterialType"
         {
-            $v = "CUSTOM_PROTOCOL_QR_BAR_CODE","DISCOVERED_DEVICE","WIFI_SETUP_QR_BAR_CODE","ZIGBEE_QR_BAR_CODE","ZWAVE_QR_BAR_CODE"
+            $v = "CUSTOM_PROTOCOL_QR_BAR_CODE","DISCOVERED_DEVICE","PRE_ONBOARDED_CLOUD","WIFI_SETUP_QR_BAR_CODE","ZIGBEE_QR_BAR_CODE","ZWAVE_QR_BAR_CODE"
             break
         }
 

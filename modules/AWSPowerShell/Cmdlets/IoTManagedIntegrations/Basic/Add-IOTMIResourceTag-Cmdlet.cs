@@ -30,7 +30,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Add tags for the specified resource.
+    /// Adds tags to a specified resource.
     /// </summary>
     [Cmdlet("Add", "IOTMIResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to which to add tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to which to add tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A set of key/value pairs that are used to manage the resource</para><para />
+        /// <para>A set of key/value pairs that are used to manage the resource.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

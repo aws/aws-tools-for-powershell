@@ -52,14 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         /// <para>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SecretsManager_Arn { get; set; }
         #endregion
         
@@ -70,13 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         /// and access are managed.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.IoTManagedIntegrations.AuthType")]
         public Amazon.IoTManagedIntegrations.AuthType AuthType { get; set; }
         #endregion
@@ -143,6 +130,20 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.Boolean? ProactiveRefreshTokenRenewal_Enabled { get; set; }
         #endregion
         
+        #region Parameter AuthConfig_GeneralAuthorization
+        /// <summary>
+        /// <para>
+        /// <para>The authorization materials for General Authorization.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IoTManagedIntegrations.Model.AuthMaterial[] AuthConfig_GeneralAuthorization { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -206,14 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         /// <para>The version ID of the AWS Secrets Manager secret.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SecretsManager_VersionId { get; set; }
         #endregion
         
@@ -275,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 context.Select = CreateSelectDelegate<Amazon.IoTManagedIntegrations.Model.CreateConnectorDestinationResponse, NewIOTMIConnectorDestinationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AuthConfig_GeneralAuthorization != null)
+            {
+                context.AuthConfig_GeneralAuthorization = new List<Amazon.IoTManagedIntegrations.Model.AuthMaterial>(this.AuthConfig_GeneralAuthorization);
+            }
             context.OAuth_AuthUrl = this.OAuth_AuthUrl;
             context.OAuth_OAuthCompleteRedirectUrl = this.OAuth_OAuthCompleteRedirectUrl;
             context.ProactiveRefreshTokenRenewal_DaysBeforeRenewal = this.ProactiveRefreshTokenRenewal_DaysBeforeRenewal;
@@ -283,12 +281,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             context.OAuth_TokenEndpointAuthenticationScheme = this.OAuth_TokenEndpointAuthenticationScheme;
             context.OAuth_TokenUrl = this.OAuth_TokenUrl;
             context.AuthType = this.AuthType;
-            #if MODULAR
-            if (this.AuthType == null && ParameterWasBound(nameof(this.AuthType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AuthType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClientToken = this.ClientToken;
             context.CloudConnectorId = this.CloudConnectorId;
             #if MODULAR
@@ -300,19 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             context.Description = this.Description;
             context.Name = this.Name;
             context.SecretsManager_Arn = this.SecretsManager_Arn;
-            #if MODULAR
-            if (this.SecretsManager_Arn == null && ParameterWasBound(nameof(this.SecretsManager_Arn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SecretsManager_Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SecretsManager_VersionId = this.SecretsManager_VersionId;
-            #if MODULAR
-            if (this.SecretsManager_VersionId == null && ParameterWasBound(nameof(this.SecretsManager_VersionId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SecretsManager_VersionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -333,6 +313,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
              // populate AuthConfig
             var requestAuthConfigIsNull = true;
             request.AuthConfig = new Amazon.IoTManagedIntegrations.Model.AuthConfig();
+            List<Amazon.IoTManagedIntegrations.Model.AuthMaterial> requestAuthConfig_authConfig_GeneralAuthorization = null;
+            if (cmdletContext.AuthConfig_GeneralAuthorization != null)
+            {
+                requestAuthConfig_authConfig_GeneralAuthorization = cmdletContext.AuthConfig_GeneralAuthorization;
+            }
+            if (requestAuthConfig_authConfig_GeneralAuthorization != null)
+            {
+                request.AuthConfig.GeneralAuthorization = requestAuthConfig_authConfig_GeneralAuthorization;
+                requestAuthConfigIsNull = false;
+            }
             Amazon.IoTManagedIntegrations.Model.OAuthConfig requestAuthConfig_authConfig_OAuth = null;
             
              // populate OAuth
@@ -542,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.IoTManagedIntegrations.Model.AuthMaterial> AuthConfig_GeneralAuthorization { get; set; }
             public System.String OAuth_AuthUrl { get; set; }
             public System.String OAuth_OAuthCompleteRedirectUrl { get; set; }
             public System.Int32? ProactiveRefreshTokenRenewal_DaysBeforeRenewal { get; set; }

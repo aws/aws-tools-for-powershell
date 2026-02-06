@@ -56,6 +56,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String CaCertificate { get; set; }
         #endregion
         
+        #region Parameter ClaimCertificate
+        /// <summary>
+        /// <para>
+        /// <para>The claim certificate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClaimCertificate { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -157,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CaCertificate = this.CaCertificate;
+            context.ClaimCertificate = this.ClaimCertificate;
             context.ClientToken = this.ClientToken;
             context.Name = this.Name;
             context.ProvisioningType = this.ProvisioningType;
@@ -193,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (cmdletContext.CaCertificate != null)
             {
                 request.CaCertificate = cmdletContext.CaCertificate;
+            }
+            if (cmdletContext.ClaimCertificate != null)
+            {
+                request.ClaimCertificate = cmdletContext.ClaimCertificate;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -266,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CaCertificate { get; set; }
+            public System.String ClaimCertificate { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Name { get; set; }
             public Amazon.IoTManagedIntegrations.ProvisioningType ProvisioningType { get; set; }

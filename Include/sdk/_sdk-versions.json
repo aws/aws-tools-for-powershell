@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.185.0",
+    "ProductVersion"    : "4.0.186.0",
     "CoreVersion"       : "4.0.3.12",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -300,7 +300,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.18.2",
+            "Version" : "4.0.18.3",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.41.1",
+            "Version" : "4.0.42.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -2892,7 +2892,7 @@
             "InPreview"               : false
         },
         "Deadline"                            : {
-            "Version" : "4.0.12.1",
+            "Version" : "4.0.13.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -3036,7 +3036,7 @@
             "InPreview"               : false
         },
         "PartnerCentralSelling"               : {
-            "Version" : "4.0.7.6",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -3124,7 +3124,7 @@
             "InPreview"               : false
         },
         "BedrockDataAutomationRuntime"        : {
-            "Version" : "4.0.4.8",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -3148,7 +3148,7 @@
             "InPreview"               : false
         },
         "IoTManagedIntegrations"              : {
-            "Version" : "4.0.5.3",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"

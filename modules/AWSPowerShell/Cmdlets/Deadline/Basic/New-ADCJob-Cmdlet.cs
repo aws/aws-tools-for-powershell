@@ -213,6 +213,22 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String StorageProfileId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to add to your job. Each tag consists of a tag key and a tag value. Tag keys
+        /// and values are both required, but tag values can be empty strings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetTaskRunStatus
         /// <summary>
         /// <para>
@@ -344,6 +360,14 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             #endif
             context.SourceJobId = this.SourceJobId;
             context.StorageProfileId = this.StorageProfileId;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.TargetTaskRunStatus = this.TargetTaskRunStatus;
             context.Template = this.Template;
             context.TemplateType = this.TemplateType;
@@ -440,6 +464,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.StorageProfileId = cmdletContext.StorageProfileId;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.TargetTaskRunStatus != null)
             {
                 request.TargetTaskRunStatus = cmdletContext.TargetTaskRunStatus;
@@ -521,6 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String QueueId { get; set; }
             public System.String SourceJobId { get; set; }
             public System.String StorageProfileId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Deadline.CreateJobTargetTaskRunStatus TargetTaskRunStatus { get; set; }
             public System.String Template { get; set; }
             public Amazon.Deadline.JobTemplateType TemplateType { get; set; }

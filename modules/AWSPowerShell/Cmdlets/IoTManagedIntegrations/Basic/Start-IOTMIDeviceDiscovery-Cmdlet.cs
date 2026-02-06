@@ -78,6 +78,20 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public Amazon.IoTManagedIntegrations.DiscoveryAuthMaterialType AuthenticationMaterialType { get; set; }
         #endregion
         
+        #region Parameter ConnectorDeviceIdList
+        /// <summary>
+        /// <para>
+        /// <para>Used as a filter for PLA discoveries.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ConnectorDeviceIdList { get; set; }
+        #endregion
+        
         #region Parameter ControllerIdentifier
         /// <summary>
         /// <para>
@@ -237,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConnectorAssociationIdentifier = this.ConnectorAssociationIdentifier;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ConnectorDeviceIdList != null)
+            {
+                context.ConnectorDeviceIdList = new List<System.String>(this.ConnectorDeviceIdList);
+            }
             context.ControllerIdentifier = this.ControllerIdentifier;
             if (this.CustomProtocolDetail != null)
             {
@@ -303,6 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 request.ConnectorAssociationIdentifier = cmdletContext.ConnectorAssociationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.ConnectorDeviceIdList != null)
+            {
+                request.ConnectorDeviceIdList = cmdletContext.ConnectorDeviceIdList;
+            }
             if (cmdletContext.ControllerIdentifier != null)
             {
                 request.ControllerIdentifier = cmdletContext.ControllerIdentifier;
@@ -390,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             public System.String ClientToken { get; set; }
             [System.ObsoleteAttribute]
             public System.String ConnectorAssociationIdentifier { get; set; }
+            public List<System.String> ConnectorDeviceIdList { get; set; }
             public System.String ControllerIdentifier { get; set; }
             public Dictionary<System.String, System.String> CustomProtocolDetail { get; set; }
             public Amazon.IoTManagedIntegrations.DiscoveryType DiscoveryType { get; set; }
