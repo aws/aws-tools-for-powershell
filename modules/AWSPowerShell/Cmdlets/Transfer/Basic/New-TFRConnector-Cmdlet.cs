@@ -175,7 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>Used for outbound requests (from an Transfer Family connector to a partner AS2 server)
         /// to determine whether the partner response for transfers is synchronous or asynchronous.
-        /// Specify either of the following values:</para><ul><li><para><c>SYNC</c>: The system expects a synchronous MDN response, confirming that the file
+        /// Specify either of the following values:</para><ul><li><para><c>ASYNC</c>: The system expects an asynchronous MDN response, confirming that the
+        /// file was transferred successfully (or not).</para></li><li><para><c>SYNC</c>: The system expects a synchronous MDN response, confirming that the file
         /// was transferred successfully (or not).</para></li><li><para><c>NONE</c>: Specifies that no MDN response is required.</para></li></ul>
         /// </para>
         /// </summary>

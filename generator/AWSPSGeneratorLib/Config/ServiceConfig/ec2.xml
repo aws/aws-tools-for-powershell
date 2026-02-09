@@ -587,6 +587,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecondaryNetwork" OutputProperty="SecondaryNetwork" Verb="New" Noun="SecondaryNetwork" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecondarySubnet" OutputProperty="SecondarySubnet" Verb="New" Noun="SecondarySubnet" ShouldProcessTarget="SecondaryNetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSecurityGroup" OutputProperty="GroupId" Verb="New" Noun="SecurityGroup" ShouldProcessTarget="GroupName" PositionalParameters="Description;VpcId" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Description" Alias="GroupDescription" />
@@ -964,6 +972,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRouteTable" Verb="Remove" Noun="RouteTable" ShouldProcessTarget="RouteTableId" ShouldProcessMsgNoun="Route Table" PipelineParameter="RouteTableId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecondaryNetwork" OutputProperty="SecondaryNetwork" Verb="Remove" Noun="SecondaryNetwork" ShouldProcessTarget="SecondaryNetworkId" PipelineParameter="SecondaryNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecondarySubnet" OutputProperty="SecondarySubnet" Verb="Remove" Noun="SecondarySubnet" ShouldProcessTarget="SecondarySubnetId" PipelineParameter="SecondarySubnetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1662,6 +1678,18 @@
                 <Param Name="SlotStartTimeRange_LatestTimeUtc" NewName="SlotStartTimeRange_UtcLatestTime" AutoApplyAlias="false" />
                 <Param Name="SlotStartTimeRange_LatestTime" ExclusiveParameters="SlotStartTimeRange_UtcLatestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SlotStartTimeRange_UtcLatestTime instead." />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecondaryInterfaces" OutputProperty="SecondaryInterfaces" Verb="Get" Noun="SecondaryInterfaceDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecondaryNetworks" OutputProperty="SecondaryNetworks" Verb="Get" Noun="SecondaryNetworkDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecondarySubnets" OutputProperty="SecondarySubnets" Verb="Get" Noun="SecondarySubnetDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSecurityGroupReferences" OutputProperty="SecurityGroupReferenceSet" Verb="Get" Noun="SecurityGroupReference" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
