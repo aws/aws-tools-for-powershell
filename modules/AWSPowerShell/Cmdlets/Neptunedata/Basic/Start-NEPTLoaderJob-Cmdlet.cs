@@ -81,6 +81,21 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         public System.String[] Dependency { get; set; }
         #endregion
         
+        #region Parameter EdgeOnlyLoad
+        /// <summary>
+        /// <para>
+        /// <para><b><c>edgeOnlyLoad</c></b>   –   A flag that controls file processing order during
+        /// bulk loading.</para><para><i>Allowed values</i>: <c>"TRUE"</c>, <c>"FALSE"</c>.</para><para><i>Default value</i>: <c>"FALSE"</c>.</para><para>When this parameter is set to "FALSE", the loader automatically loads vertex files
+        /// first, then edge files afterwards. It does this by first scanning all files to determine
+        /// their contents (vertices or edges). When this parameter is set to "TRUE", the loader
+        /// skips the initial scanning phase and immediately loads all files in the order they
+        /// appear.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EdgeOnlyLoad { get; set; }
+        #endregion
+        
         #region Parameter FailOnError
         /// <summary>
         /// <para>
@@ -345,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             {
                 context.Dependency = new List<System.String>(this.Dependency);
             }
+            context.EdgeOnlyLoad = this.EdgeOnlyLoad;
             context.FailOnError = this.FailOnError;
             context.Format = this.Format;
             #if MODULAR
@@ -406,6 +422,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             if (cmdletContext.Dependency != null)
             {
                 request.Dependencies = cmdletContext.Dependency;
+            }
+            if (cmdletContext.EdgeOnlyLoad != null)
+            {
+                request.EdgeOnlyLoad = cmdletContext.EdgeOnlyLoad.Value;
             }
             if (cmdletContext.FailOnError != null)
             {
@@ -507,6 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Dependency { get; set; }
+            public System.Boolean? EdgeOnlyLoad { get; set; }
             public System.Boolean? FailOnError { get; set; }
             public Amazon.Neptunedata.Format Format { get; set; }
             public System.String IamRoleArn { get; set; }

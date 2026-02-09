@@ -581,6 +581,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecondaryNetwork" OutputProperty="SecondaryNetwork" Verb="New" Noun="SecondaryNetwork" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecondarySubnet" OutputProperty="SecondarySubnet" Verb="New" Noun="SecondarySubnet" ShouldProcessTarget="SecondaryNetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSecurityGroup" OutputProperty="GroupId" Verb="New" Noun="SecurityGroup" ShouldProcessTarget="GroupName" PositionalParameters="Description;VpcId" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Description" Alias="GroupDescription" />
@@ -954,6 +962,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRouteTable" Verb="Remove" Noun="RouteTable" ShouldProcessTarget="RouteTableId" ShouldProcessMsgNoun="Route Table" PipelineParameter="RouteTableId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecondaryNetwork" OutputProperty="SecondaryNetwork" Verb="Remove" Noun="SecondaryNetwork" ShouldProcessTarget="SecondaryNetworkId" PipelineParameter="SecondaryNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecondarySubnet" OutputProperty="SecondarySubnet" Verb="Remove" Noun="SecondarySubnet" ShouldProcessTarget="SecondarySubnetId" PipelineParameter="SecondarySubnetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1634,6 +1650,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeScheduledInstances" OutputProperty="ScheduledInstanceSet" Verb="Get" Noun="ScheduledInstance" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecondaryInterfaces" OutputProperty="SecondaryInterfaces" Verb="Get" Noun="SecondaryInterfaceDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecondaryNetworks" OutputProperty="SecondaryNetworks" Verb="Get" Noun="SecondaryNetworkDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecondarySubnets" OutputProperty="SecondarySubnets" Verb="Get" Noun="SecondarySubnetDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

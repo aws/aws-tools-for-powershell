@@ -10641,6 +10641,10 @@ Set-Alias -Name Create-EC2RouteServerPeer -Value New-EC2RouteServerPeer
 Set-Alias -Name EC2-CreateRouteServerPeer -Value New-EC2RouteServerPeer
 Set-Alias -Name Create-EC2RouteTable -Value New-EC2RouteTable
 Set-Alias -Name EC2-CreateRouteTable -Value New-EC2RouteTable
+Set-Alias -Name Create-EC2SecondaryNetwork -Value New-EC2SecondaryNetwork
+Set-Alias -Name EC2-CreateSecondaryNetwork -Value New-EC2SecondaryNetwork
+Set-Alias -Name Create-EC2SecondarySubnet -Value New-EC2SecondarySubnet
+Set-Alias -Name EC2-CreateSecondarySubnet -Value New-EC2SecondarySubnet
 Set-Alias -Name Create-EC2SecurityGroup -Value New-EC2SecurityGroup
 Set-Alias -Name EC2-CreateSecurityGroup -Value New-EC2SecurityGroup
 Set-Alias -Name Create-EC2Snapshot -Value New-EC2Snapshot
@@ -10832,6 +10836,10 @@ Set-Alias -Name Delete-EC2RouteServerPeer -Value Remove-EC2RouteServerPeer
 Set-Alias -Name EC2-DeleteRouteServerPeer -Value Remove-EC2RouteServerPeer
 Set-Alias -Name Delete-EC2RouteTable -Value Remove-EC2RouteTable
 Set-Alias -Name EC2-DeleteRouteTable -Value Remove-EC2RouteTable
+Set-Alias -Name Delete-EC2SecondaryNetwork -Value Remove-EC2SecondaryNetwork
+Set-Alias -Name EC2-DeleteSecondaryNetwork -Value Remove-EC2SecondaryNetwork
+Set-Alias -Name Delete-EC2SecondarySubnet -Value Remove-EC2SecondarySubnet
+Set-Alias -Name EC2-DeleteSecondarySubnet -Value Remove-EC2SecondarySubnet
 Set-Alias -Name Delete-EC2SecurityGroup -Value Remove-EC2SecurityGroup
 Set-Alias -Name EC2-DeleteSecurityGroup -Value Remove-EC2SecurityGroup
 Set-Alias -Name Delete-EC2Snapshot -Value Remove-EC2Snapshot
@@ -11275,6 +11283,15 @@ Set-Alias -Name EC2-DescribeScheduledInstanceAvailability -Value Get-EC2Schedule
 Set-Alias -Name Describe-EC2ScheduledInstances -Value Get-EC2ScheduledInstance
 Set-Alias -Name Describe-EC2ScheduledInstance -Value Get-EC2ScheduledInstance
 Set-Alias -Name EC2-DescribeScheduledInstances -Value Get-EC2ScheduledInstance
+Set-Alias -Name Describe-EC2SecondaryInterfaces -Value Get-EC2SecondaryInterfaceDetail
+Set-Alias -Name Describe-EC2SecondaryInterfaceDetail -Value Get-EC2SecondaryInterfaceDetail
+Set-Alias -Name EC2-DescribeSecondaryInterfaces -Value Get-EC2SecondaryInterfaceDetail
+Set-Alias -Name Describe-EC2SecondaryNetworks -Value Get-EC2SecondaryNetworkDetail
+Set-Alias -Name Describe-EC2SecondaryNetworkDetail -Value Get-EC2SecondaryNetworkDetail
+Set-Alias -Name EC2-DescribeSecondaryNetworks -Value Get-EC2SecondaryNetworkDetail
+Set-Alias -Name Describe-EC2SecondarySubnets -Value Get-EC2SecondarySubnetDetail
+Set-Alias -Name Describe-EC2SecondarySubnetDetail -Value Get-EC2SecondarySubnetDetail
+Set-Alias -Name EC2-DescribeSecondarySubnets -Value Get-EC2SecondarySubnetDetail
 Set-Alias -Name Describe-EC2SecurityGroupReferences -Value Get-EC2SecurityGroupReference
 Set-Alias -Name Describe-EC2SecurityGroupReference -Value Get-EC2SecurityGroupReference
 Set-Alias -Name EC2-DescribeSecurityGroupReferences -Value Get-EC2SecurityGroupReference

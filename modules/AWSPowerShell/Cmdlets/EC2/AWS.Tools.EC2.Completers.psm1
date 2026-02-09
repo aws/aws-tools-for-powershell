@@ -1080,6 +1080,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SecondaryNetworkType
+        "New-EC2SecondaryNetwork/NetworkType"
+        {
+            $v = "rdma"
+            break
+        }
+
         # Amazon.EC2.SecurityGroupReferencingSupportValue
         {
             ($_ -eq "Edit-EC2TransitGateway/Options_SecurityGroupReferencingSupport") -Or
@@ -1548,6 +1555,7 @@ $EC2_map = @{
     "NatGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "NetworkPerformanceOptions_BandwidthWeighting"=@("New-EC2Instance")
+    "NetworkType"=@("New-EC2SecondaryNetwork")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OnDemandOptions_AllocationStrategy"=@("New-EC2Fleet")
@@ -1808,6 +1816,8 @@ $EC2_SelectMap = @{
                "New-EC2RouteServerEndpoint",
                "New-EC2RouteServerPeer",
                "New-EC2RouteTable",
+               "New-EC2SecondaryNetwork",
+               "New-EC2SecondarySubnet",
                "New-EC2SecurityGroup",
                "New-EC2Snapshot",
                "New-EC2SnapshotBatch",
@@ -1900,6 +1910,8 @@ $EC2_SelectMap = @{
                "Remove-EC2RouteServerEndpoint",
                "Remove-EC2RouteServerPeer",
                "Remove-EC2RouteTable",
+               "Remove-EC2SecondaryNetwork",
+               "Remove-EC2SecondarySubnet",
                "Remove-EC2SecurityGroup",
                "Remove-EC2Snapshot",
                "Remove-EC2SpotDatafeedSubscription",
@@ -2067,6 +2079,9 @@ $EC2_SelectMap = @{
                "Get-EC2RouteTable",
                "Get-EC2ScheduledInstanceAvailability",
                "Get-EC2ScheduledInstance",
+               "Get-EC2SecondaryInterfaceDetail",
+               "Get-EC2SecondaryNetworkDetail",
+               "Get-EC2SecondarySubnetDetail",
                "Get-EC2SecurityGroupReference",
                "Get-EC2SecurityGroupRule",
                "Get-EC2SecurityGroup",

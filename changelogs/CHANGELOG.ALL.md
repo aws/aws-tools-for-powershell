@@ -1,4 +1,18 @@
-﻿### 5.0.150 (2026-02-06 21:09Z)
+﻿### 5.0.151 (2026-02-09 22:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.187.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Get-EC2SecondaryInterfaceDetail leveraging the DescribeSecondaryInterfaces service API.
+    * Added cmdlet Get-EC2SecondaryNetworkDetail leveraging the DescribeSecondaryNetworks service API.
+    * Added cmdlet Get-EC2SecondarySubnetDetail leveraging the DescribeSecondarySubnets service API.
+    * Added cmdlet New-EC2SecondaryNetwork leveraging the CreateSecondaryNetwork service API.
+    * Added cmdlet New-EC2SecondarySubnet leveraging the CreateSecondarySubnet service API.
+    * Added cmdlet Remove-EC2SecondaryNetwork leveraging the DeleteSecondaryNetwork service API.
+    * Added cmdlet Remove-EC2SecondarySubnet leveraging the DeleteSecondarySubnet service API.
+    * Modified cmdlet New-EC2Instance: added parameter SecondaryInterface.
+  * Amazon NeptuneData
+    * Modified cmdlet Start-NEPTLoaderJob: added parameter EdgeOnlyLoad.
+
+### 5.0.150 (2026-02-06 21:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.186.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet New-ADCJob: added parameter Tag.

@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>A key-value map that provides an additional configuration on your data lake. CROSS_ACCOUNT_VERSION
         /// is the key you can configure in the Parameters field. Accepted values for the CrossAccountVersion
-        /// key are 1, 2, 3, and 4.</para><para />
+        /// key are 1, 2, 3, 4 and 5.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
