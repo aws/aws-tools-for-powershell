@@ -7741,6 +7741,7 @@ Set-Alias -Name CONN-UpdateSecurityProfile -Value Update-CONNSecurityProfile
 Set-Alias -Name CONN-UpdateTaskTemplate -Value Update-CONNTaskTemplate
 Set-Alias -Name CONN-UpdateTestCase -Value Update-CONNTestCase
 Set-Alias -Name CONN-UpdateTrafficDistribution -Value Update-CONNTrafficDistribution
+Set-Alias -Name CONN-UpdateUserConfig -Value Update-CONNUserConfig
 Set-Alias -Name CONN-UpdateUserHierarchy -Value Update-CONNUserHierarchy
 Set-Alias -Name CONN-UpdateUserHierarchyGroupName -Value Update-CONNUserHierarchyGroupName
 Set-Alias -Name CONN-UpdateUserHierarchyStructure -Value Update-CONNUserHierarchyStructure
@@ -18423,6 +18424,8 @@ Set-Alias -Name Create-MSKConfiguration -Value New-MSKConfiguration
 Set-Alias -Name MSK-CreateConfiguration -Value New-MSKConfiguration
 Set-Alias -Name Create-MSKReplicator -Value New-MSKReplicator
 Set-Alias -Name MSK-CreateReplicator -Value New-MSKReplicator
+Set-Alias -Name Create-MSKTopic -Value New-MSKTopic
+Set-Alias -Name MSK-CreateTopic -Value New-MSKTopic
 Set-Alias -Name Create-MSKVpcConnection -Value New-MSKVpcConnection
 Set-Alias -Name MSK-CreateVpcConnection -Value New-MSKVpcConnection
 Set-Alias -Name Delete-MSKCluster -Value Remove-MSKCluster
@@ -18433,6 +18436,8 @@ Set-Alias -Name Delete-MSKConfiguration -Value Remove-MSKConfiguration
 Set-Alias -Name MSK-DeleteConfiguration -Value Remove-MSKConfiguration
 Set-Alias -Name Delete-MSKReplicator -Value Remove-MSKReplicator
 Set-Alias -Name MSK-DeleteReplicator -Value Remove-MSKReplicator
+Set-Alias -Name Delete-MSKTopic -Value Remove-MSKTopic
+Set-Alias -Name MSK-DeleteTopic -Value Remove-MSKTopic
 Set-Alias -Name Delete-MSKVpcConnection -Value Remove-MSKVpcConnection
 Set-Alias -Name MSK-DeleteVpcConnection -Value Remove-MSKVpcConnection
 Set-Alias -Name Describe-MSKCluster -Value Get-MSKCluster
@@ -18521,6 +18526,7 @@ Set-Alias -Name MSK-UpdateRebalancing -Value Update-MSKRebalancing
 Set-Alias -Name MSK-UpdateReplicationInfo -Value Update-MSKReplicationInfo
 Set-Alias -Name MSK-UpdateSecurity -Value Update-MSKSecurity
 Set-Alias -Name MSK-UpdateStorage -Value Update-MSKStorage
+Set-Alias -Name MSK-UpdateTopic -Value Update-MSKTopic
 Set-Alias -Name Create-MSKCConnector -Value New-MSKCConnector
 Set-Alias -Name MSKC-CreateConnector -Value New-MSKCConnector
 Set-Alias -Name Create-MSKCCustomPlugin -Value New-MSKCCustomPlugin

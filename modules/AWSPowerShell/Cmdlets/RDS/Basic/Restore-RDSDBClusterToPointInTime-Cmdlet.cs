@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int64? BacktrackWindow { get; set; }
         #endregion
         
+        #region Parameter BackupRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The number of days for which automated backups are retained. Specify a minimum value
+        /// of <c>1</c>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? BackupRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
@@ -444,6 +455,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? Port { get; set; }
         #endregion
         
+        #region Parameter PreferredBackupWindow
+        /// <summary>
+        /// <para>
+        /// <para>The daily time range during which automated backups are created if automated backups
+        /// are enabled, using the <c>BackupRetentionPeriod</c> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// for each Amazon Web Services Region. To view the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
+        /// Backup window</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreferredBackupWindow { get; set; }
+        #endregion
+        
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
@@ -695,6 +719,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BacktrackWindow = this.BacktrackWindow;
+            context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             #if MODULAR
@@ -726,6 +751,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             context.PerformanceInsightsRetentionPeriod = this.PerformanceInsightsRetentionPeriod;
             context.Port = this.Port;
+            context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.RdsCustomClusterConfiguration_InterconnectSubnetId = this.RdsCustomClusterConfiguration_InterconnectSubnetId;
             context.RdsCustomClusterConfiguration_ReplicaMode = this.RdsCustomClusterConfiguration_ReplicaMode;
@@ -776,6 +802,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.BacktrackWindow != null)
             {
                 request.BacktrackWindow = cmdletContext.BacktrackWindow.Value;
+            }
+            if (cmdletContext.BackupRetentionPeriod != null)
+            {
+                request.BackupRetentionPeriod = cmdletContext.BackupRetentionPeriod.Value;
             }
             if (cmdletContext.CopyTagsToSnapshot != null)
             {
@@ -864,6 +894,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Port != null)
             {
                 request.Port = cmdletContext.Port.Value;
+            }
+            if (cmdletContext.PreferredBackupWindow != null)
+            {
+                request.PreferredBackupWindow = cmdletContext.PreferredBackupWindow;
             }
             if (cmdletContext.PubliclyAccessible != null)
             {
@@ -1108,6 +1142,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int64? BacktrackWindow { get; set; }
+            public System.Int32? BackupRetentionPeriod { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterInstanceClass { get; set; }
@@ -1130,6 +1165,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }
             public System.Int32? Port { get; set; }
+            public System.String PreferredBackupWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String RdsCustomClusterConfiguration_InterconnectSubnetId { get; set; }
             public Amazon.RDS.ReplicaMode RdsCustomClusterConfiguration_ReplicaMode { get; set; }

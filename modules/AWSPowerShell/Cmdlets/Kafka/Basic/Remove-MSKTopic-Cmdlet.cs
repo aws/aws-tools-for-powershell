@@ -23,41 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.Kafka;
+using Amazon.Kafka.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.MSK
 {
     /// <summary>
-    /// Updates the phone configuration settings for the specified user.
-    /// 
-    ///  <note><para>
-    /// We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserConfig.html">UpdateUserConfig</a>
-    /// API, which supports additional functionality that is not available in the UpdateUserPhoneConfig
-    /// API, such as voice enhancement settings and per-channel configuration for auto-accept
-    /// and After Contact Work (ACW) timeouts. In comparison, the UpdateUserPhoneConfig API
-    /// will always set the same ACW timeouts to all channels the user handles.
-    /// </para></note>
+    /// Deletes a topic in the specified MSK cluster.
     /// </summary>
-    [Cmdlet("Update", "CONNUserPhoneConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service UpdateUserPhoneConfig API operation.", Operation = new[] {"UpdateUserPhoneConfig"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateUserPhoneConfigResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateUserPhoneConfigResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateUserPhoneConfigResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "MSKTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Kafka.Model.DeleteTopicResponse")]
+    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DeleteTopic API operation.", Operation = new[] {"DeleteTopic"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteTopicResponse))]
+    [AWSCmdletOutput("Amazon.Kafka.Model.DeleteTopicResponse",
+        "This cmdlet returns an Amazon.Kafka.Model.DeleteTopicResponse object containing multiple properties."
     )]
-    public partial class UpdateCONNUserPhoneConfigCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class RemoveMSKTopicCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter InstanceId
+        #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,46 +58,31 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ClusterArn { get; set; }
         #endregion
         
-        #region Parameter PhoneConfig
+        #region Parameter TopicName
         /// <summary>
         /// <para>
-        /// <para>Information about phone configuration settings for the user.</para>
+        /// <para>The name of the topic to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.Connect.Model.UserPhoneConfig PhoneConfig { get; set; }
-        #endregion
-        
-        #region Parameter UserId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the user account.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserId { get; set; }
+        public System.String TopicName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateUserPhoneConfigResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kafka.Model.DeleteTopicResponse).
+        /// Specifying the name of a property of type Amazon.Kafka.Model.DeleteTopicResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNUserPhoneConfig (UpdateUserPhoneConfig)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TopicName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MSKTopic (DeleteTopic)"))
             {
                 return;
             }
@@ -146,28 +121,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateUserPhoneConfigResponse, UpdateCONNUserPhoneConfigCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kafka.Model.DeleteTopicResponse, RemoveMSKTopicCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.InstanceId = this.InstanceId;
+            context.ClusterArn = this.ClusterArn;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PhoneConfig = this.PhoneConfig;
+            context.TopicName = this.TopicName;
             #if MODULAR
-            if (this.PhoneConfig == null && ParameterWasBound(nameof(this.PhoneConfig)))
+            if (this.TopicName == null && ParameterWasBound(nameof(this.TopicName)))
             {
-                WriteWarning("You are passing $null as a value for parameter PhoneConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.UserId = this.UserId;
-            #if MODULAR
-            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TopicName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -184,19 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.UpdateUserPhoneConfigRequest();
+            var request = new Amazon.Kafka.Model.DeleteTopicRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.ClusterArn != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.ClusterArn = cmdletContext.ClusterArn;
             }
-            if (cmdletContext.PhoneConfig != null)
+            if (cmdletContext.TopicName != null)
             {
-                request.PhoneConfig = cmdletContext.PhoneConfig;
-            }
-            if (cmdletContext.UserId != null)
-            {
-                request.UserId = cmdletContext.UserId;
+                request.TopicName = cmdletContext.TopicName;
             }
             
             CmdletOutput output;
@@ -231,12 +195,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.UpdateUserPhoneConfigResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateUserPhoneConfigRequest request)
+        private Amazon.Kafka.Model.DeleteTopicResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DeleteTopicRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateUserPhoneConfig");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DeleteTopic");
             try
             {
-                return client.UpdateUserPhoneConfigAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteTopicAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -253,11 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public Amazon.Connect.Model.UserPhoneConfig PhoneConfig { get; set; }
-            public System.String UserId { get; set; }
-            public System.Func<Amazon.Connect.Model.UpdateUserPhoneConfigResponse, UpdateCONNUserPhoneConfigCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ClusterArn { get; set; }
+            public System.String TopicName { get; set; }
+            public System.Func<Amazon.Kafka.Model.DeleteTopicResponse, RemoveMSKTopicCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

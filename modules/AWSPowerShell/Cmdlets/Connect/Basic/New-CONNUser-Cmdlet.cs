@@ -37,7 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// parameters are required in some situations. For example, <c>Email</c>, <c>FirstName</c>
     /// and <c>LastName</c> are required if you are using Amazon Connect or SAML for identity
     /// management.
-    /// </para></important><para>
+    /// </para></important><note><para>
+    /// Fields in <c>PhoneConfig</c> cannot be set simultaneously with their corresponding
+    /// channel-specific configuration parameters. Specifically:
+    /// </para><ul><li><para><c>PhoneConfig.AutoAccept</c> conflicts with <c>AutoAcceptConfigs</c></para></li><li><para><c>PhoneConfig.AfterContactWorkTimeLimit</c> conflicts with <c>AfterContactWorkConfigs</c></para></li><li><para><c>PhoneConfig.PhoneType</c> and <c>PhoneConfig.PhoneNumber</c> conflict with <c>PhoneNumberConfigs</c></para></li><li><para><c>PhoneConfig.PersistentConnection</c> conflicts with <c>PersistentConnectionConfigs</c></para></li></ul><para>
+    /// We recommend using channel-specific parameters such as <c>AutoAcceptConfigs</c>, <c>AfterContactWorkConfigs</c>,
+    /// <c>PhoneNumberConfigs</c>, <c>PersistentConnectionConfigs</c>, and <c>VoiceEnhancementConfigs</c>
+    /// for per-channel configuration.
+    /// </para></note><para>
     /// For information about how to create users using the Amazon Connect admin website,
     /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add
     /// Users</a> in the <i>Amazon Connect Administrator Guide</i>.
@@ -54,6 +61,36 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AfterContactWorkConfig
+        /// <summary>
+        /// <para>
+        /// <para>The list of after contact work (ACW) timeout configuration settings for each channel.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AfterContactWorkConfigs")]
+        public Amazon.Connect.Model.AfterContactWorkConfigPerChannel[] AfterContactWorkConfig { get; set; }
+        #endregion
+        
+        #region Parameter AutoAcceptConfig
+        /// <summary>
+        /// <para>
+        /// <para>The list of auto-accept configuration settings for each channel.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoAcceptConfigs")]
+        public Amazon.Connect.Model.AutoAcceptConfig[] AutoAcceptConfig { get; set; }
+        #endregion
         
         #region Parameter DirectoryUserId
         /// <summary>
@@ -121,20 +158,47 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Password { get; set; }
         #endregion
         
+        #region Parameter PersistentConnectionConfig
+        /// <summary>
+        /// <para>
+        /// <para>The list of persistent connection configuration settings for each channel.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PersistentConnectionConfigs")]
+        public Amazon.Connect.Model.PersistentConnectionConfig[] PersistentConnectionConfig { get; set; }
+        #endregion
+        
         #region Parameter PhoneConfig
         /// <summary>
         /// <para>
-        /// <para>The phone settings for the user.</para>
+        /// <para>The phone settings for the user. This parameter is optional. If not provided, the
+        /// user can be configured using channel-specific parameters such as <c>AutoAcceptConfigs</c>,
+        /// <c>AfterContactWorkConfigs</c>, <c>PhoneNumberConfigs</c>, <c>PersistentConnectionConfigs</c>,
+        /// and <c>VoiceEnhancementConfigs</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.Connect.Model.UserPhoneConfig PhoneConfig { get; set; }
+        #endregion
+        
+        #region Parameter PhoneNumberConfig
+        /// <summary>
+        /// <para>
+        /// <para>The list of phone number configuration settings for each channel.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PhoneNumberConfigs")]
+        public Amazon.Connect.Model.PhoneNumberConfig[] PhoneNumberConfig { get; set; }
         #endregion
         
         #region Parameter RoutingProfileId
@@ -211,6 +275,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Username { get; set; }
         #endregion
         
+        #region Parameter VoiceEnhancementConfig
+        /// <summary>
+        /// <para>
+        /// <para>The list of voice enhancement configuration settings for each channel.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VoiceEnhancementConfigs")]
+        public Amazon.Connect.Model.VoiceEnhancementConfig[] VoiceEnhancementConfig { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -257,6 +336,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.CreateUserResponse, NewCONNUserCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AfterContactWorkConfig != null)
+            {
+                context.AfterContactWorkConfig = new List<Amazon.Connect.Model.AfterContactWorkConfigPerChannel>(this.AfterContactWorkConfig);
+            }
+            if (this.AutoAcceptConfig != null)
+            {
+                context.AutoAcceptConfig = new List<Amazon.Connect.Model.AutoAcceptConfig>(this.AutoAcceptConfig);
+            }
             context.DirectoryUserId = this.DirectoryUserId;
             context.HierarchyGroupId = this.HierarchyGroupId;
             context.IdentityInfo = this.IdentityInfo;
@@ -268,13 +355,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Password = this.Password;
-            context.PhoneConfig = this.PhoneConfig;
-            #if MODULAR
-            if (this.PhoneConfig == null && ParameterWasBound(nameof(this.PhoneConfig)))
+            if (this.PersistentConnectionConfig != null)
             {
-                WriteWarning("You are passing $null as a value for parameter PhoneConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.PersistentConnectionConfig = new List<Amazon.Connect.Model.PersistentConnectionConfig>(this.PersistentConnectionConfig);
             }
-            #endif
+            context.PhoneConfig = this.PhoneConfig;
+            if (this.PhoneNumberConfig != null)
+            {
+                context.PhoneNumberConfig = new List<Amazon.Connect.Model.PhoneNumberConfig>(this.PhoneNumberConfig);
+            }
             context.RoutingProfileId = this.RoutingProfileId;
             #if MODULAR
             if (this.RoutingProfileId == null && ParameterWasBound(nameof(this.RoutingProfileId)))
@@ -307,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.VoiceEnhancementConfig != null)
+            {
+                context.VoiceEnhancementConfig = new List<Amazon.Connect.Model.VoiceEnhancementConfig>(this.VoiceEnhancementConfig);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -323,6 +416,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.CreateUserRequest();
             
+            if (cmdletContext.AfterContactWorkConfig != null)
+            {
+                request.AfterContactWorkConfigs = cmdletContext.AfterContactWorkConfig;
+            }
+            if (cmdletContext.AutoAcceptConfig != null)
+            {
+                request.AutoAcceptConfigs = cmdletContext.AutoAcceptConfig;
+            }
             if (cmdletContext.DirectoryUserId != null)
             {
                 request.DirectoryUserId = cmdletContext.DirectoryUserId;
@@ -343,9 +444,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.Password = cmdletContext.Password;
             }
+            if (cmdletContext.PersistentConnectionConfig != null)
+            {
+                request.PersistentConnectionConfigs = cmdletContext.PersistentConnectionConfig;
+            }
             if (cmdletContext.PhoneConfig != null)
             {
                 request.PhoneConfig = cmdletContext.PhoneConfig;
+            }
+            if (cmdletContext.PhoneNumberConfig != null)
+            {
+                request.PhoneNumberConfigs = cmdletContext.PhoneNumberConfig;
             }
             if (cmdletContext.RoutingProfileId != null)
             {
@@ -362,6 +471,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Username != null)
             {
                 request.Username = cmdletContext.Username;
+            }
+            if (cmdletContext.VoiceEnhancementConfig != null)
+            {
+                request.VoiceEnhancementConfigs = cmdletContext.VoiceEnhancementConfig;
             }
             
             CmdletOutput output;
@@ -418,16 +531,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Connect.Model.AfterContactWorkConfigPerChannel> AfterContactWorkConfig { get; set; }
+            public List<Amazon.Connect.Model.AutoAcceptConfig> AutoAcceptConfig { get; set; }
             public System.String DirectoryUserId { get; set; }
             public System.String HierarchyGroupId { get; set; }
             public Amazon.Connect.Model.UserIdentityInfo IdentityInfo { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Password { get; set; }
+            public List<Amazon.Connect.Model.PersistentConnectionConfig> PersistentConnectionConfig { get; set; }
             public Amazon.Connect.Model.UserPhoneConfig PhoneConfig { get; set; }
+            public List<Amazon.Connect.Model.PhoneNumberConfig> PhoneNumberConfig { get; set; }
             public System.String RoutingProfileId { get; set; }
             public List<System.String> SecurityProfileId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Username { get; set; }
+            public List<Amazon.Connect.Model.VoiceEnhancementConfig> VoiceEnhancementConfig { get; set; }
             public System.Func<Amazon.Connect.Model.CreateUserResponse, NewCONNUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

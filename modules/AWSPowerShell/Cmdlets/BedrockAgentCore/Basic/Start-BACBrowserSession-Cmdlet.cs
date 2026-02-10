@@ -74,6 +74,24 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String BrowserIdentifier { get; set; }
         #endregion
         
+        #region Parameter ProxyConfiguration_Bypass_DomainPattern
+        /// <summary>
+        /// <para>
+        /// <para>Array of domain patterns that should bypass the proxy. Supports <c>.amazonaws.com</c>
+        /// for subdomain matching or <c>amazonaws.com</c> for exact domain matching. Requests
+        /// to these domains connect directly without using any proxy. Maximum 253 characters
+        /// per pattern.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProxyConfiguration_Bypass_DomainPatterns")]
+        public System.String[] ProxyConfiguration_Bypass_DomainPattern { get; set; }
+        #endregion
+        
         #region Parameter Extension
         /// <summary>
         /// <para>
@@ -120,6 +138,23 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ProfileConfiguration_ProfileIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ProxyConfiguration_Proxy
+        /// <summary>
+        /// <para>
+        /// <para>An array of 1-5 proxy server configurations for domain-based routing. Each proxy can
+        /// specify which domains it handles via <c>domainPatterns</c>, enabling flexible routing
+        /// of different traffic through different proxies based on destination domain.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProxyConfiguration_Proxies")]
+        public Amazon.BedrockAgentCore.Model.Proxy[] ProxyConfiguration_Proxy { get; set; }
         #endregion
         
         #region Parameter SessionTimeoutSecond
@@ -239,6 +274,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             }
             context.Name = this.Name;
             context.ProfileConfiguration_ProfileIdentifier = this.ProfileConfiguration_ProfileIdentifier;
+            if (this.ProxyConfiguration_Bypass_DomainPattern != null)
+            {
+                context.ProxyConfiguration_Bypass_DomainPattern = new List<System.String>(this.ProxyConfiguration_Bypass_DomainPattern);
+            }
+            if (this.ProxyConfiguration_Proxy != null)
+            {
+                context.ProxyConfiguration_Proxy = new List<Amazon.BedrockAgentCore.Model.Proxy>(this.ProxyConfiguration_Proxy);
+            }
             context.SessionTimeoutSecond = this.SessionTimeoutSecond;
             context.TraceId = this.TraceId;
             context.TraceParent = this.TraceParent;
@@ -294,6 +337,50 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestProfileConfigurationIsNull)
             {
                 request.ProfileConfiguration = null;
+            }
+            
+             // populate ProxyConfiguration
+            var requestProxyConfigurationIsNull = true;
+            request.ProxyConfiguration = new Amazon.BedrockAgentCore.Model.ProxyConfiguration();
+            List<Amazon.BedrockAgentCore.Model.Proxy> requestProxyConfiguration_proxyConfiguration_Proxy = null;
+            if (cmdletContext.ProxyConfiguration_Proxy != null)
+            {
+                requestProxyConfiguration_proxyConfiguration_Proxy = cmdletContext.ProxyConfiguration_Proxy;
+            }
+            if (requestProxyConfiguration_proxyConfiguration_Proxy != null)
+            {
+                request.ProxyConfiguration.Proxies = requestProxyConfiguration_proxyConfiguration_Proxy;
+                requestProxyConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.ProxyBypass requestProxyConfiguration_proxyConfiguration_Bypass = null;
+            
+             // populate Bypass
+            var requestProxyConfiguration_proxyConfiguration_BypassIsNull = true;
+            requestProxyConfiguration_proxyConfiguration_Bypass = new Amazon.BedrockAgentCore.Model.ProxyBypass();
+            List<System.String> requestProxyConfiguration_proxyConfiguration_Bypass_proxyConfiguration_Bypass_DomainPattern = null;
+            if (cmdletContext.ProxyConfiguration_Bypass_DomainPattern != null)
+            {
+                requestProxyConfiguration_proxyConfiguration_Bypass_proxyConfiguration_Bypass_DomainPattern = cmdletContext.ProxyConfiguration_Bypass_DomainPattern;
+            }
+            if (requestProxyConfiguration_proxyConfiguration_Bypass_proxyConfiguration_Bypass_DomainPattern != null)
+            {
+                requestProxyConfiguration_proxyConfiguration_Bypass.DomainPatterns = requestProxyConfiguration_proxyConfiguration_Bypass_proxyConfiguration_Bypass_DomainPattern;
+                requestProxyConfiguration_proxyConfiguration_BypassIsNull = false;
+            }
+             // determine if requestProxyConfiguration_proxyConfiguration_Bypass should be set to null
+            if (requestProxyConfiguration_proxyConfiguration_BypassIsNull)
+            {
+                requestProxyConfiguration_proxyConfiguration_Bypass = null;
+            }
+            if (requestProxyConfiguration_proxyConfiguration_Bypass != null)
+            {
+                request.ProxyConfiguration.Bypass = requestProxyConfiguration_proxyConfiguration_Bypass;
+                requestProxyConfigurationIsNull = false;
+            }
+             // determine if request.ProxyConfiguration should be set to null
+            if (requestProxyConfigurationIsNull)
+            {
+                request.ProxyConfiguration = null;
             }
             if (cmdletContext.SessionTimeoutSecond != null)
             {
@@ -396,6 +483,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<Amazon.BedrockAgentCore.Model.BrowserExtension> Extension { get; set; }
             public System.String Name { get; set; }
             public System.String ProfileConfiguration_ProfileIdentifier { get; set; }
+            public List<System.String> ProxyConfiguration_Bypass_DomainPattern { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.Proxy> ProxyConfiguration_Proxy { get; set; }
             public System.Int32? SessionTimeoutSecond { get; set; }
             public System.String TraceId { get; set; }
             public System.String TraceParent { get; set; }
