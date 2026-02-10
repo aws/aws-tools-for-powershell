@@ -1,4 +1,24 @@
-﻿### 4.1.996 (2026-02-09 22:32Z)
+﻿### 4.1.997 (2026-02-10 22:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1220.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Start-BACBrowserSession: added parameters ProxyConfiguration_Bypass_DomainPattern and ProxyConfiguration_Proxy.
+  * Amazon Connect Service
+    * Added cmdlet Update-CONNUserConfig leveraging the UpdateUserConfig service API.
+    * Modified cmdlet New-CONNUser: added parameters AfterContactWorkConfig, AutoAcceptConfig, PersistentConnectionConfig, PhoneNumberConfig and VoiceEnhancementConfig.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSPodIdentityAssociation: added parameter Policy.
+    * Modified cmdlet Update-EKSPodIdentityAssociation: added parameter Policy.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet New-MSKTopic leveraging the CreateTopic service API.
+    * Added cmdlet Remove-MSKTopic leveraging the DeleteTopic service API.
+    * Added cmdlet Update-MSKTopic leveraging the UpdateTopic service API.
+  * Amazon Relational Database Service
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameters BackupRetentionPeriod and PreferredBackupWindow.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameters BackupRetentionPeriod and PreferredBackupWindow.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameters BackupRetentionPeriod and PreferredBackupWindow.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameters BackupRetentionPeriod and PreferredBackupWindow.
+
+### 4.1.996 (2026-02-09 22:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1219.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Get-EC2SecondaryInterfaceDetail leveraging the DescribeSecondaryInterfaces service API.

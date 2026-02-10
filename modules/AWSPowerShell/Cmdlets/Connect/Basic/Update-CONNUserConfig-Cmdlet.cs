@@ -28,29 +28,57 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Updates the phone configuration settings for the specified user.
+    /// Updates the configuration settings for the specified user, including per-channel auto-accept
+    /// and after contact work (ACW) timeout settings.
     /// 
     ///  <note><para>
-    /// We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserConfig.html">UpdateUserConfig</a>
-    /// API, which supports additional functionality that is not available in the UpdateUserPhoneConfig
-    /// API, such as voice enhancement settings and per-channel configuration for auto-accept
-    /// and After Contact Work (ACW) timeouts. In comparison, the UpdateUserPhoneConfig API
-    /// will always set the same ACW timeouts to all channels the user handles.
+    /// This operation replaces the UpdateUserPhoneConfig API. While UpdateUserPhoneConfig
+    /// applies the same ACW timeout to all channels, UpdateUserConfig allows you to set different
+    /// auto-accept and ACW timeout values for each channel type.
     /// </para></note>
     /// </summary>
-    [Cmdlet("Update", "CONNUserPhoneConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "CONNUserConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service UpdateUserPhoneConfig API operation.", Operation = new[] {"UpdateUserPhoneConfig"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateUserPhoneConfigResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateUserPhoneConfigResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service UpdateUserConfig API operation.", Operation = new[] {"UpdateUserConfig"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateUserConfigResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateUserConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateUserPhoneConfigResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Connect.Model.UpdateUserConfigResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateCONNUserPhoneConfigCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class UpdateCONNUserConfigCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AfterContactWorkConfig
+        /// <summary>
+        /// <para>
+        /// <para>The list of after contact work (ACW) timeout configuration settings for each channel.
+        /// ACW timeout specifies how many seconds agents have for after contact work, such as
+        /// entering notes about the contact. The minimum setting is 1 second, and the maximum
+        /// is 2,000,000 seconds (24 days). Enter 0 for an indefinite amount of time, meaning
+        /// agents must manually choose to end ACW.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AfterContactWorkConfigs")]
+        public Amazon.Connect.Model.AfterContactWorkConfigPerChannel[] AfterContactWorkConfig { get; set; }
+        #endregion
+        
+        #region Parameter AutoAcceptConfig
+        /// <summary>
+        /// <para>
+        /// <para>The list of auto-accept configuration settings for each channel. When auto-accept
+        /// is enabled for a channel, available agents are automatically connected to contacts
+        /// from that channel without needing to manually accept. Auto-accept connects agents
+        /// to contacts in less than one second.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoAcceptConfigs")]
+        public Amazon.Connect.Model.AutoAcceptConfig[] AutoAcceptConfig { get; set; }
+        #endregion
         
         #region Parameter InstanceId
         /// <summary>
@@ -70,20 +98,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter PhoneConfig
+        #region Parameter PersistentConnectionConfig
         /// <summary>
         /// <para>
-        /// <para>Information about phone configuration settings for the user.</para>
+        /// <para>The list of persistent connection configuration settings for each channel.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.Connect.Model.UserPhoneConfig PhoneConfig { get; set; }
+        [Alias("PersistentConnectionConfigs")]
+        public Amazon.Connect.Model.PersistentConnectionConfig[] PersistentConnectionConfig { get; set; }
+        #endregion
+        
+        #region Parameter PhoneNumberConfig
+        /// <summary>
+        /// <para>
+        /// <para>The list of phone number configuration settings for each channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PhoneNumberConfigs")]
+        public Amazon.Connect.Model.PhoneNumberConfig[] PhoneNumberConfig { get; set; }
         #endregion
         
         #region Parameter UserId
@@ -93,9 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -103,24 +137,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String UserId { get; set; }
         #endregion
         
+        #region Parameter VoiceEnhancementConfig
+        /// <summary>
+        /// <para>
+        /// <para>The list of voice enhancement configuration settings for each channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VoiceEnhancementConfigs")]
+        public Amazon.Connect.Model.VoiceEnhancementConfig[] VoiceEnhancementConfig { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateUserPhoneConfigResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateUserConfigResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the UserId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -138,8 +173,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNUserPhoneConfig (UpdateUserPhoneConfig)"))
+            var targetParameterNames = new string[]
+            {
+                nameof(this.InstanceId),
+                nameof(this.UserId)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNUserConfig (UpdateUserConfig)"))
             {
                 return;
             }
@@ -149,21 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateUserPhoneConfigResponse, UpdateCONNUserPhoneConfigCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateUserConfigResponse, UpdateCONNUserConfigCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.AfterContactWorkConfig != null)
             {
-                context.Select = (response, cmdlet) => this.UserId;
+                context.AfterContactWorkConfig = new List<Amazon.Connect.Model.AfterContactWorkConfigPerChannel>(this.AfterContactWorkConfig);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AutoAcceptConfig != null)
+            {
+                context.AutoAcceptConfig = new List<Amazon.Connect.Model.AutoAcceptConfig>(this.AutoAcceptConfig);
+            }
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -171,13 +209,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PhoneConfig = this.PhoneConfig;
-            #if MODULAR
-            if (this.PhoneConfig == null && ParameterWasBound(nameof(this.PhoneConfig)))
+            if (this.PersistentConnectionConfig != null)
             {
-                WriteWarning("You are passing $null as a value for parameter PhoneConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.PersistentConnectionConfig = new List<Amazon.Connect.Model.PersistentConnectionConfig>(this.PersistentConnectionConfig);
             }
-            #endif
+            if (this.PhoneNumberConfig != null)
+            {
+                context.PhoneNumberConfig = new List<Amazon.Connect.Model.PhoneNumberConfig>(this.PhoneNumberConfig);
+            }
             context.UserId = this.UserId;
             #if MODULAR
             if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
@@ -185,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.VoiceEnhancementConfig != null)
+            {
+                context.VoiceEnhancementConfig = new List<Amazon.Connect.Model.VoiceEnhancementConfig>(this.VoiceEnhancementConfig);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -199,19 +242,35 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.UpdateUserPhoneConfigRequest();
+            var request = new Amazon.Connect.Model.UpdateUserConfigRequest();
             
+            if (cmdletContext.AfterContactWorkConfig != null)
+            {
+                request.AfterContactWorkConfigs = cmdletContext.AfterContactWorkConfig;
+            }
+            if (cmdletContext.AutoAcceptConfig != null)
+            {
+                request.AutoAcceptConfigs = cmdletContext.AutoAcceptConfig;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.PhoneConfig != null)
+            if (cmdletContext.PersistentConnectionConfig != null)
             {
-                request.PhoneConfig = cmdletContext.PhoneConfig;
+                request.PersistentConnectionConfigs = cmdletContext.PersistentConnectionConfig;
+            }
+            if (cmdletContext.PhoneNumberConfig != null)
+            {
+                request.PhoneNumberConfigs = cmdletContext.PhoneNumberConfig;
             }
             if (cmdletContext.UserId != null)
             {
                 request.UserId = cmdletContext.UserId;
+            }
+            if (cmdletContext.VoiceEnhancementConfig != null)
+            {
+                request.VoiceEnhancementConfigs = cmdletContext.VoiceEnhancementConfig;
             }
             
             CmdletOutput output;
@@ -246,15 +305,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.UpdateUserPhoneConfigResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateUserPhoneConfigRequest request)
+        private Amazon.Connect.Model.UpdateUserConfigResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateUserConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateUserPhoneConfig");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateUserConfig");
             try
             {
                 #if DESKTOP
-                return client.UpdateUserPhoneConfig(request);
+                return client.UpdateUserConfig(request);
                 #elif CORECLR
-                return client.UpdateUserPhoneConfigAsync(request).GetAwaiter().GetResult();
+                return client.UpdateUserConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -274,10 +333,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Connect.Model.AfterContactWorkConfigPerChannel> AfterContactWorkConfig { get; set; }
+            public List<Amazon.Connect.Model.AutoAcceptConfig> AutoAcceptConfig { get; set; }
             public System.String InstanceId { get; set; }
-            public Amazon.Connect.Model.UserPhoneConfig PhoneConfig { get; set; }
+            public List<Amazon.Connect.Model.PersistentConnectionConfig> PersistentConnectionConfig { get; set; }
+            public List<Amazon.Connect.Model.PhoneNumberConfig> PhoneNumberConfig { get; set; }
             public System.String UserId { get; set; }
-            public System.Func<Amazon.Connect.Model.UpdateUserPhoneConfigResponse, UpdateCONNUserPhoneConfigCmdlet, object> Select { get; set; } =
+            public List<Amazon.Connect.Model.VoiceEnhancementConfig> VoiceEnhancementConfig { get; set; }
+            public System.Func<Amazon.Connect.Model.UpdateUserConfigResponse, UpdateCONNUserConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

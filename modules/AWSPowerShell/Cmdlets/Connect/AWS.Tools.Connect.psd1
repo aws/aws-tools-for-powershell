@@ -427,6 +427,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CONNTaskTemplate', 
         'Update-CONNTestCase', 
         'Update-CONNTrafficDistribution', 
+        'Update-CONNUserConfig', 
         'Update-CONNUserHierarchy', 
         'Update-CONNUserHierarchyGroupName', 
         'Update-CONNUserHierarchyStructure', 

@@ -1331,6 +1331,7 @@ $CONN_SelectMap = @{
                "Update-CONNTaskTemplate",
                "Update-CONNTestCase",
                "Update-CONNTrafficDistribution",
+               "Update-CONNUserConfig",
                "Update-CONNUserHierarchy",
                "Update-CONNUserHierarchyGroupName",
                "Update-CONNUserHierarchyStructure",

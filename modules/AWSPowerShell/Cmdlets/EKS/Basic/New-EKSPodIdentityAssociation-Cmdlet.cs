@@ -140,6 +140,24 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String Namespace { get; set; }
         #endregion
         
+        #region Parameter Policy
+        /// <summary>
+        /// <para>
+        /// <para>An optional IAM policy in JSON format (as an escaped string) that applies additional
+        /// restrictions to this pod identity association beyond the IAM policies attached to
+        /// the IAM role. This policy is applied as the intersection of the role's policies and
+        /// this policy, allowing you to reduce the permissions that applications in the pods
+        /// can use. Use this policy to enforce least privilege access while still leveraging
+        /// a shared IAM role across multiple applications.</para><para><b>Important considerations</b></para><ul><li><para><b>Session tags:</b> When using this policy, <c>disableSessionTags</c> must be set
+        /// to <c>true</c>.</para></li><li><para><b>Target role permissions:</b> If you specify both a <c>TargetRoleArn</c> and a
+        /// policy, the policy restrictions apply only to the target role's permissions, not to
+        /// the initial role used for assuming the target role.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Policy { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -297,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Policy = this.Policy;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -351,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.Namespace != null)
             {
                 request.Namespace = cmdletContext.Namespace;
+            }
+            if (cmdletContext.Policy != null)
+            {
+                request.Policy = cmdletContext.Policy;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -433,6 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String ClusterName { get; set; }
             public System.Boolean? DisableSessionTag { get; set; }
             public System.String Namespace { get; set; }
+            public System.String Policy { get; set; }
             public System.String RoleArn { get; set; }
             public System.String ServiceAccount { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

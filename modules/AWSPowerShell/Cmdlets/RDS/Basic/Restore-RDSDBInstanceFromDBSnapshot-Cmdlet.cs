@@ -124,6 +124,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter BackupRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The number of days to retain automated backups. Setting this parameter to a positive
+        /// number enables backups. Setting this parameter to 0 disables automated backups.</para><note><para>Enabling and disabling backups can result in a brief I/O suspension that lasts from
+        /// a few seconds to a few minutes, depending on the size and class of your DB instance.</para></note><para>This setting doesn't apply to Amazon Aurora DB instances. The retention period for
+        /// automated backups is managed by the DB cluster. For more information, see <c>ModifyDBCluster</c>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35.</para></li><li><para>Can't be set to 0 if the DB instance is a source to read replicas.</para></li><li><para>Can't be set to 0 for an RDS Custom for Oracle DB instance.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? BackupRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter BackupTarget
         /// <summary>
         /// <para>
@@ -536,6 +549,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? Port { get; set; }
         #endregion
         
+        #region Parameter PreferredBackupWindow
+        /// <summary>
+        /// <para>
+        /// <para>The daily time range during which automated backups are created if automated backups
+        /// are enabled, as determined by the <c>BackupRetentionPeriod</c> parameter. Changing
+        /// this parameter doesn't result in an outage and the change is asynchronously applied
+        /// as soon as possible. The default is a 30-minute window selected at random from an
+        /// 8-hour block of time for each Amazon Web Services Region. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup
+        /// window</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to Amazon Aurora DB instances. The daily time range for
+        /// creating automated backups is managed by the DB cluster. For more information, see
+        /// <c>ModifyDBCluster</c>.</para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreferredBackupWindow { get; set; }
+        #endregion
+        
         #region Parameter ProcessorFeature
         /// <summary>
         /// <para>
@@ -719,6 +750,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AllocatedStorage = this.AllocatedStorage;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
+            context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.BackupTarget = this.BackupTarget;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
@@ -763,6 +795,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.NetworkType = this.NetworkType;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
+            context.PreferredBackupWindow = this.PreferredBackupWindow;
             if (this.ProcessorFeature != null)
             {
                 context.ProcessorFeature = new List<Amazon.RDS.Model.ProcessorFeature>(this.ProcessorFeature);
@@ -816,6 +849,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.BackupRetentionPeriod != null)
+            {
+                request.BackupRetentionPeriod = cmdletContext.BackupRetentionPeriod.Value;
             }
             if (cmdletContext.BackupTarget != null)
             {
@@ -945,6 +982,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Port = cmdletContext.Port.Value;
             }
+            if (cmdletContext.PreferredBackupWindow != null)
+            {
+                request.PreferredBackupWindow = cmdletContext.PreferredBackupWindow;
+            }
             if (cmdletContext.ProcessorFeature != null)
             {
                 request.ProcessorFeatures = cmdletContext.ProcessorFeature;
@@ -1050,6 +1091,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? AllocatedStorage { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }
+            public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String BackupTarget { get; set; }
             public System.String CACertificateIdentifier { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
@@ -1082,6 +1124,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String NetworkType { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
+            public System.String PreferredBackupWindow { get; set; }
             public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeature { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.Int32? StorageThroughput { get; set; }

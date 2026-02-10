@@ -20784,6 +20784,7 @@ $CONN_SelectMap = @{
                "Update-CONNTaskTemplate",
                "Update-CONNTestCase",
                "Update-CONNTrafficDistribution",
+               "Update-CONNUserConfig",
                "Update-CONNUserHierarchy",
                "Update-CONNUserHierarchyGroupName",
                "Update-CONNUserHierarchyStructure",
@@ -45325,11 +45326,13 @@ $MSK_SelectMap = @{
                "New-MSKClusterV2",
                "New-MSKConfiguration",
                "New-MSKReplicator",
+               "New-MSKTopic",
                "New-MSKVpcConnection",
                "Remove-MSKCluster",
                "Remove-MSKClusterPolicy",
                "Remove-MSKConfiguration",
                "Remove-MSKReplicator",
+               "Remove-MSKTopic",
                "Remove-MSKVpcConnection",
                "Get-MSKCluster",
                "Get-MSKClusterOperation",
@@ -45374,7 +45377,8 @@ $MSK_SelectMap = @{
                "Update-MSKRebalancing",
                "Update-MSKReplicationInfo",
                "Update-MSKSecurity",
-               "Update-MSKStorage")
+               "Update-MSKStorage",
+               "Update-MSKTopic")
 }
 
 _awsArgumentCompleterRegistration $MSK_SelectCompleters $MSK_SelectMap

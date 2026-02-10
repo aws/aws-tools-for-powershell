@@ -83,6 +83,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTopic" OutputProperty="*" Verb="New" Noun="Topic" ShouldProcessTarget="TopicName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcConnection" OutputProperty="*" Verb="New" Noun="VpcConnection" ShouldProcessTarget="TargetClusterArn" PipelineParameter="TargetClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -100,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteReplicator" OutputProperty="*" Verb="Remove" Noun="Replicator" ShouldProcessTarget="ReplicatorArn" PipelineParameter="ReplicatorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTopic" OutputProperty="*" Verb="Remove" Noun="Topic" ShouldProcessTarget="TopicName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -304,6 +312,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStorage" OutputProperty="*" Verb="Update" Noun="Storage" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTopic" OutputProperty="*" Verb="Update" Noun="Topic" ShouldProcessTarget="TopicName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

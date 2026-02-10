@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1219.0",
-    "CoreVersion"       : "3.7.500.77",
+    "ProductVersion"    : "3.7.1220.0",
+    "CoreVersion"       : "3.7.500.78",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
     "PreviewLabel"        : null,
@@ -268,7 +268,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.512.11",
+            "Version" : "3.7.513.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"
@@ -1004,7 +1004,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.527.3",
+            "Version" : "3.7.528.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"
@@ -1068,7 +1068,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "3.7.509.0",
+            "Version" : "3.7.510.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"
@@ -1244,7 +1244,7 @@
             "InPreview"               : false
         },
         "Kafka"                           : {
-            "Version" : "3.7.504.32",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"
@@ -3212,7 +3212,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "3.7.510.1",
+            "Version" : "3.7.511.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"

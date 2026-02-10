@@ -121,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-MSKClusterV2', 
         'New-MSKConfiguration', 
         'New-MSKReplicator', 
+        'New-MSKTopic', 
         'New-MSKVpcConnection', 
         'Register-MSKAssociateScramSecret', 
         'Remove-MSKCluster', 
@@ -128,6 +129,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MSKConfiguration', 
         'Remove-MSKReplicator', 
         'Remove-MSKResourceTag', 
+        'Remove-MSKTopic', 
         'Remove-MSKVpcConnection', 
         'Restart-MSKBroker', 
         'Unregister-MSKDisassociateScramSecret', 
@@ -143,6 +145,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-MSKReplicationInfo', 
         'Update-MSKSecurity', 
         'Update-MSKStorage', 
+        'Update-MSKTopic', 
         'Write-MSKClusterPolicy')
 
     # Variables to export from this module
