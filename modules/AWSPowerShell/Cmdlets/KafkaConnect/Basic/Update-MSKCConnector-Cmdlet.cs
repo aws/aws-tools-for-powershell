@@ -117,6 +117,17 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         public System.String CurrentVersion { get; set; }
         #endregion
         
+        #region Parameter Capacity_AutoScaling_MaxAutoscalingTaskCount
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of tasks allocated to the connector during autoscaling operations.
+        /// Must be at least equal to maxWorkerCount.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Capacity_AutoScaling_MaxAutoscalingTaskCount { get; set; }
+        #endregion
+        
         #region Parameter AutoScaling_MaxWorkerCount
         /// <summary>
         /// <para>
@@ -220,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
                 context.Select = CreateSelectDelegate<Amazon.KafkaConnect.Model.UpdateConnectorResponse, UpdateMSKCConnectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Capacity_AutoScaling_MaxAutoscalingTaskCount = this.Capacity_AutoScaling_MaxAutoscalingTaskCount;
             context.AutoScaling_MaxWorkerCount = this.AutoScaling_MaxWorkerCount;
             context.AutoScaling_McuCount = this.AutoScaling_McuCount;
             context.AutoScaling_MinWorkerCount = this.AutoScaling_MinWorkerCount;
@@ -309,6 +321,16 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
              // populate AutoScaling
             var requestCapacity_capacity_AutoScalingIsNull = true;
             requestCapacity_capacity_AutoScaling = new Amazon.KafkaConnect.Model.AutoScalingUpdate();
+            System.Int32? requestCapacity_capacity_AutoScaling_capacity_AutoScaling_MaxAutoscalingTaskCount = null;
+            if (cmdletContext.Capacity_AutoScaling_MaxAutoscalingTaskCount != null)
+            {
+                requestCapacity_capacity_AutoScaling_capacity_AutoScaling_MaxAutoscalingTaskCount = cmdletContext.Capacity_AutoScaling_MaxAutoscalingTaskCount.Value;
+            }
+            if (requestCapacity_capacity_AutoScaling_capacity_AutoScaling_MaxAutoscalingTaskCount != null)
+            {
+                requestCapacity_capacity_AutoScaling.MaxAutoscalingTaskCount = requestCapacity_capacity_AutoScaling_capacity_AutoScaling_MaxAutoscalingTaskCount.Value;
+                requestCapacity_capacity_AutoScalingIsNull = false;
+            }
             System.Int32? requestCapacity_capacity_AutoScaling_autoScaling_MaxWorkerCount = null;
             if (cmdletContext.AutoScaling_MaxWorkerCount != null)
             {
@@ -471,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? Capacity_AutoScaling_MaxAutoscalingTaskCount { get; set; }
             public System.Int32? AutoScaling_MaxWorkerCount { get; set; }
             public System.Int32? AutoScaling_McuCount { get; set; }
             public System.Int32? AutoScaling_MinWorkerCount { get; set; }

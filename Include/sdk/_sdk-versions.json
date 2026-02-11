@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.188.0",
-    "CoreVersion"       : "4.0.3.13",
+    "ProductVersion"    : "4.0.189.0",
+    "CoreVersion"       : "4.0.3.14",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
     "PreviewLabel"        : "",
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.72.0",
+            "Version" : "4.0.73.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -300,7 +300,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.18.4",
+            "Version" : "4.0.18.5",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -676,7 +676,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "4.0.4.0",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -1076,7 +1076,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "4.0.12.0",
+            "Version" : "4.0.13.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -2084,7 +2084,7 @@
             "InPreview"               : false
         },
         "KafkaConnect"                    : {
-            "Version" : "4.0.4.5",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -3108,7 +3108,7 @@
             "InPreview"               : false
         },
         "S3Tables"                            : {
-            "Version" : "4.0.8.8",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"

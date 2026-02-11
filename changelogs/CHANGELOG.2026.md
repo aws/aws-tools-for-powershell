@@ -1,4 +1,12 @@
-﻿### 5.0.152 (2026-02-10 22:17Z)
+﻿### 5.0.153 (2026-02-11 21:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.189.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Managed Streaming for Kafka Connect
+    * Modified cmdlet New-MSKCConnector: added parameter Capacity_AutoScaling_MaxAutoscalingTaskCount.
+    * Modified cmdlet Update-MSKCConnector: added parameter Capacity_AutoScaling_MaxAutoscalingTaskCount.
+  * Amazon S3 Tables
+    * Modified cmdlet New-S3TTable: added parameters Metadata_Iceberg_PartitionSpec_Field, Metadata_Iceberg_PartitionSpec_SpecId, Metadata_Iceberg_WriteOrder_Field and Metadata_Iceberg_WriteOrder_OrderId.
+
+### 5.0.152 (2026-02-10 22:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.188.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock AgentCore Data Plane Fronting Layer
     * Modified cmdlet Start-BACBrowserSession: added parameters ProxyConfiguration_Bypass_DomainPattern and ProxyConfiguration_Proxy.

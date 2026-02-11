@@ -41,10 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// A multi-node parallel job ID to return a list of nodes for that job
     /// </para></li><li><para>
     /// An array job ID to return a list of the children for that job
-    /// </para></li></ul><para>
-    /// You can filter the results by job status with the <c>jobStatus</c> parameter. If you
-    /// don't specify a status, only <c>RUNNING</c> jobs are returned.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BATJobList")]
     [OutputType("Amazon.Batch.Model.JobSummary")]
@@ -74,9 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The filter to apply to the query. Only one filter can be used at a time. When the
-        /// filter is used, <c>jobStatus</c> is ignored. The filter doesn't apply to child jobs
+        /// filter is used, <c>jobStatus</c> is ignored with the exception that <c>SHARE_IDENTIFIER</c>
+        /// and <c>jobStatus</c> can be used together. The filter doesn't apply to child jobs
         /// in an array or multi-node parallel (MNP) jobs. The results are sorted by the <c>createdAt</c>
-        /// field, with the most recent jobs being first.</para><dl><dt>JOB_NAME</dt><dd><para>The value of the filter is a case-insensitive match for the job name. If the value
+        /// field, with the most recent jobs being first.</para><note><para>The <c>SHARE_IDENTIFIER</c> filter and the <c>jobStatus</c> field can be used together
+        /// to filter results.</para></note><dl><dt>JOB_NAME</dt><dd><para>The value of the filter is a case-insensitive match for the job name. If the value
         /// ends with an asterisk (*), the filter matches any job name that begins with the string
         /// before the '*'. This corresponds to the <c>jobName</c> value. For example, <c>test1</c>
         /// matches both <c>Test1</c> and <c>test1</c>, and <c>test1*</c> matches both <c>test1</c>
@@ -95,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// to the <c>createdAt</c> value. The value is a string representation of the number
         /// of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd><dt>AFTER_CREATED_AT</dt><dd><para>The value for the filter is the time that's after the job was created. This corresponds
         /// to the <c>createdAt</c> value. The value is a string representation of the number
-        /// of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd></dl><para />
+        /// of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd><dt>SHARE_IDENTIFIER</dt><dd><para>The value for the filter is the fairshare scheduling share identifier.</para></dd></dl><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -122,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The job status used to filter jobs in the specified queue. If the <c>filters</c> parameter
         /// is specified, the <c>jobStatus</c> parameter is ignored and jobs with any status are
-        /// returned. If you don't specify a status, only <c>RUNNING</c> jobs are returned.</para><note><para>Array job parents are updated to <c>PENDING</c> when any child job is updated to <c>RUNNABLE</c>
+        /// returned. The exception is the <c>SHARE_IDENTIFIER</c> filter and <c>jobStatus</c>
+        /// can be used together. If you don't specify a status, only <c>RUNNING</c> jobs are
+        /// returned.</para><note><para>Array job parents are updated to <c>PENDING</c> when any child job is updated to <c>RUNNABLE</c>
         /// and remain in <c>PENDING</c> status while child jobs are running. To view these jobs,
         /// filter by <c>PENDING</c> status until all child jobs reach a terminal state.</para></note>
         /// </para>
