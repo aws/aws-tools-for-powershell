@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1220.0",
-    "CoreVersion"       : "3.7.500.78",
+    "ProductVersion"    : "3.7.1221.0",
+    "CoreVersion"       : "3.7.500.79",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
     "PreviewLabel"        : null,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.546.0",
+            "Version" : "3.7.547.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"
@@ -676,7 +676,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "3.7.502.2",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"
@@ -1068,7 +1068,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "3.7.510.0",
+            "Version" : "3.7.511.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"
@@ -2076,7 +2076,7 @@
             "InPreview"               : false
         },
         "KafkaConnect"                    : {
-            "Version" : "3.7.504.16",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"
@@ -3092,7 +3092,7 @@
             "InPreview"               : false
         },
         "S3Tables"                            : {
-            "Version" : "3.7.505.27",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.77"

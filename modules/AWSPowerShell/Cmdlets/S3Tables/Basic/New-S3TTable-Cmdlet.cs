@@ -63,6 +63,19 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Metadata_Iceberg_PartitionSpec_Field
+        /// <summary>
+        /// <para>
+        /// <para>The list of partition fields that define how the table data is partitioned. Each field
+        /// specifies a source field and a transform to apply. This field is required if <c>partitionSpec</c>
+        /// is provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Metadata_Iceberg_PartitionSpec_Fields")]
+        public Amazon.S3Tables.Model.IcebergPartitionField[] Metadata_Iceberg_PartitionSpec_Field { get; set; }
+        #endregion
+        
         #region Parameter Schema_Field
         /// <summary>
         /// <para>
@@ -72,6 +85,19 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Metadata_Iceberg_Schema_Fields")]
         public Amazon.S3Tables.Model.SchemaField[] Schema_Field { get; set; }
+        #endregion
+        
+        #region Parameter Metadata_Iceberg_WriteOrder_Field
+        /// <summary>
+        /// <para>
+        /// <para>The list of sort fields that define how data is sorted within files. Each field specifies
+        /// a source field, sort direction, and null ordering. This field is required if <c>writeOrder</c>
+        /// is provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Metadata_Iceberg_WriteOrder_Fields")]
+        public Amazon.S3Tables.Model.IcebergSortField[] Metadata_Iceberg_WriteOrder_Field { get; set; }
         #endregion
         
         #region Parameter Format
@@ -136,15 +162,37 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public System.String Namespace { get; set; }
         #endregion
         
+        #region Parameter Metadata_Iceberg_WriteOrder_OrderId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for this sort order. If not specified, defaults to <c>1</c>.
+        /// The order ID is used by Apache Iceberg to track sort order evolution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Metadata_Iceberg_WriteOrder_OrderId { get; set; }
+        #endregion
+        
         #region Parameter Iceberg_Property
         /// <summary>
         /// <para>
-        /// <para>Contains configuration properties for an Iceberg table.</para>
+        /// <para>A map of custom configuration properties for the Iceberg table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Metadata_Iceberg_Properties")]
         public System.Collections.Hashtable Iceberg_Property { get; set; }
+        #endregion
+        
+        #region Parameter Metadata_Iceberg_PartitionSpec_SpecId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for this partition specification. If not specified, defaults
+        /// to <c>0</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Metadata_Iceberg_PartitionSpec_SpecId { get; set; }
         #endregion
         
         #region Parameter EncryptionConfiguration_SseAlgorithm
@@ -258,6 +306,11 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 WriteWarning("You are passing $null as a value for parameter Format which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Metadata_Iceberg_PartitionSpec_Field != null)
+            {
+                context.Metadata_Iceberg_PartitionSpec_Field = new List<Amazon.S3Tables.Model.IcebergPartitionField>(this.Metadata_Iceberg_PartitionSpec_Field);
+            }
+            context.Metadata_Iceberg_PartitionSpec_SpecId = this.Metadata_Iceberg_PartitionSpec_SpecId;
             if (this.Iceberg_Property != null)
             {
                 context.Iceberg_Property = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -270,6 +323,11 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             {
                 context.Schema_Field = new List<Amazon.S3Tables.Model.SchemaField>(this.Schema_Field);
             }
+            if (this.Metadata_Iceberg_WriteOrder_Field != null)
+            {
+                context.Metadata_Iceberg_WriteOrder_Field = new List<Amazon.S3Tables.Model.IcebergSortField>(this.Metadata_Iceberg_WriteOrder_Field);
+            }
+            context.Metadata_Iceberg_WriteOrder_OrderId = this.Metadata_Iceberg_WriteOrder_OrderId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -393,6 +451,76 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 requestMetadata_metadata_Iceberg.Schema = requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema;
                 requestMetadata_metadata_IcebergIsNull = false;
             }
+            Amazon.S3Tables.Model.IcebergPartitionSpec requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec = null;
+            
+             // populate PartitionSpec
+            var requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpecIsNull = true;
+            requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec = new Amazon.S3Tables.Model.IcebergPartitionSpec();
+            List<Amazon.S3Tables.Model.IcebergPartitionField> requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec_metadata_Iceberg_PartitionSpec_Field = null;
+            if (cmdletContext.Metadata_Iceberg_PartitionSpec_Field != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec_metadata_Iceberg_PartitionSpec_Field = cmdletContext.Metadata_Iceberg_PartitionSpec_Field;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec_metadata_Iceberg_PartitionSpec_Field != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec.Fields = requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec_metadata_Iceberg_PartitionSpec_Field;
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpecIsNull = false;
+            }
+            System.Int32? requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec_metadata_Iceberg_PartitionSpec_SpecId = null;
+            if (cmdletContext.Metadata_Iceberg_PartitionSpec_SpecId != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec_metadata_Iceberg_PartitionSpec_SpecId = cmdletContext.Metadata_Iceberg_PartitionSpec_SpecId.Value;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec_metadata_Iceberg_PartitionSpec_SpecId != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec.SpecId = requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec_metadata_Iceberg_PartitionSpec_SpecId.Value;
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpecIsNull = false;
+            }
+             // determine if requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec should be set to null
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpecIsNull)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec = null;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec != null)
+            {
+                requestMetadata_metadata_Iceberg.PartitionSpec = requestMetadata_metadata_Iceberg_metadata_Iceberg_PartitionSpec;
+                requestMetadata_metadata_IcebergIsNull = false;
+            }
+            Amazon.S3Tables.Model.IcebergSortOrder requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder = null;
+            
+             // populate WriteOrder
+            var requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrderIsNull = true;
+            requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder = new Amazon.S3Tables.Model.IcebergSortOrder();
+            List<Amazon.S3Tables.Model.IcebergSortField> requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder_metadata_Iceberg_WriteOrder_Field = null;
+            if (cmdletContext.Metadata_Iceberg_WriteOrder_Field != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder_metadata_Iceberg_WriteOrder_Field = cmdletContext.Metadata_Iceberg_WriteOrder_Field;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder_metadata_Iceberg_WriteOrder_Field != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder.Fields = requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder_metadata_Iceberg_WriteOrder_Field;
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrderIsNull = false;
+            }
+            System.Int32? requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder_metadata_Iceberg_WriteOrder_OrderId = null;
+            if (cmdletContext.Metadata_Iceberg_WriteOrder_OrderId != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder_metadata_Iceberg_WriteOrder_OrderId = cmdletContext.Metadata_Iceberg_WriteOrder_OrderId.Value;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder_metadata_Iceberg_WriteOrder_OrderId != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder.OrderId = requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder_metadata_Iceberg_WriteOrder_OrderId.Value;
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrderIsNull = false;
+            }
+             // determine if requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder should be set to null
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrderIsNull)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder = null;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder != null)
+            {
+                requestMetadata_metadata_Iceberg.WriteOrder = requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder;
+                requestMetadata_metadata_IcebergIsNull = false;
+            }
              // determine if requestMetadata_metadata_Iceberg should be set to null
             if (requestMetadata_metadata_IcebergIsNull)
             {
@@ -507,8 +635,12 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
             public Amazon.S3Tables.OpenTableFormat Format { get; set; }
+            public List<Amazon.S3Tables.Model.IcebergPartitionField> Metadata_Iceberg_PartitionSpec_Field { get; set; }
+            public System.Int32? Metadata_Iceberg_PartitionSpec_SpecId { get; set; }
             public Dictionary<System.String, System.String> Iceberg_Property { get; set; }
             public List<Amazon.S3Tables.Model.SchemaField> Schema_Field { get; set; }
+            public List<Amazon.S3Tables.Model.IcebergSortField> Metadata_Iceberg_WriteOrder_Field { get; set; }
+            public System.Int32? Metadata_Iceberg_WriteOrder_OrderId { get; set; }
             public System.String Name { get; set; }
             public System.String Namespace { get; set; }
             public Amazon.S3Tables.StorageClass StorageClassConfiguration_StorageClass { get; set; }
