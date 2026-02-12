@@ -427,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.MultipartUploads.Count;
+                    int _receivedThisCall = response.MultipartUploads?.Count ?? 0;
                     
                     _nextKeyMarkerToken = response.NextKeyMarker;
                     _nextUploadIdMarkerToken = response.NextUploadIdMarker;

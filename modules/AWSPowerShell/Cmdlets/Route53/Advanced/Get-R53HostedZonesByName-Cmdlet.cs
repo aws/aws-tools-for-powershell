@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response
                         };
-                        int _receivedThisCall = response.HostedZones.Count;
+                        int _receivedThisCall = response.HostedZones?.Count ?? 0;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", $"Retrieved {_receivedThisCall} records starting from marker '{request.DNSName ?? "null"}, {request.HostedZoneId ?? "null"}'");

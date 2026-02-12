@@ -270,6 +270,23 @@ Describe -Tag "Smoke" "S3" {
         }
     }
 
+    Context "MultipartUploads" {
+
+        BeforeAll {
+            $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
+            New-S3Bucket -BucketName $script:bucketName
+        }
+
+        AfterAll {
+            $script:bucketName | Remove-S3Bucket -Force -DeleteBucketContent
+        }
+
+        It "Can list multipart uploads on empty bucket" {
+            $uploads = Get-S3MultipartUpload -BucketName $script:bucketName
+            $uploads | Should -BeNullOrEmpty
+        }
+    }
+
     Context "Checksums" {
 
         BeforeAll {

@@ -284,13 +284,13 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response
                         };
-                        int _receivedThisCall = response.ApplicationSummaries.Count;
+                        int _receivedThisCall = response.ApplicationSummaries?.Count ?? 0;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", $"Retrieved {_receivedThisCall} records starting from marker '{request.ExclusiveStartApplicationName}'");
                         }
 
-                        _nextToken = response.HasMoreApplications.HasValue ? response.ApplicationSummaries[_receivedThisCall - 1].ApplicationName : null;
+                        _nextToken = response.HasMoreApplications.HasValue && _receivedThisCall > 0 ? response.ApplicationSummaries[_receivedThisCall - 1].ApplicationName : null;
                         _retrievedSoFar += _receivedThisCall;
                         if (_emitLimit.HasValue)
                         {
