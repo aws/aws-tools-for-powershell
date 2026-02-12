@@ -39,6 +39,11 @@
                   <xsd:documentation>ADVANCED CONFIGURATION. Marketing name of the service, this should be the same name used on the product page for the service. This is part of the initial configuration for the service. This can be changed after release through a PR and has mild backward compatibility concerns.</xsd:documentation>
                 </xsd:annotation>
               </xsd:element>
+              <xsd:element minOccurs="0" name="ServiceId" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. The service identifier as defined in the AWS SDK model files (e.g. service-2.json). This is part of the initial configuration for the service and shouldn't be changed after release.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
               <xsd:element minOccurs="0" name="ServiceClientInterface" type="xsd:string">
                 <xsd:annotation>
                   <xsd:documentation>ADVANCED CONFIGURATION. Name of the interface for the service client in the AWS SDK for .NET, not including the namespace. This is part of the initial configuration for the service and shouldn't be changed after release.</xsd:documentation>

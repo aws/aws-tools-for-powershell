@@ -507,6 +507,12 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public string ServiceName = string.Empty;
 
         /// <summary>
+        /// The service identifier as defined in the AWS SDK model files (e.g. service-2.json).
+        /// This is part of the initial configuration for the service and shouldn't be changed after release.
+        /// </summary>
+        public string ServiceId = string.Empty;
+
+        /// <summary>
         /// Typename of the interface implemented by the service client
         /// </summary>
         public string ServiceClientInterface = string.Empty;
