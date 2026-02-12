@@ -1,4 +1,9 @@
-﻿### 4.1.998 (2026-02-11 21:21Z)
+﻿### 4.1.999 (2026-02-12 21:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1222.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2InstanceCpuOption: added parameter NestedVirtualization.
+
+### 4.1.998 (2026-02-11 21:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1221.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Managed Streaming for Kafka Connect
     * Modified cmdlet New-MSKCConnector: added parameter Capacity_AutoScaling_MaxAutoscalingTaskCount.

@@ -917,6 +917,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.NestedVirtualizationSpecification
+        "Edit-EC2InstanceCpuOption/NestedVirtualization"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
         # Amazon.EC2.NetworkInterfaceAttribute
         "Get-EC2NetworkInterfaceAttribute/Attribute"
         {
@@ -1553,6 +1560,7 @@ $EC2_map = @{
     "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Mode"=@("Edit-EC2VpcEncryptionControl","New-EC2LocalGatewayRouteTable")
     "NatGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "NestedVirtualization"=@("Edit-EC2InstanceCpuOption")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "NetworkPerformanceOptions_BandwidthWeighting"=@("New-EC2Instance")
     "NetworkType"=@("New-EC2SecondaryNetwork")
