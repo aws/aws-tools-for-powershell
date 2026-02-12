@@ -103,6 +103,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     case nameof(ConfigModel.AssemblyName):
                     case nameof(ConfigModel.ServiceNounPrefix):
                     case nameof(ConfigModel.ServiceName):
+                    case nameof(ConfigModel.ServiceId):
                     case nameof(ConfigModel.ServiceClientInterface):
                     case nameof(ConfigModel.ServiceClient):
                     case nameof(ConfigModel.ServiceModuleGuid):
