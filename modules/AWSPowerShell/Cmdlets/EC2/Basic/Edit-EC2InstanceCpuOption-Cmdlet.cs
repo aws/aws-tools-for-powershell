@@ -64,13 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The number of CPU cores to activate for the specified instance.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? CoreCount { get; set; }
         #endregion
         
@@ -103,19 +97,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter NestedVirtualization
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable or disable nested virtualization for the instance. When
+        /// nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled
+        /// for the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.NestedVirtualizationSpecification")]
+        public Amazon.EC2.NestedVirtualizationSpecification NestedVirtualization { get; set; }
+        #endregion
+        
         #region Parameter ThreadsPerCore
         /// <summary>
         /// <para>
         /// <para>The number of threads to run for each CPU core.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? ThreadsPerCore { get; set; }
         #endregion
         
@@ -166,12 +167,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CoreCount = this.CoreCount;
-            #if MODULAR
-            if (this.CoreCount == null && ParameterWasBound(nameof(this.CoreCount)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CoreCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DryRun = this.DryRun;
             context.InstanceId = this.InstanceId;
             #if MODULAR
@@ -180,13 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NestedVirtualization = this.NestedVirtualization;
             context.ThreadsPerCore = this.ThreadsPerCore;
-            #if MODULAR
-            if (this.ThreadsPerCore == null && ParameterWasBound(nameof(this.ThreadsPerCore)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ThreadsPerCore which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -214,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.NestedVirtualization != null)
+            {
+                request.NestedVirtualization = cmdletContext.NestedVirtualization;
             }
             if (cmdletContext.ThreadsPerCore != null)
             {
@@ -277,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? CoreCount { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.String InstanceId { get; set; }
+            public Amazon.EC2.NestedVirtualizationSpecification NestedVirtualization { get; set; }
             public System.Int32? ThreadsPerCore { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse, EditEC2InstanceCpuOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
