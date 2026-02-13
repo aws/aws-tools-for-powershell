@@ -56,6 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.ClusterAutoScalerType AutoScaling_AutoScalerType { get; set; }
         #endregion
         
+        #region Parameter Orchestrator_Eks_ClusterArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker
+        /// HyperPod cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Orchestrator_Eks_ClusterArn { get; set; }
+        #endregion
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>
@@ -193,6 +204,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification[] RestrictedInstanceGroup { get; set; }
         #endregion
         
+        #region Parameter Orchestrator_Slurm_SlurmConfigStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The strategy for managing partitions for the Slurm configuration. Valid values are
+        /// <c>Managed</c>, <c>Overwrite</c>, and <c>Merge</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterSlurmConfigStrategy")]
+        public Amazon.SageMaker.ClusterSlurmConfigStrategy Orchestrator_Slurm_SlurmConfigStrategy { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ClusterArn'.
@@ -259,6 +282,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.NodeProvisioningMode = this.NodeProvisioningMode;
             context.NodeRecovery = this.NodeRecovery;
+            context.Orchestrator_Eks_ClusterArn = this.Orchestrator_Eks_ClusterArn;
+            context.Orchestrator_Slurm_SlurmConfigStrategy = this.Orchestrator_Slurm_SlurmConfigStrategy;
             if (this.RestrictedInstanceGroup != null)
             {
                 context.RestrictedInstanceGroup = new List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification>(this.RestrictedInstanceGroup);
@@ -333,6 +358,65 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.NodeRecovery != null)
             {
                 request.NodeRecovery = cmdletContext.NodeRecovery;
+            }
+            
+             // populate Orchestrator
+            var requestOrchestratorIsNull = true;
+            request.Orchestrator = new Amazon.SageMaker.Model.ClusterOrchestrator();
+            Amazon.SageMaker.Model.ClusterOrchestratorEksConfig requestOrchestrator_orchestrator_Eks = null;
+            
+             // populate Eks
+            var requestOrchestrator_orchestrator_EksIsNull = true;
+            requestOrchestrator_orchestrator_Eks = new Amazon.SageMaker.Model.ClusterOrchestratorEksConfig();
+            System.String requestOrchestrator_orchestrator_Eks_orchestrator_Eks_ClusterArn = null;
+            if (cmdletContext.Orchestrator_Eks_ClusterArn != null)
+            {
+                requestOrchestrator_orchestrator_Eks_orchestrator_Eks_ClusterArn = cmdletContext.Orchestrator_Eks_ClusterArn;
+            }
+            if (requestOrchestrator_orchestrator_Eks_orchestrator_Eks_ClusterArn != null)
+            {
+                requestOrchestrator_orchestrator_Eks.ClusterArn = requestOrchestrator_orchestrator_Eks_orchestrator_Eks_ClusterArn;
+                requestOrchestrator_orchestrator_EksIsNull = false;
+            }
+             // determine if requestOrchestrator_orchestrator_Eks should be set to null
+            if (requestOrchestrator_orchestrator_EksIsNull)
+            {
+                requestOrchestrator_orchestrator_Eks = null;
+            }
+            if (requestOrchestrator_orchestrator_Eks != null)
+            {
+                request.Orchestrator.Eks = requestOrchestrator_orchestrator_Eks;
+                requestOrchestratorIsNull = false;
+            }
+            Amazon.SageMaker.Model.ClusterOrchestratorSlurmConfig requestOrchestrator_orchestrator_Slurm = null;
+            
+             // populate Slurm
+            var requestOrchestrator_orchestrator_SlurmIsNull = true;
+            requestOrchestrator_orchestrator_Slurm = new Amazon.SageMaker.Model.ClusterOrchestratorSlurmConfig();
+            Amazon.SageMaker.ClusterSlurmConfigStrategy requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy = null;
+            if (cmdletContext.Orchestrator_Slurm_SlurmConfigStrategy != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy = cmdletContext.Orchestrator_Slurm_SlurmConfigStrategy;
+            }
+            if (requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy != null)
+            {
+                requestOrchestrator_orchestrator_Slurm.SlurmConfigStrategy = requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy;
+                requestOrchestrator_orchestrator_SlurmIsNull = false;
+            }
+             // determine if requestOrchestrator_orchestrator_Slurm should be set to null
+            if (requestOrchestrator_orchestrator_SlurmIsNull)
+            {
+                requestOrchestrator_orchestrator_Slurm = null;
+            }
+            if (requestOrchestrator_orchestrator_Slurm != null)
+            {
+                request.Orchestrator.Slurm = requestOrchestrator_orchestrator_Slurm;
+                requestOrchestratorIsNull = false;
+            }
+             // determine if request.Orchestrator should be set to null
+            if (requestOrchestratorIsNull)
+            {
+                request.Orchestrator = null;
             }
             if (cmdletContext.RestrictedInstanceGroup != null)
             {
@@ -430,6 +514,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> InstanceGroupsToDelete { get; set; }
             public Amazon.SageMaker.ClusterNodeProvisioningMode NodeProvisioningMode { get; set; }
             public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
+            public System.String Orchestrator_Eks_ClusterArn { get; set; }
+            public Amazon.SageMaker.ClusterSlurmConfigStrategy Orchestrator_Slurm_SlurmConfigStrategy { get; set; }
             public List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification> RestrictedInstanceGroup { get; set; }
             public System.Int32? TieredStorageConfig_InstanceMemoryAllocationPercentage { get; set; }
             public Amazon.SageMaker.ClusterConfigMode TieredStorageConfig_Mode { get; set; }

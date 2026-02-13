@@ -215,6 +215,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] VpcConfig_SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter Orchestrator_Slurm_SlurmConfigStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The strategy for managing partitions for the Slurm configuration. Valid values are
+        /// <c>Managed</c>, <c>Overwrite</c>, and <c>Merge</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterSlurmConfigStrategy")]
+        public Amazon.SageMaker.ClusterSlurmConfigStrategy Orchestrator_Slurm_SlurmConfigStrategy { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_Subnet
         /// <summary>
         /// <para>
@@ -314,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.NodeProvisioningMode = this.NodeProvisioningMode;
             context.NodeRecovery = this.NodeRecovery;
             context.Eks_ClusterArn = this.Eks_ClusterArn;
+            context.Orchestrator_Slurm_SlurmConfigStrategy = this.Orchestrator_Slurm_SlurmConfigStrategy;
             if (this.RestrictedInstanceGroup != null)
             {
                 context.RestrictedInstanceGroup = new List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification>(this.RestrictedInstanceGroup);
@@ -424,6 +437,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOrchestrator_orchestrator_Eks != null)
             {
                 request.Orchestrator.Eks = requestOrchestrator_orchestrator_Eks;
+                requestOrchestratorIsNull = false;
+            }
+            Amazon.SageMaker.Model.ClusterOrchestratorSlurmConfig requestOrchestrator_orchestrator_Slurm = null;
+            
+             // populate Slurm
+            var requestOrchestrator_orchestrator_SlurmIsNull = true;
+            requestOrchestrator_orchestrator_Slurm = new Amazon.SageMaker.Model.ClusterOrchestratorSlurmConfig();
+            Amazon.SageMaker.ClusterSlurmConfigStrategy requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy = null;
+            if (cmdletContext.Orchestrator_Slurm_SlurmConfigStrategy != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy = cmdletContext.Orchestrator_Slurm_SlurmConfigStrategy;
+            }
+            if (requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy != null)
+            {
+                requestOrchestrator_orchestrator_Slurm.SlurmConfigStrategy = requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy;
+                requestOrchestrator_orchestrator_SlurmIsNull = false;
+            }
+             // determine if requestOrchestrator_orchestrator_Slurm should be set to null
+            if (requestOrchestrator_orchestrator_SlurmIsNull)
+            {
+                requestOrchestrator_orchestrator_Slurm = null;
+            }
+            if (requestOrchestrator_orchestrator_Slurm != null)
+            {
+                request.Orchestrator.Slurm = requestOrchestrator_orchestrator_Slurm;
                 requestOrchestratorIsNull = false;
             }
              // determine if request.Orchestrator should be set to null
@@ -560,6 +598,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ClusterNodeProvisioningMode NodeProvisioningMode { get; set; }
             public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
             public System.String Eks_ClusterArn { get; set; }
+            public Amazon.SageMaker.ClusterSlurmConfigStrategy Orchestrator_Slurm_SlurmConfigStrategy { get; set; }
             public List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification> RestrictedInstanceGroup { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.Int32? TieredStorageConfig_InstanceMemoryAllocationPercentage { get; set; }
