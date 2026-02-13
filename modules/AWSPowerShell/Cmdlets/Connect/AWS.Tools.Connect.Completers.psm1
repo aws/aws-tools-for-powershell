@@ -124,6 +124,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ConfigurableNotificationPriority
+        "New-CONNNotification/Priority"
+        {
+            $v = "HIGH","LOW"
+            break
+        }
+
         # Amazon.Connect.ContactFlowModuleState
         {
             ($_ -eq "Get-CONNContactFlowModuleList/ContactFlowModuleState") -Or
@@ -466,6 +473,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.NotificationStatus
+        "Update-CONNUserNotificationStatus/Status"
+        {
+            $v = "HIDDEN","READ","UNREAD"
+            break
+        }
+
         # Amazon.Connect.NumberComparisonType
         {
             ($_ -eq "Search-CONNContactEvaluation/NumberCondition_ComparisonType") -Or
@@ -660,6 +674,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.StringComparisonType
         {
+            ($_ -eq "Search-CONNNotification/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNTestCase/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNAgentStatus/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactEvaluation/StringCondition_ComparisonType") -Or
@@ -891,6 +906,7 @@ $CONN_map = @{
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
+    "Priority"=@("New-CONNNotification")
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "RecurrenceConfig_RecurrencePattern_Frequency"=@("New-CONNHoursOfOperationOverride","Update-CONNHoursOfOperationOverride")
@@ -903,7 +919,7 @@ $CONN_map = @{
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
     "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNTestCase")
-    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNTestCase")
+    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNNotification","Search-CONNTestCase")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
     "SearchCriteria_ViewStatusCondition"=@("Search-CONNView")
     "SearchCriteria_ViewTypeCondition"=@("Search-CONNView")
@@ -916,7 +932,7 @@ $CONN_map = @{
     "SourceEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
-    "Status"=@("Get-CONNTaskTemplateList","Get-CONNTestCaseDetail","Get-CONNTestCaseExecutionList","Get-CONNTestCaseExecutionRecordList","New-CONNContactFlow","New-CONNDataTable","New-CONNTaskTemplate","New-CONNTestCase","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNTestCase","Update-CONNViewContent")
+    "Status"=@("Get-CONNTaskTemplateList","Get-CONNTestCaseDetail","Get-CONNTestCaseExecutionList","Get-CONNTestCaseExecutionRecordList","New-CONNContactFlow","New-CONNDataTable","New-CONNTaskTemplate","New-CONNTestCase","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNTestCase","Update-CONNUserNotificationStatus","Update-CONNViewContent")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
@@ -1036,6 +1052,7 @@ $CONN_SelectMap = @{
                "New-CONNHoursOfOperationOverride",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
+               "New-CONNNotification",
                "New-CONNParticipant",
                "New-CONNPersistentContactAssociation",
                "New-CONNPredefinedAttribute",
@@ -1073,6 +1090,7 @@ $CONN_SelectMap = @{
                "Remove-CONNHoursOfOperationOverride",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
+               "Remove-CONNNotification",
                "Remove-CONNPredefinedAttribute",
                "Remove-CONNPrompt",
                "Remove-CONNPushNotificationRegistration",
@@ -1109,6 +1127,7 @@ $CONN_SelectMap = @{
                "Get-CONNInstance",
                "Get-CONNInstanceAttribute",
                "Get-CONNInstanceStorageConfig",
+               "Get-CONNNotification",
                "Get-CONNPhoneNumber",
                "Get-CONNPredefinedAttribute",
                "Get-CONNPrompt",
@@ -1192,6 +1211,7 @@ $CONN_SelectMap = @{
                "Get-CONNIntegrationAssociationList",
                "Get-CONNLambdaFunctionList",
                "Get-CONNLexBotList",
+               "Get-CONNNotificationList",
                "Get-CONNPhoneNumberList",
                "Get-CONNPhoneNumbersV2List",
                "Get-CONNPredefinedAttributeList",
@@ -1218,6 +1238,7 @@ $CONN_SelectMap = @{
                "Get-CONNTrafficDistributionGroupUserList",
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
+               "Get-CONNUserNotificationList",
                "Get-CONNUserProficiencyList",
                "Get-CONNUserList",
                "Get-CONNViewList",
@@ -1243,6 +1264,7 @@ $CONN_SelectMap = @{
                "Search-CONNEvaluationForm",
                "Search-CONNHoursOfOperationOverride",
                "Search-CONNHoursOfOperation",
+               "Search-CONNNotification",
                "Search-CONNPredefinedAttribute",
                "Search-CONNPrompt",
                "Search-CONNQueue",
@@ -1307,6 +1329,7 @@ $CONN_SelectMap = @{
                "Update-CONNHoursOfOperationOverride",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
+               "Update-CONNNotificationContent",
                "Update-CONNParticipantAuthentication",
                "Update-CONNParticipantRoleConfig",
                "Update-CONNPhoneNumber",
@@ -1336,6 +1359,7 @@ $CONN_SelectMap = @{
                "Update-CONNUserHierarchyGroupName",
                "Update-CONNUserHierarchyStructure",
                "Update-CONNUserIdentityInfo",
+               "Update-CONNUserNotificationStatus",
                "Update-CONNUserPhoneConfig",
                "Update-CONNUserProficiency",
                "Update-CONNUserRoutingProfile",

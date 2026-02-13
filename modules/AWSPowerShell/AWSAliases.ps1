@@ -7153,6 +7153,8 @@ Set-Alias -Name Create-CONNInstance -Value New-CONNInstance
 Set-Alias -Name CONN-CreateInstance -Value New-CONNInstance
 Set-Alias -Name Create-CONNIntegrationAssociation -Value New-CONNIntegrationAssociation
 Set-Alias -Name CONN-CreateIntegrationAssociation -Value New-CONNIntegrationAssociation
+Set-Alias -Name Create-CONNNotification -Value New-CONNNotification
+Set-Alias -Name CONN-CreateNotification -Value New-CONNNotification
 Set-Alias -Name Create-CONNParticipant -Value New-CONNParticipant
 Set-Alias -Name CONN-CreateParticipant -Value New-CONNParticipant
 Set-Alias -Name Create-CONNPersistentContactAssociation -Value New-CONNPersistentContactAssociation
@@ -7227,6 +7229,8 @@ Set-Alias -Name Delete-CONNInstance -Value Remove-CONNInstance
 Set-Alias -Name CONN-DeleteInstance -Value Remove-CONNInstance
 Set-Alias -Name Delete-CONNIntegrationAssociation -Value Remove-CONNIntegrationAssociation
 Set-Alias -Name CONN-DeleteIntegrationAssociation -Value Remove-CONNIntegrationAssociation
+Set-Alias -Name Delete-CONNNotification -Value Remove-CONNNotification
+Set-Alias -Name CONN-DeleteNotification -Value Remove-CONNNotification
 Set-Alias -Name Delete-CONNPredefinedAttribute -Value Remove-CONNPredefinedAttribute
 Set-Alias -Name CONN-DeletePredefinedAttribute -Value Remove-CONNPredefinedAttribute
 Set-Alias -Name Delete-CONNPrompt -Value Remove-CONNPrompt
@@ -7302,6 +7306,8 @@ Set-Alias -Name Describe-CONNInstanceAttribute -Value Get-CONNInstanceAttribute
 Set-Alias -Name CONN-DescribeInstanceAttribute -Value Get-CONNInstanceAttribute
 Set-Alias -Name Describe-CONNInstanceStorageConfig -Value Get-CONNInstanceStorageConfig
 Set-Alias -Name CONN-DescribeInstanceStorageConfig -Value Get-CONNInstanceStorageConfig
+Set-Alias -Name Describe-CONNNotification -Value Get-CONNNotification
+Set-Alias -Name CONN-DescribeNotification -Value Get-CONNNotification
 Set-Alias -Name Describe-CONNPhoneNumber -Value Get-CONNPhoneNumber
 Set-Alias -Name CONN-DescribePhoneNumber -Value Get-CONNPhoneNumber
 Set-Alias -Name Describe-CONNPredefinedAttribute -Value Get-CONNPredefinedAttribute
@@ -7495,6 +7501,9 @@ Set-Alias -Name CONN-ListLambdaFunctions -Value Get-CONNLambdaFunctionList
 Set-Alias -Name List-CONNLexBots -Value Get-CONNLexBotList
 Set-Alias -Name List-CONNLexBotList -Value Get-CONNLexBotList
 Set-Alias -Name CONN-ListLexBots -Value Get-CONNLexBotList
+Set-Alias -Name List-CONNNotifications -Value Get-CONNNotificationList
+Set-Alias -Name List-CONNNotificationList -Value Get-CONNNotificationList
+Set-Alias -Name CONN-ListNotifications -Value Get-CONNNotificationList
 Set-Alias -Name List-CONNPhoneNumbers -Value Get-CONNPhoneNumberList
 Set-Alias -Name List-CONNPhoneNumberList -Value Get-CONNPhoneNumberList
 Set-Alias -Name CONN-ListPhoneNumbers -Value Get-CONNPhoneNumberList
@@ -7571,6 +7580,9 @@ Set-Alias -Name CONN-ListUseCases -Value Get-CONNUseCaseList
 Set-Alias -Name List-CONNUserHierarchyGroups -Value Get-CONNUserHierarchyGroupList
 Set-Alias -Name List-CONNUserHierarchyGroupList -Value Get-CONNUserHierarchyGroupList
 Set-Alias -Name CONN-ListUserHierarchyGroups -Value Get-CONNUserHierarchyGroupList
+Set-Alias -Name List-CONNUserNotifications -Value Get-CONNUserNotificationList
+Set-Alias -Name List-CONNUserNotificationList -Value Get-CONNUserNotificationList
+Set-Alias -Name CONN-ListUserNotifications -Value Get-CONNUserNotificationList
 Set-Alias -Name List-CONNUserProficiencies -Value Get-CONNUserProficiencyList
 Set-Alias -Name List-CONNUserProficiencyList -Value Get-CONNUserProficiencyList
 Set-Alias -Name CONN-ListUserProficiencies -Value Get-CONNUserProficiencyList
@@ -7630,6 +7642,8 @@ Set-Alias -Name Search-CONNHoursOfOperationOverrides -Value Search-CONNHoursOfOp
 Set-Alias -Name CONN-SearchHoursOfOperationOverrides -Value Search-CONNHoursOfOperationOverride
 Set-Alias -Name Search-CONNHoursOfOperations -Value Search-CONNHoursOfOperation
 Set-Alias -Name CONN-SearchHoursOfOperations -Value Search-CONNHoursOfOperation
+Set-Alias -Name Search-CONNNotifications -Value Search-CONNNotification
+Set-Alias -Name CONN-SearchNotifications -Value Search-CONNNotification
 Set-Alias -Name Search-CONNPredefinedAttributes -Value Search-CONNPredefinedAttribute
 Set-Alias -Name CONN-SearchPredefinedAttributes -Value Search-CONNPredefinedAttribute
 Set-Alias -Name Search-CONNPrompts -Value Search-CONNPrompt
@@ -7715,6 +7729,7 @@ Set-Alias -Name CONN-UpdateHoursOfOperation -Value Update-CONNHoursOfOperation
 Set-Alias -Name CONN-UpdateHoursOfOperationOverride -Value Update-CONNHoursOfOperationOverride
 Set-Alias -Name CONN-UpdateInstanceAttribute -Value Update-CONNInstanceAttribute
 Set-Alias -Name CONN-UpdateInstanceStorageConfig -Value Update-CONNInstanceStorageConfig
+Set-Alias -Name CONN-UpdateNotificationContent -Value Update-CONNNotificationContent
 Set-Alias -Name CONN-UpdateParticipantAuthentication -Value Update-CONNParticipantAuthentication
 Set-Alias -Name CONN-UpdateParticipantRoleConfig -Value Update-CONNParticipantRoleConfig
 Set-Alias -Name CONN-UpdatePhoneNumber -Value Update-CONNPhoneNumber
@@ -7746,6 +7761,7 @@ Set-Alias -Name CONN-UpdateUserHierarchy -Value Update-CONNUserHierarchy
 Set-Alias -Name CONN-UpdateUserHierarchyGroupName -Value Update-CONNUserHierarchyGroupName
 Set-Alias -Name CONN-UpdateUserHierarchyStructure -Value Update-CONNUserHierarchyStructure
 Set-Alias -Name CONN-UpdateUserIdentityInfo -Value Update-CONNUserIdentityInfo
+Set-Alias -Name CONN-UpdateUserNotificationStatus -Value Update-CONNUserNotificationStatus
 Set-Alias -Name CONN-UpdateUserPhoneConfig -Value Update-CONNUserPhoneConfig
 Set-Alias -Name Update-CONNUserProficiencies -Value Update-CONNUserProficiency
 Set-Alias -Name CONN-UpdateUserProficiencies -Value Update-CONNUserProficiency

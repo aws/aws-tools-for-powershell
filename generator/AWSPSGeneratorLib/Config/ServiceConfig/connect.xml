@@ -217,6 +217,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotification" OutputProperty="*" Verb="New" Noun="Notification" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateParticipant" OutputProperty="*" Verb="New" Noun="Participant" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ParticipantDetails_ParticipantCapabilities_ScreenShare" NewName="ParticipantCapabilities_ScreenShare" />
@@ -418,6 +422,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotification" Verb="Remove" Noun="Notification" ShouldProcessTarget="NotificationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePredefinedAttribute" Verb="Remove" Noun="PredefinedAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -559,6 +567,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceStorageConfig" OutputProperty="StorageConfig" Verb="Get" Noun="InstanceStorageConfig" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotification" OutputProperty="Notification" Verb="Get" Noun="Notification" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -896,6 +908,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListNotifications" OutputProperty="NotificationSummaryList" Verb="Get" Noun="NotificationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPhoneNumbers" OutputProperty="PhoneNumberSummaryList" Verb="Get" Noun="PhoneNumberList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -997,6 +1013,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListUserHierarchyGroups" OutputProperty="UserHierarchyGroupSummaryList" Verb="Get" Noun="UserHierarchyGroupList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserNotifications" OutputProperty="UserNotifications" Verb="Get" Noun="UserNotificationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1228,6 +1248,10 @@
                 <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
                 <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchNotifications" OutputProperty="*" Verb="Search" Noun="Notification" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchPredefinedAttributes" OutputProperty="*" Verb="Search" Noun="PredefinedAttribute" IgnoreSupportsShouldProcess="true" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1668,6 +1692,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotificationContent" Verb="Update" Noun="NotificationContent" ShouldProcessTarget="InstanceId,NotificationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateParticipantAuthentication" Verb="Update" Noun="ParticipantAuthentication" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1798,6 +1826,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUserIdentityInfo" Verb="Update" Noun="UserIdentityInfo" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserNotificationStatus" Verb="Update" Noun="UserNotificationStatus" ShouldProcessTarget="InstanceId,NotificationId,UserId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

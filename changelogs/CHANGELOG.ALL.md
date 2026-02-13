@@ -1,4 +1,19 @@
-﻿### 4.1.999 (2026-02-12 21:17Z)
+﻿### 4.1.1000 (2026-02-13 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1223.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNNotification leveraging the DescribeNotification service API.
+    * Added cmdlet Get-CONNNotificationList leveraging the ListNotifications service API.
+    * Added cmdlet Get-CONNUserNotificationList leveraging the ListUserNotifications service API.
+    * Added cmdlet New-CONNNotification leveraging the CreateNotification service API.
+    * Added cmdlet Remove-CONNNotification leveraging the DeleteNotification service API.
+    * Added cmdlet Search-CONNNotification leveraging the SearchNotifications service API.
+    * Added cmdlet Update-CONNNotificationContent leveraging the UpdateNotificationContent service API.
+    * Added cmdlet Update-CONNUserNotificationStatus leveraging the UpdateUserNotificationStatus service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMCluster: added parameter Orchestrator_Slurm_SlurmConfigStrategy.
+    * Modified cmdlet Update-SMCluster: added parameters Orchestrator_Eks_ClusterArn and Orchestrator_Slurm_SlurmConfigStrategy.
+
+### 4.1.999 (2026-02-12 21:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1222.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Edit-EC2InstanceCpuOption: added parameter NestedVirtualization.
