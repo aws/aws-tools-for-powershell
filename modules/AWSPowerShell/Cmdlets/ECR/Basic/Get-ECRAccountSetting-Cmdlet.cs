@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the account setting, such as <c>BASIC_SCAN_TYPE_VERSION</c> or <c>REGISTRY_POLICY_SCOPE</c>.
-        /// </para>
+        /// <para>The name of the account setting, such as <c>BASIC_SCAN_TYPE_VERSION</c>, <c>REGISTRY_POLICY_SCOPE</c>,
+        /// or <c>BLOB_MOUNTING</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

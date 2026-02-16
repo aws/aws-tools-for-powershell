@@ -110,6 +110,18 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.Boolean? Tls_Enabled { get; set; }
         #endregion
         
+        #region Parameter ConnectivityInfo_NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the cluster, which is IPv4 or DUAL. The DUAL network type uses
+        /// both IPv4 and IPv6 addresses for your cluster and its resources.</para><para>By default, a cluster uses the IPv4 network type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kafka.NetworkType")]
+        public Amazon.Kafka.NetworkType ConnectivityInfo_NetworkType { get; set; }
+        #endregion
+        
         #region Parameter PublicAccess_Type
         /// <summary>
         /// <para>
@@ -191,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
                 WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ConnectivityInfo_NetworkType = this.ConnectivityInfo_NetworkType;
             context.PublicAccess_Type = this.PublicAccess_Type;
             context.Iam_Enabled = this.Iam_Enabled;
             context.Scram_Enabled = this.Scram_Enabled;
@@ -226,6 +239,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
              // populate ConnectivityInfo
             var requestConnectivityInfoIsNull = true;
             request.ConnectivityInfo = new Amazon.Kafka.Model.ConnectivityInfo();
+            Amazon.Kafka.NetworkType requestConnectivityInfo_connectivityInfo_NetworkType = null;
+            if (cmdletContext.ConnectivityInfo_NetworkType != null)
+            {
+                requestConnectivityInfo_connectivityInfo_NetworkType = cmdletContext.ConnectivityInfo_NetworkType;
+            }
+            if (requestConnectivityInfo_connectivityInfo_NetworkType != null)
+            {
+                request.ConnectivityInfo.NetworkType = requestConnectivityInfo_connectivityInfo_NetworkType;
+                requestConnectivityInfoIsNull = false;
+            }
             Amazon.Kafka.Model.PublicAccess requestConnectivityInfo_connectivityInfo_PublicAccess = null;
             
              // populate PublicAccess
@@ -442,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterArn { get; set; }
+            public Amazon.Kafka.NetworkType ConnectivityInfo_NetworkType { get; set; }
             public System.String PublicAccess_Type { get; set; }
             public System.Boolean? Iam_Enabled { get; set; }
             public System.Boolean? Scram_Enabled { get; set; }

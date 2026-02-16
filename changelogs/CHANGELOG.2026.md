@@ -1,4 +1,12 @@
-﻿### 4.1.1000 (2026-02-13 21:00Z)
+﻿### 4.1.1001 (2026-02-16 21:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1224.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Key Management Service
+    * Modified cmdlet Invoke-KMSDecrypt: added parameter DryRunModifier.
+    * Modified cmdlet Invoke-KMSReEncrypt: added parameter DryRunModifier.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Modified cmdlet Update-MSKConnectivity: added parameter ConnectivityInfo_NetworkType.
+
+### 4.1.1000 (2026-02-13 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1223.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Get-CONNNotification leveraging the DescribeNotification service API.
