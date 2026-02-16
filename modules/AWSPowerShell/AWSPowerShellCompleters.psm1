@@ -45218,6 +45218,13 @@ $MSK_Completers = {
             break
         }
 
+        # Amazon.Kafka.NetworkType
+        "Update-MSKConnectivity/ConnectivityInfo_NetworkType"
+        {
+            $v = "DUAL","IPV4"
+            break
+        }
+
         # Amazon.Kafka.RebalancingStatus
         {
             ($_ -eq "New-MSKCluster/Rebalancing_Status") -Or
@@ -45249,6 +45256,7 @@ $MSK_Completers = {
 }
 
 $MSK_map = @{
+    "ConnectivityInfo_NetworkType"=@("Update-MSKConnectivity")
     "EncryptionInTransit_ClientBroker"=@("New-MSKCluster","New-MSKClusterV2","Update-MSKSecurity")
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
     "Provisioned_EnhancedMonitoring"=@("New-MSKClusterV2")
@@ -65081,7 +65089,7 @@ $QC_Completers = {
         # Amazon.QConnect.MessageType
         "Send-QCMessage/Type"
         {
-            $v = "TEXT"
+            $v = "TEXT","TOOL_USE_RESULT"
             break
         }
 

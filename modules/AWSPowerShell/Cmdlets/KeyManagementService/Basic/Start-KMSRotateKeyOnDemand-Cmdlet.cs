@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the key will automatically rotate, as scheduled, on April 14, 2024 and every 730 days
     /// thereafter.
     /// </para><note><para>
-    /// You can perform on-demand key rotation a <b>maximum of 10 times</b> per KMS key. You
+    /// You can perform on-demand key rotation a <b>maximum of 25 times</b> per KMS key. You
     /// can use the KMS console to view the number of remaining on-demand rotations available
     /// for a KMS key.
     /// </para></note><para>

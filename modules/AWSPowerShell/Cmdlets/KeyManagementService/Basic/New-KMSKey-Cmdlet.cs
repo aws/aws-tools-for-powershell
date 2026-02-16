@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// HMAC KMS keys are symmetric keys that never leave KMS unencrypted. You can use HMAC
     /// keys to generate (<a>GenerateMac</a>) and verify (<a>VerifyMac</a>) HMAC codes for
     /// messages up to 4096 bytes.
-    /// </para><para></para></dd><dt>Multi-Region primary keys</dt><dt>Imported key material</dt><dd><para>
+    /// </para><para></para></dd><dt>Multi-Region primary keys</dt><dd><para>
     /// To create a multi-Region <i>primary key</i> in the local Amazon Web Services Region,
     /// use the <c>MultiRegion</c> parameter with a value of <c>True</c>. To create a multi-Region
     /// <i>replica key</i>, that is, a KMS key with the same key ID and key material as a
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// it in a different Amazon Web Services Region without re-encrypting the data or making
     /// a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region
     /// keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.
-    /// </para><para></para></dd><dd><para>
+    /// </para><para></para></dd><dt>Imported key material</dt><dd><para>
     /// To import your own key material into a KMS key, begin by creating a KMS key with no
     /// key material. To do this, use the <c>Origin</c> parameter of <c>CreateKey</c> with
     /// a value of <c>EXTERNAL</c>. Next, use <a>GetParametersForImport</a> operation to get

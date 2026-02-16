@@ -30,7 +30,11 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Lists the artifacts associated with a specified subject image.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the artifacts associated with a specified subject image.
+    /// 
+    ///  <note><para>
+    /// The IAM principal invoking this operation must have the <c>ecr:BatchGetImage</c> permission.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECRImageReferrerList")]
     [OutputType("Amazon.ECR.Model.ImageReferrer")]

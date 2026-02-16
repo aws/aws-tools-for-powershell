@@ -120,17 +120,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter CiphertextBlob
         /// <summary>
         /// <para>
-        /// <para>Ciphertext of the data to reencrypt.</para>
+        /// <para>Ciphertext of the data to reencrypt.</para><para>This parameter is required in all cases except when <c>DryRun</c> is <c>true</c> and
+        /// <c>DryRunModifiers</c> is set to <c>IGNORE_CIPHERTEXT</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] CiphertextBlob { get; set; }
         #endregion
@@ -206,6 +201,25 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public System.Boolean? DryRun { get; set; }
         #endregion
         
+        #region Parameter DryRunModifier
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the modifiers to apply to the dry run operation. <c>DryRunModifiers</c>
+        /// is an optional parameter that only applies when <c>DryRun</c> is set to <c>true</c>.</para><para>When set to <c>IGNORE_CIPHERTEXT</c>, KMS performs only authorization validation without
+        /// ciphertext validation. This allows you to test permissions without requiring a valid
+        /// ciphertext blob.</para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing
+        /// your permissions</a> in the <i>Key Management Service Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DryRunModifiers")]
+        public System.String[] DryRunModifier { get; set; }
+        #endregion
+        
         #region Parameter GrantToken
         /// <summary>
         /// <para>
@@ -265,9 +279,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is re-encrypted.</para><para>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify
         /// a different KMS key, the <c>ReEncrypt</c> operation throws an <c>IncorrectKeyException</c>.</para><para>This parameter is required only when the ciphertext was encrypted under an asymmetric
-        /// KMS key. If you used a symmetric encryption KMS key, KMS can get the KMS key from
-        /// metadata that it adds to the symmetric ciphertext blob. However, it is always recommended
-        /// as a best practice. This practice ensures that you use the KMS key that you intend.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// KMS key or when <c>DryRun</c> is <c>true</c> and <c>DryRunModifiers</c> is set to
+        /// <c>IGNORE_CIPHERTEXT</c>. If you used a symmetric encryption KMS key, KMS can get
+        /// the KMS key from metadata that it adds to the symmetric ciphertext blob. However,
+        /// it is always recommended as a best practice. This practice ensures that you use the
+        /// KMS key that you intend.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
         /// an alias name, prefix it with <c>"alias/"</c>. To specify a KMS key in a different
         /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias ARN: <c>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
@@ -324,12 +340,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CiphertextBlob = this.CiphertextBlob;
-            #if MODULAR
-            if (this.CiphertextBlob == null && ParameterWasBound(nameof(this.CiphertextBlob)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CiphertextBlob which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DestinationEncryptionAlgorithm = this.DestinationEncryptionAlgorithm;
             if (this.DestinationEncryptionContext != null)
             {
@@ -347,6 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             #endif
             context.DryRun = this.DryRun;
+            if (this.DryRunModifier != null)
+            {
+                context.DryRunModifier = new List<System.String>(this.DryRunModifier);
+            }
             if (this.GrantToken != null)
             {
                 context.GrantToken = new List<System.String>(this.GrantToken);
@@ -401,6 +415,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 if (cmdletContext.DryRun != null)
                 {
                     request.DryRun = cmdletContext.DryRun.Value;
+                }
+                if (cmdletContext.DryRunModifier != null)
+                {
+                    request.DryRunModifiers = cmdletContext.DryRunModifier;
                 }
                 if (cmdletContext.GrantToken != null)
                 {
@@ -486,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public Dictionary<System.String, System.String> DestinationEncryptionContext { get; set; }
             public System.String DestinationKeyId { get; set; }
             public System.Boolean? DryRun { get; set; }
+            public List<System.String> DryRunModifier { get; set; }
             public List<System.String> GrantToken { get; set; }
             public Amazon.KeyManagementService.EncryptionAlgorithmSpec SourceEncryptionAlgorithm { get; set; }
             public Dictionary<System.String, System.String> SourceEncryptionContext { get; set; }
