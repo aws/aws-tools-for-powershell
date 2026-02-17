@@ -304,9 +304,6 @@
     <Reference Include="AWSSDK.CloudWatchEvents">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.CloudWatchEvidently">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchEvidently.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
@@ -1535,9 +1532,6 @@
     </Reference>
     <Reference Include="AWSSDK.CloudWatchEvents">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudWatchEvidently">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchEvidently.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchLogs.dll</HintPath>
