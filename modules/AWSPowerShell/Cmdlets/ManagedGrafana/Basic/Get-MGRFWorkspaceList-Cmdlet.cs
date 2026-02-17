@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
     /// Returns a list of Amazon Managed Grafana workspaces in the account, with some information
-    /// about each workspace. For more complete information about one workspace, use <a href="https://docs.aws.amazon.com/AAMG/latest/APIReference/API_DescribeWorkspace.html">DescribeWorkspace</a>.
+    /// about each workspace. For more complete information about one workspace, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_DescribeWorkspace.html">DescribeWorkspace</a>.
     /// </summary>
     [Cmdlet("Get", "MGRFWorkspaceList")]
     [OutputType("Amazon.ManagedGrafana.Model.WorkspaceSummary")]

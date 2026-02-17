@@ -118,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         public System.String GrafanaVersion { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID or ARN of the Key Management Service key to use for encrypting workspace data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter OrganizationRoleName
         /// <summary>
         /// <para>
@@ -375,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             context.ClientToken = this.ClientToken;
             context.Configuration = this.Configuration;
             context.GrafanaVersion = this.GrafanaVersion;
+            context.KmsKeyId = this.KmsKeyId;
             if (this.NetworkAccessControl_PrefixListId != null)
             {
                 context.NetworkAccessControl_PrefixListId = new List<System.String>(this.NetworkAccessControl_PrefixListId);
@@ -458,6 +469,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             if (cmdletContext.GrafanaVersion != null)
             {
                 request.GrafanaVersion = cmdletContext.GrafanaVersion;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             
              // populate NetworkAccessControl
@@ -623,6 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             public System.String ClientToken { get; set; }
             public System.String Configuration { get; set; }
             public System.String GrafanaVersion { get; set; }
+            public System.String KmsKeyId { get; set; }
             public List<System.String> NetworkAccessControl_PrefixListId { get; set; }
             public List<System.String> NetworkAccessControl_VpceId { get; set; }
             public System.String OrganizationRoleName { get; set; }
