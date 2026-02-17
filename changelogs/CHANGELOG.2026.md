@@ -1,4 +1,11 @@
-﻿### 5.0.156 (2026-02-16 21:27Z)
+﻿### 5.0.157 (2026-02-17 22:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.193.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2PlacementGroup: added parameter Operator_Principal.
+  * Amazon Managed Grafana
+    * Modified cmdlet New-MGRFWorkspace: added parameter KmsKeyId.
+
+### 5.0.156 (2026-02-16 21:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.192.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Key Management Service
     * Modified cmdlet Invoke-KMSDecrypt: added parameter DryRunModifier.

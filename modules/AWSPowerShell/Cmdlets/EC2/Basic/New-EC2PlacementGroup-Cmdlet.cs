@@ -100,6 +100,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? PartitionCount { get; set; }
         #endregion
         
+        #region Parameter Operator_Principal
+        /// <summary>
+        /// <para>
+        /// <para>The service provider that manages the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Operator_Principal { get; set; }
+        #endregion
+        
         #region Parameter SpreadLevel
         /// <summary>
         /// <para>
@@ -186,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DryRun = this.DryRun;
             context.GroupName = this.GroupName;
             context.LinkedGroupId = this.LinkedGroupId;
+            context.Operator_Principal = this.Operator_Principal;
             context.PartitionCount = this.PartitionCount;
             context.SpreadLevel = this.SpreadLevel;
             context.Strategy = this.Strategy;
@@ -220,6 +231,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.LinkedGroupId != null)
             {
                 request.LinkedGroupId = cmdletContext.LinkedGroupId;
+            }
+            
+             // populate Operator
+            var requestOperatorIsNull = true;
+            request.Operator = new Amazon.EC2.Model.OperatorRequest();
+            System.String requestOperator_operator_Principal = null;
+            if (cmdletContext.Operator_Principal != null)
+            {
+                requestOperator_operator_Principal = cmdletContext.Operator_Principal;
+            }
+            if (requestOperator_operator_Principal != null)
+            {
+                request.Operator.Principal = requestOperator_operator_Principal;
+                requestOperatorIsNull = false;
+            }
+             // determine if request.Operator should be set to null
+            if (requestOperatorIsNull)
+            {
+                request.Operator = null;
             }
             if (cmdletContext.PartitionCount != null)
             {
@@ -295,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? DryRun { get; set; }
             public System.String GroupName { get; set; }
             public System.String LinkedGroupId { get; set; }
+            public System.String Operator_Principal { get; set; }
             public System.Int32? PartitionCount { get; set; }
             public Amazon.EC2.SpreadLevel SpreadLevel { get; set; }
             public Amazon.EC2.PlacementStrategy Strategy { get; set; }
