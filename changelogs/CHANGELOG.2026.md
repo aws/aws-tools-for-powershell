@@ -1,4 +1,11 @@
-﻿### 4.1.1002 (2026-02-17 21:58Z)
+﻿### 4.1.1003 (2026-02-18 21:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1226.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon CloudWatch Evidently
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSConfiguredTable: added parameter TableReference_Athena_CatalogName.
+    * Modified cmdlet Update-CRSConfiguredTable: added parameter TableReference_Athena_CatalogName.
+
+### 4.1.1002 (2026-02-17 21:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1225.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet New-EC2PlacementGroup: added parameter Operator_Principal.

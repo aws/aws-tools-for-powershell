@@ -77,6 +77,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public Amazon.CleanRooms.AnalysisMethod AnalysisMethod { get; set; }
         #endregion
         
+        #region Parameter TableReference_Athena_CatalogName
+        /// <summary>
+        /// <para>
+        /// <para> The catalog name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TableReference_Athena_CatalogName { get; set; }
+        #endregion
+        
         #region Parameter ConfiguredTableIdentifier
         /// <summary>
         /// <para>
@@ -353,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 context.SelectedAnalysisMethod = new List<System.String>(this.SelectedAnalysisMethod);
             }
+            context.TableReference_Athena_CatalogName = this.TableReference_Athena_CatalogName;
             context.Athena_DatabaseName = this.Athena_DatabaseName;
             context.Athena_OutputLocation = this.Athena_OutputLocation;
             context.Athena_Region = this.Athena_Region;
@@ -464,6 +475,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
              // populate Athena
             var requestTableReference_tableReference_AthenaIsNull = true;
             requestTableReference_tableReference_Athena = new Amazon.CleanRooms.Model.AthenaTableReference();
+            System.String requestTableReference_tableReference_Athena_tableReference_Athena_CatalogName = null;
+            if (cmdletContext.TableReference_Athena_CatalogName != null)
+            {
+                requestTableReference_tableReference_Athena_tableReference_Athena_CatalogName = cmdletContext.TableReference_Athena_CatalogName;
+            }
+            if (requestTableReference_tableReference_Athena_tableReference_Athena_CatalogName != null)
+            {
+                requestTableReference_tableReference_Athena.CatalogName = requestTableReference_tableReference_Athena_tableReference_Athena_CatalogName;
+                requestTableReference_tableReference_AthenaIsNull = false;
+            }
             System.String requestTableReference_tableReference_Athena_athena_DatabaseName = null;
             if (cmdletContext.Athena_DatabaseName != null)
             {
@@ -686,6 +707,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public List<System.String> SelectedAnalysisMethod { get; set; }
+            public System.String TableReference_Athena_CatalogName { get; set; }
             public System.String Athena_DatabaseName { get; set; }
             public System.String Athena_OutputLocation { get; set; }
             public Amazon.CleanRooms.CommercialRegion Athena_Region { get; set; }
