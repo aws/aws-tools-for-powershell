@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.193.0",
+    "ProductVersion"    : "4.0.194.0",
     "CoreVersion"       : "4.0.3.14",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -1012,7 +1012,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.33.0",
+            "Version" : "4.0.33.1",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"
@@ -2508,7 +2508,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "4.0.14.2",
+            "Version" : "4.0.15.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.12"

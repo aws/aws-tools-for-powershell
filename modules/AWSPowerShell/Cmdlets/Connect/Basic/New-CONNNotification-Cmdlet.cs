@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Creates a new notification to be delivered to specified recipients. Notifications
-    /// can include localized content with embedded links, and an optional expiration time.
-    /// Recipients can be specified as individual user ARNs or instance ARNs to target all
-    /// users in an instance.
+    /// can include localized content with links, and an optional expiration time. Recipients
+    /// can be specified as individual user ARNs or instance ARNs to target all users in an
+    /// instance.
     /// </summary>
     [Cmdlet("New", "CONNNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateNotificationResponse")]
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The localized content of the notification. A map where keys are locale codes and values
-        /// are the notification text in that locale. Content supports markdown formatting and
-        /// embedded links. Maximum 250 characters per locale.</para><para />
+        /// are the notification text in that locale. Content supports links. Maximum 250 characters
+        /// per locale.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
