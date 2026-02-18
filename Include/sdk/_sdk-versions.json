@@ -1035,14 +1035,6 @@
             },
             "InPreview"               : false
         },
-        "IoTAnalytics"                    : {
-            "Version" : "3.7.502.44",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.500.81"
-            },
-            "InPreview"               : false
-        },
         "PI"                              : {
             "Version" : "3.7.502.45",
             "AssemblyVersionOverride" : "3.3",

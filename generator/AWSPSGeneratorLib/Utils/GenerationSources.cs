@@ -164,7 +164,8 @@ namespace AWSPowerShellGenerator.Utils
                 .Where(name => !name.StartsWith("Extensions.", StringComparison.OrdinalIgnoreCase)
                     && !name.Equals("Core", StringComparison.OrdinalIgnoreCase)
                     && !name.Equals("ElasticTranscoder", StringComparison.OrdinalIgnoreCase)
-                    && !name.Equals("CloudWatchEvidently", StringComparison.OrdinalIgnoreCase));
+                    && !name.Equals("CloudWatchEvidently", StringComparison.OrdinalIgnoreCase)
+                    && !name.Equals("IoTAnalytics", StringComparison.OrdinalIgnoreCase));
 
             return distinctAssemblyFilenames;
         }
