@@ -1,3 +1,0 @@
-﻿# CloudWatchEvidently
-
-Export-ModuleMember -Alias *

@@ -2187,14 +2187,6 @@
             },
             "InPreview"               : false
         },
-        "CloudWatchEvidently"                 : {
-            "Version" : "4.0.3.1",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.3.12"
-            },
-            "InPreview"               : false
-        },
         "CloudWatchRUM"                       : {
             "Version" : "4.0.3.9",
             "AssemblyVersionOverride" : "4.0",
