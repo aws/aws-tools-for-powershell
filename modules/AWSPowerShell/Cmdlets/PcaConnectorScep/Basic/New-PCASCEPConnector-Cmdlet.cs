@@ -108,10 +108,22 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter VpcEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>If you don't supply a value, by default Connector for SCEP creates a connector accessible
+        /// over the public internet. If you provide a VPC endpoint ID, creates a connector accessible
+        /// only through that specific VPC endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcEndpointId { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Custom string that can be used to distinguish between calls to the <a href="https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_CreateChallenge.html">CreateChallenge</a>
+        /// <para>Custom string that can be used to distinguish between calls to the <a href="https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_CreateChallenge.html">CreateChallenge</a>
         /// action. Client tokens for <c>CreateChallenge</c> time out after five minutes. Therefore,
         /// if you call <c>CreateChallenge</c> multiple times with the same client token within
         /// five minutes, Connector for SCEP recognizes that you are requesting only one challenge
@@ -187,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.VpcEndpointId = this.VpcEndpointId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -259,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.VpcEndpointId != null)
+            {
+                request.VpcEndpointId = cmdletContext.VpcEndpointId;
+            }
             
             CmdletOutput output;
             
@@ -319,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
             public System.String Intune_AzureApplicationId { get; set; }
             public System.String Intune_Domain { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String VpcEndpointId { get; set; }
             public System.Func<Amazon.PcaConnectorScep.Model.CreateConnectorResponse, NewPCASCEPConnectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConnectorArn;
         }

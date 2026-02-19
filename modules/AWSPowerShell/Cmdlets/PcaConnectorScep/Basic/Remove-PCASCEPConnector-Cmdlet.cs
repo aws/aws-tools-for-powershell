@@ -30,7 +30,7 @@ using Amazon.PcaConnectorScep.Model;
 namespace Amazon.PowerShell.Cmdlets.PCASCEP
 {
     /// <summary>
-    /// Deletes the specified <a href="https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Connector.html">Connector</a>.
+    /// Deletes the specified <a href="https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html">Connector</a>.
     /// This operation also deletes any challenges associated with the connector.
     /// </summary>
     [Cmdlet("Remove", "PCASCEPConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

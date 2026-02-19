@@ -1,4 +1,9 @@
-﻿### 5.0.158 (2026-02-18 21:32Z)
+﻿### 5.0.159 (2026-02-19 21:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.195.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Private CA Connector for SCEP
+    * Modified cmdlet New-PCASCEPConnector: added parameter VpcEndpointId.
+
+### 5.0.158 (2026-02-18 21:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.194.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon CloudWatch Evidently
   * Amazon Clean Rooms Service
