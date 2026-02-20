@@ -28,7 +28,9 @@ using Amazon.TrustedAdvisor.Model;
 namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
-    /// Update the lifecyle of a Recommendation. This API only supports prioritized recommendations.
+    /// Update the lifecyle of a Recommendation. This API only supports prioritized recommendations
+    /// and updates global priority recommendations, eliminating the need to call the API
+    /// in each AWS Region.
     /// </summary>
     [Cmdlet("Update", "TARecommendationLifecycle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

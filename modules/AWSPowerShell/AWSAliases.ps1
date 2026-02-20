@@ -30592,6 +30592,7 @@ Set-Alias -Name Update-SHLDEmergencyContactSettings -Value Update-SHLDEmergencyC
 Set-Alias -Name SHLD-UpdateEmergencyContactSettings -Value Update-SHLDEmergencyContactSetting
 Set-Alias -Name SHLD-UpdateProtectionGroup -Value Update-SHLDProtectionGroup
 Set-Alias -Name SHLD-UpdateSubscription -Value Update-SHLDSubscription
+Set-Alias -Name SGND-GetRevocationStatus -Value Get-SGNDRevocationStatus
 Set-Alias -Name Create-AMSPOAuth2Token -Value New-AMSPOAuth2Token
 Set-Alias -Name AMSP-CreateOAuth2Token -Value New-AMSPOAuth2Token
 Set-Alias -Name Create-SSWSnapshot -Value New-SSWSnapshot

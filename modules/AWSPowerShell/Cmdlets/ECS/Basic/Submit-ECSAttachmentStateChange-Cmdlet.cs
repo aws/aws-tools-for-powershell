@@ -28,12 +28,7 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// <note><para>
-    /// This action is only used by the Amazon ECS agent, and it is not intended for use outside
-    /// of the agent.
-    /// </para></note><para>
-    /// Sent to acknowledge that an attachment changed states.
-    /// </para>
+    /// Amazon.ECS.IAmazonECS.SubmitAttachmentStateChanges
     /// </summary>
     [Cmdlet("Submit", "ECSAttachmentStateChange", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

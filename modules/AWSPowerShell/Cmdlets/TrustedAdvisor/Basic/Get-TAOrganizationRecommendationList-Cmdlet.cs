@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
     /// List a filterable set of Recommendations within an Organization. This API only supports
-    /// prioritized recommendations.
+    /// prioritized recommendations and provides global priority recommendations, eliminating
+    /// the need to call the API in each AWS Region.
     /// </summary>
     [Cmdlet("Get", "TAOrganizationRecommendationList")]
     [OutputType("Amazon.TrustedAdvisor.Model.OrganizationRecommendationSummary")]

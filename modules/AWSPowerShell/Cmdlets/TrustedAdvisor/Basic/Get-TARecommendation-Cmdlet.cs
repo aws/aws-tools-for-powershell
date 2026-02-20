@@ -28,7 +28,8 @@ using Amazon.TrustedAdvisor.Model;
 namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
-    /// Get a specific Recommendation
+    /// Get a specific Recommendation. This API provides global recommendations, eliminating
+    /// the need to call the API in each AWS Region.
     /// </summary>
     [Cmdlet("Get", "TARecommendation")]
     [OutputType("Amazon.TrustedAdvisor.Model.Recommendation")]
@@ -43,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.TA
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Language
+        /// <summary>
+        /// <para>
+        /// <para>The ISO 639-1 code for the language that you want your recommendations to appear in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TrustedAdvisor.RecommendationLanguage")]
+        public Amazon.TrustedAdvisor.RecommendationLanguage Language { get; set; }
+        #endregion
         
         #region Parameter RecommendationIdentifier
         /// <summary>
@@ -107,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
                 context.Select = (response, cmdlet) => this.RecommendationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Language = this.Language;
             context.RecommendationIdentifier = this.RecommendationIdentifier;
             #if MODULAR
             if (this.RecommendationIdentifier == null && ParameterWasBound(nameof(this.RecommendationIdentifier)))
@@ -130,6 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.TA
             // create request
             var request = new Amazon.TrustedAdvisor.Model.GetRecommendationRequest();
             
+            if (cmdletContext.Language != null)
+            {
+                request.Language = cmdletContext.Language;
+            }
             if (cmdletContext.RecommendationIdentifier != null)
             {
                 request.RecommendationIdentifier = cmdletContext.RecommendationIdentifier;
@@ -195,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.TrustedAdvisor.RecommendationLanguage Language { get; set; }
             public System.String RecommendationIdentifier { get; set; }
             public System.Func<Amazon.TrustedAdvisor.Model.GetRecommendationResponse, GetTARecommendationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Recommendation;

@@ -28,7 +28,8 @@ using Amazon.TrustedAdvisor.Model;
 namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
-    /// List a filterable set of Checks
+    /// List a filterable set of Checks. This API provides global recommendations, eliminating
+    /// the need to call the API in each AWS Region.
     /// </summary>
     [Cmdlet("Get", "TACheckList")]
     [OutputType("Amazon.TrustedAdvisor.Model.CheckSummary")]

@@ -1132,6 +1132,9 @@
     <Reference Include="AWSSDK.Shield">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Shield.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SignerData">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SignerData.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Signin">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Signin.dll</HintPath>
     </Reference>
@@ -2360,6 +2363,9 @@
     </Reference>
     <Reference Include="AWSSDK.Shield">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Shield.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SignerData">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SignerData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Signin">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Signin.dll</HintPath>

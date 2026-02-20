@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>signer-data</C2jFilename>
+    <AssemblyName>SignerData</AssemblyName>
+    <ServiceNounPrefix>SGND</ServiceNounPrefix>
+    <ServiceName>AWS Signer Data Plane</ServiceName>
+    <ServiceClientInterface>IAmazonSignerData</ServiceClientInterface>
+    <ServiceClient>AmazonSignerDataClient</ServiceClient>
+    <ServiceModuleGuid>234038ec-44e0-4d3a-a2bb-915d0331c33f</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetRevocationStatus" OutputProperty="RevokedEntities" Verb="Get" Noun="RevocationStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

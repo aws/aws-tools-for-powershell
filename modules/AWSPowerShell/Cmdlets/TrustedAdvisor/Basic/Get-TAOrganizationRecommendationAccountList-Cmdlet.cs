@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
     /// Lists the accounts that own the resources for an organization aggregate recommendation.
-    /// This API only supports prioritized recommendations.
+    /// This API only supports prioritized recommendations and provides global priority recommendations,
+    /// eliminating the need to call the API in each AWS Region.
     /// </summary>
     [Cmdlet("Get", "TAOrganizationRecommendationAccountList")]
     [OutputType("Amazon.TrustedAdvisor.Model.AccountRecommendationLifecycleSummary")]

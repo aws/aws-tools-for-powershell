@@ -56,6 +56,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AssociationDispatchAssumeRole
+        /// <summary>
+        /// <para>
+        /// <para>A role used by association to take actions on your behalf. State Manager will assume
+        /// this role and call required APIs when dispatching configurations to nodes. If not
+        /// specified, <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html">
+        /// service-linked role for Systems Manager</a> will be used by default. </para><note><para>It is recommended that you define a custom IAM role so that you have full control
+        /// of the permissions that State Manager has when taking actions on your behalf.</para><para>Service-linked role support in State Manager is being phased out. Associations relying
+        /// on service-linked role may require updates in the future to continue functioning properly.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssociationDispatchAssumeRole { get; set; }
+        #endregion
+        
         #region Parameter Entry
         /// <summary>
         /// <para>
@@ -136,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.Entry;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssociationDispatchAssumeRole = this.AssociationDispatchAssumeRole;
             if (this.Entry != null)
             {
                 context.Entry = new List<Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequestEntry>(this.Entry);
@@ -162,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequest();
             
+            if (cmdletContext.AssociationDispatchAssumeRole != null)
+            {
+                request.AssociationDispatchAssumeRole = cmdletContext.AssociationDispatchAssumeRole;
+            }
             if (cmdletContext.Entry != null)
             {
                 request.Entries = cmdletContext.Entry;
@@ -227,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssociationDispatchAssumeRole { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequestEntry> Entry { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse, NewSSMAssociationFromBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

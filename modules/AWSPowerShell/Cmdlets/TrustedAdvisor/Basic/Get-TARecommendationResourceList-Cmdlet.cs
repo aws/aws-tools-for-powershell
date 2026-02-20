@@ -28,7 +28,8 @@ using Amazon.TrustedAdvisor.Model;
 namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
-    /// List Resources of a Recommendation
+    /// List Resources of a Recommendation. This API provides global recommendations, eliminating
+    /// the need to call the API in each AWS Region.
     /// </summary>
     [Cmdlet("Get", "TARecommendationResourceList")]
     [OutputType("Amazon.TrustedAdvisor.Model.RecommendationResourceSummary")]
@@ -51,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.TA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.TrustedAdvisor.ExclusionStatus")]
         public Amazon.TrustedAdvisor.ExclusionStatus ExclusionStatus { get; set; }
+        #endregion
+        
+        #region Parameter Language
+        /// <summary>
+        /// <para>
+        /// <para>The ISO 639-1 code for the language that you want your recommendations to appear in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TrustedAdvisor.RecommendationLanguage")]
+        public Amazon.TrustedAdvisor.RecommendationLanguage Language { get; set; }
         #endregion
         
         #region Parameter RecommendationIdentifier
@@ -160,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ExclusionStatus = this.ExclusionStatus;
+            context.Language = this.Language;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.RecommendationIdentifier = this.RecommendationIdentifier;
@@ -190,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.TA
             if (cmdletContext.ExclusionStatus != null)
             {
                 request.ExclusionStatus = cmdletContext.ExclusionStatus;
+            }
+            if (cmdletContext.Language != null)
+            {
+                request.Language = cmdletContext.Language;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -273,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.TrustedAdvisor.ExclusionStatus ExclusionStatus { get; set; }
+            public Amazon.TrustedAdvisor.RecommendationLanguage Language { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String RecommendationIdentifier { get; set; }

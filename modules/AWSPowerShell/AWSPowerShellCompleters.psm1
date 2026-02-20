@@ -77769,6 +77769,61 @@ $SHLD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SHLD_SelectCompleters $SHLD_SelectMap
+# Argument completions for service AWS Signer Data Plane
+
+
+$SGND_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SGND.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SGND_SelectMap = @{
+    "Select"=@("Get-SGNDRevocationStatus")
+}
+
+_awsArgumentCompleterRegistration $SGND_SelectCompleters $SGND_SelectMap
 # Argument completions for service AWS Sign-In Data Plane
 
 
@@ -83017,7 +83072,12 @@ $TA_Completers = {
         }
 
         # Amazon.TrustedAdvisor.RecommendationLanguage
-        "Get-TACheckList/Language"
+        {
+            ($_ -eq "Get-TACheckList/Language") -Or
+            ($_ -eq "Get-TARecommendation/Language") -Or
+            ($_ -eq "Get-TARecommendationList/Language") -Or
+            ($_ -eq "Get-TARecommendationResourceList/Language")
+        }
         {
             $v = "de","en","es","fr","id","it","ja","ko","pt_BR","zh","zh_TW"
             break
@@ -83041,7 +83101,7 @@ $TA_Completers = {
             ($_ -eq "Get-TARecommendationList/Source")
         }
         {
-            $v = "aws_config","compute_optimizer","cost_explorer","lse","manual","pse","rds","resilience","resilience_hub","security_hub","stir","ta_check","well_architected"
+            $v = "aws_config","compute_optimizer","cost_explorer","cost_optimization_hub","lse","manual","pse","rds","resilience","resilience_hub","security_hub","stir","ta_check","well_architected"
             break
         }
 
@@ -83105,7 +83165,7 @@ $TA_Completers = {
 
 $TA_map = @{
     "ExclusionStatus"=@("Get-TAOrganizationRecommendationResourceList","Get-TARecommendationResourceList")
-    "Language"=@("Get-TACheckList")
+    "Language"=@("Get-TACheckList","Get-TARecommendation","Get-TARecommendationList","Get-TARecommendationResourceList")
     "LifecycleStage"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
     "Pillar"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
     "Source"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")

@@ -405,7 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LoadBalancer
         /// <summary>
         /// <para>
-        /// <note><para>You must have a service-linked role when you update this property</para></note><para>A list of Elastic Load Balancing load balancer objects. It contains the load balancer
+        /// <para><note><para>You must have a service-linked role when you update this property</para></note><para>A list of Elastic Load Balancing load balancer objects. It contains the load balancer
         /// name, the container name, and the container port to access from the load balancer.
         /// The container name is as it appears in a container definition.</para><para>When you add, update, or remove a load balancer configuration, Amazon ECS starts new
         /// tasks with the updated Elastic Load Balancing configuration, and then stops the old
@@ -420,7 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Note that multiple target groups are not supported for external deployments. For more
         /// information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Register
         /// multiple target groups with a service</a> in the <i>Amazon Elastic Container Service
-        /// Developer Guide</i>. </para><para>You can remove existing <c>loadBalancers</c> by passing an empty list.</para><para>This parameter triggers a new service deployment.</para>
+        /// Developer Guide</i>. </para><para>You can remove existing <c>loadBalancers</c> by passing an empty list.</para><para>This parameter triggers a new service deployment.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -753,12 +753,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ServiceRegistry
         /// <summary>
         /// <para>
-        /// <note><para>You must have a service-linked role when you update this property.</para><para>For more information about the role see the <c>CreateService</c> request parameter
+        /// <para><note><para>You must have a service-linked role when you update this property.</para><para>For more information about the role see the <c>CreateService</c> request parameter
         /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role"><c>role</c></a>. </para></note><para>The details for the service discovery registries to assign to this service. For more
         /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
         /// Discovery</a>.</para><para>When you add, update, or remove the service registries configuration, Amazon ECS starts
         /// new tasks with the updated service registries configuration, and then stops the old
-        /// tasks when the new tasks are running.</para><para>You can remove existing <c>serviceRegistries</c> by passing an empty list.</para><para>This parameter triggers a new service deployment.</para>
+        /// tasks when the new tasks are running.</para><para>You can remove existing <c>serviceRegistries</c> by passing an empty list.</para><para>This parameter triggers a new service deployment.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

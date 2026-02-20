@@ -122,6 +122,17 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String EndpointName { get; set; }
         #endregion
         
+        #region Parameter Filename
+        /// <summary>
+        /// <para>
+        /// <para>The filename for the inference response payload stored in Amazon S3. If not specified,
+        /// Amazon SageMaker AI generates a filename based on the inference ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filename { get; set; }
+        #endregion
+        
         #region Parameter InferenceId
         /// <summary>
         /// <para>
@@ -172,6 +183,17 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequestTTLSeconds")]
         public System.Int32? RequestTTLSecond { get; set; }
+        #endregion
+        
+        #region Parameter S3OutputPathExtension
+        /// <summary>
+        /// <para>
+        /// <para>The path extension that is appended to the Amazon S3 output path where the inference
+        /// response payload is stored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3OutputPathExtension { get; set; }
         #endregion
         
         #region Parameter Select
@@ -246,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Filename = this.Filename;
             context.InferenceId = this.InferenceId;
             context.InputLocation = this.InputLocation;
             #if MODULAR
@@ -256,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             #endif
             context.InvocationTimeoutSecond = this.InvocationTimeoutSecond;
             context.RequestTTLSecond = this.RequestTTLSecond;
+            context.S3OutputPathExtension = this.S3OutputPathExtension;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -288,6 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             {
                 request.EndpointName = cmdletContext.EndpointName;
             }
+            if (cmdletContext.Filename != null)
+            {
+                request.Filename = cmdletContext.Filename;
+            }
             if (cmdletContext.InferenceId != null)
             {
                 request.InferenceId = cmdletContext.InferenceId;
@@ -303,6 +331,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             if (cmdletContext.RequestTTLSecond != null)
             {
                 request.RequestTTLSeconds = cmdletContext.RequestTTLSecond.Value;
+            }
+            if (cmdletContext.S3OutputPathExtension != null)
+            {
+                request.S3OutputPathExtension = cmdletContext.S3OutputPathExtension;
             }
             
             CmdletOutput output;
@@ -369,10 +401,12 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String ContentType { get; set; }
             public System.String CustomAttribute { get; set; }
             public System.String EndpointName { get; set; }
+            public System.String Filename { get; set; }
             public System.String InferenceId { get; set; }
             public System.String InputLocation { get; set; }
             public System.Int32? InvocationTimeoutSecond { get; set; }
             public System.Int32? RequestTTLSecond { get; set; }
+            public System.String S3OutputPathExtension { get; set; }
             public System.Func<Amazon.SageMakerRuntime.Model.InvokeEndpointAsyncResponse, InvokeSMREndpointAsyncCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
