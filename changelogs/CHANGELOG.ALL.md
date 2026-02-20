@@ -1,4 +1,24 @@
-﻿### 5.0.159 (2026-02-19 21:37Z)
+﻿### 5.0.160 (2026-02-20 22:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.196.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Modified cmdlet New-APSAppBlockBuilder: added parameter DisableIMDSV1.
+    * Modified cmdlet New-APSFleet: added parameter DisableIMDSV1.
+    * Modified cmdlet New-APSImageBuilder: added parameter DisableIMDSV1.
+    * Modified cmdlet Update-APSAppBlockBuilder: added parameter DisableIMDSV1.
+    * Modified cmdlet Update-APSFleet: added parameter DisableIMDSV1.
+  * Amazon SageMaker Runtime
+    * Modified cmdlet Invoke-SMREndpointAsync: added parameters Filename and S3OutputPathExtension.
+  * Amazon Signer Data Plane. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SGND and can be listed using the command 'Get-AWSCmdletName -Service SGND'.
+  * Amazon Systems Manager
+    * Modified cmdlet New-SSMAssociation: added parameter AssociationDispatchAssumeRole.
+    * Modified cmdlet New-SSMAssociationFromBatch: added parameter AssociationDispatchAssumeRole.
+    * Modified cmdlet Update-SSMAssociation: added parameter AssociationDispatchAssumeRole.
+  * Amazon Trusted Advisor
+    * Modified cmdlet Get-TARecommendation: added parameter Language.
+    * Modified cmdlet Get-TARecommendationList: added parameter Language.
+    * Modified cmdlet Get-TARecommendationResourceList: added parameter Language.
+
+### 5.0.159 (2026-02-19 21:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.195.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Private CA Connector for SCEP
     * Modified cmdlet New-PCASCEPConnector: added parameter VpcEndpointId.

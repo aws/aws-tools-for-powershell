@@ -107,6 +107,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Boolean? ApplyOnlyAtCronInterval { get; set; }
         #endregion
         
+        #region Parameter AssociationDispatchAssumeRole
+        /// <summary>
+        /// <para>
+        /// <para>A role used by association to take actions on your behalf. State Manager will assume
+        /// this role and call required APIs when dispatching configurations to nodes. If not
+        /// specified, <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html">
+        /// service-linked role for Systems Manager</a> will be used by default. </para><note><para>It is recommended that you define a custom IAM role so that you have full control
+        /// of the permissions that State Manager has when taking actions on your behalf.</para><para>Service-linked role support in State Manager is being phased out. Associations relying
+        /// on service-linked role may require updates in the future to continue functioning properly.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssociationDispatchAssumeRole { get; set; }
+        #endregion
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>
@@ -479,6 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             context.AlarmConfiguration_IgnorePollAlarmFailure = this.AlarmConfiguration_IgnorePollAlarmFailure;
             context.ApplyOnlyAtCronInterval = this.ApplyOnlyAtCronInterval;
+            context.AssociationDispatchAssumeRole = this.AssociationDispatchAssumeRole;
             context.AssociationId = this.AssociationId;
             #if MODULAR
             if (this.AssociationId == null && ParameterWasBound(nameof(this.AssociationId)))
@@ -606,6 +622,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.ApplyOnlyAtCronInterval != null)
             {
                 request.ApplyOnlyAtCronInterval = cmdletContext.ApplyOnlyAtCronInterval.Value;
+            }
+            if (cmdletContext.AssociationDispatchAssumeRole != null)
+            {
+                request.AssociationDispatchAssumeRole = cmdletContext.AssociationDispatchAssumeRole;
             }
             if (cmdletContext.AssociationId != null)
             {
@@ -791,6 +811,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<Amazon.SimpleSystemsManagement.Model.Alarm> AlarmConfiguration_Alarm { get; set; }
             public System.Boolean? AlarmConfiguration_IgnorePollAlarmFailure { get; set; }
             public System.Boolean? ApplyOnlyAtCronInterval { get; set; }
+            public System.String AssociationDispatchAssumeRole { get; set; }
             public System.String AssociationId { get; set; }
             public System.String AssociationName { get; set; }
             public System.String AssociationVersion { get; set; }

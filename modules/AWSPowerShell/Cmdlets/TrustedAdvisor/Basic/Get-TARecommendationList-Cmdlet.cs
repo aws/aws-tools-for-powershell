@@ -30,7 +30,8 @@ using Amazon.TrustedAdvisor.Model;
 namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
-    /// List a filterable set of Recommendations<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// List a filterable set of Recommendations. This API provides global recommendations,
+    /// eliminating the need to call the API in each AWS Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "TARecommendationList")]
     [OutputType("Amazon.TrustedAdvisor.Model.RecommendationSummary")]
@@ -83,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.TA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CheckIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Language
+        /// <summary>
+        /// <para>
+        /// <para>The ISO 639-1 code for the language that you want your recommendations to appear in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TrustedAdvisor.RecommendationLanguage")]
+        public Amazon.TrustedAdvisor.RecommendationLanguage Language { get; set; }
         #endregion
         
         #region Parameter Pillar
@@ -205,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
             context.AwsService = this.AwsService;
             context.BeforeLastUpdatedAt = this.BeforeLastUpdatedAt;
             context.CheckIdentifier = this.CheckIdentifier;
+            context.Language = this.Language;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -253,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.TA
             if (cmdletContext.CheckIdentifier != null)
             {
                 request.CheckIdentifier = cmdletContext.CheckIdentifier;
+            }
+            if (cmdletContext.Language != null)
+            {
+                request.Language = cmdletContext.Language;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -358,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
             public System.String AwsService { get; set; }
             public System.DateTime? BeforeLastUpdatedAt { get; set; }
             public System.String CheckIdentifier { get; set; }
+            public Amazon.TrustedAdvisor.RecommendationLanguage Language { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.TrustedAdvisor.RecommendationPillar Pillar { get; set; }

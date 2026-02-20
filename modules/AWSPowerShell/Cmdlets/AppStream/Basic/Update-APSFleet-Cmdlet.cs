@@ -126,6 +126,19 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String DomainJoinInfo_DirectoryName { get; set; }
         #endregion
         
+        #region Parameter DisableIMDSV1
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2.
+        /// Set to false to enable both IMDSv1 and IMDSv2.</para><note><para>Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the
+        /// agent version or managed image update released on or after January 16, 2024 to support
+        /// IMDSv2 enforcement.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisableIMDSV1 { get; set; }
+        #endregion
+        
         #region Parameter DisconnectTimeoutInSecond
         /// <summary>
         /// <para>
@@ -469,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             context.DeleteVpcConfig = this.DeleteVpcConfig;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.DisableIMDSV1 = this.DisableIMDSV1;
             context.DisconnectTimeoutInSecond = this.DisconnectTimeoutInSecond;
             context.DisplayName = this.DisplayName;
             context.DomainJoinInfo_DirectoryName = this.DomainJoinInfo_DirectoryName;
@@ -558,6 +572,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DisableIMDSV1 != null)
+            {
+                request.DisableIMDSV1 = cmdletContext.DisableIMDSV1.Value;
             }
             if (cmdletContext.DisconnectTimeoutInSecond != null)
             {
@@ -786,6 +804,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             [System.ObsoleteAttribute]
             public System.Boolean? DeleteVpcConfig { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DisableIMDSV1 { get; set; }
             public System.Int32? DisconnectTimeoutInSecond { get; set; }
             public System.String DisplayName { get; set; }
             public System.String DomainJoinInfo_DirectoryName { get; set; }

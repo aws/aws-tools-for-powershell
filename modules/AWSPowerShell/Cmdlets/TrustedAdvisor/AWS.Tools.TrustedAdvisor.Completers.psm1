@@ -91,7 +91,12 @@ $TA_Completers = {
         }
 
         # Amazon.TrustedAdvisor.RecommendationLanguage
-        "Get-TACheckList/Language"
+        {
+            ($_ -eq "Get-TACheckList/Language") -Or
+            ($_ -eq "Get-TARecommendation/Language") -Or
+            ($_ -eq "Get-TARecommendationList/Language") -Or
+            ($_ -eq "Get-TARecommendationResourceList/Language")
+        }
         {
             $v = "de","en","es","fr","id","it","ja","ko","pt_BR","zh","zh_TW"
             break
@@ -115,7 +120,7 @@ $TA_Completers = {
             ($_ -eq "Get-TARecommendationList/Source")
         }
         {
-            $v = "aws_config","compute_optimizer","cost_explorer","lse","manual","pse","rds","resilience","resilience_hub","security_hub","stir","ta_check","well_architected"
+            $v = "aws_config","compute_optimizer","cost_explorer","cost_optimization_hub","lse","manual","pse","rds","resilience","resilience_hub","security_hub","stir","ta_check","well_architected"
             break
         }
 
@@ -179,7 +184,7 @@ $TA_Completers = {
 
 $TA_map = @{
     "ExclusionStatus"=@("Get-TAOrganizationRecommendationResourceList","Get-TARecommendationResourceList")
-    "Language"=@("Get-TACheckList")
+    "Language"=@("Get-TACheckList","Get-TARecommendation","Get-TARecommendationList","Get-TARecommendationResourceList")
     "LifecycleStage"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
     "Pillar"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
     "Source"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")

@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
     /// List a filterable set of Recommendations within an Organization. This API only supports
-    /// prioritized recommendations.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// prioritized recommendations and provides global priority recommendations, eliminating
+    /// the need to call the API in each AWS Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "TAOrganizationRecommendationList")]
     [OutputType("Amazon.TrustedAdvisor.Model.OrganizationRecommendationSummary")]

@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
     /// Update the lifecycle of a Recommendation within an Organization. This API only supports
-    /// prioritized recommendations.
+    /// prioritized recommendations and updates global priority recommendations, eliminating
+    /// the need to call the API in each AWS Region.
     /// </summary>
     [Cmdlet("Update", "TAOrganizationRecommendationLifecycle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

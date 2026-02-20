@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DisableIMDSV1
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2.
+        /// Set to false to enable both IMDSv1 and IMDSv2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisableIMDSV1 { get; set; }
+        #endregion
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>
@@ -263,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 context.AccessEndpoint = new List<Amazon.AppStream.Model.AccessEndpoint>(this.AccessEndpoint);
             }
             context.Description = this.Description;
+            context.DisableIMDSV1 = this.DisableIMDSV1;
             context.DisplayName = this.DisplayName;
             context.EnableDefaultInternetAccess = this.EnableDefaultInternetAccess;
             context.IamRoleArn = this.IamRoleArn;
@@ -326,6 +338,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DisableIMDSV1 != null)
+            {
+                request.DisableIMDSV1 = cmdletContext.DisableIMDSV1.Value;
             }
             if (cmdletContext.DisplayName != null)
             {
@@ -441,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             public List<Amazon.AppStream.Model.AccessEndpoint> AccessEndpoint { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DisableIMDSV1 { get; set; }
             public System.String DisplayName { get; set; }
             public System.Boolean? EnableDefaultInternetAccess { get; set; }
             public System.String IamRoleArn { get; set; }

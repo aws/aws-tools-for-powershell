@@ -30,7 +30,8 @@ using Amazon.TrustedAdvisor.Model;
 namespace Amazon.PowerShell.Cmdlets.TA
 {
     /// <summary>
-    /// List Resources of a Recommendation<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// List Resources of a Recommendation. This API provides global recommendations, eliminating
+    /// the need to call the API in each AWS Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "TARecommendationResourceList")]
     [OutputType("Amazon.TrustedAdvisor.Model.RecommendationResourceSummary")]
@@ -54,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.TA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.TrustedAdvisor.ExclusionStatus")]
         public Amazon.TrustedAdvisor.ExclusionStatus ExclusionStatus { get; set; }
+        #endregion
+        
+        #region Parameter Language
+        /// <summary>
+        /// <para>
+        /// <para>The ISO 639-1 code for the language that you want your recommendations to appear in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TrustedAdvisor.RecommendationLanguage")]
+        public Amazon.TrustedAdvisor.RecommendationLanguage Language { get; set; }
         #endregion
         
         #region Parameter RecommendationIdentifier
@@ -167,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ExclusionStatus = this.ExclusionStatus;
+            context.Language = this.Language;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -208,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.TA
             if (cmdletContext.ExclusionStatus != null)
             {
                 request.ExclusionStatus = cmdletContext.ExclusionStatus;
+            }
+            if (cmdletContext.Language != null)
+            {
+                request.Language = cmdletContext.Language;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -306,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.TrustedAdvisor.ExclusionStatus ExclusionStatus { get; set; }
+            public Amazon.TrustedAdvisor.RecommendationLanguage Language { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String RecommendationIdentifier { get; set; }
