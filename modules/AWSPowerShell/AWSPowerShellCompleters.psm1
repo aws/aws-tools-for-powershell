@@ -9326,14 +9326,14 @@ $BDR_Completers = {
         # Amazon.Bedrock.AutomatedReasoningPolicyBuildResultAssetType
         "Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset/AssetType"
         {
-            $v = "BUILD_LOG","GENERATED_TEST_CASES","POLICY_DEFINITION","POLICY_SCENARIOS","QUALITY_REPORT"
+            $v = "ASSET_MANIFEST","BUILD_LOG","FIDELITY_REPORT","GENERATED_TEST_CASES","POLICY_DEFINITION","POLICY_SCENARIOS","QUALITY_REPORT","SOURCE_DOCUMENT"
             break
         }
 
         # Amazon.Bedrock.AutomatedReasoningPolicyBuildWorkflowType
         "Start-BDRAutomatedReasoningPolicyBuildWorkflow/BuildWorkflowType"
         {
-            $v = "IMPORT_POLICY","INGEST_CONTENT","REFINE_POLICY"
+            $v = "GENERATE_FIDELITY_REPORT","IMPORT_POLICY","INGEST_CONTENT","REFINE_POLICY"
             break
         }
 
@@ -27137,6 +27137,13 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.GlobalTableSettingsReplicationMode
+        "Update-DDBTable/GlobalTableSettingsReplicationMode"
+        {
+            $v = "DISABLED","ENABLED","ENABLED_WITH_OVERRIDES"
+            break
+        }
+
         # Amazon.DynamoDBv2.InputCompressionType
         "Import-DDBTable/InputCompressionType"
         {
@@ -27302,6 +27309,7 @@ $DDB_map = @{
     "ExportFormat"=@("Export-DDBTableToPointInTime")
     "ExportType"=@("Export-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
+    "GlobalTableSettingsReplicationMode"=@("Update-DDBTable")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
     "IncrementalExportSpecification_ExportViewType"=@("Export-DDBTableToPointInTime")
     "InputCompressionType"=@("Import-DDBTable")
@@ -84809,6 +84817,7 @@ $WIC_SelectMap = @{
                "Get-WICNetwork",
                "Get-WICNetworkSetting",
                "Get-WICOidcInfo",
+               "Get-WICOpentdfConfig",
                "Get-WICSecurityGroup",
                "Get-WICUser",
                "Get-WICUsersCount",
@@ -84822,6 +84831,7 @@ $WIC_SelectMap = @{
                "Get-WICUserList",
                "Register-WICOidcConfig",
                "Register-WICOidcConfigTest",
+               "Register-WICOpentdfConfig",
                "Update-WICBot",
                "Update-WICDataRetention",
                "Update-WICGuestUser",

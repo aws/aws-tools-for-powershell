@@ -103,14 +103,14 @@ $BDR_Completers = {
         # Amazon.Bedrock.AutomatedReasoningPolicyBuildResultAssetType
         "Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset/AssetType"
         {
-            $v = "BUILD_LOG","GENERATED_TEST_CASES","POLICY_DEFINITION","POLICY_SCENARIOS","QUALITY_REPORT"
+            $v = "ASSET_MANIFEST","BUILD_LOG","FIDELITY_REPORT","GENERATED_TEST_CASES","POLICY_DEFINITION","POLICY_SCENARIOS","QUALITY_REPORT","SOURCE_DOCUMENT"
             break
         }
 
         # Amazon.Bedrock.AutomatedReasoningPolicyBuildWorkflowType
         "Start-BDRAutomatedReasoningPolicyBuildWorkflow/BuildWorkflowType"
         {
-            $v = "IMPORT_POLICY","INGEST_CONTENT","REFINE_POLICY"
+            $v = "GENERATE_FIDELITY_REPORT","IMPORT_POLICY","INGEST_CONTENT","REFINE_POLICY"
             break
         }
 

@@ -286,12 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// and the <c>ADD</c> action specified <c>[3]</c>, then the final attribute value is
         /// <c>[1,2,3]</c>. An error occurs if an <c>ADD</c> action is specified for a set attribute
         /// and the attribute type specified does not match the existing set type. </para><para>Both sets must have the same primitive data type. For example, if the existing data
-        /// type is a set of strings, the <c>Value</c> must also be a set of strings.</para></li></ul><important><para>The <c>ADD</c> action only supports Number and set data types. In addition, <c>ADD</c>
-        /// can only be used on top-level attributes, not nested attributes.</para></important></li><li><para><c>DELETE</c> - Deletes an element from a set.</para><para>If a set of values is specified, then those values are subtracted from the old set.
+        /// type is a set of strings, the <c>Value</c> must also be a set of strings.</para></li></ul><important><para>The <c>ADD</c> action only supports Number and set data types.</para></important></li><li><para><c>DELETE</c> - Deletes an element from a set.</para><para>If a set of values is specified, then those values are subtracted from the old set.
         /// For example, if the attribute value was the set <c>[a,b,c]</c> and the <c>DELETE</c>
         /// action specifies <c>[a,c]</c>, then the final attribute value is <c>[b]</c>. Specifying
-        /// an empty set is an error.</para><important><para>The <c>DELETE</c> action only supports set data types. In addition, <c>DELETE</c>
-        /// can only be used on top-level attributes, not nested attributes.</para></important></li></ul><para>You can have many actions in a single expression, such as the following: <c>SET a=:value1,
+        /// an empty set is an error.</para><important><para>The <c>DELETE</c> action only supports set data types.</para></important></li></ul><para>You can have many actions in a single expression, such as the following: <c>SET a=:value1,
         /// b=:value2 DELETE :value3, :value4, :value5</c></para><para>For more information on update expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html">Modifying
         /// Items and Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>

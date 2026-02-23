@@ -160,6 +160,13 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.GlobalTableSettingsReplicationMode
+        "Update-DDBTable/GlobalTableSettingsReplicationMode"
+        {
+            $v = "DISABLED","ENABLED","ENABLED_WITH_OVERRIDES"
+            break
+        }
+
         # Amazon.DynamoDBv2.InputCompressionType
         "Import-DDBTable/InputCompressionType"
         {
@@ -325,6 +332,7 @@ $DDB_map = @{
     "ExportFormat"=@("Export-DDBTableToPointInTime")
     "ExportType"=@("Export-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
+    "GlobalTableSettingsReplicationMode"=@("Update-DDBTable")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
     "IncrementalExportSpecification_ExportViewType"=@("Export-DDBTableToPointInTime")
     "InputCompressionType"=@("Import-DDBTable")

@@ -142,6 +142,21 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate[] GlobalSecondaryIndexUpdate { get; set; }
         #endregion
         
+        #region Parameter GlobalTableSettingsReplicationMode
+        /// <summary>
+        /// <para>
+        /// <para>Controls the settings replication mode for a global table replica. This attribute
+        /// can be defined using UpdateTable operation only on a regional table with values:</para><ul><li><para><c>ENABLED</c>: Defines settings replication on a regional table to be used as a
+        /// source table for creating Multi-Account Global Table.</para></li><li><para><c>DISABLED</c>: Remove settings replication on a regional table. Settings replication
+        /// needs to be defined to ENABLED again in order to create a Multi-Account Global Table
+        /// using this table. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.GlobalTableSettingsReplicationMode")]
+        public Amazon.DynamoDBv2.GlobalTableSettingsReplicationMode GlobalTableSettingsReplicationMode { get; set; }
+        #endregion
+        
         #region Parameter GlobalTableWitnessUpdate
         /// <summary>
         /// <para>
@@ -402,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 context.GlobalSecondaryIndexUpdate = new List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate>(this.GlobalSecondaryIndexUpdate);
             }
+            context.GlobalTableSettingsReplicationMode = this.GlobalTableSettingsReplicationMode;
             if (this.GlobalTableWitnessUpdate != null)
             {
                 context.GlobalTableWitnessUpdate = new List<Amazon.DynamoDBv2.Model.GlobalTableWitnessGroupUpdate>(this.GlobalTableWitnessUpdate);
@@ -461,6 +477,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.GlobalSecondaryIndexUpdate != null)
             {
                 request.GlobalSecondaryIndexUpdates = cmdletContext.GlobalSecondaryIndexUpdate;
+            }
+            if (cmdletContext.GlobalTableSettingsReplicationMode != null)
+            {
+                request.GlobalTableSettingsReplicationMode = cmdletContext.GlobalTableSettingsReplicationMode;
             }
             if (cmdletContext.GlobalTableWitnessUpdate != null)
             {
@@ -696,6 +716,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdate { get; set; }
+            public Amazon.DynamoDBv2.GlobalTableSettingsReplicationMode GlobalTableSettingsReplicationMode { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalTableWitnessGroupUpdate> GlobalTableWitnessUpdate { get; set; }
             public Amazon.DynamoDBv2.MultiRegionConsistency MultiRegionConsistency { get; set; }
             public System.Int64? OnDemandThroughput_MaxReadRequestUnit { get; set; }

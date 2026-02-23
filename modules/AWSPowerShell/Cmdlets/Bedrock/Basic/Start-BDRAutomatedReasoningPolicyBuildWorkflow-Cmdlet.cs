@@ -107,6 +107,22 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument[] WorkflowContent_Document { get; set; }
         #endregion
         
+        #region Parameter SourceContent_WorkflowContent_GenerateFidelityReportContent_Document
+        /// <summary>
+        /// <para>
+        /// <para>Source documents to analyze for generating a new fidelity report. The documents will
+        /// be processed to create atomic statements and grounding information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceContent_WorkflowContent_GenerateFidelityReportContent_Documents")]
+        public Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument[] SourceContent_WorkflowContent_GenerateFidelityReportContent_Document { get; set; }
+        #endregion
+        
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
@@ -263,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.WorkflowContent_Document = new List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument>(this.WorkflowContent_Document);
             }
+            if (this.SourceContent_WorkflowContent_GenerateFidelityReportContent_Document != null)
+            {
+                context.SourceContent_WorkflowContent_GenerateFidelityReportContent_Document = new List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument>(this.SourceContent_WorkflowContent_GenerateFidelityReportContent_Document);
+            }
             if (this.PolicyRepairAssets_Annotation != null)
             {
                 context.PolicyRepairAssets_Annotation = new List<Amazon.Bedrock.Model.AutomatedReasoningPolicyAnnotation>(this.PolicyRepairAssets_Annotation);
@@ -312,6 +332,31 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestSourceContent_sourceContent_WorkflowContent_workflowContent_Document != null)
             {
                 requestSourceContent_sourceContent_WorkflowContent.Documents = requestSourceContent_sourceContent_WorkflowContent_workflowContent_Document;
+                requestSourceContent_sourceContent_WorkflowContentIsNull = false;
+            }
+            Amazon.Bedrock.Model.AutomatedReasoningPolicyGenerateFidelityReportContent requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent = null;
+            
+             // populate GenerateFidelityReportContent
+            var requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContentIsNull = true;
+            requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent = new Amazon.Bedrock.Model.AutomatedReasoningPolicyGenerateFidelityReportContent();
+            List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument> requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent_sourceContent_WorkflowContent_GenerateFidelityReportContent_Document = null;
+            if (cmdletContext.SourceContent_WorkflowContent_GenerateFidelityReportContent_Document != null)
+            {
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent_sourceContent_WorkflowContent_GenerateFidelityReportContent_Document = cmdletContext.SourceContent_WorkflowContent_GenerateFidelityReportContent_Document;
+            }
+            if (requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent_sourceContent_WorkflowContent_GenerateFidelityReportContent_Document != null)
+            {
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent.Documents = requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent_sourceContent_WorkflowContent_GenerateFidelityReportContent_Document;
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContentIsNull = false;
+            }
+             // determine if requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent should be set to null
+            if (requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContentIsNull)
+            {
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent = null;
+            }
+            if (requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent != null)
+            {
+                requestSourceContent_sourceContent_WorkflowContent.GenerateFidelityReportContent = requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_GenerateFidelityReportContent;
                 requestSourceContent_sourceContent_WorkflowContentIsNull = false;
             }
             Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowRepairContent requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_PolicyRepairAssets = null;
@@ -472,6 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionVariable> PolicyDefinition_Variable { get; set; }
             public System.String PolicyDefinition_Version { get; set; }
             public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument> WorkflowContent_Document { get; set; }
+            public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument> SourceContent_WorkflowContent_GenerateFidelityReportContent_Document { get; set; }
             public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyAnnotation> PolicyRepairAssets_Annotation { get; set; }
             public System.Func<Amazon.Bedrock.Model.StartAutomatedReasoningPolicyBuildWorkflowResponse, StartBDRAutomatedReasoningPolicyBuildWorkflowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

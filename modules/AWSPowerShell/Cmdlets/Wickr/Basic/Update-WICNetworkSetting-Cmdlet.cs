@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.WIC
         public System.Boolean? Settings_EnableClientMetric { get; set; }
         #endregion
         
+        #region Parameter Settings_EnableTrustedDataFormat
+        /// <summary>
+        /// <para>
+        /// <para>Configuration for OpenTDF integration at the network level, enforcing ABAC decision
+        /// making when operating in TDF enabled rooms.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Settings_EnableTrustedDataFormat { get; set; }
+        #endregion
+        
         #region Parameter NetworkId
         /// <summary>
         /// <para>
@@ -152,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.WIC
             #endif
             context.Settings_DataRetention = this.Settings_DataRetention;
             context.Settings_EnableClientMetric = this.Settings_EnableClientMetric;
+            context.Settings_EnableTrustedDataFormat = this.Settings_EnableTrustedDataFormat;
             context.Settings_ReadReceiptConfig_Status = this.Settings_ReadReceiptConfig_Status;
             
             // allow further manipulation of loaded context prior to processing
@@ -195,6 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.WIC
             if (requestSettings_settings_EnableClientMetric != null)
             {
                 request.Settings.EnableClientMetrics = requestSettings_settings_EnableClientMetric.Value;
+                requestSettingsIsNull = false;
+            }
+            System.Boolean? requestSettings_settings_EnableTrustedDataFormat = null;
+            if (cmdletContext.Settings_EnableTrustedDataFormat != null)
+            {
+                requestSettings_settings_EnableTrustedDataFormat = cmdletContext.Settings_EnableTrustedDataFormat.Value;
+            }
+            if (requestSettings_settings_EnableTrustedDataFormat != null)
+            {
+                request.Settings.EnableTrustedDataFormat = requestSettings_settings_EnableTrustedDataFormat.Value;
                 requestSettingsIsNull = false;
             }
             Amazon.Wickr.Model.ReadReceiptConfig requestSettings_settings_ReadReceiptConfig = null;
@@ -285,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.WIC
             public System.String NetworkId { get; set; }
             public System.Boolean? Settings_DataRetention { get; set; }
             public System.Boolean? Settings_EnableClientMetric { get; set; }
+            public System.Boolean? Settings_EnableTrustedDataFormat { get; set; }
             public Amazon.Wickr.Status Settings_ReadReceiptConfig_Status { get; set; }
             public System.Func<Amazon.Wickr.Model.UpdateNetworkSettingsResponse, UpdateWICNetworkSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Settings;

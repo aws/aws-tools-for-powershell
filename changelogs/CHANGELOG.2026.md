@@ -1,4 +1,18 @@
-﻿### 5.0.160 (2026-02-20 22:34Z)
+﻿### 5.0.161 (2026-02-23 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.197.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Modified cmdlet Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset: added parameter AssetId.
+    * Modified cmdlet Start-BDRAutomatedReasoningPolicyBuildWorkflow: added parameter SourceContent_WorkflowContent_GenerateFidelityReportContent_Document.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameters Props_WorkflowsMwaaProperties_MwaaEnvironmentName and Props_WorkflowsServerlessProperty.
+  * Amazon DynamoDB
+    * Modified cmdlet Update-DDBTable: added parameter GlobalTableSettingsReplicationMode.
+  * Amazon Wickr Admin API
+    * Added cmdlet Get-WICOpentdfConfig leveraging the GetOpentdfConfig service API.
+    * Added cmdlet Register-WICOpentdfConfig leveraging the RegisterOpentdfConfig service API.
+    * Modified cmdlet Update-WICNetworkSetting: added parameter Settings_EnableTrustedDataFormat.
+
+### 5.0.160 (2026-02-20 22:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.196.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Modified cmdlet New-APSAppBlockBuilder: added parameter DisableIMDSV1.
