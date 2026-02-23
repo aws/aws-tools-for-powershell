@@ -33350,6 +33350,7 @@ Set-Alias -Name WIC-GetNetwork -Value Get-WICNetwork
 Set-Alias -Name Get-WICNetworkSettings -Value Get-WICNetworkSetting
 Set-Alias -Name WIC-GetNetworkSettings -Value Get-WICNetworkSetting
 Set-Alias -Name WIC-GetOidcInfo -Value Get-WICOidcInfo
+Set-Alias -Name WIC-GetOpentdfConfig -Value Get-WICOpentdfConfig
 Set-Alias -Name WIC-GetSecurityGroup -Value Get-WICSecurityGroup
 Set-Alias -Name WIC-GetUser -Value Get-WICUser
 Set-Alias -Name WIC-GetUsersCount -Value Get-WICUsersCount
@@ -33379,6 +33380,7 @@ Set-Alias -Name List-WICUserList -Value Get-WICUserList
 Set-Alias -Name WIC-ListUsers -Value Get-WICUserList
 Set-Alias -Name WIC-RegisterOidcConfig -Value Register-WICOidcConfig
 Set-Alias -Name WIC-RegisterOidcConfigTest -Value Register-WICOidcConfigTest
+Set-Alias -Name WIC-RegisterOpentdfConfig -Value Register-WICOpentdfConfig
 Set-Alias -Name WIC-UpdateBot -Value Update-WICBot
 Set-Alias -Name WIC-UpdateDataRetention -Value Update-WICDataRetention
 Set-Alias -Name WIC-UpdateGuestUser -Value Update-WICGuestUser

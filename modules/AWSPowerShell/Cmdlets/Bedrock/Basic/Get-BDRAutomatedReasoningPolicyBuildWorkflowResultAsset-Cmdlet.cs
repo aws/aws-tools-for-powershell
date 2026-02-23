@@ -44,10 +44,24 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AssetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the specific asset to retrieve when multiple assets of the
+        /// same type exist. This is required when retrieving SOURCE_DOCUMENT assets, as multiple
+        /// source documents may have been used in the workflow. The asset ID can be obtained
+        /// from the asset manifest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetId { get; set; }
+        #endregion
+        
         #region Parameter AssetType
         /// <summary>
         /// <para>
-        /// <para>The type of asset to retrieve (e.g., BUILD_LOG, QUALITY_REPORT, POLICY_DEFINITION).</para>
+        /// <para>The type of asset to retrieve (e.g., BUILD_LOG, QUALITY_REPORT, POLICY_DEFINITION,
+        /// GENERATED_TEST_CASES, POLICY_SCENARIOS, FIDELITY_REPORT, ASSET_MANIFEST, SOURCE_DOCUMENT).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 context.Select = (response, cmdlet) => this.PolicyArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssetId = this.AssetId;
             context.AssetType = this.AssetType;
             #if MODULAR
             if (this.AssetType == null && ParameterWasBound(nameof(this.AssetType)))
@@ -179,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             // create request
             var request = new Amazon.Bedrock.Model.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest();
             
+            if (cmdletContext.AssetId != null)
+            {
+                request.AssetId = cmdletContext.AssetId;
+            }
             if (cmdletContext.AssetType != null)
             {
                 request.AssetType = cmdletContext.AssetType;
@@ -252,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssetId { get; set; }
             public Amazon.Bedrock.AutomatedReasoningPolicyBuildResultAssetType AssetType { get; set; }
             public System.String BuildWorkflowId { get; set; }
             public System.String PolicyArn { get; set; }

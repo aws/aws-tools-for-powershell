@@ -477,6 +477,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String GlueConnectionInput_MatchCriterion { get; set; }
         #endregion
         
+        #region Parameter Props_WorkflowsMwaaProperties_MwaaEnvironmentName
+        /// <summary>
+        /// <para>
+        /// <para>The MWAA environment name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_WorkflowsMwaaProperties_MwaaEnvironmentName { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -871,6 +881,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String SparkGlueProperties_WorkerType { get; set; }
         #endregion
         
+        #region Parameter Props_WorkflowsServerlessProperty
+        /// <summary>
+        /// <para>
+        /// <para>The MWAA serverless properties of a connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_WorkflowsServerlessProperties")]
+        public Amazon.DataZone.Model.WorkflowsServerlessPropertiesInput Props_WorkflowsServerlessProperty { get; set; }
+        #endregion
+        
         #region Parameter AthenaProperties_WorkgroupName
         /// <summary>
         /// <para>
@@ -1105,6 +1126,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.SparkGlueProperties_NumberOfWorker = this.SparkGlueProperties_NumberOfWorker;
             context.SparkGlueProperties_PythonVirtualEnv = this.SparkGlueProperties_PythonVirtualEnv;
             context.SparkGlueProperties_WorkerType = this.SparkGlueProperties_WorkerType;
+            context.Props_WorkflowsMwaaProperties_MwaaEnvironmentName = this.Props_WorkflowsMwaaProperties_MwaaEnvironmentName;
+            context.Props_WorkflowsServerlessProperty = this.Props_WorkflowsServerlessProperty;
             context.Scope = this.Scope;
             
             // allow further manipulation of loaded context prior to processing
@@ -1199,6 +1222,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
              // populate Props
             var requestPropsIsNull = true;
             request.Props = new Amazon.DataZone.Model.ConnectionPropertiesInput();
+            Amazon.DataZone.Model.WorkflowsServerlessPropertiesInput requestProps_props_WorkflowsServerlessProperty = null;
+            if (cmdletContext.Props_WorkflowsServerlessProperty != null)
+            {
+                requestProps_props_WorkflowsServerlessProperty = cmdletContext.Props_WorkflowsServerlessProperty;
+            }
+            if (requestProps_props_WorkflowsServerlessProperty != null)
+            {
+                request.Props.WorkflowsServerlessProperties = requestProps_props_WorkflowsServerlessProperty;
+                requestPropsIsNull = false;
+            }
             Amazon.DataZone.Model.AthenaPropertiesInput requestProps_props_AthenaProperties = null;
             
              // populate AthenaProperties
@@ -1742,6 +1775,31 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_MlflowProperties != null)
             {
                 request.Props.MlflowProperties = requestProps_props_MlflowProperties;
+                requestPropsIsNull = false;
+            }
+            Amazon.DataZone.Model.WorkflowsMwaaPropertiesInput requestProps_props_WorkflowsMwaaProperties = null;
+            
+             // populate WorkflowsMwaaProperties
+            var requestProps_props_WorkflowsMwaaPropertiesIsNull = true;
+            requestProps_props_WorkflowsMwaaProperties = new Amazon.DataZone.Model.WorkflowsMwaaPropertiesInput();
+            System.String requestProps_props_WorkflowsMwaaProperties_props_WorkflowsMwaaProperties_MwaaEnvironmentName = null;
+            if (cmdletContext.Props_WorkflowsMwaaProperties_MwaaEnvironmentName != null)
+            {
+                requestProps_props_WorkflowsMwaaProperties_props_WorkflowsMwaaProperties_MwaaEnvironmentName = cmdletContext.Props_WorkflowsMwaaProperties_MwaaEnvironmentName;
+            }
+            if (requestProps_props_WorkflowsMwaaProperties_props_WorkflowsMwaaProperties_MwaaEnvironmentName != null)
+            {
+                requestProps_props_WorkflowsMwaaProperties.MwaaEnvironmentName = requestProps_props_WorkflowsMwaaProperties_props_WorkflowsMwaaProperties_MwaaEnvironmentName;
+                requestProps_props_WorkflowsMwaaPropertiesIsNull = false;
+            }
+             // determine if requestProps_props_WorkflowsMwaaProperties should be set to null
+            if (requestProps_props_WorkflowsMwaaPropertiesIsNull)
+            {
+                requestProps_props_WorkflowsMwaaProperties = null;
+            }
+            if (requestProps_props_WorkflowsMwaaProperties != null)
+            {
+                request.Props.WorkflowsMwaaProperties = requestProps_props_WorkflowsMwaaProperties;
                 requestPropsIsNull = false;
             }
             Amazon.DataZone.Model.S3PropertiesInput requestProps_props_S3Properties = null;
@@ -2365,6 +2423,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.Int32? SparkGlueProperties_NumberOfWorker { get; set; }
             public System.String SparkGlueProperties_PythonVirtualEnv { get; set; }
             public System.String SparkGlueProperties_WorkerType { get; set; }
+            public System.String Props_WorkflowsMwaaProperties_MwaaEnvironmentName { get; set; }
+            public Amazon.DataZone.Model.WorkflowsServerlessPropertiesInput Props_WorkflowsServerlessProperty { get; set; }
             public Amazon.DataZone.ConnectionScope Scope { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateConnectionResponse, NewDZConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

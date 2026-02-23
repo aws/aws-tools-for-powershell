@@ -28,7 +28,7 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Deletes a field from a cases template. You can delete up to 100 fields per domain.
+    /// Deletes a field from a cases template.
     /// 
     ///  
     /// <para>

@@ -22,77 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DynamoDBv2;
-using Amazon.DynamoDBv2.Model;
+using Amazon.Wickr;
+using Amazon.Wickr.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DDB
+namespace Amazon.PowerShell.Cmdlets.WIC
 {
     /// <summary>
-    /// Lists completed exports within the past 90 days, in reverse alphanumeric order of
-    /// <c>ExportArn</c>.
+    /// Retrieves the OpenTDF integration configuration for a Wickr network.
     /// </summary>
-    [Cmdlet("Get", "DDBExportList")]
-    [OutputType("Amazon.DynamoDBv2.Model.ExportSummary")]
-    [AWSCmdlet("Calls the Amazon DynamoDB ListExports API operation.", Operation = new[] {"ListExports"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.ListExportsResponse))]
-    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ExportSummary or Amazon.DynamoDBv2.Model.ListExportsResponse",
-        "This cmdlet returns a collection of Amazon.DynamoDBv2.Model.ExportSummary objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.ListExportsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "WICOpentdfConfig")]
+    [OutputType("Amazon.Wickr.Model.GetOpentdfConfigResponse")]
+    [AWSCmdlet("Calls the AWS Wickr Admin API GetOpentdfConfig API operation.", Operation = new[] {"GetOpentdfConfig"}, SelectReturnType = typeof(Amazon.Wickr.Model.GetOpentdfConfigResponse))]
+    [AWSCmdletOutput("Amazon.Wickr.Model.GetOpentdfConfigResponse",
+        "This cmdlet returns an Amazon.Wickr.Model.GetOpentdfConfigResponse object containing multiple properties."
     )]
-    public partial class GetDDBExportListCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class GetWICOpentdfConfigCmdlet : AmazonWickrClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter TableArn
+        #region Parameter NetworkId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) associated with the exported table.</para>
+        /// <para>The ID of the Wickr network for which OpenTDF integration will be retrieved.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String TableArn { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>Maximum number of results to return per page.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>An optional string that, if supplied, must be copied from the output of a previous
-        /// call to <c>ListExports</c>. When provided in this manner, the API fetches the next
-        /// page of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String NetworkId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ExportSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.ListExportsResponse).
-        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.ListExportsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Wickr.Model.GetOpentdfConfigResponse).
+        /// Specifying the name of a property of type Amazon.Wickr.Model.GetOpentdfConfigResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ExportSummaries";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TableArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TableArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the NetworkId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^NetworkId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TableArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NetworkId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -110,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.ListExportsResponse, GetDDBExportListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Wickr.Model.GetOpentdfConfigResponse, GetWICOpentdfConfigCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -119,12 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TableArn;
+                context.Select = (response, cmdlet) => this.NetworkId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.TableArn = this.TableArn;
+            context.NetworkId = this.NetworkId;
+            #if MODULAR
+            if (this.NetworkId == null && ParameterWasBound(nameof(this.NetworkId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter NetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,19 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DynamoDBv2.Model.ListExportsRequest();
+            var request = new Amazon.Wickr.Model.GetOpentdfConfigRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.NetworkId != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.TableArn != null)
-            {
-                request.TableArn = cmdletContext.TableArn;
+                request.NetworkId = cmdletContext.NetworkId;
             }
             
             CmdletOutput output;
@@ -186,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private Amazon.DynamoDBv2.Model.ListExportsResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.ListExportsRequest request)
+        private Amazon.Wickr.Model.GetOpentdfConfigResponse CallAWSServiceOperation(IAmazonWickr client, Amazon.Wickr.Model.GetOpentdfConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "ListExports");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Wickr Admin API", "GetOpentdfConfig");
             try
             {
                 #if DESKTOP
-                return client.ListExports(request);
+                return client.GetOpentdfConfig(request);
                 #elif CORECLR
-                return client.ListExportsAsync(request).GetAwaiter().GetResult();
+                return client.GetOpentdfConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -214,11 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String TableArn { get; set; }
-            public System.Func<Amazon.DynamoDBv2.Model.ListExportsResponse, GetDDBExportListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ExportSummaries;
+            public System.String NetworkId { get; set; }
+            public System.Func<Amazon.Wickr.Model.GetOpentdfConfigResponse, GetWICOpentdfConfigCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
