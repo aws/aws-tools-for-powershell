@@ -6,6 +6,7 @@
     <AssemblyName>MediaPackageVod</AssemblyName>
     <ServiceNounPrefix>EMPV</ServiceNounPrefix>
     <ServiceName>AWS Elemental MediaPackage VOD</ServiceName>
+    <ServiceId>MediaPackage Vod</ServiceId>
     <ServiceClientInterface>IAmazonMediaPackageVod</ServiceClientInterface>
     <ServiceClient>AmazonMediaPackageVodClient</ServiceClient>
     <ServiceModuleGuid>573c304d-2cf5-484e-be16-72f5679085f4</ServiceModuleGuid>

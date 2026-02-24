@@ -6,6 +6,7 @@
     <AssemblyName>AWSHealth</AssemblyName>
     <ServiceNounPrefix>HLTH</ServiceNounPrefix>
     <ServiceName>AWS Health</ServiceName>
+    <ServiceId>Health</ServiceId>
     <ServiceClientInterface>IAmazonAWSHealth</ServiceClientInterface>
     <ServiceClient>AmazonAWSHealthClient</ServiceClient>
     <ServiceModuleGuid>cdcd37f5-880a-4204-8319-3652194fb060</ServiceModuleGuid>

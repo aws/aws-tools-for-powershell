@@ -6,6 +6,7 @@
     <AssemblyName>BedrockAgentCoreControl</AssemblyName>
     <ServiceNounPrefix>BACC</ServiceNounPrefix>
     <ServiceName>Amazon Bedrock Agent Core Control Plane Fronting Layer</ServiceName>
+    <ServiceId>Bedrock AgentCore Control</ServiceId>
     <ServiceClientInterface>IAmazonBedrockAgentCoreControl</ServiceClientInterface>
     <ServiceClient>AmazonBedrockAgentCoreControlClient</ServiceClient>
     <ServiceModuleGuid>7631d60f-aa2d-452a-a71c-c8ce762edef8</ServiceModuleGuid>

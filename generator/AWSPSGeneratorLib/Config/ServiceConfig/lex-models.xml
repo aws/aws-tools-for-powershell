@@ -6,6 +6,7 @@
     <AssemblyName>LexModelBuildingService</AssemblyName>
     <ServiceNounPrefix>LMB</ServiceNounPrefix>
     <ServiceName>Amazon Lex Model Building Service</ServiceName>
+    <ServiceId>Lex Model Building Service</ServiceId>
     <ServiceClientInterface>IAmazonLexModelBuildingService</ServiceClientInterface>
     <ServiceClient>AmazonLexModelBuildingServiceClient</ServiceClient>
     <ServiceModuleGuid>db17eb56-7963-42a3-ae3c-5f448e449ca6</ServiceModuleGuid>

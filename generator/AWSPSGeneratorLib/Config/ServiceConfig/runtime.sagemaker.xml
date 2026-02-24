@@ -6,6 +6,7 @@
     <AssemblyName>SageMakerRuntime</AssemblyName>
     <ServiceNounPrefix>SMR</ServiceNounPrefix>
     <ServiceName>Amazon SageMaker Runtime</ServiceName>
+    <ServiceId>SageMaker Runtime</ServiceId>
     <ServiceClientInterface>IAmazonSageMakerRuntime</ServiceClientInterface>
     <ServiceClient>AmazonSageMakerRuntimeClient</ServiceClient>
     <ServiceModuleGuid>b6a631d8-34e3-4c47-8409-02a125b54040</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>DirectoryServiceData</AssemblyName>
     <ServiceNounPrefix>DSD</ServiceNounPrefix>
     <ServiceName>AWS Directory Service Data</ServiceName>
+    <ServiceId>Directory Service Data</ServiceId>
     <ServiceClientInterface>IAmazonDirectoryServiceData</ServiceClientInterface>
     <ServiceClient>AmazonDirectoryServiceDataClient</ServiceClient>
     <ServiceModuleGuid>95855647-29cd-48d6-b080-597544221b27</ServiceModuleGuid>

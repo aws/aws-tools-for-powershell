@@ -6,6 +6,7 @@
     <AssemblyName>SageMakerGeospatial</AssemblyName>
     <ServiceNounPrefix>SMGS</ServiceNounPrefix>
     <ServiceName>SageMaker Geospatial</ServiceName>
+    <ServiceId>SageMaker Geospatial</ServiceId>
     <ServiceClientInterface>IAmazonSageMakerGeospatial</ServiceClientInterface>
     <ServiceClient>AmazonSageMakerGeospatialClient</ServiceClient>
     <ServiceModuleGuid>f3459916-ba46-4771-bb2d-747fd6168121</ServiceModuleGuid>

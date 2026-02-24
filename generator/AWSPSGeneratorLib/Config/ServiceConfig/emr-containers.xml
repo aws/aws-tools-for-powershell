@@ -6,6 +6,7 @@
     <AssemblyName>EMRContainers</AssemblyName>
     <ServiceNounPrefix>EMRC</ServiceNounPrefix>
     <ServiceName>Amazon EMR Containers</ServiceName>
+    <ServiceId>EMR containers</ServiceId>
     <ServiceClientInterface>IAmazonEMRContainers</ServiceClientInterface>
     <ServiceClient>AmazonEMRContainersClient</ServiceClient>
     <ServiceModuleGuid>230CC7B2-5547-4EF1-A773-FE04AD9C9C71</ServiceModuleGuid>

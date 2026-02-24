@@ -6,6 +6,7 @@
     <AssemblyName>ChimeSDKMessaging</AssemblyName>
     <ServiceNounPrefix>CHMMG</ServiceNounPrefix>
     <ServiceName>Amazon Chime SDK Messaging</ServiceName>
+    <ServiceId>Chime SDK Messaging</ServiceId>
     <ServiceClientInterface>IAmazonChimeSDKMessaging</ServiceClientInterface>
     <ServiceClient>AmazonChimeSDKMessagingClient</ServiceClient>
     <ServiceModuleGuid>7a4538a2-d982-49c0-a087-5b419d618750</ServiceModuleGuid>

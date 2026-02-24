@@ -6,6 +6,7 @@
     <AssemblyName>IoTManagedIntegrations</AssemblyName>
     <ServiceNounPrefix>IOTMI</ServiceNounPrefix>
     <ServiceName>Managed integrations for AWS IoT Device Management</ServiceName>
+    <ServiceId>IoT Managed Integrations</ServiceId>
     <ServiceClientInterface>IAmazonIoTManagedIntegrations</ServiceClientInterface>
     <ServiceClient>AmazonIoTManagedIntegrationsClient</ServiceClient>
     <ServiceModuleGuid>abff4374-eec2-44f3-abda-2d07d119fd0d</ServiceModuleGuid>

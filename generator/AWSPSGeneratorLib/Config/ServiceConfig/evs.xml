@@ -6,6 +6,7 @@
     <AssemblyName>Evs</AssemblyName>
     <ServiceNounPrefix>EVS</ServiceNounPrefix>
     <ServiceName>Amazon Elastic VMware Service</ServiceName>
+    <ServiceId>evs</ServiceId>
     <ServiceClientInterface>IAmazonEvs</ServiceClientInterface>
     <ServiceClient>AmazonEvsClient</ServiceClient>
     <ServiceModuleGuid>509fe8aa-ee38-4803-aaf5-be078c7914a6</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>WorkSpacesThinClient</AssemblyName>
     <ServiceNounPrefix>WSTC</ServiceNounPrefix>
     <ServiceName>Amazon WorkSpaces Thin Client</ServiceName>
+    <ServiceId>WorkSpaces Thin Client</ServiceId>
     <ServiceClientInterface>IAmazonWorkSpacesThinClient</ServiceClientInterface>
     <ServiceClient>AmazonWorkSpacesThinClientClient</ServiceClient>
     <ServiceModuleGuid>34f3c425-40b3-490a-aa86-73266056406d</ServiceModuleGuid>

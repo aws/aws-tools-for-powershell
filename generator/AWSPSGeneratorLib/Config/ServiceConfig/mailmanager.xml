@@ -6,6 +6,7 @@
     <AssemblyName>MailManager</AssemblyName>
     <ServiceNounPrefix>MMGR</ServiceNounPrefix>
     <ServiceName>Amazon SES Mail Manager</ServiceName>
+    <ServiceId>MailManager</ServiceId>
     <ServiceClientInterface>IAmazonMailManager</ServiceClientInterface>
     <ServiceClient>AmazonMailManagerClient</ServiceClient>
     <ServiceModuleGuid>a5935518-b311-4e68-8ede-9b86fd231798</ServiceModuleGuid>

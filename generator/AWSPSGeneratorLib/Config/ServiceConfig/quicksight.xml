@@ -6,6 +6,7 @@
     <AssemblyName>QuickSight</AssemblyName>
     <ServiceNounPrefix>QS</ServiceNounPrefix>
     <ServiceName>Amazon QuickSight</ServiceName>
+    <ServiceId>QuickSight</ServiceId>
     <ServiceClientInterface>IAmazonQuickSight</ServiceClientInterface>
     <ServiceClient>AmazonQuickSightClient</ServiceClient>
     <ServiceModuleGuid>9d3e39fd-cff2-4bf7-9248-e383e43d93d0</ServiceModuleGuid>

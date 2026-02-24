@@ -6,6 +6,7 @@
     <AssemblyName>DevOpsGuru</AssemblyName>
     <ServiceNounPrefix>DGURU</ServiceNounPrefix>
     <ServiceName>Amazon DevOps Guru</ServiceName>
+    <ServiceId>DevOps Guru</ServiceId>
     <ServiceClientInterface>IAmazonDevOpsGuru</ServiceClientInterface>
     <ServiceClient>AmazonDevOpsGuruClient</ServiceClient>
     <ServiceModuleGuid>BD4637A4-72CE-4A39-BC8B-57EFC6BB9AFA</ServiceModuleGuid>

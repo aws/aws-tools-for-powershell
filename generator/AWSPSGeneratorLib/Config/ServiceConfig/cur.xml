@@ -6,6 +6,7 @@
     <AssemblyName>CostAndUsageReport</AssemblyName>
     <ServiceNounPrefix>CUR</ServiceNounPrefix>
     <ServiceName>AWS Cost and Usage Report</ServiceName>
+    <ServiceId>Cost and Usage Report Service</ServiceId>
     <ServiceClientInterface>IAmazonCostAndUsageReport</ServiceClientInterface>
     <ServiceClient>AmazonCostAndUsageReportClient</ServiceClient>
     <ServiceModuleGuid>51565218-c4ab-440e-9c0f-b77d410603c6</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Budgets</AssemblyName>
     <ServiceNounPrefix>BGT</ServiceNounPrefix>
     <ServiceName>AWS Budgets</ServiceName>
+    <ServiceId>Budgets</ServiceId>
     <ServiceClientInterface>IAmazonBudgets</ServiceClientInterface>
     <ServiceClient>AmazonBudgetsClient</ServiceClient>
     <ServiceModuleGuid>81ec3b32-a972-46fd-b982-b7efd006fbee</ServiceModuleGuid>

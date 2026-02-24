@@ -6,6 +6,7 @@
     <AssemblyName>ApiGatewayV2</AssemblyName>
     <ServiceNounPrefix>AG2</ServiceNounPrefix>
     <ServiceName>Amazon API Gateway V2</ServiceName>
+    <ServiceId>ApiGatewayV2</ServiceId>
     <ServiceClientInterface>IAmazonApiGatewayV2</ServiceClientInterface>
     <ServiceClient>AmazonApiGatewayV2Client</ServiceClient>
     <ServiceModuleGuid>48ed9104-6399-47a1-9526-9270c827202a</ServiceModuleGuid>

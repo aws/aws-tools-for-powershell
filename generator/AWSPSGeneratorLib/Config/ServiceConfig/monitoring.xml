@@ -6,6 +6,7 @@
     <AssemblyName>CloudWatch</AssemblyName>
     <ServiceNounPrefix>CW</ServiceNounPrefix>
     <ServiceName>Amazon CloudWatch</ServiceName>
+    <ServiceId>CloudWatch</ServiceId>
     <ServiceClientInterface>IAmazonCloudWatch</ServiceClientInterface>
     <ServiceClient>AmazonCloudWatchClient</ServiceClient>
     <ServiceModuleGuid>3dd3fb56-d302-44bc-a9a1-f752327a21cf</ServiceModuleGuid>

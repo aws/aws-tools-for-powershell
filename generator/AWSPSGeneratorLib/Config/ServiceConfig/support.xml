@@ -6,6 +6,7 @@
     <AssemblyName>AWSSupport</AssemblyName>
     <ServiceNounPrefix>ASA</ServiceNounPrefix>
     <ServiceName>AWS Support</ServiceName>
+    <ServiceId>Support</ServiceId>
     <ServiceClientInterface>IAmazonAWSSupport</ServiceClientInterface>
     <ServiceClient>AmazonAWSSupportClient</ServiceClient>
     <ServiceModuleGuid>ef6dc104-1126-4de6-a7f1-bfe16e9b2799</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>CodeBuild</AssemblyName>
     <ServiceNounPrefix>CB</ServiceNounPrefix>
     <ServiceName>AWS CodeBuild</ServiceName>
+    <ServiceId>CodeBuild</ServiceId>
     <ServiceClientInterface>IAmazonCodeBuild</ServiceClientInterface>
     <ServiceClient>AmazonCodeBuildClient</ServiceClient>
     <ServiceModuleGuid>57d87d4c-2d0c-41a8-b870-e1943e5121e5</ServiceModuleGuid>

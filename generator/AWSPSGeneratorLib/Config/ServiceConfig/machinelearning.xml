@@ -6,6 +6,7 @@
     <AssemblyName>MachineLearning</AssemblyName>
     <ServiceNounPrefix>ML</ServiceNounPrefix>
     <ServiceName>Amazon Machine Learning</ServiceName>
+    <ServiceId>Machine Learning</ServiceId>
     <ServiceClientInterface>IAmazonMachineLearning</ServiceClientInterface>
     <ServiceClient>AmazonMachineLearningClient</ServiceClient>
     <ServiceModuleGuid>c8a742ee-fd6f-4064-a303-c8e50889a7fd</ServiceModuleGuid>

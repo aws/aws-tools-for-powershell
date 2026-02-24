@@ -6,6 +6,7 @@
     <AssemblyName>MedicalImaging</AssemblyName>
     <ServiceNounPrefix>MIS</ServiceNounPrefix>
     <ServiceName>Amazon Medical Imaging Service</ServiceName>
+    <ServiceId>Medical Imaging</ServiceId>
     <ServiceClientInterface>IAmazonMedicalImaging</ServiceClientInterface>
     <ServiceClient>AmazonMedicalImagingClient</ServiceClient>
     <ServiceModuleGuid>9AF1C486-A5E7-4572-AC7C-EE1D5B42985F</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>NetworkMonitor</AssemblyName>
     <ServiceNounPrefix>CWNM</ServiceNounPrefix>
     <ServiceName>Amazon CloudWatch Network Monitor</ServiceName>
+    <ServiceId>NetworkMonitor</ServiceId>
     <ServiceClientInterface>IAmazonNetworkMonitor</ServiceClientInterface>
     <ServiceClient>AmazonNetworkMonitorClient</ServiceClient>
     <ServiceModuleGuid>b797341d-198c-448f-8a72-5e883a9bb1a2</ServiceModuleGuid>

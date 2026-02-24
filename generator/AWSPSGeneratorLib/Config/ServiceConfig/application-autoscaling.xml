@@ -6,6 +6,7 @@
     <AssemblyName>ApplicationAutoScaling</AssemblyName>
     <ServiceNounPrefix>AAS</ServiceNounPrefix>
     <ServiceName>Application Auto Scaling</ServiceName>
+    <ServiceId>Application Auto Scaling</ServiceId>
     <ServiceClientInterface>IAmazonApplicationAutoScaling</ServiceClientInterface>
     <ServiceClient>AmazonApplicationAutoScalingClient</ServiceClient>
     <ServiceModuleGuid>750bb30a-c605-4ada-8b29-8d954e103134</ServiceModuleGuid>

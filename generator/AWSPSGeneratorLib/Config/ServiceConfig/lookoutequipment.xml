@@ -6,6 +6,7 @@
     <AssemblyName>LookoutEquipment</AssemblyName>
     <ServiceNounPrefix>L4E</ServiceNounPrefix>
     <ServiceName>Amazon Lookout for Equipment</ServiceName>
+    <ServiceId>LookoutEquipment</ServiceId>
     <ServiceClientInterface>IAmazonLookoutEquipment</ServiceClientInterface>
     <ServiceClient>AmazonLookoutEquipmentClient</ServiceClient>
     <ServiceModuleGuid>6CCCE282-6B31-4EF1-B3DA-2097E7E09DCF</ServiceModuleGuid>

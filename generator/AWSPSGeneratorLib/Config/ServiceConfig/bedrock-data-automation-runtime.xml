@@ -6,6 +6,7 @@
     <AssemblyName>BedrockDataAutomationRuntime</AssemblyName>
     <ServiceNounPrefix>BDAR</ServiceNounPrefix>
     <ServiceName>Runtime for Amazon Bedrock Data Automation</ServiceName>
+    <ServiceId>Bedrock Data Automation Runtime</ServiceId>
     <ServiceClientInterface>IAmazonBedrockDataAutomationRuntime</ServiceClientInterface>
     <ServiceClient>AmazonBedrockDataAutomationRuntimeClient</ServiceClient>
     <ServiceModuleGuid>9ab72d70-bbbe-454a-9db8-3a016ee78ac8</ServiceModuleGuid>

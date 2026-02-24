@@ -6,6 +6,7 @@
     <AssemblyName>Macie2</AssemblyName>
     <ServiceNounPrefix>MAC2</ServiceNounPrefix>
     <ServiceName>Amazon Macie 2</ServiceName>
+    <ServiceId>Macie2</ServiceId>
     <ServiceClientInterface>IAmazonMacie2</ServiceClientInterface>
     <ServiceClient>AmazonMacie2Client</ServiceClient>
     <ServiceModuleGuid>F051B64A-9E6E-4A10-A2F7-F513FBCDCC6E</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Route53Profiles</AssemblyName>
     <ServiceNounPrefix>R53P</ServiceNounPrefix>
     <ServiceName>Amazon Route 53 Profiles</ServiceName>
+    <ServiceId>Route53Profiles</ServiceId>
     <ServiceClientInterface>IAmazonRoute53Profiles</ServiceClientInterface>
     <ServiceClient>AmazonRoute53ProfilesClient</ServiceClient>
     <ServiceModuleGuid>C0FA7B86-0136-42F2-A154-F593EAB08A3B</ServiceModuleGuid>

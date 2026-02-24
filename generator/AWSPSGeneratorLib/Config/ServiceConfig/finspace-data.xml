@@ -6,6 +6,7 @@
     <AssemblyName>FinSpaceData</AssemblyName>
     <ServiceNounPrefix>FNSP</ServiceNounPrefix>
     <ServiceName>FinSpace Public API</ServiceName>
+    <ServiceId>finspace data</ServiceId>
     <ServiceClientInterface>IAmazonFinSpaceData</ServiceClientInterface>
     <ServiceClient>AmazonFinSpaceDataClient</ServiceClient>
     <ServiceModuleGuid>91a29f3e-7210-41f8-abcb-9717a24eb250</ServiceModuleGuid>

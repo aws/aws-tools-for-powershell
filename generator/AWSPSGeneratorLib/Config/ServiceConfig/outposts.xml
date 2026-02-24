@@ -6,6 +6,7 @@
     <AssemblyName>Outposts</AssemblyName>
     <ServiceNounPrefix>OUTP</ServiceNounPrefix>
     <ServiceName>AWS Outposts</ServiceName>
+    <ServiceId>Outposts</ServiceId>
     <ServiceClientInterface>IAmazonOutposts</ServiceClientInterface>
     <ServiceClient>AmazonOutpostsClient</ServiceClient>
     <ServiceModuleGuid>ae8e2e99-f2fc-4d6c-983f-9f11ca57354f</ServiceModuleGuid>

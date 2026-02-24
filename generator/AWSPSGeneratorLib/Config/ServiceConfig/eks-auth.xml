@@ -6,6 +6,7 @@
     <AssemblyName>EKSAuth</AssemblyName>
     <ServiceNounPrefix>EKSAU</ServiceNounPrefix>
     <ServiceName>Amazon EKS Auth</ServiceName>
+    <ServiceId>EKS Auth</ServiceId>
     <ServiceClientInterface>IAmazonEKSAuth</ServiceClientInterface>
     <ServiceClient>AmazonEKSAuthClient</ServiceClient>
     <ServiceModuleGuid>a1512eda-eac7-4f7d-b8fc-973437399bce</ServiceModuleGuid>

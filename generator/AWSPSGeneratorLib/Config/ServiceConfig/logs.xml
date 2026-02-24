@@ -6,6 +6,7 @@
     <AssemblyName>CloudWatchLogs</AssemblyName>
     <ServiceNounPrefix>CWL</ServiceNounPrefix>
     <ServiceName>Amazon CloudWatch Logs</ServiceName>
+    <ServiceId>CloudWatch Logs</ServiceId>
     <ServiceClientInterface>IAmazonCloudWatchLogs</ServiceClientInterface>
     <ServiceClient>AmazonCloudWatchLogsClient</ServiceClient>
     <ServiceModuleGuid>32feef3c-061d-4e8c-84a7-9e28fd2a7f3c</ServiceModuleGuid>

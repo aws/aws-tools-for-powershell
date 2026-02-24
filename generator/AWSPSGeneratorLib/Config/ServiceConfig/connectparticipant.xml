@@ -6,6 +6,7 @@
     <AssemblyName>ConnectParticipant</AssemblyName>
     <ServiceNounPrefix>CONNP</ServiceNounPrefix>
     <ServiceName>Amazon Connect Participant Service</ServiceName>
+    <ServiceId>ConnectParticipant</ServiceId>
     <ServiceClientInterface>IAmazonConnectParticipant</ServiceClientInterface>
     <ServiceClient>AmazonConnectParticipantClient</ServiceClient>
     <ServiceModuleGuid>2bdd1b59-f7d7-4363-95aa-d23a68c0d092</ServiceModuleGuid>

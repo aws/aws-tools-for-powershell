@@ -5,6 +5,7 @@
     <AssemblyName>Glacier</AssemblyName>
     <ServiceNounPrefix>GLC</ServiceNounPrefix>
     <ServiceName>Amazon Glacier</ServiceName>
+    <ServiceId>Glacier</ServiceId>
     <ServiceClientInterface>IAmazonGlacier</ServiceClientInterface>
     <ServiceClient>AmazonGlacierClient</ServiceClient>
     <ServiceModuleGuid>263f91f3-1f6e-4071-8045-4e08f77b643d</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>SimpleEmailV2</AssemblyName>
     <ServiceNounPrefix>SES2</ServiceNounPrefix>
     <ServiceName>Amazon Simple Email Service V2 (SES V2)</ServiceName>
+    <ServiceId>SESv2</ServiceId>
     <ServiceClientInterface>IAmazonSimpleEmailServiceV2</ServiceClientInterface>
     <ServiceClient>AmazonSimpleEmailServiceV2Client</ServiceClient>
     <ServiceModuleGuid>c6fc5b1a-acc6-4101-a83f-b90966649352</ServiceModuleGuid>

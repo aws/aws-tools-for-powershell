@@ -5,6 +5,7 @@
     <AssemblyName>CodeStarNotifications</AssemblyName>
     <ServiceNounPrefix>CSTN</ServiceNounPrefix>
     <ServiceName>AWS CodeStar Notifications</ServiceName>
+    <ServiceId>codestar notifications</ServiceId>
     <ServiceClientInterface>IAmazonCodeStarNotifications</ServiceClientInterface>
     <ServiceClient>AmazonCodeStarNotificationsClient</ServiceClient>
     <ServiceModuleGuid>b9973007-5353-4560-b638-723247d7f2bf</ServiceModuleGuid>

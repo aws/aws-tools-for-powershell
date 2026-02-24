@@ -6,6 +6,7 @@
     <AssemblyName>SignerData</AssemblyName>
     <ServiceNounPrefix>SGND</ServiceNounPrefix>
     <ServiceName>AWS Signer Data Plane</ServiceName>
+    <ServiceId>Signer Data</ServiceId>
     <ServiceClientInterface>IAmazonSignerData</ServiceClientInterface>
     <ServiceClient>AmazonSignerDataClient</ServiceClient>
     <ServiceModuleGuid>234038ec-44e0-4d3a-a2bb-915d0331c33f</ServiceModuleGuid>

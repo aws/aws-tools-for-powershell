@@ -6,6 +6,7 @@
     <AssemblyName>KinesisAnalyticsV2</AssemblyName>
     <ServiceNounPrefix>KINA2</ServiceNounPrefix>
     <ServiceName>Amazon Kinesis Analytics V2</ServiceName>
+    <ServiceId>Kinesis Analytics V2</ServiceId>
     <ServiceClientInterface>IAmazonKinesisAnalyticsV2</ServiceClientInterface>
     <ServiceClient>AmazonKinesisAnalyticsV2Client</ServiceClient>
     <ServiceModuleGuid>98fd71ee-de84-4dec-a42e-bd4a5cbedc15</ServiceModuleGuid>

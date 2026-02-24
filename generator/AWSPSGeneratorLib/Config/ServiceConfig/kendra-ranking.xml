@@ -6,6 +6,7 @@
     <AssemblyName>KendraRanking</AssemblyName>
     <ServiceNounPrefix>KNRK</ServiceNounPrefix>
     <ServiceName>Amazon Kendra Intelligent Ranking</ServiceName>
+    <ServiceId>Kendra Ranking</ServiceId>
     <ServiceClientInterface>IAmazonKendraRanking</ServiceClientInterface>
     <ServiceClient>AmazonKendraRankingClient</ServiceClient>
     <ServiceModuleGuid>cac3e42a-ad4a-4326-8d04-d947b68b14ac</ServiceModuleGuid>

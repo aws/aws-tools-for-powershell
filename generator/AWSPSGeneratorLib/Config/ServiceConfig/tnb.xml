@@ -6,6 +6,7 @@
     <AssemblyName>Tnb</AssemblyName>
     <ServiceNounPrefix>TNB</ServiceNounPrefix>
     <ServiceName>AWS Telco Network Builder</ServiceName>
+    <ServiceId>tnb</ServiceId>
     <ServiceClientInterface>IAmazonTnb</ServiceClientInterface>
     <ServiceClient>AmazonTnbClient</ServiceClient>
     <ServiceModuleGuid>877fb49e-c3c9-4f43-ac43-706127fd63e2</ServiceModuleGuid>

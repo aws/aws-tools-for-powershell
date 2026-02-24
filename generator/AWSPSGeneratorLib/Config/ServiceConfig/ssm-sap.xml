@@ -6,6 +6,7 @@
     <AssemblyName>SsmSap</AssemblyName>
     <ServiceNounPrefix>SMSAP</ServiceNounPrefix>
     <ServiceName>AWS Systems Manager for SAP</ServiceName>
+    <ServiceId>Ssm Sap</ServiceId>
     <ServiceClientInterface>IAmazonSsmSap</ServiceClientInterface>
     <ServiceClient>AmazonSsmSapClient</ServiceClient>
     <ServiceModuleGuid>E9FE5F9D-CB9D-42D1-B80B-C8B72A539F86</ServiceModuleGuid>

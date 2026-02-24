@@ -6,6 +6,7 @@
     <AssemblyName>IoTDeviceAdvisor</AssemblyName>
     <ServiceNounPrefix>IOTDA</ServiceNounPrefix>
     <ServiceName>AWS IoT Core Device Advisor</ServiceName>
+    <ServiceId>IotDeviceAdvisor</ServiceId>
     <ServiceClientInterface>IAmazonIoTDeviceAdvisor</ServiceClientInterface>
     <ServiceClient>AmazonIoTDeviceAdvisorClient</ServiceClient>
     <ServiceModuleGuid>549d4386-c6a9-4a79-863b-02c449049361</ServiceModuleGuid>

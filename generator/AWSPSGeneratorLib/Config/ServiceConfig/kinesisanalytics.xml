@@ -6,6 +6,7 @@
     <AssemblyName>KinesisAnalytics</AssemblyName>
     <ServiceNounPrefix>KINA</ServiceNounPrefix>
     <ServiceName>Amazon Kinesis Analytics</ServiceName>
+    <ServiceId>Kinesis Analytics</ServiceId>
     <ServiceClientInterface>IAmazonKinesisAnalytics</ServiceClientInterface>
     <ServiceClient>AmazonKinesisAnalyticsClient</ServiceClient>
     <ServiceModuleGuid />

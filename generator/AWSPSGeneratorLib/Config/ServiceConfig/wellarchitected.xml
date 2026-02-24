@@ -6,6 +6,7 @@
     <AssemblyName>WellArchitected</AssemblyName>
     <ServiceNounPrefix>WAT</ServiceNounPrefix>
     <ServiceName>AWS Well-Architected Tool</ServiceName>
+    <ServiceId>WellArchitected</ServiceId>
     <ServiceClientInterface>IAmazonWellArchitected</ServiceClientInterface>
     <ServiceClient>AmazonWellArchitectedClient</ServiceClient>
     <ServiceModuleGuid>74ebdd37-f0d6-4e9a-ac53-6b837e867337</ServiceModuleGuid>

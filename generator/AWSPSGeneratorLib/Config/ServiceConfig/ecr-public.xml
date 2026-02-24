@@ -6,6 +6,7 @@
     <AssemblyName>ECRPublic</AssemblyName>
     <ServiceNounPrefix>ECRP</ServiceNounPrefix>
     <ServiceName>Amazon Elastic Container Registry Public</ServiceName>
+    <ServiceId>ECR PUBLIC</ServiceId>
     <ServiceClientInterface>IAmazonECRPublic</ServiceClientInterface>
     <ServiceClient>AmazonECRPublicClient</ServiceClient>
     <ServiceModuleGuid>D46E748D-7A8D-4D19-AAFF-EED75B60F9B6</ServiceModuleGuid>

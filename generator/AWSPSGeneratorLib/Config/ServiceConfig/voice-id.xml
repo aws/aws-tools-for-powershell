@@ -6,6 +6,7 @@
     <AssemblyName>VoiceID</AssemblyName>
     <ServiceNounPrefix>VID</ServiceNounPrefix>
     <ServiceName>Amazon Voice ID</ServiceName>
+    <ServiceId>Voice ID</ServiceId>
     <ServiceClientInterface>IAmazonVoiceID</ServiceClientInterface>
     <ServiceClient>AmazonVoiceIDClient</ServiceClient>
     <ServiceModuleGuid>5a6b6581-6528-4a8f-b1ea-74ff8c8d28db</ServiceModuleGuid>

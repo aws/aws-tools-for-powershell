@@ -6,6 +6,7 @@
     <AssemblyName>SecurityLake</AssemblyName>
     <ServiceNounPrefix>SLK</ServiceNounPrefix>
     <ServiceName>Amazon Security Lake</ServiceName>
+    <ServiceId>SecurityLake</ServiceId>
     <ServiceClientInterface>IAmazonSecurityLake</ServiceClientInterface>
     <ServiceClient>AmazonSecurityLakeClient</ServiceClient>
     <ServiceModuleGuid>4b173dff-7542-48e7-8c25-55e8080af6fa</ServiceModuleGuid>

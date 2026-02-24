@@ -6,6 +6,7 @@
     <AssemblyName>ChimeSDKMeetings</AssemblyName>
     <ServiceNounPrefix>CHMTG</ServiceNounPrefix>
     <ServiceName>Amazon Chime SDK Meetings</ServiceName>
+    <ServiceId>Chime SDK Meetings</ServiceId>
     <ServiceClientInterface>IAmazonChimeSDKMeetings</ServiceClientInterface>
     <ServiceClient>AmazonChimeSDKMeetingsClient</ServiceClient>
     <ServiceModuleGuid>6d16ab75-d080-4eee-9c0e-3da399af9fab</ServiceModuleGuid>

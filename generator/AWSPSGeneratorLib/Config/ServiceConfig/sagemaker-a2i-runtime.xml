@@ -5,6 +5,7 @@
     <AssemblyName>AugmentedAIRuntime</AssemblyName>
     <ServiceNounPrefix>A2IR</ServiceNounPrefix>
     <ServiceName>Amazon Augmented AI (A2I) Runtime</ServiceName>
+    <ServiceId>SageMaker A2I Runtime</ServiceId>
     <ServiceClientInterface>IAmazonAugmentedAIRuntime</ServiceClientInterface>
     <ServiceClient>AmazonAugmentedAIRuntimeClient</ServiceClient>
     <ServiceModuleGuid>c58198f3-af29-491f-bf99-f9979e4489fa</ServiceModuleGuid>

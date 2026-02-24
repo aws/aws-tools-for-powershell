@@ -6,6 +6,7 @@
     <AssemblyName>LexModelsV2</AssemblyName>
     <ServiceNounPrefix>LMBV2</ServiceNounPrefix>
     <ServiceName>Amazon Lex Model Building V2</ServiceName>
+    <ServiceId>Lex Models V2</ServiceId>
     <ServiceClientInterface>IAmazonLexModelsV2</ServiceClientInterface>
     <ServiceClient>AmazonLexModelsV2Client</ServiceClient>
     <ServiceModuleGuid>33dda8fd-ff80-48ea-98c3-aff899fae1a0</ServiceModuleGuid>

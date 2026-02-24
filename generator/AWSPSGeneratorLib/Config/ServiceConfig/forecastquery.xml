@@ -6,6 +6,7 @@
     <AssemblyName>ForecastQueryService</AssemblyName>
     <ServiceNounPrefix>FRCQ</ServiceNounPrefix>
     <ServiceName>Amazon Forecast Query Service</ServiceName>
+    <ServiceId>forecastquery</ServiceId>
     <ServiceClientInterface>IAmazonForecastQueryService</ServiceClientInterface>
     <ServiceClient>AmazonForecastQueryServiceClient</ServiceClient>
     <ServiceModuleGuid>eed71717-6f51-46f9-b45c-4191f0bf6417</ServiceModuleGuid>

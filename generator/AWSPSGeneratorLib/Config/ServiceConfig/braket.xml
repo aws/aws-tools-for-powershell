@@ -6,6 +6,7 @@
     <AssemblyName>Braket</AssemblyName>
     <ServiceNounPrefix>BRKT</ServiceNounPrefix>
     <ServiceName>Amazon Braket</ServiceName>
+    <ServiceId>Braket</ServiceId>
     <ServiceClientInterface>IAmazonBraket</ServiceClientInterface>
     <ServiceClient>AmazonBraketClient</ServiceClient>
     <ServiceModuleGuid>a1069bc1-13c5-4488-834d-a60624c3da4c</ServiceModuleGuid>

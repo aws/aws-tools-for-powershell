@@ -6,6 +6,7 @@
     <AssemblyName>AuditManager</AssemblyName>
     <ServiceNounPrefix>AUDM</ServiceNounPrefix>
     <ServiceName>AWS Audit Manager</ServiceName>
+    <ServiceId>AuditManager</ServiceId>
     <ServiceClientInterface>IAmazonAuditManager</ServiceClientInterface>
     <ServiceClient>AmazonAuditManagerClient</ServiceClient>
     <ServiceModuleGuid>BCDC0213-2FDC-4B58-9EDF-DB2C3DBFDBF1</ServiceModuleGuid>

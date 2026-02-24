@@ -6,6 +6,7 @@
     <AssemblyName>AutoScaling</AssemblyName>
     <ServiceNounPrefix>AS</ServiceNounPrefix>
     <ServiceName>AWS Auto Scaling</ServiceName>
+    <ServiceId>Auto Scaling</ServiceId>
     <ServiceClientInterface>IAmazonAutoScaling</ServiceClientInterface>
     <ServiceClient>AmazonAutoScalingClient</ServiceClient>
     <ServiceModuleGuid>db1bebf4-f2b3-4ad1-a7f5-02a6a7effb87</ServiceModuleGuid>

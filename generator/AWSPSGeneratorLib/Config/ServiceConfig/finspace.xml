@@ -6,6 +6,7 @@
     <AssemblyName>Finspace</AssemblyName>
     <ServiceNounPrefix>FINSP</ServiceNounPrefix>
     <ServiceName>FinSpace User Environment Management Service</ServiceName>
+    <ServiceId>finspace</ServiceId>
     <ServiceClientInterface>IAmazonFinspace</ServiceClientInterface>
     <ServiceClient>AmazonFinspaceClient</ServiceClient>
     <ServiceModuleGuid>C16956B6-C3FA-4CC1-A0CE-307077934FB1</ServiceModuleGuid>

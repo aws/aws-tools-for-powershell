@@ -6,6 +6,7 @@
     <AssemblyName>PartnerCentralAccount</AssemblyName>
     <ServiceNounPrefix>PCAA</ServiceNounPrefix>
     <ServiceName>Partner Central Account API</ServiceName>
+    <ServiceId>PartnerCentral Account</ServiceId>
     <ServiceClientInterface>IAmazonPartnerCentralAccount</ServiceClientInterface>
     <ServiceClient>AmazonPartnerCentralAccountClient</ServiceClient>
     <ServiceModuleGuid>72e5eeb9-ebdd-407c-9605-021e7360dcb8</ServiceModuleGuid>

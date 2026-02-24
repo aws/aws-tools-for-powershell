@@ -6,6 +6,7 @@
     <AssemblyName>ManagedGrafana</AssemblyName>
     <ServiceNounPrefix>MGRF</ServiceNounPrefix>
     <ServiceName>Amazon Managed Grafana</ServiceName>
+    <ServiceId>grafana</ServiceId>
     <ServiceClientInterface>IAmazonManagedGrafana</ServiceClientInterface>
     <ServiceClient>AmazonManagedGrafanaClient</ServiceClient>
     <ServiceModuleGuid>258264b4-fcd6-4deb-ba56-1ae66a202565</ServiceModuleGuid>

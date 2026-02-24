@@ -6,6 +6,7 @@
     <AssemblyName>WorkSpaces</AssemblyName>
     <ServiceNounPrefix>WKS</ServiceNounPrefix>
     <ServiceName>Amazon WorkSpaces</ServiceName>
+    <ServiceId>WorkSpaces</ServiceId>
     <ServiceClientInterface>IAmazonWorkSpaces</ServiceClientInterface>
     <ServiceClient>AmazonWorkSpacesClient</ServiceClient>
     <ServiceModuleGuid>d13980f0-ac54-4333-8d63-f2afab7987fe</ServiceModuleGuid>

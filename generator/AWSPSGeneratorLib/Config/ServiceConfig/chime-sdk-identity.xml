@@ -6,6 +6,7 @@
     <AssemblyName>ChimeSDKIdentity</AssemblyName>
     <ServiceNounPrefix>CHMID</ServiceNounPrefix>
     <ServiceName>Amazon Chime SDK Identity</ServiceName>
+    <ServiceId>Chime SDK Identity</ServiceId>
     <ServiceClientInterface>IAmazonChimeSDKIdentity</ServiceClientInterface>
     <ServiceClient>AmazonChimeSDKIdentityClient</ServiceClient>
     <ServiceModuleGuid>d947dc83-e37a-4b82-9f87-6e73f4354ddd</ServiceModuleGuid>

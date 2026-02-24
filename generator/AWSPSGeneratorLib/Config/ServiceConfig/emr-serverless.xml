@@ -6,6 +6,7 @@
     <AssemblyName>EMRServerless</AssemblyName>
     <ServiceNounPrefix>EMRServerless</ServiceNounPrefix>
     <ServiceName>EMR Serverless</ServiceName>
+    <ServiceId>EMR Serverless</ServiceId>
     <ServiceClientInterface>IAmazonEMRServerless</ServiceClientInterface>
     <ServiceClient>AmazonEMRServerlessClient</ServiceClient>
     <ServiceModuleGuid>5eb9716e-ebe0-4847-a5a7-3488aed6c5b9</ServiceModuleGuid>

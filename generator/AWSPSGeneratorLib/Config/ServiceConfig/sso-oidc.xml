@@ -6,6 +6,7 @@
     <AssemblyName>SSOOIDC</AssemblyName>
     <ServiceNounPrefix>SSOOIDC</ServiceNounPrefix>
     <ServiceName>AWS Single Sign-On OIDC</ServiceName>
+    <ServiceId>SSO OIDC</ServiceId>
     <ServiceClientInterface>IAmazonSSOOIDC</ServiceClientInterface>
     <ServiceClient>AmazonSSOOIDCClient</ServiceClient>
     <ServiceModuleGuid>ad21d26b-a385-4b15-a72e-0e9ea39fa597</ServiceModuleGuid>

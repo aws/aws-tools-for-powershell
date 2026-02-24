@@ -6,6 +6,7 @@
     <AssemblyName>Batch</AssemblyName>
     <ServiceNounPrefix>BAT</ServiceNounPrefix>
     <ServiceName>AWS Batch</ServiceName>
+    <ServiceId>Batch</ServiceId>
     <ServiceClientInterface>IAmazonBatch</ServiceClientInterface>
     <ServiceClient>AmazonBatchClient</ServiceClient>
     <ServiceModuleGuid>18ba627c-fc7c-41b2-bbb8-a23429961ffb</ServiceModuleGuid>

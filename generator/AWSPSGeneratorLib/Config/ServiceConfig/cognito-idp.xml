@@ -6,6 +6,7 @@
     <AssemblyName>CognitoIdentityProvider</AssemblyName>
     <ServiceNounPrefix>CGIP</ServiceNounPrefix>
     <ServiceName>Amazon Cognito Identity Provider</ServiceName>
+    <ServiceId>Cognito Identity Provider</ServiceId>
     <ServiceClientInterface>IAmazonCognitoIdentityProvider</ServiceClientInterface>
     <ServiceClient>AmazonCognitoIdentityProviderClient</ServiceClient>
     <ServiceModuleGuid>33933d0d-16f2-4659-8dae-d93fc7aa6b6a</ServiceModuleGuid>

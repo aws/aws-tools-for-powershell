@@ -6,6 +6,7 @@
     <AssemblyName>PrometheusService</AssemblyName>
     <ServiceNounPrefix>PROM</ServiceNounPrefix>
     <ServiceName>Amazon Prometheus Service</ServiceName>
+    <ServiceId>amp</ServiceId>
     <ServiceClientInterface>IAmazonPrometheusService</ServiceClientInterface>
     <ServiceClient>AmazonPrometheusServiceClient</ServiceClient>
     <ServiceModuleGuid>29A5B59F-A438-4C2C-A89C-87EDED9C1301</ServiceModuleGuid>

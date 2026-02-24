@@ -6,6 +6,7 @@
     <AssemblyName>CodeDeploy</AssemblyName>
     <ServiceNounPrefix>CD</ServiceNounPrefix>
     <ServiceName>AWS CodeDeploy</ServiceName>
+    <ServiceId>CodeDeploy</ServiceId>
     <ServiceClientInterface>IAmazonCodeDeploy</ServiceClientInterface>
     <ServiceClient>AmazonCodeDeployClient</ServiceClient>
     <ServiceModuleGuid>e2d40bab-1c44-4806-a685-67b779e1723b</ServiceModuleGuid>

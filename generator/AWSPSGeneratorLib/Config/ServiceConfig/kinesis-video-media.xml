@@ -5,6 +5,7 @@
     <AssemblyName>KinesisVideoMedia</AssemblyName>
     <ServiceNounPrefix>KVM</ServiceNounPrefix>
     <ServiceName>Amazon Kinesis Video Streams Media</ServiceName>
+    <ServiceId>Kinesis Video Media</ServiceId>
     <ServiceClientInterface>IAmazonKinesisVideoMedia</ServiceClientInterface>
     <ServiceClient>AmazonKinesisVideoMediaClient</ServiceClient>
     <ServiceModuleGuid>2b0ce8ee-1f98-4cc9-b586-b9238de2b326</ServiceModuleGuid>

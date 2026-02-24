@@ -6,6 +6,7 @@
     <AssemblyName>SQS</AssemblyName>
     <ServiceNounPrefix>SQS</ServiceNounPrefix>
     <ServiceName>Amazon Simple Queue Service (SQS)</ServiceName>
+    <ServiceId>SQS</ServiceId>
     <ServiceClientInterface>IAmazonSQS</ServiceClientInterface>
     <ServiceClient>AmazonSQSClient</ServiceClient>
     <ServiceModuleGuid>467e3fc8-3585-4668-bbef-a6eee7f7a29b</ServiceModuleGuid>

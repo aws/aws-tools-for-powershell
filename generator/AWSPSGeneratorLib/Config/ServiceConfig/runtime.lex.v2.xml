@@ -6,6 +6,7 @@
     <AssemblyName>LexRuntimeV2</AssemblyName>
     <ServiceNounPrefix>LRSV2</ServiceNounPrefix>
     <ServiceName>Amazon Lex Runtime V2</ServiceName>
+    <ServiceId>Lex Runtime V2</ServiceId>
     <ServiceClientInterface>IAmazonLexRuntimeV2</ServiceClientInterface>
     <ServiceClient>AmazonLexRuntimeV2Client</ServiceClient>
     <ServiceModuleGuid>8a05132e-7a32-47cb-b0e6-6fbf015399b6</ServiceModuleGuid>

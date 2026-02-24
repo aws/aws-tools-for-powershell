@@ -6,6 +6,7 @@
     <AssemblyName>HealthLake</AssemblyName>
     <ServiceNounPrefix>AHL</ServiceNounPrefix>
     <ServiceName>Amazon HealthLake</ServiceName>
+    <ServiceId>HealthLake</ServiceId>
     <ServiceClientInterface>IAmazonHealthLake</ServiceClientInterface>
     <ServiceClient>AmazonHealthLakeClient</ServiceClient>
     <ServiceModuleGuid>6411B6C6-5FB7-42C7-9F81-514555A4BD5D</ServiceModuleGuid>

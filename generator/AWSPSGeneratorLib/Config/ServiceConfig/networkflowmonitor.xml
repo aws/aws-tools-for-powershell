@@ -6,6 +6,7 @@
     <AssemblyName>NetworkFlowMonitor</AssemblyName>
     <ServiceNounPrefix>NFM</ServiceNounPrefix>
     <ServiceName>Network Flow Monitor</ServiceName>
+    <ServiceId>NetworkFlowMonitor</ServiceId>
     <ServiceClientInterface>IAmazonNetworkFlowMonitor</ServiceClientInterface>
     <ServiceClient>AmazonNetworkFlowMonitorClient</ServiceClient>
     <ServiceModuleGuid>870fedf3-8840-4d96-951a-8da5473e1d08</ServiceModuleGuid>

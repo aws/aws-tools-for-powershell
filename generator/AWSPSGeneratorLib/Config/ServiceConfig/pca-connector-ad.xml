@@ -6,6 +6,7 @@
     <AssemblyName>PcaConnectorAd</AssemblyName>
     <ServiceNounPrefix>PCAAD</ServiceNounPrefix>
     <ServiceName>Pca Connector Ad</ServiceName>
+    <ServiceId>Pca Connector Ad</ServiceId>
     <ServiceClientInterface>IAmazonPcaConnectorAd</ServiceClientInterface>
     <ServiceClient>AmazonPcaConnectorAdClient</ServiceClient>
     <ServiceModuleGuid>4af6c4a9-a1be-46e4-8fd1-276b735eeb26</ServiceModuleGuid>

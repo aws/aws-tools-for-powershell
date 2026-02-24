@@ -6,6 +6,7 @@
     <AssemblyName>MediaPackageV2</AssemblyName>
     <ServiceNounPrefix>MPV2</ServiceNounPrefix>
     <ServiceName>AWS Elemental MediaPackage v2</ServiceName>
+    <ServiceId>MediaPackageV2</ServiceId>
     <ServiceClientInterface>IAmazonMediaPackageV2</ServiceClientInterface>
     <ServiceClient>AmazonMediaPackageV2Client</ServiceClient>
     <ServiceModuleGuid>1444e6fb-7012-4bcc-80d3-d94b7f72d64c</ServiceModuleGuid>

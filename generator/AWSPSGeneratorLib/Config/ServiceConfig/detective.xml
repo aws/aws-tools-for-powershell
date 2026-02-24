@@ -6,6 +6,7 @@
     <AssemblyName>Detective</AssemblyName>
     <ServiceNounPrefix>DTCT</ServiceNounPrefix>
     <ServiceName>Amazon Detective</ServiceName>
+    <ServiceId>Detective</ServiceId>
     <ServiceClientInterface>IAmazonDetective</ServiceClientInterface>
     <ServiceClient>AmazonDetectiveClient</ServiceClient>
     <ServiceModuleGuid>a1346126-833a-4dd5-8bca-2f5b0f03a632</ServiceModuleGuid>

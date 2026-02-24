@@ -6,6 +6,7 @@
     <AssemblyName>CodeArtifact</AssemblyName>
     <ServiceNounPrefix>CA</ServiceNounPrefix>
     <ServiceName>AWS CodeArtifact</ServiceName>
+    <ServiceId>codeartifact</ServiceId>
     <ServiceClientInterface>IAmazonCodeArtifact</ServiceClientInterface>
     <ServiceClient>AmazonCodeArtifactClient</ServiceClient>
     <ServiceModuleGuid>53003ced-93c9-4dd6-bfd6-ac667bcf7882</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>ForecastService</AssemblyName>
     <ServiceNounPrefix>FRC</ServiceNounPrefix>
     <ServiceName>Amazon Forecast Service</ServiceName>
+    <ServiceId>forecast</ServiceId>
     <ServiceClientInterface>IAmazonForecastService</ServiceClientInterface>
     <ServiceClient>AmazonForecastServiceClient</ServiceClient>
     <ServiceModuleGuid>ca176a00-3267-42cc-8159-f2f2bbe1d784</ServiceModuleGuid>

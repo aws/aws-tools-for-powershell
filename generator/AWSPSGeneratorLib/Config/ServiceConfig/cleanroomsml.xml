@@ -6,6 +6,7 @@
     <AssemblyName>CleanRoomsML</AssemblyName>
     <ServiceNounPrefix>CRML</ServiceNounPrefix>
     <ServiceName>CleanRoomsML</ServiceName>
+    <ServiceId>CleanRoomsML</ServiceId>
     <ServiceClientInterface>IAmazonCleanRoomsML</ServiceClientInterface>
     <ServiceClient>AmazonCleanRoomsMLClient</ServiceClient>
     <ServiceModuleGuid>5c06ac01-d5e4-41a8-b6e1-224cef8b9555</ServiceModuleGuid>

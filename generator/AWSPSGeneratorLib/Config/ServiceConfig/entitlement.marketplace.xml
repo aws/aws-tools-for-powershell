@@ -5,6 +5,7 @@
     <AssemblyName>MarketplaceEntitlementService</AssemblyName>
     <ServiceNounPrefix>MES</ServiceNounPrefix>
     <ServiceName>AWS Marketplace Entitlement Service</ServiceName>
+    <ServiceId>Marketplace Entitlement Service</ServiceId>
     <ServiceClientInterface>IAmazonMarketplaceEntitlementService</ServiceClientInterface>
     <ServiceClient>AmazonMarketplaceEntitlementServiceClient</ServiceClient>
     <ServiceModuleGuid>177af441-3156-4ee1-8d81-9a0342f4ec7d</ServiceModuleGuid>

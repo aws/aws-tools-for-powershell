@@ -6,6 +6,7 @@
     <AssemblyName>Backup</AssemblyName>
     <ServiceNounPrefix>BAK</ServiceNounPrefix>
     <ServiceName>AWS Backup</ServiceName>
+    <ServiceId>Backup</ServiceId>
     <ServiceClientInterface>IAmazonBackup</ServiceClientInterface>
     <ServiceClient>AmazonBackupClient</ServiceClient>
     <ServiceModuleGuid>a284f370-06f4-4612-9e10-f3d5071c8b14</ServiceModuleGuid>

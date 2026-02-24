@@ -6,6 +6,7 @@
     <AssemblyName>OpenSearchService</AssemblyName>
     <ServiceNounPrefix>OS</ServiceNounPrefix>
     <ServiceName>Amazon OpenSearch Service</ServiceName>
+    <ServiceId>OpenSearch</ServiceId>
     <ServiceClientInterface>IAmazonOpenSearchService</ServiceClientInterface>
     <ServiceClient>AmazonOpenSearchServiceClient</ServiceClient>
     <ServiceModuleGuid>086685d1-a207-48ca-ae2f-df3d77334f54</ServiceModuleGuid>

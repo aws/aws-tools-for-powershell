@@ -6,6 +6,7 @@
     <AssemblyName>Lightsail</AssemblyName>
     <ServiceNounPrefix>LS</ServiceNounPrefix>
     <ServiceName>Amazon Lightsail</ServiceName>
+    <ServiceId>Lightsail</ServiceId>
     <ServiceClientInterface>IAmazonLightsail</ServiceClientInterface>
     <ServiceClient>AmazonLightsailClient</ServiceClient>
     <ServiceModuleGuid>e377dc03-9220-472e-b867-022d50e3e328</ServiceModuleGuid>

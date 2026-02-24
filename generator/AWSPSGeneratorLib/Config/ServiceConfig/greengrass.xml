@@ -6,6 +6,7 @@
     <AssemblyName>Greengrass</AssemblyName>
     <ServiceNounPrefix>GG</ServiceNounPrefix>
     <ServiceName>AWS Greengrass</ServiceName>
+    <ServiceId>Greengrass</ServiceId>
     <ServiceClientInterface>IAmazonGreengrass</ServiceClientInterface>
     <ServiceClient>AmazonGreengrassClient</ServiceClient>
     <ServiceModuleGuid>229c46fd-32a0-4931-9f7a-e880682a989a</ServiceModuleGuid>

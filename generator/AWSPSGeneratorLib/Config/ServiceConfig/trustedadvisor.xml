@@ -6,6 +6,7 @@
     <AssemblyName>TrustedAdvisor</AssemblyName>
     <ServiceNounPrefix>TA</ServiceNounPrefix>
     <ServiceName>Trusted Advisor</ServiceName>
+    <ServiceId>TrustedAdvisor</ServiceId>
     <ServiceClientInterface>IAmazonTrustedAdvisor</ServiceClientInterface>
     <ServiceClient>AmazonTrustedAdvisorClient</ServiceClient>
     <ServiceModuleGuid>f9d6a2c4-1f57-4d2a-8803-49842e0d75e6</ServiceModuleGuid>

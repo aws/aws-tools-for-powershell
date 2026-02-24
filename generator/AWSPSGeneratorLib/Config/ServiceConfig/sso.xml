@@ -5,6 +5,7 @@
     <AssemblyName>SSO</AssemblyName>
     <ServiceNounPrefix>SSO</ServiceNounPrefix>
     <ServiceName>AWS Single Sign-On</ServiceName>
+    <ServiceId>SSO</ServiceId>
     <ServiceClientInterface>IAmazonSSO</ServiceClientInterface>
     <ServiceClient>AmazonSSOClient</ServiceClient>
     <ServiceModuleGuid>a7450d54-1f40-4592-a7d4-048ee06291b8</ServiceModuleGuid>

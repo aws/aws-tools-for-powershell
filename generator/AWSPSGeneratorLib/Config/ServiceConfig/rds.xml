@@ -6,6 +6,7 @@
     <AssemblyName>RDS</AssemblyName>
     <ServiceNounPrefix>RDS</ServiceNounPrefix>
     <ServiceName>Amazon Relational Database Service</ServiceName>
+    <ServiceId>RDS</ServiceId>
     <ServiceClientInterface>IAmazonRDS</ServiceClientInterface>
     <ServiceClient>AmazonRDSClient</ServiceClient>
     <ServiceModuleGuid>c444a7d7-a916-407d-b56f-43e38c2b1365</ServiceModuleGuid>
@@ -393,7 +394,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
-			<Params />
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEventCategories" OutputProperty="EventCategoriesMapList" Verb="Get" Noun="EventCategory" PipelineParameter="SourceType" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-RDSEventCategories">
@@ -635,7 +636,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreDBClusterToPointInTime" OutputProperty="DBCluster" Verb="Restore" Noun="DBClusterToPointInTime" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-			<Params />
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreDBInstanceFromDBSnapshot" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceFromDBSnapshot" ShouldProcessTarget="DBInstanceIdentifier" PositionalParameters="DBSnapshotIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -647,7 +648,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreDBInstanceToPointInTime" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceToPointInTime" ShouldProcessTarget="SourceDBInstanceIdentifier" PositionalParameters="TargetDBInstanceIdentifier" PipelineParameter="SourceDBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-			<Params />
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RevokeDBSecurityGroupIngress" OutputProperty="DBSecurityGroup" Verb="Revoke" Noun="DBSecurityGroupIngress" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="CIDRIP" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">

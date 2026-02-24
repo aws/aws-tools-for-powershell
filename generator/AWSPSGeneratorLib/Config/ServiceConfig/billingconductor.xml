@@ -6,6 +6,7 @@
     <AssemblyName>BillingConductor</AssemblyName>
     <ServiceNounPrefix>ABC</ServiceNounPrefix>
     <ServiceName>AWSBillingConductor</ServiceName>
+    <ServiceId>billingconductor</ServiceId>
     <ServiceClientInterface>IAmazonBillingConductor</ServiceClientInterface>
     <ServiceClient>AmazonBillingConductorClient</ServiceClient>
     <ServiceModuleGuid>011c5747-a9d4-4d07-ad76-4ab6fed3593d</ServiceModuleGuid>

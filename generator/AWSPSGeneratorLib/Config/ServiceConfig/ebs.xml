@@ -6,6 +6,7 @@
     <AssemblyName>EBS</AssemblyName>
     <ServiceNounPrefix>EBS</ServiceNounPrefix>
     <ServiceName>Amazon EBS</ServiceName>
+    <ServiceId>EBS</ServiceId>
     <ServiceClientInterface>IAmazonEBS</ServiceClientInterface>
     <ServiceClient>AmazonEBSClient</ServiceClient>
     <ServiceModuleGuid>af61433a-6977-4129-af89-d55f89e3e0eb</ServiceModuleGuid>

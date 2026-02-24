@@ -6,6 +6,7 @@
     <AssemblyName>BackupSearch</AssemblyName>
     <ServiceNounPrefix>BAKS</ServiceNounPrefix>
     <ServiceName>AWS Backup Search</ServiceName>
+    <ServiceId>BackupSearch</ServiceId>
     <ServiceClientInterface>IAmazonBackupSearch</ServiceClientInterface>
     <ServiceClient>AmazonBackupSearchClient</ServiceClient>
     <ServiceModuleGuid>8ee622ec-b239-48e0-a3d9-fbf59416519a</ServiceModuleGuid>

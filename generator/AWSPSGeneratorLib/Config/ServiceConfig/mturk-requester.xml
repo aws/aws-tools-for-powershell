@@ -5,6 +5,7 @@
     <AssemblyName>MTurk</AssemblyName>
     <ServiceNounPrefix>MTR</ServiceNounPrefix>
     <ServiceName>Amazon MTurk Service</ServiceName>
+    <ServiceId>MTurk</ServiceId>
     <ServiceClientInterface>IAmazonMTurk</ServiceClientInterface>
     <ServiceClient>AmazonMTurkClient</ServiceClient>
     <ServiceModuleGuid>4ef0d63d-b674-42bf-a914-bf6d5baa96d1</ServiceModuleGuid>

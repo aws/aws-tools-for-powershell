@@ -6,6 +6,7 @@
     <AssemblyName>SSMGuiConnect</AssemblyName>
     <ServiceNounPrefix>SSMG</ServiceNounPrefix>
     <ServiceName>AWS SSM-GUIConnect</ServiceName>
+    <ServiceId>SSM GuiConnect</ServiceId>
     <ServiceClientInterface>IAmazonSSMGuiConnect</ServiceClientInterface>
     <ServiceClient>AmazonSSMGuiConnectClient</ServiceClient>
     <ServiceModuleGuid>90cd6c25-198d-4567-a8e2-3d8931984b11</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>QBusiness</AssemblyName>
     <ServiceNounPrefix>QBUS</ServiceNounPrefix>
     <ServiceName>Amazon QBusiness</ServiceName>
+    <ServiceId>QBusiness</ServiceId>
     <ServiceClientInterface>IAmazonQBusiness</ServiceClientInterface>
     <ServiceClient>AmazonQBusinessClient</ServiceClient>
     <ServiceModuleGuid>a9f5c6f6-8f98-4312-a388-1750725f0f4b</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>AmplifyUIBuilder</AssemblyName>
     <ServiceNounPrefix>AMPUI</ServiceNounPrefix>
     <ServiceName>AWS Amplify UI Builder</ServiceName>
+    <ServiceId>AmplifyUIBuilder</ServiceId>
     <ServiceClientInterface>IAmazonAmplifyUIBuilder</ServiceClientInterface>
     <ServiceClient>AmazonAmplifyUIBuilderClient</ServiceClient>
     <ServiceModuleGuid>2c1f3757-775b-4096-8486-3e165e84e787</ServiceModuleGuid>

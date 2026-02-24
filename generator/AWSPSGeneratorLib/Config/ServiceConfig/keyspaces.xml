@@ -6,6 +6,7 @@
     <AssemblyName>Keyspaces</AssemblyName>
     <ServiceNounPrefix>KS</ServiceNounPrefix>
     <ServiceName>Amazon Keyspaces</ServiceName>
+    <ServiceId>Keyspaces</ServiceId>
     <ServiceClientInterface>IAmazonKeyspaces</ServiceClientInterface>
     <ServiceClient>AmazonKeyspacesClient</ServiceClient>
     <ServiceModuleGuid>c88f1341-6519-4c21-a048-022e8e4fbb40</ServiceModuleGuid>

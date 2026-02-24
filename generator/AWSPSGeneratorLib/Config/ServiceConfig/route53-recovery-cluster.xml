@@ -6,6 +6,7 @@
     <AssemblyName>Route53RecoveryCluster</AssemblyName>
     <ServiceNounPrefix>RRC</ServiceNounPrefix>
     <ServiceName>Route53 Recovery Cluster</ServiceName>
+    <ServiceId>Route53 Recovery Cluster</ServiceId>
     <ServiceClientInterface>IAmazonRoute53RecoveryCluster</ServiceClientInterface>
     <ServiceClient>AmazonRoute53RecoveryClusterClient</ServiceClient>
     <ServiceModuleGuid>0c2b313e-f0d9-4c99-a5b7-4cf4a2a70cbc</ServiceModuleGuid>

@@ -5,6 +5,7 @@
     <AssemblyName>ApiGatewayManagementApi</AssemblyName>
     <ServiceNounPrefix>AGM</ServiceNounPrefix>
     <ServiceName>Amazon API Gateway Management API</ServiceName>
+    <ServiceId>ApiGatewayManagementApi</ServiceId>
     <ServiceClientInterface>IAmazonApiGatewayManagementApi</ServiceClientInterface>
     <ServiceClient>AmazonApiGatewayManagementApiClient</ServiceClient>
     <ServiceModuleGuid>806df5e2-5984-4207-a814-933147bfbd72</ServiceModuleGuid>

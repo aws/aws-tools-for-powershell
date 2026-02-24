@@ -6,6 +6,7 @@
     <AssemblyName>SimSpaceWeaver</AssemblyName>
     <ServiceNounPrefix>SSW</ServiceNounPrefix>
     <ServiceName>AWS SimSpace Weaver</ServiceName>
+    <ServiceId>SimSpaceWeaver</ServiceId>
     <ServiceClientInterface>IAmazonSimSpaceWeaver</ServiceClientInterface>
     <ServiceClient>AmazonSimSpaceWeaverClient</ServiceClient>
     <ServiceModuleGuid>f7332abf-b0fd-45a4-ae7f-861b4ef5ae35</ServiceModuleGuid>

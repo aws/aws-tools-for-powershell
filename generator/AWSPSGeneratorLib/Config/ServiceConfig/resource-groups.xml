@@ -6,6 +6,7 @@
     <AssemblyName>ResourceGroups</AssemblyName>
     <ServiceNounPrefix>RG</ServiceNounPrefix>
     <ServiceName>AWS Resource Groups</ServiceName>
+    <ServiceId>Resource Groups</ServiceId>
     <ServiceClientInterface>IAmazonResourceGroups</ServiceClientInterface>
     <ServiceClient>AmazonResourceGroupsClient</ServiceClient>
     <ServiceModuleGuid>e9d86626-d3f7-4f93-af97-f45f5a5f67bd</ServiceModuleGuid>

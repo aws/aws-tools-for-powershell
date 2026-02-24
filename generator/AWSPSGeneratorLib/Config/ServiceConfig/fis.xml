@@ -6,6 +6,7 @@
     <AssemblyName>FIS</AssemblyName>
     <ServiceNounPrefix>FIS</ServiceNounPrefix>
     <ServiceName>AWS Fault Injection Simulator</ServiceName>
+    <ServiceId>fis</ServiceId>
     <ServiceClientInterface>IAmazonFIS</ServiceClientInterface>
     <ServiceClient>AmazonFISClient</ServiceClient>
     <ServiceModuleGuid>61E35DF7-01F2-4539-B867-FD779FCCBA69</ServiceModuleGuid>

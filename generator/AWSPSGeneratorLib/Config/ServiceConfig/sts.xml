@@ -6,6 +6,7 @@
     <AssemblyName>SecurityToken</AssemblyName>
     <ServiceNounPrefix>STS</ServiceNounPrefix>
     <ServiceName>AWS Security Token Service (STS)</ServiceName>
+    <ServiceId>STS</ServiceId>
     <ServiceClientInterface>IAmazonSecurityTokenService</ServiceClientInterface>
     <ServiceClient>AmazonSecurityTokenServiceClient</ServiceClient>
     <ServiceModuleGuid>b760f2e8-291f-4df4-bd69-3a615b47c8d4</ServiceModuleGuid>

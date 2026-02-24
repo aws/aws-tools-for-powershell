@@ -6,6 +6,7 @@
     <AssemblyName>Wickr</AssemblyName>
     <ServiceNounPrefix>WIC</ServiceNounPrefix>
     <ServiceName>AWS Wickr Admin API</ServiceName>
+    <ServiceId>Wickr</ServiceId>
     <ServiceClientInterface>IAmazonWickr</ServiceClientInterface>
     <ServiceClient>AmazonWickrClient</ServiceClient>
     <ServiceModuleGuid>11e00d8d-fd37-4d1a-bf13-9f919311f154</ServiceModuleGuid>

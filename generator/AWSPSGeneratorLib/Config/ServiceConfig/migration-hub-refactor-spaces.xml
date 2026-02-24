@@ -6,6 +6,7 @@
     <AssemblyName>MigrationHubRefactorSpaces</AssemblyName>
     <ServiceNounPrefix>MHRS</ServiceNounPrefix>
     <ServiceName>AWS Migration Hub Refactor Spaces</ServiceName>
+    <ServiceId>Migration Hub Refactor Spaces</ServiceId>
     <ServiceClientInterface>IAmazonMigrationHubRefactorSpaces</ServiceClientInterface>
     <ServiceClient>AmazonMigrationHubRefactorSpacesClient</ServiceClient>
     <ServiceModuleGuid>14e03081-6ce1-4f8d-9bfa-962a3e98862e</ServiceModuleGuid>

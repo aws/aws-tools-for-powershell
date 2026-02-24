@@ -6,6 +6,7 @@
     <AssemblyName>DataZone</AssemblyName>
     <ServiceNounPrefix>DZ</ServiceNounPrefix>
     <ServiceName>Amazon DataZone</ServiceName>
+    <ServiceId>DataZone</ServiceId>
     <ServiceClientInterface>IAmazonDataZone</ServiceClientInterface>
     <ServiceClient>AmazonDataZoneClient</ServiceClient>
     <ServiceModuleGuid>d010e85f-7292-4d5a-ac46-fc86e6837814</ServiceModuleGuid>

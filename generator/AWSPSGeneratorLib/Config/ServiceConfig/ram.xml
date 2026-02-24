@@ -6,6 +6,7 @@
     <AssemblyName>RAM</AssemblyName>
     <ServiceNounPrefix>RAM</ServiceNounPrefix>
     <ServiceName>AWS Resource Access Manager (RAM)</ServiceName>
+    <ServiceId>RAM</ServiceId>
     <ServiceClientInterface>IAmazonRAM</ServiceClientInterface>
     <ServiceClient>AmazonRAMClient</ServiceClient>
     <ServiceModuleGuid>0f1f334d-da23-4a69-80c2-93ee833ebdb0</ServiceModuleGuid>

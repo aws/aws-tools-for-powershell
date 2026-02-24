@@ -6,6 +6,7 @@
     <AssemblyName>ElasticLoadBalancing</AssemblyName>
     <ServiceNounPrefix>ELB</ServiceNounPrefix>
     <ServiceName>Elastic Load Balancing</ServiceName>
+    <ServiceId>Elastic Load Balancing</ServiceId>
     <ServiceClientInterface>IAmazonElasticLoadBalancing</ServiceClientInterface>
     <ServiceClient>AmazonElasticLoadBalancingClient</ServiceClient>
     <ServiceModuleGuid>30b845ec-bd0e-4e4c-a703-23c2afa2051c</ServiceModuleGuid>

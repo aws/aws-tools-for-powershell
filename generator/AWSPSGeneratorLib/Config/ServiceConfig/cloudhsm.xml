@@ -5,6 +5,7 @@
     <AssemblyName>CloudHSM</AssemblyName>
     <ServiceNounPrefix>HSM</ServiceNounPrefix>
     <ServiceName>AWS CloudHSM</ServiceName>
+    <ServiceId>CloudHSM</ServiceId>
     <ServiceClientInterface>IAmazonCloudHSM</ServiceClientInterface>
     <ServiceClient>AmazonCloudHSMClient</ServiceClient>
     <ServiceModuleGuid />

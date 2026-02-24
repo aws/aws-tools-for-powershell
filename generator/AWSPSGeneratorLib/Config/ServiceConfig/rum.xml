@@ -6,6 +6,7 @@
     <AssemblyName>CloudWatchRUM</AssemblyName>
     <ServiceNounPrefix>CWRUM</ServiceNounPrefix>
     <ServiceName>CloudWatch RUM</ServiceName>
+    <ServiceId>RUM</ServiceId>
     <ServiceClientInterface>IAmazonCloudWatchRUM</ServiceClientInterface>
     <ServiceClient>AmazonCloudWatchRUMClient</ServiceClient>
     <ServiceModuleGuid>fdc5b922-9e8e-4514-b082-9742259c8eb5</ServiceModuleGuid>

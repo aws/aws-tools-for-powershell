@@ -6,6 +6,7 @@
     <AssemblyName>NovaAct</AssemblyName>
     <ServiceNounPrefix>NOVA</ServiceNounPrefix>
     <ServiceName>Amazon Nova Act</ServiceName>
+    <ServiceId>Nova Act</ServiceId>
     <ServiceClientInterface>IAmazonNovaAct</ServiceClientInterface>
     <ServiceClient>AmazonNovaActClient</ServiceClient>
     <ServiceModuleGuid>0c9f71b6-042e-4b83-b3df-26613f82c15a</ServiceModuleGuid>

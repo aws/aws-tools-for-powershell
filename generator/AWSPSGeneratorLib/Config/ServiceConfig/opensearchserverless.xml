@@ -6,6 +6,7 @@
     <AssemblyName>OpenSearchServerless</AssemblyName>
     <ServiceNounPrefix>OSS</ServiceNounPrefix>
     <ServiceName>OpenSearch Serverless</ServiceName>
+    <ServiceId>OpenSearchServerless</ServiceId>
     <ServiceClientInterface>IAmazonOpenSearchServerless</ServiceClientInterface>
     <ServiceClient>AmazonOpenSearchServerlessClient</ServiceClient>
     <ServiceModuleGuid>6c5ea2b3-a50d-44bf-b948-cbfc102bceee</ServiceModuleGuid>

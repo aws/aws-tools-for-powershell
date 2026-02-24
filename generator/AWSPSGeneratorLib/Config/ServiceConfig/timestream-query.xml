@@ -6,6 +6,7 @@
     <AssemblyName>TimestreamQuery</AssemblyName>
     <ServiceNounPrefix>TSQ</ServiceNounPrefix>
     <ServiceName>Amazon Timestream Query</ServiceName>
+    <ServiceId>Timestream Query</ServiceId>
     <ServiceClientInterface>IAmazonTimestreamQuery</ServiceClientInterface>
     <ServiceClient>AmazonTimestreamQueryClient</ServiceClient>
     <ServiceModuleGuid>1e182d35-38b6-4473-bebe-cc229e37ca20</ServiceModuleGuid>

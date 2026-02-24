@@ -6,6 +6,7 @@
     <AssemblyName>KeyManagementService</AssemblyName>
     <ServiceNounPrefix>KMS</ServiceNounPrefix>
     <ServiceName>AWS Key Management Service</ServiceName>
+    <ServiceId>KMS</ServiceId>
     <ServiceClientInterface>IAmazonKeyManagementService</ServiceClientInterface>
     <ServiceClient>AmazonKeyManagementServiceClient</ServiceClient>
     <ServiceModuleGuid>e92d316c-0a98-4c80-9fd3-be05e12d0887</ServiceModuleGuid>

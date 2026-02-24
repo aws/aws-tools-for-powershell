@@ -6,6 +6,7 @@
     <AssemblyName>ComputeOptimizer</AssemblyName>
     <ServiceNounPrefix>CO</ServiceNounPrefix>
     <ServiceName>AWS Compute Optimizer</ServiceName>
+    <ServiceId>Compute Optimizer</ServiceId>
     <ServiceClientInterface>IAmazonComputeOptimizer</ServiceClientInterface>
     <ServiceClient>AmazonComputeOptimizerClient</ServiceClient>
     <ServiceModuleGuid>eecf537b-6007-4a79-9745-1405c2c2e9e0</ServiceModuleGuid>

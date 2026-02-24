@@ -6,6 +6,7 @@
     <AssemblyName>Inspector2</AssemblyName>
     <ServiceNounPrefix>INS2</ServiceNounPrefix>
     <ServiceName>Inspector2</ServiceName>
+    <ServiceId>Inspector2</ServiceId>
     <ServiceClientInterface>IAmazonInspector2</ServiceClientInterface>
     <ServiceClient>AmazonInspector2Client</ServiceClient>
     <ServiceModuleGuid>ddd2140e-fe1b-4204-aff6-86c0171a3ab3</ServiceModuleGuid>

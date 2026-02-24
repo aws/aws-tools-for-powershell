@@ -6,6 +6,7 @@
     <AssemblyName>ChimeSDKMediaPipelines</AssemblyName>
     <ServiceNounPrefix>CHMMP</ServiceNounPrefix>
     <ServiceName>Amazon Chime SDK Media Pipelines</ServiceName>
+    <ServiceId>Chime SDK Media Pipelines</ServiceId>
     <ServiceClientInterface>IAmazonChimeSDKMediaPipelines</ServiceClientInterface>
     <ServiceClient>AmazonChimeSDKMediaPipelinesClient</ServiceClient>
     <ServiceModuleGuid>e00dae22-2928-4b03-92f7-ee036124ba24</ServiceModuleGuid>

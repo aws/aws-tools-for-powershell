@@ -6,6 +6,7 @@
     <AssemblyName>GlueDataBrew</AssemblyName>
     <ServiceNounPrefix>GDB</ServiceNounPrefix>
     <ServiceName>AWS Glue DataBrew</ServiceName>
+    <ServiceId>DataBrew</ServiceId>
     <ServiceClientInterface>IAmazonGlueDataBrew</ServiceClientInterface>
     <ServiceClient>AmazonGlueDataBrewClient</ServiceClient>
     <ServiceModuleGuid>198d7c9b-63ea-4912-885c-accd4e1a2b57</ServiceModuleGuid>

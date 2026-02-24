@@ -6,6 +6,7 @@
     <AssemblyName>Mgn</AssemblyName>
     <ServiceNounPrefix>MGN</ServiceNounPrefix>
     <ServiceName>Application Migration Service</ServiceName>
+    <ServiceId>mgn</ServiceId>
     <ServiceClientInterface>IAmazonMgn</ServiceClientInterface>
     <ServiceClient>AmazonMgnClient</ServiceClient>
     <ServiceModuleGuid>db4dcedc-a60b-46ba-9cf4-f117d7c85ecc</ServiceModuleGuid>

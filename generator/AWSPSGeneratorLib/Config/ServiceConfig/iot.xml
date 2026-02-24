@@ -6,6 +6,7 @@
     <AssemblyName>IoT</AssemblyName>
     <ServiceNounPrefix>IOT</ServiceNounPrefix>
     <ServiceName>AWS IoT</ServiceName>
+    <ServiceId>IoT</ServiceId>
     <ServiceClientInterface>IAmazonIoT</ServiceClientInterface>
     <ServiceClient>AmazonIoTClient</ServiceClient>
     <ServiceModuleGuid>d75b8399-46ee-434e-8fe4-43ef3faa5780</ServiceModuleGuid>

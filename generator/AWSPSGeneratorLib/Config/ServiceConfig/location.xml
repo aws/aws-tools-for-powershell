@@ -6,6 +6,7 @@
     <AssemblyName>LocationService</AssemblyName>
     <ServiceNounPrefix>LOC</ServiceNounPrefix>
     <ServiceName>Amazon Location Service</ServiceName>
+    <ServiceId>Location</ServiceId>
     <ServiceClientInterface>IAmazonLocationService</ServiceClientInterface>
     <ServiceClient>AmazonLocationServiceClient</ServiceClient>
     <ServiceModuleGuid>dd598514-2bd7-4d02-bdb8-98fc4c9f18c5</ServiceModuleGuid>

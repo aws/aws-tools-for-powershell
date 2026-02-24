@@ -5,6 +5,7 @@
     <AssemblyName>Lex</AssemblyName>
     <ServiceNounPrefix>LEX</ServiceNounPrefix>
     <ServiceName>Amazon Lex</ServiceName>
+    <ServiceId>Lex Runtime Service</ServiceId>
     <ServiceClientInterface>IAmazonLex</ServiceClientInterface>
     <ServiceClient>AmazonLexClient</ServiceClient>
     <ServiceModuleGuid>bbaff62c-acc4-4a3e-9120-16e473928191</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>VPCLattice</AssemblyName>
     <ServiceNounPrefix>VPCL</ServiceNounPrefix>
     <ServiceName>VPC Lattice</ServiceName>
+    <ServiceId>VPC Lattice</ServiceId>
     <ServiceClientInterface>IAmazonVPCLattice</ServiceClientInterface>
     <ServiceClient>AmazonVPCLatticeClient</ServiceClient>
     <ServiceModuleGuid>88dc8a5c-4fce-4d09-83f4-e23548abd71a</ServiceModuleGuid>

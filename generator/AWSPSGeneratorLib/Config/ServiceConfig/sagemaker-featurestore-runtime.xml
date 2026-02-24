@@ -6,6 +6,7 @@
     <AssemblyName>SageMakerFeatureStoreRuntime</AssemblyName>
     <ServiceNounPrefix>SMFS</ServiceNounPrefix>
     <ServiceName>Amazon SageMaker Feature Store Runtime</ServiceName>
+    <ServiceId>SageMaker FeatureStore Runtime</ServiceId>
     <ServiceClientInterface>IAmazonSageMakerFeatureStoreRuntime</ServiceClientInterface>
     <ServiceClient>AmazonSageMakerFeatureStoreRuntimeClient</ServiceClient>
     <ServiceModuleGuid>37f7a7ec-988f-41a5-a05e-db144063db5a</ServiceModuleGuid>

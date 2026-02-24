@@ -6,6 +6,7 @@
     <AssemblyName>FSx</AssemblyName>
     <ServiceNounPrefix>FSX</ServiceNounPrefix>
     <ServiceName>Amazon FSx</ServiceName>
+    <ServiceId>FSx</ServiceId>
     <ServiceClientInterface>IAmazonFSx</ServiceClientInterface>
     <ServiceClient>AmazonFSxClient</ServiceClient>
     <ServiceModuleGuid>275fe96f-4796-4ea7-9e1c-b6d1fc55d71c</ServiceModuleGuid>

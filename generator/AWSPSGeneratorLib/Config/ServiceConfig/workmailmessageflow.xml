@@ -6,6 +6,7 @@
     <AssemblyName>WorkMailMessageFlow</AssemblyName>
     <ServiceNounPrefix>WMMF</ServiceNounPrefix>
     <ServiceName>Amazon WorkMail Message Flow</ServiceName>
+    <ServiceId>WorkMailMessageFlow</ServiceId>
     <ServiceClientInterface>IAmazonWorkMailMessageFlow</ServiceClientInterface>
     <ServiceClient>AmazonWorkMailMessageFlowClient</ServiceClient>
     <ServiceModuleGuid>546a1710-a5a7-4af9-b8c1-1143f6a789d6</ServiceModuleGuid>

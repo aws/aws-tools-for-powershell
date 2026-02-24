@@ -6,6 +6,7 @@
     <AssemblyName>EventBridge</AssemblyName>
     <ServiceNounPrefix>EVB</ServiceNounPrefix>
     <ServiceName>Amazon EventBridge</ServiceName>
+    <ServiceId>EventBridge</ServiceId>
     <ServiceClientInterface>IAmazonEventBridge</ServiceClientInterface>
     <ServiceClient>AmazonEventBridgeClient</ServiceClient>
     <ServiceModuleGuid>18166f9a-d8ce-490f-b665-f7da0e748dc6</ServiceModuleGuid>

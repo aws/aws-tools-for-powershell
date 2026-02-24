@@ -6,6 +6,7 @@
     <AssemblyName>CloudSearch</AssemblyName>
     <ServiceNounPrefix>CS</ServiceNounPrefix>
     <ServiceName>Amazon CloudSearch</ServiceName>
+    <ServiceId>CloudSearch</ServiceId>
     <ServiceClientInterface>IAmazonCloudSearch</ServiceClientInterface>
     <ServiceClient>AmazonCloudSearchClient</ServiceClient>
     <ServiceModuleGuid>2313ff27-1227-4cbd-821c-c1c5f8644995</ServiceModuleGuid>

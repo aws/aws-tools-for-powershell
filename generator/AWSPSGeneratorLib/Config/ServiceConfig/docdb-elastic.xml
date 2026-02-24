@@ -6,6 +6,7 @@
     <AssemblyName>DocDBElastic</AssemblyName>
     <ServiceNounPrefix>DOCE</ServiceNounPrefix>
     <ServiceName>Amazon DocumentDB Elastic Clusters</ServiceName>
+    <ServiceId>DocDB Elastic</ServiceId>
     <ServiceClientInterface>IAmazonDocDBElastic</ServiceClientInterface>
     <ServiceClient>AmazonDocDBElasticClient</ServiceClient>
     <ServiceModuleGuid>FE175E42-FD5C-4EDD-9380-E1EE8417093E</ServiceModuleGuid>

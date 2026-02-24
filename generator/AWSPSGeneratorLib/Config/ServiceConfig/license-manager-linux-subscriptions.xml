@@ -6,6 +6,7 @@
     <AssemblyName>LicenseManagerLinuxSubscriptions</AssemblyName>
     <ServiceNounPrefix>LLMS</ServiceNounPrefix>
     <ServiceName>AWS License Manager - Linux Subscriptions</ServiceName>
+    <ServiceId>License Manager Linux Subscriptions</ServiceId>
     <ServiceClientInterface>IAmazonLicenseManagerLinuxSubscriptions</ServiceClientInterface>
     <ServiceClient>AmazonLicenseManagerLinuxSubscriptionsClient</ServiceClient>
     <ServiceModuleGuid>8A8BC202-CD46-46C8-8E3E-F3503E171418</ServiceModuleGuid>

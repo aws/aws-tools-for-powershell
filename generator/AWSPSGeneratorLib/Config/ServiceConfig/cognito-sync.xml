@@ -5,6 +5,7 @@
     <AssemblyName>CognitoSync</AssemblyName>
     <ServiceNounPrefix>CGIS</ServiceNounPrefix>
     <ServiceName>Amazon Cognito Sync</ServiceName>
+    <ServiceId>Cognito Sync</ServiceId>
     <ServiceClientInterface>IAmazonCognitoSync</ServiceClientInterface>
     <ServiceClient>AmazonCognitoSyncClient</ServiceClient>
     <ServiceModuleGuid>f3444381-3b25-4d07-b51f-151a23444d0f</ServiceModuleGuid>

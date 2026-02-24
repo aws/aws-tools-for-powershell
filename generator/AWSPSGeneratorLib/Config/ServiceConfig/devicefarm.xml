@@ -6,6 +6,7 @@
     <AssemblyName>DeviceFarm</AssemblyName>
     <ServiceNounPrefix>DF</ServiceNounPrefix>
     <ServiceName>AWS Device Farm</ServiceName>
+    <ServiceId>Device Farm</ServiceId>
     <ServiceClientInterface>IAmazonDeviceFarm</ServiceClientInterface>
     <ServiceClient>AmazonDeviceFarmClient</ServiceClient>
     <ServiceModuleGuid>fa57e4ff-3e28-4e7f-acde-58f3b4eb1b30</ServiceModuleGuid>

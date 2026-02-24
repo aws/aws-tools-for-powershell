@@ -6,6 +6,7 @@
     <AssemblyName>CodeGuruProfiler</AssemblyName>
     <ServiceNounPrefix>CGP</ServiceNounPrefix>
     <ServiceName>Amazon CodeGuru Profiler</ServiceName>
+    <ServiceId>CodeGuruProfiler</ServiceId>
     <ServiceClientInterface>IAmazonCodeGuruProfiler</ServiceClientInterface>
     <ServiceClient>AmazonCodeGuruProfilerClient</ServiceClient>
     <ServiceModuleGuid>39761516-6d1e-4075-88a4-3d86f5a2dc0e</ServiceModuleGuid>

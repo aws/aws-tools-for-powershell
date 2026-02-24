@@ -5,6 +5,7 @@
     <AssemblyName>Polly</AssemblyName>
     <ServiceNounPrefix>POL</ServiceNounPrefix>
     <ServiceName>Amazon Polly</ServiceName>
+    <ServiceId>Polly</ServiceId>
     <ServiceClientInterface>IAmazonPolly</ServiceClientInterface>
     <ServiceClient>AmazonPollyClient</ServiceClient>
     <ServiceModuleGuid>606621af-f4dd-40bc-9ed1-9ac056238301</ServiceModuleGuid>

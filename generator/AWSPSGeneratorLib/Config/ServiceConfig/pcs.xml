@@ -6,6 +6,7 @@
     <AssemblyName>PCS</AssemblyName>
     <ServiceNounPrefix>PCS</ServiceNounPrefix>
     <ServiceName>AWS Parallel Computing Service</ServiceName>
+    <ServiceId>PCS</ServiceId>
     <ServiceClientInterface>IAmazonPCS</ServiceClientInterface>
     <ServiceClient>AmazonPCSClient</ServiceClient>
     <ServiceModuleGuid>92c95590-099f-452e-abfe-d88d89a395c6</ServiceModuleGuid>

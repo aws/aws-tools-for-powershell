@@ -6,6 +6,7 @@
     <AssemblyName>AppRegistry</AssemblyName>
     <ServiceNounPrefix>SCAR</ServiceNounPrefix>
     <ServiceName>AWS Service Catalog App Registry</ServiceName>
+    <ServiceId>Service Catalog AppRegistry</ServiceId>
     <ServiceClientInterface>IAmazonAppRegistry</ServiceClientInterface>
     <ServiceClient>AmazonAppRegistryClient</ServiceClient>
     <ServiceModuleGuid>8866605E-40B1-4D05-A6C1-B49ECAEB31E1</ServiceModuleGuid>

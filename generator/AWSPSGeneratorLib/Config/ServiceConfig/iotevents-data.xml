@@ -6,6 +6,7 @@
     <AssemblyName>IoTEventsData</AssemblyName>
     <ServiceNounPrefix>IOTED</ServiceNounPrefix>
     <ServiceName>AWS IoT Events Data</ServiceName>
+    <ServiceId>IoT Events Data</ServiceId>
     <ServiceClientInterface>IAmazonIoTEventsData</ServiceClientInterface>
     <ServiceClient>AmazonIoTEventsDataClient</ServiceClient>
     <ServiceModuleGuid>9e43d95a-4831-4ad6-8cc6-dbb6d0636c04</ServiceModuleGuid>

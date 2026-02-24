@@ -6,6 +6,7 @@
     <AssemblyName>S3Vectors</AssemblyName>
     <ServiceNounPrefix>S3V</ServiceNounPrefix>
     <ServiceName>Amazon S3 Vectors</ServiceName>
+    <ServiceId>S3Vectors</ServiceId>
     <ServiceClientInterface>IAmazonS3Vectors</ServiceClientInterface>
     <ServiceClient>AmazonS3VectorsClient</ServiceClient>
     <ServiceModuleGuid>d92f75db-6e8d-47a9-93de-e2911b58b94f</ServiceModuleGuid>

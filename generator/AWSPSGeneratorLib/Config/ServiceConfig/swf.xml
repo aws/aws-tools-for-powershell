@@ -6,6 +6,7 @@
     <AssemblyName>SimpleWorkflow</AssemblyName>
     <ServiceNounPrefix>SWF</ServiceNounPrefix>
     <ServiceName>AWS Simple Workflow Service (SWF)</ServiceName>
+    <ServiceId>SWF</ServiceId>
     <ServiceClientInterface>IAmazonSimpleWorkflow</ServiceClientInterface>
     <ServiceClient>AmazonSimpleWorkflowClient</ServiceClient>
     <ServiceModuleGuid>b39466dc-3f30-4eb8-b57d-93c59bead0dc</ServiceModuleGuid>

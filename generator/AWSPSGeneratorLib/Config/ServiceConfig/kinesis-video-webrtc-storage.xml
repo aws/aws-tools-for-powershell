@@ -6,6 +6,7 @@
     <AssemblyName>KinesisVideoWebRTCStorage</AssemblyName>
     <ServiceNounPrefix>KVWS</ServiceNounPrefix>
     <ServiceName>Amazon Kinesis Video WebRTC Storage</ServiceName>
+    <ServiceId>Kinesis Video WebRTC Storage</ServiceId>
     <ServiceClientInterface>IAmazonKinesisVideoWebRTCStorage</ServiceClientInterface>
     <ServiceClient>AmazonKinesisVideoWebRTCStorageClient</ServiceClient>
     <ServiceModuleGuid>54379206-7404-4e7b-9166-3baba1d935d7</ServiceModuleGuid>

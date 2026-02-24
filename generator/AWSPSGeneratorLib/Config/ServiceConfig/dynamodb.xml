@@ -6,6 +6,7 @@
     <AssemblyName>DynamoDBv2</AssemblyName>
     <ServiceNounPrefix>DDB</ServiceNounPrefix>
     <ServiceName>Amazon DynamoDB</ServiceName>
+    <ServiceId>DynamoDB</ServiceId>
     <ServiceClientInterface>IAmazonDynamoDB</ServiceClientInterface>
     <ServiceClient>AmazonDynamoDBClient</ServiceClient>
     <ServiceModuleGuid>1c067622-6b74-4730-b4df-1c316ae12135</ServiceModuleGuid>

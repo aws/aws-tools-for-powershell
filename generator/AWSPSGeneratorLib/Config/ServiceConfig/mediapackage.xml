@@ -6,6 +6,7 @@
     <AssemblyName>MediaPackage</AssemblyName>
     <ServiceNounPrefix>EMP</ServiceNounPrefix>
     <ServiceName>AWS Elemental MediaPackage</ServiceName>
+    <ServiceId>MediaPackage</ServiceId>
     <ServiceClientInterface>IAmazonMediaPackage</ServiceClientInterface>
     <ServiceClient>AmazonMediaPackageClient</ServiceClient>
     <ServiceModuleGuid>8d93ba79-5d0c-4765-a0f1-ea0ebb5da2a5</ServiceModuleGuid>

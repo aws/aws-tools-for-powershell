@@ -6,6 +6,7 @@
     <AssemblyName>TranscribeService</AssemblyName>
     <ServiceNounPrefix>TRS</ServiceNounPrefix>
     <ServiceName>Amazon Transcribe Service</ServiceName>
+    <ServiceId>Transcribe</ServiceId>
     <ServiceClientInterface>IAmazonTranscribeService</ServiceClientInterface>
     <ServiceClient>AmazonTranscribeServiceClient</ServiceClient>
     <ServiceModuleGuid>9b04a56a-915a-4590-964e-a3c22c408427</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>PartnerCentralChannel</AssemblyName>
     <ServiceNounPrefix>PCC</ServiceNounPrefix>
     <ServiceName>Partner Central Channel API</ServiceName>
+    <ServiceId>PartnerCentral Channel</ServiceId>
     <ServiceClientInterface>IAmazonPartnerCentralChannel</ServiceClientInterface>
     <ServiceClient>AmazonPartnerCentralChannelClient</ServiceClient>
     <ServiceModuleGuid>8de5375d-32f4-4d28-8491-a6fbae15574b</ServiceModuleGuid>

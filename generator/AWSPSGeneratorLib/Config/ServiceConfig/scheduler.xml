@@ -6,6 +6,7 @@
     <AssemblyName>Scheduler</AssemblyName>
     <ServiceNounPrefix>SCH</ServiceNounPrefix>
     <ServiceName>Amazon EventBridge Scheduler</ServiceName>
+    <ServiceId>Scheduler</ServiceId>
     <ServiceClientInterface>IAmazonScheduler</ServiceClientInterface>
     <ServiceClient>AmazonSchedulerClient</ServiceClient>
     <ServiceModuleGuid>674618C2-5688-48AB-A123-37FA2E5F41DB</ServiceModuleGuid>

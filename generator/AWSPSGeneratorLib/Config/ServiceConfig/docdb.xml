@@ -6,6 +6,7 @@
     <AssemblyName>DocDB</AssemblyName>
     <ServiceNounPrefix>DOC</ServiceNounPrefix>
     <ServiceName>Amazon DocumentDB (with MongoDB compatibility)</ServiceName>
+    <ServiceId>DocDB</ServiceId>
     <ServiceClientInterface>IAmazonDocDB</ServiceClientInterface>
     <ServiceClient>AmazonDocDBClient</ServiceClient>
     <ServiceModuleGuid>5e765d3e-a9c9-49d2-949d-99ca8adcdde4</ServiceModuleGuid>

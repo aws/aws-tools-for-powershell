@@ -6,6 +6,7 @@
     <AssemblyName>CloudTrail</AssemblyName>
     <ServiceNounPrefix>CT</ServiceNounPrefix>
     <ServiceName>AWS CloudTrail</ServiceName>
+    <ServiceId>CloudTrail</ServiceId>
     <ServiceClientInterface>IAmazonCloudTrail</ServiceClientInterface>
     <ServiceClient>AmazonCloudTrailClient</ServiceClient>
     <ServiceModuleGuid>dec9d75f-5a99-409f-bd26-21e27062c908</ServiceModuleGuid>

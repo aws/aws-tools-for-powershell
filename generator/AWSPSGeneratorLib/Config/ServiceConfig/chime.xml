@@ -6,6 +6,7 @@
     <AssemblyName>Chime</AssemblyName>
     <ServiceNounPrefix>CHM</ServiceNounPrefix>
     <ServiceName>Amazon Chime</ServiceName>
+    <ServiceId>Chime</ServiceId>
     <ServiceClientInterface>IAmazonChime</ServiceClientInterface>
     <ServiceClient>AmazonChimeClient</ServiceClient>
     <ServiceModuleGuid>d7ccf373-c58f-4d45-859f-173a57c9a9a3</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Omics</AssemblyName>
     <ServiceNounPrefix>OMICS</ServiceNounPrefix>
     <ServiceName>Amazon Omics</ServiceName>
+    <ServiceId>Omics</ServiceId>
     <ServiceClientInterface>IAmazonOmics</ServiceClientInterface>
     <ServiceClient>AmazonOmicsClient</ServiceClient>
     <ServiceModuleGuid>242168BB-9E7B-4DE9-AC07-F3156E66A314</ServiceModuleGuid>

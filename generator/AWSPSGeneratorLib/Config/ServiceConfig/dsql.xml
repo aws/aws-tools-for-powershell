@@ -6,6 +6,7 @@
     <AssemblyName>DSQL</AssemblyName>
     <ServiceNounPrefix>DSQL</ServiceNounPrefix>
     <ServiceName>Amazon Aurora DSQL</ServiceName>
+    <ServiceId>DSQL</ServiceId>
     <ServiceClientInterface>IAmazonDSQL</ServiceClientInterface>
     <ServiceClient>AmazonDSQLClient</ServiceClient>
     <ServiceModuleGuid>fc014fe2-b3bb-473c-923c-e3aa083294ce</ServiceModuleGuid>

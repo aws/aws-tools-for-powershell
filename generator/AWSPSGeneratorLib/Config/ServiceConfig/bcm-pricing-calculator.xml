@@ -6,6 +6,7 @@
     <AssemblyName>BCMPricingCalculator</AssemblyName>
     <ServiceNounPrefix>BCMPC</ServiceNounPrefix>
     <ServiceName>AWS Pricing Calculator</ServiceName>
+    <ServiceId>BCM Pricing Calculator</ServiceId>
     <ServiceClientInterface>IAmazonBCMPricingCalculator</ServiceClientInterface>
     <ServiceClient>AmazonBCMPricingCalculatorClient</ServiceClient>
     <ServiceModuleGuid>db74072d-53af-4fb4-82f9-935b02c3f5a7</ServiceModuleGuid>

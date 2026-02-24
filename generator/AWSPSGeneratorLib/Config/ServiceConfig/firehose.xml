@@ -6,6 +6,7 @@
     <AssemblyName>KinesisFirehose</AssemblyName>
     <ServiceNounPrefix>KINF</ServiceNounPrefix>
     <ServiceName>Amazon Kinesis Firehose</ServiceName>
+    <ServiceId>Firehose</ServiceId>
     <ServiceClientInterface>IAmazonKinesisFirehose</ServiceClientInterface>
     <ServiceClient>AmazonKinesisFirehoseClient</ServiceClient>
     <ServiceModuleGuid>c3053630-8285-4f10-8f90-036467ccae30</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>IoTEvents</AssemblyName>
     <ServiceNounPrefix>IOTE</ServiceNounPrefix>
     <ServiceName>AWS IoT Events</ServiceName>
+    <ServiceId>IoT Events</ServiceId>
     <ServiceClientInterface>IAmazonIoTEvents</ServiceClientInterface>
     <ServiceClient>AmazonIoTEventsClient</ServiceClient>
     <ServiceModuleGuid>225dc48c-601f-4f7d-8285-380d612be47b</ServiceModuleGuid>

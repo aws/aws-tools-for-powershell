@@ -6,6 +6,7 @@
     <AssemblyName>BedrockAgentRuntime</AssemblyName>
     <ServiceNounPrefix>BAR</ServiceNounPrefix>
     <ServiceName>Amazon Bedrock Agent Runtime</ServiceName>
+    <ServiceId>Bedrock Agent Runtime</ServiceId>
     <ServiceClientInterface>IAmazonBedrockAgentRuntime</ServiceClientInterface>
     <ServiceClient>AmazonBedrockAgentRuntimeClient</ServiceClient>
     <ServiceModuleGuid>12f91a83-4a1d-41a5-9a38-33fe99ce73ce</ServiceModuleGuid>

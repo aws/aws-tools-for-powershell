@@ -6,6 +6,7 @@
     <AssemblyName>ServiceDiscovery</AssemblyName>
     <ServiceNounPrefix>SD</ServiceNounPrefix>
     <ServiceName>AWS Cloud Map</ServiceName>
+    <ServiceId>ServiceDiscovery</ServiceId>
     <ServiceClientInterface>IAmazonServiceDiscovery</ServiceClientInterface>
     <ServiceClient>AmazonServiceDiscoveryClient</ServiceClient>
     <ServiceModuleGuid>26868c47-57c0-4ffe-b784-7e246cd776c8</ServiceModuleGuid>

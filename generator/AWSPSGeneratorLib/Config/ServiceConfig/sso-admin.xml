@@ -6,6 +6,7 @@
     <AssemblyName>SSOAdmin</AssemblyName>
     <ServiceNounPrefix>SSOADMN</ServiceNounPrefix>
     <ServiceName>AWS Single Sign-On Admin</ServiceName>
+    <ServiceId>SSO Admin</ServiceId>
     <ServiceClientInterface>IAmazonSSOAdmin</ServiceClientInterface>
     <ServiceClient>AmazonSSOAdminClient</ServiceClient>
     <ServiceModuleGuid>740e18d5-9595-4361-8485-6b3371ad1099</ServiceModuleGuid>

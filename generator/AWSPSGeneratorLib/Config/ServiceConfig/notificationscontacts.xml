@@ -6,6 +6,7 @@
     <AssemblyName>NotificationsContacts</AssemblyName>
     <ServiceNounPrefix>UNC</ServiceNounPrefix>
     <ServiceName>AWS User Notifications Contacts</ServiceName>
+    <ServiceId>NotificationsContacts</ServiceId>
     <ServiceClientInterface>IAmazonNotificationsContacts</ServiceClientInterface>
     <ServiceClient>AmazonNotificationsContactsClient</ServiceClient>
     <ServiceModuleGuid>c63adc44-47a8-407c-a25d-505c87020e82</ServiceModuleGuid>

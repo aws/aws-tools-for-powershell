@@ -6,6 +6,7 @@
     <AssemblyName>ResourceExplorer2</AssemblyName>
     <ServiceNounPrefix>AREX</ServiceNounPrefix>
     <ServiceName>AWS Resource Explorer</ServiceName>
+    <ServiceId>Resource Explorer 2</ServiceId>
     <ServiceClientInterface>IAmazonResourceExplorer2</ServiceClientInterface>
     <ServiceClient>AmazonResourceExplorer2Client</ServiceClient>
     <ServiceModuleGuid>23770a75-67df-47b3-8ccc-87c6822a31e7</ServiceModuleGuid>

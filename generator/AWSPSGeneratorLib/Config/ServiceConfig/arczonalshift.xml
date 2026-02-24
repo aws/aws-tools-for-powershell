@@ -6,6 +6,7 @@
     <AssemblyName>ARCZonalShift</AssemblyName>
     <ServiceNounPrefix>AZS</ServiceNounPrefix>
     <ServiceName>AWS ARC - Zonal Shift</ServiceName>
+    <ServiceId>ARC Zonal Shift</ServiceId>
     <ServiceClientInterface>IAmazonARCZonalShift</ServiceClientInterface>
     <ServiceClient>AmazonARCZonalShiftClient</ServiceClient>
     <ServiceModuleGuid>66CADA54-FB7D-46FD-B3DF-7F8E7E6576D2</ServiceModuleGuid>

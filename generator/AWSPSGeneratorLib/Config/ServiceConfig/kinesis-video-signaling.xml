@@ -5,6 +5,7 @@
     <AssemblyName>KinesisVideoSignalingChannels</AssemblyName>
     <ServiceNounPrefix>KVSC</ServiceNounPrefix>
     <ServiceName>Amazon Kinesis Video Signaling Channels</ServiceName>
+    <ServiceId>Kinesis Video Signaling</ServiceId>
     <ServiceClientInterface>IAmazonKinesisVideoSignalingChannels</ServiceClientInterface>
     <ServiceClient>AmazonKinesisVideoSignalingChannelsClient</ServiceClient>
     <ServiceModuleGuid>fcb6153c-1957-4c47-9faa-2bc9b838d46d</ServiceModuleGuid>

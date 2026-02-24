@@ -6,6 +6,7 @@
     <AssemblyName>Artifact</AssemblyName>
     <ServiceNounPrefix>ART</ServiceNounPrefix>
     <ServiceName>AWS Artifact</ServiceName>
+    <ServiceId>Artifact</ServiceId>
     <ServiceClientInterface>IAmazonArtifact</ServiceClientInterface>
     <ServiceClient>AmazonArtifactClient</ServiceClient>
     <ServiceModuleGuid>6dad554e-2dc9-4f7d-886e-fd881ef98489</ServiceModuleGuid>

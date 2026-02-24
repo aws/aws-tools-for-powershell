@@ -6,6 +6,7 @@
     <AssemblyName>ECS</AssemblyName>
     <ServiceNounPrefix>ECS</ServiceNounPrefix>
     <ServiceName>Amazon EC2 Container Service</ServiceName>
+    <ServiceId>ECS</ServiceId>
     <ServiceClientInterface>IAmazonECS</ServiceClientInterface>
     <ServiceClient>AmazonECSClient</ServiceClient>
     <ServiceModuleGuid>2dbc30b1-a51e-43d2-ba26-b4dde5a65ac7</ServiceModuleGuid>

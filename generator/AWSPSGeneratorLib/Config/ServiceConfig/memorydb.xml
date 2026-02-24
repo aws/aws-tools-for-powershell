@@ -6,6 +6,7 @@
     <AssemblyName>MemoryDB</AssemblyName>
     <ServiceNounPrefix>MDB</ServiceNounPrefix>
     <ServiceName>Amazon MemoryDB</ServiceName>
+    <ServiceId>MemoryDB</ServiceId>
     <ServiceClientInterface>IAmazonMemoryDB</ServiceClientInterface>
     <ServiceClient>AmazonMemoryDBClient</ServiceClient>
     <ServiceModuleGuid>9984A8B8-024D-4C50-BF2C-61D429D06AFA</ServiceModuleGuid>

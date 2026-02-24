@@ -6,6 +6,7 @@
     <AssemblyName>PersonalizeRuntime</AssemblyName>
     <ServiceNounPrefix>PERSR</ServiceNounPrefix>
     <ServiceName>Amazon Personalize Runtime</ServiceName>
+    <ServiceId>Personalize Runtime</ServiceId>
     <ServiceClientInterface>IAmazonPersonalizeRuntime</ServiceClientInterface>
     <ServiceClient>AmazonPersonalizeRuntimeClient</ServiceClient>
     <ServiceModuleGuid>ef1c4a90-386c-4944-ad3b-88b46ce9672f</ServiceModuleGuid>

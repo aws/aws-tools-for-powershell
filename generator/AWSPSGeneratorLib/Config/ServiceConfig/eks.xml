@@ -6,6 +6,7 @@
     <AssemblyName>EKS</AssemblyName>
     <ServiceNounPrefix>EKS</ServiceNounPrefix>
     <ServiceName>Amazon Elastic Container Service for Kubernetes</ServiceName>
+    <ServiceId>EKS</ServiceId>
     <ServiceClientInterface>IAmazonEKS</ServiceClientInterface>
     <ServiceClient>AmazonEKSClient</ServiceClient>
     <ServiceModuleGuid>ee261d25-1f71-432f-848f-345d225b4f18</ServiceModuleGuid>

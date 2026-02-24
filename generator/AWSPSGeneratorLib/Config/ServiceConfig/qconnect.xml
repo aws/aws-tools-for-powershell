@@ -6,6 +6,7 @@
     <AssemblyName>QConnect</AssemblyName>
     <ServiceNounPrefix>QC</ServiceNounPrefix>
     <ServiceName>Amazon Q Connect</ServiceName>
+    <ServiceId>QConnect</ServiceId>
     <ServiceClientInterface>IAmazonQConnect</ServiceClientInterface>
     <ServiceClient>AmazonQConnectClient</ServiceClient>
     <ServiceModuleGuid>9ef1fd55-f80e-4a6d-a074-e5fda14b517c</ServiceModuleGuid>

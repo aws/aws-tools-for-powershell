@@ -5,6 +5,7 @@
     <AssemblyName>RDSDataService</AssemblyName>
     <ServiceNounPrefix>RDSD</ServiceNounPrefix>
     <ServiceName>AWS RDS DataService</ServiceName>
+    <ServiceId>RDS Data</ServiceId>
     <ServiceClientInterface>IAmazonRDSDataService</ServiceClientInterface>
     <ServiceClient>AmazonRDSDataServiceClient</ServiceClient>
     <ServiceModuleGuid>f08062ce-5259-4953-9e95-82e7409718c1</ServiceModuleGuid>

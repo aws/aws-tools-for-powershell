@@ -6,6 +6,7 @@
     <AssemblyName>CodeCommit</AssemblyName>
     <ServiceNounPrefix>CC</ServiceNounPrefix>
     <ServiceName>AWS CodeCommit</ServiceName>
+    <ServiceId>CodeCommit</ServiceId>
     <ServiceClientInterface>IAmazonCodeCommit</ServiceClientInterface>
     <ServiceClient>AmazonCodeCommitClient</ServiceClient>
     <ServiceModuleGuid>5f206fe6-4671-414f-a234-6b27532a8e9c</ServiceModuleGuid>

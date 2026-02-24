@@ -6,6 +6,7 @@
     <AssemblyName>AppStream</AssemblyName>
     <ServiceNounPrefix>APS</ServiceNounPrefix>
     <ServiceName>Amazon AppStream</ServiceName>
+    <ServiceId>AppStream</ServiceId>
     <ServiceClientInterface>IAmazonAppStream</ServiceClientInterface>
     <ServiceClient>AmazonAppStreamClient</ServiceClient>
     <ServiceModuleGuid>9cfaaf63-6fcf-4a1a-9dac-f2e96198c5e3</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>ResourceGroupsTaggingAPI</AssemblyName>
     <ServiceNounPrefix>RGT</ServiceNounPrefix>
     <ServiceName>AWS Resource Groups Tagging API</ServiceName>
+    <ServiceId>Resource Groups Tagging API</ServiceId>
     <ServiceClientInterface>IAmazonResourceGroupsTaggingAPI</ServiceClientInterface>
     <ServiceClient>AmazonResourceGroupsTaggingAPIClient</ServiceClient>
     <ServiceModuleGuid>62f98115-6c32-480f-ab85-0cdec1078c7b</ServiceModuleGuid>

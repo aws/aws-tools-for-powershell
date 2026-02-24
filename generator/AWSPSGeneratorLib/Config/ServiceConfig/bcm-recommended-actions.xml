@@ -6,6 +6,7 @@
     <AssemblyName>BCMRecommendedActions</AssemblyName>
     <ServiceNounPrefix>BCMRA</ServiceNounPrefix>
     <ServiceName>AWS Billing And Cost Management Recommended Actions</ServiceName>
+    <ServiceId>BCM Recommended Actions</ServiceId>
     <ServiceClientInterface>IAmazonBCMRecommendedActions</ServiceClientInterface>
     <ServiceClient>AmazonBCMRecommendedActionsClient</ServiceClient>
     <ServiceModuleGuid>6db2e946-0866-47c9-a271-caf32f1b90a0</ServiceModuleGuid>

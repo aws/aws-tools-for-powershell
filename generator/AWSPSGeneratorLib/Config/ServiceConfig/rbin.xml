@@ -6,6 +6,7 @@
     <AssemblyName>RecycleBin</AssemblyName>
     <ServiceNounPrefix>RBIN</ServiceNounPrefix>
     <ServiceName>Amazon Recycle Bin</ServiceName>
+    <ServiceId>rbin</ServiceId>
     <ServiceClientInterface>IAmazonRecycleBin</ServiceClientInterface>
     <ServiceClient>AmazonRecycleBinClient</ServiceClient>
     <ServiceModuleGuid>49743f41-231b-4f6a-be2c-592e062c0a1d</ServiceModuleGuid>

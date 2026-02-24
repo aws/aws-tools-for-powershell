@@ -6,6 +6,7 @@
     <AssemblyName>EntityResolution</AssemblyName>
     <ServiceNounPrefix>ERES</ServiceNounPrefix>
     <ServiceName>AWS EntityResolution</ServiceName>
+    <ServiceId>EntityResolution</ServiceId>
     <ServiceClientInterface>IAmazonEntityResolution</ServiceClientInterface>
     <ServiceClient>AmazonEntityResolutionClient</ServiceClient>
     <ServiceModuleGuid>7ad463f2-2814-4c46-8130-a9825d1fd892</ServiceModuleGuid>

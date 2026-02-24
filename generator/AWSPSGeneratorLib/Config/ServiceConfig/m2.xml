@@ -6,6 +6,7 @@
     <AssemblyName>MainframeModernization</AssemblyName>
     <ServiceNounPrefix>AMM</ServiceNounPrefix>
     <ServiceName>M2</ServiceName>
+    <ServiceId>m2</ServiceId>
     <ServiceClientInterface>IAmazonMainframeModernization</ServiceClientInterface>
     <ServiceClient>AmazonMainframeModernizationClient</ServiceClient>
     <ServiceModuleGuid>57080b12-a237-4781-86bc-06b393435106</ServiceModuleGuid>

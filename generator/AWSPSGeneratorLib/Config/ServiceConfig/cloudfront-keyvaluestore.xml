@@ -6,6 +6,7 @@
     <AssemblyName>CloudFrontKeyValueStore</AssemblyName>
     <ServiceNounPrefix>CFKV</ServiceNounPrefix>
     <ServiceName>Amazon CloudFront KeyValueStore</ServiceName>
+    <ServiceId>CloudFront KeyValueStore</ServiceId>
     <ServiceClientInterface>IAmazonCloudFrontKeyValueStore</ServiceClientInterface>
     <ServiceClient>AmazonCloudFrontKeyValueStoreClient</ServiceClient>
     <ServiceModuleGuid>07547444-c066-4aeb-bce8-ad862fe7c6fb</ServiceModuleGuid>

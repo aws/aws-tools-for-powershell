@@ -6,6 +6,7 @@
     <AssemblyName>MWAA</AssemblyName>
     <ServiceNounPrefix>MWAA</ServiceNounPrefix>
     <ServiceName>AmazonMWAA</ServiceName>
+    <ServiceId>MWAA</ServiceId>
     <ServiceClientInterface>IAmazonMWAA</ServiceClientInterface>
     <ServiceClient>AmazonMWAAClient</ServiceClient>
     <ServiceModuleGuid>F918746C-B262-48E0-9EB8-D9EAD89B4E13</ServiceModuleGuid>

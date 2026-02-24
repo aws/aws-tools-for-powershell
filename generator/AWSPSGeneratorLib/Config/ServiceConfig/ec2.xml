@@ -6,6 +6,7 @@
     <AssemblyName>EC2</AssemblyName>
     <ServiceNounPrefix>EC2</ServiceNounPrefix>
     <ServiceName>Amazon Elastic Compute Cloud (EC2)</ServiceName>
+    <ServiceId>EC2</ServiceId>
     <ServiceClientInterface>IAmazonEC2</ServiceClientInterface>
     <ServiceClient>AmazonEC2Client</ServiceClient>
     <ServiceModuleGuid>beb2445c-fd90-4fda-adf1-f8c955ce16dc</ServiceModuleGuid>

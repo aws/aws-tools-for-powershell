@@ -6,6 +6,7 @@
     <AssemblyName>LakeFormation</AssemblyName>
     <ServiceNounPrefix>LKF</ServiceNounPrefix>
     <ServiceName>AWS Lake Formation</ServiceName>
+    <ServiceId>LakeFormation</ServiceId>
     <ServiceClientInterface>IAmazonLakeFormation</ServiceClientInterface>
     <ServiceClient>AmazonLakeFormationClient</ServiceClient>
     <ServiceModuleGuid>86807489-62b6-4973-a06b-ee9c4abacf2a</ServiceModuleGuid>

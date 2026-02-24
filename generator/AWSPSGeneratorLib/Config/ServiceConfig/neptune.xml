@@ -6,6 +6,7 @@
     <AssemblyName>Neptune</AssemblyName>
     <ServiceNounPrefix>NPT</ServiceNounPrefix>
     <ServiceName>Amazon Neptune</ServiceName>
+    <ServiceId>Neptune</ServiceId>
     <ServiceClientInterface>IAmazonNeptune</ServiceClientInterface>
     <ServiceClient>AmazonNeptuneClient</ServiceClient>
     <ServiceModuleGuid>456babab-1a76-4be8-8cc5-6d2de1e7d9a0</ServiceModuleGuid>

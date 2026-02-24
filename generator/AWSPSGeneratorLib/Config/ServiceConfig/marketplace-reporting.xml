@@ -6,6 +6,7 @@
     <AssemblyName>MarketplaceReporting</AssemblyName>
     <ServiceNounPrefix>MR</ServiceNounPrefix>
     <ServiceName>AWS Marketplace Reporting Service</ServiceName>
+    <ServiceId>Marketplace Reporting</ServiceId>
     <ServiceClientInterface>IAmazonMarketplaceReporting</ServiceClientInterface>
     <ServiceClient>AmazonMarketplaceReportingClient</ServiceClient>
     <ServiceModuleGuid>38b3482b-3a3b-4fdf-ae08-072fe3206a64</ServiceModuleGuid>

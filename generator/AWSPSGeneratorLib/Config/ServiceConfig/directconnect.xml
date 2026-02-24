@@ -6,6 +6,7 @@
     <AssemblyName>DirectConnect</AssemblyName>
     <ServiceNounPrefix>DC</ServiceNounPrefix>
     <ServiceName>AWS Direct Connect</ServiceName>
+    <ServiceId>Direct Connect</ServiceId>
     <ServiceClientInterface>IAmazonDirectConnect</ServiceClientInterface>
     <ServiceClient>AmazonDirectConnectClient</ServiceClient>
     <ServiceModuleGuid>e40ff124-5a6a-4c7c-89fa-e6155781feb5</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>SupportApp</AssemblyName>
     <ServiceNounPrefix>SUP</ServiceNounPrefix>
     <ServiceName>AWS Support App</ServiceName>
+    <ServiceId>Support App</ServiceId>
     <ServiceClientInterface>IAmazonSupportApp</ServiceClientInterface>
     <ServiceClient>AmazonSupportAppClient</ServiceClient>
     <ServiceModuleGuid>e998faef-1207-41f5-9dc8-f2bc3ca4abcd</ServiceModuleGuid>

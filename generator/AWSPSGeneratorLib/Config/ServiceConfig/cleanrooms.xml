@@ -6,6 +6,7 @@
     <AssemblyName>CleanRooms</AssemblyName>
     <ServiceNounPrefix>CRS</ServiceNounPrefix>
     <ServiceName>AWS Clean Rooms Service</ServiceName>
+    <ServiceId>CleanRooms</ServiceId>
     <ServiceClientInterface>IAmazonCleanRooms</ServiceClientInterface>
     <ServiceClient>AmazonCleanRoomsClient</ServiceClient>
     <ServiceModuleGuid>6688eea5-a0e9-4b25-98f3-4017334da5dc</ServiceModuleGuid>

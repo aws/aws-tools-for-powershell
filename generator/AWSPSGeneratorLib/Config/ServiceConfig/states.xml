@@ -6,6 +6,7 @@
     <AssemblyName>StepFunctions</AssemblyName>
     <ServiceNounPrefix>SFN</ServiceNounPrefix>
     <ServiceName>AWS Step Functions</ServiceName>
+    <ServiceId>SFN</ServiceId>
     <ServiceClientInterface>IAmazonStepFunctions</ServiceClientInterface>
     <ServiceClient>AmazonStepFunctionsClient</ServiceClient>
     <ServiceModuleGuid>29491b9d-2ca3-4c90-87e6-4c9892e95657</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Pinpoint</AssemblyName>
     <ServiceNounPrefix>PIN</ServiceNounPrefix>
     <ServiceName>Amazon Pinpoint</ServiceName>
+    <ServiceId>Pinpoint</ServiceId>
     <ServiceClientInterface>IAmazonPinpoint</ServiceClientInterface>
     <ServiceClient>AmazonPinpointClient</ServiceClient>
     <ServiceModuleGuid>e46abf94-73c9-4ed2-b4d5-4a9df908a970</ServiceModuleGuid>

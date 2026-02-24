@@ -6,6 +6,7 @@
     <AssemblyName>SageMaker</AssemblyName>
     <ServiceNounPrefix>SM</ServiceNounPrefix>
     <ServiceName>Amazon SageMaker Service</ServiceName>
+    <ServiceId>SageMaker</ServiceId>
     <ServiceClientInterface>IAmazonSageMaker</ServiceClientInterface>
     <ServiceClient>AmazonSageMakerClient</ServiceClient>
     <ServiceModuleGuid>2c5c1112-6b0f-437e-b18c-2da050c9f8c9</ServiceModuleGuid>

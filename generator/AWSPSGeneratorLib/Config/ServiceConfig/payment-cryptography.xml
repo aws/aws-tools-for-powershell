@@ -6,6 +6,7 @@
     <AssemblyName>PaymentCryptography</AssemblyName>
     <ServiceNounPrefix>PAYCC</ServiceNounPrefix>
     <ServiceName>Payment Cryptography Control Plane</ServiceName>
+    <ServiceId>Payment Cryptography</ServiceId>
     <ServiceClientInterface>IAmazonPaymentCryptography</ServiceClientInterface>
     <ServiceClient>AmazonPaymentCryptographyClient</ServiceClient>
     <ServiceModuleGuid>dd3f0f39-ead7-4de4-aba4-e078c92457c1</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Shield</AssemblyName>
     <ServiceNounPrefix>SHLD</ServiceNounPrefix>
     <ServiceName>AWS Shield</ServiceName>
+    <ServiceId>Shield</ServiceId>
     <ServiceClientInterface>IAmazonShield</ServiceClientInterface>
     <ServiceClient>AmazonShieldClient</ServiceClient>
     <ServiceModuleGuid>78e23ebe-d7a0-4412-a9e4-7b1d73cbacbd</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>GlobalAccelerator</AssemblyName>
     <ServiceNounPrefix>GACL</ServiceNounPrefix>
     <ServiceName>AWS Global Accelerator</ServiceName>
+    <ServiceId>Global Accelerator</ServiceId>
     <ServiceClientInterface>IAmazonGlobalAccelerator</ServiceClientInterface>
     <ServiceClient>AmazonGlobalAcceleratorClient</ServiceClient>
     <ServiceModuleGuid>cc19ec13-42bd-46e0-862e-cae7f5eb6845</ServiceModuleGuid>

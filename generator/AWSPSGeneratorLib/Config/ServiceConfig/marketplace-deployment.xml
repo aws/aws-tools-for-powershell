@@ -6,6 +6,7 @@
     <AssemblyName>MarketplaceDeployment</AssemblyName>
     <ServiceNounPrefix>MD</ServiceNounPrefix>
     <ServiceName>AWS Marketplace Deployment Service</ServiceName>
+    <ServiceId>Marketplace Deployment</ServiceId>
     <ServiceClientInterface>IAmazonMarketplaceDeployment</ServiceClientInterface>
     <ServiceClient>AmazonMarketplaceDeploymentClient</ServiceClient>
     <ServiceModuleGuid>ae4f9c3b-bc27-4cd9-8e74-170e98e91b3e</ServiceModuleGuid>

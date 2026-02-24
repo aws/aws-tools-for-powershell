@@ -6,6 +6,7 @@
     <AssemblyName>SimpleSystemsManagement</AssemblyName>
     <ServiceNounPrefix>SSM</ServiceNounPrefix>
     <ServiceName>AWS Systems Manager</ServiceName>
+    <ServiceId>SSM</ServiceId>
     <ServiceClientInterface>IAmazonSimpleSystemsManagement</ServiceClientInterface>
     <ServiceClient>AmazonSimpleSystemsManagementClient</ServiceClient>
     <ServiceModuleGuid>edb5d1c1-b090-47b3-a133-a36321592456</ServiceModuleGuid>

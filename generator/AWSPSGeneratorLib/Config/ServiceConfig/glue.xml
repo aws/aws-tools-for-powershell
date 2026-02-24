@@ -6,6 +6,7 @@
     <AssemblyName>Glue</AssemblyName>
     <ServiceNounPrefix>GLUE</ServiceNounPrefix>
     <ServiceName>AWS Glue</ServiceName>
+    <ServiceId>Glue</ServiceId>
     <ServiceClientInterface>IAmazonGlue</ServiceClientInterface>
     <ServiceClient>AmazonGlueClient</ServiceClient>
     <ServiceModuleGuid>4c852a13-4bb9-4d9b-891e-10d7c65b8922</ServiceModuleGuid>

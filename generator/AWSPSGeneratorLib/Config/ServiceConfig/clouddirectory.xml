@@ -6,6 +6,7 @@
     <AssemblyName>CloudDirectory</AssemblyName>
     <ServiceNounPrefix>CDIR</ServiceNounPrefix>
     <ServiceName>Amazon Cloud Directory</ServiceName>
+    <ServiceId>CloudDirectory</ServiceId>
     <ServiceClientInterface>IAmazonCloudDirectory</ServiceClientInterface>
     <ServiceClient>AmazonCloudDirectoryClient</ServiceClient>
     <ServiceModuleGuid>a1f4e1ff-371a-4ca4-ad09-4084353353c7</ServiceModuleGuid>

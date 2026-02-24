@@ -6,6 +6,7 @@
     <AssemblyName>PartnerCentralSelling</AssemblyName>
     <ServiceNounPrefix>PC</ServiceNounPrefix>
     <ServiceName>Partner Central Selling API</ServiceName>
+    <ServiceId>PartnerCentral Selling</ServiceId>
     <ServiceClientInterface>IAmazonPartnerCentralSelling</ServiceClientInterface>
     <ServiceClient>AmazonPartnerCentralSellingClient</ServiceClient>
     <ServiceModuleGuid>03d14f9c-b353-42cf-9722-4b13a3128df0</ServiceModuleGuid>

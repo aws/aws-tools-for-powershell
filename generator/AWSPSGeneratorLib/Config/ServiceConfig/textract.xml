@@ -6,6 +6,7 @@
     <AssemblyName>Textract</AssemblyName>
     <ServiceNounPrefix>TXT</ServiceNounPrefix>
     <ServiceName>Amazon Textract</ServiceName>
+    <ServiceId>Textract</ServiceId>
     <ServiceClientInterface>IAmazonTextract</ServiceClientInterface>
     <ServiceClient>AmazonTextractClient</ServiceClient>
     <ServiceModuleGuid>8dc6ae52-be00-440c-987f-b32522590278</ServiceModuleGuid>

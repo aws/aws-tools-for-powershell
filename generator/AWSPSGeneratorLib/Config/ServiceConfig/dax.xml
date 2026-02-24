@@ -5,6 +5,7 @@
     <AssemblyName>DAX</AssemblyName>
     <ServiceNounPrefix>DAX</ServiceNounPrefix>
     <ServiceName>Amazon DynamoDB Accelerator (DAX)</ServiceName>
+    <ServiceId>DAX</ServiceId>
     <ServiceClientInterface>IAmazonDAX</ServiceClientInterface>
     <ServiceClient>AmazonDAXClient</ServiceClient>
     <ServiceModuleGuid>c3f4bb50-e476-4d0f-8478-13a292fa1394</ServiceModuleGuid>

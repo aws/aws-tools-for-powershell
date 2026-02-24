@@ -6,6 +6,7 @@
     <AssemblyName>ComprehendMedical</AssemblyName>
     <ServiceNounPrefix>CMPM</ServiceNounPrefix>
     <ServiceName>AWS Comprehend Medical</ServiceName>
+    <ServiceId>ComprehendMedical</ServiceId>
     <ServiceClientInterface>IAmazonComprehendMedical</ServiceClientInterface>
     <ServiceClient>AmazonComprehendMedicalClient</ServiceClient>
     <ServiceModuleGuid>cbd15317-2a4b-439c-825f-32489d4c9f01</ServiceModuleGuid>

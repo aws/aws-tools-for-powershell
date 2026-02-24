@@ -6,6 +6,7 @@
     <AssemblyName>CodeGuruSecurity</AssemblyName>
     <ServiceNounPrefix>CGS</ServiceNounPrefix>
     <ServiceName>Amazon CodeGuru Security</ServiceName>
+    <ServiceId>CodeGuru Security</ServiceId>
     <ServiceClientInterface>IAmazonCodeGuruSecurity</ServiceClientInterface>
     <ServiceClient>AmazonCodeGuruSecurityClient</ServiceClient>
     <ServiceModuleGuid>0ec4c22a-773d-48f8-a24d-35ed83758d47</ServiceModuleGuid>

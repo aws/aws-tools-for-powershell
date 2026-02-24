@@ -6,6 +6,7 @@
     <AssemblyName>ApplicationDiscoveryService</AssemblyName>
     <ServiceNounPrefix>ADS</ServiceNounPrefix>
     <ServiceName>AWS Application Discovery Service</ServiceName>
+    <ServiceId>Application Discovery Service</ServiceId>
     <ServiceClientInterface>IAmazonApplicationDiscoveryService</ServiceClientInterface>
     <ServiceClient>AmazonApplicationDiscoveryServiceClient</ServiceClient>
     <ServiceModuleGuid>dc4da8d4-f268-46e3-8100-db8cebf8532a</ServiceModuleGuid>

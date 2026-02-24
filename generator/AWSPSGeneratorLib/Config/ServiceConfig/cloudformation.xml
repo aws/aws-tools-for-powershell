@@ -6,6 +6,7 @@
     <AssemblyName>CloudFormation</AssemblyName>
     <ServiceNounPrefix>CFN</ServiceNounPrefix>
     <ServiceName>AWS CloudFormation</ServiceName>
+    <ServiceId>CloudFormation</ServiceId>
     <ServiceClientInterface>IAmazonCloudFormation</ServiceClientInterface>
     <ServiceClient>AmazonCloudFormationClient</ServiceClient>
     <ServiceModuleGuid>25a56d59-4904-4dde-a346-7fe941d04baa</ServiceModuleGuid>

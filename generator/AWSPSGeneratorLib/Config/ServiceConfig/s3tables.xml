@@ -6,6 +6,7 @@
     <AssemblyName>S3Tables</AssemblyName>
     <ServiceNounPrefix>S3T</ServiceNounPrefix>
     <ServiceName>Amazon S3 Tables</ServiceName>
+    <ServiceId>S3Tables</ServiceId>
     <ServiceClientInterface>IAmazonS3Tables</ServiceClientInterface>
     <ServiceClient>AmazonS3TablesClient</ServiceClient>
     <ServiceModuleGuid>5121f909-cef1-4370-a462-ec1f312b27d7</ServiceModuleGuid>

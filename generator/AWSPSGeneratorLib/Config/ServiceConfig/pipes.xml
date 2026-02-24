@@ -6,6 +6,7 @@
     <AssemblyName>Pipes</AssemblyName>
     <ServiceNounPrefix>PIPES</ServiceNounPrefix>
     <ServiceName>Amazon EventBridge Pipes</ServiceName>
+    <ServiceId>Pipes</ServiceId>
     <ServiceClientInterface>IAmazonPipes</ServiceClientInterface>
     <ServiceClient>AmazonPipesClient</ServiceClient>
     <ServiceModuleGuid>01c99d3c-cf0d-4a79-a41f-1b9c83b146c6</ServiceModuleGuid>
