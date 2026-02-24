@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
     /// </para></dd><dt>Microsoft Sources (Entra ID, Office365, Windows)</dt><dd><para><b>Updatable:</b> All Amazon Web Services Secrets Manager attributes, <c>tenant_id</c>,
     /// <c>workspace_id</c> (Windows only), OAuth2 credentials (<c>client_id</c>, <c>client_secret</c>)
     /// </para></dd><dt>Okta Sources (SSO, Auth0)</dt><dd><para><b>Updatable:</b> All Amazon Web Services Secrets Manager attributes, <c>domain</c>,
-    /// <c>range</c> (SSO only), OAuth2 credentials (<c>client_id</c>, <c>client_secret</c>)
+    /// <c>range</c>, OAuth2 credentials (<c>client_id</c>, <c>client_secret</c>)
     /// </para></dd><dt>Palo Alto Networks</dt><dd><para><b>Updatable:</b> All Amazon Web Services Secrets Manager attributes, <c>hostname</c>,
     /// basic authentication credentials (<c>username</c>, <c>password</c>)
     /// </para></dd><dt>ServiceNow CMDB</dt><dd><para><b>Updatable:</b> All Amazon Web Services Secrets Manager attributes, <c>instance_url</c>,

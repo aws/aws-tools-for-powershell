@@ -148,6 +148,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.EncoderSettings EncoderSetting { get; set; }
         #endregion
         
+        #region Parameter InferenceSettings_FeedArn
+        /// <summary>
+        /// <para>
+        /// The ARN of the feed resource that is associated
+        /// with this channel. The feed is a resource in the Elemental Inference service.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InferenceSettings_FeedArn { get; set; }
+        #endregion
+        
         #region Parameter InputAttachment
         /// <summary>
         /// <para>
@@ -373,6 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             context.DryRun = this.DryRun;
             context.EncoderSetting = this.EncoderSetting;
+            context.InferenceSettings_FeedArn = this.InferenceSettings_FeedArn;
             if (this.InputAttachment != null)
             {
                 context.InputAttachment = new List<Amazon.MediaLive.Model.InputAttachment>(this.InputAttachment);
@@ -491,6 +503,25 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.EncoderSetting != null)
             {
                 request.EncoderSettings = cmdletContext.EncoderSetting;
+            }
+            
+             // populate InferenceSettings
+            var requestInferenceSettingsIsNull = true;
+            request.InferenceSettings = new Amazon.MediaLive.Model.InferenceSettings();
+            System.String requestInferenceSettings_inferenceSettings_FeedArn = null;
+            if (cmdletContext.InferenceSettings_FeedArn != null)
+            {
+                requestInferenceSettings_inferenceSettings_FeedArn = cmdletContext.InferenceSettings_FeedArn;
+            }
+            if (requestInferenceSettings_inferenceSettings_FeedArn != null)
+            {
+                request.InferenceSettings.FeedArn = requestInferenceSettings_inferenceSettings_FeedArn;
+                requestInferenceSettingsIsNull = false;
+            }
+             // determine if request.InferenceSettings should be set to null
+            if (requestInferenceSettingsIsNull)
+            {
+                request.InferenceSettings = null;
             }
             if (cmdletContext.InputAttachment != null)
             {
@@ -719,6 +750,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public List<Amazon.MediaLive.Model.OutputDestination> Destination { get; set; }
             public System.Boolean? DryRun { get; set; }
             public Amazon.MediaLive.Model.EncoderSettings EncoderSetting { get; set; }
+            public System.String InferenceSettings_FeedArn { get; set; }
             public List<Amazon.MediaLive.Model.InputAttachment> InputAttachment { get; set; }
             public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }
             public Amazon.MediaLive.InputMaximumBitrate InputSpecification_MaximumBitrate { get; set; }

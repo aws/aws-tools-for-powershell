@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.197.0",
+    "ProductVersion"    : "4.0.198.0",
     "CoreVersion"       : "4.0.3.15",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -80,7 +80,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "4.0.7.1",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.76.1",
+            "Version" : "4.0.77.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -412,7 +412,7 @@
             "InPreview"               : false
         },
         "Elasticsearch"             : {
-            "Version" : "4.0.2.16",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -828,7 +828,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "4.0.16.1",
+            "Version" : "4.0.17.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -2068,7 +2068,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "4.0.9.6",
+            "Version" : "4.0.10.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -3020,7 +3020,7 @@
             "InPreview"               : false
         },
         "PartnerCentralSelling"               : {
-            "Version" : "4.0.8.1",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -3060,7 +3060,7 @@
             "InPreview"               : false
         },
         "ObservabilityAdmin"                  : {
-            "Version" : "4.0.5.9",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -3333,6 +3333,14 @@
         },
         "SignerData"                          : {
             "Version" : "4.0.0.1",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.3.15"
+            },
+            "InPreview"               : false
+        },
+        "ElementalInference"                  : {
+            "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"

@@ -1,4 +1,23 @@
-﻿### 5.0.161 (2026-02-23 21:19Z)
+﻿### 5.0.162 (2026-02-24 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.198.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch
+    * Added cmdlet Get-CWAlarmMuteRule leveraging the GetAlarmMuteRule service API.
+    * Added cmdlet Get-CWAlarmMuteRuleList leveraging the ListAlarmMuteRules service API.
+    * Added cmdlet Remove-CWAlarmMuteRule leveraging the DeleteAlarmMuteRule service API.
+    * Added cmdlet Write-CWAlarmMuteRule leveraging the PutAlarmMuteRule service API.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern.
+    * Modified cmdlet Update-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Edit-EC2InstanceMetadataDefault: added parameter HttpTokensEnforced.
+  * Amazon Elemental Inference. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EMI and can be listed using the command 'Get-AWSCmdletName -Service EMI'.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLChannel: added parameter InferenceSettings_FeedArn.
+    * Modified cmdlet Update-EMLChannel: added parameter InferenceSettings_FeedArn.
+  * Amazon Partner Central Selling API
+    * Modified cmdlet Get-PCOpportunityList: added parameters TargetCloseDate_AfterTargetCloseDate and TargetCloseDate_BeforeTargetCloseDate.
+
+### 5.0.161 (2026-02-23 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.197.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Modified cmdlet Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset: added parameter AssetId.

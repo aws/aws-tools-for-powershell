@@ -103,6 +103,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.MetadataDefaultHttpTokensState HttpToken { get; set; }
         #endregion
         
+        #region Parameter HttpTokensEnforced
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enforce the requirement of IMDSv2 on an instance at the time
+        /// of launch. When enforcement is enabled, the instance can't launch unless IMDSv2 (<c>HttpTokens</c>)
+        /// is set to <c>required</c>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#enforce-imdsv2-at-the-account-level">Enforce
+        /// IMDSv2 at the account level</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.DefaultHttpTokensEnforcedState")]
+        public Amazon.EC2.DefaultHttpTokensEnforcedState HttpTokensEnforced { get; set; }
+        #endregion
+        
         #region Parameter InstanceMetadataTag
         /// <summary>
         /// <para>
@@ -168,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.HttpEndpoint = this.HttpEndpoint;
             context.HttpPutResponseHopLimit = this.HttpPutResponseHopLimit;
             context.HttpToken = this.HttpToken;
+            context.HttpTokensEnforced = this.HttpTokensEnforced;
             context.InstanceMetadataTag = this.InstanceMetadataTag;
             
             // allow further manipulation of loaded context prior to processing
@@ -200,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.HttpToken != null)
             {
                 request.HttpTokens = cmdletContext.HttpToken;
+            }
+            if (cmdletContext.HttpTokensEnforced != null)
+            {
+                request.HttpTokensEnforced = cmdletContext.HttpTokensEnforced;
             }
             if (cmdletContext.InstanceMetadataTag != null)
             {
@@ -264,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.DefaultInstanceMetadataEndpointState HttpEndpoint { get; set; }
             public System.Int32? HttpPutResponseHopLimit { get; set; }
             public Amazon.EC2.MetadataDefaultHttpTokensState HttpToken { get; set; }
+            public Amazon.EC2.DefaultHttpTokensEnforcedState HttpTokensEnforced { get; set; }
             public Amazon.EC2.DefaultInstanceMetadataTagsState InstanceMetadataTag { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse, EditEC2InstanceMetadataDefaultCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;
