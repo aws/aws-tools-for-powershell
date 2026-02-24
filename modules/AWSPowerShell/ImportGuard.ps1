@@ -46,3 +46,11 @@ AWSPowerShell is the legacy module for older systems which are either running Wi
 }
 
 AWSToolsImportGuard
+
+if (-not $global:AWSPowerShellMaintenanceWarningShown) {
+    $global:AWSPowerShellMaintenanceWarningShown = $true
+    [System.Management.Automation.PSModuleInfo]$importingModule = Microsoft.PowerShell.Core\Get-Module "$PSScriptRoot/*.psd1" -ListAvailable | Select-Object -First 1
+    if ($importingModule -and $importingModule.Version.Major -lt 5) {
+        Write-Host "IMPORTANT: AWS Tools for PowerShell v4 is in maintenance mode as of March 1st, 2026, with only critical bugs and security issues addressed until end of support on June 1st, 2026. See https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html for migration guidance."
+    }
+}

@@ -252,10 +252,10 @@ namespace AWSPowerShellGenerator.Utils
                 "AWS.Tools.Common.dll",
                 AWSPowerShellCommonGuid,
                 ModuleVersionNumber,
-                "The AWS Tools for PowerShell lets developers and administrators manage their AWS services from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...)." + Environment.NewLine +
+                "IMPORTANT: AWS Tools for PowerShell v4 is in maintenance mode as of March 1st, 2026, with only critical bugs and security issues addressed until end of support on June 1st, 2026. See https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html for migration guidance." + Environment.NewLine + "The AWS Tools for PowerShell lets developers and administrators manage their AWS services from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...)." + Environment.NewLine +
                     "The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules." + Environment.NewLine +
                     "This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required." + Environment.NewLine +
-                    "Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.",
+                    "Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework." + Environment.NewLine,                
                 compatiblePowerShellVersion: 5,
                 compatiblePowerShellMinorVersion: 1,
                 assemblies: AwsToolsCommonSdkAssemblies.Concat(AdditionalCrtAssemblies),
@@ -283,12 +283,12 @@ namespace AWSPowerShellGenerator.Utils
                 netStandard ? AWSPowerShellNetCoreGuid : AWSPowerShellGuid,
                 ModuleVersionNumber,
                 netStandard ?
-                "The AWS Tools for PowerShell lets developers and administrators manage their AWS services from the PowerShell scripting environment." + Environment.NewLine +
+                "IMPORTANT: AWS Tools for PowerShell v4 is in maintenance mode as of March 1st, 2026, with only critical bugs and security issues addressed until end of support on June 1st, 2026. See https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html for migration guidance." + Environment.NewLine + "The AWS Tools for PowerShell lets developers and administrators manage their AWS services from the PowerShell scripting environment." + Environment.NewLine +
                     "This version of AWS Tools for PowerShell is compatible with Windows PowerShell 3+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. An alternative module, AWSPowerShell, provides support for older versions of Windows PowerShell and .NET Framework." + Environment.NewLine +
-                    "This product provides support for all AWS services in a single module. As an alternative, a modular variant is also available: separate smaller modules (e.g. AWS.Tools.EC2, AWS.Tools.S3...) allow managing each AWS Service." :
-                "The AWS Tools for Windows PowerShell lets developers and administrators manage their AWS services from the Windows PowerShell scripting environment." + Environment.NewLine +
+                    "This product provides support for all AWS services in a single module. As an alternative, a modular variant is also available: separate smaller modules (e.g. AWS.Tools.EC2, AWS.Tools.S3...) allow managing each AWS Service." + Environment.NewLine :
+                "IMPORTANT: AWS Tools for PowerShell v4 is in maintenance mode as of March 1st, 2026, with only critical bugs and security issues addressed until end of support on June 1st, 2026. See https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html for migration guidance." + Environment.NewLine + "The AWS Tools for Windows PowerShell lets developers and administrators manage their AWS services from the Windows PowerShell scripting environment." + Environment.NewLine +
                     "This version of AWS Tools for Windows PowerShell is compatible with Windows PowerShell 2-5.1. An alternative module, AWSPowerShell.NetCore, provides support for Windows PowerShell 3+ and PowerShell Core 6+ on Windows, Linux and macOS." + Environment.NewLine +
-                    "This product provides support for all AWS services in a single module. As an alternative, a modular variant is also available: separate smaller modules (e.g. AWS.Tools.EC2, AWS.Tools.S3...) allow managing each AWS Service.",
+                    "This product provides support for all AWS services in a single module. As an alternative, a modular variant is also available: separate smaller modules (e.g. AWS.Tools.EC2, AWS.Tools.S3...) allow managing each AWS Service." + Environment.NewLine,
                 compatiblePowerShellVersion: 3,
                 compatibleFrameworkVersion: netStandard ? "4.7.2" : "4.5",
                 netStandard: netStandard,
@@ -328,9 +328,9 @@ namespace AWSPowerShellGenerator.Utils
                         $"AWS.Tools.{project.Key}.dll",
                         mainServiceConfig.ServiceModuleGuid,
                         ModuleVersionNumber,
-                        $"The {mainServiceConfig.AssemblyName} module of AWS Tools for PowerShell lets developers and administrators manage {mainServiceConfig.ServiceName} from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...)." + Environment.NewLine +
+                        $"IMPORTANT: AWS Tools for PowerShell v4 is in maintenance mode as of March 1st, 2026, with only critical bugs and security issues addressed until end of support on June 1st, 2026. See https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html for migration guidance." + Environment.NewLine + $"The {mainServiceConfig.AssemblyName} module of AWS Tools for PowerShell lets developers and administrators manage {mainServiceConfig.ServiceName} from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...)." + Environment.NewLine +
                             "The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules." + Environment.NewLine +
-                            "This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.",
+                            "This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework." + Environment.NewLine,
                         compatiblePowerShellVersion: 5,
                         compatiblePowerShellMinorVersion: 1,
                         assemblies: new string[] { $"AWSSDK.{project.Key}" }.Except(AwsToolsCommonSdkAssemblies),
