@@ -6,6 +6,7 @@
     <AssemblyName>NetworkManager</AssemblyName>
     <ServiceNounPrefix>NMGR</ServiceNounPrefix>
     <ServiceName>AWS Network Manager</ServiceName>
+    <ServiceId>NetworkManager</ServiceId>
     <ServiceClientInterface>IAmazonNetworkManager</ServiceClientInterface>
     <ServiceClient>AmazonNetworkManagerClient</ServiceClient>
     <ServiceModuleGuid>d36dcf68-2021-4d6d-adc2-d399833465f6</ServiceModuleGuid>

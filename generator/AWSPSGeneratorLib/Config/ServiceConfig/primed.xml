@@ -6,6 +6,7 @@
     <AssemblyName>Route53RecoveryReadiness</AssemblyName>
     <ServiceNounPrefix>PD</ServiceNounPrefix>
     <ServiceName>AWS Route53 Recovery Readiness</ServiceName>
+    <ServiceId>Route53 Recovery Readiness</ServiceId>
     <ServiceClientInterface>IAmazonRoute53RecoveryReadiness</ServiceClientInterface>
     <ServiceClient>AmazonRoute53RecoveryReadinessClient</ServiceClient>
     <ServiceModuleGuid>06511664-0E30-425E-B8BE-0D129EDE495C</ServiceModuleGuid>

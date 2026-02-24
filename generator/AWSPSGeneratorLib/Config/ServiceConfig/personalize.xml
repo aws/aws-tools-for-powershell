@@ -6,6 +6,7 @@
     <AssemblyName>Personalize</AssemblyName>
     <ServiceNounPrefix>PERS</ServiceNounPrefix>
     <ServiceName>AWS Personalize</ServiceName>
+    <ServiceId>Personalize</ServiceId>
     <ServiceClientInterface>IAmazonPersonalize</ServiceClientInterface>
     <ServiceClient>AmazonPersonalizeClient</ServiceClient>
     <ServiceModuleGuid>36267617-5134-4659-8b0a-920643424038</ServiceModuleGuid>

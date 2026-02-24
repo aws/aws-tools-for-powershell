@@ -6,6 +6,7 @@
     <AssemblyName>IoTSiteWise</AssemblyName>
     <ServiceNounPrefix>IOTSW</ServiceNounPrefix>
     <ServiceName>AWS IoT SiteWise</ServiceName>
+    <ServiceId>IoTSiteWise</ServiceId>
     <ServiceClientInterface>IAmazonIoTSiteWise</ServiceClientInterface>
     <ServiceClient>AmazonIoTSiteWiseClient</ServiceClient>
     <ServiceModuleGuid>e9f30fbd-8738-443a-912e-30782bb9343a</ServiceModuleGuid>

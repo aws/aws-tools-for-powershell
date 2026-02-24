@@ -6,6 +6,7 @@
     <AssemblyName>RedshiftDataAPIService</AssemblyName>
     <ServiceNounPrefix>RSD</ServiceNounPrefix>
     <ServiceName>Redshift Data API Service</ServiceName>
+    <ServiceId>Redshift Data</ServiceId>
     <ServiceClientInterface>IAmazonRedshiftDataAPIService</ServiceClientInterface>
     <ServiceClient>AmazonRedshiftDataAPIServiceClient</ServiceClient>
     <ServiceModuleGuid>627BAAEF-3ED1-4CB0-99B5-B75434EA7CD5</ServiceModuleGuid>

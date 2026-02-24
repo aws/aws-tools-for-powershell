@@ -6,6 +6,7 @@
     <AssemblyName>CloudControlApi</AssemblyName>
     <ServiceNounPrefix>CCA</ServiceNounPrefix>
     <ServiceName>AWS Cloud Control API</ServiceName>
+    <ServiceId>CloudControl</ServiceId>
     <ServiceClientInterface>IAmazonCloudControlApi</ServiceClientInterface>
     <ServiceClient>AmazonCloudControlApiClient</ServiceClient>
     <ServiceModuleGuid>4bf684d3-5a87-46cc-a8de-9f72eb5b9515</ServiceModuleGuid>

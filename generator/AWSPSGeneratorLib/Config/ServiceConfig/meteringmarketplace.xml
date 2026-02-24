@@ -5,6 +5,7 @@
     <AssemblyName>AWSMarketplaceMetering</AssemblyName>
     <ServiceNounPrefix>MM</ServiceNounPrefix>
     <ServiceName>AWS Marketplace Metering</ServiceName>
+    <ServiceId>Marketplace Metering</ServiceId>
     <ServiceClientInterface>IAmazonAWSMarketplaceMetering</ServiceClientInterface>
     <ServiceClient>AmazonAWSMarketplaceMeteringClient</ServiceClient>
     <ServiceModuleGuid>63524666-c942-4281-95a3-c162cf1569bb</ServiceModuleGuid>

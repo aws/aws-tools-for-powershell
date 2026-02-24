@@ -6,6 +6,7 @@
     <AssemblyName>AmplifyBackend</AssemblyName>
     <ServiceNounPrefix>AMPB</ServiceNounPrefix>
     <ServiceName>Amplify Backend</ServiceName>
+    <ServiceId>AmplifyBackend</ServiceId>
     <ServiceClientInterface>IAmazonAmplifyBackend</ServiceClientInterface>
     <ServiceClient>AmazonAmplifyBackendClient</ServiceClient>
     <ServiceModuleGuid>0CCD1033-B9AA-4DA0-8DE8-060BF4C215F1</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Billing</AssemblyName>
     <ServiceNounPrefix>AWSB</ServiceNounPrefix>
     <ServiceName>AWS Billing</ServiceName>
+    <ServiceId>Billing</ServiceId>
     <ServiceClientInterface>IAmazonBilling</ServiceClientInterface>
     <ServiceClient>AmazonBillingClient</ServiceClient>
     <ServiceModuleGuid>9511edde-ba3f-47a8-96ff-797071d8a89e</ServiceModuleGuid>

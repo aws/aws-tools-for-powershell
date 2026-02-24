@@ -6,6 +6,7 @@
     <AssemblyName>AppConfig</AssemblyName>
     <ServiceNounPrefix>APPC</ServiceNounPrefix>
     <ServiceName>AWS AppConfig</ServiceName>
+    <ServiceId>AppConfig</ServiceId>
     <ServiceClientInterface>IAmazonAppConfig</ServiceClientInterface>
     <ServiceClient>AmazonAppConfigClient</ServiceClient>
     <ServiceModuleGuid>0bccbfac-12ae-4424-aac0-75c2cc1f5361</ServiceModuleGuid>

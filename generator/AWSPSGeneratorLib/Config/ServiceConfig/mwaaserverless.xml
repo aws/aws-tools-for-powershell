@@ -6,6 +6,7 @@
     <AssemblyName>MWAAServerless</AssemblyName>
     <ServiceNounPrefix>MWAAS</ServiceNounPrefix>
     <ServiceName>AmazonMWAAServerless</ServiceName>
+    <ServiceId>MWAA Serverless</ServiceId>
     <ServiceClientInterface>IAmazonMWAAServerless</ServiceClientInterface>
     <ServiceClient>AmazonMWAAServerlessClient</ServiceClient>
     <ServiceModuleGuid>ca291a58-d556-4287-9a4d-70c92ab513df</ServiceModuleGuid>

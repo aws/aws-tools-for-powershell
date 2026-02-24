@@ -6,6 +6,7 @@
     <AssemblyName>Kendra</AssemblyName>
     <ServiceNounPrefix>KNDR</ServiceNounPrefix>
     <ServiceName>Amazon Kendra</ServiceName>
+    <ServiceId>kendra</ServiceId>
     <ServiceClientInterface>IAmazonKendra</ServiceClientInterface>
     <ServiceClient>AmazonKendraClient</ServiceClient>
     <ServiceModuleGuid>7dc1021b-517a-45a9-98c7-058586daa566</ServiceModuleGuid>

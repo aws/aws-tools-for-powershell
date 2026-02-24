@@ -6,6 +6,7 @@
     <AssemblyName>AIOps</AssemblyName>
     <ServiceNounPrefix>AIOps</ServiceNounPrefix>
     <ServiceName>AWS AI Ops</ServiceName>
+    <ServiceId>AIOps</ServiceId>
     <ServiceClientInterface>IAmazonAIOps</ServiceClientInterface>
     <ServiceClient>AmazonAIOpsClient</ServiceClient>
     <ServiceModuleGuid>8665a852-0028-4d0f-86ff-3a6ab2d39864</ServiceModuleGuid>

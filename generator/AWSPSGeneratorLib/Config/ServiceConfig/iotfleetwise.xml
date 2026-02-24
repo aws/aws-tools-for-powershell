@@ -6,6 +6,7 @@
     <AssemblyName>IoTFleetWise</AssemblyName>
     <ServiceNounPrefix>IFW</ServiceNounPrefix>
     <ServiceName>AWS IoT FleetWise</ServiceName>
+    <ServiceId>IoTFleetWise</ServiceId>
     <ServiceClientInterface>IAmazonIoTFleetWise</ServiceClientInterface>
     <ServiceClient>AmazonIoTFleetWiseClient</ServiceClient>
     <ServiceModuleGuid>94597f1b-83e1-4a64-83e0-c11f1410976b</ServiceModuleGuid>

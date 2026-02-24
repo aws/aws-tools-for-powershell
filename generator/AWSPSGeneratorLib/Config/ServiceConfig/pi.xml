@@ -6,6 +6,7 @@
     <AssemblyName>PI</AssemblyName>
     <ServiceNounPrefix>PI</ServiceNounPrefix>
     <ServiceName>AWS Performance Insights</ServiceName>
+    <ServiceId>PI</ServiceId>
     <ServiceClientInterface>IAmazonPI</ServiceClientInterface>
     <ServiceClient>AmazonPIClient</ServiceClient>
     <ServiceModuleGuid>4cbb6d83-f887-4e13-9c2c-f97ed82eb269</ServiceModuleGuid>

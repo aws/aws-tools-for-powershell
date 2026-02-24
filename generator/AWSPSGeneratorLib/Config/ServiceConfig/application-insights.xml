@@ -6,6 +6,7 @@
     <AssemblyName>ApplicationInsights</AssemblyName>
     <ServiceNounPrefix>CWAI</ServiceNounPrefix>
     <ServiceName>Amazon CloudWatch Application Insights</ServiceName>
+    <ServiceId>Application Insights</ServiceId>
     <ServiceClientInterface>IAmazonApplicationInsights</ServiceClientInterface>
     <ServiceClient>AmazonApplicationInsightsClient</ServiceClient>
     <ServiceModuleGuid>1b8bd5bf-4b4d-4799-b066-30b7657de720</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>BedrockDataAutomation</AssemblyName>
     <ServiceNounPrefix>BDA</ServiceNounPrefix>
     <ServiceName>Data Automation for Amazon Bedrock</ServiceName>
+    <ServiceId>Bedrock Data Automation</ServiceId>
     <ServiceClientInterface>IAmazonBedrockDataAutomation</ServiceClientInterface>
     <ServiceClient>AmazonBedrockDataAutomationClient</ServiceClient>
     <ServiceModuleGuid>ee533d77-339d-4172-b1d4-e91fa67edd08</ServiceModuleGuid>

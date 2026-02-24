@@ -6,6 +6,7 @@
     <AssemblyName>Imagebuilder</AssemblyName>
     <ServiceNounPrefix>EC2IB</ServiceNounPrefix>
     <ServiceName>EC2 Image Builder</ServiceName>
+    <ServiceId>imagebuilder</ServiceId>
     <ServiceClientInterface>IAmazonImagebuilder</ServiceClientInterface>
     <ServiceClient>AmazonImagebuilderClient</ServiceClient>
     <ServiceModuleGuid>fc96178c-fb1a-4434-8f77-fe8cd38e0a6b</ServiceModuleGuid>

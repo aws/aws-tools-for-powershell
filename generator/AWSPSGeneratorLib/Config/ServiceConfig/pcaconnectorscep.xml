@@ -6,6 +6,7 @@
     <AssemblyName>PcaConnectorScep</AssemblyName>
     <ServiceNounPrefix>PCASCEP</ServiceNounPrefix>
     <ServiceName>Private CA Connector for SCEP</ServiceName>
+    <ServiceId>Pca Connector Scep</ServiceId>
     <ServiceClientInterface>IAmazonPcaConnectorScep</ServiceClientInterface>
     <ServiceClient>AmazonPcaConnectorScepClient</ServiceClient>
     <ServiceModuleGuid>e0444543-4f59-4957-855b-4f4c525ae10c</ServiceModuleGuid>

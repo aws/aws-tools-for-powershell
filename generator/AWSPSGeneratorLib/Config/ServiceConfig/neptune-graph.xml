@@ -6,6 +6,7 @@
     <AssemblyName>NeptuneGraph</AssemblyName>
     <ServiceNounPrefix>NEPTG</ServiceNounPrefix>
     <ServiceName>Amazon Neptune Graph</ServiceName>
+    <ServiceId>Neptune Graph</ServiceId>
     <ServiceClientInterface>IAmazonNeptuneGraph</ServiceClientInterface>
     <ServiceClient>AmazonNeptuneGraphClient</ServiceClient>
     <ServiceModuleGuid>b2acb06e-7ce4-49d9-ac20-f67076ff94ab</ServiceModuleGuid>

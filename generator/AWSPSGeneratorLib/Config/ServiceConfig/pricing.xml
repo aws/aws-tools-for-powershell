@@ -6,6 +6,7 @@
     <AssemblyName>Pricing</AssemblyName>
     <ServiceNounPrefix>PLS</ServiceNounPrefix>
     <ServiceName>AWS Price List Service</ServiceName>
+    <ServiceId>Pricing</ServiceId>
     <ServiceClientInterface>IAmazonPricing</ServiceClientInterface>
     <ServiceClient>AmazonPricingClient</ServiceClient>
     <ServiceModuleGuid>d70f27cc-b929-41f3-bac7-7b0430c5a96a</ServiceModuleGuid>

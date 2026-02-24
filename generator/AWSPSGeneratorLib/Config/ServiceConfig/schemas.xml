@@ -6,6 +6,7 @@
     <AssemblyName>Schemas</AssemblyName>
     <ServiceNounPrefix>SCHM</ServiceNounPrefix>
     <ServiceName>Amazon EventBridge Schema Registry</ServiceName>
+    <ServiceId>schemas</ServiceId>
     <ServiceClientInterface>IAmazonSchemas</ServiceClientInterface>
     <ServiceClient>AmazonSchemasClient</ServiceClient>
     <ServiceModuleGuid>AA545F40-FC60-42D8-A49E-416E329EC564</ServiceModuleGuid>

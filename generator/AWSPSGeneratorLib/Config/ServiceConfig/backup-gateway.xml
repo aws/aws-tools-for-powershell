@@ -6,6 +6,7 @@
     <AssemblyName>BackupGateway</AssemblyName>
     <ServiceNounPrefix>BUGW</ServiceNounPrefix>
     <ServiceName>AWS Backup Gateway</ServiceName>
+    <ServiceId>Backup Gateway</ServiceId>
     <ServiceClientInterface>IAmazonBackupGateway</ServiceClientInterface>
     <ServiceClient>AmazonBackupGatewayClient</ServiceClient>
     <ServiceModuleGuid>aa0a389a-77f3-4687-bc13-baf6c0ac6bcd</ServiceModuleGuid>

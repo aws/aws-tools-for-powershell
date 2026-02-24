@@ -6,6 +6,7 @@
     <AssemblyName>Snowball</AssemblyName>
     <ServiceNounPrefix>SNOW</ServiceNounPrefix>
     <ServiceName>AWS Import/Export Snowball</ServiceName>
+    <ServiceId>Snowball</ServiceId>
     <ServiceClientInterface>IAmazonSnowball</ServiceClientInterface>
     <ServiceClient>AmazonSnowballClient</ServiceClient>
     <ServiceModuleGuid>017f01ca-d8e7-457a-9606-4fcb04493d45</ServiceModuleGuid>

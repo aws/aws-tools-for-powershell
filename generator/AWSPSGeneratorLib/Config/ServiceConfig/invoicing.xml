@@ -6,6 +6,7 @@
     <AssemblyName>Invoicing</AssemblyName>
     <ServiceNounPrefix>INV</ServiceNounPrefix>
     <ServiceName>AWS Invoicing</ServiceName>
+    <ServiceId>Invoicing</ServiceId>
     <ServiceClientInterface>IAmazonInvoicing</ServiceClientInterface>
     <ServiceClient>AmazonInvoicingClient</ServiceClient>
     <ServiceModuleGuid>7db56d47-2aeb-4f66-90f5-19a0d0c1b4e9</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Deadline</AssemblyName>
     <ServiceNounPrefix>ADC</ServiceNounPrefix>
     <ServiceName>AWSDeadlineCloud</ServiceName>
+    <ServiceId>deadline</ServiceId>
     <ServiceClientInterface>IAmazonDeadline</ServiceClientInterface>
     <ServiceClient>AmazonDeadlineClient</ServiceClient>
     <ServiceModuleGuid>7f9f3eb8-fd98-4744-a5cc-4b479717f16b</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>GameLift</AssemblyName>
     <ServiceNounPrefix>GML</ServiceNounPrefix>
     <ServiceName>Amazon GameLift Service</ServiceName>
+    <ServiceId>GameLift</ServiceId>
     <ServiceClientInterface>IAmazonGameLift</ServiceClientInterface>
     <ServiceClient>AmazonGameLiftClient</ServiceClient>
     <ServiceModuleGuid>44a60bb5-a0ae-4d09-a478-9ed730458cef</ServiceModuleGuid>

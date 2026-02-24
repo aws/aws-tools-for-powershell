@@ -6,6 +6,7 @@
     <AssemblyName>QApps</AssemblyName>
     <ServiceNounPrefix>qapps</ServiceNounPrefix>
     <ServiceName>Amazon Q Apps</ServiceName>
+    <ServiceId>QApps</ServiceId>
     <ServiceClientInterface>IAmazonQApps</ServiceClientInterface>
     <ServiceClient>AmazonQAppsClient</ServiceClient>
     <ServiceModuleGuid>499fe47b-2ede-48b0-95d8-4fbc59761e38</ServiceModuleGuid>

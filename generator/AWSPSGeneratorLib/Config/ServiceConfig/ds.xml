@@ -6,6 +6,7 @@
     <AssemblyName>DirectoryService</AssemblyName>
     <ServiceNounPrefix>DS</ServiceNounPrefix>
     <ServiceName>AWS Directory Service</ServiceName>
+    <ServiceId>Directory Service</ServiceId>
     <ServiceClientInterface>IAmazonDirectoryService</ServiceClientInterface>
     <ServiceClient>AmazonDirectoryServiceClient</ServiceClient>
     <ServiceModuleGuid>c4251743-697b-4bb8-92db-31d124e011c8</ServiceModuleGuid>

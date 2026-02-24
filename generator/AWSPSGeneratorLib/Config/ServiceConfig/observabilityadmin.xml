@@ -6,6 +6,7 @@
     <AssemblyName>ObservabilityAdmin</AssemblyName>
     <ServiceNounPrefix>CWOADMN</ServiceNounPrefix>
     <ServiceName>CloudWatch Observability Admin Service</ServiceName>
+    <ServiceId>ObservabilityAdmin</ServiceId>
     <ServiceClientInterface>IAmazonObservabilityAdmin</ServiceClientInterface>
     <ServiceClient>AmazonObservabilityAdminClient</ServiceClient>
     <ServiceModuleGuid>d21251a9-dca7-4718-af8a-b317ce15f9cc</ServiceModuleGuid>

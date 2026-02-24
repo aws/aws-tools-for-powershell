@@ -6,6 +6,7 @@
     <AssemblyName>GroundStation</AssemblyName>
     <ServiceNounPrefix>GS</ServiceNounPrefix>
     <ServiceName>AWS Ground Station</ServiceName>
+    <ServiceId>GroundStation</ServiceId>
     <ServiceClientInterface>IAmazonGroundStation</ServiceClientInterface>
     <ServiceClient>AmazonGroundStationClient</ServiceClient>
     <ServiceModuleGuid>2ac00bc5-3927-43f0-8119-14910a6965c0</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>ControlCatalog</AssemblyName>
     <ServiceNounPrefix>CLCAT</ServiceNounPrefix>
     <ServiceName>AWS Control Catalog</ServiceName>
+    <ServiceId>ControlCatalog</ServiceId>
     <ServiceClientInterface>IAmazonControlCatalog</ServiceClientInterface>
     <ServiceClient>AmazonControlCatalogClient</ServiceClient>
     <ServiceModuleGuid>6a1005c3-31d6-442b-a636-b50bc38eaef7</ServiceModuleGuid>

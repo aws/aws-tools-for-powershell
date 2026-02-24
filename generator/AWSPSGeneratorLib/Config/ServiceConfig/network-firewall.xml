@@ -6,6 +6,7 @@
     <AssemblyName>NetworkFirewall</AssemblyName>
     <ServiceNounPrefix>NWFW</ServiceNounPrefix>
     <ServiceName>AWS Network Firewall</ServiceName>
+    <ServiceId>Network Firewall</ServiceId>
     <ServiceClientInterface>IAmazonNetworkFirewall</ServiceClientInterface>
     <ServiceClient>AmazonNetworkFirewallClient</ServiceClient>
     <ServiceModuleGuid>a8f219a6-87b4-4af6-aeb1-1c00d474ab7d</ServiceModuleGuid>

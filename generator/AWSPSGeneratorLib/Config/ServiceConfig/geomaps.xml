@@ -6,6 +6,7 @@
     <AssemblyName>GeoMaps</AssemblyName>
     <ServiceNounPrefix>GEOM</ServiceNounPrefix>
     <ServiceName>Amazon Location Service Maps V2</ServiceName>
+    <ServiceId>Geo Maps</ServiceId>
     <ServiceClientInterface>IAmazonGeoMaps</ServiceClientInterface>
     <ServiceClient>AmazonGeoMapsClient</ServiceClient>
     <ServiceModuleGuid>1C662BE7-96B7-4C65-8E25-B6D0769605A4</ServiceModuleGuid>

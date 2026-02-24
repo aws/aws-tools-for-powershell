@@ -6,6 +6,7 @@
     <AssemblyName>WAFV2</AssemblyName>
     <ServiceNounPrefix>WAF2</ServiceNounPrefix>
     <ServiceName>AWS WAF V2</ServiceName>
+    <ServiceId>WAFV2</ServiceId>
     <ServiceClientInterface>IAmazonWAFV2</ServiceClientInterface>
     <ServiceClient>AmazonWAFV2Client</ServiceClient>
     <ServiceModuleGuid>75aed10a-77f8-4140-868d-919d54288678</ServiceModuleGuid>

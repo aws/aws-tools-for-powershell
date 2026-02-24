@@ -6,6 +6,7 @@
     <AssemblyName>LaunchWizard</AssemblyName>
     <ServiceNounPrefix>LWIZ</ServiceNounPrefix>
     <ServiceName>AWS Launch Wizard</ServiceName>
+    <ServiceId>Launch Wizard</ServiceId>
     <ServiceClientInterface>IAmazonLaunchWizard</ServiceClientInterface>
     <ServiceClient>AmazonLaunchWizardClient</ServiceClient>
     <ServiceModuleGuid>5e7a7c95-c4ae-4a61-9bcb-a9c29789a07c</ServiceModuleGuid>

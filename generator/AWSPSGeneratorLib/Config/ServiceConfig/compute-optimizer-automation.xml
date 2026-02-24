@@ -6,6 +6,7 @@
     <AssemblyName>ComputeOptimizerAutomation</AssemblyName>
     <ServiceNounPrefix>COA</ServiceNounPrefix>
     <ServiceName>Compute Optimizer Automation Service</ServiceName>
+    <ServiceId>Compute Optimizer Automation</ServiceId>
     <ServiceClientInterface>IAmazonComputeOptimizerAutomation</ServiceClientInterface>
     <ServiceClient>AmazonComputeOptimizerAutomationClient</ServiceClient>
     <ServiceModuleGuid>6e067bfb-57c1-4539-adb7-a76735aa1fa4</ServiceModuleGuid>

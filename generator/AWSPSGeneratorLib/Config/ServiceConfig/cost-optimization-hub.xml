@@ -6,6 +6,7 @@
     <AssemblyName>CostOptimizationHub</AssemblyName>
     <ServiceNounPrefix>COH</ServiceNounPrefix>
     <ServiceName>Cost Optimization Hub</ServiceName>
+    <ServiceId>Cost Optimization Hub</ServiceId>
     <ServiceClientInterface>IAmazonCostOptimizationHub</ServiceClientInterface>
     <ServiceClient>AmazonCostOptimizationHubClient</ServiceClient>
     <ServiceModuleGuid>bba715a4-af97-4495-94f3-77edf9ff2e2d</ServiceModuleGuid>

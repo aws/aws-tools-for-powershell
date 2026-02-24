@@ -6,6 +6,7 @@
     <AssemblyName>MediaConnect</AssemblyName>
     <ServiceNounPrefix>EMCN</ServiceNounPrefix>
     <ServiceName>AWS Elemental MediaConnect</ServiceName>
+    <ServiceId>MediaConnect</ServiceId>
     <ServiceClientInterface>IAmazonMediaConnect</ServiceClientInterface>
     <ServiceClient>AmazonMediaConnectClient</ServiceClient>
     <ServiceModuleGuid>f244859e-3750-4b11-b823-3aa8d32a1847</ServiceModuleGuid>

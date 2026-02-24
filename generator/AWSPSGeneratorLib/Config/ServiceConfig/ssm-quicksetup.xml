@@ -6,6 +6,7 @@
     <AssemblyName>SSMQuickSetup</AssemblyName>
     <ServiceNounPrefix>SSMQS</ServiceNounPrefix>
     <ServiceName>AWS Systems Manager QuickSetup</ServiceName>
+    <ServiceId>SSM QuickSetup</ServiceId>
     <ServiceClientInterface>IAmazonSSMQuickSetup</ServiceClientInterface>
     <ServiceClient>AmazonSSMQuickSetupClient</ServiceClient>
     <ServiceModuleGuid>4b1dfdad-f468-43cc-895b-9f517e93479c</ServiceModuleGuid>

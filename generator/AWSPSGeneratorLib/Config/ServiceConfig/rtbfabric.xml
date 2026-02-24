@@ -6,6 +6,7 @@
     <AssemblyName>RTBFabric</AssemblyName>
     <ServiceNounPrefix>RTB</ServiceNounPrefix>
     <ServiceName>Amazon RTBFabric</ServiceName>
+    <ServiceId>RTBFabric</ServiceId>
     <ServiceClientInterface>IAmazonRTBFabric</ServiceClientInterface>
     <ServiceClient>AmazonRTBFabricClient</ServiceClient>
     <ServiceModuleGuid>D830BD3A-E1C3-4985-8D40-A93C55C00947</ServiceModuleGuid>

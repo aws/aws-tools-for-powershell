@@ -6,6 +6,7 @@
     <AssemblyName>PinpointEmail</AssemblyName>
     <ServiceNounPrefix>PINE</ServiceNounPrefix>
     <ServiceName>Amazon Pinpoint Email</ServiceName>
+    <ServiceId>Pinpoint Email</ServiceId>
     <ServiceClientInterface>IAmazonPinpointEmail</ServiceClientInterface>
     <ServiceClient>AmazonPinpointEmailClient</ServiceClient>
     <ServiceModuleGuid>7334bc37-3aa0-4fef-b4af-537d4fbc7d58</ServiceModuleGuid>

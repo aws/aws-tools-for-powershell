@@ -6,6 +6,7 @@
     <AssemblyName>MQ</AssemblyName>
     <ServiceNounPrefix>MQ</ServiceNounPrefix>
     <ServiceName>Amazon MQ</ServiceName>
+    <ServiceId>mq</ServiceId>
     <ServiceClientInterface>IAmazonMQ</ServiceClientInterface>
     <ServiceClient>AmazonMQClient</ServiceClient>
     <ServiceModuleGuid>b026e031-21ef-4280-93cd-44d3e88dfd62</ServiceModuleGuid>

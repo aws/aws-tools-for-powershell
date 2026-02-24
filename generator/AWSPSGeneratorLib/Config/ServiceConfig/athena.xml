@@ -6,6 +6,7 @@
     <AssemblyName>Athena</AssemblyName>
     <ServiceNounPrefix>ATH</ServiceNounPrefix>
     <ServiceName>Amazon Athena</ServiceName>
+    <ServiceId>Athena</ServiceId>
     <ServiceClientInterface>IAmazonAthena</ServiceClientInterface>
     <ServiceClient>AmazonAthenaClient</ServiceClient>
     <ServiceModuleGuid>2af0d75f-a356-4d61-9b00-e8bf6fc91ddd</ServiceModuleGuid>

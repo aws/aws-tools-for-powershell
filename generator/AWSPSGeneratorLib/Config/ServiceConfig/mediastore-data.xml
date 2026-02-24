@@ -5,6 +5,7 @@
     <AssemblyName>MediaStoreData</AssemblyName>
     <ServiceNounPrefix>EMSD</ServiceNounPrefix>
     <ServiceName>AWS Elemental MediaStore Data Plane</ServiceName>
+    <ServiceId>MediaStore Data</ServiceId>
     <ServiceClientInterface>IAmazonMediaStoreData</ServiceClientInterface>
     <ServiceClient>AmazonMediaStoreDataClient</ServiceClient>
     <ServiceModuleGuid>7774b224-be34-4912-b75d-4f9b05ce5601</ServiceModuleGuid>

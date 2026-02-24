@@ -6,6 +6,7 @@
     <AssemblyName>Appflow</AssemblyName>
     <ServiceNounPrefix>AF</ServiceNounPrefix>
     <ServiceName>Amazon Appflow</ServiceName>
+    <ServiceId>Appflow</ServiceId>
     <ServiceClientInterface>IAmazonAppflow</ServiceClientInterface>
     <ServiceClient>AmazonAppflowClient</ServiceClient>
     <ServiceModuleGuid>70963A42-A29D-431D-AD9E-89459F6AD45E</ServiceModuleGuid>

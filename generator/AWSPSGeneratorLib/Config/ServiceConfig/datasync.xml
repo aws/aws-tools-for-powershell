@@ -6,6 +6,7 @@
     <AssemblyName>DataSync</AssemblyName>
     <ServiceNounPrefix>DSYN</ServiceNounPrefix>
     <ServiceName>AWS DataSync</ServiceName>
+    <ServiceId>DataSync</ServiceId>
     <ServiceClientInterface>IAmazonDataSync</ServiceClientInterface>
     <ServiceClient>AmazonDataSyncClient</ServiceClient>
     <ServiceModuleGuid>f41b8703-10b8-48b8-bcc7-d6fadcd77a52</ServiceModuleGuid>

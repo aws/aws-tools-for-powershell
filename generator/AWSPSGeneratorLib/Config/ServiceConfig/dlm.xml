@@ -6,6 +6,7 @@
     <AssemblyName>DLM</AssemblyName>
     <ServiceNounPrefix>DLM</ServiceNounPrefix>
     <ServiceName>Amazon Data Lifecycle Manager</ServiceName>
+    <ServiceId>DLM</ServiceId>
     <ServiceClientInterface>IAmazonDLM</ServiceClientInterface>
     <ServiceClient>AmazonDLMClient</ServiceClient>
     <ServiceModuleGuid>a4948657-e00d-4307-a541-4bd757cd4154</ServiceModuleGuid>

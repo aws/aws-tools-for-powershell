@@ -6,6 +6,7 @@
     <AssemblyName>Organizations</AssemblyName>
     <ServiceNounPrefix>ORG</ServiceNounPrefix>
     <ServiceName>AWS Organizations</ServiceName>
+    <ServiceId>Organizations</ServiceId>
     <ServiceClientInterface>IAmazonOrganizations</ServiceClientInterface>
     <ServiceClient>AmazonOrganizationsClient</ServiceClient>
     <ServiceModuleGuid>055e7a93-c63d-4499-a56d-9bf3b0fe87ce</ServiceModuleGuid>

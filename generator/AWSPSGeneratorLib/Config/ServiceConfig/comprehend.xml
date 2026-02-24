@@ -6,6 +6,7 @@
     <AssemblyName>Comprehend</AssemblyName>
     <ServiceNounPrefix>COMP</ServiceNounPrefix>
     <ServiceName>Amazon Comprehend</ServiceName>
+    <ServiceId>Comprehend</ServiceId>
     <ServiceClientInterface>IAmazonComprehend</ServiceClientInterface>
     <ServiceClient>AmazonComprehendClient</ServiceClient>
     <ServiceModuleGuid>3c112c0c-8721-4b7c-90fa-2b2f6f6c51d2</ServiceModuleGuid>

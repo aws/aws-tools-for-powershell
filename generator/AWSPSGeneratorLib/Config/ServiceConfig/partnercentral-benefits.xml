@@ -6,6 +6,7 @@
     <AssemblyName>PartnerCentralBenefits</AssemblyName>
     <ServiceNounPrefix>PCB</ServiceNounPrefix>
     <ServiceName>Amazon PartnerCentral Benefits Service</ServiceName>
+    <ServiceId>PartnerCentral Benefits</ServiceId>
     <ServiceClientInterface>IAmazonPartnerCentralBenefits</ServiceClientInterface>
     <ServiceClient>AmazonPartnerCentralBenefitsClient</ServiceClient>
     <ServiceModuleGuid>f5925f16-d477-400c-b0c1-02e1bb28b42f</ServiceModuleGuid>

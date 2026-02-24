@@ -6,6 +6,7 @@
     <AssemblyName>WorkDocs</AssemblyName>
     <ServiceNounPrefix>WD</ServiceNounPrefix>
     <ServiceName>Amazon WorkDocs</ServiceName>
+    <ServiceId>WorkDocs</ServiceId>
     <ServiceClientInterface>IAmazonWorkDocs</ServiceClientInterface>
     <ServiceClient>AmazonWorkDocsClient</ServiceClient>
     <ServiceModuleGuid>27a287e5-30da-4f66-af18-8e58ddc37ab9</ServiceModuleGuid>

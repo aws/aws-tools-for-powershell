@@ -6,6 +6,7 @@
     <AssemblyName>ARCRegionswitch</AssemblyName>
     <ServiceNounPrefix>ARC</ServiceNounPrefix>
     <ServiceName>ARC - Region switch</ServiceName>
+    <ServiceId>ARC Region switch</ServiceId>
     <ServiceClientInterface>IAmazonARCRegionswitch</ServiceClientInterface>
     <ServiceClient>AmazonARCRegionswitchClient</ServiceClient>
     <ServiceModuleGuid>85db5dfe-0283-46c0-a425-2d71d5231181</ServiceModuleGuid>

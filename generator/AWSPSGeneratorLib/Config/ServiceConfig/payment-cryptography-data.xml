@@ -6,6 +6,7 @@
     <AssemblyName>PaymentCryptographyData</AssemblyName>
     <ServiceNounPrefix>PAYCD</ServiceNounPrefix>
     <ServiceName>Payment Cryptography Data</ServiceName>
+    <ServiceId>Payment Cryptography Data</ServiceId>
     <ServiceClientInterface>IAmazonPaymentCryptographyData</ServiceClientInterface>
     <ServiceClient>AmazonPaymentCryptographyDataClient</ServiceClient>
     <ServiceModuleGuid>83f056ce-414a-4e58-bede-b4f08ae528b7</ServiceModuleGuid>

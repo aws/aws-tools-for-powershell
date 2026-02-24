@@ -6,6 +6,7 @@
     <AssemblyName>ConnectWisdomService</AssemblyName>
     <ServiceNounPrefix>WSDM</ServiceNounPrefix>
     <ServiceName>Amazon Connect Wisdom Service</ServiceName>
+    <ServiceId>Wisdom</ServiceId>
     <ServiceClientInterface>IAmazonConnectWisdomService</ServiceClientInterface>
     <ServiceClient>AmazonConnectWisdomServiceClient</ServiceClient>
     <ServiceModuleGuid>5b894162-20f3-48fb-ac63-5738280c70f7</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>ManagedBlockchain</AssemblyName>
     <ServiceNounPrefix>MBC</ServiceNounPrefix>
     <ServiceName>Amazon Managed Blockchain</ServiceName>
+    <ServiceId>ManagedBlockchain</ServiceId>
     <ServiceClientInterface>IAmazonManagedBlockchain</ServiceClientInterface>
     <ServiceClient>AmazonManagedBlockchainClient</ServiceClient>
     <ServiceModuleGuid>01e70da0-fb05-499b-b13a-6a29554a304e</ServiceModuleGuid>

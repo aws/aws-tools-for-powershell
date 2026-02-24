@@ -6,6 +6,7 @@
     <AssemblyName>MigrationHubOrchestrator</AssemblyName>
     <ServiceNounPrefix>MHO</ServiceNounPrefix>
     <ServiceName>AWS Migration Hub Orchestrator</ServiceName>
+    <ServiceId>MigrationHubOrchestrator</ServiceId>
     <ServiceClientInterface>IAmazonMigrationHubOrchestrator</ServiceClientInterface>
     <ServiceClient>AmazonMigrationHubOrchestratorClient</ServiceClient>
     <ServiceModuleGuid>26e7b8b1-1a63-469a-87cd-2e9c9a4b7713</ServiceModuleGuid>

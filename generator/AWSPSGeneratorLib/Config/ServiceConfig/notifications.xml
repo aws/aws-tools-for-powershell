@@ -6,6 +6,7 @@
     <AssemblyName>Notifications</AssemblyName>
     <ServiceNounPrefix>UNO</ServiceNounPrefix>
     <ServiceName>AWS User Notifications</ServiceName>
+    <ServiceId>Notifications</ServiceId>
     <ServiceClientInterface>IAmazonNotifications</ServiceClientInterface>
     <ServiceClient>AmazonNotificationsClient</ServiceClient>
     <ServiceModuleGuid>0bf1d893-1cd6-40bd-a687-aaae391b4db9</ServiceModuleGuid>

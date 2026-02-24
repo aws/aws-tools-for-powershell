@@ -5,6 +5,7 @@
     <AssemblyName>IoTThingsGraph</AssemblyName>
     <ServiceNounPrefix>IOTTG</ServiceNounPrefix>
     <ServiceName>AWS IoT Things Graph</ServiceName>
+    <ServiceId>IoTThingsGraph</ServiceId>
     <ServiceClientInterface>IAmazonIoTThingsGraph</ServiceClientInterface>
     <ServiceClient>AmazonIoTThingsGraphClient</ServiceClient>
     <ServiceModuleGuid>1ec7041c-07f3-4e26-a6a4-2ae3dfcaae11</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>MigrationHubStrategyRecommendations</AssemblyName>
     <ServiceNounPrefix>MHS</ServiceNounPrefix>
     <ServiceName>Migration Hub Strategy Recommendations</ServiceName>
+    <ServiceId>MigrationHubStrategy</ServiceId>
     <ServiceClientInterface>IAmazonMigrationHubStrategyRecommendations</ServiceClientInterface>
     <ServiceClient>AmazonMigrationHubStrategyRecommendationsClient</ServiceClient>
     <ServiceModuleGuid>98A898F2-302C-446D-95CC-4CB9C3D05AD8</ServiceModuleGuid>

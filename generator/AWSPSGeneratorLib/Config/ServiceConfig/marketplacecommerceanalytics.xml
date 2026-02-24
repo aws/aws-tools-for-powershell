@@ -6,6 +6,7 @@
     <AssemblyName>AWSMarketplaceCommerceAnalytics</AssemblyName>
     <ServiceNounPrefix>MCA</ServiceNounPrefix>
     <ServiceName>AWS Marketplace Commerce Analytics</ServiceName>
+    <ServiceId>Marketplace Commerce Analytics</ServiceId>
     <ServiceClientInterface>IAmazonAWSMarketplaceCommerceAnalytics</ServiceClientInterface>
     <ServiceClient>AmazonAWSMarketplaceCommerceAnalyticsClient</ServiceClient>
     <ServiceModuleGuid>eb37640a-321a-435b-9fee-4f54780b26c9</ServiceModuleGuid>

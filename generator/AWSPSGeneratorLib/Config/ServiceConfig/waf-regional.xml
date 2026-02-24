@@ -6,6 +6,7 @@
     <AssemblyName>WAFRegional</AssemblyName>
     <ServiceNounPrefix>WAFR</ServiceNounPrefix>
     <ServiceName>AWS WAF Regional</ServiceName>
+    <ServiceId>WAF Regional</ServiceId>
     <ServiceClientInterface>IAmazonWAFRegional</ServiceClientInterface>
     <ServiceClient>AmazonWAFRegionalClient</ServiceClient>
     <ServiceModuleGuid>a4195c43-7f7c-4448-ad18-56b0d7988aea</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Transfer</AssemblyName>
     <ServiceNounPrefix>TFR</ServiceNounPrefix>
     <ServiceName>AWS Transfer for SFTP</ServiceName>
+    <ServiceId>Transfer</ServiceId>
     <ServiceClientInterface>IAmazonTransfer</ServiceClientInterface>
     <ServiceClient>AmazonTransferClient</ServiceClient>
     <ServiceModuleGuid>9ee8ec18-09e3-4bc9-8263-c5747a7c526d</ServiceModuleGuid>

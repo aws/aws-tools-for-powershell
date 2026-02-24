@@ -6,6 +6,7 @@
     <AssemblyName>ElasticBeanstalk</AssemblyName>
     <ServiceNounPrefix>EB</ServiceNounPrefix>
     <ServiceName>AWS Elastic Beanstalk</ServiceName>
+    <ServiceId>Elastic Beanstalk</ServiceId>
     <ServiceClientInterface>IAmazonElasticBeanstalk</ServiceClientInterface>
     <ServiceClient>AmazonElasticBeanstalkClient</ServiceClient>
     <ServiceModuleGuid>fa2177f6-257f-4316-b628-b56f26b02fb7</ServiceModuleGuid>

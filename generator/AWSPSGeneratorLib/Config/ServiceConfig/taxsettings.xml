@@ -6,6 +6,7 @@
     <AssemblyName>TaxSettings</AssemblyName>
     <ServiceNounPrefix>TSA</ServiceNounPrefix>
     <ServiceName>AWS Tax Settings</ServiceName>
+    <ServiceId>TaxSettings</ServiceId>
     <ServiceClientInterface>IAmazonTaxSettings</ServiceClientInterface>
     <ServiceClient>AmazonTaxSettingsClient</ServiceClient>
     <ServiceModuleGuid>5fd8dc48-7922-481b-b34c-80c0cfb7d9ef</ServiceModuleGuid>

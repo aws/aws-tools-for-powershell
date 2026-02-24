@@ -6,6 +6,7 @@
     <AssemblyName>Panorama</AssemblyName>
     <ServiceNounPrefix>PAN</ServiceNounPrefix>
     <ServiceName>AWS Panorama</ServiceName>
+    <ServiceId>Panorama</ServiceId>
     <ServiceClientInterface>IAmazonPanorama</ServiceClientInterface>
     <ServiceClient>AmazonPanoramaClient</ServiceClient>
     <ServiceModuleGuid>E1312DA9-05BA-4AD1-AA60-4027AD3BB40B</ServiceModuleGuid>

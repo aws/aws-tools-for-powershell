@@ -6,6 +6,7 @@
     <AssemblyName>MediaTailor</AssemblyName>
     <ServiceNounPrefix>EMT</ServiceNounPrefix>
     <ServiceName>AWS Elemental MediaTailor</ServiceName>
+    <ServiceId>MediaTailor</ServiceId>
     <ServiceClientInterface>IAmazonMediaTailor</ServiceClientInterface>
     <ServiceClient>AmazonMediaTailorClient</ServiceClient>
     <ServiceModuleGuid>eeca9757-74a2-4107-a04d-23acce174a89</ServiceModuleGuid>

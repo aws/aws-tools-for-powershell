@@ -6,6 +6,7 @@
     <AssemblyName>ECR</AssemblyName>
     <ServiceNounPrefix>ECR</ServiceNounPrefix>
     <ServiceName>Amazon EC2 Container Registry</ServiceName>
+    <ServiceId>ECR</ServiceId>
     <ServiceClientInterface>IAmazonECR</ServiceClientInterface>
     <ServiceClient>AmazonECRClient</ServiceClient>
     <ServiceModuleGuid>58bb5011-59c3-41ea-ba12-45c3813db939</ServiceModuleGuid>

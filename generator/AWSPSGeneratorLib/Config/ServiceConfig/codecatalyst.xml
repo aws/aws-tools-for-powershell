@@ -6,6 +6,7 @@
     <AssemblyName>CodeCatalyst</AssemblyName>
     <ServiceNounPrefix>CCAT</ServiceNounPrefix>
     <ServiceName>AWS CodeCatalyst</ServiceName>
+    <ServiceId>CodeCatalyst</ServiceId>
     <ServiceClientInterface>IAmazonCodeCatalyst</ServiceClientInterface>
     <ServiceClient>AmazonCodeCatalystClient</ServiceClient>
     <ServiceModuleGuid>A47DF91E-99E3-4160-BD51-09BD2F91CA35</ServiceModuleGuid>

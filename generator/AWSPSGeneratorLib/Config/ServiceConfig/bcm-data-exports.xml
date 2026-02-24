@@ -6,6 +6,7 @@
     <AssemblyName>BCMDataExports</AssemblyName>
     <ServiceNounPrefix>BCMDE</ServiceNounPrefix>
     <ServiceName>AWSBillingAndCostManagementDataExports</ServiceName>
+    <ServiceId>BCM Data Exports</ServiceId>
     <ServiceClientInterface>IAmazonBCMDataExports</ServiceClientInterface>
     <ServiceClient>AmazonBCMDataExportsClient</ServiceClient>
     <ServiceModuleGuid>5f88ef0d-2ee1-4a0a-8295-0e61de86e4ee</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>ApplicationCostProfiler</AssemblyName>
     <ServiceNounPrefix>ACP</ServiceNounPrefix>
     <ServiceName>Amazon ApplicationCostProfiler</ServiceName>
+    <ServiceId>ApplicationCostProfiler</ServiceId>
     <ServiceClientInterface>IAmazonApplicationCostProfiler</ServiceClientInterface>
     <ServiceClient>AmazonApplicationCostProfilerClient</ServiceClient>
     <ServiceModuleGuid>4094555B-D7BC-486A-87CB-E9D3635CFBB3</ServiceModuleGuid>

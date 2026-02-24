@@ -6,6 +6,7 @@
     <AssemblyName>ElasticMapReduce</AssemblyName>
     <ServiceNounPrefix>EMR</ServiceNounPrefix>
     <ServiceName>Amazon Elastic MapReduce</ServiceName>
+    <ServiceId>EMR</ServiceId>
     <ServiceClientInterface>IAmazonElasticMapReduce</ServiceClientInterface>
     <ServiceClient>AmazonElasticMapReduceClient</ServiceClient>
     <ServiceModuleGuid>e71a10ed-46ba-4050-b857-6f0e396a0c0f</ServiceModuleGuid>

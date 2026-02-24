@@ -6,6 +6,7 @@
     <AssemblyName>TimestreamInfluxDB</AssemblyName>
     <ServiceNounPrefix>TIDB</ServiceNounPrefix>
     <ServiceName>Amazon Timestream InfluxDB</ServiceName>
+    <ServiceId>Timestream InfluxDB</ServiceId>
     <ServiceClientInterface>IAmazonTimestreamInfluxDB</ServiceClientInterface>
     <ServiceClient>AmazonTimestreamInfluxDBClient</ServiceClient>
     <ServiceModuleGuid>6e54484e-6bd9-4388-ba82-34929fc44436</ServiceModuleGuid>

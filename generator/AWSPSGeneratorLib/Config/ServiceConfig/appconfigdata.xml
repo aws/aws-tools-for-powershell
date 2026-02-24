@@ -6,6 +6,7 @@
     <AssemblyName>AppConfigData</AssemblyName>
     <ServiceNounPrefix>ACD</ServiceNounPrefix>
     <ServiceName>AWS AppConfig Data</ServiceName>
+    <ServiceId>AppConfigData</ServiceId>
     <ServiceClientInterface>IAmazonAppConfigData</ServiceClientInterface>
     <ServiceClient>AmazonAppConfigDataClient</ServiceClient>
     <ServiceModuleGuid>ec3791ac-587a-4209-b346-1ce950751523</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>SupplyChain</AssemblyName>
     <ServiceNounPrefix>SUPCH</ServiceNounPrefix>
     <ServiceName>AWS Supply Chain</ServiceName>
+    <ServiceId>SupplyChain</ServiceId>
     <ServiceClientInterface>IAmazonSupplyChain</ServiceClientInterface>
     <ServiceClient>AmazonSupplyChainClient</ServiceClient>
     <ServiceModuleGuid>5752fd5e-8a74-4750-a98e-6d23ba076fa2</ServiceModuleGuid>

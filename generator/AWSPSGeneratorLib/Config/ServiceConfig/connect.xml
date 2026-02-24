@@ -6,6 +6,7 @@
     <AssemblyName>Connect</AssemblyName>
     <ServiceNounPrefix>CONN</ServiceNounPrefix>
     <ServiceName>Amazon Connect Service</ServiceName>
+    <ServiceId>Connect</ServiceId>
     <ServiceClientInterface>IAmazonConnect</ServiceClientInterface>
     <ServiceClient>AmazonConnectClient</ServiceClient>
     <ServiceModuleGuid>e8d44f59-ca47-4a78-a33e-3f2a1313bb1f</ServiceModuleGuid>

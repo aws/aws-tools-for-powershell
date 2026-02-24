@@ -6,6 +6,7 @@
     <AssemblyName>InspectorScan</AssemblyName>
     <ServiceNounPrefix>ISCAN</ServiceNounPrefix>
     <ServiceName>Inspector Scan</ServiceName>
+    <ServiceId>Inspector Scan</ServiceId>
     <ServiceClientInterface>IAmazonInspectorScan</ServiceClientInterface>
     <ServiceClient>AmazonInspectorScanClient</ServiceClient>
     <ServiceModuleGuid>c299275d-65fd-4148-8c71-51879b5c27cf</ServiceModuleGuid>

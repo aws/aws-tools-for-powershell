@@ -6,6 +6,7 @@
     <AssemblyName>GreengrassV2</AssemblyName>
     <ServiceNounPrefix>GGV2</ServiceNounPrefix>
     <ServiceName>AWS GreengrassV2</ServiceName>
+    <ServiceId>GreengrassV2</ServiceId>
     <ServiceClientInterface>IAmazonGreengrassV2</ServiceClientInterface>
     <ServiceClient>AmazonGreengrassV2Client</ServiceClient>
     <ServiceModuleGuid>8985EA04-B67F-46A0-A0D9-4D15364D87FE</ServiceModuleGuid>

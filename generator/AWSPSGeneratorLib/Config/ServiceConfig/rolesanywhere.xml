@@ -6,6 +6,7 @@
     <AssemblyName>IAMRolesAnywhere</AssemblyName>
     <ServiceNounPrefix>IAMRA</ServiceNounPrefix>
     <ServiceName>IAM Roles Anywhere</ServiceName>
+    <ServiceId>RolesAnywhere</ServiceId>
     <ServiceClientInterface>IAmazonIAMRolesAnywhere</ServiceClientInterface>
     <ServiceClient>AmazonIAMRolesAnywhereClient</ServiceClient>
     <ServiceModuleGuid>0faeb2d1-1abd-442a-835e-097080198fdc</ServiceModuleGuid>

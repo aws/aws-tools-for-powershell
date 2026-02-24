@@ -6,6 +6,7 @@
     <AssemblyName>ACMPCA</AssemblyName>
     <ServiceNounPrefix>PCA</ServiceNounPrefix>
     <ServiceName>AWS Certificate Manager Private Certificate Authority</ServiceName>
+    <ServiceId>ACM PCA</ServiceId>
     <ServiceClientInterface>IAmazonACMPCA</ServiceClientInterface>
     <ServiceClient>AmazonACMPCAClient</ServiceClient>
     <ServiceModuleGuid>212c15b1-7516-4973-aeab-368347dc122d</ServiceModuleGuid>

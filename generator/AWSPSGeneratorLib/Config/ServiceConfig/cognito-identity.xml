@@ -6,6 +6,7 @@
     <AssemblyName>CognitoIdentity</AssemblyName>
     <ServiceNounPrefix>CGI</ServiceNounPrefix>
     <ServiceName>Amazon Cognito Identity</ServiceName>
+    <ServiceId>Cognito Identity</ServiceId>
     <ServiceClientInterface>IAmazonCognitoIdentity</ServiceClientInterface>
     <ServiceClient>AmazonCognitoIdentityClient</ServiceClient>
     <ServiceModuleGuid>34f70a63-4662-4c01-b841-1149530567f9</ServiceModuleGuid>

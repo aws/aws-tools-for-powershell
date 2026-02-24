@@ -6,6 +6,7 @@
     <AssemblyName>IoTJobsDataPlane</AssemblyName>
     <ServiceNounPrefix>IOTJ</ServiceNounPrefix>
     <ServiceName>AWS IoT Jobs Data Plane</ServiceName>
+    <ServiceId>IoT Jobs Data Plane</ServiceId>
     <ServiceClientInterface>IAmazonIoTJobsDataPlane</ServiceClientInterface>
     <ServiceClient>AmazonIoTJobsDataPlaneClient</ServiceClient>
     <ServiceModuleGuid>db54228f-6885-4547-a110-c2b605962444</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Route53</AssemblyName>
     <ServiceNounPrefix>R53</ServiceNounPrefix>
     <ServiceName>Amazon Route 53</ServiceName>
+    <ServiceId>Route 53</ServiceId>
     <ServiceClientInterface>IAmazonRoute53</ServiceClientInterface>
     <ServiceClient>AmazonRoute53Client</ServiceClient>
     <ServiceModuleGuid>cb4f18e6-65c6-416a-9d13-9233b88c850b</ServiceModuleGuid>

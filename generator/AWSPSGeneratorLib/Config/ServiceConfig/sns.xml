@@ -6,6 +6,7 @@
     <AssemblyName>SimpleNotificationService</AssemblyName>
     <ServiceNounPrefix>SNS</ServiceNounPrefix>
     <ServiceName>Amazon Simple Notification Service (SNS)</ServiceName>
+    <ServiceId>SNS</ServiceId>
     <ServiceClientInterface>IAmazonSimpleNotificationService</ServiceClientInterface>
     <ServiceClient>AmazonSimpleNotificationServiceClient</ServiceClient>
     <ServiceModuleGuid>ed882123-ae45-43fd-ba31-5348331a8020</ServiceModuleGuid>

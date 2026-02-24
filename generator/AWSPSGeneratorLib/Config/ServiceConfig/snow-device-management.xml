@@ -6,6 +6,7 @@
     <AssemblyName>SnowDeviceManagement</AssemblyName>
     <ServiceNounPrefix>SDMS</ServiceNounPrefix>
     <ServiceName>AWS Snow Device Management</ServiceName>
+    <ServiceId>Snow Device Management</ServiceId>
     <ServiceClientInterface>IAmazonSnowDeviceManagement</ServiceClientInterface>
     <ServiceClient>AmazonSnowDeviceManagementClient</ServiceClient>
     <ServiceModuleGuid>7d03fd09-18bb-4582-8469-13f7e308a30a</ServiceModuleGuid>

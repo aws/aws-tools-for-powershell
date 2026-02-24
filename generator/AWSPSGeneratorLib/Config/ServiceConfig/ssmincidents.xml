@@ -6,6 +6,7 @@
     <AssemblyName>SSMIncidents</AssemblyName>
     <ServiceNounPrefix>SSMI</ServiceNounPrefix>
     <ServiceName>AWS Systems Manager Incident Manager</ServiceName>
+    <ServiceId>SSM Incidents</ServiceId>
     <ServiceClientInterface>IAmazonSSMIncidents</ServiceClientInterface>
     <ServiceClient>AmazonSSMIncidentsClient</ServiceClient>
     <ServiceModuleGuid>ed29d782-d8be-4ebc-8eae-b3d62b0cdff2</ServiceModuleGuid>

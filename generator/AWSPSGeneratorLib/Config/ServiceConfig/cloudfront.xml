@@ -6,6 +6,7 @@
     <AssemblyName>CloudFront</AssemblyName>
     <ServiceNounPrefix>CF</ServiceNounPrefix>
     <ServiceName>Amazon CloudFront</ServiceName>
+    <ServiceId>CloudFront</ServiceId>
     <ServiceClientInterface>IAmazonCloudFront</ServiceClientInterface>
     <ServiceClient>AmazonCloudFrontClient</ServiceClient>
     <ServiceModuleGuid>ff551d47-e813-4ce6-b82a-d605816d6632</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>IVS</AssemblyName>
     <ServiceNounPrefix>IVS</ServiceNounPrefix>
     <ServiceName>Amazon Interactive Video Service</ServiceName>
+    <ServiceId>ivs</ServiceId>
     <ServiceClientInterface>IAmazonIVS</ServiceClientInterface>
     <ServiceClient>AmazonIVSClient</ServiceClient>
     <ServiceModuleGuid>d084bd17-8f05-4ecc-8835-51cf4c3d57a2</ServiceModuleGuid>

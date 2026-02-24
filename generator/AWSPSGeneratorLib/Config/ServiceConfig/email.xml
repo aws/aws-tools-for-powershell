@@ -6,6 +6,7 @@
     <AssemblyName>SimpleEmail</AssemblyName>
     <ServiceNounPrefix>SES</ServiceNounPrefix>
     <ServiceName>Amazon Simple Email Service (SES)</ServiceName>
+    <ServiceId>SES</ServiceId>
     <ServiceClientInterface>IAmazonSimpleEmailService</ServiceClientInterface>
     <ServiceClient>AmazonSimpleEmailServiceClient</ServiceClient>
     <ServiceModuleGuid>7956fac9-07cc-43b4-8dd1-de9a3dd8f1a0</ServiceModuleGuid>

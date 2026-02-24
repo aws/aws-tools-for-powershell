@@ -6,6 +6,7 @@
     <AssemblyName>Odb</AssemblyName>
     <ServiceNounPrefix>ODB</ServiceNounPrefix>
     <ServiceName>Oracle Database@Amazon Web Services</ServiceName>
+    <ServiceId>odb</ServiceId>
     <ServiceClientInterface>IAmazonOdb</ServiceClientInterface>
     <ServiceClient>AmazonOdbClient</ServiceClient>
     <ServiceModuleGuid>018DBEC0-F918-46E9-AA33-AAE48D84CBDD</ServiceModuleGuid>

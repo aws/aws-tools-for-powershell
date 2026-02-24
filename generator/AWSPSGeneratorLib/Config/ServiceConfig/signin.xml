@@ -6,6 +6,7 @@
     <AssemblyName>Signin</AssemblyName>
     <ServiceNounPrefix>AMSP</ServiceNounPrefix>
     <ServiceName>AWS Sign-In Data Plane</ServiceName>
+    <ServiceId>Signin</ServiceId>
     <ServiceClientInterface>IAmazonSignin</ServiceClientInterface>
     <ServiceClient>AmazonSigninClient</ServiceClient>
     <ServiceModuleGuid>b5d6e883-7241-4b5e-9397-a1864260725d</ServiceModuleGuid>

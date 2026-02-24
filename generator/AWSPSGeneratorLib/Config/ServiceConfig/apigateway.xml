@@ -6,6 +6,7 @@
     <AssemblyName>APIGateway</AssemblyName>
     <ServiceNounPrefix>AG</ServiceNounPrefix>
     <ServiceName>Amazon API Gateway</ServiceName>
+    <ServiceId>API Gateway</ServiceId>
     <ServiceClientInterface>IAmazonAPIGateway</ServiceClientInterface>
     <ServiceClient>AmazonAPIGatewayClient</ServiceClient>
     <ServiceModuleGuid>b0287c34-c969-44e0-b786-3ea8356c2934</ServiceModuleGuid>

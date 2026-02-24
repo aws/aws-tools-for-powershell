@@ -5,6 +5,7 @@
     <AssemblyName>DataPipeline</AssemblyName>
     <ServiceNounPrefix>DP</ServiceNounPrefix>
     <ServiceName>AWS Data Pipeline</ServiceName>
+    <ServiceId>Data Pipeline</ServiceId>
     <ServiceClientInterface>IAmazonDataPipeline</ServiceClientInterface>
     <ServiceClient>AmazonDataPipelineClient</ServiceClient>
     <ServiceModuleGuid>68abcdca-cfe8-4bf4-bc5e-c290185f5a96</ServiceModuleGuid>

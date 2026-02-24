@@ -6,6 +6,7 @@
     <AssemblyName>SageMakerMetrics</AssemblyName>
     <ServiceNounPrefix>SMM</ServiceNounPrefix>
     <ServiceName>Amazon SageMaker Metrics Service</ServiceName>
+    <ServiceId>SageMaker Metrics</ServiceId>
     <ServiceClientInterface>IAmazonSageMakerMetrics</ServiceClientInterface>
     <ServiceClient>AmazonSageMakerMetricsClient</ServiceClient>
     <ServiceModuleGuid>e3953448-672b-4d94-99b1-49806e5cd843</ServiceModuleGuid>

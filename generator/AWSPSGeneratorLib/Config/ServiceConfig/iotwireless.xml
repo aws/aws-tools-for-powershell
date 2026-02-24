@@ -6,6 +6,7 @@
     <AssemblyName>IoTWireless</AssemblyName>
     <ServiceNounPrefix>IOTW</ServiceNounPrefix>
     <ServiceName>AWS IoT Wireless</ServiceName>
+    <ServiceId>IoT Wireless</ServiceId>
     <ServiceClientInterface>IAmazonIoTWireless</ServiceClientInterface>
     <ServiceClient>AmazonIoTWirelessClient</ServiceClient>
     <ServiceModuleGuid>841c8390-26c9-43eb-bdc5-4f7408581e2a</ServiceModuleGuid>

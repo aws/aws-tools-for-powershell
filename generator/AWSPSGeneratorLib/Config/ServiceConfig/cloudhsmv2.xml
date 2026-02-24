@@ -6,6 +6,7 @@
     <AssemblyName>CloudHSMV2</AssemblyName>
     <ServiceNounPrefix>HSM2</ServiceNounPrefix>
     <ServiceName>AWS CloudHSM V2</ServiceName>
+    <ServiceId>CloudHSM V2</ServiceId>
     <ServiceClientInterface>IAmazonCloudHSMV2</ServiceClientInterface>
     <ServiceClient>AmazonCloudHSMV2Client</ServiceClient>
     <ServiceModuleGuid>3c54a41d-5d75-46c4-b17b-1f170a749075</ServiceModuleGuid>

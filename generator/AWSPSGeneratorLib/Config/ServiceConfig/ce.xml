@@ -6,6 +6,7 @@
     <AssemblyName>CostExplorer</AssemblyName>
     <ServiceNounPrefix>CE</ServiceNounPrefix>
     <ServiceName>AWS Cost Explorer</ServiceName>
+    <ServiceId>Cost Explorer</ServiceId>
     <ServiceClientInterface>IAmazonCostExplorer</ServiceClientInterface>
     <ServiceClient>AmazonCostExplorerClient</ServiceClient>
     <ServiceModuleGuid>3b3ffee2-a316-4204-b80e-d45e56bfcfdf</ServiceModuleGuid>

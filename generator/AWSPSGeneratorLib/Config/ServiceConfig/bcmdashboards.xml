@@ -6,6 +6,7 @@
     <AssemblyName>BCMDashboards</AssemblyName>
     <ServiceNounPrefix>BCMD</ServiceNounPrefix>
     <ServiceName>AWS Billing and Cost Management Dashboards</ServiceName>
+    <ServiceId>BCM Dashboards</ServiceId>
     <ServiceClientInterface>IAmazonBCMDashboards</ServiceClientInterface>
     <ServiceClient>AmazonBCMDashboardsClient</ServiceClient>
     <ServiceModuleGuid>2a9cacf4-d00b-4a07-8dba-f7775fdef69d</ServiceModuleGuid>

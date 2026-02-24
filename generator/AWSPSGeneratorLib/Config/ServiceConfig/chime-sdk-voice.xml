@@ -6,6 +6,7 @@
     <AssemblyName>ChimeSDKVoice</AssemblyName>
     <ServiceNounPrefix>CHMVO</ServiceNounPrefix>
     <ServiceName>Amazon Chime SDK Voice</ServiceName>
+    <ServiceId>Chime SDK Voice</ServiceId>
     <ServiceClientInterface>IAmazonChimeSDKVoice</ServiceClientInterface>
     <ServiceClient>AmazonChimeSDKVoiceClient</ServiceClient>
     <ServiceModuleGuid>3b0160dc-9339-4335-b366-bb373085bd02</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Drs</AssemblyName>
     <ServiceNounPrefix>EDRS</ServiceNounPrefix>
     <ServiceName>Elastic Disaster Recovery Service</ServiceName>
+    <ServiceId>drs</ServiceId>
     <ServiceClientInterface>IAmazonDrs</ServiceClientInterface>
     <ServiceClient>AmazonDrsClient</ServiceClient>
     <ServiceModuleGuid>b4c9a30d-b1fd-4203-ade9-d69bcdd5da9e</ServiceModuleGuid>

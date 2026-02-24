@@ -6,6 +6,7 @@
     <AssemblyName>AppSync</AssemblyName>
     <ServiceNounPrefix>ASYN</ServiceNounPrefix>
     <ServiceName>AWS AppSync</ServiceName>
+    <ServiceId>AppSync</ServiceId>
     <ServiceClientInterface>IAmazonAppSync</ServiceClientInterface>
     <ServiceClient>AmazonAppSyncClient</ServiceClient>
     <ServiceModuleGuid>2f2a9d9e-48aa-4a81-9013-f98c2415c204</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>IoTSecureTunneling</AssemblyName>
     <ServiceNounPrefix>IOTST</ServiceNounPrefix>
     <ServiceName>AWS IoT Secure Tunneling</ServiceName>
+    <ServiceId>IoTSecureTunneling</ServiceId>
     <ServiceClientInterface>IAmazonIoTSecureTunneling</ServiceClientInterface>
     <ServiceClient>AmazonIoTSecureTunnelingClient</ServiceClient>
     <ServiceModuleGuid>10fe9ef8-ce19-482f-b7c3-eb4b0293789a</ServiceModuleGuid>

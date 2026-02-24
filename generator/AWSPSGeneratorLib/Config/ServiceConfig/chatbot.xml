@@ -6,6 +6,7 @@
     <AssemblyName>Chatbot</AssemblyName>
     <ServiceNounPrefix>CHAT</ServiceNounPrefix>
     <ServiceName>AWS Chatbot</ServiceName>
+    <ServiceId>chatbot</ServiceId>
     <ServiceClientInterface>IAmazonChatbot</ServiceClientInterface>
     <ServiceClient>AmazonChatbotClient</ServiceClient>
     <ServiceModuleGuid>0b12305d-5704-412f-8b4f-16b1b8f58dfc</ServiceModuleGuid>

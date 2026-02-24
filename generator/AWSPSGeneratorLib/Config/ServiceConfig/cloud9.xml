@@ -6,6 +6,7 @@
     <AssemblyName>Cloud9</AssemblyName>
     <ServiceNounPrefix>C9</ServiceNounPrefix>
     <ServiceName>AWS Cloud9</ServiceName>
+    <ServiceId>Cloud9</ServiceId>
     <ServiceClientInterface>IAmazonCloud9</ServiceClientInterface>
     <ServiceClient>AmazonCloud9Client</ServiceClient>
     <ServiceModuleGuid>12b64f13-f4cf-4b58-921a-c84859eb0a43</ServiceModuleGuid>

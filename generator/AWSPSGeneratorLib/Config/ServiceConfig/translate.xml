@@ -6,6 +6,7 @@
     <AssemblyName>Translate</AssemblyName>
     <ServiceNounPrefix>TRN</ServiceNounPrefix>
     <ServiceName>Amazon Translate</ServiceName>
+    <ServiceId>Translate</ServiceId>
     <ServiceClientInterface>IAmazonTranslate</ServiceClientInterface>
     <ServiceClient>AmazonTranslateClient</ServiceClient>
     <ServiceModuleGuid>8fc80711-0607-4168-a6fc-fc9bb8d237a5</ServiceModuleGuid>

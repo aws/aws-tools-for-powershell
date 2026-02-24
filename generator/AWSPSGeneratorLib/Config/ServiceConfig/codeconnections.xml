@@ -6,6 +6,7 @@
     <AssemblyName>CodeConnections</AssemblyName>
     <ServiceNounPrefix>CCON</ServiceNounPrefix>
     <ServiceName>AWS CodeConnections</ServiceName>
+    <ServiceId>CodeConnections</ServiceId>
     <ServiceClientInterface>IAmazonCodeConnections</ServiceClientInterface>
     <ServiceClient>AmazonCodeConnectionsClient</ServiceClient>
     <ServiceModuleGuid>dc867215-4f11-49ce-95b3-c3ae8f8093bf</ServiceModuleGuid>

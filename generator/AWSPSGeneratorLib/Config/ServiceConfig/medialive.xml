@@ -6,6 +6,7 @@
     <AssemblyName>MediaLive</AssemblyName>
     <ServiceNounPrefix>EML</ServiceNounPrefix>
     <ServiceName>AWS Elemental MediaLive</ServiceName>
+    <ServiceId>MediaLive</ServiceId>
     <ServiceClientInterface>IAmazonMediaLive</ServiceClientInterface>
     <ServiceClient>AmazonMediaLiveClient</ServiceClient>
     <ServiceModuleGuid>bab3a303-2dee-470c-8dab-1ac821c015cf</ServiceModuleGuid>

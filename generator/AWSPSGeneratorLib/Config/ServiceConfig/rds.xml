@@ -6,6 +6,7 @@
     <AssemblyName>RDS</AssemblyName>
     <ServiceNounPrefix>RDS</ServiceNounPrefix>
     <ServiceName>Amazon Relational Database Service</ServiceName>
+    <ServiceId>RDS</ServiceId>
     <ServiceClientInterface>IAmazonRDS</ServiceClientInterface>
     <ServiceClient>AmazonRDSClient</ServiceClient>
     <ServiceModuleGuid>c444a7d7-a916-407d-b56f-43e38c2b1365</ServiceModuleGuid>

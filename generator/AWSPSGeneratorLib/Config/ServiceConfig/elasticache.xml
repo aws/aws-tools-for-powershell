@@ -6,6 +6,7 @@
     <AssemblyName>ElastiCache</AssemblyName>
     <ServiceNounPrefix>EC</ServiceNounPrefix>
     <ServiceName>Amazon ElastiCache</ServiceName>
+    <ServiceId>ElastiCache</ServiceId>
     <ServiceClientInterface>IAmazonElastiCache</ServiceClientInterface>
     <ServiceClient>AmazonElastiCacheClient</ServiceClient>
     <ServiceModuleGuid>ca235667-f7a9-48ef-9182-40592e9a9baf</ServiceModuleGuid>

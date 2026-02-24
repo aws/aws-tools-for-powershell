@@ -6,6 +6,7 @@
     <AssemblyName>ServerlessApplicationRepository</AssemblyName>
     <ServiceNounPrefix>SAR</ServiceNounPrefix>
     <ServiceName>AWS Serverless Application Repository</ServiceName>
+    <ServiceId>ServerlessApplicationRepository</ServiceId>
     <ServiceClientInterface>IAmazonServerlessApplicationRepository</ServiceClientInterface>
     <ServiceClient>AmazonServerlessApplicationRepositoryClient</ServiceClient>
     <ServiceModuleGuid>64f5e1e7-c409-46ae-9791-121848af6a29</ServiceModuleGuid>

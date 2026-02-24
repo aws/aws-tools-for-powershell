@@ -6,6 +6,7 @@
     <AssemblyName>DataExchange</AssemblyName>
     <ServiceNounPrefix>DTEX</ServiceNounPrefix>
     <ServiceName>AWS Data Exchange</ServiceName>
+    <ServiceId>DataExchange</ServiceId>
     <ServiceClientInterface>IAmazonDataExchange</ServiceClientInterface>
     <ServiceClient>AmazonDataExchangeClient</ServiceClient>
     <ServiceModuleGuid>464f4a3f-d2eb-452c-8702-6c3105454430</ServiceModuleGuid>

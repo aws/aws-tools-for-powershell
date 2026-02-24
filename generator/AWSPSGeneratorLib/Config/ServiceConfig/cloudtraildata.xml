@@ -6,6 +6,7 @@
     <AssemblyName>CloudTrailData</AssemblyName>
     <ServiceNounPrefix>CTD</ServiceNounPrefix>
     <ServiceName>AWS CloudTrail Data Service</ServiceName>
+    <ServiceId>CloudTrail Data</ServiceId>
     <ServiceClientInterface>IAmazonCloudTrailData</ServiceClientInterface>
     <ServiceClient>AmazonCloudTrailDataClient</ServiceClient>
     <ServiceModuleGuid>d97dca35-df41-4eaa-9b8e-e9ff6d69fc9a</ServiceModuleGuid>

@@ -5,6 +5,7 @@
     <AssemblyName>Amplify</AssemblyName>
     <ServiceNounPrefix>AMP</ServiceNounPrefix>
     <ServiceName>AWS Amplify</ServiceName>
+    <ServiceId>Amplify</ServiceId>
     <ServiceClientInterface>IAmazonAmplify</ServiceClientInterface>
     <ServiceClient>AmazonAmplifyClient</ServiceClient>
     <ServiceModuleGuid>b19ef2bd-fa93-4910-8c4e-40f98573bdb6</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>FreeTier</AssemblyName>
     <ServiceNounPrefix>FT</ServiceNounPrefix>
     <ServiceName>AWS Free Tier</ServiceName>
+    <ServiceId>FreeTier</ServiceId>
     <ServiceClientInterface>IAmazonFreeTier</ServiceClientInterface>
     <ServiceClient>AmazonFreeTierClient</ServiceClient>
     <ServiceModuleGuid>097b56e7-ec31-4533-b6f0-78ec3846e02d</ServiceModuleGuid>

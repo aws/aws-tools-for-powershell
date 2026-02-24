@@ -6,6 +6,7 @@
     <AssemblyName>VerifiedPermissions</AssemblyName>
     <ServiceNounPrefix>AVP</ServiceNounPrefix>
     <ServiceName>Amazon Verified Permissions</ServiceName>
+    <ServiceId>VerifiedPermissions</ServiceId>
     <ServiceClientInterface>IAmazonVerifiedPermissions</ServiceClientInterface>
     <ServiceClient>AmazonVerifiedPermissionsClient</ServiceClient>
     <ServiceModuleGuid>a10b28a4-fd30-48fa-9ec0-535c05dc50d6</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>MediaConvert</AssemblyName>
     <ServiceNounPrefix>EMC</ServiceNounPrefix>
     <ServiceName>AWS Elemental MediaConvert</ServiceName>
+    <ServiceId>MediaConvert</ServiceId>
     <ServiceClientInterface>IAmazonMediaConvert</ServiceClientInterface>
     <ServiceClient>AmazonMediaConvertClient</ServiceClient>
     <ServiceModuleGuid>9491a65e-f617-4b65-a4f3-2f53e172d19b</ServiceModuleGuid>

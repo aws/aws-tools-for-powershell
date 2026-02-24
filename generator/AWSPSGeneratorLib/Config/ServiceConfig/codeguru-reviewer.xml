@@ -6,6 +6,7 @@
     <AssemblyName>CodeGuruReviewer</AssemblyName>
     <ServiceNounPrefix>CGR</ServiceNounPrefix>
     <ServiceName>Amazon CodeGuru Reviewer</ServiceName>
+    <ServiceId>CodeGuru Reviewer</ServiceId>
     <ServiceClientInterface>IAmazonCodeGuruReviewer</ServiceClientInterface>
     <ServiceClient>AmazonCodeGuruReviewerClient</ServiceClient>
     <ServiceModuleGuid>342d4496-5881-417f-b7c9-1a4646d6cd65</ServiceModuleGuid>

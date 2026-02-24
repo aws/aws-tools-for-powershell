@@ -6,6 +6,7 @@
     <AssemblyName>WorkMail</AssemblyName>
     <ServiceNounPrefix>WM</ServiceNounPrefix>
     <ServiceName>Amazon WorkMail</ServiceName>
+    <ServiceId>WorkMail</ServiceId>
     <ServiceClientInterface>IAmazonWorkMail</ServiceClientInterface>
     <ServiceClient>AmazonWorkMailClient</ServiceClient>
     <ServiceModuleGuid>bd2a9bac-1831-41cc-aa54-2c89e30bbfac</ServiceModuleGuid>

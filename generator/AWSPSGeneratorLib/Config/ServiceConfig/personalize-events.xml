@@ -6,6 +6,7 @@
     <AssemblyName>PersonalizeEvents</AssemblyName>
     <ServiceNounPrefix>PERSE</ServiceNounPrefix>
     <ServiceName>Amazon Personalize Events</ServiceName>
+    <ServiceId>Personalize Events</ServiceId>
     <ServiceClientInterface>IAmazonPersonalizeEvents</ServiceClientInterface>
     <ServiceClient>AmazonPersonalizeEventsClient</ServiceClient>
     <ServiceModuleGuid>74e173c8-d188-4c30-9cde-19ae205b910c</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Redshift</AssemblyName>
     <ServiceNounPrefix>RS</ServiceNounPrefix>
     <ServiceName>Amazon Redshift</ServiceName>
+    <ServiceId>Redshift</ServiceId>
     <ServiceClientInterface>IAmazonRedshift</ServiceClientInterface>
     <ServiceClient>AmazonRedshiftClient</ServiceClient>
     <ServiceModuleGuid>3c401a3d-ba96-41a6-aa3a-594256917358</ServiceModuleGuid>

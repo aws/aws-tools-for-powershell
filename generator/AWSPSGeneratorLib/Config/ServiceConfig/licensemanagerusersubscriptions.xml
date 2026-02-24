@@ -6,6 +6,7 @@
     <AssemblyName>LicenseManagerUserSubscriptions</AssemblyName>
     <ServiceNounPrefix>LMUS</ServiceNounPrefix>
     <ServiceName>AWS License Manager User Subscription</ServiceName>
+    <ServiceId>License Manager User Subscriptions</ServiceId>
     <ServiceClientInterface>IAmazonLicenseManagerUserSubscriptions</ServiceClientInterface>
     <ServiceClient>AmazonLicenseManagerUserSubscriptionsClient</ServiceClient>
     <ServiceModuleGuid>3fe7bc18-7b12-4203-abf4-19fa15028e50</ServiceModuleGuid>

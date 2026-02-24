@@ -6,6 +6,7 @@
     <AssemblyName>Neptunedata</AssemblyName>
     <ServiceNounPrefix>NEPT</ServiceNounPrefix>
     <ServiceName>Amazon NeptuneData</ServiceName>
+    <ServiceId>neptunedata</ServiceId>
     <ServiceClientInterface>IAmazonNeptunedata</ServiceClientInterface>
     <ServiceClient>AmazonNeptunedataClient</ServiceClient>
     <ServiceModuleGuid>574e6bcc-98ee-4ef4-9a17-25683a495b04</ServiceModuleGuid>

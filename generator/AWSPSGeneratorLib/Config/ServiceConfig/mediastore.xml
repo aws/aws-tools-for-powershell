@@ -6,6 +6,7 @@
     <AssemblyName>MediaStore</AssemblyName>
     <ServiceNounPrefix>EMS</ServiceNounPrefix>
     <ServiceName>AWS Elemental MediaStore</ServiceName>
+    <ServiceId>MediaStore</ServiceId>
     <ServiceClientInterface>IAmazonMediaStore</ServiceClientInterface>
     <ServiceClient>AmazonMediaStoreClient</ServiceClient>
     <ServiceModuleGuid>202d3868-6c1f-4260-bd2f-ebe34bc2bfcd</ServiceModuleGuid>

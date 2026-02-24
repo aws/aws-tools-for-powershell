@@ -6,6 +6,7 @@
     <AssemblyName>PinpointSMSVoiceV2</AssemblyName>
     <ServiceNounPrefix>SMSV</ServiceNounPrefix>
     <ServiceName>Amazon Pinpoint SMS Voice V2</ServiceName>
+    <ServiceId>Pinpoint SMS Voice V2</ServiceId>
     <ServiceClientInterface>IAmazonPinpointSMSVoiceV2</ServiceClientInterface>
     <ServiceClient>AmazonPinpointSMSVoiceV2Client</ServiceClient>
     <ServiceModuleGuid>4e9d7c27-64e2-43d9-8d6c-5e0432b99e7b</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Rekognition</AssemblyName>
     <ServiceNounPrefix>REK</ServiceNounPrefix>
     <ServiceName>Amazon Rekognition</ServiceName>
+    <ServiceId>Rekognition</ServiceId>
     <ServiceClientInterface>IAmazonRekognition</ServiceClientInterface>
     <ServiceClient>AmazonRekognitionClient</ServiceClient>
     <ServiceModuleGuid>9c9c766c-8d86-4d1b-a482-1e1ec5ed6337</ServiceModuleGuid>

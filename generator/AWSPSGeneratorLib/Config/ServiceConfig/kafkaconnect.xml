@@ -6,6 +6,7 @@
     <AssemblyName>KafkaConnect</AssemblyName>
     <ServiceNounPrefix>MSKC</ServiceNounPrefix>
     <ServiceName>Managed Streaming for Kafka Connect</ServiceName>
+    <ServiceId>KafkaConnect</ServiceId>
     <ServiceClientInterface>IAmazonKafkaConnect</ServiceClientInterface>
     <ServiceClient>AmazonKafkaConnectClient</ServiceClient>
     <ServiceModuleGuid>1D81D432-714D-4CFD-A979-8B5A90B5189A</ServiceModuleGuid>

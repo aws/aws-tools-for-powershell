@@ -6,6 +6,7 @@
     <AssemblyName>AppMesh</AssemblyName>
     <ServiceNounPrefix>AMSH</ServiceNounPrefix>
     <ServiceName>AWS App Mesh</ServiceName>
+    <ServiceId>App Mesh</ServiceId>
     <ServiceClientInterface>IAmazonAppMesh</ServiceClientInterface>
     <ServiceClient>AmazonAppMeshClient</ServiceClient>
     <ServiceModuleGuid>bd5c87ef-3baf-4309-bd29-6dc70327ebfd</ServiceModuleGuid>

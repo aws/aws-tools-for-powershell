@@ -6,6 +6,7 @@
     <AssemblyName>KinesisVideo</AssemblyName>
     <ServiceNounPrefix>KV</ServiceNounPrefix>
     <ServiceName>Amazon Kinesis Video Streams</ServiceName>
+    <ServiceId>Kinesis Video</ServiceId>
     <ServiceClientInterface>IAmazonKinesisVideo</ServiceClientInterface>
     <ServiceClient>AmazonKinesisVideoClient</ServiceClient>
     <ServiceModuleGuid>7a1b7779-c37d-4e6b-9885-a060019ee36b</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Proton</AssemblyName>
     <ServiceNounPrefix>PRO</ServiceNounPrefix>
     <ServiceName>AWS Proton</ServiceName>
+    <ServiceId>Proton</ServiceId>
     <ServiceClientInterface>IAmazonProton</ServiceClientInterface>
     <ServiceClient>AmazonProtonClient</ServiceClient>
     <ServiceModuleGuid>EAFCFB59-D26E-4DC7-827B-51298937CE90</ServiceModuleGuid>

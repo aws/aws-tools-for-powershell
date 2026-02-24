@@ -6,6 +6,7 @@
     <AssemblyName>InternetMonitor</AssemblyName>
     <ServiceNounPrefix>CWIM</ServiceNounPrefix>
     <ServiceName>Amazon CloudWatch Internet Monitor</ServiceName>
+    <ServiceId>InternetMonitor</ServiceId>
     <ServiceClientInterface>IAmazonInternetMonitor</ServiceClientInterface>
     <ServiceClient>AmazonInternetMonitorClient</ServiceClient>
     <ServiceModuleGuid>4b918d8a-18e2-48c7-99ab-ebd9c31e1023</ServiceModuleGuid>

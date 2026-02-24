@@ -6,6 +6,7 @@
     <AssemblyName>SecurityIR</AssemblyName>
     <ServiceNounPrefix>SecurityIR</ServiceNounPrefix>
     <ServiceName>Security Incident Response</ServiceName>
+    <ServiceId>Security IR</ServiceId>
     <ServiceClientInterface>IAmazonSecurityIR</ServiceClientInterface>
     <ServiceClient>AmazonSecurityIRClient</ServiceClient>
     <ServiceModuleGuid>718af742-d7fd-4a20-bf18-b63116fe60fd</ServiceModuleGuid>

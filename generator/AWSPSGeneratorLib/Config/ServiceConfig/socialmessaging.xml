@@ -6,6 +6,7 @@
     <AssemblyName>SocialMessaging</AssemblyName>
     <ServiceNounPrefix>SOCIAL</ServiceNounPrefix>
     <ServiceName>AWS End User Messaging Social</ServiceName>
+    <ServiceId>SocialMessaging</ServiceId>
     <ServiceClientInterface>IAmazonSocialMessaging</ServiceClientInterface>
     <ServiceClient>AmazonSocialMessagingClient</ServiceClient>
     <ServiceModuleGuid>da5f15ee-8fac-4456-8d92-289320c240fb</ServiceModuleGuid>

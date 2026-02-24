@@ -6,6 +6,7 @@
     <AssemblyName>BedrockAgent</AssemblyName>
     <ServiceNounPrefix>AAB</ServiceNounPrefix>
     <ServiceName>Agents for Amazon Bedrock</ServiceName>
+    <ServiceId>Bedrock Agent</ServiceId>
     <ServiceClientInterface>IAmazonBedrockAgent</ServiceClientInterface>
     <ServiceClient>AmazonBedrockAgentClient</ServiceClient>
     <ServiceModuleGuid>29ed7572-f866-41d6-9d7c-3ee9994cab63</ServiceModuleGuid>

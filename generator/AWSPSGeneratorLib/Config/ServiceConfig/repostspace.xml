@@ -6,6 +6,7 @@
     <AssemblyName>Repostspace</AssemblyName>
     <ServiceNounPrefix>RESP</ServiceNounPrefix>
     <ServiceName>AWS re:Post Private</ServiceName>
+    <ServiceId>repostspace</ServiceId>
     <ServiceClientInterface>IAmazonRepostspace</ServiceClientInterface>
     <ServiceClient>AmazonRepostspaceClient</ServiceClient>
     <ServiceModuleGuid>81309a86-ea7f-45d9-9dd2-2bde0193085d</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>MarketplaceCatalog</AssemblyName>
     <ServiceNounPrefix>MCAT</ServiceNounPrefix>
     <ServiceName>AWS Marketplace Catalog Service</ServiceName>
+    <ServiceId>Marketplace Catalog</ServiceId>
     <ServiceClientInterface>IAmazonMarketplaceCatalog</ServiceClientInterface>
     <ServiceClient>AmazonMarketplaceCatalogClient</ServiceClient>
     <ServiceModuleGuid>449701db-4ac6-4251-adbc-c514ac49d0a4</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>MigrationHub</AssemblyName>
     <ServiceNounPrefix>MH</ServiceNounPrefix>
     <ServiceName>AWS Migration Hub</ServiceName>
+    <ServiceId>Migration Hub</ServiceId>
     <ServiceClientInterface>IAmazonMigrationHub</ServiceClientInterface>
     <ServiceClient>AmazonMigrationHubClient</ServiceClient>
     <ServiceModuleGuid>6afb95f9-8cf4-476e-84a7-52f051d59eea</ServiceModuleGuid>

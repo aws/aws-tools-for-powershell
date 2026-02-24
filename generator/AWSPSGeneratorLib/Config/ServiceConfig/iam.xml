@@ -6,6 +6,7 @@
     <AssemblyName>IdentityManagement</AssemblyName>
     <ServiceNounPrefix>IAM</ServiceNounPrefix>
     <ServiceName>AWS Identity and Access Management</ServiceName>
+    <ServiceId>IAM</ServiceId>
     <ServiceClientInterface>IAmazonIdentityManagementService</ServiceClientInterface>
     <ServiceClient>AmazonIdentityManagementServiceClient</ServiceClient>
     <ServiceModuleGuid>1748b4bc-1117-4cfb-9b5e-b80026f1b165</ServiceModuleGuid>

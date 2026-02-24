@@ -6,6 +6,7 @@
     <AssemblyName>ManagedBlockchainQuery</AssemblyName>
     <ServiceNounPrefix>MBCQ</ServiceNounPrefix>
     <ServiceName>Amazon Managed Blockchain Query</ServiceName>
+    <ServiceId>ManagedBlockchain Query</ServiceId>
     <ServiceClientInterface>IAmazonManagedBlockchainQuery</ServiceClientInterface>
     <ServiceClient>AmazonManagedBlockchainQueryClient</ServiceClient>
     <ServiceModuleGuid>036E0ECD-C43C-4C3A-B401-0DA71DF8001C</ServiceModuleGuid>

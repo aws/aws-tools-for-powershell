@@ -6,6 +6,7 @@
     <AssemblyName>ConfigService</AssemblyName>
     <ServiceNounPrefix>CFG</ServiceNounPrefix>
     <ServiceName>AWS Config</ServiceName>
+    <ServiceId>Config Service</ServiceId>
     <ServiceClientInterface>IAmazonConfigService</ServiceClientInterface>
     <ServiceClient>AmazonConfigServiceClient</ServiceClient>
     <ServiceModuleGuid>37355e41-9861-4ed3-ba56-b71575ac6444</ServiceModuleGuid>

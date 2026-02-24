@@ -6,6 +6,7 @@
     <AssemblyName>Route53RecoveryControlConfig</AssemblyName>
     <ServiceNounPrefix>R53RC</ServiceNounPrefix>
     <ServiceName>AWS Route53 Recovery Control Config</ServiceName>
+    <ServiceId>Route53 Recovery Control Config</ServiceId>
     <ServiceClientInterface>IAmazonRoute53RecoveryControlConfig</ServiceClientInterface>
     <ServiceClient>AmazonRoute53RecoveryControlConfigClient</ServiceClient>
     <ServiceModuleGuid>f3994353-a65e-4449-ba43-4c3642c3db10</ServiceModuleGuid>

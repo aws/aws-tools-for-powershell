@@ -6,6 +6,7 @@
     <AssemblyName>Account</AssemblyName>
     <ServiceNounPrefix>ACCT</ServiceNounPrefix>
     <ServiceName>AWS Account</ServiceName>
+    <ServiceId>Account</ServiceId>
     <ServiceClientInterface>IAmazonAccount</ServiceClientInterface>
     <ServiceClient>AmazonAccountClient</ServiceClient>
     <ServiceModuleGuid>1b2ce566-ee2b-4e8e-9af5-8e9535579c41</ServiceModuleGuid>

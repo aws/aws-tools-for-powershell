@@ -6,6 +6,7 @@
     <AssemblyName>IdentityStore</AssemblyName>
     <ServiceNounPrefix>IDS</ServiceNounPrefix>
     <ServiceName>AWS Identity Store</ServiceName>
+    <ServiceId>identitystore</ServiceId>
     <ServiceClientInterface>IAmazonIdentityStore</ServiceClientInterface>
     <ServiceClient>AmazonIdentityStoreClient</ServiceClient>
     <ServiceModuleGuid>e7ea4a06-96a3-4fa5-b20e-409b084f14c3</ServiceModuleGuid>

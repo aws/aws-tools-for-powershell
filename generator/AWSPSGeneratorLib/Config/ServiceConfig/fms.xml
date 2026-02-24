@@ -6,6 +6,7 @@
     <AssemblyName>FMS</AssemblyName>
     <ServiceNounPrefix>FMS</ServiceNounPrefix>
     <ServiceName>Firewall Management Service</ServiceName>
+    <ServiceId>FMS</ServiceId>
     <ServiceClientInterface>IAmazonFMS</ServiceClientInterface>
     <ServiceClient>AmazonFMSClient</ServiceClient>
     <ServiceModuleGuid>8ab70494-0b66-4d26-86d3-df94f9c25daf</ServiceModuleGuid>

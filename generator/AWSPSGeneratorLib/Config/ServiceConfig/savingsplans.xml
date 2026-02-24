@@ -6,6 +6,7 @@
     <AssemblyName>SavingsPlans</AssemblyName>
     <ServiceNounPrefix>SP</ServiceNounPrefix>
     <ServiceName>AWS Savings Plans</ServiceName>
+    <ServiceId>savingsplans</ServiceId>
     <ServiceClientInterface>IAmazonSavingsPlans</ServiceClientInterface>
     <ServiceClient>AmazonSavingsPlansClient</ServiceClient>
     <ServiceModuleGuid>3fc88b7e-6577-4be8-9077-b4b961bad2de</ServiceModuleGuid>

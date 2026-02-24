@@ -6,6 +6,7 @@
     <AssemblyName>GeoRoutes</AssemblyName>
     <ServiceNounPrefix>GEOR</ServiceNounPrefix>
     <ServiceName>Amazon Location Service Routes V2</ServiceName>
+    <ServiceId>Geo Routes</ServiceId>
     <ServiceClientInterface>IAmazonGeoRoutes</ServiceClientInterface>
     <ServiceClient>AmazonGeoRoutesClient</ServiceClient>
     <ServiceModuleGuid>8BA7F34A-C7BF-4043-8E37-AC8822CEAB48</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Elasticsearch</AssemblyName>
     <ServiceNounPrefix>ES</ServiceNounPrefix>
     <ServiceName>Amazon Elasticsearch</ServiceName>
+    <ServiceId>Elasticsearch Service</ServiceId>
     <ServiceClientInterface>IAmazonElasticsearch</ServiceClientInterface>
     <ServiceClient>AmazonElasticsearchClient</ServiceClient>
     <ServiceModuleGuid>aa160288-7365-48c0-9b9d-5250b881ccfb</ServiceModuleGuid>

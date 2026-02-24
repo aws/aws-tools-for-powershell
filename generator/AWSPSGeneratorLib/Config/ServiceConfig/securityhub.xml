@@ -6,6 +6,7 @@
     <AssemblyName>SecurityHub</AssemblyName>
     <ServiceNounPrefix>SHUB</ServiceNounPrefix>
     <ServiceName>AWS Security Hub</ServiceName>
+    <ServiceId>SecurityHub</ServiceId>
     <ServiceClientInterface>IAmazonSecurityHub</ServiceClientInterface>
     <ServiceClient>AmazonSecurityHubClient</ServiceClient>
     <ServiceModuleGuid>af56b77c-0f06-4578-8714-9f4df4cf894e</ServiceModuleGuid>

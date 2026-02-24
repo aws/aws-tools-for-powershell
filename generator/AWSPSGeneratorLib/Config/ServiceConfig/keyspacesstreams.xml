@@ -6,6 +6,7 @@
     <AssemblyName>KeyspacesStreams</AssemblyName>
     <ServiceNounPrefix>KST</ServiceNounPrefix>
     <ServiceName>Amazon Keyspaces Streams</ServiceName>
+    <ServiceId>KeyspacesStreams</ServiceId>
     <ServiceClientInterface>IAmazonKeyspacesStreams</ServiceClientInterface>
     <ServiceClient>AmazonKeyspacesStreamsClient</ServiceClient>
     <ServiceModuleGuid>9b8ad303-51c9-49d0-8d5a-ae6088431141</ServiceModuleGuid>

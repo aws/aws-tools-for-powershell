@@ -6,6 +6,7 @@
     <AssemblyName>Lambda</AssemblyName>
     <ServiceNounPrefix>LM</ServiceNounPrefix>
     <ServiceName>AWS Lambda</ServiceName>
+    <ServiceId>Lambda</ServiceId>
     <ServiceClientInterface>IAmazonLambda</ServiceClientInterface>
     <ServiceClient>AmazonLambdaClient</ServiceClient>
     <ServiceModuleGuid>240bbccc-f270-44af-8e80-bb4ebe8614ab</ServiceModuleGuid>

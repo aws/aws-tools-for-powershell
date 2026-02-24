@@ -6,6 +6,7 @@
     <AssemblyName>RedshiftServerless</AssemblyName>
     <ServiceNounPrefix>RSS</ServiceNounPrefix>
     <ServiceName>Redshift Serverless</ServiceName>
+    <ServiceId>Redshift Serverless</ServiceId>
     <ServiceClientInterface>IAmazonRedshiftServerless</ServiceClientInterface>
     <ServiceClient>AmazonRedshiftServerlessClient</ServiceClient>
     <ServiceModuleGuid>6668b6b6-bd08-4abb-a884-39549374ddb3</ServiceModuleGuid>

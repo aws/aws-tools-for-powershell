@@ -6,6 +6,7 @@
     <AssemblyName>DatabaseMigrationService</AssemblyName>
     <ServiceNounPrefix>DMS</ServiceNounPrefix>
     <ServiceName>AWS Database Migration Service</ServiceName>
+    <ServiceId>Database Migration Service</ServiceId>
     <ServiceClientInterface>IAmazonDatabaseMigrationService</ServiceClientInterface>
     <ServiceClient>AmazonDatabaseMigrationServiceClient</ServiceClient>
     <ServiceModuleGuid>0d978e1b-dcd2-4c89-8bf3-aae5b490f22b</ServiceModuleGuid>

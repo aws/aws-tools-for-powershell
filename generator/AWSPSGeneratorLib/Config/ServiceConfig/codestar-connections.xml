@@ -6,6 +6,7 @@
     <AssemblyName>CodeStarconnections</AssemblyName>
     <ServiceNounPrefix>CSTC</ServiceNounPrefix>
     <ServiceName>AWS CodeStar Connections</ServiceName>
+    <ServiceId>CodeStar connections</ServiceId>
     <ServiceClientInterface>IAmazonCodeStarconnections</ServiceClientInterface>
     <ServiceClient>AmazonCodeStarconnectionsClient</ServiceClient>
     <ServiceModuleGuid>5973736e-f999-4703-a3bf-bb71dd70dbf0</ServiceModuleGuid>

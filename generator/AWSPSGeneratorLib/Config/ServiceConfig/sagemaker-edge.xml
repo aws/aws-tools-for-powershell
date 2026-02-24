@@ -6,6 +6,7 @@
     <AssemblyName>SagemakerEdgeManager</AssemblyName>
     <ServiceNounPrefix>SME</ServiceNounPrefix>
     <ServiceName>Amazon Sagemaker Edge Manager</ServiceName>
+    <ServiceId>Sagemaker Edge</ServiceId>
     <ServiceClientInterface>IAmazonSagemakerEdgeManager</ServiceClientInterface>
     <ServiceClient>AmazonSagemakerEdgeManagerClient</ServiceClient>
     <ServiceModuleGuid>90DED21C-D6DE-4524-8CA4-43EB708C6F2E</ServiceModuleGuid>

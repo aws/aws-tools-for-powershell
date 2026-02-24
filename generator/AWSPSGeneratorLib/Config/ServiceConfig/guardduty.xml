@@ -6,6 +6,7 @@
     <AssemblyName>GuardDuty</AssemblyName>
     <ServiceNounPrefix>GD</ServiceNounPrefix>
     <ServiceName>Amazon GuardDuty</ServiceName>
+    <ServiceId>GuardDuty</ServiceId>
     <ServiceClientInterface>IAmazonGuardDuty</ServiceClientInterface>
     <ServiceClient>AmazonGuardDutyClient</ServiceClient>
     <ServiceModuleGuid>757e9863-6a21-4dc3-bfba-afc26a30473a</ServiceModuleGuid>

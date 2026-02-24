@@ -6,6 +6,7 @@
     <AssemblyName>BedrockAgentCore</AssemblyName>
     <ServiceNounPrefix>BAC</ServiceNounPrefix>
     <ServiceName>Amazon Bedrock AgentCore Data Plane Fronting Layer</ServiceName>
+    <ServiceId>Bedrock AgentCore</ServiceId>
     <ServiceClientInterface>IAmazonBedrockAgentCore</ServiceClientInterface>
     <ServiceClient>AmazonBedrockAgentCoreClient</ServiceClient>
     <ServiceModuleGuid>071d6e44-6022-4867-92ca-271f6abca217</ServiceModuleGuid>

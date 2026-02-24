@@ -6,6 +6,7 @@
     <AssemblyName>ApplicationSignals</AssemblyName>
     <ServiceNounPrefix>CWAS</ServiceNounPrefix>
     <ServiceName>Amazon CloudWatch Application Signals</ServiceName>
+    <ServiceId>Application Signals</ServiceId>
     <ServiceClientInterface>IAmazonApplicationSignals</ServiceClientInterface>
     <ServiceClient>AmazonApplicationSignalsClient</ServiceClient>
     <ServiceModuleGuid>10c671d6-9570-40b8-b87d-ff9be495b4f6</ServiceModuleGuid>

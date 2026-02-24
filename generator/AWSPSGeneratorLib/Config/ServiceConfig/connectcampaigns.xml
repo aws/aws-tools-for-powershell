@@ -6,6 +6,7 @@
     <AssemblyName>ConnectCampaignService</AssemblyName>
     <ServiceNounPrefix>CCS</ServiceNounPrefix>
     <ServiceName>Amazon Connect Campaign Service</ServiceName>
+    <ServiceId>ConnectCampaigns</ServiceId>
     <ServiceClientInterface>IAmazonConnectCampaignService</ServiceClientInterface>
     <ServiceClient>AmazonConnectCampaignServiceClient</ServiceClient>
     <ServiceModuleGuid>a7de4b77-2d28-401b-a35d-5f292ee061f4</ServiceModuleGuid>

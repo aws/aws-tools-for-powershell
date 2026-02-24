@@ -6,6 +6,7 @@
     <AssemblyName>CodePipeline</AssemblyName>
     <ServiceNounPrefix>CP</ServiceNounPrefix>
     <ServiceName>AWS CodePipeline</ServiceName>
+    <ServiceId>CodePipeline</ServiceId>
     <ServiceClientInterface>IAmazonCodePipeline</ServiceClientInterface>
     <ServiceClient>AmazonCodePipelineClient</ServiceClient>
     <ServiceModuleGuid>90380fd4-40d6-4cfc-9f1c-49ff46f210be</ServiceModuleGuid>

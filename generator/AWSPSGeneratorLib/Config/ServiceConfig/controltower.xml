@@ -6,6 +6,7 @@
     <AssemblyName>ControlTower</AssemblyName>
     <ServiceNounPrefix>ACT</ServiceNounPrefix>
     <ServiceName>AWS Control Tower</ServiceName>
+    <ServiceId>ControlTower</ServiceId>
     <ServiceClientInterface>IAmazonControlTower</ServiceClientInterface>
     <ServiceClient>AmazonControlTowerClient</ServiceClient>
     <ServiceModuleGuid>cc3f9af0-d3b2-4dfc-8a5f-57d2facaae0d</ServiceModuleGuid>

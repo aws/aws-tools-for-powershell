@@ -6,6 +6,7 @@
     <AssemblyName>ConnectCases</AssemblyName>
     <ServiceNounPrefix>CCAS</ServiceNounPrefix>
     <ServiceName>Amazon Connect Cases</ServiceName>
+    <ServiceId>ConnectCases</ServiceId>
     <ServiceClientInterface>IAmazonConnectCases</ServiceClientInterface>
     <ServiceClient>AmazonConnectCasesClient</ServiceClient>
     <ServiceModuleGuid>14bd08ec-8e99-42da-b15b-4ab0441fe9b1</ServiceModuleGuid>

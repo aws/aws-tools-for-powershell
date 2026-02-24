@@ -6,6 +6,7 @@
     <AssemblyName>B2bi</AssemblyName>
     <ServiceNounPrefix>B2BI</ServiceNounPrefix>
     <ServiceName>AWS B2B Data Interchange</ServiceName>
+    <ServiceId>b2bi</ServiceId>
     <ServiceClientInterface>IAmazonB2bi</ServiceClientInterface>
     <ServiceClient>AmazonB2biClient</ServiceClient>
     <ServiceModuleGuid>bf74a2f8-f0c0-4ff3-b5f8-fec10ba02e8a</ServiceModuleGuid>

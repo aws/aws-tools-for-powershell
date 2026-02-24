@@ -6,6 +6,7 @@
     <AssemblyName>AppIntegrationsService</AssemblyName>
     <ServiceNounPrefix>AIS</ServiceNounPrefix>
     <ServiceName>Amazon AppIntegrations Service</ServiceName>
+    <ServiceId>AppIntegrations</ServiceId>
     <ServiceClientInterface>IAmazonAppIntegrationsService</ServiceClientInterface>
     <ServiceClient>AmazonAppIntegrationsServiceClient</ServiceClient>
     <ServiceModuleGuid>d2a5b70f-2ebc-4040-bcbe-0dbf43dc7340</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>LicenseManager</AssemblyName>
     <ServiceNounPrefix>LICM</ServiceNounPrefix>
     <ServiceName>AWS License Manager</ServiceName>
+    <ServiceId>License Manager</ServiceId>
     <ServiceClientInterface>IAmazonLicenseManager</ServiceClientInterface>
     <ServiceClient>AmazonLicenseManagerClient</ServiceClient>
     <ServiceModuleGuid>62a61c12-9692-4827-8690-e4217061bb6d</ServiceModuleGuid>

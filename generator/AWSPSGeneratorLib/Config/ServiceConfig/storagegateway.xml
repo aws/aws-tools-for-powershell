@@ -6,6 +6,7 @@
     <AssemblyName>StorageGateway</AssemblyName>
     <ServiceNounPrefix>SG</ServiceNounPrefix>
     <ServiceName>AWS Storage Gateway</ServiceName>
+    <ServiceId>Storage Gateway</ServiceId>
     <ServiceClientInterface>IAmazonStorageGateway</ServiceClientInterface>
     <ServiceClient>AmazonStorageGatewayClient</ServiceClient>
     <ServiceModuleGuid>d286e57e-c129-44c1-918b-041ba56c2a44</ServiceModuleGuid>

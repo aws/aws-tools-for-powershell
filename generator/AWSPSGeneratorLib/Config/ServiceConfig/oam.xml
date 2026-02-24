@@ -6,6 +6,7 @@
     <AssemblyName>OAM</AssemblyName>
     <ServiceNounPrefix>CWOAM</ServiceNounPrefix>
     <ServiceName>CloudWatch Observability Access Manager</ServiceName>
+    <ServiceId>OAM</ServiceId>
     <ServiceClientInterface>IAmazonOAM</ServiceClientInterface>
     <ServiceClient>AmazonOAMClient</ServiceClient>
     <ServiceModuleGuid>dda0aab6-b12a-4543-a66e-53a67fd155d7</ServiceModuleGuid>

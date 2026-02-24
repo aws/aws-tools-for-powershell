@@ -6,6 +6,7 @@
     <AssemblyName>GameLiftStreams</AssemblyName>
     <ServiceNounPrefix>GMLS</ServiceNounPrefix>
     <ServiceName>Amazon GameLiftStreams</ServiceName>
+    <ServiceId>GameLiftStreams</ServiceId>
     <ServiceClientInterface>IAmazonGameLiftStreams</ServiceClientInterface>
     <ServiceClient>AmazonGameLiftStreamsClient</ServiceClient>
     <ServiceModuleGuid>73263797-d5dd-49fe-95e4-08a0804ca350</ServiceModuleGuid>

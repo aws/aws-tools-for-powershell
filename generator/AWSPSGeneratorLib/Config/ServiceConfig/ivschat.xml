@@ -6,6 +6,7 @@
     <AssemblyName>Ivschat</AssemblyName>
     <ServiceNounPrefix>IVSC</ServiceNounPrefix>
     <ServiceName>Amazon Interactive Video Service Chat</ServiceName>
+    <ServiceId>ivschat</ServiceId>
     <ServiceClientInterface>IAmazonIvschat</ServiceClientInterface>
     <ServiceClient>AmazonIvschatClient</ServiceClient>
     <ServiceModuleGuid>460be0b5-3f12-49df-a719-e3e0787f73f6</ServiceModuleGuid>

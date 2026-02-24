@@ -6,6 +6,7 @@
     <AssemblyName>WAF</AssemblyName>
     <ServiceNounPrefix>WAF</ServiceNounPrefix>
     <ServiceName>AWS WAF</ServiceName>
+    <ServiceId>WAF</ServiceId>
     <ServiceClientInterface>IAmazonWAF</ServiceClientInterface>
     <ServiceClient>AmazonWAFClient</ServiceClient>
     <ServiceModuleGuid>1f2c45bc-59da-4d7c-ab79-9fc27cb885d2</ServiceModuleGuid>

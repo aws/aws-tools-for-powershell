@@ -5,6 +5,7 @@
     <AssemblyName>DynamoDBv2</AssemblyName>
     <ServiceNounPrefix>DDB</ServiceNounPrefix>
     <ServiceName>Amazon DynamoDB</ServiceName>
+    <ServiceId>DynamoDB</ServiceId>
     <ServiceClientInterface>IAmazonDynamoDBStreams</ServiceClientInterface>
     <ServiceClient>AmazonDynamoDBStreamsClient</ServiceClient>
     <ServiceModuleGuid />

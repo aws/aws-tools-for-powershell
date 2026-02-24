@@ -6,6 +6,7 @@
     <AssemblyName>Kafka</AssemblyName>
     <ServiceNounPrefix>MSK</ServiceNounPrefix>
     <ServiceName>Amazon Managed Streaming for Apache Kafka (MSK)</ServiceName>
+    <ServiceId>Kafka</ServiceId>
     <ServiceClientInterface>IAmazonKafka</ServiceClientInterface>
     <ServiceClient>AmazonKafkaClient</ServiceClient>
     <ServiceModuleGuid>134ca4aa-296f-4843-a4e5-470ecf5cf6f6</ServiceModuleGuid>

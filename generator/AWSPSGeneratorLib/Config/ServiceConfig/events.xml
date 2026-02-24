@@ -6,6 +6,7 @@
     <AssemblyName>CloudWatchEvents</AssemblyName>
     <ServiceNounPrefix>CWE</ServiceNounPrefix>
     <ServiceName>Amazon CloudWatch Events</ServiceName>
+    <ServiceId>CloudWatch Events</ServiceId>
     <ServiceClientInterface>IAmazonCloudWatchEvents</ServiceClientInterface>
     <ServiceClient>AmazonCloudWatchEventsClient</ServiceClient>
     <ServiceModuleGuid />

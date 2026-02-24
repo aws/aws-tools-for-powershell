@@ -6,6 +6,7 @@
     <AssemblyName>ServiceQuotas</AssemblyName>
     <ServiceNounPrefix>SQ</ServiceNounPrefix>
     <ServiceName>AWS Service Quotas</ServiceName>
+    <ServiceId>Service Quotas</ServiceId>
     <ServiceClientInterface>IAmazonServiceQuotas</ServiceClientInterface>
     <ServiceClient>AmazonServiceQuotasClient</ServiceClient>
     <ServiceModuleGuid>d68c9bf0-07ac-47d6-9638-7da23e5e9a3a</ServiceModuleGuid>

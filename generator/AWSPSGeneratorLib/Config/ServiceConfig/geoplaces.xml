@@ -6,6 +6,7 @@
     <AssemblyName>GeoPlaces</AssemblyName>
     <ServiceNounPrefix>GEOP</ServiceNounPrefix>
     <ServiceName>Amazon Location Service Places V2</ServiceName>
+    <ServiceId>Geo Places</ServiceId>
     <ServiceClientInterface>IAmazonGeoPlaces</ServiceClientInterface>
     <ServiceClient>AmazonGeoPlacesClient</ServiceClient>
     <ServiceModuleGuid>DF111C52-14B1-48F4-A81A-D48FD7158420</ServiceModuleGuid>

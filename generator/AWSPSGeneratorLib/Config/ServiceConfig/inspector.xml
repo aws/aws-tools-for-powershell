@@ -6,6 +6,7 @@
     <AssemblyName>Inspector</AssemblyName>
     <ServiceNounPrefix>INS</ServiceNounPrefix>
     <ServiceName>Amazon Inspector</ServiceName>
+    <ServiceId>Inspector</ServiceId>
     <ServiceClientInterface>IAmazonInspector</ServiceClientInterface>
     <ServiceClient>AmazonInspectorClient</ServiceClient>
     <ServiceModuleGuid>ac81a886-9dc1-462a-a4d1-43f3f869ac5e</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>Bedrock</AssemblyName>
     <ServiceNounPrefix>BDR</ServiceNounPrefix>
     <ServiceName>Amazon Bedrock</ServiceName>
+    <ServiceId>Bedrock</ServiceId>
     <ServiceClientInterface>IAmazonBedrock</ServiceClientInterface>
     <ServiceClient>AmazonBedrockClient</ServiceClient>
     <ServiceModuleGuid>10bc4d1f-693a-417c-b960-36c347b2742c</ServiceModuleGuid>

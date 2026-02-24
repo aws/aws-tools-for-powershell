@@ -6,6 +6,7 @@
     <AssemblyName>TimestreamWrite</AssemblyName>
     <ServiceNounPrefix>TSW</ServiceNounPrefix>
     <ServiceName>Amazon Timestream Write</ServiceName>
+    <ServiceId>Timestream Write</ServiceId>
     <ServiceClientInterface>IAmazonTimestreamWrite</ServiceClientInterface>
     <ServiceClient>AmazonTimestreamWriteClient</ServiceClient>
     <ServiceModuleGuid>d5cf3f60-7864-4f05-bf98-13046df7e59c</ServiceModuleGuid>

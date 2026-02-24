@@ -6,6 +6,7 @@
     <AssemblyName>AppFabric</AssemblyName>
     <ServiceNounPrefix>AFAB</ServiceNounPrefix>
     <ServiceName>Amazon Web Services AppFabric</ServiceName>
+    <ServiceId>AppFabric</ServiceId>
     <ServiceClientInterface>IAmazonAppFabric</ServiceClientInterface>
     <ServiceClient>AmazonAppFabricClient</ServiceClient>
     <ServiceModuleGuid>758CB655-80D3-4C32-BEB3-8943BCBF21DB</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>CertificateManager</AssemblyName>
     <ServiceNounPrefix>ACM</ServiceNounPrefix>
     <ServiceName>AWS Certificate Manager</ServiceName>
+    <ServiceId>ACM</ServiceId>
     <ServiceClientInterface>IAmazonCertificateManager</ServiceClientInterface>
     <ServiceClient>AmazonCertificateManagerClient</ServiceClient>
     <ServiceModuleGuid>4582522e-4142-4ab4-b161-5601cf68b8cd</ServiceModuleGuid>

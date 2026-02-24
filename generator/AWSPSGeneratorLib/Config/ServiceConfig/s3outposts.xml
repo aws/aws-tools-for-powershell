@@ -6,6 +6,7 @@
     <AssemblyName>S3Outposts</AssemblyName>
     <ServiceNounPrefix>S3O</ServiceNounPrefix>
     <ServiceName>Amazon S3 Outposts</ServiceName>
+    <ServiceId>S3Outposts</ServiceId>
     <ServiceClientInterface>IAmazonS3Outposts</ServiceClientInterface>
     <ServiceClient>AmazonS3OutpostsClient</ServiceClient>
     <ServiceModuleGuid>4dc784e2-fe18-407d-bd63-206b93e733d8</ServiceModuleGuid>

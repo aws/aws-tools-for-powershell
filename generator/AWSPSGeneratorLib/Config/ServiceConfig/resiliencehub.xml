@@ -6,6 +6,7 @@
     <AssemblyName>ResilienceHub</AssemblyName>
     <ServiceNounPrefix>RESH</ServiceNounPrefix>
     <ServiceName>AWS Resilience Hub</ServiceName>
+    <ServiceId>resiliencehub</ServiceId>
     <ServiceClientInterface>IAmazonResilienceHub</ServiceClientInterface>
     <ServiceClient>AmazonResilienceHubClient</ServiceClient>
     <ServiceModuleGuid>5a84fe31-1862-4756-9859-ded30395e736</ServiceModuleGuid>

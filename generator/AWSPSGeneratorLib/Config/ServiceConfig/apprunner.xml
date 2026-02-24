@@ -6,6 +6,7 @@
     <AssemblyName>AppRunner</AssemblyName>
     <ServiceNounPrefix>AAR</ServiceNounPrefix>
     <ServiceName>AWS App Runner</ServiceName>
+    <ServiceId>AppRunner</ServiceId>
     <ServiceClientInterface>IAmazonAppRunner</ServiceClientInterface>
     <ServiceClient>AmazonAppRunnerClient</ServiceClient>
     <ServiceModuleGuid>356021c6-4ae6-4f72-8556-e8bdb0d20555</ServiceModuleGuid>

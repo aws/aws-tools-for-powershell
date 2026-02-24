@@ -6,6 +6,7 @@
     <AssemblyName>IoTTwinMaker</AssemblyName>
     <ServiceNounPrefix>IOTTM</ServiceNounPrefix>
     <ServiceName>AWS IoT TwinMaker</ServiceName>
+    <ServiceId>IoTTwinMaker</ServiceId>
     <ServiceClientInterface>IAmazonIoTTwinMaker</ServiceClientInterface>
     <ServiceClient>AmazonIoTTwinMakerClient</ServiceClient>
     <ServiceModuleGuid>6265951c-1b44-4c71-8572-e54be412f008</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>FraudDetector</AssemblyName>
     <ServiceNounPrefix>FD</ServiceNounPrefix>
     <ServiceName>Amazon Fraud Detector</ServiceName>
+    <ServiceId>FraudDetector</ServiceId>
     <ServiceClientInterface>IAmazonFraudDetector</ServiceClientInterface>
     <ServiceClient>AmazonFraudDetectorClient</ServiceClient>
     <ServiceModuleGuid>f2ed2778-97af-4b44-8f4c-b94561d2ce37</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>ServiceCatalog</AssemblyName>
     <ServiceNounPrefix>SC</ServiceNounPrefix>
     <ServiceName>AWS Service Catalog</ServiceName>
+    <ServiceId>Service Catalog</ServiceId>
     <ServiceClientInterface>IAmazonServiceCatalog</ServiceClientInterface>
     <ServiceClient>AmazonServiceCatalogClient</ServiceClient>
     <ServiceModuleGuid>f9e1f392-c3e6-44f4-9c61-998046483892</ServiceModuleGuid>

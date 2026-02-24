@@ -6,6 +6,7 @@
     <AssemblyName>S3</AssemblyName>
     <ServiceNounPrefix>S3</ServiceNounPrefix>
     <ServiceName>Amazon Simple Storage Service (S3)</ServiceName>
+    <ServiceId>S3</ServiceId>
     <ServiceClientInterface>IAmazonS3</ServiceClientInterface>
     <ServiceClient>AmazonS3Client</ServiceClient>
     <ServiceModuleGuid>b4e504bd-3d14-4563-918a-91025140eba4</ServiceModuleGuid>

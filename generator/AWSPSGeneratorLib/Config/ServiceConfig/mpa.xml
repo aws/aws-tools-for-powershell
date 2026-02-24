@@ -6,6 +6,7 @@
     <AssemblyName>MPA</AssemblyName>
     <ServiceNounPrefix>MPA</ServiceNounPrefix>
     <ServiceName>AWS Multi-party Approval</ServiceName>
+    <ServiceId>MPA</ServiceId>
     <ServiceClientInterface>IAmazonMPA</ServiceClientInterface>
     <ServiceClient>AmazonMPAClient</ServiceClient>
     <ServiceModuleGuid>5b32ee72-4633-46f7-b574-ae206e4b12cd</ServiceModuleGuid>

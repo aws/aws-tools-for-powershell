@@ -6,6 +6,7 @@
     <AssemblyName>CustomerProfiles</AssemblyName>
     <ServiceNounPrefix>CPF</ServiceNounPrefix>
     <ServiceName>Amazon Connect Customer Profiles</ServiceName>
+    <ServiceId>Customer Profiles</ServiceId>
     <ServiceClientInterface>IAmazonCustomerProfiles</ServiceClientInterface>
     <ServiceClient>AmazonCustomerProfilesClient</ServiceClient>
     <ServiceModuleGuid>c03448e2-2f46-491e-b1d1-fccfda1f9733</ServiceModuleGuid>

@@ -6,6 +6,7 @@
     <AssemblyName>IVSRealTime</AssemblyName>
     <ServiceNounPrefix>IVSRT</ServiceNounPrefix>
     <ServiceName>Amazon Interactive Video Service RealTime</ServiceName>
+    <ServiceId>IVS RealTime</ServiceId>
     <ServiceClientInterface>IAmazonIVSRealTime</ServiceClientInterface>
     <ServiceClient>AmazonIVSRealTimeClient</ServiceClient>
     <ServiceModuleGuid>BFF6FB10-A5A2-42B7-8BDE-E5E37DEA2B28</ServiceModuleGuid>
