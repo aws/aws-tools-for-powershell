@@ -27929,6 +27929,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.DefaultHttpTokensEnforcedState
+        "Edit-EC2InstanceMetadataDefault/HttpTokensEnforced"
+        {
+            $v = "disabled","enabled","no-preference"
+            break
+        }
+
         # Amazon.EC2.DefaultInstanceMetadataEndpointState
         "Edit-EC2InstanceMetadataDefault/HttpEndpoint"
         {
@@ -29170,6 +29177,7 @@ $EC2_map = @{
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
     "HttpToken"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
+    "HttpTokensEnforced"=@("Edit-EC2InstanceMetadataDefault")
     "ImageBlockPublicAccessState"=@("Enable-EC2ImageBlockPublicAccess")
     "ImdsSupport"=@("Register-EC2Image")
     "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
@@ -32470,6 +32478,70 @@ $EMR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $EMR_SelectCompleters $EMR_SelectMap
+# Argument completions for service AWS Elemental Inference
+
+
+$EMI_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.EMI.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMI_SelectMap = @{
+    "Select"=@("Add-EMIFeed",
+               "New-EMIFeed",
+               "Remove-EMIFeed",
+               "Unregister-EMIFeed",
+               "Get-EMIFeed",
+               "Get-EMIFeedList",
+               "Get-EMIResourceTag",
+               "Add-EMIResourceTag",
+               "Remove-EMIResourceTag",
+               "Update-EMIFeed")
+}
+
+_awsArgumentCompleterRegistration $EMI_SelectCompleters $EMI_SelectMap
 # Argument completions for service Amazon Simple Email Service (SES)
 
 
@@ -55584,7 +55656,8 @@ $CW_SelectCompleters = {
 }
 
 $CW_SelectMap = @{
-    "Select"=@("Remove-CWAlarm",
+    "Select"=@("Remove-CWAlarmMuteRule",
+               "Remove-CWAlarm",
                "Remove-CWAnomalyDetector",
                "Remove-CWDashboard",
                "Remove-CWInsightRule",
@@ -55599,17 +55672,20 @@ $CW_SelectMap = @{
                "Disable-CWInsightRule",
                "Enable-CWAlarmAction",
                "Enable-CWInsightRule",
+               "Get-CWAlarmMuteRule",
                "Get-CWDashboard",
                "Get-CWInsightRuleReport",
                "Get-CWMetricData",
                "Get-CWMetricStatistic",
                "Get-CWMetricStream",
                "Get-CWMetricWidgetImage",
+               "Get-CWAlarmMuteRuleList",
                "Get-CWDashboardList",
                "Get-CWManagedInsightRule",
                "Get-CWMetricList",
                "Get-CWMetricStreamList",
                "Get-CWResourceTag",
+               "Write-CWAlarmMuteRule",
                "Write-CWAnomalyDetector",
                "Write-CWCompositeAlarm",
                "Write-CWDashboard",
@@ -60857,7 +60933,7 @@ $PC_Completers = {
         # Amazon.PartnerCentralSelling.OpportunitySortName
         "Get-PCOpportunityList/Sort_SortBy"
         {
-            $v = "CreatedDate","CustomerCompanyName","Identifier","LastModifiedDate"
+            $v = "CreatedDate","CustomerCompanyName","Identifier","LastModifiedDate","TargetCloseDate"
             break
         }
 

@@ -25,6 +25,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="DeleteAlarmMuteRule" Verb="Remove" Noun="AlarmMuteRule" ShouldProcessTarget="AlarmMuteRuleName" PipelineParameter="AlarmMuteRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlarms" Verb="Remove" Noun="Alarm" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -90,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAlarmMuteRule" OutputProperty="*" Verb="Get" Noun="AlarmMuteRule" PipelineParameter="AlarmMuteRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -124,6 +132,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAlarmMuteRules" OutputProperty="AlarmMuteRuleSummaries" Verb="Get" Noun="AlarmMuteRuleList" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardEntries" Verb="Get" Noun="DashboardList" PipelineParameter="DashboardNamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
@@ -142,6 +154,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAlarmMuteRule" Verb="Write" Noun="AlarmMuteRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

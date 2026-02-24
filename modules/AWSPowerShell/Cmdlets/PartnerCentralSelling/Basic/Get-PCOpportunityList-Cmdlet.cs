@@ -86,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.DateTime? LastModifiedDate_AfterLastModifiedDate { get; set; }
         #endregion
         
+        #region Parameter TargetCloseDate_AfterTargetCloseDate
+        /// <summary>
+        /// <para>
+        /// <para>Filters opportunities with a target close date after this date. Use the <c>YYYY-MM-DD</c>
+        /// format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetCloseDate_AfterTargetCloseDate { get; set; }
+        #endregion
+        
         #region Parameter CreatedDate_BeforeCreatedDate
         /// <summary>
         /// <para>
@@ -105,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? LastModifiedDate_BeforeLastModifiedDate { get; set; }
+        #endregion
+        
+        #region Parameter TargetCloseDate_BeforeTargetCloseDate
+        /// <summary>
+        /// <para>
+        /// <para>Filters opportunities with a target close date before this date. Use the <c>YYYY-MM-DD</c>
+        /// format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetCloseDate_BeforeTargetCloseDate { get; set; }
         #endregion
         
         #region Parameter Catalog
@@ -299,6 +321,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
             context.NextToken = this.NextToken;
             context.Sort_SortBy = this.Sort_SortBy;
             context.Sort_SortOrder = this.Sort_SortOrder;
+            context.TargetCloseDate_AfterTargetCloseDate = this.TargetCloseDate_AfterTargetCloseDate;
+            context.TargetCloseDate_BeforeTargetCloseDate = this.TargetCloseDate_BeforeTargetCloseDate;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -431,6 +455,35 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 request.Sort = null;
             }
             
+             // populate TargetCloseDate
+            var requestTargetCloseDateIsNull = true;
+            request.TargetCloseDate = new Amazon.PartnerCentralSelling.Model.TargetCloseDateFilter();
+            System.String requestTargetCloseDate_targetCloseDate_AfterTargetCloseDate = null;
+            if (cmdletContext.TargetCloseDate_AfterTargetCloseDate != null)
+            {
+                requestTargetCloseDate_targetCloseDate_AfterTargetCloseDate = cmdletContext.TargetCloseDate_AfterTargetCloseDate;
+            }
+            if (requestTargetCloseDate_targetCloseDate_AfterTargetCloseDate != null)
+            {
+                request.TargetCloseDate.AfterTargetCloseDate = requestTargetCloseDate_targetCloseDate_AfterTargetCloseDate;
+                requestTargetCloseDateIsNull = false;
+            }
+            System.String requestTargetCloseDate_targetCloseDate_BeforeTargetCloseDate = null;
+            if (cmdletContext.TargetCloseDate_BeforeTargetCloseDate != null)
+            {
+                requestTargetCloseDate_targetCloseDate_BeforeTargetCloseDate = cmdletContext.TargetCloseDate_BeforeTargetCloseDate;
+            }
+            if (requestTargetCloseDate_targetCloseDate_BeforeTargetCloseDate != null)
+            {
+                request.TargetCloseDate.BeforeTargetCloseDate = requestTargetCloseDate_targetCloseDate_BeforeTargetCloseDate;
+                requestTargetCloseDateIsNull = false;
+            }
+             // determine if request.TargetCloseDate should be set to null
+            if (requestTargetCloseDateIsNull)
+            {
+                request.TargetCloseDate = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -504,6 +557,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String NextToken { get; set; }
             public Amazon.PartnerCentralSelling.OpportunitySortName Sort_SortBy { get; set; }
             public Amazon.PartnerCentralSelling.SortOrder Sort_SortOrder { get; set; }
+            public System.String TargetCloseDate_AfterTargetCloseDate { get; set; }
+            public System.String TargetCloseDate_BeforeTargetCloseDate { get; set; }
             public System.Func<Amazon.PartnerCentralSelling.Model.ListOpportunitiesResponse, GetPCOpportunityListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OpportunitySummaries;
         }

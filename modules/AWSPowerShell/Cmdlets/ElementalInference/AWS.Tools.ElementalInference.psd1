@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.CloudWatch'
+# Module manifest for module 'AWS.Tools.ElementalInference'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.CloudWatch.dll'
+    RootModule = 'AWS.Tools.ElementalInference.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = '3dd3fb56-d302-44bc-a9a1-f752327a21cf'
+    GUID = 'f8f2069e-6977-4bd4-b540-f0420ab33597'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The CloudWatch module of AWS Tools for PowerShell lets developers and administrators manage Amazon CloudWatch from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The ElementalInference module of AWS Tools for PowerShell lets developers and administrators manage AWS Elemental Inference from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -59,7 +59,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.CloudWatch.dll'
+        'AWSSDK.ElementalInference.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -74,13 +74,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.CloudWatch.Format.ps1xml'
+        'AWS.Tools.ElementalInference.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.CloudWatch.Completers.psm1',
-        'AWS.Tools.CloudWatch.Aliases.psm1'
+        'AWS.Tools.ElementalInference.Completers.psm1',
+        'AWS.Tools.ElementalInference.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -88,64 +88,29 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-CWResourceTag', 
-        'Disable-CWAlarmAction', 
-        'Disable-CWInsightRule', 
-        'Enable-CWAlarmAction', 
-        'Enable-CWInsightRule', 
-        'Get-CWAlarm', 
-        'Get-CWAlarmContributor', 
-        'Get-CWAlarmForMetric', 
-        'Get-CWAlarmHistory', 
-        'Get-CWAlarmMuteRule', 
-        'Get-CWAlarmMuteRuleList', 
-        'Get-CWAnomalyDetector', 
-        'Get-CWDashboard', 
-        'Get-CWDashboardList', 
-        'Get-CWInsightRule', 
-        'Get-CWInsightRuleReport', 
-        'Get-CWManagedInsightRule', 
-        'Get-CWMetricData', 
-        'Get-CWMetricList', 
-        'Get-CWMetricStatistic', 
-        'Get-CWMetricStream', 
-        'Get-CWMetricStreamList', 
-        'Get-CWMetricWidgetImage', 
-        'Get-CWResourceTag', 
-        'Remove-CWAlarm', 
-        'Remove-CWAlarmMuteRule', 
-        'Remove-CWAnomalyDetector', 
-        'Remove-CWDashboard', 
-        'Remove-CWInsightRule', 
-        'Remove-CWMetricStream', 
-        'Remove-CWResourceTag', 
-        'Set-CWAlarmState', 
-        'Start-CWMetricStream', 
-        'Stop-CWMetricStream', 
-        'Write-CWAlarmMuteRule', 
-        'Write-CWAnomalyDetector', 
-        'Write-CWCompositeAlarm', 
-        'Write-CWDashboard', 
-        'Write-CWInsightRule', 
-        'Write-CWManagedInsightRule', 
-        'Write-CWMetricAlarm', 
-        'Write-CWMetricData', 
-        'Write-CWMetricStream')
+        'Add-EMIFeed', 
+        'Add-EMIResourceTag', 
+        'Get-EMIFeed', 
+        'Get-EMIFeedList', 
+        'Get-EMIResourceTag', 
+        'New-EMIFeed', 
+        'Remove-EMIFeed', 
+        'Remove-EMIResourceTag', 
+        'Unregister-EMIFeed', 
+        'Update-EMIFeed')
 
     # Variables to export from this module
     VariablesToExport = '*'
 
     # Aliases to export from this module
-    AliasesToExport = @(
-        'Get-CWMetricStatistics', 
-        'Get-CWMetrics')
+    AliasesToExport = @()
 
     # List of all modules packaged with this module
     ModuleList = @()
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.CloudWatch.dll-Help.xml'
+        'AWS.Tools.ElementalInference.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

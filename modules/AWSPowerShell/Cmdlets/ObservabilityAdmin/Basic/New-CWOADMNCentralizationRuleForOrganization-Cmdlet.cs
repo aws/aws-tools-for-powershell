@@ -124,6 +124,19 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public System.String LogsEncryptionConfiguration_KmsKeyArn { get; set; }
         #endregion
         
+        #region Parameter Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern
+        /// <summary>
+        /// <para>
+        /// <para>The pattern used to generate destination log group names during centralization. The
+        /// pattern can contain static text and dynamic variables that are replaced with source
+        /// attributes. If a variable cannot be resolved, it inherits the value from its parent
+        /// variable in the hierarchy. The pattern must be between 1 and 512 characters.</para><para>Supported variables:</para><ul><li><para><b>${source.logGroup}</b> — The original log group name from the source account.</para></li><li><para><b>${source.accountId}</b> — The AWS account ID where the log originated.</para></li><li><para><b>${source.region}</b> — The AWS Region where the log originated.</para></li><li><para><b>${source.org.id}</b> — The AWS Organization ID of the source account.</para></li><li><para><b>${source.org.ouId}</b> — The organizational unit ID of the source account.</para></li><li><para><b>${source.org.rootId}</b> — The organization Root ID.</para></li><li><para><b>${source.org.path}</b> — The organizational path from account to root.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern { get; set; }
+        #endregion
+        
         #region Parameter SourceLogsConfiguration_LogGroupSelectionCriterion
         /// <summary>
         /// <para>
@@ -290,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             context.Destination_Account = this.Destination_Account;
             context.BackupConfiguration_KmsKeyArn = this.BackupConfiguration_KmsKeyArn;
             context.BackupConfiguration_Region = this.BackupConfiguration_Region;
+            context.Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern = this.Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern;
             context.LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy = this.LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy;
             context.LogsEncryptionConfiguration_EncryptionStrategy = this.LogsEncryptionConfiguration_EncryptionStrategy;
             context.LogsEncryptionConfiguration_KmsKeyArn = this.LogsEncryptionConfiguration_KmsKeyArn;
@@ -378,6 +392,31 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
              // populate DestinationLogsConfiguration
             var requestRule_rule_Destination_rule_Destination_DestinationLogsConfigurationIsNull = true;
             requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration = new Amazon.ObservabilityAdmin.Model.DestinationLogsConfiguration();
+            Amazon.ObservabilityAdmin.Model.LogGroupNameConfiguration requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration = null;
+            
+             // populate LogGroupNameConfiguration
+            var requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfigurationIsNull = true;
+            requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration = new Amazon.ObservabilityAdmin.Model.LogGroupNameConfiguration();
+            System.String requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern = null;
+            if (cmdletContext.Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern = cmdletContext.Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration.LogGroupNamePattern = requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern;
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfigurationIsNull = false;
+            }
+             // determine if requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration should be set to null
+            if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfigurationIsNull)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration = null;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration.LogGroupNameConfiguration = requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration;
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfigurationIsNull = false;
+            }
             Amazon.ObservabilityAdmin.Model.LogsBackupConfiguration requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_BackupConfiguration = null;
             
              // populate BackupConfiguration
@@ -625,6 +664,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public System.String Destination_Account { get; set; }
             public System.String BackupConfiguration_KmsKeyArn { get; set; }
             public System.String BackupConfiguration_Region { get; set; }
+            public System.String Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern { get; set; }
             public Amazon.ObservabilityAdmin.EncryptionConflictResolutionStrategy LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy { get; set; }
             public Amazon.ObservabilityAdmin.EncryptionStrategy LogsEncryptionConfiguration_EncryptionStrategy { get; set; }
             public System.String LogsEncryptionConfiguration_KmsKeyArn { get; set; }

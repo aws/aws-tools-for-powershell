@@ -274,6 +274,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.DefaultHttpTokensEnforcedState
+        "Edit-EC2InstanceMetadataDefault/HttpTokensEnforced"
+        {
+            $v = "disabled","enabled","no-preference"
+            break
+        }
+
         # Amazon.EC2.DefaultInstanceMetadataEndpointState
         "Edit-EC2InstanceMetadataDefault/HttpEndpoint"
         {
@@ -1515,6 +1522,7 @@ $EC2_map = @{
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
     "HttpToken"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
+    "HttpTokensEnforced"=@("Edit-EC2InstanceMetadataDefault")
     "ImageBlockPublicAccessState"=@("Enable-EC2ImageBlockPublicAccess")
     "ImdsSupport"=@("Register-EC2Image")
     "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
