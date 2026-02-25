@@ -50,6 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AllAvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para> Include all Availability Zones and Local Zones, regardless of your opt-in status.
+        /// If you do not use this parameter, the results include available offerings from all
+        /// Availability Zones in the Amazon Web Services Region and Local Zones you are opted
+        /// into. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllAvailabilityZones")]
+        public System.Boolean? AllAvailabilityZone { get; set; }
+        #endregion
+        
         #region Parameter CapacityDurationHour
         /// <summary>
         /// <para>
@@ -192,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeCapacityBlockOfferingsResponse, GetEC2CapacityBlockOfferingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AllAvailabilityZone = this.AllAvailabilityZone;
             context.CapacityDurationHour = this.CapacityDurationHour;
             #if MODULAR
             if (this.CapacityDurationHour == null && ParameterWasBound(nameof(this.CapacityDurationHour)))
@@ -225,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request and set iteration invariants
             var request = new Amazon.EC2.Model.DescribeCapacityBlockOfferingsRequest();
             
+            if (cmdletContext.AllAvailabilityZone != null)
+            {
+                request.AllAvailabilityZones = cmdletContext.AllAvailabilityZone.Value;
+            }
             if (cmdletContext.CapacityDurationHour != null)
             {
                 request.CapacityDurationHours = cmdletContext.CapacityDurationHour.Value;
@@ -342,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllAvailabilityZone { get; set; }
             public System.Int32? CapacityDurationHour { get; set; }
             public System.DateTime? EndDateRange { get; set; }
             public System.Int32? InstanceCount { get; set; }
