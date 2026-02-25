@@ -33152,6 +33152,7 @@ Set-Alias -Name WAF2-GetRegexPatternSet -Value Get-WAF2RegexPatternSet
 Set-Alias -Name WAF2-GetRuleGroup -Value Get-WAF2RuleGroup
 Set-Alias -Name Get-WAF2SampledRequests -Value Get-WAF2SampledRequest
 Set-Alias -Name WAF2-GetSampledRequests -Value Get-WAF2SampledRequest
+Set-Alias -Name WAF2-GetTopPathStatisticsByTraffic -Value Get-WAF2TopPathStatisticsByTraffic
 Set-Alias -Name WAF2-GetWebACL -Value Get-WAF2WebACL
 Set-Alias -Name WAF2-GetWebACLForResource -Value Get-WAF2WebACLForResource
 Set-Alias -Name List-WAF2APIKeys -Value Get-WAF2APIKeyList

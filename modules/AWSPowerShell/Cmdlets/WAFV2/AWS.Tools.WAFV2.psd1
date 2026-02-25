@@ -113,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WAF2RuleGroup', 
         'Get-WAF2RuleGroupList', 
         'Get-WAF2SampledRequest', 
+        'Get-WAF2TopPathStatisticsByTraffic', 
         'Get-WAF2WebACL', 
         'Get-WAF2WebACLForResource', 
         'Get-WAF2WebACLsList', 

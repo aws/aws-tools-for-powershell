@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.198.0",
+    "ProductVersion"    : "4.0.199.0",
     "CoreVersion"       : "4.0.3.15",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.77.0",
+            "Version" : "4.0.78.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -476,7 +476,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "4.0.10.1",
+            "Version" : "4.0.11.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -676,7 +676,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "4.0.5.1",
+            "Version" : "4.0.5.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -1052,7 +1052,7 @@
             "InPreview"               : false
         },
         "Neptune"                         : {
-            "Version" : "4.0.4.14",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -1500,7 +1500,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "4.0.7.11",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -3367,7 +3367,7 @@
             "InPreview"               : false
         },
         "Extensions.CloudFront.Signers" : {
-            "Version" : "4.0.0.25",
+            "Version" : "4.0.0.26",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15",

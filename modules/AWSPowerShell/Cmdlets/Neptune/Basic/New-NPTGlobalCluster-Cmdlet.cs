@@ -55,6 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name for the new global database (up to 64 alpha-numeric characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
@@ -124,6 +134,21 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.Boolean? StorageEncrypted { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to assign to the global cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Neptune.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'GlobalCluster'.
@@ -170,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 context.Select = CreateSelectDelegate<Amazon.Neptune.Model.CreateGlobalClusterResponse, NewNPTGlobalClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DatabaseName = this.DatabaseName;
             context.DeletionProtection = this.DeletionProtection;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
@@ -182,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             #endif
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
             context.StorageEncrypted = this.StorageEncrypted;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Neptune.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             // create request
             var request = new Amazon.Neptune.Model.CreateGlobalClusterRequest();
             
+            if (cmdletContext.DatabaseName != null)
+            {
+                request.DatabaseName = cmdletContext.DatabaseName;
+            }
             if (cmdletContext.DeletionProtection != null)
             {
                 request.DeletionProtection = cmdletContext.DeletionProtection.Value;
@@ -221,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.StorageEncrypted != null)
             {
                 request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -277,12 +315,14 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DatabaseName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String GlobalClusterIdentifier { get; set; }
             public System.String SourceDBClusterIdentifier { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
+            public List<Amazon.Neptune.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Neptune.Model.CreateGlobalClusterResponse, NewNPTGlobalClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GlobalCluster;
         }
