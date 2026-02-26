@@ -34,13 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// The Security Hub console continues to use <c>DisassociateFromMasterAccount</c>. It
-    /// will eventually change to use <c>DisassociateFromAdministratorAccount</c>. Any IAM
-    /// policies that specifically control access to this function must continue to use <c>DisassociateFromMasterAccount</c>.
-    /// You should also add <c>DisassociateFromAdministratorAccount</c> to your policies to
-    /// ensure that the correct permissions are in place after the console begins to use <c>DisassociateFromAdministratorAccount</c>.
+    /// The Security Hub CSPM console continues to use <c>DisassociateFromMasterAccount</c>.
+    /// It will eventually change to use <c>DisassociateFromAdministratorAccount</c>. Any
+    /// IAM policies that specifically control access to this function must continue to use
+    /// <c>DisassociateFromMasterAccount</c>. You should also add <c>DisassociateFromAdministratorAccount</c>
+    /// to your policies to ensure that the correct permissions are in place after the console
+    /// begins to use <c>DisassociateFromAdministratorAccount</c>.
     /// </para><para>
-    /// Disassociates the current Security Hub member account from the associated administrator
+    /// Disassociates the current Security Hub CSPM member account from the associated administrator
     /// account.
     /// </para><para>
     /// This operation is only used by accounts that are not part of an organization. For

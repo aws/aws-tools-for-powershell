@@ -30,9 +30,9 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Lists the configuration policies that the Security Hub delegated administrator has
-    /// created for your organization. Only the delegated administrator can invoke this operation
-    /// from the home Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the configuration policies that the Security Hub CSPM delegated administrator
+    /// has created for your organization. Only the delegated administrator can invoke this
+    /// operation from the home Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBConfigurationPolicyList")]
     [OutputType("Amazon.SecurityHub.Model.ConfigurationPolicySummary")]

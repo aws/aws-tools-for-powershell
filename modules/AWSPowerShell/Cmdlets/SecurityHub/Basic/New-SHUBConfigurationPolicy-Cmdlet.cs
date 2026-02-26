@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Creates a configuration policy with the defined configuration. Only the Security
-    /// Hub delegated administrator can invoke this operation from the home Region.
+    /// Hub CSPM delegated administrator can invoke this operation from the home Region.
     /// </summary>
     [Cmdlet("New", "SHUBConfigurationPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateConfigurationPolicyResponse")]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> A list of security controls that are disabled in the configuration policy. Security
-        /// Hub enables all other controls (including newly released controls) other than the
-        /// listed controls. </para><para />
+        /// Hub CSPM enables all other controls (including newly released controls) other than
+        /// the listed controls. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> A list of security controls that are enabled in the configuration policy. Security
-        /// Hub disables all other controls (including newly released controls) other than the
-        /// listed controls. </para><para />
+        /// Hub CSPM disables all other controls (including newly released controls) other than
+        /// the listed controls. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter SecurityHub_ServiceEnabled
         /// <summary>
         /// <para>
-        /// <para> Indicates whether Security Hub is enabled in the policy. </para>
+        /// <para> Indicates whether Security Hub CSPM is enabled in the policy. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> User-defined tags associated with a configuration policy. For more information, see
         /// <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html">Tagging
-        /// Security Hub resources</a> in the <i>Security Hub user guide</i>. </para><para />
+        /// Security Hub CSPM resources</a> in the <i>Security Hub CSPM user guide</i>. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

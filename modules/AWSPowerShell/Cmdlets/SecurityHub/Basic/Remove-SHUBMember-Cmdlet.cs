@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Deletes the specified member accounts from Security Hub.
+    /// Deletes the specified member accounts from Security Hub CSPM.
     /// 
     ///  
     /// <para>

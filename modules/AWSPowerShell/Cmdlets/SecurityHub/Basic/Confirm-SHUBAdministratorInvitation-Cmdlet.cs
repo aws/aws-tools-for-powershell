@@ -31,13 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// <note><para>
-    /// We recommend using Organizations instead of Security Hub invitations to manage your
-    /// member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
-    /// Security Hub administrator and member accounts with Organizations</a> in the <i>Security
-    /// Hub User Guide</i>.
+    /// We recommend using Organizations instead of Security Hub CSPM invitations to manage
+    /// your member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
+    /// Security Hub CSPM administrator and member accounts with Organizations</a> in the
+    /// <i>Security Hub CSPM User Guide</i>.
     /// </para></note><para>
     /// Accepts the invitation to be a member account and be monitored by the Security Hub
-    /// administrator account that the invitation was sent from.
+    /// CSPM administrator account that the invitation was sent from.
     /// </para><para>
     /// This operation is only used by member accounts that are not added through Organizations.
     /// </para><para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AdministratorId
         /// <summary>
         /// <para>
-        /// <para>The account ID of the Security Hub administrator account that sent the invitation.</para>
+        /// <para>The account ID of the Security Hub CSPM administrator account that sent the invitation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter InvitationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the invitation sent from the Security Hub administrator account.</para>
+        /// <para>The identifier of the invitation sent from the Security Hub CSPM administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

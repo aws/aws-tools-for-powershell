@@ -34,14 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// The Security Hub console continues to use <c>AcceptInvitation</c>. It will eventually
+    /// The Security Hub CSPM console continues to use <c>AcceptInvitation</c>. It will eventually
     /// change to use <c>AcceptAdministratorInvitation</c>. Any IAM policies that specifically
     /// control access to this function must continue to use <c>AcceptInvitation</c>. You
     /// should also add <c>AcceptAdministratorInvitation</c> to your policies to ensure that
     /// the correct permissions are in place after the console begins to use <c>AcceptAdministratorInvitation</c>.
     /// </para><para>
     /// Accepts the invitation to be a member account and be monitored by the Security Hub
-    /// administrator account that the invitation was sent from.
+    /// CSPM administrator account that the invitation was sent from.
     /// </para><para>
     /// This operation is only used by member accounts that are not added through Organizations.
     /// </para><para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter InvitationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the invitation sent from the Security Hub administrator account.</para>
+        /// <para>The identifier of the invitation sent from the Security Hub CSPM administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter MasterId
         /// <summary>
         /// <para>
-        /// <para>The account ID of the Security Hub administrator account that sent the invitation.</para>
+        /// <para>The account ID of the Security Hub CSPM administrator account that sent the invitation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Lists details about all member accounts for the current Security Hub administrator
+    /// Lists details about all member accounts for the current Security Hub CSPM administrator
     /// account.
     /// 
     ///  

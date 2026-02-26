@@ -126,7 +126,17 @@ $ECS_Completers = {
         # Amazon.ECS.CapacityOptionType
         "New-ECSCapacityProvider/ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType"
         {
-            $v = "ON_DEMAND","SPOT"
+            $v = "ON_DEMAND","RESERVED","SPOT"
+            break
+        }
+
+        # Amazon.ECS.CapacityReservationPreference
+        {
+            ($_ -eq "New-ECSCapacityProvider/ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference") -Or
+            ($_ -eq "Update-ECSCapacityProvider/ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference")
+        }
+        {
+            $v = "RESERVATIONS_EXCLUDED","RESERVATIONS_FIRST","RESERVATIONS_ONLY"
             break
         }
 
@@ -445,6 +455,7 @@ $ECS_map = @{
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask","New-ECSTaskSet")
     "LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
     "ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType"=@("New-ECSCapacityProvider")
+    "ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "ManagedInstancesProvider_PropagateTag"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")

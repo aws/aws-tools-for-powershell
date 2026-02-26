@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Disables a Security Hub administrator account. Can only be called by the organization
+    /// Disables a Security Hub CSPM administrator account. Can only be called by the organization
     /// management account.
     /// </summary>
     [Cmdlet("Disable", "SHUBOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AdminAccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account identifier of the Security Hub administrator account.</para>
+        /// <para>The Amazon Web Services account identifier of the Security Hub CSPM administrator
+        /// account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The feature for which the delegated admin account is disabled. Defaults to Security
-        /// Hub if not specified.</para>
+        /// Hub CSPM if not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -31,23 +31,23 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// <note><para>
-    /// We recommend using Organizations instead of Security Hub invitations to manage your
-    /// member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
-    /// Security Hub administrator and member accounts with Organizations</a> in the <i>Security
-    /// Hub User Guide</i>.
+    /// We recommend using Organizations instead of Security Hub CSPM invitations to manage
+    /// your member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
+    /// Security Hub CSPM administrator and member accounts with Organizations</a> in the
+    /// <i>Security Hub CSPM User Guide</i>.
     /// </para></note><para>
     /// Invites other Amazon Web Services accounts to become member accounts for the Security
-    /// Hub administrator account that the invitation is sent from.
+    /// Hub CSPM administrator account that the invitation is sent from.
     /// </para><para>
     /// This operation is only used to invite accounts that don't belong to an Amazon Web
     /// Services organization. Organization accounts don't receive invitations.
     /// </para><para>
     /// Before you can use this action to invite a member, you must first use the <c>CreateMembers</c>
-    /// action to create the member account in Security Hub.
+    /// action to create the member account in Security Hub CSPM.
     /// </para><para>
-    /// When the account owner enables Security Hub and accepts the invitation to become a
-    /// member account, the administrator account can view the findings generated in the member
-    /// account.
+    /// When the account owner enables Security Hub CSPM and accepts the invitation to become
+    /// a member account, the administrator account can view the findings generated in the
+    /// member account.
     /// </para>
     /// </summary>
     [Cmdlet("Send", "SHUBMemberInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The list of account IDs of the Amazon Web Services accounts to invite to Security
-        /// Hub as members. </para><para />
+        /// Hub CSPM as members. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

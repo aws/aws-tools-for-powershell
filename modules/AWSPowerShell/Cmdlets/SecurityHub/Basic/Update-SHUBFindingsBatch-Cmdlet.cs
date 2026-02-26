@@ -30,23 +30,23 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Used by Security Hub customers to update information about their investigation into
-    /// one or more findings. Requested by administrator accounts or member accounts. Administrator
-    /// accounts can update findings for their account and their member accounts. A member
-    /// account can update findings only for their own account. Administrator and member accounts
-    /// can use this operation to update the following fields and objects for one or more
-    /// findings: 
+    /// Used by Security Hub CSPM customers to update information about their investigation
+    /// into one or more findings. Requested by administrator accounts or member accounts.
+    /// Administrator accounts can update findings for their account and their member accounts.
+    /// A member account can update findings only for their own account. Administrator and
+    /// member accounts can use this operation to update the following fields and objects
+    /// for one or more findings: 
     /// 
     ///  <ul><li><para><c>Confidence</c></para></li><li><para><c>Criticality</c></para></li><li><para><c>Note</c></para></li><li><para><c>RelatedFindings</c></para></li><li><para><c>Severity</c></para></li><li><para><c>Types</c></para></li><li><para><c>UserDefinedFields</c></para></li><li><para><c>VerificationState</c></para></li><li><para><c>Workflow</c></para></li></ul><para>
     ///  If you use this operation to update a finding, your updates don’t affect the value
     /// for the <c>UpdatedAt</c> field of the finding. Also note that it can take several
-    /// minutes for Security Hub to process your request and update each finding specified
+    /// minutes for Security Hub CSPM to process your request and update each finding specified
     /// in the request. 
     /// </para><para>
     ///  You can configure IAM policies to restrict access to fields and field values. For
     /// example, you might not want member accounts to be able to suppress findings or change
     /// the finding severity. For more information see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring
-    /// access to BatchUpdateFindings</a> in the <i>Security Hub User Guide</i>. 
+    /// access to BatchUpdateFindings</a> in the <i>Security Hub CSPM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SHUBFindingsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>The status of the investigation into the finding. The workflow status is specific
         /// to an individual finding. It does not affect the generation of new findings. For example,
         /// setting the workflow status to <c>SUPPRESSED</c> or <c>RESOLVED</c> does not prevent
-        /// a new finding for the same issue.</para><para>The allowed values are the following.</para><ul><li><para><c>NEW</c> - The initial state of a finding, before it is reviewed.</para><para>Security Hub also resets <c>WorkFlowStatus</c> from <c>NOTIFIED</c> or <c>RESOLVED</c>
+        /// a new finding for the same issue.</para><para>The allowed values are the following.</para><ul><li><para><c>NEW</c> - The initial state of a finding, before it is reviewed.</para><para>Security Hub CSPM also resets <c>WorkFlowStatus</c> from <c>NOTIFIED</c> or <c>RESOLVED</c>
         /// to <c>NEW</c> in the following cases:</para><ul><li><para>The record state changes from <c>ARCHIVED</c> to <c>ACTIVE</c>.</para></li><li><para>The compliance status changes from <c>PASSED</c> to either <c>WARNING</c>, <c>FAILED</c>,
         /// or <c>NOT_AVAILABLE</c>.</para></li></ul></li><li><para><c>NOTIFIED</c> - Indicates that you notified the resource owner about the security
         /// issue. Used when the initial reviewer is not the resource owner, and needs intervention

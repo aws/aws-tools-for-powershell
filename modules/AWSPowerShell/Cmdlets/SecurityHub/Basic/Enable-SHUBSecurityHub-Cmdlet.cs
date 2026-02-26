@@ -30,16 +30,17 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Enables Security Hub for your account in the current Region or the Region you specify
-    /// in the request.
+    /// Enables Security Hub CSPM for your account in the current Region or the Region you
+    /// specify in the request.
     /// 
     ///  
     /// <para>
-    /// When you enable Security Hub, you grant to Security Hub the permissions necessary
-    /// to gather findings from other services that are integrated with Security Hub.
+    /// When you enable Security Hub CSPM, you grant to Security Hub CSPM the permissions
+    /// necessary to gather findings from other services that are integrated with Security
+    /// Hub CSPM.
     /// </para><para>
-    /// When you use the <c>EnableSecurityHub</c> operation to enable Security Hub, you also
-    /// automatically enable the following standards:
+    /// When you use the <c>EnableSecurityHub</c> operation to enable Security Hub CSPM, you
+    /// also automatically enable the following standards:
     /// </para><ul><li><para>
     /// Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark v1.2.0
     /// </para></li><li><para>
@@ -50,11 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// To opt out of automatically enabled standards, set <c>EnableDefaultStandards</c> to
     /// <c>false</c>.
     /// </para><para>
-    /// After you enable Security Hub, to enable a standard, use the <c>BatchEnableStandards</c>
+    /// After you enable Security Hub CSPM, to enable a standard, use the <c>BatchEnableStandards</c>
     /// operation. To disable a standard, use the <c>BatchDisableStandards</c> operation.
     /// </para><para>
     /// To learn more, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">setup
-    /// information</a> in the <i>Security Hub User Guide</i>.
+    /// information</a> in the <i>Security Hub CSPM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "SHUBSecurityHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,13 +74,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter ControlFindingGenerator
         /// <summary>
         /// <para>
-        /// <para>This field, used when enabling Security Hub, specifies whether the calling account
+        /// <para>This field, used when enabling Security Hub CSPM, specifies whether the calling account
         /// has consolidated control findings turned on. If the value for this field is set to
-        /// <c>SECURITY_CONTROL</c>, Security Hub generates a single finding for a control check
-        /// even when the check applies to multiple enabled standards.</para><para>If the value for this field is set to <c>STANDARD_CONTROL</c>, Security Hub generates
+        /// <c>SECURITY_CONTROL</c>, Security Hub CSPM generates a single finding for a control
+        /// check even when the check applies to multiple enabled standards.</para><para>If the value for this field is set to <c>STANDARD_CONTROL</c>, Security Hub CSPM generates
         /// separate findings for a control check when the check applies to multiple enabled standards.</para><para>The value for this field in a member account matches the value in the administrator
         /// account. For accounts that aren't part of an organization, the default value of this
-        /// field is <c>SECURITY_CONTROL</c> if you enabled Security Hub on or after February
+        /// field is <c>SECURITY_CONTROL</c> if you enabled Security Hub CSPM on or after February
         /// 23, 2023.</para>
         /// </para>
         /// </summary>
@@ -91,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter EnableDefaultStandard
         /// <summary>
         /// <para>
-        /// <para>Whether to enable the security standards that Security Hub has designated as automatically
-        /// enabled. If you don't provide a value for <c>EnableDefaultStandards</c>, it is set
-        /// to <c>true</c>. To not enable the automatically enabled standards, set <c>EnableDefaultStandards</c>
+        /// <para>Whether to enable the security standards that Security Hub CSPM has designated as
+        /// automatically enabled. If you don't provide a value for <c>EnableDefaultStandards</c>,
+        /// it is set to <c>true</c>. To not enable the automatically enabled standards, set <c>EnableDefaultStandards</c>
         /// to <c>false</c>.</para>
         /// </para>
         /// </summary>
@@ -105,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the hub resource when you enable Security Hub.</para><para />
+        /// <para>The tags to add to the hub resource when you enable Security Hub CSPM.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

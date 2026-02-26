@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Deletes a custom action target from Security Hub.
+    /// Deletes a custom action target from Security Hub CSPM.
     /// 
     ///  
     /// <para>

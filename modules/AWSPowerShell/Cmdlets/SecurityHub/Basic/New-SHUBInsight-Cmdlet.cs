@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Creates a custom insight in Security Hub. An insight is a consolidation of findings
+    /// Creates a custom insight in Security Hub CSPM. An insight is a consolidation of findings
     /// that relate to a security issue that requires attention or remediation.
     /// 
     ///  

@@ -31,11 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.MM
 {
     /// <summary>
     /// <important><para>
-    ///  The <c>CustomerIdentifier</c> and <c>CustomerAWSAccountID</c> are mutually exclusive
-    /// parameters. You must use one or the other, but not both in the same API request. For
-    /// new implementations, we recommend using the <c>CustomerAWSAccountID</c>. Your current
-    /// integration will continue to work. When updating your implementation, consider migrating
-    /// to <c>CustomerAWSAccountID</c> for improved integration. 
+    /// Amazon Web Services Marketplace is introducing Concurrent Agreements, enabling buyers
+    /// to make multiple purchases per Amazon Web Services account. Starting June 1, 2026,
+    /// new SaaS products must use <c>CustomerAWSAccountId</c> (instead of <c>CustomerIdentifier</c>),
+    /// <c>LicenseArn</c> (instead of <c>ProductCode</c>) to support this feature. Existing
+    /// integrations will continue to work. Review the new integration for Concurrent Agreements
+    /// <a href="https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements">here</a>.
     /// </para></important><para>
     /// To post metering records for customers, SaaS applications call <c>BatchMeterUsage</c>,
     /// which is used for metering SaaS flexible consumption pricing (FCP). Identical requests
@@ -80,14 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
         /// product.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProductCode { get; set; }
         #endregion
         
@@ -161,12 +155,6 @@ namespace Amazon.PowerShell.Cmdlets.MM
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ProductCode = this.ProductCode;
-            #if MODULAR
-            if (this.ProductCode == null && ParameterWasBound(nameof(this.ProductCode)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProductCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.UsageRecord != null)
             {
                 context.UsageRecord = new List<Amazon.AWSMarketplaceMetering.Model.UsageRecord>(this.UsageRecord);

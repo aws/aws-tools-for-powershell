@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Provides information about the associations for your configuration policies and self-managed
-    /// behavior. Only the Security Hub delegated administrator can invoke this operation
+    /// behavior. Only the Security Hub CSPM delegated administrator can invoke this operation
     /// from the home Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBConfigurationPolicyAssociationList")]
@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> Indicates whether the association between a target and a configuration was directly
-        /// applied by the Security Hub delegated administrator or inherited from a parent. </para>
+        /// applied by the Security Hub CSPM delegated administrator or inherited from a parent.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

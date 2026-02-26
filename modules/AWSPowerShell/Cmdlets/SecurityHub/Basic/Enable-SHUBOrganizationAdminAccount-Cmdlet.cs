@@ -30,8 +30,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Designates the Security Hub administrator account for an organization. Can only be
-    /// called by the organization management account.
+    /// Designates the Security Hub CSPM administrator account for an organization. Can only
+    /// be called by the organization management account.
     /// </summary>
     [Cmdlet("Enable", "SHUBOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services account identifier of the account to designate as the Security
-        /// Hub administrator account.</para>
+        /// Hub CSPM administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The feature for which the delegated admin account is enabled. Defaults to Security
-        /// Hub if not specified.</para>
+        /// Hub CSPM if not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

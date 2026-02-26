@@ -30,12 +30,12 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Creates a custom action target in Security Hub.
+    /// Creates a custom action target in Security Hub CSPM.
     /// 
     ///  
     /// <para>
-    /// You can use custom actions on findings and insights in Security Hub to trigger target
-    /// actions in Amazon CloudWatch Events.
+    /// You can use custom actions on findings and insights in Security Hub CSPM to trigger
+    /// target actions in Amazon CloudWatch Events.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SHUBActionTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -1,4 +1,10 @@
-﻿### 5.0.163 (2026-02-25 22:38Z)
+﻿### 5.0.164 (2026-02-26 21:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.200.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSCapacityProvider: added parameters ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn and ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference.
+    * Modified cmdlet Update-ECSCapacityProvider: added parameters ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn and ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference.
+
+### 5.0.163 (2026-02-25 22:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.199.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud
     * Modified cmdlet Get-EC2CapacityBlockOffering: added parameter AllAvailabilityZone.

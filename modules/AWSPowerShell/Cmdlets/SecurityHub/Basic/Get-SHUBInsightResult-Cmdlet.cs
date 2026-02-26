@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Lists the results of the Security Hub insight specified by the insight ARN.
+    /// Lists the results of the Security Hub CSPM insight specified by the insight ARN.
     /// </summary>
     [Cmdlet("Get", "SHUBInsightResult")]
     [OutputType("Amazon.SecurityHub.Model.InsightResults")]

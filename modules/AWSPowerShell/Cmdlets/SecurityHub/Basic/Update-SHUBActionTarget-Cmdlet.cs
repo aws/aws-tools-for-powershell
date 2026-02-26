@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Updates the name and description of a custom action target in Security Hub.
+    /// Updates the name and description of a custom action target in Security Hub CSPM.
     /// </summary>
     [Cmdlet("Update", "SHUBActionTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
