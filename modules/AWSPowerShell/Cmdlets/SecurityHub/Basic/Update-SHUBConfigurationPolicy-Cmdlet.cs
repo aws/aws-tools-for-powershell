@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Updates a configuration policy. Only the Security Hub delegated administrator can
-    /// invoke this operation from the home Region.
+    /// Updates a configuration policy. Only the Security Hub CSPM delegated administrator
+    /// can invoke this operation from the home Region.
     /// </summary>
     [Cmdlet("Update", "SHUBConfigurationPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.UpdateConfigurationPolicyResponse")]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> A list of security controls that are disabled in the configuration policy. Security
-        /// Hub enables all other controls (including newly released controls) other than the
-        /// listed controls. </para>
+        /// Hub CSPM enables all other controls (including newly released controls) other than
+        /// the listed controls. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> A list of security controls that are enabled in the configuration policy. Security
-        /// Hub disables all other controls (including newly released controls) other than the
-        /// listed controls. </para>
+        /// Hub CSPM disables all other controls (including newly released controls) other than
+        /// the listed controls. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter SecurityHub_ServiceEnabled
         /// <summary>
         /// <para>
-        /// <para> Indicates whether Security Hub is enabled in the policy. </para>
+        /// <para> Indicates whether Security Hub CSPM is enabled in the policy. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

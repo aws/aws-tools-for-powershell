@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Updates the configuration of your organization in Security Hub. Only the Security
-    /// Hub administrator account can invoke this operation.
+    /// Updates the configuration of your organization in Security Hub CSPM. Only the Security
+    /// Hub CSPM administrator account can invoke this operation.
     /// </summary>
     [Cmdlet("Update", "SHUBOrganizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,13 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AutoEnable
         /// <summary>
         /// <para>
-        /// <para>Whether to automatically enable Security Hub in new member accounts when they join
-        /// the organization.</para><para>If set to <c>true</c>, then Security Hub is automatically enabled in new accounts.
-        /// If set to <c>false</c>, then Security Hub isn't enabled in new accounts automatically.
+        /// <para>Whether to automatically enable Security Hub CSPM in new member accounts when they
+        /// join the organization.</para><para>If set to <c>true</c>, then Security Hub CSPM is automatically enabled in new accounts.
+        /// If set to <c>false</c>, then Security Hub CSPM isn't enabled in new accounts automatically.
         /// The default value is <c>false</c>.</para><para>If the <c>ConfigurationType</c> of your organization is set to <c>CENTRAL</c>, then
         /// this field is set to <c>false</c> and can't be changed in the home Region and linked
         /// Regions. However, in that case, the delegated administrator can create a configuration
-        /// policy in which Security Hub is enabled and associate the policy with new organization
+        /// policy in which Security Hub CSPM is enabled and associate the policy with new organization
         /// accounts.</para>
         /// </para>
         /// </summary>
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AutoEnableStandard
         /// <summary>
         /// <para>
-        /// <para>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default
-        /// standards</a> in new member accounts when they join the organization.</para><para>The default value of this parameter is equal to <c>DEFAULT</c>.</para><para>If equal to <c>DEFAULT</c>, then Security Hub default standards are automatically
+        /// <para>Whether to automatically enable Security Hub CSPM <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default
+        /// standards</a> in new member accounts when they join the organization.</para><para>The default value of this parameter is equal to <c>DEFAULT</c>.</para><para>If equal to <c>DEFAULT</c>, then Security Hub CSPM default standards are automatically
         /// enabled for new member accounts. If equal to <c>NONE</c>, then default standards are
         /// not automatically enabled for new member accounts.</para><para>If the <c>ConfigurationType</c> of your organization is set to <c>CENTRAL</c>, then
         /// this field is set to <c>NONE</c> and can't be changed in the home Region and linked
@@ -88,16 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter OrganizationConfiguration_ConfigurationType
         /// <summary>
         /// <para>
-        /// <para> Indicates whether the organization uses local or central configuration. </para><para>If you use local configuration, the Security Hub delegated administrator can set <c>AutoEnable</c>
-        /// to <c>true</c> and <c>AutoEnableStandards</c> to <c>DEFAULT</c>. This automatically
-        /// enables Security Hub and default security standards in new organization accounts.
-        /// These new account settings must be set separately in each Amazon Web Services Region,
-        /// and settings may be different in each Region. </para><para> If you use central configuration, the delegated administrator can create configuration
-        /// policies. Configuration policies can be used to configure Security Hub, security standards,
-        /// and security controls in multiple accounts and Regions. If you want new organization
-        /// accounts to use a specific configuration, you can create a configuration policy and
-        /// associate it with the root or specific organizational units (OUs). New accounts will
-        /// inherit the policy from the root or their assigned OU. </para>
+        /// <para> Indicates whether the organization uses local or central configuration. </para><para>If you use local configuration, the Security Hub CSPM delegated administrator can
+        /// set <c>AutoEnable</c> to <c>true</c> and <c>AutoEnableStandards</c> to <c>DEFAULT</c>.
+        /// This automatically enables Security Hub CSPM and default security standards in new
+        /// organization accounts. These new account settings must be set separately in each Amazon
+        /// Web Services Region, and settings may be different in each Region. </para><para> If you use central configuration, the delegated administrator can create configuration
+        /// policies. Configuration policies can be used to configure Security Hub CSPM, security
+        /// standards, and security controls in multiple accounts and Regions. If you want new
+        /// organization accounts to use a specific configuration, you can create a configuration
+        /// policy and associate it with the root or specific organizational units (OUs). New
+        /// accounts will inherit the policy from the root or their assigned OU. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

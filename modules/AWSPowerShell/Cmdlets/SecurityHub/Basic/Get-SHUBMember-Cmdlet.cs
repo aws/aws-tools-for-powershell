@@ -28,13 +28,14 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns the details for the Security Hub member accounts for the specified account
+    /// Returns the details for the Security Hub CSPM member accounts for the specified account
     /// IDs.
     /// 
     ///  
     /// <para>
-    /// An administrator account can be either the delegated Security Hub administrator account
-    /// for an organization or an administrator account that enabled Security Hub manually.
+    /// An administrator account can be either the delegated Security Hub CSPM administrator
+    /// account for an organization or an administrator account that enabled Security Hub
+    /// CSPM manually.
     /// </para><para>
     /// The results include both member accounts that are managed using Organizations and
     /// accounts that were invited manually.
@@ -54,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The list of account IDs for the Security Hub member accounts to return the details
+        /// <para>The list of account IDs for the Security Hub CSPM member accounts to return the details
         /// for. </para>
         /// </para>
         /// </summary>

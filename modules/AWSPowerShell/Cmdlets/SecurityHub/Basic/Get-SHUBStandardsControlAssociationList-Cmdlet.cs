@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// 25 standard and control associations. The results also include a <c>NextToken</c>
         /// parameter that you can use in a subsequent API call to get the next 25 associations.
         /// This repeats until all associations for the specified control are returned. The number
-        /// of results is limited by the number of supported Security Hub standards that you've
-        /// enabled in the calling account. </para>
+        /// of results is limited by the number of supported Security Hub CSPM standards that
+        /// you've enabled in the calling account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

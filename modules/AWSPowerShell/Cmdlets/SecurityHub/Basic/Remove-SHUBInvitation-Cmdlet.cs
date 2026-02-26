@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// <note><para>
-    /// We recommend using Organizations instead of Security Hub invitations to manage your
-    /// member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
-    /// Security Hub administrator and member accounts with Organizations</a> in the <i>Security
-    /// Hub User Guide</i>.
+    /// We recommend using Organizations instead of Security Hub CSPM invitations to manage
+    /// your member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
+    /// Security Hub CSPM administrator and member accounts with Organizations</a> in the
+    /// <i>Security Hub CSPM User Guide</i>.
     /// </para></note><para>
-    /// Deletes invitations to become a Security Hub member account.
+    /// Deletes invitations to become a Security Hub CSPM member account.
     /// </para><para>
-    /// A Security Hub administrator account can use this operation to delete invitations
+    /// A Security Hub CSPM administrator account can use this operation to delete invitations
     /// sent to one or more prospective member accounts.
     /// </para><para>
     /// This operation is only used to delete invitations that are sent to prospective member

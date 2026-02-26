@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     /// <summary>
     /// This action sets the property mappings for the specified hypervisor. A hypervisor
     /// property mapping displays the relationship of entity properties available from the
-    /// on-premises hypervisor to the properties available in Amazon Web Services.
+    /// hypervisor to the properties available in Amazon Web Services.
     /// </summary>
     [Cmdlet("Write", "BUGWHypervisorPropertyMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -81,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         #region Parameter VmwareToAwsTagMapping
         /// <summary>
         /// <para>
-        /// <para>This action requests the mappings of on-premises VMware tags to the Amazon Web Services
-        /// tags.</para>
+        /// <para>This action requests the mappings of VMware tags to the Amazon Web Services tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

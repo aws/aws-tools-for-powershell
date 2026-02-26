@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     /// <summary>
     /// This action retrieves the property mappings for the specified hypervisor. A hypervisor
     /// property mapping displays the relationship of entity properties available from the
-    /// on-premises hypervisor to the properties available in Amazon Web Services.
+    /// hypervisor to the properties available in Amazon Web Services.
     /// </summary>
     [Cmdlet("Get", "BUGWHypervisorPropertyMapping")]
     [OutputType("Amazon.BackupGateway.Model.GetHypervisorPropertyMappingsResponse")]

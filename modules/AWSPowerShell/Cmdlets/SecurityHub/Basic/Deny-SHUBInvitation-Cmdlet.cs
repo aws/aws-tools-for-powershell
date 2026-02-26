@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// <note><para>
-    /// We recommend using Organizations instead of Security Hub invitations to manage your
-    /// member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
-    /// Security Hub administrator and member accounts with Organizations</a> in the <i>Security
-    /// Hub User Guide</i>.
+    /// We recommend using Organizations instead of Security Hub CSPM invitations to manage
+    /// your member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
+    /// Security Hub CSPM administrator and member accounts with Organizations</a> in the
+    /// <i>Security Hub CSPM User Guide</i>.
     /// </para></note><para>
-    /// Declines invitations to become a Security Hub member account.
+    /// Declines invitations to become a Security Hub CSPM member account.
     /// </para><para>
     /// A prospective member account uses this operation to decline an invitation to become
     /// a member.

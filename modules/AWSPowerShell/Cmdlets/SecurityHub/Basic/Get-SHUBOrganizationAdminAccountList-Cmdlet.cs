@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Lists the Security Hub administrator accounts. Can only be called by the organization
+    /// Lists the Security Hub CSPM administrator accounts. Can only be called by the organization
     /// management account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBOrganizationAdminAccountList")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The feature where the delegated administrator account is listed. Defaults to Security
-        /// Hub if not specified.</para>
+        /// Hub CSPM if not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Updates the Security Hub insight identified by the specified insight ARN.
+    /// Updates the Security Hub CSPM insight identified by the specified insight ARN.
     /// </summary>
     [Cmdlet("Update", "SHUBInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

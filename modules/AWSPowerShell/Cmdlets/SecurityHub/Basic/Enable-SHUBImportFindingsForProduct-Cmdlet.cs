@@ -28,13 +28,13 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Enables the integration of a partner product with Security Hub. Integrated products
-    /// send findings to Security Hub.
+    /// Enables the integration of a partner product with Security Hub CSPM. Integrated products
+    /// send findings to Security Hub CSPM.
     /// 
     ///  
     /// <para>
     /// When you enable a product integration, a permissions policy that grants permission
-    /// for the product to send findings to Security Hub is applied.
+    /// for the product to send findings to Security Hub CSPM is applied.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "SHUBImportFindingsForProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

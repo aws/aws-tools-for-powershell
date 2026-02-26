@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Provides the details for the Security Hub administrator account for the current member
-    /// account.
+    /// Provides the details for the Security Hub CSPM administrator account for the current
+    /// member account.
     /// 
     ///  
     /// <para>

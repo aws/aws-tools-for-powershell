@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// 100 percent confidence. For example, a data exfiltration detection based on a statistical
         /// deviation of network traffic has low confidence because an actual exfiltration hasn't
         /// been verified. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence">Confidence</a>
-        /// in the <i>Security Hub User Guide</i>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// in the <i>Security Hub CSPM User Guide</i>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> A timestamp that indicates when this finding record was created. </para><para>For more information about the validation and formatting of timestamp fields in Security
-        /// Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// supports only full integers. A score of <c>0</c> means that the underlying resources
         /// have no criticality, and a score of <c>100</c> is reserved for the most critical resources.
         /// For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality">Criticality</a>
-        /// in the <i>Security Hub User Guide</i>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// in the <i>Security Hub CSPM User Guide</i>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> A timestamp that indicates when the potential security issue captured by a finding
         /// was first observed by the security findings product. </para><para>For more information about the validation and formatting of timestamp fields in Security
-        /// Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>Specifies whether a rule is the last to be applied with respect to a finding that
         /// matches the rule criteria. This is useful when a finding matches the criteria for
         /// multiple rules, and each rule has different actions. If a rule is terminal, Security
-        /// Hub applies the rule action to a finding that matches the rule criteria and doesn't
+        /// Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't
         /// evaluate other rules for the finding. By default, a rule isn't terminal. </para>
         /// </para>
         /// </summary>
@@ -247,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> A timestamp that indicates when the security findings provider most recently observed
         /// a change in the resource that is involved in the finding. </para><para>For more information about the validation and formatting of timestamp fields in Security
-        /// Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> The timestamp of when the note was updated.</para><para>For more information about the validation and formatting of timestamp fields in Security
-        /// Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) for a third-party product that generated a finding
-        /// in Security Hub. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// in Security Hub CSPM. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> Provides the name of the product that generated the finding. For control-based findings,
-        /// the product name is Security Hub. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// the product name is Security Hub CSPM. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -447,8 +447,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>An integer ranging from 1 to 1000 that represents the order in which the rule action
-        /// is applied to findings. Security Hub applies rules with lower values for this parameter
-        /// first. </para>
+        /// is applied to findings. Security Hub CSPM applies rules with lower values for this
+        /// parameter first. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -465,8 +465,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> Whether the rule is active after it is created. If this parameter is equal to <c>ENABLED</c>,
-        /// Security Hub starts applying the rule to findings and finding updates after the rule
-        /// is created. To change the value of this parameter after creating a rule, use <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html"><c>BatchUpdateAutomationRules</c></a>. </para>
+        /// Security Hub CSPM starts applying the rule to findings and finding updates after the
+        /// rule is created. To change the value of this parameter after creating a rule, use
+        /// <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html"><c>BatchUpdateAutomationRules</c></a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -521,7 +522,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> One or more finding types in the format of namespace/category/classifier that classify
         /// a finding. For a list of namespaces, classifiers, and categories, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html">Types
-        /// taxonomy for ASFF</a> in the <i>Security Hub User Guide</i>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// taxonomy for ASFF</a> in the <i>Security Hub CSPM User Guide</i>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -532,7 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> A timestamp that indicates when the finding record was most recently updated. </para><para>For more information about the validation and formatting of timestamp fields in Security
-        /// Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

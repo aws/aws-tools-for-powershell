@@ -136,11 +136,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType
         /// <summary>
         /// <para>
-        /// <para>The capacity option type. This determines whether Amazon ECS launches On-Demand or
-        /// Spot Instances for your managed instance capacity provider.</para><para>Valid values are:</para><ul><li><para><c>ON_DEMAND</c> - Launches standard On-Demand Instances. On-Demand Instances provide
+        /// <para>The capacity option type. This determines whether Amazon ECS launches On-Demand, Spot
+        /// or Capacity Reservation Instances for your managed instance capacity provider.</para><para>Valid values are:</para><ul><li><para><c>ON_DEMAND</c> - Launches standard On-Demand Instances. On-Demand Instances provide
         /// predictable pricing and availability.</para></li><li><para><c>SPOT</c> - Launches Spot Instances that use spare Amazon EC2 capacity at reduced
         /// cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification
-        /// when the capacity is needed back.</para></li></ul><para>The default is On-Demand</para><para>For more information about Amazon EC2 capacity options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance
+        /// when the capacity is needed back.</para></li><li><para><c>RESERVED</c> - Launches Instances using Amazon EC2 Capacity Reservations. Capacity
+        /// Reservations allow you to reserve compute capacity for Amazon EC2 instances in a specific
+        /// Availability Zone.</para></li></ul><para>The default is On-Demand</para><para>For more information about Amazon EC2 capacity options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance
         /// purchasing options</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -646,6 +648,32 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? InstanceRequirements_RequireHibernateSupport { get; set; }
         #endregion
         
+        #region Parameter ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Capacity Reservation resource group in which to run the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn { get; set; }
+        #endregion
+        
+        #region Parameter ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference
+        /// <summary>
+        /// <para>
+        /// <para>The preference on when capacity reservations should be used.</para><para>Valid values are:</para><ul><li><para><c>RESERVATIONS_ONLY</c> - Exclusively launch instances into capacity reservations
+        /// that match the instance requirements configured for the capacity provider. If none
+        /// exist, instances will fail to provision.</para></li><li><para><c>RESERVATIONS_FIRST</c> - Prefer to launch instances into a capacity reservation
+        /// if any exist that match the instance requirements configured for the capacity provider.
+        /// If none exist, fall back to launching instances On-Demand.</para></li><li><para><c>RESERVATIONS_EXCLUDED</c> - Avoid using capacity reservations and launch exclusively
+        /// On-Demand.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.CapacityReservationPreference")]
+        public Amazon.ECS.CapacityReservationPreference ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference { get; set; }
+        #endregion
+        
         #region Parameter InfrastructureOptimization_ScaleInAfter
         /// <summary>
         /// <para>
@@ -832,6 +860,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.InfrastructureOptimization_ScaleInAfter = this.InfrastructureOptimization_ScaleInAfter;
             context.ManagedInstancesProvider_InfrastructureRoleArn = this.ManagedInstancesProvider_InfrastructureRoleArn;
             context.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType = this.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType;
+            context.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn = this.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn;
+            context.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference = this.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference;
             context.InstanceLaunchTemplate_Ec2InstanceProfileArn = this.InstanceLaunchTemplate_Ec2InstanceProfileArn;
             context.ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled = this.ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled;
             context.AcceleratorCount_Max = this.AcceleratorCount_Max;
@@ -1154,6 +1184,41 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration != null)
             {
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.StorageConfiguration = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration;
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            Amazon.ECS.Model.CapacityReservationRequest requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations = null;
+            
+             // populate CapacityReservations
+            var requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservationsIsNull = true;
+            requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations = new Amazon.ECS.Model.CapacityReservationRequest();
+            System.String requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn = null;
+            if (cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn = cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations.ReservationGroupArn = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn;
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservationsIsNull = false;
+            }
+            Amazon.ECS.CapacityReservationPreference requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference = null;
+            if (cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference = cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations.ReservationPreference = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference;
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservationsIsNull = false;
+            }
+             // determine if requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations should be set to null
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservationsIsNull)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations = null;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.CapacityReservations = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_CapacityReservations;
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
             }
             Amazon.ECS.Model.ManagedInstancesNetworkConfiguration requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration = null;
@@ -1767,6 +1832,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? InfrastructureOptimization_ScaleInAfter { get; set; }
             public System.String ManagedInstancesProvider_InfrastructureRoleArn { get; set; }
             public Amazon.ECS.CapacityOptionType ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType { get; set; }
+            public System.String ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn { get; set; }
+            public Amazon.ECS.CapacityReservationPreference ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference { get; set; }
             public System.String InstanceLaunchTemplate_Ec2InstanceProfileArn { get; set; }
             public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled { get; set; }
             public System.Int32? AcceleratorCount_Max { get; set; }

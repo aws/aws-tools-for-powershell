@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns information about product integrations in Security Hub.
+    /// Returns information about product integrations in Security Hub CSPM.
     /// 
     ///  
     /// <para>

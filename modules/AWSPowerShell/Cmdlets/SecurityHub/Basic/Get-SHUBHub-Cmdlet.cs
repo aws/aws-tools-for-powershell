@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Returns details about the Hub resource in your account, including the <c>HubArn</c>
-    /// and the time when you enabled Security Hub.
+    /// and the time when you enabled Security Hub CSPM.
     /// </summary>
     [Cmdlet("Get", "SHUBHub")]
     [OutputType("Amazon.SecurityHub.Model.DescribeHubResponse")]

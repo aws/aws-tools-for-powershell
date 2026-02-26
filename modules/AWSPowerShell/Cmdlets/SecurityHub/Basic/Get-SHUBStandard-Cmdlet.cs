@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns a list of the available standards in Security Hub.
+    /// Returns a list of the available standards in Security Hub CSPM.
     /// 
     ///  
     /// <para>

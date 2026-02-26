@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Disassociates the current Security Hub member account from the associated administrator
+    /// Disassociates the current Security Hub CSPM member account from the associated administrator
     /// account.
     /// 
     ///  
