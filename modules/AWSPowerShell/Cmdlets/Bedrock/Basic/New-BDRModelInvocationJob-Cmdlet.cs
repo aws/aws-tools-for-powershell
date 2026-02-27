@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String ModelId { get; set; }
         #endregion
         
+        #region Parameter ModelInvocationType
+        /// <summary>
+        /// <para>
+        /// <para>The invocation endpoint for ModelInvocationJob</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Bedrock.ModelInvocationType")]
+        public Amazon.Bedrock.ModelInvocationType ModelInvocationType { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -293,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ModelInvocationType = this.ModelInvocationType;
             context.S3OutputDataConfig_S3BucketOwner = this.S3OutputDataConfig_S3BucketOwner;
             context.S3OutputDataConfig_S3EncryptionKeyId = this.S3OutputDataConfig_S3EncryptionKeyId;
             context.S3OutputDataConfig_S3Uri = this.S3OutputDataConfig_S3Uri;
@@ -397,6 +409,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.ModelId != null)
             {
                 request.ModelId = cmdletContext.ModelId;
+            }
+            if (cmdletContext.ModelInvocationType != null)
+            {
+                request.ModelInvocationType = cmdletContext.ModelInvocationType;
             }
             
              // populate OutputDataConfig
@@ -560,6 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String S3InputDataConfig_S3Uri { get; set; }
             public System.String JobName { get; set; }
             public System.String ModelId { get; set; }
+            public Amazon.Bedrock.ModelInvocationType ModelInvocationType { get; set; }
             public System.String S3OutputDataConfig_S3BucketOwner { get; set; }
             public System.String S3OutputDataConfig_S3EncryptionKeyId { get; set; }
             public System.String S3OutputDataConfig_S3Uri { get; set; }

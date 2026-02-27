@@ -79,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.KST
         #region Parameter ShardIteratorType
         /// <summary>
         /// <para>
-        /// <para> Determines how the shard iterator is positioned. Must be one of the following:</para><ul><li><para><c>TRIM_HORIZON</c> - Start reading at the last untrimmed record in the shard, which
-        /// is the oldest data record in the shard.</para></li><li><para><c>AT_SEQUENCE_NUMBER</c> - Start reading exactly from the specified sequence number.</para></li><li><para><c>AFTER_SEQUENCE_NUMBER</c> - Start reading right after the specified sequence number.</para></li><li><para><c>LATEST</c> - Start reading just after the most recent record in the shard, so
-        /// that you always read the most recent data.</para></li></ul>
+        /// <para> Determines how the shard iterator is positioned. Must be one of the following: </para><ul><li><para><c>TRIM_HORIZON</c> - Start reading at the last untrimmed record in the shard, which
+        /// is the oldest data record in the shard.</para></li><li><para><c>AT_SEQUENCE_NUMBER</c> - Start reading exactly from the specified sequence number.</para></li><li><para><c>AFTER_SEQUENCE_NUMBER</c> - Start reading right after the specified sequence number.
+        /// </para></li><li><para><c>LATEST</c> - Start reading just after the most recent record in the shard, so
+        /// that you always read the most recent data. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -41,9 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
     /// A Search operation, unlike a List operation, takes time to index changes to resource
     /// (create, update or delete). If you don't see updated information for recently changed
-    /// contact evaluations, try calling the API again in a few seconds. Contact Evaluations
-    /// may not be fully backfilled with historical data in all regions yet, however all recently
-    /// created Contact Evaluations should be available for search.
+    /// contact evaluations, try calling the API again in a few seconds.
     /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
     /// Connect endpoints and quotas</a>.
     /// </para>

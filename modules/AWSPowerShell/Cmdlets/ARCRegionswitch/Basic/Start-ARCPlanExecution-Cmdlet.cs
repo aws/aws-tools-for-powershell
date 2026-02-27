@@ -116,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         public System.String PlanArn { get; set; }
         #endregion
         
+        #region Parameter RecoveryExecutionId
+        /// <summary>
+        /// <para>
+        /// <para>The execution identifier of the recovery execution that ran in the opposite region
+        /// post-recovery is ran in. Required when starting a post-recovery execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RecoveryExecutionId { get; set; }
+        #endregion
+        
         #region Parameter TargetRegion
         /// <summary>
         /// <para>
@@ -193,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
                 WriteWarning("You are passing $null as a value for parameter PlanArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RecoveryExecutionId = this.RecoveryExecutionId;
             context.TargetRegion = this.TargetRegion;
             #if MODULAR
             if (this.TargetRegion == null && ParameterWasBound(nameof(this.TargetRegion)))
@@ -235,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             if (cmdletContext.PlanArn != null)
             {
                 request.PlanArn = cmdletContext.PlanArn;
+            }
+            if (cmdletContext.RecoveryExecutionId != null)
+            {
+                request.RecoveryExecutionId = cmdletContext.RecoveryExecutionId;
             }
             if (cmdletContext.TargetRegion != null)
             {
@@ -306,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             public System.String LatestVersion { get; set; }
             public Amazon.ARCRegionswitch.ExecutionMode Mode { get; set; }
             public System.String PlanArn { get; set; }
+            public System.String RecoveryExecutionId { get; set; }
             public System.String TargetRegion { get; set; }
             public System.Func<Amazon.ARCRegionswitch.Model.StartPlanExecutionResponse, StartARCPlanExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -1,4 +1,25 @@
-﻿### 4.1.1009 (2026-02-26 21:23Z)
+﻿### 4.1.1010 (2026-02-27 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1233.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ARC - Region switch
+    * Modified cmdlet Start-ARCPlanExecution: added parameter RecoveryExecutionId.
+  * Amazon Batch
+    * Modified cmdlet New-BATComputeEnvironment: added parameter ComputeResources_ScalingPolicy_MinScaleDownDelayMinute.
+    * Modified cmdlet Update-BATComputeEnvironment: added parameter ComputeResources_ScalingPolicy_MinScaleDownDelayMinute.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDRModelInvocationJob: added parameter ModelInvocationType.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Add-CGIPUserPoolClientSecret leveraging the AddUserPoolClientSecret service API.
+    * Added cmdlet Get-CGIPUserPoolClientSecretList leveraging the ListUserPoolClientSecrets service API.
+    * Added cmdlet Remove-CGIPUserPoolClientSecret leveraging the DeleteUserPoolClientSecret service API.
+    * Modified cmdlet New-CGIPUserPoolClient: added parameter ClientSecret.
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet Write-CPFProfileObjectType: added parameter SourcePriority.
+  * Amazon Oracle Database@Amazon Web Services
+    * Modified cmdlet New-ODBOdbPeeringConnection: added parameter PeerNetworkRouteTableId.
+  * Amazon Resource Access Manager (RAM)
+    * Modified cmdlet New-RAMResourceShare: added parameter ResourceShareConfiguration_RetainSharingOnAccountLeaveOrganization.
+
+### 4.1.1009 (2026-02-26 21:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1232.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EC2 Container Service
     * Modified cmdlet New-ECSCapacityProvider: added parameters ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn and ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference.

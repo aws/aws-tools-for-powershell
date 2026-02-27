@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.KST
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of streams to return in a single <c>ListStreams</c> request. Default
-        /// value is 100. The minimum value is 1 and the maximum value is 100. </para>
+        /// <para> The maximum number of streams to return in a single <c>ListStreams</c> request. The
+        /// default value is 100. The minimum value is 1 and the maximum value is 100. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

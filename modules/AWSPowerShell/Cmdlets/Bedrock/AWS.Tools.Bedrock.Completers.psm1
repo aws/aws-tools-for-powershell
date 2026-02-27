@@ -218,6 +218,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.ModelInvocationType
+        "New-BDRModelInvocationJob/ModelInvocationType"
+        {
+            $v = "Converse","InvokeModel"
+            break
+        }
+
         # Amazon.Bedrock.ModelModality
         "Get-BDRFoundationModelList/ByOutputModality"
         {
@@ -337,6 +344,7 @@ $BDR_map = @{
     "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
     "GuardrailInferenceConfig_InputTag"=@("Write-BDREnforcedGuardrailConfiguration")
     "HyperParameters_ReasoningEffort"=@("New-BDRModelCustomizationJob")
+    "ModelInvocationType"=@("New-BDRModelInvocationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")

@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.KST
         /// <summary>
         /// <para>
         /// <para> The maximum number of shard objects to return in a single <c>GetStream</c> request.
-        /// Default value is 100. The minimum value is 1 and the maximum value is 100. </para>
+        /// The default value is 100. The minimum value is 1 and the maximum value is 100. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.KST
         /// <para>
         /// <para> An optional pagination token provided by a previous <c>GetStream</c> operation. If
         /// this parameter is specified, the response includes only records beyond the token,
-        /// up to the value specified by <c>maxResults</c>. </para>
+        /// up to the value specified by <c>MaxResults</c>. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

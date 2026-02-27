@@ -180,6 +180,18 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String SourceLastUpdatedTimestampFormat { get; set; }
         #endregion
         
+        #region Parameter SourcePriority
+        /// <summary>
+        /// <para>
+        /// <para>An integer that determines the priority of this object type when data from multiple
+        /// sources is ingested. Lower values take priority. Object types without a specified
+        /// source priority default to the lowest priority.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SourcePriority { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -322,6 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             }
             #endif
             context.SourceLastUpdatedTimestampFormat = this.SourceLastUpdatedTimestampFormat;
+            context.SourcePriority = this.SourcePriority;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -386,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.SourceLastUpdatedTimestampFormat != null)
             {
                 request.SourceLastUpdatedTimestampFormat = cmdletContext.SourceLastUpdatedTimestampFormat;
+            }
+            if (cmdletContext.SourcePriority != null)
+            {
+                request.SourcePriority = cmdletContext.SourcePriority.Value;
             }
             if (cmdletContext.Tag != null)
             {
@@ -466,6 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.Int32? MaxProfileObjectCount { get; set; }
             public System.String ObjectTypeName { get; set; }
             public System.String SourceLastUpdatedTimestampFormat { get; set; }
+            public System.Int32? SourcePriority { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TemplateId { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.PutProfileObjectTypeResponse, WriteCPFProfileObjectTypeCmdlet, object> Select { get; set; } =

@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// pool, modified to include the changes that you want to make.
     /// 
     ///  <important><para>
-    /// If you don't provide a value for an attribute, Amazon Cognito sets it to its default
-    /// value.
+    /// With the exception of <c>UserPoolTier</c>, if you don't provide a value for an attribute,
+    /// Amazon Cognito sets it to its default value.
     /// </para></important><note><para>
     /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
     /// carriers require you to register an origination phone number before you can send SMS
