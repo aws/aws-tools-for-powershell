@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.200.0",
+    "ProductVersion"    : "4.0.201.0",
     "CoreVersion"       : "4.0.3.15",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -524,7 +524,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "4.0.5.2",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -652,7 +652,7 @@
             "InPreview"               : false
         },
         "AWSHealth"                       : {
-            "Version" : "4.0.4.2",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -676,7 +676,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "4.0.5.2",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -1004,7 +1004,7 @@
             "InPreview"               : false
         },
         "TranscribeStreaming"             : {
-            "Version" : "4.0.5.10",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -1012,7 +1012,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.33.2",
+            "Version" : "4.0.34.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -1124,7 +1124,7 @@
             "InPreview"               : false
         },
         "RAM"                             : {
-            "Version" : "4.0.3.1",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -1828,7 +1828,7 @@
             "InPreview"               : false
         },
         "CustomerProfiles"                : {
-            "Version" : "4.0.7.9",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -2660,7 +2660,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "4.0.20.0",
+            "Version" : "4.0.21.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "KeyspacesStreams"                    : {
-            "Version" : "4.0.2.14",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -3196,7 +3196,7 @@
             "InPreview"               : false
         },
         "Odb"                                 : {
-            "Version" : "4.0.4.2",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"
@@ -3228,7 +3228,7 @@
             "InPreview"               : false
         },
         "ARCRegionswitch"                     : {
-            "Version" : "4.0.4.2",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.15"

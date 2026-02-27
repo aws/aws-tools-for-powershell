@@ -23,77 +23,74 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.KeyspacesStreams;
-using Amazon.KeyspacesStreams.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.KST
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Returns a list of all data capture streams associated with your Amazon Keyspaces account
-    /// or for a specific keyspace or table. The response includes information such as stream
-    /// ARNs, table associations, creation timestamps, and current status. This operation
-    /// helps you discover and manage all active data streams in your Amazon Keyspaces environment.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all client secrets associated with a user pool app client. Returns metadata
+    /// about the secrets. The response does not include pagination tokens as there are only
+    /// 2 secrets at any given time and we return both with every ListUserPoolClientSecrets
+    /// call. For security reasons, the response never reveals the actual secret value in
+    /// ClientSecretValue.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "KSTStreamList")]
-    [OutputType("Amazon.KeyspacesStreams.Model.Stream")]
-    [AWSCmdlet("Calls the Amazon Keyspaces Streams ListStreams API operation.", Operation = new[] {"ListStreams"}, SelectReturnType = typeof(Amazon.KeyspacesStreams.Model.ListStreamsResponse))]
-    [AWSCmdletOutput("Amazon.KeyspacesStreams.Model.Stream or Amazon.KeyspacesStreams.Model.ListStreamsResponse",
-        "This cmdlet returns a collection of Amazon.KeyspacesStreams.Model.Stream objects.",
-        "The service call response (type Amazon.KeyspacesStreams.Model.ListStreamsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CGIPUserPoolClientSecretList")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.ClientSecretDescriptorType")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider ListUserPoolClientSecrets API operation.", Operation = new[] {"ListUserPoolClientSecrets"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsResponse))]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.ClientSecretDescriptorType or Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsResponse",
+        "This cmdlet returns a collection of Amazon.CognitoIdentityProvider.Model.ClientSecretDescriptorType objects.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetKSTStreamListCmdlet : AmazonKeyspacesStreamsClientCmdlet, IExecutor
+    public partial class GetCGIPUserPoolClientSecretListCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter KeyspaceName
+        #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para> The name of the keyspace for which to list streams. If specified, only streams associated
-        /// with tables in this keyspace are returned. If omitted, streams from all keyspaces
-        /// are included in the results. </para>
+        /// <para>The ID of the app client whose secrets you want to list.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KeyspaceName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ClientId { get; set; }
         #endregion
         
-        #region Parameter TableName
+        #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para> The name of the table for which to list streams. Must be used together with <c>keyspaceName</c>.
-        /// If specified, only streams associated with this specific table are returned. </para>
+        /// <para>The ID of the user pool that contains the app client.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TableName { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para> The maximum number of streams to return in a single <c>ListStreams</c> request. The
-        /// default value is 100. The minimum value is 1 and the maximum value is 100. </para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
-        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
-        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String UserPoolId { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> An optional pagination token provided by a previous <c>ListStreams</c> operation.
-        /// If this parameter is specified, the response includes only records beyond the token,
-        /// up to the value specified by <c>maxResults</c>. </para>
+        /// <para>This API operation returns a limited number of results. The pagination token is an
+        /// identifier that you can present in an additional API request with the same parameters.
+        /// When you include the pagination token, Amazon Cognito returns the next set of items
+        /// after the current list. Subsequent requests return a new pagination token. By use
+        /// of this token, you can paginate through the full list of items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -106,13 +103,13 @@ namespace Amazon.PowerShell.Cmdlets.KST
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Streams'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KeyspacesStreams.Model.ListStreamsResponse).
-        /// Specifying the name of a property of type Amazon.KeyspacesStreams.Model.ListStreamsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ClientSecrets'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Streams";
+        public string Select { get; set; } = "ClientSecrets";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -141,22 +138,24 @@ namespace Amazon.PowerShell.Cmdlets.KST
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KeyspacesStreams.Model.ListStreamsResponse, GetKSTStreamListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsResponse, GetCGIPUserPoolClientSecretListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.KeyspaceName = this.KeyspaceName;
-            context.MaxResult = this.MaxResult;
-            #if !MODULAR
-            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            context.ClientId = this.ClientId;
+            #if MODULAR
+            if (this.ClientId == null && ParameterWasBound(nameof(this.ClientId)))
             {
-                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
-                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
-                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
-                    " to the service to specify how many items should be returned by each service call.");
+                WriteWarning("You are passing $null as a value for parameter ClientId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.NextToken = this.NextToken;
-            context.TableName = this.TableName;
+            context.UserPoolId = this.UserPoolId;
+            #if MODULAR
+            if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,19 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.KST
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.KeyspacesStreams.Model.ListStreamsRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsRequest();
             
-            if (cmdletContext.KeyspaceName != null)
+            if (cmdletContext.ClientId != null)
             {
-                request.KeyspaceName = cmdletContext.KeyspaceName;
+                request.ClientId = cmdletContext.ClientId;
             }
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.UserPoolId != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
-            }
-            if (cmdletContext.TableName != null)
-            {
-                request.TableName = cmdletContext.TableName;
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             // Initialize loop variant and commence piping
@@ -244,12 +239,12 @@ namespace Amazon.PowerShell.Cmdlets.KST
         
         #region AWS Service Operation Call
         
-        private Amazon.KeyspacesStreams.Model.ListStreamsResponse CallAWSServiceOperation(IAmazonKeyspacesStreams client, Amazon.KeyspacesStreams.Model.ListStreamsRequest request)
+        private Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Keyspaces Streams", "ListStreams");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "ListUserPoolClientSecrets");
             try
             {
-                return client.ListStreamsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListUserPoolClientSecretsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -266,12 +261,11 @@ namespace Amazon.PowerShell.Cmdlets.KST
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyspaceName { get; set; }
-            public int? MaxResult { get; set; }
+            public System.String ClientId { get; set; }
             public System.String NextToken { get; set; }
-            public System.String TableName { get; set; }
-            public System.Func<Amazon.KeyspacesStreams.Model.ListStreamsResponse, GetKSTStreamListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Streams;
+            public System.String UserPoolId { get; set; }
+            public System.Func<Amazon.CognitoIdentityProvider.Model.ListUserPoolClientSecretsResponse, GetCGIPUserPoolClientSecretListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ClientSecrets;
         }
         
     }

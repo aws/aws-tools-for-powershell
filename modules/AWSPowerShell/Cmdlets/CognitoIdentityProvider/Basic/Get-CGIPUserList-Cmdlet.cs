@@ -32,7 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// Given a user pool ID, returns a list of users and their basic details in a user pool.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// This operation is eventually consistent. You might experience a delay before results
+    /// are up-to-date. To validate the existence or configuration of an individual user,
+    /// use <c>AdminGetUser</c>.
+    /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
     /// requests, and you must grant yourself the corresponding IAM permission in a policy.
@@ -118,7 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of users that you want Amazon Cognito to return in the response.</para>
+        /// <para>The maximum number of users that you want Amazon Cognito to return in the response.
+        /// In some SDK contexts, this operation might return fewer items than you specify in
+        /// the <c>Limit</c> parameter without having reached the end of the full list. If the
+        /// response contains a <c>PaginationToken</c>, then there are more results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

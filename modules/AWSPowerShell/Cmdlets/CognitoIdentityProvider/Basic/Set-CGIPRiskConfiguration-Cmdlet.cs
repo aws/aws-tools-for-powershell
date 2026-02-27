@@ -262,7 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NotifyConfiguration_ReplyTo
         /// <summary>
         /// <para>
-        /// <para>The reply-to email address of an email template.</para>
+        /// <para>The reply-to email address of an email template. Can be an email address in the format
+        /// <c>admin@example.com</c> or <c>Administrator &lt;admin@example.com&gt;</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

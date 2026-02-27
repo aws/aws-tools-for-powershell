@@ -139,6 +139,17 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public System.String[] ResourceArn { get; set; }
         #endregion
         
+        #region Parameter ResourceShareConfiguration_RetainSharingOnAccountLeaveOrganization
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the consumer account retains access to the resource share after
+        /// leaving the organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResourceShareConfiguration_RetainSharingOnAccountLeaveOrganization { get; set; }
+        #endregion
+        
         #region Parameter Source
         /// <summary>
         /// <para>
@@ -259,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             {
                 context.ResourceArn = new List<System.String>(this.ResourceArn);
             }
+            context.ResourceShareConfiguration_RetainSharingOnAccountLeaveOrganization = this.ResourceShareConfiguration_RetainSharingOnAccountLeaveOrganization;
             if (this.Source != null)
             {
                 context.Source = new List<System.String>(this.Source);
@@ -306,6 +318,25 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArns = cmdletContext.ResourceArn;
+            }
+            
+             // populate ResourceShareConfiguration
+            var requestResourceShareConfigurationIsNull = true;
+            request.ResourceShareConfiguration = new Amazon.RAM.Model.ResourceShareConfiguration();
+            System.Boolean? requestResourceShareConfiguration_resourceShareConfiguration_RetainSharingOnAccountLeaveOrganization = null;
+            if (cmdletContext.ResourceShareConfiguration_RetainSharingOnAccountLeaveOrganization != null)
+            {
+                requestResourceShareConfiguration_resourceShareConfiguration_RetainSharingOnAccountLeaveOrganization = cmdletContext.ResourceShareConfiguration_RetainSharingOnAccountLeaveOrganization.Value;
+            }
+            if (requestResourceShareConfiguration_resourceShareConfiguration_RetainSharingOnAccountLeaveOrganization != null)
+            {
+                request.ResourceShareConfiguration.RetainSharingOnAccountLeaveOrganization = requestResourceShareConfiguration_resourceShareConfiguration_RetainSharingOnAccountLeaveOrganization.Value;
+                requestResourceShareConfigurationIsNull = false;
+            }
+             // determine if request.ResourceShareConfiguration should be set to null
+            if (requestResourceShareConfigurationIsNull)
+            {
+                request.ResourceShareConfiguration = null;
             }
             if (cmdletContext.Source != null)
             {
@@ -376,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             public List<System.String> PermissionArn { get; set; }
             public List<System.String> Principal { get; set; }
             public List<System.String> ResourceArn { get; set; }
+            public System.Boolean? ResourceShareConfiguration_RetainSharingOnAccountLeaveOrganization { get; set; }
             public List<System.String> Source { get; set; }
             public List<Amazon.RAM.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.RAM.Model.CreateResourceShareResponse, NewRAMResourceShareCmdlet, object> Select { get; set; } =

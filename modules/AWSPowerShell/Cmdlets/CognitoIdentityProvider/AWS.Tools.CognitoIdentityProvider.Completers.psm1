@@ -415,6 +415,7 @@ $CGIP_SelectCompleters = {
 
 $CGIP_SelectMap = @{
     "Select"=@("Add-CGIPCustomAttribute",
+               "Add-CGIPUserPoolClientSecret",
                "Add-CGIPUserToGroupAdmin",
                "Confirm-CGIPUserRegistrationAdmin",
                "New-CGIPUserAdmin",
@@ -465,6 +466,7 @@ $CGIP_SelectMap = @{
                "Remove-CGIPUserAttribute",
                "Remove-CGIPUserPool",
                "Remove-CGIPUserPoolClient",
+               "Remove-CGIPUserPoolClientSecret",
                "Remove-CGIPUserPoolDomain",
                "Remove-CGIPWebAuthnCredential",
                "Get-CGIPIdentityProvider",
@@ -501,6 +503,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPTermList",
                "Get-CGIPUserImportJobList",
                "Get-CGIPUserPoolClientList",
+               "Get-CGIPUserPoolClientSecretList",
                "Get-CGIPUserPoolList",
                "Get-CGIPUserList",
                "Get-CGIPUsersInGroup",

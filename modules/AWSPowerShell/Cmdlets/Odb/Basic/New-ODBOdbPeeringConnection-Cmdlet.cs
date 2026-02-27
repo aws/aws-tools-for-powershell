@@ -110,6 +110,22 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.String PeerNetworkId { get; set; }
         #endregion
         
+        #region Parameter PeerNetworkRouteTableId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the VPC route table for which a route to the ODB network
+        /// is automatically created during peering connection establishment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PeerNetworkRouteTableIds")]
+        public System.String[] PeerNetworkRouteTableId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -201,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                 WriteWarning("You are passing $null as a value for parameter PeerNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PeerNetworkRouteTableId != null)
+            {
+                context.PeerNetworkRouteTableId = new List<System.String>(this.PeerNetworkRouteTableId);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -244,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.PeerNetworkId != null)
             {
                 request.PeerNetworkId = cmdletContext.PeerNetworkId;
+            }
+            if (cmdletContext.PeerNetworkRouteTableId != null)
+            {
+                request.PeerNetworkRouteTableIds = cmdletContext.PeerNetworkRouteTableId;
             }
             if (cmdletContext.Tag != null)
             {
@@ -309,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public System.String OdbNetworkId { get; set; }
             public List<System.String> PeerNetworkCidrsToBeAdded { get; set; }
             public System.String PeerNetworkId { get; set; }
+            public List<System.String> PeerNetworkRouteTableId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Odb.Model.CreateOdbPeeringConnectionResponse, NewODBOdbPeeringConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

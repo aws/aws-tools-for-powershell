@@ -218,14 +218,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A map of custom key-value pairs that you can provide as input for any custom workflows
-        /// that this action triggers.</para><para>You create custom workflows by assigning Lambda functions to user pool triggers. When
-        /// you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions
-        /// that you have assigned to the following triggers: </para><ul><li><para>Pre sign-up</para></li><li><para>custom message</para></li><li><para>Post authentication</para></li><li><para>User migration</para></li><li><para>Pre token generation</para></li><li><para>Define auth challenge</para></li><li><para>Create auth challenge</para></li><li><para>Verify auth challenge response</para></li></ul><para>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which
+        /// that this action triggers. You create custom workflows by assigning Lambda functions
+        /// to user pool triggers.</para><para>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which
         /// the function receives as input. This payload contains a <c>clientMetadata</c> attribute
-        /// that provides the data that you assigned to the ClientMetadata parameter in your AdminRespondToAuthChallenge
-        /// request. In your function code in Lambda, you can process the <c>clientMetadata</c>
-        /// value to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
-        /// Using Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// that provides the data that you assigned to the ClientMetadata parameter in your request.
+        /// In your function code, you can process the <c>clientMetadata</c> value to enhance
+        /// your workflow for your specific needs.</para><para>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API
+        /// requests, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event">
+        /// Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
         /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this

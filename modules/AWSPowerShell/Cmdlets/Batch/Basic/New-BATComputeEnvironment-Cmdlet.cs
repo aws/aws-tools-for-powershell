@@ -316,6 +316,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? ComputeResources_MaxvCpu { get; set; }
         #endregion
         
+        #region Parameter ComputeResources_ScalingPolicy_MinScaleDownDelayMinute
+        /// <summary>
+        /// <para>
+        /// <para>The minimum time (in minutes) that Batch keeps instances running in the compute environment
+        /// after their jobs complete. For each instance, the delay period begins when the last
+        /// job finishes. If no new jobs are placed on the instance during this delay, Batch terminates
+        /// the instance once the delay expires.</para><para>Valid Range: Minimum value of 20. Maximum value of 10080. Use 0 to unset and disable
+        /// the scale down delay.</para><note><para>The scale down delay does not apply to:</para><ul><li><para>Instances being replaced during infrastructure updates</para></li><li><para>Newly launched instances that have not yet run any jobs</para></li><li><para>Spot instances reclaimed due to interruption</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_ScalingPolicy_MinScaleDownDelayMinutes")]
+        public System.Int32? ComputeResources_ScalingPolicy_MinScaleDownDelayMinute { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_MinvCpu
         /// <summary>
         /// <para>
@@ -702,6 +717,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             context.ComputeResources_MaxvCpu = this.ComputeResources_MaxvCpu;
             context.ComputeResources_MinvCpu = this.ComputeResources_MinvCpu;
             context.ComputeResources_PlacementGroup = this.ComputeResources_PlacementGroup;
+            context.ComputeResources_ScalingPolicy_MinScaleDownDelayMinute = this.ComputeResources_ScalingPolicy_MinScaleDownDelayMinute;
             if (this.ComputeResources_SecurityGroupId != null)
             {
                 context.ComputeResources_SecurityGroupId = new List<System.String>(this.ComputeResources_SecurityGroupId);
@@ -927,6 +943,31 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ComputeResources.Type = requestComputeResources_computeResources_Type;
                 requestComputeResourcesIsNull = false;
             }
+            Amazon.Batch.Model.ComputeScalingPolicy requestComputeResources_computeResources_ScalingPolicy = null;
+            
+             // populate ScalingPolicy
+            var requestComputeResources_computeResources_ScalingPolicyIsNull = true;
+            requestComputeResources_computeResources_ScalingPolicy = new Amazon.Batch.Model.ComputeScalingPolicy();
+            System.Int32? requestComputeResources_computeResources_ScalingPolicy_computeResources_ScalingPolicy_MinScaleDownDelayMinute = null;
+            if (cmdletContext.ComputeResources_ScalingPolicy_MinScaleDownDelayMinute != null)
+            {
+                requestComputeResources_computeResources_ScalingPolicy_computeResources_ScalingPolicy_MinScaleDownDelayMinute = cmdletContext.ComputeResources_ScalingPolicy_MinScaleDownDelayMinute.Value;
+            }
+            if (requestComputeResources_computeResources_ScalingPolicy_computeResources_ScalingPolicy_MinScaleDownDelayMinute != null)
+            {
+                requestComputeResources_computeResources_ScalingPolicy.MinScaleDownDelayMinutes = requestComputeResources_computeResources_ScalingPolicy_computeResources_ScalingPolicy_MinScaleDownDelayMinute.Value;
+                requestComputeResources_computeResources_ScalingPolicyIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_ScalingPolicy should be set to null
+            if (requestComputeResources_computeResources_ScalingPolicyIsNull)
+            {
+                requestComputeResources_computeResources_ScalingPolicy = null;
+            }
+            if (requestComputeResources_computeResources_ScalingPolicy != null)
+            {
+                request.ComputeResources.ScalingPolicy = requestComputeResources_computeResources_ScalingPolicy;
+                requestComputeResourcesIsNull = false;
+            }
             Amazon.Batch.Model.LaunchTemplateSpecification requestComputeResources_computeResources_LaunchTemplate = null;
             
              // populate LaunchTemplate
@@ -1123,6 +1164,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? ComputeResources_MaxvCpu { get; set; }
             public System.Int32? ComputeResources_MinvCpu { get; set; }
             public System.String ComputeResources_PlacementGroup { get; set; }
+            public System.Int32? ComputeResources_ScalingPolicy_MinScaleDownDelayMinute { get; set; }
             public List<System.String> ComputeResources_SecurityGroupId { get; set; }
             public System.String ComputeResources_SpotIamFleetRole { get; set; }
             public List<System.String> ComputeResources_Subnet { get; set; }

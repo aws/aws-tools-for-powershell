@@ -92,7 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of groups that you want Amazon Cognito to return in the response.</para>
+        /// <para>The maximum number of groups that you want Amazon Cognito to return in the response.
+        /// In some SDK contexts, this operation might return fewer items than you specify in
+        /// the <c>Limit</c> parameter without having reached the end of the full list. If the
+        /// response contains a <c>PaginationToken</c>, then there are more results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

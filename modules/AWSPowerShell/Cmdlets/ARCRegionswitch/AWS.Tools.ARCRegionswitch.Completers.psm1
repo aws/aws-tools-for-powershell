@@ -90,7 +90,7 @@ $ARC_Completers = {
         # Amazon.ARCRegionswitch.ExecutionAction
         "Start-ARCPlanExecution/Action"
         {
-            $v = "activate","deactivate"
+            $v = "activate","deactivate","postRecovery"
             break
         }
 

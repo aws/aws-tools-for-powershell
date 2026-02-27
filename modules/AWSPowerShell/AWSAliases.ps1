@@ -6249,6 +6249,7 @@ Set-Alias -Name CGI-UntagResource -Value Remove-CGIResourceTag
 Set-Alias -Name CGI-UpdateIdentityPool -Value Update-CGIIdentityPool
 Set-Alias -Name Add-CGIPCustomAttributes -Value Add-CGIPCustomAttribute
 Set-Alias -Name CGIP-AddCustomAttributes -Value Add-CGIPCustomAttribute
+Set-Alias -Name CGIP-AddUserPoolClientSecret -Value Add-CGIPUserPoolClientSecret
 Set-Alias -Name Add-CGIPUserToGroup -Value Add-CGIPUserToGroupAdmin
 Set-Alias -Name CGIP-AdminAddUserToGroup -Value Add-CGIPUserToGroupAdmin
 Set-Alias -Name Confirm-CGIPSignUp -Value Confirm-CGIPUserRegistrationAdmin
@@ -6362,6 +6363,8 @@ Set-Alias -Name Delete-CGIPUserPool -Value Remove-CGIPUserPool
 Set-Alias -Name CGIP-DeleteUserPool -Value Remove-CGIPUserPool
 Set-Alias -Name Delete-CGIPUserPoolClient -Value Remove-CGIPUserPoolClient
 Set-Alias -Name CGIP-DeleteUserPoolClient -Value Remove-CGIPUserPoolClient
+Set-Alias -Name Delete-CGIPUserPoolClientSecret -Value Remove-CGIPUserPoolClientSecret
+Set-Alias -Name CGIP-DeleteUserPoolClientSecret -Value Remove-CGIPUserPoolClientSecret
 Set-Alias -Name Delete-CGIPUserPoolDomain -Value Remove-CGIPUserPoolDomain
 Set-Alias -Name CGIP-DeleteUserPoolDomain -Value Remove-CGIPUserPoolDomain
 Set-Alias -Name Delete-CGIPWebAuthnCredential -Value Remove-CGIPWebAuthnCredential
@@ -6433,6 +6436,9 @@ Set-Alias -Name CGIP-ListUserImportJobs -Value Get-CGIPUserImportJobList
 Set-Alias -Name List-CGIPUserPoolClients -Value Get-CGIPUserPoolClientList
 Set-Alias -Name List-CGIPUserPoolClientList -Value Get-CGIPUserPoolClientList
 Set-Alias -Name CGIP-ListUserPoolClients -Value Get-CGIPUserPoolClientList
+Set-Alias -Name List-CGIPUserPoolClientSecrets -Value Get-CGIPUserPoolClientSecretList
+Set-Alias -Name List-CGIPUserPoolClientSecretList -Value Get-CGIPUserPoolClientSecretList
+Set-Alias -Name CGIP-ListUserPoolClientSecrets -Value Get-CGIPUserPoolClientSecretList
 Set-Alias -Name List-CGIPUserPools -Value Get-CGIPUserPoolList
 Set-Alias -Name List-CGIPUserPoolList -Value Get-CGIPUserPoolList
 Set-Alias -Name CGIP-ListUserPools -Value Get-CGIPUserPoolList

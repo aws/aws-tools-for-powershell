@@ -4648,7 +4648,7 @@ $ARC_Completers = {
         # Amazon.ARCRegionswitch.ExecutionAction
         "Start-ARCPlanExecution/Action"
         {
-            $v = "activate","deactivate"
+            $v = "activate","deactivate","postRecovery"
             break
         }
 
@@ -9441,6 +9441,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.ModelInvocationType
+        "New-BDRModelInvocationJob/ModelInvocationType"
+        {
+            $v = "Converse","InvokeModel"
+            break
+        }
+
         # Amazon.Bedrock.ModelModality
         "Get-BDRFoundationModelList/ByOutputModality"
         {
@@ -9560,6 +9567,7 @@ $BDR_map = @{
     "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
     "GuardrailInferenceConfig_InputTag"=@("Write-BDREnforcedGuardrailConfiguration")
     "HyperParameters_ReasoningEffort"=@("New-BDRModelCustomizationJob")
+    "ModelInvocationType"=@("New-BDRModelInvocationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
@@ -18056,6 +18064,7 @@ $CGIP_SelectCompleters = {
 
 $CGIP_SelectMap = @{
     "Select"=@("Add-CGIPCustomAttribute",
+               "Add-CGIPUserPoolClientSecret",
                "Add-CGIPUserToGroupAdmin",
                "Confirm-CGIPUserRegistrationAdmin",
                "New-CGIPUserAdmin",
@@ -18106,6 +18115,7 @@ $CGIP_SelectMap = @{
                "Remove-CGIPUserAttribute",
                "Remove-CGIPUserPool",
                "Remove-CGIPUserPoolClient",
+               "Remove-CGIPUserPoolClientSecret",
                "Remove-CGIPUserPoolDomain",
                "Remove-CGIPWebAuthnCredential",
                "Get-CGIPIdentityProvider",
@@ -18142,6 +18152,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPTermList",
                "Get-CGIPUserImportJobList",
                "Get-CGIPUserPoolClientList",
+               "Get-CGIPUserPoolClientSecretList",
                "Get-CGIPUserPoolList",
                "Get-CGIPUserList",
                "Get-CGIPUsersInGroup",

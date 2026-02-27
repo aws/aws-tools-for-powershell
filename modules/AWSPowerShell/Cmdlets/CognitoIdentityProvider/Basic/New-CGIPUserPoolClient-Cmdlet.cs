@@ -196,8 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// outcomes.</para><para>A redirect URI must meet the following requirements:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server. Amazon Cognito doesn't accept authorization
         /// requests with <c>redirect_uri</c> values that aren't in the list of <c>CallbackURLs</c>
         /// that you provide in this parameter.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
-        /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
-        /// only.</para><para>App callback URLs such as myapp://example are also supported.</para><para />
+        /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <c>http://localhost</c>,
+        /// <c>http://127.0.0.1</c> and <c>http://[::1]</c>. These callback URLs are for testing
+        /// purposes only. You can specify custom TCP ports for your callback URLs.</para><para>App callback URLs such as <c>myapp://example</c> are also supported.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -223,6 +224,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClientName { get; set; }
+        #endregion
+        
+        #region Parameter ClientSecret
+        /// <summary>
+        /// <para>
+        /// <para>A custom client secret that you want to use for the app client. You cannot specify
+        /// both GenerateSecret as true and provide a ClientSecret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientSecret { get; set; }
         #endregion
         
         #region Parameter DefaultRedirectURI
@@ -636,6 +648,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 WriteWarning("You are passing $null as a value for parameter ClientName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientSecret = this.ClientSecret;
             context.DefaultRedirectURI = this.DefaultRedirectURI;
             context.EnablePropagateAdditionalUserContextData = this.EnablePropagateAdditionalUserContextData;
             context.EnableTokenRevocation = this.EnableTokenRevocation;
@@ -777,6 +790,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.ClientName != null)
             {
                 request.ClientName = cmdletContext.ClientName;
+            }
+            if (cmdletContext.ClientSecret != null)
+            {
+                request.ClientSecret = cmdletContext.ClientSecret;
             }
             if (cmdletContext.DefaultRedirectURI != null)
             {
@@ -965,6 +982,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.Int32? AuthSessionValidity { get; set; }
             public List<System.String> CallbackURLs { get; set; }
             public System.String ClientName { get; set; }
+            public System.String ClientSecret { get; set; }
             public System.String DefaultRedirectURI { get; set; }
             public System.Boolean? EnablePropagateAdditionalUserContextData { get; set; }
             public System.Boolean? EnableTokenRevocation { get; set; }
