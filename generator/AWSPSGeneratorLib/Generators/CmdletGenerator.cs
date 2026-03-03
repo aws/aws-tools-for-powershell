@@ -280,6 +280,15 @@ namespace AWSPowerShellGenerator.Generators
             // Save service-> new operations mapping in a JSON file irrespective of errors. In case the mapping list is empty, we can serialize to file with no data.
             File.WriteAllText(Path.Combine(Options.RootPath, "serviceNewOperationsMapping.json"), JsonSerializer.Serialize(serviceNewOperationsMapping, new JsonSerializerOptions { WriteIndented = true }));
 
+            // Determine removed service operations (operations in config but no longer in SDK assembly).
+            // Only write during report-only mode, as IsOperationRemoved is only set in that mode.
+            // In normal builds, ApplyOverrides has already removed the operations from config so this would always be empty.
+            if (Options.GenerateReportOnly)
+            {
+                var serviceRemovedOperationsMapping = DetermineRemovedServiceOperations(ModelCollection);
+                File.WriteAllText(Path.Combine(Options.RootPath, "serviceRemovedOperations.json"), JsonSerializer.Serialize(serviceRemovedOperationsMapping, new JsonSerializerOptions { WriteIndented = true }));
+            }
+
             if (Options.GenerateReportOnly)
             {
                 WriteConfigurationChanges();
@@ -518,7 +527,16 @@ namespace AWSPowerShellGenerator.Generators
 
             foreach (var operation in CurrentModel.ServiceOperationsList.Where(operation => !operation.Processed))
             {
-                AnalysisError.MissingSDKMethodForCmdletConfiguration(CurrentModel, operation);
+                if (Options.GenerateReportOnly)
+                {
+                    operation.IsOperationRemoved = true;
+                    InfoMessage.OperationRemovedFromSdk(CurrentModel, operation);
+                    Console.WriteLine($"Operation Removed: '{operation.MethodName}' in service '{CurrentModel.C2jFilename}' no longer exists in the SDK assembly.");
+                }
+                else
+                {
+                    AnalysisError.MissingSDKMethodForCmdletConfiguration(CurrentModel, operation);
+                }
             }
 
             // fuse the manually-declared custom aliases with the automatic set to go into awsaliases.ps1 
@@ -891,7 +909,7 @@ namespace AWSPowerShellGenerator.Generators
                 var serviceAssemblyName = configModel.AssemblyName;
                 var serviceC2jFileName = configModel.C2jFilename;
 
-                var serviceNewMethods = configModel.ServiceOperationsList.Where(so => !so.Exclude).Select(so => so.MethodName);
+                var serviceNewMethods = configModel.ServiceOperationsList.Where(so => !so.Exclude && !so.IsOperationRemoved).Select(so => so.MethodName);
                 if (existingServiceOperations.ContainsKey(configModel.AssemblyName))
                 {
                     serviceNewMethods = serviceNewMethods.Except(existingServiceOperations[configModel.AssemblyName]);
@@ -906,6 +924,32 @@ namespace AWSPowerShellGenerator.Generators
             }
 
             return serviceNewOperationsMapping;
+        }
+
+        /// <summary>
+        /// Identifies service operations that were removed from the SDK assembly (marked with IsOperationRemoved).
+        /// </summary>
+        /// <param name="modelCollection">Model collection with ConfigModels containing analyzed service operations.</param>
+        /// <returns>Mapping of C2jFilename to a HashSet of MethodNames for removed service operations.</returns>
+        private Dictionary<string, HashSet<string>> DetermineRemovedServiceOperations(ConfigModelCollection modelCollection)
+        {
+            var serviceRemovedOperationsMapping = new Dictionary<string, HashSet<string>>();
+
+            foreach (var configModel in modelCollection.ConfigModels.Values)
+            {
+                var removedMethods = configModel.ServiceOperationsList
+                    .Where(so => so.IsOperationRemoved)
+                    .Select(so => so.MethodName);
+
+                var removedMethodNames = new HashSet<string>(removedMethods);
+
+                if (removedMethodNames.Count > 0)
+                {
+                    serviceRemovedOperationsMapping[configModel.C2jFilename] = removedMethodNames;
+                }
+            }
+
+            return serviceRemovedOperationsMapping;
         }
 
         private void DeleteFiles(List<string> files)

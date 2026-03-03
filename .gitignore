@@ -44,6 +44,7 @@ PSGalleryDownloads
 /buildConfigValidationErrors.txt
 /buildConfigErrors
 /serviceNewOperationsMapping.json
+/serviceRemovedOperations.json
 
 codesign-zip
 *.binlog

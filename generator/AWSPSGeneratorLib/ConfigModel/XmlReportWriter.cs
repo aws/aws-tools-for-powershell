@@ -37,7 +37,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 var configModelsToOutput = models.Where(configModel =>
                         configModel.AnalysisErrors.Any() ||
                         overrides.ContainsKey(configModel.C2jFilename) ||
-                        configModel.ServiceOperationsList.Any(op => op.IsAutoConfiguring || op.AnalysisErrors.Any() || op.IsReservedParameterNameHandled || op.IsCircularDependencyDetected))
+                        configModel.ServiceOperationsList.Any(op => op.IsAutoConfiguring || op.AnalysisErrors.Any() || op.IsReservedParameterNameHandled || op.IsCircularDependencyDetected || op.IsOperationRemoved))
                     .ToArray();
 
                 bool hasErrors = models.Any(configModel =>
@@ -47,6 +47,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 bool hasNewOperations = models.Any(model => model.ServiceOperationsList.Any(op => op.IsAutoConfiguring));
                 bool isReservedParameterNameHandled = models.Any(model => model.ServiceOperationsList.Any(op => op.IsReservedParameterNameHandled));
                 bool isCircularDependencyDetected = models.Any(model => model.ServiceOperationsList.Any(op => op.IsCircularDependencyDetected));
+                bool isOperationRemoved = models.Any(model => model.ServiceOperationsList.Any(op => op.IsOperationRemoved));
 
                 var doc = new XDocument();
 
@@ -167,10 +168,16 @@ namespace AWSPowerShellGenerator.ServiceConfig
                             operation.operation.AnalysisErrors.Any() ||
                             isConfigurationOverridden ||
                             operation.operation.IsReservedParameterNameHandled ||
-                            operation.operation.IsCircularDependencyDetected)
+                            operation.operation.IsCircularDependencyDetected ||
+                            operation.operation.IsOperationRemoved)
                         {
                             var firstOperationChildElement = operation.element.Elements().FirstOrDefault();
 
+                            if (operation.operation.IsOperationRemoved)
+                            {
+                                operation.element.SetAttributeValue("Remove", "true");
+                                operation.element.AddFirst(new XComment($"INFO - This operation was removed from the SDK assembly."));
+                            }
                             if (operation.operation.IsAutoConfiguring)
                             {
                                 operation.element.AddFirst(new XComment($"INFO - This is a new cmdlet."));
@@ -260,14 +267,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         File.WriteAllText(Path.Combine(folderPath, "buildConfigErrors"), string.Empty);
                     }
                 }
-                else if ((hasNewOperations || isReservedParameterNameHandled || isCircularDependencyDetected) && !hasErrors)
+                else if ((hasNewOperations || isReservedParameterNameHandled || isCircularDependencyDetected || isOperationRemoved) && !hasErrors)
                 {
                     Console.WriteLine("Service Operations were auto-configured without errors and saved in report.xml");
                     doc.Save(filename);
                 }
                 else
                 {
-                    Console.WriteLine($"Skipping saving report: hasNewOperations:{hasNewOperations}, isReservedParameterNameHandled: {isReservedParameterNameHandled}, isCircularDependencyDetected: {isCircularDependencyDetected}, hasErrors: {hasErrors} ");
+                    Console.WriteLine($"Skipping saving report: hasNewOperations:{hasNewOperations}, isReservedParameterNameHandled: {isReservedParameterNameHandled}, isCircularDependencyDetected: {isCircularDependencyDetected}, isOperationRemoved: {isOperationRemoved}, hasErrors: {hasErrors} ");
                 }
             }
             catch (Exception e)

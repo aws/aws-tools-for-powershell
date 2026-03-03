@@ -457,5 +457,10 @@ namespace AWSPowerShellGenerator.Analysis
         {
             new InfoMessage(service, operation, $"Circular dependency detected for type '{typeName}'. Type added to TypesNotToFlatten at service level to prevent StackOverflow during parameter flattening.");
         }
+
+        public static void OperationRemovedFromSdk(ConfigModel service, ServiceOperation operation)
+        {
+            new InfoMessage(service, operation, $"Operation '{operation.MethodName}' no longer exists in the SDK assembly. Adding Remove=\"true\" to the report.");
+        }
     }
 }
