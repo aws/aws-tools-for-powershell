@@ -47,14 +47,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Description
+        #region Parameter Description_OptionalValue
         /// <summary>
         /// <para>
-        /// <para>The new description for the policy engine.</para>
+        /// <para>Represents an optional value that is used to update the human-readable description
+        /// of the resource. If set to null, it will clear the current description of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        public System.String Description_OptionalValue { get; set; }
         #endregion
         
         #region Parameter PolicyEngineId
@@ -120,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse, UpdateBACCPolicyEngineCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Description = this.Description;
+            context.Description_OptionalValue = this.Description_OptionalValue;
             context.PolicyEngineId = this.PolicyEngineId;
             #if MODULAR
             if (this.PolicyEngineId == null && ParameterWasBound(nameof(this.PolicyEngineId)))
@@ -144,9 +145,24 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             // create request
             var request = new Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineRequest();
             
-            if (cmdletContext.Description != null)
+            
+             // populate Description
+            var requestDescriptionIsNull = true;
+            request.Description = new Amazon.BedrockAgentCoreControl.Model.UpdatedDescription();
+            System.String requestDescription_description_OptionalValue = null;
+            if (cmdletContext.Description_OptionalValue != null)
             {
-                request.Description = cmdletContext.Description;
+                requestDescription_description_OptionalValue = cmdletContext.Description_OptionalValue;
+            }
+            if (requestDescription_description_OptionalValue != null)
+            {
+                request.Description.OptionalValue = requestDescription_description_OptionalValue;
+                requestDescriptionIsNull = false;
+            }
+             // determine if request.Description should be set to null
+            if (requestDescriptionIsNull)
+            {
+                request.Description = null;
             }
             if (cmdletContext.PolicyEngineId != null)
             {
@@ -207,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
+            public System.String Description_OptionalValue { get; set; }
             public System.String PolicyEngineId { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse, UpdateBACCPolicyEngineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

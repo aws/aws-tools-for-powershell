@@ -8803,6 +8803,8 @@ Set-Alias -Name Put-DZDataExportConfiguration -Value Write-DZDataExportConfigura
 Set-Alias -Name DZ-PutDataExportConfiguration -Value Write-DZDataExportConfiguration
 Set-Alias -Name Put-DZEnvironmentBlueprintConfiguration -Value Write-DZEnvironmentBlueprintConfiguration
 Set-Alias -Name DZ-PutEnvironmentBlueprintConfiguration -Value Write-DZEnvironmentBlueprintConfiguration
+Set-Alias -Name Query-DZGraph -Value Find-DZGraph
+Set-Alias -Name DZ-QueryGraph -Value Find-DZGraph
 Set-Alias -Name Reject-DZPredictions -Value Deny-DZPrediction
 Set-Alias -Name Reject-DZPrediction -Value Deny-DZPrediction
 Set-Alias -Name DZ-RejectPredictions -Value Deny-DZPrediction
@@ -20155,6 +20157,8 @@ Set-Alias -Name List-CWLLogGroupTag -Value Get-CWLLogGroupTag
 Set-Alias -Name CWL-ListTagsLogGroup -Value Get-CWLLogGroupTag
 Set-Alias -Name Put-CWLAccountPolicy -Value Write-CWLAccountPolicy
 Set-Alias -Name CWL-PutAccountPolicy -Value Write-CWLAccountPolicy
+Set-Alias -Name Put-CWLBearerTokenAuthentication -Value Write-CWLBearerTokenAuthentication
+Set-Alias -Name CWL-PutBearerTokenAuthentication -Value Write-CWLBearerTokenAuthentication
 Set-Alias -Name Put-CWLDataProtectionPolicy -Value Write-CWLDataProtectionPolicy
 Set-Alias -Name CWL-PutDataProtectionPolicy -Value Write-CWLDataProtectionPolicy
 Set-Alias -Name Put-CWLDeliveryDestination -Value Write-CWLDeliveryDestination

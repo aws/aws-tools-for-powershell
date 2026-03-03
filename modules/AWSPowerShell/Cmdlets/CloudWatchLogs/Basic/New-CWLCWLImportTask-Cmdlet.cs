@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// logs:PutResourcePolicy
     /// </para></li><li><para>
-    /// (If source has an associated AWS KMS Key) kms:Decrypt
+    /// (If source has an associated Amazon Web Services KMS Key) kms:Decrypt
     /// </para></li><li><para>
-    /// (If source has an associated AWS KMS Key) kms:GenerateDataKey
+    /// (If source has an associated Amazon Web Services KMS Key) kms:GenerateDataKey
     /// </para></li></ul><para>
     /// Example IAM policy for provided import role:
     /// </para><para><c>[ { "Effect": "Allow", "Action": "iam:PassRole", "Resource": "arn:aws:iam::123456789012:role/apiCallerCredentials",

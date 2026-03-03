@@ -860,6 +860,7 @@ $DZ_SelectMap = @{
                "New-DZTimeSeriesDataPoint",
                "Write-DZDataExportConfiguration",
                "Write-DZEnvironmentBlueprintConfiguration",
+               "Find-DZGraph",
                "Deny-DZPrediction",
                "Deny-DZSubscriptionRequest",
                "Remove-DZEntityOwner",

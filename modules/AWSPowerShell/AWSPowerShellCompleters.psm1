@@ -8240,7 +8240,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCAgentRuntime/CodeConfiguration_Runtime")
         }
         {
-            $v = "PYTHON_3_10","PYTHON_3_11","PYTHON_3_12","PYTHON_3_13"
+            $v = "PYTHON_3_10","PYTHON_3_11","PYTHON_3_12","PYTHON_3_13","PYTHON_3_14"
             break
         }
 
@@ -23822,6 +23822,7 @@ $DZ_SelectMap = @{
                "New-DZTimeSeriesDataPoint",
                "Write-DZDataExportConfiguration",
                "Write-DZEnvironmentBlueprintConfiguration",
+               "Find-DZGraph",
                "Deny-DZPrediction",
                "Deny-DZSubscriptionRequest",
                "Remove-DZEntityOwner",
@@ -49657,6 +49658,7 @@ $CWL_SelectMap = @{
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
+               "Write-CWLBearerTokenAuthentication",
                "Write-CWLDataProtectionPolicy",
                "Write-CWLDeliveryDestination",
                "Write-CWLDeliveryDestinationPolicy",
@@ -60530,8 +60532,8 @@ $PCC_Completers = {
         {
             ($_ -eq "New-PCCRelationship/PartnerLedSupport_Coverage") -Or
             ($_ -eq "Update-PCCRelationship/PartnerLedSupport_Coverage") -Or
-            ($_ -eq "New-PCCRelationship/ResoldBusiness_Coverage") -Or
-            ($_ -eq "Update-PCCRelationship/ResoldBusiness_Coverage") -Or
+            ($_ -eq "New-PCCRelationship/RequestedSupportPlan_ResoldUnifiedOperations_Coverage") -Or
+            ($_ -eq "Update-PCCRelationship/RequestedSupportPlan_ResoldUnifiedOperations_Coverage") -Or
             ($_ -eq "New-PCCRelationship/ResoldEnterprise_Coverage") -Or
             ($_ -eq "Update-PCCRelationship/ResoldEnterprise_Coverage")
         }
@@ -60660,8 +60662,8 @@ $PCC_map = @{
     "Program"=@("New-PCCProgramManagementAccount")
     "ProgramManagementAccountTypeSort_SortBy"=@("Get-PCCChannelHandshakeList")
     "ProgramManagementAccountTypeSort_SortOrder"=@("Get-PCCChannelHandshakeList")
+    "RequestedSupportPlan_ResoldUnifiedOperations_Coverage"=@("New-PCCRelationship","Update-PCCRelationship")
     "ResaleAccountModel"=@("New-PCCRelationship")
-    "ResoldBusiness_Coverage"=@("New-PCCRelationship","Update-PCCRelationship")
     "ResoldEnterprise_Coverage"=@("New-PCCRelationship","Update-PCCRelationship")
     "RevokeServicePeriodTypeSort_SortBy"=@("Get-PCCChannelHandshakeList")
     "RevokeServicePeriodTypeSort_SortOrder"=@("Get-PCCChannelHandshakeList")

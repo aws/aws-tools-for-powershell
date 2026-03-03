@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Approve-DZSubscriptionRequest', 
         'Deny-DZPrediction', 
         'Deny-DZSubscriptionRequest', 
+        'Find-DZGraph', 
         'Get-DZAccountPool', 
         'Get-DZAccountPoolList', 
         'Get-DZAccountsInAccountPoolList', 

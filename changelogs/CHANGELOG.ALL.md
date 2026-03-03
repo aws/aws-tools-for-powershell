@@ -1,4 +1,20 @@
-﻿### 5.0.165 (2026-02-27 21:47Z)
+﻿### 5.0.166 (2026-03-03 23:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.202.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCPolicy: added parameters Definition_PolicyGeneration_PolicyGenerationAssetId and Definition_PolicyGeneration_PolicyGenerationId.
+    * Modified cmdlet New-BACCPolicyEngine: added parameters EncryptionKeyArn and Tag.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameter MetadataConfiguration_RequireMMDSV2.
+    * [Breaking Change] Modified cmdlet Update-BACCPolicy: removed parameter Description; added parameters Definition_PolicyGeneration_PolicyGenerationAssetId, Definition_PolicyGeneration_PolicyGenerationId and Description_OptionalValue.
+    * [Breaking Change] Modified cmdlet Update-BACCPolicyEngine: removed parameter Description; added parameter Description_OptionalValue.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Write-CWLBearerTokenAuthentication leveraging the PutBearerTokenAuthentication service API.
+  * Amazon DataZone
+    * Added cmdlet Find-DZGraph leveraging the QueryGraph service API.
+  * Amazon Partner Central Channel API
+    * [Breaking Change] Modified cmdlet New-PCCRelationship: removed parameter ResoldBusiness_Coverage; added parameters RequestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId, RequestedSupportPlan_ResoldUnifiedOperations_Coverage and RequestedSupportPlan_ResoldUnifiedOperations_TamLocation.
+    * [Breaking Change] Modified cmdlet Update-PCCRelationship: removed parameter ResoldBusiness_Coverage; added parameters RequestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId, RequestedSupportPlan_ResoldUnifiedOperations_Coverage and RequestedSupportPlan_ResoldUnifiedOperations_TamLocation.
+
+### 5.0.165 (2026-02-27 21:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.201.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ARC - Region switch
     * Modified cmdlet Start-ARCPlanExecution: added parameter RecoveryExecutionId.

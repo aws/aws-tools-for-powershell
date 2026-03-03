@@ -48,15 +48,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Description
+        #region Parameter Description_OptionalValue
         /// <summary>
         /// <para>
-        /// <para>The new human-readable description for the policy. This optional field allows updating
-        /// the policy's documentation while keeping the same policy logic.</para>
+        /// <para>Represents an optional value that is used to update the human-readable description
+        /// of the resource. If set to null, it will clear the current description of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        public System.String Description_OptionalValue { get; set; }
         #endregion
         
         #region Parameter PolicyEngineId
@@ -75,6 +75,27 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PolicyEngineId { get; set; }
+        #endregion
+        
+        #region Parameter Definition_PolicyGeneration_PolicyGenerationAssetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for this generated policy asset within the policy generation
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_PolicyGeneration_PolicyGenerationAssetId { get; set; }
+        #endregion
+        
+        #region Parameter Definition_PolicyGeneration_PolicyGenerationId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for this policy generation request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_PolicyGeneration_PolicyGenerationId { get; set; }
         #endregion
         
         #region Parameter PolicyId
@@ -171,7 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Cedar_Statement = this.Cedar_Statement;
-            context.Description = this.Description;
+            context.Definition_PolicyGeneration_PolicyGenerationAssetId = this.Definition_PolicyGeneration_PolicyGenerationAssetId;
+            context.Definition_PolicyGeneration_PolicyGenerationId = this.Definition_PolicyGeneration_PolicyGenerationId;
+            context.Description_OptionalValue = this.Description_OptionalValue;
             context.PolicyEngineId = this.PolicyEngineId;
             #if MODULAR
             if (this.PolicyEngineId == null && ParameterWasBound(nameof(this.PolicyEngineId)))
@@ -232,14 +255,64 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 request.Definition.Cedar = requestDefinition_definition_Cedar;
                 requestDefinitionIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.Model.PolicyGenerationDetails requestDefinition_definition_PolicyGeneration = null;
+            
+             // populate PolicyGeneration
+            var requestDefinition_definition_PolicyGenerationIsNull = true;
+            requestDefinition_definition_PolicyGeneration = new Amazon.BedrockAgentCoreControl.Model.PolicyGenerationDetails();
+            System.String requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationAssetId = null;
+            if (cmdletContext.Definition_PolicyGeneration_PolicyGenerationAssetId != null)
+            {
+                requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationAssetId = cmdletContext.Definition_PolicyGeneration_PolicyGenerationAssetId;
+            }
+            if (requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationAssetId != null)
+            {
+                requestDefinition_definition_PolicyGeneration.PolicyGenerationAssetId = requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationAssetId;
+                requestDefinition_definition_PolicyGenerationIsNull = false;
+            }
+            System.String requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationId = null;
+            if (cmdletContext.Definition_PolicyGeneration_PolicyGenerationId != null)
+            {
+                requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationId = cmdletContext.Definition_PolicyGeneration_PolicyGenerationId;
+            }
+            if (requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationId != null)
+            {
+                requestDefinition_definition_PolicyGeneration.PolicyGenerationId = requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationId;
+                requestDefinition_definition_PolicyGenerationIsNull = false;
+            }
+             // determine if requestDefinition_definition_PolicyGeneration should be set to null
+            if (requestDefinition_definition_PolicyGenerationIsNull)
+            {
+                requestDefinition_definition_PolicyGeneration = null;
+            }
+            if (requestDefinition_definition_PolicyGeneration != null)
+            {
+                request.Definition.PolicyGeneration = requestDefinition_definition_PolicyGeneration;
+                requestDefinitionIsNull = false;
+            }
              // determine if request.Definition should be set to null
             if (requestDefinitionIsNull)
             {
                 request.Definition = null;
             }
-            if (cmdletContext.Description != null)
+            
+             // populate Description
+            var requestDescriptionIsNull = true;
+            request.Description = new Amazon.BedrockAgentCoreControl.Model.UpdatedDescription();
+            System.String requestDescription_description_OptionalValue = null;
+            if (cmdletContext.Description_OptionalValue != null)
             {
-                request.Description = cmdletContext.Description;
+                requestDescription_description_OptionalValue = cmdletContext.Description_OptionalValue;
+            }
+            if (requestDescription_description_OptionalValue != null)
+            {
+                request.Description.OptionalValue = requestDescription_description_OptionalValue;
+                requestDescriptionIsNull = false;
+            }
+             // determine if request.Description should be set to null
+            if (requestDescriptionIsNull)
+            {
+                request.Description = null;
             }
             if (cmdletContext.PolicyEngineId != null)
             {
@@ -309,7 +382,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Cedar_Statement { get; set; }
-            public System.String Description { get; set; }
+            public System.String Definition_PolicyGeneration_PolicyGenerationAssetId { get; set; }
+            public System.String Definition_PolicyGeneration_PolicyGenerationId { get; set; }
+            public System.String Description_OptionalValue { get; set; }
             public System.String PolicyEngineId { get; set; }
             public System.String PolicyId { get; set; }
             public Amazon.BedrockAgentCoreControl.PolicyValidationMode ValidationMode { get; set; }

@@ -178,6 +178,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CWLLogAnomalyDetector', 
         'Update-CWLScheduledQuery', 
         'Write-CWLAccountPolicy', 
+        'Write-CWLBearerTokenAuthentication', 
         'Write-CWLDataProtectionPolicy', 
         'Write-CWLDeliveryDestination', 
         'Write-CWLDeliveryDestinationPolicy', 
