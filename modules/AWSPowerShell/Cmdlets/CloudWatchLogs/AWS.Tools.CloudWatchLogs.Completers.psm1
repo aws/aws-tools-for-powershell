@@ -405,6 +405,7 @@ $CWL_SelectMap = @{
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
+               "Write-CWLBearerTokenAuthentication",
                "Write-CWLDataProtectionPolicy",
                "Write-CWLDeliveryDestination",
                "Write-CWLDeliveryDestinationPolicy",

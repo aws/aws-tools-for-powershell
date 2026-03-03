@@ -103,6 +103,27 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String PolicyEngineId { get; set; }
         #endregion
         
+        #region Parameter Definition_PolicyGeneration_PolicyGenerationAssetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for this generated policy asset within the policy generation
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_PolicyGeneration_PolicyGenerationAssetId { get; set; }
+        #endregion
+        
+        #region Parameter Definition_PolicyGeneration_PolicyGenerationId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for this policy generation request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_PolicyGeneration_PolicyGenerationId { get; set; }
+        #endregion
+        
         #region Parameter Cedar_Statement
         /// <summary>
         /// <para>
@@ -191,6 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             context.ClientToken = this.ClientToken;
             context.Cedar_Statement = this.Cedar_Statement;
+            context.Definition_PolicyGeneration_PolicyGenerationAssetId = this.Definition_PolicyGeneration_PolicyGenerationAssetId;
+            context.Definition_PolicyGeneration_PolicyGenerationId = this.Definition_PolicyGeneration_PolicyGenerationId;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -254,6 +277,41 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestDefinition_definition_Cedar != null)
             {
                 request.Definition.Cedar = requestDefinition_definition_Cedar;
+                requestDefinitionIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.PolicyGenerationDetails requestDefinition_definition_PolicyGeneration = null;
+            
+             // populate PolicyGeneration
+            var requestDefinition_definition_PolicyGenerationIsNull = true;
+            requestDefinition_definition_PolicyGeneration = new Amazon.BedrockAgentCoreControl.Model.PolicyGenerationDetails();
+            System.String requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationAssetId = null;
+            if (cmdletContext.Definition_PolicyGeneration_PolicyGenerationAssetId != null)
+            {
+                requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationAssetId = cmdletContext.Definition_PolicyGeneration_PolicyGenerationAssetId;
+            }
+            if (requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationAssetId != null)
+            {
+                requestDefinition_definition_PolicyGeneration.PolicyGenerationAssetId = requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationAssetId;
+                requestDefinition_definition_PolicyGenerationIsNull = false;
+            }
+            System.String requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationId = null;
+            if (cmdletContext.Definition_PolicyGeneration_PolicyGenerationId != null)
+            {
+                requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationId = cmdletContext.Definition_PolicyGeneration_PolicyGenerationId;
+            }
+            if (requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationId != null)
+            {
+                requestDefinition_definition_PolicyGeneration.PolicyGenerationId = requestDefinition_definition_PolicyGeneration_definition_PolicyGeneration_PolicyGenerationId;
+                requestDefinition_definition_PolicyGenerationIsNull = false;
+            }
+             // determine if requestDefinition_definition_PolicyGeneration should be set to null
+            if (requestDefinition_definition_PolicyGenerationIsNull)
+            {
+                requestDefinition_definition_PolicyGeneration = null;
+            }
+            if (requestDefinition_definition_PolicyGeneration != null)
+            {
+                request.Definition.PolicyGeneration = requestDefinition_definition_PolicyGeneration;
                 requestDefinitionIsNull = false;
             }
              // determine if request.Definition should be set to null
@@ -340,6 +398,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             public System.String ClientToken { get; set; }
             public System.String Cedar_Statement { get; set; }
+            public System.String Definition_PolicyGeneration_PolicyGenerationAssetId { get; set; }
+            public System.String Definition_PolicyGeneration_PolicyGenerationId { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String PolicyEngineId { get; set; }

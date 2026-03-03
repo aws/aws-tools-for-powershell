@@ -232,11 +232,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// When a policy disables EMF metric creation for a log group, log events in the EMF
     /// format are still ingested, but no CloudWatch Metrics are created from them.
     /// </para><important><para>
-    /// Creating a policy disables metrics for AWS features that use EMF to create metrics,
-    /// such as CloudWatch Container Insights and CloudWatch Application Signals. To prevent
-    /// turning off those features by accident, we recommend that you exclude the underlying
-    /// log-groups through a selection-criteria such as <c>LogGroupNamePrefix NOT IN ["/aws/containerinsights",
-    /// "/aws/ecs/containerinsights", "/aws/application-signals/data"]</c>.
+    /// Creating a policy disables metrics for Amazon Web Services features that use EMF to
+    /// create metrics, such as CloudWatch Container Insights and CloudWatch Application Signals.
+    /// To prevent turning off those features by accident, we recommend that you exclude the
+    /// underlying log-groups through a selection-criteria such as <c>LogGroupNamePrefix NOT
+    /// IN ["/aws/containerinsights", "/aws/ecs/containerinsights", "/aws/application-signals/data"]</c>.
     /// </para></important><para>
     /// Each account can have either one account-level metric extraction policy that applies
     /// to all log groups, or up to 5 policies that are each scoped to a subset of log groups

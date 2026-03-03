@@ -91,8 +91,8 @@ $PCC_Completers = {
         {
             ($_ -eq "New-PCCRelationship/PartnerLedSupport_Coverage") -Or
             ($_ -eq "Update-PCCRelationship/PartnerLedSupport_Coverage") -Or
-            ($_ -eq "New-PCCRelationship/ResoldBusiness_Coverage") -Or
-            ($_ -eq "Update-PCCRelationship/ResoldBusiness_Coverage") -Or
+            ($_ -eq "New-PCCRelationship/RequestedSupportPlan_ResoldUnifiedOperations_Coverage") -Or
+            ($_ -eq "Update-PCCRelationship/RequestedSupportPlan_ResoldUnifiedOperations_Coverage") -Or
             ($_ -eq "New-PCCRelationship/ResoldEnterprise_Coverage") -Or
             ($_ -eq "Update-PCCRelationship/ResoldEnterprise_Coverage")
         }
@@ -221,8 +221,8 @@ $PCC_map = @{
     "Program"=@("New-PCCProgramManagementAccount")
     "ProgramManagementAccountTypeSort_SortBy"=@("Get-PCCChannelHandshakeList")
     "ProgramManagementAccountTypeSort_SortOrder"=@("Get-PCCChannelHandshakeList")
+    "RequestedSupportPlan_ResoldUnifiedOperations_Coverage"=@("New-PCCRelationship","Update-PCCRelationship")
     "ResaleAccountModel"=@("New-PCCRelationship")
-    "ResoldBusiness_Coverage"=@("New-PCCRelationship","Update-PCCRelationship")
     "ResoldEnterprise_Coverage"=@("New-PCCRelationship","Update-PCCRelationship")
     "RevokeServicePeriodTypeSort_SortBy"=@("Get-PCCChannelHandshakeList")
     "RevokeServicePeriodTypeSort_SortOrder"=@("Get-PCCChannelHandshakeList")

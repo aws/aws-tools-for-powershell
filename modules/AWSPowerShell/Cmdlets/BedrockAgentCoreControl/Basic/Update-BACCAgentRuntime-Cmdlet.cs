@@ -235,6 +235,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String[] RequestHeaderConfiguration_RequestHeaderAllowlist { get; set; }
         #endregion
         
+        #region Parameter MetadataConfiguration_RequireMMDSV2
+        /// <summary>
+        /// <para>
+        /// <para>Enables MMDSv2 (microVM Metadata Service Version 2) requirement for the agent runtime.
+        /// When set to <c>true</c>, the runtime microVM will only accept MMDSv2 requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MetadataConfiguration_RequireMMDSV2 { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -408,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             context.LifecycleConfiguration_IdleRuntimeSessionTimeout = this.LifecycleConfiguration_IdleRuntimeSessionTimeout;
             context.LifecycleConfiguration_MaxLifetime = this.LifecycleConfiguration_MaxLifetime;
+            context.MetadataConfiguration_RequireMMDSV2 = this.MetadataConfiguration_RequireMMDSV2;
             context.NetworkConfiguration_NetworkMode = this.NetworkConfiguration_NetworkMode;
             #if MODULAR
             if (this.NetworkConfiguration_NetworkMode == null && ParameterWasBound(nameof(this.NetworkConfiguration_NetworkMode)))
@@ -700,6 +712,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 request.LifecycleConfiguration = null;
             }
             
+             // populate MetadataConfiguration
+            var requestMetadataConfigurationIsNull = true;
+            request.MetadataConfiguration = new Amazon.BedrockAgentCoreControl.Model.RuntimeMetadataConfiguration();
+            System.Boolean? requestMetadataConfiguration_metadataConfiguration_RequireMMDSV2 = null;
+            if (cmdletContext.MetadataConfiguration_RequireMMDSV2 != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_RequireMMDSV2 = cmdletContext.MetadataConfiguration_RequireMMDSV2.Value;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_RequireMMDSV2 != null)
+            {
+                request.MetadataConfiguration.RequireMMDSV2 = requestMetadataConfiguration_metadataConfiguration_RequireMMDSV2.Value;
+                requestMetadataConfigurationIsNull = false;
+            }
+             // determine if request.MetadataConfiguration should be set to null
+            if (requestMetadataConfigurationIsNull)
+            {
+                request.MetadataConfiguration = null;
+            }
+            
              // populate NetworkConfiguration
             var requestNetworkConfigurationIsNull = true;
             request.NetworkConfiguration = new Amazon.BedrockAgentCoreControl.Model.NetworkConfiguration();
@@ -873,6 +904,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
             public System.Int32? LifecycleConfiguration_IdleRuntimeSessionTimeout { get; set; }
             public System.Int32? LifecycleConfiguration_MaxLifetime { get; set; }
+            public System.Boolean? MetadataConfiguration_RequireMMDSV2 { get; set; }
             public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
             public List<System.String> NetworkModeConfig_SecurityGroup { get; set; }
             public List<System.String> NetworkModeConfig_Subnet { get; set; }

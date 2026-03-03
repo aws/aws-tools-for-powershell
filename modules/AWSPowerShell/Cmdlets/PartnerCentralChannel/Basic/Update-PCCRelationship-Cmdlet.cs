@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         public System.String ResoldEnterprise_ChargeAccountId { get; set; }
         #endregion
         
+        #region Parameter RequestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID to charge for the support plan.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RequestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId { get; set; }
+        #endregion
+        
         #region Parameter PartnerLedSupport_Coverage
         /// <summary>
         /// <para>
@@ -82,18 +92,6 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         public Amazon.PartnerCentralChannel.Coverage PartnerLedSupport_Coverage { get; set; }
         #endregion
         
-        #region Parameter ResoldBusiness_Coverage
-        /// <summary>
-        /// <para>
-        /// <para>The coverage level for resold business support.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("RequestedSupportPlan_ResoldBusiness_Coverage")]
-        [AWSConstantClassSource("Amazon.PartnerCentralChannel.Coverage")]
-        public Amazon.PartnerCentralChannel.Coverage ResoldBusiness_Coverage { get; set; }
-        #endregion
-        
         #region Parameter ResoldEnterprise_Coverage
         /// <summary>
         /// <para>
@@ -104,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         [Alias("RequestedSupportPlan_ResoldEnterprise_Coverage")]
         [AWSConstantClassSource("Amazon.PartnerCentralChannel.Coverage")]
         public Amazon.PartnerCentralChannel.Coverage ResoldEnterprise_Coverage { get; set; }
+        #endregion
+        
+        #region Parameter RequestedSupportPlan_ResoldUnifiedOperations_Coverage
+        /// <summary>
+        /// <para>
+        /// <para>The coverage level for resold unified operations support.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralChannel.Coverage")]
+        public Amazon.PartnerCentralChannel.Coverage RequestedSupportPlan_ResoldUnifiedOperations_Coverage { get; set; }
         #endregion
         
         #region Parameter DisplayName
@@ -194,6 +203,16 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         public System.String ResoldEnterprise_TamLocation { get; set; }
         #endregion
         
+        #region Parameter RequestedSupportPlan_ResoldUnifiedOperations_TamLocation
+        /// <summary>
+        /// <para>
+        /// <para>The location of the Technical Account Manager (TAM).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RequestedSupportPlan_ResoldUnifiedOperations_TamLocation { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'RelationshipDetail'.
@@ -266,10 +285,12 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             context.PartnerLedSupport_Coverage = this.PartnerLedSupport_Coverage;
             context.PartnerLedSupport_Provider = this.PartnerLedSupport_Provider;
             context.PartnerLedSupport_TamLocation = this.PartnerLedSupport_TamLocation;
-            context.ResoldBusiness_Coverage = this.ResoldBusiness_Coverage;
             context.ResoldEnterprise_ChargeAccountId = this.ResoldEnterprise_ChargeAccountId;
             context.ResoldEnterprise_Coverage = this.ResoldEnterprise_Coverage;
             context.ResoldEnterprise_TamLocation = this.ResoldEnterprise_TamLocation;
+            context.RequestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId = this.RequestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId;
+            context.RequestedSupportPlan_ResoldUnifiedOperations_Coverage = this.RequestedSupportPlan_ResoldUnifiedOperations_Coverage;
+            context.RequestedSupportPlan_ResoldUnifiedOperations_TamLocation = this.RequestedSupportPlan_ResoldUnifiedOperations_TamLocation;
             context.Revision = this.Revision;
             
             // allow further manipulation of loaded context prior to processing
@@ -307,31 +328,6 @@ namespace Amazon.PowerShell.Cmdlets.PCC
              // populate RequestedSupportPlan
             var requestRequestedSupportPlanIsNull = true;
             request.RequestedSupportPlan = new Amazon.PartnerCentralChannel.Model.SupportPlan();
-            Amazon.PartnerCentralChannel.Model.ResoldBusiness requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness = null;
-            
-             // populate ResoldBusiness
-            var requestRequestedSupportPlan_requestedSupportPlan_ResoldBusinessIsNull = true;
-            requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness = new Amazon.PartnerCentralChannel.Model.ResoldBusiness();
-            Amazon.PartnerCentralChannel.Coverage requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness_resoldBusiness_Coverage = null;
-            if (cmdletContext.ResoldBusiness_Coverage != null)
-            {
-                requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness_resoldBusiness_Coverage = cmdletContext.ResoldBusiness_Coverage;
-            }
-            if (requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness_resoldBusiness_Coverage != null)
-            {
-                requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness.Coverage = requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness_resoldBusiness_Coverage;
-                requestRequestedSupportPlan_requestedSupportPlan_ResoldBusinessIsNull = false;
-            }
-             // determine if requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness should be set to null
-            if (requestRequestedSupportPlan_requestedSupportPlan_ResoldBusinessIsNull)
-            {
-                requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness = null;
-            }
-            if (requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness != null)
-            {
-                request.RequestedSupportPlan.ResoldBusiness = requestRequestedSupportPlan_requestedSupportPlan_ResoldBusiness;
-                requestRequestedSupportPlanIsNull = false;
-            }
             Amazon.PartnerCentralChannel.Model.PartnerLedSupport requestRequestedSupportPlan_requestedSupportPlan_PartnerLedSupport = null;
             
              // populate PartnerLedSupport
@@ -422,6 +418,51 @@ namespace Amazon.PowerShell.Cmdlets.PCC
                 request.RequestedSupportPlan.ResoldEnterprise = requestRequestedSupportPlan_requestedSupportPlan_ResoldEnterprise;
                 requestRequestedSupportPlanIsNull = false;
             }
+            Amazon.PartnerCentralChannel.Model.ResoldUnifiedOperations requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations = null;
+            
+             // populate ResoldUnifiedOperations
+            var requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperationsIsNull = true;
+            requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations = new Amazon.PartnerCentralChannel.Model.ResoldUnifiedOperations();
+            System.String requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId = null;
+            if (cmdletContext.RequestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId != null)
+            {
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId = cmdletContext.RequestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId;
+            }
+            if (requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId != null)
+            {
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations.ChargeAccountId = requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId;
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperationsIsNull = false;
+            }
+            Amazon.PartnerCentralChannel.Coverage requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_Coverage = null;
+            if (cmdletContext.RequestedSupportPlan_ResoldUnifiedOperations_Coverage != null)
+            {
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_Coverage = cmdletContext.RequestedSupportPlan_ResoldUnifiedOperations_Coverage;
+            }
+            if (requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_Coverage != null)
+            {
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations.Coverage = requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_Coverage;
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperationsIsNull = false;
+            }
+            System.String requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_TamLocation = null;
+            if (cmdletContext.RequestedSupportPlan_ResoldUnifiedOperations_TamLocation != null)
+            {
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_TamLocation = cmdletContext.RequestedSupportPlan_ResoldUnifiedOperations_TamLocation;
+            }
+            if (requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_TamLocation != null)
+            {
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations.TamLocation = requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations_requestedSupportPlan_ResoldUnifiedOperations_TamLocation;
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperationsIsNull = false;
+            }
+             // determine if requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations should be set to null
+            if (requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperationsIsNull)
+            {
+                requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations = null;
+            }
+            if (requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations != null)
+            {
+                request.RequestedSupportPlan.ResoldUnifiedOperations = requestRequestedSupportPlan_requestedSupportPlan_ResoldUnifiedOperations;
+                requestRequestedSupportPlanIsNull = false;
+            }
              // determine if request.RequestedSupportPlan should be set to null
             if (requestRequestedSupportPlanIsNull)
             {
@@ -499,10 +540,12 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             public Amazon.PartnerCentralChannel.Coverage PartnerLedSupport_Coverage { get; set; }
             public Amazon.PartnerCentralChannel.Provider PartnerLedSupport_Provider { get; set; }
             public System.String PartnerLedSupport_TamLocation { get; set; }
-            public Amazon.PartnerCentralChannel.Coverage ResoldBusiness_Coverage { get; set; }
             public System.String ResoldEnterprise_ChargeAccountId { get; set; }
             public Amazon.PartnerCentralChannel.Coverage ResoldEnterprise_Coverage { get; set; }
             public System.String ResoldEnterprise_TamLocation { get; set; }
+            public System.String RequestedSupportPlan_ResoldUnifiedOperations_ChargeAccountId { get; set; }
+            public Amazon.PartnerCentralChannel.Coverage RequestedSupportPlan_ResoldUnifiedOperations_Coverage { get; set; }
+            public System.String RequestedSupportPlan_ResoldUnifiedOperations_TamLocation { get; set; }
             public System.String Revision { get; set; }
             public System.Func<Amazon.PartnerCentralChannel.Model.UpdateRelationshipResponse, UpdatePCCRelationshipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RelationshipDetail;

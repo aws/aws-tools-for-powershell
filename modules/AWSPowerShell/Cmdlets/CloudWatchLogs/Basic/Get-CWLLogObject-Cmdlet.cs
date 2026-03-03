@@ -39,6 +39,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// the large field was located. For example, this could be <c>@ptr.$['input']['message']</c>,
     /// <c>@ptr.$['AAA']['BBB']['CCC']['DDD']</c>, <c>@ptr.$['AAA']</c>, or any other path
     /// matching your log structure.
+    /// 
+    ///  <note><para>
+    /// The <c>GetLogObject</c> API routes requests using SDK host prefix injection. SDK versions
+    /// released before April 1, 2026 route to <c>streaming-logs.<i>Region</i>.amazonaws.com</c>,
+    /// which does not support VPC endpoints. SDK versions released on or after April 1, 2026
+    /// route to <c>stream-logs.<i>Region</i>.amazonaws.com</c>, which supports VPC endpoints.
+    /// To set up a VPC endpoint for this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs">Creating
+    /// a VPC endpoint for CloudWatch Logs </a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CWLLogObject")]
     [OutputType("Amazon.CloudWatchLogs.Model.GetLogObjectResponseStream")]
