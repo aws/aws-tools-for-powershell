@@ -1254,6 +1254,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public bool IsCircularDependencyDetected;
 
         /// <summary>
+        /// Set when the generator detects that an operation defined in the service config
+        /// no longer exists in the .NET SDK assembly (i.e., the operation was removed).
+        /// During report-only mode, the generator will emit Remove="true" for this operation.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsOperationRemoved;
+
+        /// <summary>
         /// Stores the VerbNounTransformationPattern that was applied during verb processing.
         /// Used to defer noun transformation to the AssignNoun method.
         /// </summary>
