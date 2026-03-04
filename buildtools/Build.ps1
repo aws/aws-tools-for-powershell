@@ -34,7 +34,11 @@ param (
 
   # Indicates if we should skip/remove AWSSDK.Core DLLs from extracted .NET artifact.
   [Parameter()]
-  [bool] $SkipAWSSDKCoreDlls = $true
+  [bool] $SkipAWSSDKCoreDlls = $true,
+
+  # Indicates if build was executed as part of E2E test.
+  [Parameter()]
+  [string] $BypassDotNetSdkBuildQueue = "false"
 )
 
 # Dot-source utility functions
@@ -171,6 +175,7 @@ try {
   elseif ($BuildType -in 'RELEASE', 'DRY_RUN') {
     # for Release, $SdkArtifactsUri is uri to _sdk-versions.json in github repo aws-sdk-net
     #	https://raw.githubusercontent.com/aws/aws-sdk-net/{path to_sdk-versions.json}
+    # If BypassDotNetSdkBuildQueue is 'true', then it means it was executed as part of E2E test, then $SdkArtifactsUri is set to release build artifacts.
 
     $cleanSDKReferenceInMsBuild = 'true'
     if ($BuildType -eq 'DRY_RUN') {
@@ -178,6 +183,16 @@ try {
       Remove-SdkReferences
       # for dry run, the clean-sdk-references should be set to false
       # so that the sdk dlls that are downloaded in Build.ps1 DownloadSdkArtifacts are not overwritten in the generator by downloading artifacts from github
+      $cleanSDKReferenceInMsBuild = 'false'
+    }
+    
+    # For Release, if $BypassDotNetSdkBuildQueue is 'true', then it means it was executed as part of E2E test.
+    if ($BypassDotNetSdkBuildQueue -eq 'true' -and $BuildType -eq 'RELEASE') {
+      Write-Host "Removing Sdk References for RELEASE build, BypassDotNetSdkBuildQueue is true"
+      Remove-SdkReferences
+
+      # clean-sdk-references should be set to false so that Release build artifact from E2E that are downloaded in Build.ps1 DownloadSdkArtifacts are not overwritten 
+      # in the generator by downloading artifacts from GitHub
       $cleanSDKReferenceInMsBuild = 'false'
     }
     
