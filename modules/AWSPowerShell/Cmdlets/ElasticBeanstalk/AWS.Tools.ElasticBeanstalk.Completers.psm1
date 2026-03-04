@@ -100,7 +100,7 @@ $EB_Completers = {
             ($_ -eq "Request-EBEnvironmentInfo/InfoType")
         }
         {
-            $v = "bundle","tail"
+            $v = "analyze","bundle","tail"
             break
         }
 

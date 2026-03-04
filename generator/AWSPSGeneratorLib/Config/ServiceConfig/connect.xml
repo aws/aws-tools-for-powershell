@@ -83,6 +83,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateQueueEmailAddresses" Verb="Add" Noun="QueueEmailAddress" ShouldProcessTarget="InstanceId,QueueId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateQueueQuickConnects" Verb="Add" Noun="QueueQuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -679,6 +683,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateQueueEmailAddresses" Verb="Remove" Noun="QueueEmailAddress" ShouldProcessTarget="InstanceId,QueueId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateQueueQuickConnects" Verb="Remove" Noun="QueueQuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -926,6 +934,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPrompts" OutputProperty="PromptSummaryList" Verb="Get" Noun="PromptList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQueueEmailAddresses" OutputProperty="*" Verb="Get" Noun="QueueEmailAddressList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

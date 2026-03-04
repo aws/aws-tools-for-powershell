@@ -334,6 +334,31 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String PerInstanceContainerGroupDefinitionName { get; set; }
         #endregion
         
+        #region Parameter PlayerGatewayMode
+        /// <summary>
+        /// <para>
+        /// <para>Configures player gateway for your fleet. Player gateway provides benefits such as
+        /// DDoS protection by rate limiting and validating traﬃc before it reaches game servers,
+        /// hiding game server IP addresses from players, and providing updated endpoints when
+        /// relay endpoints become unhealthy.</para><para><b>How it works:</b> When enabled, game clients connect to relay endpoints instead
+        /// of to your game servers. Player gateway validates player gateway tokens and routes
+        /// traffic to the appropriate game server. Your game backend calls <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a>
+        /// to retrieve relay endpoints and player gateway tokens for your game clients. To learn
+        /// more about this topic, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html">DDoS
+        /// protection with Amazon GameLift Servers player gateway</a>.</para><para>Possible values include:</para><ul><li><para><c>DISABLED</c> (default) -- Game clients connect to the game server endpoint. Use
+        /// this when you do not intend to integrate your game with player gateway.</para></li><li><para><c>ENABLED</c> -- Player gateway is available in fleet locations where it is supported.
+        /// Your game backend can call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a>
+        /// to obtain a player gateway token and endpoints for game clients.</para></li><li><para><c>REQUIRED</c> -- Player gateway is available in fleet locations where it is supported,
+        /// and the fleet can only use locations that support this feature. Attempting to add
+        /// a remote location to your fleet which does not support player gateway will result
+        /// in an <c>InvalidRequestException</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GameLift.PlayerGatewayMode")]
+        public Amazon.GameLift.PlayerGatewayMode PlayerGatewayMode { get; set; }
+        #endregion
+        
         #region Parameter GameSessionCreationLimitPolicy_PolicyPeriodInMinute
         /// <summary>
         /// <para>
@@ -475,6 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             context.NewGameSessionProtectionPolicy = this.NewGameSessionProtectionPolicy;
             context.PerInstanceContainerGroupDefinitionName = this.PerInstanceContainerGroupDefinitionName;
+            context.PlayerGatewayMode = this.PlayerGatewayMode;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.GameLift.Model.Tag>(this.Tag);
@@ -636,6 +662,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 request.PerInstanceContainerGroupDefinitionName = cmdletContext.PerInstanceContainerGroupDefinitionName;
             }
+            if (cmdletContext.PlayerGatewayMode != null)
+            {
+                request.PlayerGatewayMode = cmdletContext.PlayerGatewayMode;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -719,6 +749,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public List<System.String> MetricGroup { get; set; }
             public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
             public System.String PerInstanceContainerGroupDefinitionName { get; set; }
+            public Amazon.GameLift.PlayerGatewayMode PlayerGatewayMode { get; set; }
             public List<Amazon.GameLift.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.GameLift.Model.CreateContainerFleetResponse, NewGMLContainerFleetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContainerFleet;

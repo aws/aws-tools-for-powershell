@@ -90,6 +90,16 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.DeploymentStrategy
+        {
+            ($_ -eq "New-ESDomain/DeploymentStrategyOptions_DeploymentStrategy") -Or
+            ($_ -eq "Update-ESDomainConfig/DeploymentStrategyOptions_DeploymentStrategy")
+        }
+        {
+            $v = "CapacityOptimized","Default"
+            break
+        }
+
         # Amazon.Elasticsearch.EngineType
         "Get-ESDomainNameList/EngineType"
         {
@@ -165,6 +175,7 @@ $ES_Completers = {
 $ES_map = @{
     "AutoTuneOptions_DesiredState"=@("New-ESDomain","Update-ESDomainConfig")
     "AutoTuneOptions_RollbackOnDisable"=@("Update-ESDomainConfig")
+    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-ESDomain","Update-ESDomainConfig")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-ESDomain","Update-ESDomainConfig")
     "EBSOptions_VolumeType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_DedicatedMasterType"=@("New-ESDomain","Update-ESDomainConfig")

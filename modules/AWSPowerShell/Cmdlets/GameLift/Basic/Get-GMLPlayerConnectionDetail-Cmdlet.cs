@@ -22,30 +22,55 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.QuickSight;
-using Amazon.QuickSight.Model;
+using Amazon.GameLift;
+using Amazon.GameLift.Model;
 
-namespace Amazon.PowerShell.Cmdlets.QS
+namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates an Quick application with a token exchange grant. This operation only supports
-    /// Quick applications that are registered with IAM Identity Center.
+    /// <b>This API works with the following fleet types:</b> EC2 (server SDK 5.x or later),
+    /// Container
+    /// 
+    ///  
+    /// <para>
+    /// Retrieves connection details for game clients to connect to game sessions. 
+    /// </para><para><b>Player gateway benefits:</b> DDoS protection with negligible impact to latency.
+    /// 
+    /// </para><para>
+    /// To enable player gateway on your fleet, set <c>PlayerGatewayMode</c> to <c>ENABLED</c>
+    /// or <c>REQUIRED</c> when calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html">CreateFleet</a>
+    /// or <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html">CreateContainerFleet</a>.
+    /// </para><para><b>How to use:</b> After creating a game session and adding players, call this operation
+    /// with the game session ID and player IDs. When player gateway is enabled, the response
+    /// includes connection endpoints and player gateway tokens that your game clients can
+    /// use to connect to the game session through player gateway. To learn more about player
+    /// gateway integration, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html">DDoS
+    /// protection with Amazon GameLift Servers player gateway</a>.
+    /// </para><para>
+    /// When player gateway is disabled or in locations where player gateway is not supported,
+    /// this operation returns game server connection information without player gateway tokens,
+    /// so that your game clients directly connect to the game server endpoint.
+    /// </para>
     /// </summary>
-    [Cmdlet("Update", "QSApplicationWithTokenExchangeGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse")]
-    [AWSCmdlet("Calls the Amazon QuickSight UpdateApplicationWithTokenExchangeGrant API operation.", Operation = new[] {"UpdateApplicationWithTokenExchangeGrant"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse object containing multiple properties."
+    [Cmdlet("Get", "GMLPlayerConnectionDetail")]
+    [OutputType("Amazon.GameLift.Model.GetPlayerConnectionDetailsResponse")]
+    [AWSCmdlet("Calls the Amazon GameLift Service GetPlayerConnectionDetails API operation.", Operation = new[] {"GetPlayerConnectionDetails"}, SelectReturnType = typeof(Amazon.GameLift.Model.GetPlayerConnectionDetailsResponse))]
+    [AWSCmdletOutput("Amazon.GameLift.Model.GetPlayerConnectionDetailsResponse",
+        "This cmdlet returns an Amazon.GameLift.Model.GetPlayerConnectionDetailsResponse object containing multiple properties."
     )]
-    public partial class UpdateQSApplicationWithTokenExchangeGrantCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class GetGMLPlayerConnectionDetailCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AwsAccountId
+        #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account to be updated with a token exchange grant.</para>
+        /// <para>A unique identifier for the game session for which to retrieve player connection details.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,31 +81,33 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsAccountId { get; set; }
+        public System.String GameSessionId { get; set; }
         #endregion
         
-        #region Parameter Namespace
+        #region Parameter PlayerId
         /// <summary>
         /// <para>
-        /// <para>The namespace of the Quick application.</para>
+        /// <para>List of unique identifiers for players. Connection details are returned for each player
+        /// in this list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Namespace { get; set; }
+        [Alias("PlayerIds")]
+        public System.String[] PlayerId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.GetPlayerConnectionDetailsResponse).
+        /// Specifying the name of a property of type Amazon.GameLift.Model.GetPlayerConnectionDetailsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,34 +116,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AwsAccountId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GameSessionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GameSessionId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GameSessionId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AwsAccountId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-QSApplicationWithTokenExchangeGrant (UpdateApplicationWithTokenExchangeGrant)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -126,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse, UpdateQSApplicationWithTokenExchangeGrantCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.GetPlayerConnectionDetailsResponse, GetGMLPlayerConnectionDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,21 +146,24 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AwsAccountId;
+                context.Select = (response, cmdlet) => this.GameSessionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AwsAccountId = this.AwsAccountId;
+            context.GameSessionId = this.GameSessionId;
             #if MODULAR
-            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
+            if (this.GameSessionId == null && ParameterWasBound(nameof(this.GameSessionId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GameSessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Namespace = this.Namespace;
-            #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
+            if (this.PlayerId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.PlayerId = new List<System.String>(this.PlayerId);
+            }
+            #if MODULAR
+            if (this.PlayerId == null && ParameterWasBound(nameof(this.PlayerId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PlayerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -166,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantRequest();
+            var request = new Amazon.GameLift.Model.GetPlayerConnectionDetailsRequest();
             
-            if (cmdletContext.AwsAccountId != null)
+            if (cmdletContext.GameSessionId != null)
             {
-                request.AwsAccountId = cmdletContext.AwsAccountId;
+                request.GameSessionId = cmdletContext.GameSessionId;
             }
-            if (cmdletContext.Namespace != null)
+            if (cmdletContext.PlayerId != null)
             {
-                request.Namespace = cmdletContext.Namespace;
+                request.PlayerIds = cmdletContext.PlayerId;
             }
             
             CmdletOutput output;
@@ -209,15 +223,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantRequest request)
+        private Amazon.GameLift.Model.GetPlayerConnectionDetailsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetPlayerConnectionDetailsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "UpdateApplicationWithTokenExchangeGrant");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "GetPlayerConnectionDetails");
             try
             {
                 #if DESKTOP
-                return client.UpdateApplicationWithTokenExchangeGrant(request);
+                return client.GetPlayerConnectionDetails(request);
                 #elif CORECLR
-                return client.UpdateApplicationWithTokenExchangeGrantAsync(request).GetAwaiter().GetResult();
+                return client.GetPlayerConnectionDetailsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,9 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AwsAccountId { get; set; }
-            public System.String Namespace { get; set; }
-            public System.Func<Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse, UpdateQSApplicationWithTokenExchangeGrantCmdlet, object> Select { get; set; } =
+            public System.String GameSessionId { get; set; }
+            public List<System.String> PlayerId { get; set; }
+            public System.Func<Amazon.GameLift.Model.GetPlayerConnectionDetailsResponse, GetGMLPlayerConnectionDetailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

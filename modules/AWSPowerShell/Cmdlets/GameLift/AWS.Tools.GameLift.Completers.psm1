@@ -217,6 +217,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.GameServerIpProtocolSupported
+        "New-GMLFleet/PlayerGatewayConfiguration_GameServerIpProtocolSupported"
+        {
+            $v = "DUAL_STACK","IPv4"
+            break
+        }
+
         # Amazon.GameLift.GameServerProtectionPolicy
         {
             ($_ -eq "New-GMLGameServerGroup/GameServerProtectionPolicy") -Or
@@ -276,6 +283,16 @@ $GML_Completers = {
         "Start-GMLGameSessionPlacement/PriorityConfigurationOverride_PlacementFallbackStrategy"
         {
             $v = "DEFAULT_AFTER_SINGLE_PASS","NONE"
+            break
+        }
+
+        # Amazon.GameLift.PlayerGatewayMode
+        {
+            ($_ -eq "New-GMLContainerFleet/PlayerGatewayMode") -Or
+            ($_ -eq "New-GMLFleet/PlayerGatewayMode")
+        }
+        {
+            $v = "DISABLED","ENABLED","REQUIRED"
             break
         }
 
@@ -384,6 +401,8 @@ $GML_map = @{
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLContainerFleet","New-GMLFleet","Update-GMLContainerFleet","Update-GMLFleetAttribute")
     "OperatingSystem"=@("New-GMLBuild","New-GMLContainerGroupDefinition","Update-GMLContainerGroupDefinition")
+    "PlayerGatewayConfiguration_GameServerIpProtocolSupported"=@("New-GMLFleet")
+    "PlayerGatewayMode"=@("New-GMLContainerFleet","New-GMLFleet")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
     "PolicyType"=@("Write-GMLScalingPolicy")
     "PriorityConfigurationOverride_PlacementFallbackStrategy"=@("Start-GMLGameSessionPlacement")
@@ -519,6 +538,7 @@ $GML_SelectMap = @{
                "Get-GMLComputeAuthToken",
                "Get-GMLGameSessionLogUrl",
                "Get-GMLInstanceAccess",
+               "Get-GMLPlayerConnectionDetail",
                "Get-GMLAlias",
                "Get-GMLBuild",
                "Get-GMLComputeList",

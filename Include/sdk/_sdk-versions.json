@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1234.0",
+    "ProductVersion"    : "3.7.1235.0",
     "CoreVersion"       : "3.7.500.86",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -178,7 +178,7 @@
             "InPreview"               : false
         },
         "ElasticBeanstalk"  : {
-            "Version" : "3.7.502.46",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.86"
@@ -412,7 +412,7 @@
             "InPreview"               : false
         },
         "Elasticsearch"             : {
-            "Version" : "3.7.503.2",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.86"
@@ -500,7 +500,7 @@
             "InPreview"               : false
         },
         "GameLift"                        : {
-            "Version" : "3.7.505.11",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.86"
@@ -1004,7 +1004,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.530.1",
+            "Version" : "3.7.531.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.86"
@@ -1140,7 +1140,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.512.2",
+            "Version" : "3.7.513.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.86"
@@ -2060,7 +2060,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "3.7.508.2",
+            "Version" : "3.7.509.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.86"

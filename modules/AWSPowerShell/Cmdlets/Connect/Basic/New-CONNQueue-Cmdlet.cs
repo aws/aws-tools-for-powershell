@@ -71,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EmailAddressesConfig
+        /// <summary>
+        /// <para>
+        /// <para>Configuration list containing the email addresses to associate with the queue during
+        /// creation. Each configuration specifies an email address ID that agents can select
+        /// when handling email contacts in this queue.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Connect.Model.EmailAddressConfig[] EmailAddressesConfig { get; set; }
+        #endregion
+        
         #region Parameter HoursOfOperationId
         /// <summary>
         /// <para>
@@ -260,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            if (this.EmailAddressesConfig != null)
+            {
+                context.EmailAddressesConfig = new List<Amazon.Connect.Model.EmailAddressConfig>(this.EmailAddressesConfig);
+            }
             context.HoursOfOperationId = this.HoursOfOperationId;
             #if MODULAR
             if (this.HoursOfOperationId == null && ParameterWasBound(nameof(this.HoursOfOperationId)))
@@ -317,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EmailAddressesConfig != null)
+            {
+                request.EmailAddressesConfig = cmdletContext.EmailAddressesConfig;
             }
             if (cmdletContext.HoursOfOperationId != null)
             {
@@ -462,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public List<Amazon.Connect.Model.EmailAddressConfig> EmailAddressesConfig { get; set; }
             public System.String HoursOfOperationId { get; set; }
             public System.String InstanceId { get; set; }
             public System.Int32? MaxContact { get; set; }

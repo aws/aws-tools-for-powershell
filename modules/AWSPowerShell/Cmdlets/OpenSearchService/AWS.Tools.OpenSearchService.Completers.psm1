@@ -121,6 +121,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.DeploymentStrategy
+        {
+            ($_ -eq "New-OSDomain/DeploymentStrategyOptions_DeploymentStrategy") -Or
+            ($_ -eq "Update-OSDomainConfig/DeploymentStrategyOptions_DeploymentStrategy")
+        }
+        {
+            $v = "CapacityOptimized","Default"
+            break
+        }
+
         # Amazon.OpenSearchService.DryRunMode
         "Update-OSDomainConfig/DryRunMode"
         {
@@ -303,6 +313,7 @@ $OS_map = @{
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
     "ConnectionMode"=@("New-OSOutboundConnection")
     "CrossClusterSearch_SkipUnavailable"=@("New-OSOutboundConnection")
+    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-OSDomain","Update-OSDomainConfig")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")

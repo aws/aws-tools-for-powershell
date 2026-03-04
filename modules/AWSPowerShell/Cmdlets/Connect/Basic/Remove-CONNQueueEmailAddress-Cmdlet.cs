@@ -22,49 +22,64 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.QuickSight;
-using Amazon.QuickSight.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.QS
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Updates a self-upgrade request for a Quick user by approving, denying, or verifying
-    /// the request.
+    /// Removes the association between a set of email addresses and a queue. After disassociation,
+    /// agents will no longer be able to select these email addresses as "From" addresses
+    /// when replying to inbound email contacts or initiating outbound email contacts in this
+    /// queue.
+    /// 
+    ///  
+    /// <para><b>Important things to know</b></para><ul><li><para>
+    /// Agents will no longer see these email addresses in their "From" address selection
+    /// options for this queue.
+    /// </para></li><li><para>
+    /// The email addresses themselves are not deleted from the instance, only their availability
+    /// for agent selection in this queue is removed.
+    /// </para></li><li><para>
+    /// Changes take effect immediately and will affect the agent experience in the Contact
+    /// Control Panel (CCP).
+    /// </para></li></ul>
     /// </summary>
-    [Cmdlet("Update", "QSSelfUpgrade", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QuickSight.Model.SelfUpgradeRequestDetail")]
-    [AWSCmdlet("Calls the Amazon QuickSight UpdateSelfUpgrade API operation.", Operation = new[] {"UpdateSelfUpgrade"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateSelfUpgradeResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.SelfUpgradeRequestDetail or Amazon.QuickSight.Model.UpdateSelfUpgradeResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.SelfUpgradeRequestDetail object.",
-        "The service call response (type Amazon.QuickSight.Model.UpdateSelfUpgradeResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "CONNQueueEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Service DisassociateQueueEmailAddresses API operation.", Operation = new[] {"DisassociateQueueEmailAddresses"}, SelectReturnType = typeof(Amazon.Connect.Model.DisassociateQueueEmailAddressesResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.DisassociateQueueEmailAddressesResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Connect.Model.DisassociateQueueEmailAddressesResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateQSSelfUpgradeCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class RemoveCONNQueueEmailAddressCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Action
+        #region Parameter EmailAddressesId
         /// <summary>
         /// <para>
-        /// <para>The action to perform on the self-upgrade request. Valid values are <c>APPROVE</c>,
-        /// <c>DENY</c>, or <c>VERIFY</c>.</para>
+        /// <para>List of email address identifiers to disassociate from the queue. These are the unique
+        /// identifiers of email addresses that should no longer be routed to this queue.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.QuickSight.SelfUpgradeAdminAction")]
-        public Amazon.QuickSight.SelfUpgradeAdminAction Action { get; set; }
+        public System.String[] EmailAddressesId { get; set; }
         #endregion
         
-        #region Parameter AwsAccountId
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account that contains the self-upgrade request.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,13 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsAccountId { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter Namespace
+        #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The Quick namespace for the self-upgrade request.</para>
+        /// <para>The identifier for the queue.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,35 +107,30 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Namespace { get; set; }
+        public System.String QueueId { get; set; }
         #endregion
         
-        #region Parameter UpgradeRequestId
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The ID of the self-upgrade request to update.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UpgradeRequestId { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SelfUpgradeRequestDetail'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.UpdateSelfUpgradeResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.UpdateSelfUpgradeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DisassociateQueueEmailAddressesResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SelfUpgradeRequestDetail";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -140,11 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
             
             var targetParameterNames = new string[]
             {
-                nameof(this.AwsAccountId),
-                nameof(this.UpgradeRequestId)
+                nameof(this.InstanceId),
+                nameof(this.QueueId)
             };
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-QSSelfUpgrade (UpdateSelfUpgrade)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNQueueEmailAddress (DisassociateQueueEmailAddresses)"))
             {
                 return;
             }
@@ -156,35 +166,32 @@ namespace Amazon.PowerShell.Cmdlets.QS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.UpdateSelfUpgradeResponse, UpdateQSSelfUpgradeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DisassociateQueueEmailAddressesResponse, RemoveCONNQueueEmailAddressCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Action = this.Action;
-            #if MODULAR
-            if (this.Action == null && ParameterWasBound(nameof(this.Action)))
+            context.ClientToken = this.ClientToken;
+            if (this.EmailAddressesId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.EmailAddressesId = new List<System.String>(this.EmailAddressesId);
+            }
+            #if MODULAR
+            if (this.EmailAddressesId == null && ParameterWasBound(nameof(this.EmailAddressesId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EmailAddressesId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AwsAccountId = this.AwsAccountId;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Namespace = this.Namespace;
+            context.QueueId = this.QueueId;
             #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
+            if (this.QueueId == null && ParameterWasBound(nameof(this.QueueId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.UpgradeRequestId = this.UpgradeRequestId;
-            #if MODULAR
-            if (this.UpgradeRequestId == null && ParameterWasBound(nameof(this.UpgradeRequestId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UpgradeRequestId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter QueueId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -201,23 +208,23 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.UpdateSelfUpgradeRequest();
+            var request = new Amazon.Connect.Model.DisassociateQueueEmailAddressesRequest();
             
-            if (cmdletContext.Action != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.Action = cmdletContext.Action;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.AwsAccountId != null)
+            if (cmdletContext.EmailAddressesId != null)
             {
-                request.AwsAccountId = cmdletContext.AwsAccountId;
+                request.EmailAddressesId = cmdletContext.EmailAddressesId;
             }
-            if (cmdletContext.Namespace != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.Namespace = cmdletContext.Namespace;
+                request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.UpgradeRequestId != null)
+            if (cmdletContext.QueueId != null)
             {
-                request.UpgradeRequestId = cmdletContext.UpgradeRequestId;
+                request.QueueId = cmdletContext.QueueId;
             }
             
             CmdletOutput output;
@@ -252,15 +259,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.UpdateSelfUpgradeResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.UpdateSelfUpgradeRequest request)
+        private Amazon.Connect.Model.DisassociateQueueEmailAddressesResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DisassociateQueueEmailAddressesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "UpdateSelfUpgrade");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DisassociateQueueEmailAddresses");
             try
             {
                 #if DESKTOP
-                return client.UpdateSelfUpgrade(request);
+                return client.DisassociateQueueEmailAddresses(request);
                 #elif CORECLR
-                return client.UpdateSelfUpgradeAsync(request).GetAwaiter().GetResult();
+                return client.DisassociateQueueEmailAddressesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -280,12 +287,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.QuickSight.SelfUpgradeAdminAction Action { get; set; }
-            public System.String AwsAccountId { get; set; }
-            public System.String Namespace { get; set; }
-            public System.String UpgradeRequestId { get; set; }
-            public System.Func<Amazon.QuickSight.Model.UpdateSelfUpgradeResponse, UpdateQSSelfUpgradeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SelfUpgradeRequestDetail;
+            public System.String ClientToken { get; set; }
+            public List<System.String> EmailAddressesId { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String QueueId { get; set; }
+            public System.Func<Amazon.Connect.Model.DisassociateQueueEmailAddressesResponse, RemoveCONNQueueEmailAddressCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
