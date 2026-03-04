@@ -206,6 +206,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public Amazon.GameLift.FleetType FleetType { get; set; }
         #endregion
         
+        #region Parameter PlayerGatewayConfiguration_GameServerIpProtocolSupported
+        /// <summary>
+        /// <para>
+        /// <para>The IP protocol that your game servers support for player connections through player
+        /// gateway. If the value is set to <c>IPv4</c>, GameLift will install and execute a lightweight
+        /// IP translation software on fleet instances to receive and transform incoming IPv6
+        /// traffic to IPv4. If the value is set to <c>DUAL_STACK</c>, the lightweight IP translation
+        /// software will not be installed on fleet instances. <c>DUAL_STACK</c> provides slightly
+        /// better performance than <c>IPv4</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GameLift.GameServerIpProtocolSupported")]
+        public Amazon.GameLift.GameServerIpProtocolSupported PlayerGatewayConfiguration_GameServerIpProtocolSupported { get; set; }
+        #endregion
+        
         #region Parameter RuntimeConfiguration_GameSessionActivationTimeoutSecond
         /// <summary>
         /// <para>
@@ -401,6 +417,32 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String PeerVpcId { get; set; }
         #endregion
         
+        #region Parameter PlayerGatewayMode
+        /// <summary>
+        /// <para>
+        /// <para>Configures player gateway for your fleet. Player gateway provides benefits such as
+        /// DDoS protection by rate limiting and validating traﬃc before it reaches game servers,
+        /// hiding game server IP addresses from players, and providing updated endpoints when
+        /// relay endpoints become unhealthy. Note, player gateway is only available for fleets
+        /// using server SDK 5.x or later game server builds.</para><para><b>How it works:</b> When enabled, game clients connect to relay endpoints instead
+        /// of to your game servers. Player gateway validates player gateway tokens and routes
+        /// traffic to the appropriate game server. Your game backend calls <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a>
+        /// to retrieve relay endpoints and player gateway tokens for your game clients. To learn
+        /// more about this topic, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html">DDoS
+        /// protection with Amazon GameLift Servers player gateway</a>.</para><para>Possible values include:</para><ul><li><para><c>DISABLED</c> (default) -- Game clients connect to the game server endpoint. Use
+        /// this when you do not intend to integrate your game with player gateway.</para></li><li><para><c>ENABLED</c> -- Player gateway is available in fleet locations where it is supported.
+        /// Your game backend can call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a>
+        /// to obtain a player gateway token and endpoints for game clients.</para></li><li><para><c>REQUIRED</c> -- Player gateway is available in fleet locations where it is supported,
+        /// and the fleet can only use locations that support this feature. Attempting to add
+        /// a remote location to your fleet which does not support player gateway will result
+        /// in an <c>InvalidRequestException</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GameLift.PlayerGatewayMode")]
+        public Amazon.GameLift.PlayerGatewayMode PlayerGatewayMode { get; set; }
+        #endregion
+        
         #region Parameter ResourceCreationLimitPolicy_PolicyPeriodInMinute
         /// <summary>
         /// <para>
@@ -564,6 +606,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             context.NewGameSessionProtectionPolicy = this.NewGameSessionProtectionPolicy;
             context.PeerVpcAwsAccountId = this.PeerVpcAwsAccountId;
             context.PeerVpcId = this.PeerVpcId;
+            context.PlayerGatewayConfiguration_GameServerIpProtocolSupported = this.PlayerGatewayConfiguration_GameServerIpProtocolSupported;
+            context.PlayerGatewayMode = this.PlayerGatewayMode;
             context.ResourceCreationLimitPolicy_NewGameSessionsPerCreator = this.ResourceCreationLimitPolicy_NewGameSessionsPerCreator;
             context.ResourceCreationLimitPolicy_PolicyPeriodInMinute = this.ResourceCreationLimitPolicy_PolicyPeriodInMinute;
             context.RuntimeConfiguration_GameSessionActivationTimeoutSecond = this.RuntimeConfiguration_GameSessionActivationTimeoutSecond;
@@ -692,6 +736,29 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.PeerVpcId != null)
             {
                 request.PeerVpcId = cmdletContext.PeerVpcId;
+            }
+            
+             // populate PlayerGatewayConfiguration
+            var requestPlayerGatewayConfigurationIsNull = true;
+            request.PlayerGatewayConfiguration = new Amazon.GameLift.Model.PlayerGatewayConfiguration();
+            Amazon.GameLift.GameServerIpProtocolSupported requestPlayerGatewayConfiguration_playerGatewayConfiguration_GameServerIpProtocolSupported = null;
+            if (cmdletContext.PlayerGatewayConfiguration_GameServerIpProtocolSupported != null)
+            {
+                requestPlayerGatewayConfiguration_playerGatewayConfiguration_GameServerIpProtocolSupported = cmdletContext.PlayerGatewayConfiguration_GameServerIpProtocolSupported;
+            }
+            if (requestPlayerGatewayConfiguration_playerGatewayConfiguration_GameServerIpProtocolSupported != null)
+            {
+                request.PlayerGatewayConfiguration.GameServerIpProtocolSupported = requestPlayerGatewayConfiguration_playerGatewayConfiguration_GameServerIpProtocolSupported;
+                requestPlayerGatewayConfigurationIsNull = false;
+            }
+             // determine if request.PlayerGatewayConfiguration should be set to null
+            if (requestPlayerGatewayConfigurationIsNull)
+            {
+                request.PlayerGatewayConfiguration = null;
+            }
+            if (cmdletContext.PlayerGatewayMode != null)
+            {
+                request.PlayerGatewayMode = cmdletContext.PlayerGatewayMode;
             }
             
              // populate ResourceCreationLimitPolicy
@@ -849,6 +916,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
             public System.String PeerVpcAwsAccountId { get; set; }
             public System.String PeerVpcId { get; set; }
+            public Amazon.GameLift.GameServerIpProtocolSupported PlayerGatewayConfiguration_GameServerIpProtocolSupported { get; set; }
+            public Amazon.GameLift.PlayerGatewayMode PlayerGatewayMode { get; set; }
             public System.Int32? ResourceCreationLimitPolicy_NewGameSessionsPerCreator { get; set; }
             public System.Int32? ResourceCreationLimitPolicy_PolicyPeriodInMinute { get; set; }
             public System.Int32? RuntimeConfiguration_GameSessionActivationTimeoutSecond { get; set; }

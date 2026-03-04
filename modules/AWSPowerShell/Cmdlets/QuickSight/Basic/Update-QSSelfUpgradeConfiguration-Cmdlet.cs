@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates the self-upgrade configuration for a Quick Suite account.
+    /// Updates the self-upgrade configuration for a Quick account.
     /// </summary>
     [Cmdlet("Update", "QSSelfUpgradeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateSelfUpgradeConfigurationResponse")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account that contains the Quick Suite self-upgrade
-        /// configuration that you want to update.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration
+        /// that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The Quick Suite namespace that you want to update the Quick Suite self-upgrade configuration
-        /// for.</para>
+        /// <para>The Quick namespace that you want to update the Quick self-upgrade configuration for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SelfUpgradeStatus
         /// <summary>
         /// <para>
-        /// <para>The self-upgrade status that you want to set for the Quick Suite account.</para>
+        /// <para>The self-upgrade status that you want to set for the Quick account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -20483,6 +20483,7 @@ $CONN_SelectMap = @{
                "Add-CONNLambdaFunction",
                "Add-CONNLexBot",
                "Add-CONNPhoneNumberContactFlow",
+               "Add-CONNQueueEmailAddress",
                "Add-CONNQueueQuickConnect",
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
@@ -20618,6 +20619,7 @@ $CONN_SelectMap = @{
                "Remove-CONNLambdaFunction",
                "Remove-CONNLexBot",
                "Remove-CONNPhoneNumberContactFlow",
+               "Remove-CONNQueueEmailAddress",
                "Remove-CONNQueueQuickConnect",
                "Disconnect-CONNRoutingProfileQueue",
                "Remove-CONNSecurityKey",
@@ -20680,6 +20682,7 @@ $CONN_SelectMap = @{
                "Get-CONNPhoneNumbersV2List",
                "Get-CONNPredefinedAttributeList",
                "Get-CONNPromptList",
+               "Get-CONNQueueEmailAddressList",
                "Get-CONNQueueQuickConnectList",
                "Get-CONNQueueList",
                "Get-CONNQuickConnectList",
@@ -31515,7 +31518,7 @@ $EB_Completers = {
             ($_ -eq "Request-EBEnvironmentInfo/InfoType")
         }
         {
-            $v = "bundle","tail"
+            $v = "analyze","bundle","tail"
             break
         }
 
@@ -33263,6 +33266,16 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.DeploymentStrategy
+        {
+            ($_ -eq "New-ESDomain/DeploymentStrategyOptions_DeploymentStrategy") -Or
+            ($_ -eq "Update-ESDomainConfig/DeploymentStrategyOptions_DeploymentStrategy")
+        }
+        {
+            $v = "CapacityOptimized","Default"
+            break
+        }
+
         # Amazon.Elasticsearch.EngineType
         "Get-ESDomainNameList/EngineType"
         {
@@ -33338,6 +33351,7 @@ $ES_Completers = {
 $ES_map = @{
     "AutoTuneOptions_DesiredState"=@("New-ESDomain","Update-ESDomainConfig")
     "AutoTuneOptions_RollbackOnDisable"=@("Update-ESDomainConfig")
+    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-ESDomain","Update-ESDomainConfig")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-ESDomain","Update-ESDomainConfig")
     "EBSOptions_VolumeType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_DedicatedMasterType"=@("New-ESDomain","Update-ESDomainConfig")
@@ -36067,6 +36081,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.GameServerIpProtocolSupported
+        "New-GMLFleet/PlayerGatewayConfiguration_GameServerIpProtocolSupported"
+        {
+            $v = "DUAL_STACK","IPv4"
+            break
+        }
+
         # Amazon.GameLift.GameServerProtectionPolicy
         {
             ($_ -eq "New-GMLGameServerGroup/GameServerProtectionPolicy") -Or
@@ -36126,6 +36147,16 @@ $GML_Completers = {
         "Start-GMLGameSessionPlacement/PriorityConfigurationOverride_PlacementFallbackStrategy"
         {
             $v = "DEFAULT_AFTER_SINGLE_PASS","NONE"
+            break
+        }
+
+        # Amazon.GameLift.PlayerGatewayMode
+        {
+            ($_ -eq "New-GMLContainerFleet/PlayerGatewayMode") -Or
+            ($_ -eq "New-GMLFleet/PlayerGatewayMode")
+        }
+        {
+            $v = "DISABLED","ENABLED","REQUIRED"
             break
         }
 
@@ -36234,6 +36265,8 @@ $GML_map = @{
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLContainerFleet","New-GMLFleet","Update-GMLContainerFleet","Update-GMLFleetAttribute")
     "OperatingSystem"=@("New-GMLBuild","New-GMLContainerGroupDefinition","Update-GMLContainerGroupDefinition")
+    "PlayerGatewayConfiguration_GameServerIpProtocolSupported"=@("New-GMLFleet")
+    "PlayerGatewayMode"=@("New-GMLContainerFleet","New-GMLFleet")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
     "PolicyType"=@("Write-GMLScalingPolicy")
     "PriorityConfigurationOverride_PlacementFallbackStrategy"=@("Start-GMLGameSessionPlacement")
@@ -36369,6 +36402,7 @@ $GML_SelectMap = @{
                "Get-GMLComputeAuthToken",
                "Get-GMLGameSessionLogUrl",
                "Get-GMLInstanceAccess",
+               "Get-GMLPlayerConnectionDetail",
                "Get-GMLAlias",
                "Get-GMLBuild",
                "Get-GMLComputeList",
@@ -58943,6 +58977,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.DeploymentStrategy
+        {
+            ($_ -eq "New-OSDomain/DeploymentStrategyOptions_DeploymentStrategy") -Or
+            ($_ -eq "Update-OSDomainConfig/DeploymentStrategyOptions_DeploymentStrategy")
+        }
+        {
+            $v = "CapacityOptimized","Default"
+            break
+        }
+
         # Amazon.OpenSearchService.DryRunMode
         "Update-OSDomainConfig/DryRunMode"
         {
@@ -59125,6 +59169,7 @@ $OS_map = @{
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
     "ConnectionMode"=@("New-OSOutboundConnection")
     "CrossClusterSearch_SkipUnavailable"=@("New-OSOutboundConnection")
+    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-OSDomain","Update-OSDomainConfig")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
@@ -65397,6 +65442,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_AmazonSThreeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Analysis") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Analysis") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ApproveFlowShareRequest") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ApproveFlowShareRequest") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_AsanaAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_AsanaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Automate") -Or
@@ -65405,6 +65452,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_BambooHRAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_BoxAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_BoxAgentAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_BuildCalculatedFieldWithQ") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_BuildCalculatedFieldWithQ") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CanvaAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CanvaAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ChatAgent") -Or
@@ -65513,12 +65562,16 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateZendeskAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateChatAgent") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateChatAgent") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateDashboardExecutiveSummaryWithQ") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateDashboardExecutiveSummaryWithQ") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Dashboard") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Dashboard") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_EditVisualWithQ") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_EditVisualWithQ") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ExportToCsv") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToCsv") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ExportToCsvInScheduledReport") -Or
@@ -65531,6 +65584,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToPdf") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ExportToPdfInScheduledReport") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToPdfInScheduledReport") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Extension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Extension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_FactSetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_FactSetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Flow") -Or
@@ -65709,6 +65764,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_SubscribeDashboardEmailReport") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_TextractAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_TextractAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Topic") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Topic") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAmazonBedrockARSAction") -Or
@@ -66434,10 +66491,12 @@ $QS_map = @{
     "Capabilities_AmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AmazonSThreeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Analysis"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ApproveFlowShareRequest"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Automate"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_BambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_BoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_BuildCalculatedFieldWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -66492,15 +66551,18 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateThresholdAlert"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateDashboardExecutiveSummaryWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSPICEDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Dashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_EditVisualWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToCsv"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToCsvInScheduledReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToExcel"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToExcelInScheduledReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToPdf"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToPdfInScheduledReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Extension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_FactSetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Flow"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GenericHTTPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -66590,6 +66652,7 @@ $QS_map = @{
     "Capabilities_Space"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SubscribeDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_TextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Topic"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAgentWebSearch"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")

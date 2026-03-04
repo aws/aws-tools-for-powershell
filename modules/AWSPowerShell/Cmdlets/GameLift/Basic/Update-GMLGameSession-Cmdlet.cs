@@ -63,9 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <c>{"Key": "difficulty", "Value": "novice"}</c>. You can use this parameter to modify
         /// game properties in an active game session. This action adds new properties and modifies
         /// existing properties. There is no way to delete properties. For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update
-        /// the value of a game property</a>. </para><note><para>Avoid using periods (".") in property keys if you plan to search for game sessions
+        /// the value of a game property</a>. </para><note><ul><li><para>Avoid using periods (".") in property keys if you plan to search for game sessions
         /// by properties. Property keys containing periods cannot be searched and will be filtered
-        /// out from search results due to search index limitations.</para></note><para />
+        /// out from search results due to search index limitations.</para></li><li><para>If you use SearchGameSessions API, there is a limit of 500 game property keys across
+        /// all game sessions and all fleets per region. If the limit is exceeded, there will
+        /// potentially be game session entries missing from SearchGameSessions API results.</para></li></ul></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

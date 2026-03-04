@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates a self-upgrade request for a Quick Suite user by approving, denying, or verifying
+    /// Updates a self-upgrade request for a Quick user by approving, denying, or verifying
     /// the request.
     /// </summary>
     [Cmdlet("Update", "QSSelfUpgrade", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The Quick Suite namespace for the self-upgrade request.</para>
+        /// <para>The Quick namespace for the self-upgrade request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

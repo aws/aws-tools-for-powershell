@@ -123,6 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_Analysis { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ApproveFlowShareRequest
+        /// <summary>
+        /// <para>
+        /// <para>The ability to review and approve sharing requests of Flows.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_ApproveFlowShareRequests")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ApproveFlowShareRequest { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_AsanaAction
         /// <summary>
         /// <para>
@@ -183,6 +195,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_BoxAgentAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_BuildCalculatedFieldWithQ
+        /// <summary>
+        /// <para>
+        /// <para>The ability to Build Calculation with AI</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_BuildCalculatedFieldWithQ { get; set; }
         #endregion
         
         #region Parameter Capabilities_CanvaAgentAction
@@ -785,6 +808,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_CreateChatAgent { get; set; }
         #endregion
         
+        #region Parameter Capabilities_CreateDashboardExecutiveSummaryWithQ
+        /// <summary>
+        /// <para>
+        /// <para>The ability to Create Executive Summary</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateDashboardExecutiveSummaryWithQ { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_CreateSharedFolder
         /// <summary>
         /// <para>
@@ -834,6 +868,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_Dashboard { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_EditVisualWithQ
+        /// <summary>
+        /// <para>
+        /// <para>The ability to Edit Visual with AI</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_EditVisualWithQ { get; set; }
         #endregion
         
         #region Parameter Capabilities_ExportToCsv
@@ -903,6 +948,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Alias("Capabilities_ExportToPdfInScheduledReports")]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ExportToPdfInScheduledReport { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_Extension
+        /// <summary>
+        /// <para>
+        /// <para>The ability to perform Extension-related actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_Extension { get; set; }
         #endregion
         
         #region Parameter Capabilities_FactSetAction
@@ -1890,6 +1946,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_TextractAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_Topic
+        /// <summary>
+        /// <para>
+        /// <para>The ability to perform Topic-related actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_Topic { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_UseAgentWebSearch
         /// <summary>
         /// <para>
@@ -2469,10 +2536,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_AmazonBedrockKRSAction = this.Capabilities_AmazonBedrockKRSAction;
             context.Capabilities_AmazonSThreeAction = this.Capabilities_AmazonSThreeAction;
             context.Capabilities_Analysis = this.Capabilities_Analysis;
+            context.Capabilities_ApproveFlowShareRequest = this.Capabilities_ApproveFlowShareRequest;
             context.Capabilities_AsanaAction = this.Capabilities_AsanaAction;
             context.Capabilities_Automate = this.Capabilities_Automate;
             context.Capabilities_BambooHRAction = this.Capabilities_BambooHRAction;
             context.Capabilities_BoxAgentAction = this.Capabilities_BoxAgentAction;
+            context.Capabilities_BuildCalculatedFieldWithQ = this.Capabilities_BuildCalculatedFieldWithQ;
             context.Capabilities_CanvaAgentAction = this.Capabilities_CanvaAgentAction;
             context.Capabilities_ChatAgent = this.Capabilities_ChatAgent;
             context.Capabilities_ComprehendAction = this.Capabilities_ComprehendAction;
@@ -2527,15 +2596,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateThresholdAlert = this.Capabilities_CreateAndUpdateThresholdAlert;
             context.Capabilities_CreateAndUpdateZendeskAction = this.Capabilities_CreateAndUpdateZendeskAction;
             context.Capabilities_CreateChatAgent = this.Capabilities_CreateChatAgent;
+            context.Capabilities_CreateDashboardExecutiveSummaryWithQ = this.Capabilities_CreateDashboardExecutiveSummaryWithQ;
             context.Capabilities_CreateSharedFolder = this.Capabilities_CreateSharedFolder;
             context.Capabilities_CreateSPICEDataset = this.Capabilities_CreateSPICEDataset;
             context.Capabilities_Dashboard = this.Capabilities_Dashboard;
+            context.Capabilities_EditVisualWithQ = this.Capabilities_EditVisualWithQ;
             context.Capabilities_ExportToCsv = this.Capabilities_ExportToCsv;
             context.Capabilities_ExportToCsvInScheduledReport = this.Capabilities_ExportToCsvInScheduledReport;
             context.Capabilities_ExportToExcel = this.Capabilities_ExportToExcel;
             context.Capabilities_ExportToExcelInScheduledReport = this.Capabilities_ExportToExcelInScheduledReport;
             context.Capabilities_ExportToPdf = this.Capabilities_ExportToPdf;
             context.Capabilities_ExportToPdfInScheduledReport = this.Capabilities_ExportToPdfInScheduledReport;
+            context.Capabilities_Extension = this.Capabilities_Extension;
             context.Capabilities_FactSetAction = this.Capabilities_FactSetAction;
             context.Capabilities_Flow = this.Capabilities_Flow;
             context.Capabilities_GenericHTTPAction = this.Capabilities_GenericHTTPAction;
@@ -2625,6 +2697,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_Space = this.Capabilities_Space;
             context.Capabilities_SubscribeDashboardEmailReport = this.Capabilities_SubscribeDashboardEmailReport;
             context.Capabilities_TextractAction = this.Capabilities_TextractAction;
+            context.Capabilities_Topic = this.Capabilities_Topic;
             context.Capabilities_UseAgentWebSearch = this.Capabilities_UseAgentWebSearch;
             context.Capabilities_UseAmazonBedrockARSAction = this.Capabilities_UseAmazonBedrockARSAction;
             context.Capabilities_UseAmazonBedrockFSAction = this.Capabilities_UseAmazonBedrockFSAction;
@@ -2773,6 +2846,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.Analysis = requestCapabilities_capabilities_Analysis;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ApproveFlowShareRequest = null;
+            if (cmdletContext.Capabilities_ApproveFlowShareRequest != null)
+            {
+                requestCapabilities_capabilities_ApproveFlowShareRequest = cmdletContext.Capabilities_ApproveFlowShareRequest;
+            }
+            if (requestCapabilities_capabilities_ApproveFlowShareRequest != null)
+            {
+                request.Capabilities.ApproveFlowShareRequests = requestCapabilities_capabilities_ApproveFlowShareRequest;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_AsanaAction = null;
             if (cmdletContext.Capabilities_AsanaAction != null)
             {
@@ -2811,6 +2894,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_BoxAgentAction != null)
             {
                 request.Capabilities.BoxAgentAction = requestCapabilities_capabilities_BoxAgentAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_BuildCalculatedFieldWithQ = null;
+            if (cmdletContext.Capabilities_BuildCalculatedFieldWithQ != null)
+            {
+                requestCapabilities_capabilities_BuildCalculatedFieldWithQ = cmdletContext.Capabilities_BuildCalculatedFieldWithQ;
+            }
+            if (requestCapabilities_capabilities_BuildCalculatedFieldWithQ != null)
+            {
+                request.Capabilities.BuildCalculatedFieldWithQ = requestCapabilities_capabilities_BuildCalculatedFieldWithQ;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CanvaAgentAction = null;
@@ -3353,6 +3446,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateChatAgents = requestCapabilities_capabilities_CreateChatAgent;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateDashboardExecutiveSummaryWithQ = null;
+            if (cmdletContext.Capabilities_CreateDashboardExecutiveSummaryWithQ != null)
+            {
+                requestCapabilities_capabilities_CreateDashboardExecutiveSummaryWithQ = cmdletContext.Capabilities_CreateDashboardExecutiveSummaryWithQ;
+            }
+            if (requestCapabilities_capabilities_CreateDashboardExecutiveSummaryWithQ != null)
+            {
+                request.Capabilities.CreateDashboardExecutiveSummaryWithQ = requestCapabilities_capabilities_CreateDashboardExecutiveSummaryWithQ;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSharedFolder = null;
             if (cmdletContext.Capabilities_CreateSharedFolder != null)
             {
@@ -3381,6 +3484,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_Dashboard != null)
             {
                 request.Capabilities.Dashboard = requestCapabilities_capabilities_Dashboard;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_EditVisualWithQ = null;
+            if (cmdletContext.Capabilities_EditVisualWithQ != null)
+            {
+                requestCapabilities_capabilities_EditVisualWithQ = cmdletContext.Capabilities_EditVisualWithQ;
+            }
+            if (requestCapabilities_capabilities_EditVisualWithQ != null)
+            {
+                request.Capabilities.EditVisualWithQ = requestCapabilities_capabilities_EditVisualWithQ;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ExportToCsv = null;
@@ -3441,6 +3554,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ExportToPdfInScheduledReport != null)
             {
                 request.Capabilities.ExportToPdfInScheduledReports = requestCapabilities_capabilities_ExportToPdfInScheduledReport;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Extension = null;
+            if (cmdletContext.Capabilities_Extension != null)
+            {
+                requestCapabilities_capabilities_Extension = cmdletContext.Capabilities_Extension;
+            }
+            if (requestCapabilities_capabilities_Extension != null)
+            {
+                request.Capabilities.Extension = requestCapabilities_capabilities_Extension;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_FactSetAction = null;
@@ -4333,6 +4456,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.TextractAction = requestCapabilities_capabilities_TextractAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Topic = null;
+            if (cmdletContext.Capabilities_Topic != null)
+            {
+                requestCapabilities_capabilities_Topic = cmdletContext.Capabilities_Topic;
+            }
+            if (requestCapabilities_capabilities_Topic != null)
+            {
+                request.Capabilities.Topic = requestCapabilities_capabilities_Topic;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseAgentWebSearch = null;
             if (cmdletContext.Capabilities_UseAgentWebSearch != null)
             {
@@ -4875,10 +5008,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_AmazonBedrockKRSAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AmazonSThreeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Analysis { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ApproveFlowShareRequest { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AsanaAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Automate { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_BambooHRAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_BoxAgentAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_BuildCalculatedFieldWithQ { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CanvaAgentAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ChatAgent { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ComprehendAction { get; set; }
@@ -4933,15 +5068,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateThresholdAlert { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateZendeskAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateChatAgent { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateDashboardExecutiveSummaryWithQ { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSPICEDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Dashboard { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_EditVisualWithQ { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsv { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsvInScheduledReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToExcel { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToExcelInScheduledReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToPdf { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToPdfInScheduledReport { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_Extension { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_FactSetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Flow { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GenericHTTPAction { get; set; }
@@ -5031,6 +5169,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_Space { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SubscribeDashboardEmailReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_TextractAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_Topic { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseAgentWebSearch { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseAmazonBedrockARSAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseAmazonBedrockFSAction { get; set; }

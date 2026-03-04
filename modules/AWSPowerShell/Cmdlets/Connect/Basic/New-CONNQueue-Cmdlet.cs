@@ -74,6 +74,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EmailAddressesConfig
+        /// <summary>
+        /// <para>
+        /// <para>Configuration list containing the email addresses to associate with the queue during
+        /// creation. Each configuration specifies an email address ID that agents can select
+        /// when handling email contacts in this queue.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Connect.Model.EmailAddressConfig[] EmailAddressesConfig { get; set; }
+        #endregion
+        
         #region Parameter HoursOfOperationId
         /// <summary>
         /// <para>
@@ -255,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
+            if (this.EmailAddressesConfig != null)
+            {
+                context.EmailAddressesConfig = new List<Amazon.Connect.Model.EmailAddressConfig>(this.EmailAddressesConfig);
+            }
             context.HoursOfOperationId = this.HoursOfOperationId;
             #if MODULAR
             if (this.HoursOfOperationId == null && ParameterWasBound(nameof(this.HoursOfOperationId)))
@@ -312,6 +332,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EmailAddressesConfig != null)
+            {
+                request.EmailAddressesConfig = cmdletContext.EmailAddressesConfig;
             }
             if (cmdletContext.HoursOfOperationId != null)
             {
@@ -451,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public List<Amazon.Connect.Model.EmailAddressConfig> EmailAddressesConfig { get; set; }
             public System.String HoursOfOperationId { get; set; }
             public System.String InstanceId { get; set; }
             public System.Int32? MaxContact { get; set; }

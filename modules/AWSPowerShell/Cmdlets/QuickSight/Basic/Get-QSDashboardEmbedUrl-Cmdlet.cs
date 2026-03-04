@@ -46,18 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para></li><li><para>
     /// They are valid for 5 minutes after you run this command.
     /// </para></li><li><para>
-    /// You are charged only when the URL is used or there is interaction with Quick Suite.
+    /// You are charged only when the URL is used or there is interaction with Quick.
     /// </para></li><li><para>
     /// The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum).
     /// You can use the optional <c>SessionLifetimeInMinutes</c> parameter to customize session
     /// duration.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding
-    /// Analytics Using GetDashboardEmbedUrl</a> in the <i>Amazon Quick Suite User Guide</i>.
+    /// Analytics Using GetDashboardEmbedUrl</a> in the <i>Amazon Quick User Guide</i>.
     /// </para><para>
     /// For more information about the high-level steps for embedding and for an interactive
     /// demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon
-    /// Quick Suite Developer Portal</a>.
+    /// Quick Developer Portal</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "QSDashboardEmbedUrl")]
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>A list of one or more dashboard IDs that you want anonymous users to have tempporary
         /// access to. Currently, the <c>IdentityType</c> parameter must be set to <c>ANONYMOUS</c>
-        /// because other identity types authenticate as Quick Suite or IAM users. For example,
-        /// if you set "<c>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type
-        /// ANONYMOUS</c>", the session can access all three dashboards.</para><para />
+        /// because other identity types authenticate as Quick or IAM users. For example, if you
+        /// set "<c>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</c>",
+        /// the session can access all three dashboards.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -207,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Quick Suite user's Amazon Resource Name (ARN), for use with <c>QUICKSIGHT</c>
-        /// identity type. You can use this for any Amazon Quick Suite users in your account (readers,
+        /// <para>The Amazon Quick user's Amazon Resource Name (ARN), for use with <c>QUICKSIGHT</c>
+        /// identity type. You can use this for any Amazon Quick users in your account (readers,
         /// authors, or admins) authenticated as one of the following:</para><ul><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
         /// using SAML, OpenID Connect, or IAM federation.</para></li></ul><para>Omit this parameter for users in the third group – IAM users and IAM role-based sessions.</para>
         /// </para>

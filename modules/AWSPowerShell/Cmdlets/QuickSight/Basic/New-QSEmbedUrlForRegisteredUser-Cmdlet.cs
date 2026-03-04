@@ -30,10 +30,10 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Generates an embed URL that you can use to embed an Amazon Quick Suite experience
-    /// in your website. This action can be used for any type of user registered in an Amazon
-    /// Quick Suite account. Before you use this action, make sure that you have configured
-    /// the relevant Amazon Quick Suite resource and permissions.
+    /// Generates an embed URL that you can use to embed an Amazon Quick experience in your
+    /// website. This action can be used for any type of user registered in an Amazon Quick
+    /// account. Before you use this action, make sure that you have configured the relevant
+    /// Amazon Quick resource and permissions.
     /// 
     ///  
     /// <para>
@@ -48,15 +48,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum).
     /// The default session duration is 10 hours.
     /// </para></li><li><para>
-    /// You are charged only when the URL is used or there is interaction with Amazon Quick
-    /// Suite.
+    /// You are charged only when the URL is used or there is interaction with Amazon Quick.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded
-    /// Analytics</a> in the <i>Amazon Quick Suite User Guide</i>.
+    /// Analytics</a> in the <i>Amazon Quick User Guide</i>.
     /// </para><para>
     /// For more information about the high-level steps for embedding and for an interactive
     /// demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon
-    /// Quick Suite Developer Portal</a>.
+    /// Quick Developer Portal</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSEmbedUrlForRegisteredUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the dashboard that has the visual that you want to embed. The <c>DashboardId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the Quick Suite console. You can also get the <c>DashboardId</c>
+        /// of the visual's on-visual menu of the Quick console. You can also get the <c>DashboardId</c>
         /// with a <c>ListDashboards</c> API operation.</para>
         /// </para>
         /// </summary>
@@ -329,8 +328,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the new Q reader experience topic that you want to make the starting topic
         /// in the Generative Q&amp;A experience. You can find a topic ID by navigating to the
-        /// Topics pane in the Quick Suite application and opening a topic. The ID is in the URL
-        /// for the topic that you open.</para><para>If you don't specify an initial topic or you specify a legacy topic, a list of all
+        /// Topics pane in the Quick application and opening a topic. The ID is in the URL for
+        /// the topic that you open.</para><para>If you don't specify an initial topic or you specify a legacy topic, a list of all
         /// shared new reader experience topics is shown in the Generative Q&amp;A experience
         /// for your readers. When you select an initial new reader experience topic, you can
         /// specify whether or not readers are allowed to select other new reader experience topics
@@ -386,7 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the sheet that the has visual that you want to embed. The <c>SheetId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the Quick Suite console.</para>
+        /// of the visual's on-visual menu of the Quick console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

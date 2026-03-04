@@ -312,6 +312,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPlayerConnectionDetails" OutputProperty="*" Verb="Get" Noun="PlayerConnectionDetail" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="Alias" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

@@ -1,4 +1,25 @@
-﻿### 5.0.166 (2026-03-03 23:50Z)
+﻿### 5.0.167 (2026-03-04 21:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.203.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNQueueEmailAddress leveraging the AssociateQueueEmailAddresses service API.
+    * Added cmdlet Get-CONNQueueEmailAddressList leveraging the ListQueueEmailAddresses service API.
+    * Added cmdlet Remove-CONNQueueEmailAddress leveraging the DisassociateQueueEmailAddresses service API.
+    * Modified cmdlet New-CONNQueue: added parameter EmailAddressesConfig.
+  * Amazon Elasticsearch
+    * Modified cmdlet New-ESDomain: added parameter DeploymentStrategyOptions_DeploymentStrategy.
+    * Modified cmdlet Update-ESDomainConfig: added parameter DeploymentStrategyOptions_DeploymentStrategy.
+  * Amazon GameLift Service
+    * Added cmdlet Get-GMLPlayerConnectionDetail leveraging the GetPlayerConnectionDetails service API.
+    * Modified cmdlet New-GMLContainerFleet: added parameter PlayerGatewayMode.
+    * Modified cmdlet New-GMLFleet: added parameters PlayerGatewayConfiguration_GameServerIpProtocolSupported and PlayerGatewayMode.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter DeploymentStrategyOptions_DeploymentStrategy.
+    * Modified cmdlet Update-OSDomainConfig: added parameter DeploymentStrategyOptions_DeploymentStrategy.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_ApproveFlowShareRequest, Capabilities_BuildCalculatedFieldWithQ, Capabilities_CreateDashboardExecutiveSummaryWithQ, Capabilities_EditVisualWithQ, Capabilities_Extension and Capabilities_Topic.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_ApproveFlowShareRequest, Capabilities_BuildCalculatedFieldWithQ, Capabilities_CreateDashboardExecutiveSummaryWithQ, Capabilities_EditVisualWithQ, Capabilities_Extension and Capabilities_Topic.
+
+### 5.0.166 (2026-03-03 23:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.202.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCPolicy: added parameters Definition_PolicyGeneration_PolicyGenerationAssetId and Definition_PolicyGeneration_PolicyGenerationId.

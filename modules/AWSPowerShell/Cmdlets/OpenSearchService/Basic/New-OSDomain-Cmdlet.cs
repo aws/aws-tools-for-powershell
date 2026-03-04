@@ -197,6 +197,18 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public Amazon.OpenSearchService.OpenSearchPartitionInstanceType ClusterConfig_DedicatedMasterType { get; set; }
         #endregion
         
+        #region Parameter DeploymentStrategyOptions_DeploymentStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the deployment strategy for the domain. Valid values are <c>Default</c>
+        /// and <c>CapacityOptimized</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.DeploymentStrategy")]
+        public Amazon.OpenSearchService.DeploymentStrategy DeploymentStrategyOptions_DeploymentStrategy { get; set; }
+        #endregion
+        
         #region Parameter NaturalLanguageQueryGenerationOptions_DesiredState
         /// <summary>
         /// <para>
@@ -1044,6 +1056,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.CognitoOptions_IdentityPoolId = this.CognitoOptions_IdentityPoolId;
             context.CognitoOptions_RoleArn = this.CognitoOptions_RoleArn;
             context.CognitoOptions_UserPoolId = this.CognitoOptions_UserPoolId;
+            context.DeploymentStrategyOptions_DeploymentStrategy = this.DeploymentStrategyOptions_DeploymentStrategy;
             context.DomainEndpointOptions_CustomEndpoint = this.DomainEndpointOptions_CustomEndpoint;
             context.DomainEndpointOptions_CustomEndpointCertificateArn = this.DomainEndpointOptions_CustomEndpointCertificateArn;
             context.DomainEndpointOptions_CustomEndpointEnabled = this.DomainEndpointOptions_CustomEndpointEnabled;
@@ -1755,6 +1768,25 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 request.CognitoOptions = null;
             }
             
+             // populate DeploymentStrategyOptions
+            var requestDeploymentStrategyOptionsIsNull = true;
+            request.DeploymentStrategyOptions = new Amazon.OpenSearchService.Model.DeploymentStrategyOptions();
+            Amazon.OpenSearchService.DeploymentStrategy requestDeploymentStrategyOptions_deploymentStrategyOptions_DeploymentStrategy = null;
+            if (cmdletContext.DeploymentStrategyOptions_DeploymentStrategy != null)
+            {
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_DeploymentStrategy = cmdletContext.DeploymentStrategyOptions_DeploymentStrategy;
+            }
+            if (requestDeploymentStrategyOptions_deploymentStrategyOptions_DeploymentStrategy != null)
+            {
+                request.DeploymentStrategyOptions.DeploymentStrategy = requestDeploymentStrategyOptions_deploymentStrategyOptions_DeploymentStrategy;
+                requestDeploymentStrategyOptionsIsNull = false;
+            }
+             // determine if request.DeploymentStrategyOptions should be set to null
+            if (requestDeploymentStrategyOptionsIsNull)
+            {
+                request.DeploymentStrategyOptions = null;
+            }
+            
              // populate DomainEndpointOptions
             var requestDomainEndpointOptionsIsNull = true;
             request.DomainEndpointOptions = new Amazon.OpenSearchService.Model.DomainEndpointOptions();
@@ -2226,6 +2258,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String CognitoOptions_IdentityPoolId { get; set; }
             public System.String CognitoOptions_RoleArn { get; set; }
             public System.String CognitoOptions_UserPoolId { get; set; }
+            public Amazon.OpenSearchService.DeploymentStrategy DeploymentStrategyOptions_DeploymentStrategy { get; set; }
             public System.String DomainEndpointOptions_CustomEndpoint { get; set; }
             public System.String DomainEndpointOptions_CustomEndpointCertificateArn { get; set; }
             public System.Boolean? DomainEndpointOptions_CustomEndpointEnabled { get; set; }

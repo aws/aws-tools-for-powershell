@@ -7084,6 +7084,9 @@ Set-Alias -Name Associate-CONNLexBot -Value Add-CONNLexBot
 Set-Alias -Name CONN-AssociateLexBot -Value Add-CONNLexBot
 Set-Alias -Name Associate-CONNPhoneNumberContactFlow -Value Add-CONNPhoneNumberContactFlow
 Set-Alias -Name CONN-AssociatePhoneNumberContactFlow -Value Add-CONNPhoneNumberContactFlow
+Set-Alias -Name Associate-CONNQueueEmailAddresses -Value Add-CONNQueueEmailAddress
+Set-Alias -Name Associate-CONNQueueEmailAddress -Value Add-CONNQueueEmailAddress
+Set-Alias -Name CONN-AssociateQueueEmailAddresses -Value Add-CONNQueueEmailAddress
 Set-Alias -Name Associate-CONNQueueQuickConnects -Value Add-CONNQueueQuickConnect
 Set-Alias -Name Associate-CONNQueueQuickConnect -Value Add-CONNQueueQuickConnect
 Set-Alias -Name CONN-AssociateQueueQuickConnects -Value Add-CONNQueueQuickConnect
@@ -7369,6 +7372,9 @@ Set-Alias -Name Disassociate-CONNLexBot -Value Remove-CONNLexBot
 Set-Alias -Name CONN-DisassociateLexBot -Value Remove-CONNLexBot
 Set-Alias -Name Disassociate-CONNPhoneNumberContactFlow -Value Remove-CONNPhoneNumberContactFlow
 Set-Alias -Name CONN-DisassociatePhoneNumberContactFlow -Value Remove-CONNPhoneNumberContactFlow
+Set-Alias -Name Disassociate-CONNQueueEmailAddresses -Value Remove-CONNQueueEmailAddress
+Set-Alias -Name Disassociate-CONNQueueEmailAddress -Value Remove-CONNQueueEmailAddress
+Set-Alias -Name CONN-DisassociateQueueEmailAddresses -Value Remove-CONNQueueEmailAddress
 Set-Alias -Name Disassociate-CONNQueueQuickConnects -Value Remove-CONNQueueQuickConnect
 Set-Alias -Name Disassociate-CONNQueueQuickConnect -Value Remove-CONNQueueQuickConnect
 Set-Alias -Name CONN-DisassociateQueueQuickConnects -Value Remove-CONNQueueQuickConnect
@@ -7522,6 +7528,9 @@ Set-Alias -Name CONN-ListPredefinedAttributes -Value Get-CONNPredefinedAttribute
 Set-Alias -Name List-CONNPrompts -Value Get-CONNPromptList
 Set-Alias -Name List-CONNPromptList -Value Get-CONNPromptList
 Set-Alias -Name CONN-ListPrompts -Value Get-CONNPromptList
+Set-Alias -Name List-CONNQueueEmailAddresses -Value Get-CONNQueueEmailAddressList
+Set-Alias -Name List-CONNQueueEmailAddressList -Value Get-CONNQueueEmailAddressList
+Set-Alias -Name CONN-ListQueueEmailAddresses -Value Get-CONNQueueEmailAddressList
 Set-Alias -Name List-CONNQueueQuickConnects -Value Get-CONNQueueQuickConnectList
 Set-Alias -Name List-CONNQueueQuickConnectList -Value Get-CONNQueueQuickConnectList
 Set-Alias -Name CONN-ListQueueQuickConnects -Value Get-CONNQueueQuickConnectList
@@ -14566,6 +14575,8 @@ Set-Alias -Name GML-GetComputeAccess -Value Get-GMLComputeAccess
 Set-Alias -Name GML-GetComputeAuthToken -Value Get-GMLComputeAuthToken
 Set-Alias -Name GML-GetGameSessionLogUrl -Value Get-GMLGameSessionLogUrl
 Set-Alias -Name GML-GetInstanceAccess -Value Get-GMLInstanceAccess
+Set-Alias -Name Get-GMLPlayerConnectionDetails -Value Get-GMLPlayerConnectionDetail
+Set-Alias -Name GML-GetPlayerConnectionDetails -Value Get-GMLPlayerConnectionDetail
 Set-Alias -Name List-GMLAliases -Value Get-GMLAlias
 Set-Alias -Name List-GMLAlias -Value Get-GMLAlias
 Set-Alias -Name GML-ListAliases -Value Get-GMLAlias

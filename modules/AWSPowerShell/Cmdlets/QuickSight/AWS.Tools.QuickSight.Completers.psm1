@@ -157,6 +157,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_AmazonSThreeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Analysis") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Analysis") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ApproveFlowShareRequest") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ApproveFlowShareRequest") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_AsanaAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_AsanaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Automate") -Or
@@ -165,6 +167,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_BambooHRAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_BoxAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_BoxAgentAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_BuildCalculatedFieldWithQ") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_BuildCalculatedFieldWithQ") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CanvaAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CanvaAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ChatAgent") -Or
@@ -273,12 +277,16 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateZendeskAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateChatAgent") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateChatAgent") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateDashboardExecutiveSummaryWithQ") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateDashboardExecutiveSummaryWithQ") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Dashboard") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Dashboard") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_EditVisualWithQ") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_EditVisualWithQ") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ExportToCsv") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToCsv") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ExportToCsvInScheduledReport") -Or
@@ -291,6 +299,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToPdf") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ExportToPdfInScheduledReport") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToPdfInScheduledReport") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Extension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Extension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_FactSetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_FactSetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Flow") -Or
@@ -469,6 +479,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_SubscribeDashboardEmailReport") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_TextractAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_TextractAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Topic") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Topic") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAmazonBedrockARSAction") -Or
@@ -1194,10 +1206,12 @@ $QS_map = @{
     "Capabilities_AmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AmazonSThreeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Analysis"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ApproveFlowShareRequest"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Automate"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_BambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_BoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_BuildCalculatedFieldWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1252,15 +1266,18 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateThresholdAlert"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateDashboardExecutiveSummaryWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSPICEDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Dashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_EditVisualWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToCsv"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToCsvInScheduledReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToExcel"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToExcelInScheduledReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToPdf"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToPdfInScheduledReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Extension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_FactSetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Flow"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GenericHTTPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1350,6 +1367,7 @@ $QS_map = @{
     "Capabilities_Space"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SubscribeDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_TextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Topic"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAgentWebSearch"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
