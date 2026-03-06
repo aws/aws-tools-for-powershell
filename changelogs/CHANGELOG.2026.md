@@ -1,4 +1,12 @@
-﻿### 4.1.1012 (2026-03-04 21:57Z)
+﻿### 4.1.1013 (2026-03-06 00:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1236.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Multi-party Approval
+    * Added cmdlet Start-MPAApprovalTeamBaseline leveraging the StartApprovalTeamBaseline service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMMlflowTrackingServer: added parameters S3BucketOwnerAccountId and S3BucketOwnerVerification.
+    * Modified cmdlet Update-SMMlflowTrackingServer: added parameters S3BucketOwnerAccountId and S3BucketOwnerVerification.
+
+### 4.1.1012 (2026-03-04 21:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1235.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Add-CONNQueueEmailAddress leveraging the AssociateQueueEmailAddresses service API.

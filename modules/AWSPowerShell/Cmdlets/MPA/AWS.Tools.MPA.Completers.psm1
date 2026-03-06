@@ -167,6 +167,7 @@ $MPA_SelectMap = @{
                "Get-MPASessionList",
                "Get-MPAResourceTag",
                "Start-MPAActiveApprovalTeamDeletion",
+               "Start-MPAApprovalTeamBaseline",
                "Add-MPAResourceTag",
                "Remove-MPAResourceTag",
                "Update-MPAApprovalTeam")

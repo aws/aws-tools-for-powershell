@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MPAInactiveApprovalTeamVersion', 
         'Remove-MPAResourceTag', 
         'Start-MPAActiveApprovalTeamDeletion', 
+        'Start-MPAApprovalTeamBaseline', 
         'Stop-MPASession', 
         'Update-MPAApprovalTeam')
 

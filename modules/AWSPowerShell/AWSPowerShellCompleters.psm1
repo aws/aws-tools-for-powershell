@@ -55855,6 +55855,7 @@ $MPA_SelectMap = @{
                "Get-MPASessionList",
                "Get-MPAResourceTag",
                "Start-MPAActiveApprovalTeamDeletion",
+               "Start-MPAApprovalTeamBaseline",
                "Add-MPAResourceTag",
                "Remove-MPAResourceTag",
                "Update-MPAApprovalTeam")
@@ -75555,7 +75556,7 @@ $SP_Completers = {
         # Amazon.SavingsPlans.SavingsPlanProductType
         "Get-SPSavingsPlansOffering/ProductType"
         {
-            $v = "DMS","DocDB","DSQL","DynamoDB","EC2","ElastiCache","Fargate","Keyspaces","Lambda","Neptune","RDS","SageMaker","Timestream"
+            $v = "DMS","DocDB","DSQL","DynamoDB","EC2","ElastiCache","Fargate","Keyspaces","Lambda","Neptune","OpenSearch","RDS","SageMaker","Timestream"
             break
         }
 

@@ -22257,6 +22257,7 @@ Set-Alias -Name List-MPASessionList -Value Get-MPASessionList
 Set-Alias -Name MPA-ListSessions -Value Get-MPASessionList
 Set-Alias -Name MPA-ListTagsForResource -Value Get-MPAResourceTag
 Set-Alias -Name MPA-StartActiveApprovalTeamDeletion -Value Start-MPAActiveApprovalTeamDeletion
+Set-Alias -Name MPA-StartApprovalTeamBaseline -Value Start-MPAApprovalTeamBaseline
 Set-Alias -Name MPA-TagResource -Value Add-MPAResourceTag
 Set-Alias -Name MPA-UntagResource -Value Remove-MPAResourceTag
 Set-Alias -Name MPA-UpdateApprovalTeam -Value Update-MPAApprovalTeam
