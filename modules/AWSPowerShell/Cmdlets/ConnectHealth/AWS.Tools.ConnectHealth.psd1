@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.MPA'
+# Module manifest for module 'AWS.Tools.ConnectHealth'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.MPA.dll'
+    RootModule = 'AWS.Tools.ConnectHealth.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = '5b32ee72-4633-46f7-b574-ae206e4b12cd'
+    GUID = 'f18cd7a8-83a2-457c-ae1b-9af3f29e8379'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The MPA module of AWS Tools for PowerShell lets developers and administrators manage AWS Multi-party Approval from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The ConnectHealth module of AWS Tools for PowerShell lets developers and administrators manage Connect Health from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -58,7 +58,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
 # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.MPA.dll'
+        'AWSSDK.ConnectHealth.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -73,13 +73,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.MPA.Format.ps1xml'
+        'AWS.Tools.ConnectHealth.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.MPA.Completers.psm1',
-        'AWS.Tools.MPA.Aliases.psm1'
+        'AWS.Tools.ConnectHealth.Completers.psm1',
+        'AWS.Tools.ConnectHealth.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -87,28 +87,21 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-MPAResourceTag', 
-        'Get-MPAApprovalTeam', 
-        'Get-MPAApprovalTeamList', 
-        'Get-MPAIdentitySource', 
-        'Get-MPAIdentitySourceList', 
-        'Get-MPAPolicyList', 
-        'Get-MPAPolicyVersion', 
-        'Get-MPAPolicyVersionList', 
-        'Get-MPAResourcePolicy', 
-        'Get-MPAResourcePolicyList', 
-        'Get-MPAResourceTag', 
-        'Get-MPASession', 
-        'Get-MPASessionList', 
-        'New-MPAApprovalTeam', 
-        'New-MPAIdentitySource', 
-        'Remove-MPAIdentitySource', 
-        'Remove-MPAInactiveApprovalTeamVersion', 
-        'Remove-MPAResourceTag', 
-        'Start-MPAActiveApprovalTeamDeletion', 
-        'Start-MPAApprovalTeamBaseline', 
-        'Stop-MPASession', 
-        'Update-MPAApprovalTeam')
+        'Add-CNHResourceTag', 
+        'Disable-CNHSubscription', 
+        'Enable-CNHSubscription', 
+        'Get-CNHDomain', 
+        'Get-CNHDomainList', 
+        'Get-CNHMedicalScribeListeningSession', 
+        'Get-CNHPatientInsightsJob', 
+        'Get-CNHResourceTag', 
+        'Get-CNHSubscription', 
+        'Get-CNHSubscriptionList', 
+        'New-CNHDomain', 
+        'New-CNHSubscription', 
+        'Remove-CNHDomain', 
+        'Remove-CNHResourceTag', 
+        'Start-CNHPatientInsightsJob')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -121,7 +114,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.MPA.dll-Help.xml'
+        'AWS.Tools.ConnectHealth.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

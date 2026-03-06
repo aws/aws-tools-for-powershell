@@ -72,18 +72,46 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Multi-party Approval
+# Argument completions for service Connect Health
 
 
-$MPA_Completers = {
+$CNH_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.MPA.PolicyType
-        "Get-MPAResourcePolicy/PolicyType"
+        # Amazon.ConnectHealth.DomainStatus
+        "Get-CNHDomainList/Status"
         {
-            $v = "AWS_MANAGED","AWS_RAM"
+            $v = "ACTIVE","DELETED","DELETING"
+            break
+        }
+
+        # Amazon.ConnectHealth.InsightsType
+        "Start-CNHPatientInsightsJob/InsightsContext_InsightsType"
+        {
+            $v = "PRE_VISIT"
+            break
+        }
+
+        # Amazon.ConnectHealth.Pronouns
+        "Start-CNHPatientInsightsJob/PatientContext_Pronoun"
+        {
+            $v = "HE_HIM","SHE_HER","THEY_THEM"
+            break
+        }
+
+        # Amazon.ConnectHealth.ProviderRole
+        "Start-CNHPatientInsightsJob/UserContext_Role"
+        {
+            $v = "CLINICIAN"
+            break
+        }
+
+        # Amazon.ConnectHealth.Specialty
+        "Start-CNHPatientInsightsJob/UserContext_Specialty"
+        {
+            $v = "PRIMARY_CARE"
             break
         }
 
@@ -95,16 +123,20 @@ $MPA_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$MPA_map = @{
-    "PolicyType"=@("Get-MPAResourcePolicy")
+$CNH_map = @{
+    "InsightsContext_InsightsType"=@("Start-CNHPatientInsightsJob")
+    "PatientContext_Pronoun"=@("Start-CNHPatientInsightsJob")
+    "Status"=@("Get-CNHDomainList")
+    "UserContext_Role"=@("Start-CNHPatientInsightsJob")
+    "UserContext_Specialty"=@("Start-CNHPatientInsightsJob")
 }
 
-_awsArgumentCompleterRegistration $MPA_Completers $MPA_map
+_awsArgumentCompleterRegistration $CNH_Completers $CNH_map
 
-$MPA_SelectCompleters = {
+$CNH_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MPA.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CNH.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -148,30 +180,23 @@ $MPA_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$MPA_SelectMap = @{
-    "Select"=@("Stop-MPASession",
-               "New-MPAApprovalTeam",
-               "New-MPAIdentitySource",
-               "Remove-MPAIdentitySource",
-               "Remove-MPAInactiveApprovalTeamVersion",
-               "Get-MPAApprovalTeam",
-               "Get-MPAIdentitySource",
-               "Get-MPAPolicyVersion",
-               "Get-MPAResourcePolicy",
-               "Get-MPASession",
-               "Get-MPAApprovalTeamList",
-               "Get-MPAIdentitySourceList",
-               "Get-MPAPolicyList",
-               "Get-MPAPolicyVersionList",
-               "Get-MPAResourcePolicyList",
-               "Get-MPASessionList",
-               "Get-MPAResourceTag",
-               "Start-MPAActiveApprovalTeamDeletion",
-               "Start-MPAApprovalTeamBaseline",
-               "Add-MPAResourceTag",
-               "Remove-MPAResourceTag",
-               "Update-MPAApprovalTeam")
+$CNH_SelectMap = @{
+    "Select"=@("Enable-CNHSubscription",
+               "New-CNHDomain",
+               "New-CNHSubscription",
+               "Disable-CNHSubscription",
+               "Remove-CNHDomain",
+               "Get-CNHDomain",
+               "Get-CNHMedicalScribeListeningSession",
+               "Get-CNHPatientInsightsJob",
+               "Get-CNHSubscription",
+               "Get-CNHDomainList",
+               "Get-CNHSubscriptionList",
+               "Get-CNHResourceTag",
+               "Start-CNHPatientInsightsJob",
+               "Add-CNHResourceTag",
+               "Remove-CNHResourceTag")
 }
 
-_awsArgumentCompleterRegistration $MPA_SelectCompleters $MPA_SelectMap
+_awsArgumentCompleterRegistration $CNH_SelectCompleters $CNH_SelectMap
 

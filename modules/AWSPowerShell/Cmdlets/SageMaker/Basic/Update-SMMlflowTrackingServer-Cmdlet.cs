@@ -69,6 +69,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? AutomaticModelRegistration { get; set; }
         #endregion
         
+        #region Parameter S3BucketOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The new expected Amazon Web Services account ID that owns the Amazon S3 bucket for
+        /// artifact storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3BucketOwnerAccountId { get; set; }
+        #endregion
+        
+        #region Parameter S3BucketOwnerVerification
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable or disable Amazon S3 Bucket Owenrship Verifaction whenever the MLflow
+        /// Tracking Server interacts with Amazon Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? S3BucketOwnerVerification { get; set; }
+        #endregion
+        
         #region Parameter TrackingServerName
         /// <summary>
         /// <para>
@@ -157,6 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.ArtifactStoreUri = this.ArtifactStoreUri;
             context.AutomaticModelRegistration = this.AutomaticModelRegistration;
+            context.S3BucketOwnerAccountId = this.S3BucketOwnerAccountId;
+            context.S3BucketOwnerVerification = this.S3BucketOwnerVerification;
             context.TrackingServerName = this.TrackingServerName;
             #if MODULAR
             if (this.TrackingServerName == null && ParameterWasBound(nameof(this.TrackingServerName)))
@@ -189,6 +213,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.AutomaticModelRegistration != null)
             {
                 request.AutomaticModelRegistration = cmdletContext.AutomaticModelRegistration.Value;
+            }
+            if (cmdletContext.S3BucketOwnerAccountId != null)
+            {
+                request.S3BucketOwnerAccountId = cmdletContext.S3BucketOwnerAccountId;
+            }
+            if (cmdletContext.S3BucketOwnerVerification != null)
+            {
+                request.S3BucketOwnerVerification = cmdletContext.S3BucketOwnerVerification.Value;
             }
             if (cmdletContext.TrackingServerName != null)
             {
@@ -259,6 +291,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String ArtifactStoreUri { get; set; }
             public System.Boolean? AutomaticModelRegistration { get; set; }
+            public System.String S3BucketOwnerAccountId { get; set; }
+            public System.Boolean? S3BucketOwnerVerification { get; set; }
             public System.String TrackingServerName { get; set; }
             public Amazon.SageMaker.TrackingServerSize TrackingServerSize { get; set; }
             public System.String WeeklyMaintenanceWindowStart { get; set; }

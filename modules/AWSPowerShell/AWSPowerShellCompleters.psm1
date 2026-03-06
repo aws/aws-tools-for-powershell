@@ -21279,6 +21279,133 @@ $CCAS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CCAS_SelectCompleters $CCAS_SelectMap
+# Argument completions for service Connect Health
+
+
+$CNH_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ConnectHealth.DomainStatus
+        "Get-CNHDomainList/Status"
+        {
+            $v = "ACTIVE","DELETED","DELETING"
+            break
+        }
+
+        # Amazon.ConnectHealth.InsightsType
+        "Start-CNHPatientInsightsJob/InsightsContext_InsightsType"
+        {
+            $v = "PRE_VISIT"
+            break
+        }
+
+        # Amazon.ConnectHealth.Pronouns
+        "Start-CNHPatientInsightsJob/PatientContext_Pronoun"
+        {
+            $v = "HE_HIM","SHE_HER","THEY_THEM"
+            break
+        }
+
+        # Amazon.ConnectHealth.ProviderRole
+        "Start-CNHPatientInsightsJob/UserContext_Role"
+        {
+            $v = "CLINICIAN"
+            break
+        }
+
+        # Amazon.ConnectHealth.Specialty
+        "Start-CNHPatientInsightsJob/UserContext_Specialty"
+        {
+            $v = "PRIMARY_CARE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CNH_map = @{
+    "InsightsContext_InsightsType"=@("Start-CNHPatientInsightsJob")
+    "PatientContext_Pronoun"=@("Start-CNHPatientInsightsJob")
+    "Status"=@("Get-CNHDomainList")
+    "UserContext_Role"=@("Start-CNHPatientInsightsJob")
+    "UserContext_Specialty"=@("Start-CNHPatientInsightsJob")
+}
+
+_awsArgumentCompleterRegistration $CNH_Completers $CNH_map
+
+$CNH_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CNH.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CNH_SelectMap = @{
+    "Select"=@("Enable-CNHSubscription",
+               "New-CNHDomain",
+               "New-CNHSubscription",
+               "Disable-CNHSubscription",
+               "Remove-CNHDomain",
+               "Get-CNHDomain",
+               "Get-CNHMedicalScribeListeningSession",
+               "Get-CNHPatientInsightsJob",
+               "Get-CNHSubscription",
+               "Get-CNHDomainList",
+               "Get-CNHSubscriptionList",
+               "Get-CNHResourceTag",
+               "Start-CNHPatientInsightsJob",
+               "Add-CNHResourceTag",
+               "Remove-CNHResourceTag")
+}
+
+_awsArgumentCompleterRegistration $CNH_SelectCompleters $CNH_SelectMap
 # Argument completions for service Amazon Connect Participant Service
 
 
@@ -55809,6 +55936,7 @@ $MPA_SelectMap = @{
                "Get-MPASessionList",
                "Get-MPAResourceTag",
                "Start-MPAActiveApprovalTeamDeletion",
+               "Start-MPAApprovalTeamBaseline",
                "Add-MPAResourceTag",
                "Remove-MPAResourceTag",
                "Update-MPAApprovalTeam")
@@ -75520,7 +75648,7 @@ $SP_Completers = {
         # Amazon.SavingsPlans.SavingsPlanProductType
         "Get-SPSavingsPlansOffering/ProductType"
         {
-            $v = "DMS","DocDB","DSQL","DynamoDB","EC2","ElastiCache","Fargate","Keyspaces","Lambda","Neptune","RDS","SageMaker","Timestream"
+            $v = "DMS","DocDB","DSQL","DynamoDB","EC2","ElastiCache","Fargate","Keyspaces","Lambda","Neptune","OpenSearch","RDS","SageMaker","Timestream"
             break
         }
 

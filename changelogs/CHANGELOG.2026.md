@@ -1,4 +1,13 @@
-﻿### 5.0.167 (2026-03-04 21:33Z)
+﻿### 5.0.168 (2026-03-06 00:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.204.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Health. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CNH and can be listed using the command 'Get-AWSCmdletName -Service CNH'.
+  * Amazon Multi-party Approval
+    * Added cmdlet Start-MPAApprovalTeamBaseline leveraging the StartApprovalTeamBaseline service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMMlflowTrackingServer: added parameters S3BucketOwnerAccountId and S3BucketOwnerVerification.
+    * Modified cmdlet Update-SMMlflowTrackingServer: added parameters S3BucketOwnerAccountId and S3BucketOwnerVerification.
+
+### 5.0.167 (2026-03-04 21:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.203.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Add-CONNQueueEmailAddress leveraging the AssociateQueueEmailAddresses service API.

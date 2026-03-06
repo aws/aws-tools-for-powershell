@@ -391,6 +391,9 @@
     <Reference Include="AWSSDK.ConnectContactLens">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectContactLens.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ConnectHealth">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectHealth.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ConnectParticipant">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectParticipant.dll</HintPath>
     </Reference>
@@ -1635,6 +1638,9 @@
     </Reference>
     <Reference Include="AWSSDK.ConnectContactLens">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectContactLens.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ConnectHealth">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectHealth.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConnectParticipant">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectParticipant.dll</HintPath>

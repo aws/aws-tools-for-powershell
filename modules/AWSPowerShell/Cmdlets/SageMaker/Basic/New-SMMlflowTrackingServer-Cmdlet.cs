@@ -111,6 +111,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter S3BucketOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>Expected Amazon Web Services account ID that owns the Amazon S3 bucket for artifact
+        /// storage. Defaults to caller's account ID if not provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3BucketOwnerAccountId { get; set; }
+        #endregion
+        
+        #region Parameter S3BucketOwnerVerification
+        /// <summary>
+        /// <para>
+        /// <para>Enable Amazon S3 Ownership checks when interacting with Amazon S3 buckets from a SageMaker
+        /// Managed MLflow Tracking Server. Defaults to <c>True</c> if not provided. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? S3BucketOwnerVerification { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -234,6 +256,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.S3BucketOwnerAccountId = this.S3BucketOwnerAccountId;
+            context.S3BucketOwnerVerification = this.S3BucketOwnerVerification;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -278,6 +302,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.S3BucketOwnerAccountId != null)
+            {
+                request.S3BucketOwnerAccountId = cmdletContext.S3BucketOwnerAccountId;
+            }
+            if (cmdletContext.S3BucketOwnerVerification != null)
+            {
+                request.S3BucketOwnerVerification = cmdletContext.S3BucketOwnerVerification.Value;
             }
             if (cmdletContext.Tag != null)
             {
@@ -354,6 +386,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Boolean? AutomaticModelRegistration { get; set; }
             public System.String MlflowVersion { get; set; }
             public System.String RoleArn { get; set; }
+            public System.String S3BucketOwnerAccountId { get; set; }
+            public System.Boolean? S3BucketOwnerVerification { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String TrackingServerName { get; set; }
             public Amazon.SageMaker.TrackingServerSize TrackingServerSize { get; set; }

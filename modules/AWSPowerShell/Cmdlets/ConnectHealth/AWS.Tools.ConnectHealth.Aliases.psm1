@@ -1,0 +1,3 @@
+﻿# ConnectHealth
+
+Export-ModuleMember -Alias *
