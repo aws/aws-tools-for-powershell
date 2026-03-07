@@ -54,6 +54,21 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String ConfigId { get; set; }
         #endregion
         
+        #region Parameter GuardrailInferenceConfig_ModelEnforcement_ExcludedModel
+        /// <summary>
+        /// <para>
+        /// <para>Models to exclude from enforcement of the guardrail.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GuardrailInferenceConfig_ModelEnforcement_ExcludedModels")]
+        public System.String[] GuardrailInferenceConfig_ModelEnforcement_ExcludedModel { get; set; }
+        #endregion
+        
         #region Parameter GuardrailInferenceConfig_GuardrailIdentifier
         /// <summary>
         /// <para>
@@ -86,6 +101,21 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GuardrailInferenceConfig_GuardrailVersion { get; set; }
+        #endregion
+        
+        #region Parameter GuardrailInferenceConfig_ModelEnforcement_IncludedModel
+        /// <summary>
+        /// <para>
+        /// <para>Models to enforce the guardrail on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GuardrailInferenceConfig_ModelEnforcement_IncludedModels")]
+        public System.String[] GuardrailInferenceConfig_ModelEnforcement_IncludedModel { get; set; }
         #endregion
         
         #region Parameter GuardrailInferenceConfig_InputTag
@@ -174,6 +204,14 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 WriteWarning("You are passing $null as a value for parameter GuardrailInferenceConfig_InputTag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.GuardrailInferenceConfig_ModelEnforcement_ExcludedModel != null)
+            {
+                context.GuardrailInferenceConfig_ModelEnforcement_ExcludedModel = new List<System.String>(this.GuardrailInferenceConfig_ModelEnforcement_ExcludedModel);
+            }
+            if (this.GuardrailInferenceConfig_ModelEnforcement_IncludedModel != null)
+            {
+                context.GuardrailInferenceConfig_ModelEnforcement_IncludedModel = new List<System.String>(this.GuardrailInferenceConfig_ModelEnforcement_IncludedModel);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -226,6 +264,41 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestGuardrailInferenceConfig_guardrailInferenceConfig_InputTag != null)
             {
                 request.GuardrailInferenceConfig.InputTags = requestGuardrailInferenceConfig_guardrailInferenceConfig_InputTag;
+                requestGuardrailInferenceConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.ModelEnforcement requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement = null;
+            
+             // populate ModelEnforcement
+            var requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcementIsNull = true;
+            requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement = new Amazon.Bedrock.Model.ModelEnforcement();
+            List<System.String> requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement_guardrailInferenceConfig_ModelEnforcement_ExcludedModel = null;
+            if (cmdletContext.GuardrailInferenceConfig_ModelEnforcement_ExcludedModel != null)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement_guardrailInferenceConfig_ModelEnforcement_ExcludedModel = cmdletContext.GuardrailInferenceConfig_ModelEnforcement_ExcludedModel;
+            }
+            if (requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement_guardrailInferenceConfig_ModelEnforcement_ExcludedModel != null)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement.ExcludedModels = requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement_guardrailInferenceConfig_ModelEnforcement_ExcludedModel;
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcementIsNull = false;
+            }
+            List<System.String> requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement_guardrailInferenceConfig_ModelEnforcement_IncludedModel = null;
+            if (cmdletContext.GuardrailInferenceConfig_ModelEnforcement_IncludedModel != null)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement_guardrailInferenceConfig_ModelEnforcement_IncludedModel = cmdletContext.GuardrailInferenceConfig_ModelEnforcement_IncludedModel;
+            }
+            if (requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement_guardrailInferenceConfig_ModelEnforcement_IncludedModel != null)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement.IncludedModels = requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement_guardrailInferenceConfig_ModelEnforcement_IncludedModel;
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcementIsNull = false;
+            }
+             // determine if requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement should be set to null
+            if (requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcementIsNull)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement = null;
+            }
+            if (requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement != null)
+            {
+                request.GuardrailInferenceConfig.ModelEnforcement = requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement;
                 requestGuardrailInferenceConfigIsNull = false;
             }
              // determine if request.GuardrailInferenceConfig should be set to null
@@ -292,6 +365,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String GuardrailInferenceConfig_GuardrailIdentifier { get; set; }
             public System.String GuardrailInferenceConfig_GuardrailVersion { get; set; }
             public Amazon.Bedrock.InputTags GuardrailInferenceConfig_InputTag { get; set; }
+            public List<System.String> GuardrailInferenceConfig_ModelEnforcement_ExcludedModel { get; set; }
+            public List<System.String> GuardrailInferenceConfig_ModelEnforcement_IncludedModel { get; set; }
             public System.Func<Amazon.Bedrock.Model.PutEnforcedGuardrailConfigurationResponse, WriteBDREnforcedGuardrailConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CostScaleFactor
+        /// <summary>
+        /// <para>
+        /// <para>The cost scale factor of the farm to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? CostScaleFactor { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -129,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 context.Select = CreateSelectDelegate<Amazon.Deadline.Model.UpdateFarmResponse, UpdateADCFarmCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CostScaleFactor = this.CostScaleFactor;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.FarmId = this.FarmId;
@@ -154,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             // create request
             var request = new Amazon.Deadline.Model.UpdateFarmRequest();
             
+            if (cmdletContext.CostScaleFactor != null)
+            {
+                request.CostScaleFactor = cmdletContext.CostScaleFactor.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -221,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Single? CostScaleFactor { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String FarmId { get; set; }

@@ -1,4 +1,18 @@
-﻿### 5.0.168 (2026-03-06 00:15Z)
+﻿### 5.0.169 (2026-03-07 00:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.205.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCFarm: added parameter CostScaleFactor.
+    * Modified cmdlet Update-ADCFarm: added parameter CostScaleFactor.
+  * Amazon Bedrock
+    * Modified cmdlet Write-BDREnforcedGuardrailConfiguration: added parameters GuardrailInferenceConfig_ModelEnforcement_ExcludedModel and GuardrailInferenceConfig_ModelEnforcement_IncludedModel.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCMemory: added parameter StreamDeliveryResources_Resource.
+    * Modified cmdlet Update-BACCMemory: added parameter StreamDeliveryResources_Resource.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNTestCase: added parameter EntryPoint_ChatEntryPointParameters_FlowId.
+    * Modified cmdlet Update-CONNTestCase: added parameter EntryPoint_ChatEntryPointParameters_FlowId.
+
+### 5.0.168 (2026-03-06 00:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.204.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Health. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CNH and can be listed using the command 'Get-AWSCmdletName -Service CNH'.
   * Amazon Multi-party Approval

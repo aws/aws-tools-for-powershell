@@ -125,6 +125,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter StreamDeliveryResources_Resource
+        /// <summary>
+        /// <para>
+        /// <para>List of stream delivery resource configurations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamDeliveryResources_Resources")]
+        public Amazon.BedrockAgentCoreControl.Model.StreamDeliveryResource[] StreamDeliveryResources_Resource { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -221,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.StreamDeliveryResources_Resource != null)
+            {
+                context.StreamDeliveryResources_Resource = new List<Amazon.BedrockAgentCoreControl.Model.StreamDeliveryResource>(this.StreamDeliveryResources_Resource);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -272,6 +291,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate StreamDeliveryResources
+            var requestStreamDeliveryResourcesIsNull = true;
+            request.StreamDeliveryResources = new Amazon.BedrockAgentCoreControl.Model.StreamDeliveryResources();
+            List<Amazon.BedrockAgentCoreControl.Model.StreamDeliveryResource> requestStreamDeliveryResources_streamDeliveryResources_Resource = null;
+            if (cmdletContext.StreamDeliveryResources_Resource != null)
+            {
+                requestStreamDeliveryResources_streamDeliveryResources_Resource = cmdletContext.StreamDeliveryResources_Resource;
+            }
+            if (requestStreamDeliveryResources_streamDeliveryResources_Resource != null)
+            {
+                request.StreamDeliveryResources.Resources = requestStreamDeliveryResources_streamDeliveryResources_Resource;
+                requestStreamDeliveryResourcesIsNull = false;
+            }
+             // determine if request.StreamDeliveryResources should be set to null
+            if (requestStreamDeliveryResourcesIsNull)
+            {
+                request.StreamDeliveryResources = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -339,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String MemoryExecutionRoleArn { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.MemoryStrategyInput> MemoryStrategy { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.StreamDeliveryResource> StreamDeliveryResources_Resource { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateMemoryResponse, NewBACCMemoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Memory;
