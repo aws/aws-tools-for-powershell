@@ -74,6 +74,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String EntryPoint_VoiceCallEntryPointParameters_DestinationPhoneNumber { get; set; }
         #endregion
         
+        #region Parameter EntryPoint_ChatEntryPointParameters_FlowId
+        /// <summary>
+        /// <para>
+        /// <para>The flow identifier for the test.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EntryPoint_ChatEntryPointParameters_FlowId { get; set; }
+        #endregion
+        
         #region Parameter EntryPoint_VoiceCallEntryPointParameters_FlowId
         /// <summary>
         /// <para>
@@ -235,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             context.Content = this.Content;
             context.Description = this.Description;
+            context.EntryPoint_ChatEntryPointParameters_FlowId = this.EntryPoint_ChatEntryPointParameters_FlowId;
             context.EntryPoint_Type = this.EntryPoint_Type;
             context.EntryPoint_VoiceCallEntryPointParameters_DestinationPhoneNumber = this.EntryPoint_VoiceCallEntryPointParameters_DestinationPhoneNumber;
             context.EntryPoint_VoiceCallEntryPointParameters_FlowId = this.EntryPoint_VoiceCallEntryPointParameters_FlowId;
@@ -294,6 +305,31 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestEntryPoint_entryPoint_Type != null)
             {
                 request.EntryPoint.Type = requestEntryPoint_entryPoint_Type;
+                requestEntryPointIsNull = false;
+            }
+            Amazon.Connect.Model.ChatEntryPointParameters requestEntryPoint_entryPoint_ChatEntryPointParameters = null;
+            
+             // populate ChatEntryPointParameters
+            var requestEntryPoint_entryPoint_ChatEntryPointParametersIsNull = true;
+            requestEntryPoint_entryPoint_ChatEntryPointParameters = new Amazon.Connect.Model.ChatEntryPointParameters();
+            System.String requestEntryPoint_entryPoint_ChatEntryPointParameters_entryPoint_ChatEntryPointParameters_FlowId = null;
+            if (cmdletContext.EntryPoint_ChatEntryPointParameters_FlowId != null)
+            {
+                requestEntryPoint_entryPoint_ChatEntryPointParameters_entryPoint_ChatEntryPointParameters_FlowId = cmdletContext.EntryPoint_ChatEntryPointParameters_FlowId;
+            }
+            if (requestEntryPoint_entryPoint_ChatEntryPointParameters_entryPoint_ChatEntryPointParameters_FlowId != null)
+            {
+                requestEntryPoint_entryPoint_ChatEntryPointParameters.FlowId = requestEntryPoint_entryPoint_ChatEntryPointParameters_entryPoint_ChatEntryPointParameters_FlowId;
+                requestEntryPoint_entryPoint_ChatEntryPointParametersIsNull = false;
+            }
+             // determine if requestEntryPoint_entryPoint_ChatEntryPointParameters should be set to null
+            if (requestEntryPoint_entryPoint_ChatEntryPointParametersIsNull)
+            {
+                requestEntryPoint_entryPoint_ChatEntryPointParameters = null;
+            }
+            if (requestEntryPoint_entryPoint_ChatEntryPointParameters != null)
+            {
+                request.EntryPoint.ChatEntryPointParameters = requestEntryPoint_entryPoint_ChatEntryPointParameters;
                 requestEntryPointIsNull = false;
             }
             Amazon.Connect.Model.VoiceCallEntryPointParameters requestEntryPoint_entryPoint_VoiceCallEntryPointParameters = null;
@@ -437,6 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             public System.String Content { get; set; }
             public System.String Description { get; set; }
+            public System.String EntryPoint_ChatEntryPointParameters_FlowId { get; set; }
             public Amazon.Connect.TestCaseEntryPointType EntryPoint_Type { get; set; }
             public System.String EntryPoint_VoiceCallEntryPointParameters_DestinationPhoneNumber { get; set; }
             public System.String EntryPoint_VoiceCallEntryPointParameters_FlowId { get; set; }

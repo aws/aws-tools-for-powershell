@@ -728,7 +728,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNTestCase/EntryPoint_Type")
         }
         {
-            $v = "VOICE_CALL"
+            $v = "CHAT","VOICE_CALL"
             break
         }
 

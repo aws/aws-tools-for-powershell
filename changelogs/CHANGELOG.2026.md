@@ -1,4 +1,18 @@
-﻿### 4.1.1013 (2026-03-06 00:25Z)
+﻿### 4.1.1014 (2026-03-07 00:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1237.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCFarm: added parameter CostScaleFactor.
+    * Modified cmdlet Update-ADCFarm: added parameter CostScaleFactor.
+  * Amazon Bedrock
+    * Modified cmdlet Write-BDREnforcedGuardrailConfiguration: added parameters GuardrailInferenceConfig_ModelEnforcement_ExcludedModel and GuardrailInferenceConfig_ModelEnforcement_IncludedModel.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCMemory: added parameter StreamDeliveryResources_Resource.
+    * Modified cmdlet Update-BACCMemory: added parameter StreamDeliveryResources_Resource.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNTestCase: added parameter EntryPoint_ChatEntryPointParameters_FlowId.
+    * Modified cmdlet Update-CONNTestCase: added parameter EntryPoint_ChatEntryPointParameters_FlowId.
+
+### 4.1.1013 (2026-03-06 00:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1236.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Multi-party Approval
     * Added cmdlet Start-MPAApprovalTeamBaseline leveraging the StartApprovalTeamBaseline service API.

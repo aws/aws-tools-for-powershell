@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CostScaleFactor
+        /// <summary>
+        /// <para>
+        /// <para>The cost scale factor to apply on the farm.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? CostScaleFactor { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -171,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.CostScaleFactor = this.CostScaleFactor;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             #if MODULAR
@@ -207,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.CostScaleFactor != null)
+            {
+                request.CostScaleFactor = cmdletContext.CostScaleFactor.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -286,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Single? CostScaleFactor { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String KmsKeyArn { get; set; }

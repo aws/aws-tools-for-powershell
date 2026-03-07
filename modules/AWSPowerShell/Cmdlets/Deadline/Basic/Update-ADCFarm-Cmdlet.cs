@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CostScaleFactor
+        /// <summary>
+        /// <para>
+        /// <para>The cost scale factor of the farm to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? CostScaleFactor { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -144,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 context.Select = (response, cmdlet) => this.FarmId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CostScaleFactor = this.CostScaleFactor;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.FarmId = this.FarmId;
@@ -169,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             // create request
             var request = new Amazon.Deadline.Model.UpdateFarmRequest();
             
+            if (cmdletContext.CostScaleFactor != null)
+            {
+                request.CostScaleFactor = cmdletContext.CostScaleFactor.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -242,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Single? CostScaleFactor { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String FarmId { get; set; }

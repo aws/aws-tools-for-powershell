@@ -93,8 +93,6 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// client connects before the timeout, Amazon GameLift Streams terminates the stream
     /// session. This value is specified by <c>ConnectionTimeoutSeconds</c> in the <c>StartStreamSession</c>
     /// parameters.
-    /// </para></li><li><para><b>Idle timeout</b>: A stream session will be terminated if no user input has been
-    /// received for 60 minutes.
     /// </para></li><li><para><b>Maximum session length</b>: A stream session will be terminated after this amount
     /// of time has elapsed since it started, regardless of any existing client connections.
     /// This value is specified by <c>SessionLengthSeconds</c> in the <c>StartStreamSession</c>
