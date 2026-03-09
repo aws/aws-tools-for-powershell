@@ -1,4 +1,17 @@
-﻿### 5.0.169 (2026-03-07 00:33Z)
+﻿### 5.0.170 (2026-03-09 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.206.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Application Migration Service
+    * Modified cmdlet New-MGNReplicationConfigurationTemplate: added parameter StoreSnapshotOnLocalZone.
+    * Modified cmdlet Update-MGNReplicationConfiguration: added parameter StoreSnapshotOnLocalZone.
+    * Modified cmdlet Update-MGNReplicationConfigurationTemplate: added parameter StoreSnapshotOnLocalZone.
+  * Amazon OpenSearch Service
+    * Modified cmdlet Add-OSDirectQueryDataSource: added parameter DataSourceAccessPolicy.
+    * Modified cmdlet Update-OSDirectQueryDataSource: added parameter DataSourceAccessPolicy.
+  * Amazon Route 53 Global Resolver
+    * Modified cmdlet New-R53GRGlobalResolver: added parameter IpAddressType.
+    * Modified cmdlet Update-R53GRGlobalResolver: added parameter IpAddressType.
+
+### 5.0.169 (2026-03-07 00:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.205.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet New-ADCFarm: added parameter CostScaleFactor.

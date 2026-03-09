@@ -33,6 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
     /// Creates a firewall domain list. Domain lists are reusable sets of domain specifications
     /// that you use in DNS firewall rules to allow, block, or alert on DNS queries to specific
     /// domains.
+    /// 
+    ///  <important><para>
+    /// Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon
+    /// Web Services Regions but you must specify the US East (Ohio) Region to create, update,
+    /// or otherwise work with Route 53 Global Resolver resources. That is, for example, specify
+    /// <c>--region us-east-2</c> on Amazon Web Services CLI commands.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "R53GRFirewallDomainList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53GlobalResolver.Model.CreateFirewallDomainListResponse")]

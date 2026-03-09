@@ -246,6 +246,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Collections.Hashtable StagingAreaTag { get; set; }
         #endregion
         
+        #region Parameter StoreSnapshotOnLocalZone
+        /// <summary>
+        /// <para>
+        /// <para>Request to store snapshot on local zone during Replication Settings template creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StoreSnapshotOnLocalZone { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -416,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 WriteWarning("You are passing $null as a value for parameter StagingAreaTag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StoreSnapshotOnLocalZone = this.StoreSnapshotOnLocalZone;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -496,6 +507,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 request.StagingAreaTags = cmdletContext.StagingAreaTag;
             }
+            if (cmdletContext.StoreSnapshotOnLocalZone != null)
+            {
+                request.StoreSnapshotOnLocalZone = cmdletContext.StoreSnapshotOnLocalZone.Value;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -575,6 +590,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public List<System.String> ReplicationServersSecurityGroupsIDs { get; set; }
             public System.String StagingAreaSubnetId { get; set; }
             public Dictionary<System.String, System.String> StagingAreaTag { get; set; }
+            public System.Boolean? StoreSnapshotOnLocalZone { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Boolean? UseDedicatedReplicationServer { get; set; }
             public System.Boolean? UseFipsEndpoint { get; set; }

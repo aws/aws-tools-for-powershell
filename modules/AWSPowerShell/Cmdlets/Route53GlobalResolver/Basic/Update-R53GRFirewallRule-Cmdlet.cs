@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
 {
     /// <summary>
     /// Updates the configuration of a DNS firewall rule.
+    /// 
+    ///  <important><para>
+    /// Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon
+    /// Web Services Regions but you must specify the US East (Ohio) Region to create, update,
+    /// or otherwise work with Route 53 Global Resolver resources. That is, for example, specify
+    /// <c>--region us-east-2</c> on Amazon Web Services CLI commands.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "R53GRFirewallRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53GlobalResolver.Model.UpdateFirewallRuleResponse")]
@@ -129,7 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         #region Parameter DnsAdvancedProtection
         /// <summary>
         /// <para>
-        /// <para>The type of the DNS Firewall Advanced rule. Valid values are DGA and DNS_TUNNELING.</para>
+        /// <para>The type of the DNS Firewall Advanced rule. Valid values are DGA, DNS_TUNNELING, and
+        /// DICTIONARY_DGA.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -230,6 +230,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Collections.Hashtable StagingAreaTag { get; set; }
         #endregion
         
+        #region Parameter StoreSnapshotOnLocalZone
+        /// <summary>
+        /// <para>
+        /// <para>Update replication configuration store snapshot on local zone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StoreSnapshotOnLocalZone { get; set; }
+        #endregion
+        
         #region Parameter UseDedicatedReplicationServer
         /// <summary>
         /// <para>
@@ -331,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                     context.StagingAreaTag.Add((String)hashKey, (System.String)(this.StagingAreaTag[hashKey]));
                 }
             }
+            context.StoreSnapshotOnLocalZone = this.StoreSnapshotOnLocalZone;
             context.UseDedicatedReplicationServer = this.UseDedicatedReplicationServer;
             context.UseFipsEndpoint = this.UseFipsEndpoint;
             
@@ -413,6 +424,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 request.StagingAreaTags = cmdletContext.StagingAreaTag;
             }
+            if (cmdletContext.StoreSnapshotOnLocalZone != null)
+            {
+                request.StoreSnapshotOnLocalZone = cmdletContext.StoreSnapshotOnLocalZone.Value;
+            }
             if (cmdletContext.UseDedicatedReplicationServer != null)
             {
                 request.UseDedicatedReplicationServer = cmdletContext.UseDedicatedReplicationServer.Value;
@@ -492,6 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String SourceServerID { get; set; }
             public System.String StagingAreaSubnetId { get; set; }
             public Dictionary<System.String, System.String> StagingAreaTag { get; set; }
+            public System.Boolean? StoreSnapshotOnLocalZone { get; set; }
             public System.Boolean? UseDedicatedReplicationServer { get; set; }
             public System.Boolean? UseFipsEndpoint { get; set; }
             public System.Func<Amazon.Mgn.Model.UpdateReplicationConfigurationResponse, UpdateMGNReplicationConfigurationCmdlet, object> Select { get; set; } =

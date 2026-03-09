@@ -32,6 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
     /// <summary>
     /// Adds or updates tags for a Route 53 Global Resolver resource. Tags are key-value pairs
     /// that help you organize and identify your resources.
+    /// 
+    ///  <important><para>
+    /// Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon
+    /// Web Services Regions but you must specify the US East (Ohio) Region to create, update,
+    /// or otherwise work with Route 53 Global Resolver resources. That is, for example, specify
+    /// <c>--region us-east-2</c> on Amazon Web Services CLI commands.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Add", "R53GRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

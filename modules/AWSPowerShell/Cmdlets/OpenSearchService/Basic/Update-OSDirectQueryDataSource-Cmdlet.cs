@@ -46,6 +46,19 @@ namespace Amazon.PowerShell.Cmdlets.OS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DataSourceAccessPolicy
+        /// <summary>
+        /// <para>
+        /// <para> An optional IAM access policy document that defines the updated permissions for accessing
+        /// the direct query data source. The policy document must be in valid JSON format and
+        /// follow IAM policy syntax. If not specified, the existing access policy if present
+        /// remains unchanged. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceAccessPolicy { get; set; }
+        #endregion
+        
         #region Parameter DataSourceName
         /// <summary>
         /// <para>
@@ -168,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.UpdateDirectQueryDataSourceResponse, UpdateOSDirectQueryDataSourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DataSourceAccessPolicy = this.DataSourceAccessPolicy;
             context.DataSourceName = this.DataSourceName;
             #if MODULAR
             if (this.DataSourceName == null && ParameterWasBound(nameof(this.DataSourceName)))
@@ -204,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             // create request
             var request = new Amazon.OpenSearchService.Model.UpdateDirectQueryDataSourceRequest();
             
+            if (cmdletContext.DataSourceAccessPolicy != null)
+            {
+                request.DataSourceAccessPolicy = cmdletContext.DataSourceAccessPolicy;
+            }
             if (cmdletContext.DataSourceName != null)
             {
                 request.DataSourceName = cmdletContext.DataSourceName;
@@ -330,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DataSourceAccessPolicy { get; set; }
             public System.String DataSourceName { get; set; }
             public System.String CloudWatchLog_RoleArn { get; set; }
             public System.String SecurityLake_RoleArn { get; set; }
