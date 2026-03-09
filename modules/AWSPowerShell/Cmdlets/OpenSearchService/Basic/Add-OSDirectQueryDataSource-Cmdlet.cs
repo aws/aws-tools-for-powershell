@@ -43,6 +43,18 @@ namespace Amazon.PowerShell.Cmdlets.OS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DataSourceAccessPolicy
+        /// <summary>
+        /// <para>
+        /// <para> An optional IAM access policy document that defines the permissions for accessing
+        /// the data source. The policy document must be in valid JSON format and follow IAM policy
+        /// syntax.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceAccessPolicy { get; set; }
+        #endregion
+        
         #region Parameter DataSourceName
         /// <summary>
         /// <para>
@@ -187,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 context.Select = (response, cmdlet) => this.DataSourceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DataSourceAccessPolicy = this.DataSourceAccessPolicy;
             context.DataSourceName = this.DataSourceName;
             #if MODULAR
             if (this.DataSourceName == null && ParameterWasBound(nameof(this.DataSourceName)))
@@ -227,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             // create request
             var request = new Amazon.OpenSearchService.Model.AddDirectQueryDataSourceRequest();
             
+            if (cmdletContext.DataSourceAccessPolicy != null)
+            {
+                request.DataSourceAccessPolicy = cmdletContext.DataSourceAccessPolicy;
+            }
             if (cmdletContext.DataSourceName != null)
             {
                 request.DataSourceName = cmdletContext.DataSourceName;
@@ -363,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DataSourceAccessPolicy { get; set; }
             public System.String DataSourceName { get; set; }
             public System.String CloudWatchLog_RoleArn { get; set; }
             public System.String SecurityLake_RoleArn { get; set; }

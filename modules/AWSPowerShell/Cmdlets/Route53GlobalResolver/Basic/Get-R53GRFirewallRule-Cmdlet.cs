@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
 {
     /// <summary>
     /// Retrieves information about a DNS firewall rule.
+    /// 
+    ///  <important><para>
+    /// Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon
+    /// Web Services Regions but you must specify the US East (Ohio) Region to create, update,
+    /// or otherwise work with Route 53 Global Resolver resources. That is, for example, specify
+    /// <c>--region us-east-2</c> on Amazon Web Services CLI commands.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "R53GRFirewallRule")]
     [OutputType("Amazon.Route53GlobalResolver.Model.GetFirewallRuleResponse")]

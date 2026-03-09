@@ -28,7 +28,14 @@ using Amazon.Route53GlobalResolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53GR
 {
     /// <summary>
-    /// Lists all the domains in DNS Firewall domain list you have created.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the domains in DNS Firewall domain list you have created.
+    /// 
+    ///  <important><para>
+    /// Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon
+    /// Web Services Regions but you must specify the US East (Ohio) Region to create, update,
+    /// or otherwise work with Route 53 Global Resolver resources. That is, for example, specify
+    /// <c>--region us-east-2</c> on Amazon Web Services CLI commands.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53GRFirewallDomain")]
     [OutputType("System.String")]

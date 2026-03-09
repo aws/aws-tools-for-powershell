@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1237.0",
+    "ProductVersion"    : "3.7.1238.0",
     "CoreVersion"       : "3.7.500.88",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -212,7 +212,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "3.7.507.36",
+            "Version" : "3.7.507.37",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.88"
@@ -1932,7 +1932,7 @@
             "InPreview"               : false
         },
         "Mgn"                             : {
-            "Version" : "3.7.503.34",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.88"
@@ -2060,7 +2060,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "3.7.509.2",
+            "Version" : "3.7.510.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.88"
@@ -3284,7 +3284,7 @@
             "InPreview"               : false
         },
         "Route53GlobalResolver"               : {
-            "Version" : "3.7.500.37",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.88"

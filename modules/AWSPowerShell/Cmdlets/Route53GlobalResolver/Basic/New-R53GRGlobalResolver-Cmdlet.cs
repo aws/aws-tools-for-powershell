@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
     /// Creates a new Route 53 Global Resolver instance. A Route 53 Global Resolver is a global,
     /// internet-accessible DNS resolver that provides secure DNS resolution for both public
     /// and private domains through global anycast IP addresses.
+    /// 
+    ///  <important><para>
+    /// Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon
+    /// Web Services Regions but you must specify the US East (Ohio) Region to create, update,
+    /// or otherwise work with Route 53 Global Resolver resources. That is, for example, specify
+    /// <c>--region us-east-2</c> on Amazon Web Services CLI commands.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "R53GRGlobalResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53GlobalResolver.Model.CreateGlobalResolverResponse")]
@@ -54,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the Route 53 Global Resolver. Valid values are IPV4 (default)
+        /// or DUAL_STACK for both IPv4 and IPv6 support.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53GlobalResolver.GlobalResolverIpAddressType")]
+        public Amazon.Route53GlobalResolver.GlobalResolverIpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -75,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         #region Parameter ObservabilityRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS region where query resolution logs and metrics will be aggregated and delivered.
-        /// If not specified, logging is not enabled.</para>
+        /// <para>The Amazon Web Services Region where query resolution logs and metrics will be aggregated
+        /// and delivered. If not specified, logging is not enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         #region Parameter ResolverRegions
         /// <summary>
         /// <para>
-        /// <para>List of AWS regions where the Route 53 Global Resolver will operate. The resolver
-        /// will be distributed across these regions to provide global availability and low-latency
-        /// DNS resolution.</para>
+        /// <para>List of Amazon Web Services Regions where the Route 53 Global Resolver will operate.
+        /// The resolver will be distributed across these Regions to provide global availability
+        /// and low-latency DNS resolution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -189,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -238,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.Name != null)
             {
@@ -318,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public Amazon.Route53GlobalResolver.GlobalResolverIpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public System.String ObservabilityRegion { get; set; }
             public List<System.String> ResolverRegions { get; set; }

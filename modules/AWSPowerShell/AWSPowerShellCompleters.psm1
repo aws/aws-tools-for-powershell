@@ -70519,7 +70519,7 @@ $R53GR_Completers = {
             ($_ -eq "Update-R53GRFirewallRule/DnsAdvancedProtection")
         }
         {
-            $v = "DGA","DNS_TUNNELING"
+            $v = "DGA","DICTIONARY_DGA","DNS_TUNNELING"
             break
         }
 
@@ -70583,6 +70583,16 @@ $R53GR_Completers = {
             break
         }
 
+        # Amazon.Route53GlobalResolver.GlobalResolverIpAddressType
+        {
+            ($_ -eq "New-R53GRGlobalResolver/IpAddressType") -Or
+            ($_ -eq "Update-R53GRGlobalResolver/IpAddressType")
+        }
+        {
+            $v = "DUAL_STACK","IPV4"
+            break
+        }
+
         # Amazon.Route53GlobalResolver.IpAddressType
         {
             ($_ -eq "New-R53GRAccessSource/IpAddressType") -Or
@@ -70610,7 +70620,7 @@ $R53GR_map = @{
     "DnssecValidation"=@("New-R53GRDNSView","Update-R53GRDNSView")
     "EdnsClientSubnet"=@("New-R53GRDNSView","Update-R53GRDNSView")
     "FirewallRulesFailOpen"=@("New-R53GRDNSView","Update-R53GRDNSView")
-    "IpAddressType"=@("New-R53GRAccessSource","Update-R53GRAccessSource")
+    "IpAddressType"=@("New-R53GRAccessSource","New-R53GRGlobalResolver","Update-R53GRAccessSource","Update-R53GRGlobalResolver")
     "Protocol"=@("New-R53GRAccessSource","Update-R53GRAccessSource")
 }
 

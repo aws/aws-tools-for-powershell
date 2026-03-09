@@ -29,7 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
 {
     /// <summary>
     /// Updates the configuration of a Route 53 Global Resolver instance. You can modify the
-    /// name, description, and observability region.
+    /// name, description, and observability Region.
+    /// 
+    ///  <important><para>
+    /// Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon
+    /// Web Services Regions but you must specify the US East (Ohio) Region to create, update,
+    /// or otherwise work with Route 53 Global Resolver resources. That is, for example, specify
+    /// <c>--region us-east-2</c> on Amazon Web Services CLI commands.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "R53GRGlobalResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53GlobalResolver.Model.UpdateGlobalResolverResponse")]
@@ -69,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         public System.String GlobalResolverId { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the Global Resolver. Valid values are IPV4 or DUAL_STACK for
+        /// both IPv4 and IPv6 support.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53GlobalResolver.GlobalResolverIpAddressType")]
+        public Amazon.Route53GlobalResolver.GlobalResolverIpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -82,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         #region Parameter ObservabilityRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS Regions in which the users' Global Resolver query resolution logs will be
-        /// propagated.</para>
+        /// <para>The Amazon Web Services Regions in which the users' Global Resolver query resolution
+        /// logs will be propagated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
                 WriteWarning("You are passing $null as a value for parameter GlobalResolverId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             context.ObservabilityRegion = this.ObservabilityRegion;
             
@@ -185,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             if (cmdletContext.GlobalResolverId != null)
             {
                 request.GlobalResolverId = cmdletContext.GlobalResolverId;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.Name != null)
             {
@@ -257,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         {
             public System.String Description { get; set; }
             public System.String GlobalResolverId { get; set; }
+            public Amazon.Route53GlobalResolver.GlobalResolverIpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public System.String ObservabilityRegion { get; set; }
             public System.Func<Amazon.Route53GlobalResolver.Model.UpdateGlobalResolverResponse, UpdateR53GRGlobalResolverCmdlet, object> Select { get; set; } =
