@@ -1,4 +1,13 @@
-﻿### 4.1.1015 (2026-03-09 20:43Z)
+﻿### 4.1.1016 (2026-03-10 20:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1239.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Lex Model Building V2
+    * Added cmdlet Get-LMBV2BotAnalyzerHistoryList leveraging the ListBotAnalyzerHistory service API.
+    * Added cmdlet Get-LMBV2BotAnalyzerRecommendationDetail leveraging the DescribeBotAnalyzerRecommendation service API.
+    * Added cmdlet Remove-LMBV2BotAnalyzerRecommendation leveraging the DeleteBotAnalyzerRecommendation service API.
+    * Added cmdlet Start-LMBV2BotAnalyzer leveraging the StartBotAnalyzer service API.
+    * Added cmdlet Stop-LMBV2BotAnalyzer leveraging the StopBotAnalyzer service API.
+
+### 4.1.1015 (2026-03-09 20:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1238.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Migration Service
     * Modified cmdlet New-MGNReplicationConfigurationTemplate: added parameter StoreSnapshotOnLocalZone.

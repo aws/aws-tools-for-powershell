@@ -554,6 +554,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBotAnalyzerRecommendation" Verb="Remove" Noun="BotAnalyzerRecommendation" ShouldProcessTarget="BotAnalyzerRequestId,BotId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBotLocale" OutputProperty="*" Verb="Remove" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -611,6 +615,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeBotAlias" OutputProperty="*" Verb="Get" Noun="BotAlias" PipelineParameter="BotAliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBotAnalyzerRecommendation" OutputProperty="*" Verb="Get" Noun="BotAnalyzerRecommendationDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -698,6 +706,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBotAliasReplicas" OutputProperty="*" Verb="Get" Noun="BotAliasReplicaList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBotAnalyzerHistory" OutputProperty="*" Verb="Get" Noun="BotAnalyzerHistoryList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -819,6 +831,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartBotAnalyzer" OutputProperty="*" Verb="Start" Noun="BotAnalyzer" ShouldProcessTarget="BotId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartBotRecommendation" OutputProperty="*" Verb="Start" Noun="BotRecommendation" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="TranscriptSourceSetting_S3BucketTranscriptSource_KmsKeyArn" NewName="S3BucketTranscriptSource_KmsKeyArn" />
@@ -888,6 +904,10 @@
                 <Param Name="GenerationDataSource_ConversationLogsDataSource_Filter_StartTime" NewName="Filter_StartTime" />
                 <Param Name="GenerationDataSource_ConversationLogsDataSource_LocaleId" NewName="ConversationLogsDataSource_LocaleId" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopBotAnalyzer" OutputProperty="*" Verb="Stop" Noun="BotAnalyzer" ShouldProcessTarget="BotAnalyzerRequestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopBotRecommendation" OutputProperty="*" Verb="Stop" Noun="BotRecommendation" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">

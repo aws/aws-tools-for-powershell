@@ -1794,7 +1794,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_LoadTimeout
         /// <summary>
         /// <para>
-        /// <para>The amount of time to wait (in milliseconds) before timing out of operations performed
+        /// <para>The amount of time to wait (in seconds) before timing out of operations performed
         /// by DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.</para>
         /// </para>
         /// </summary>

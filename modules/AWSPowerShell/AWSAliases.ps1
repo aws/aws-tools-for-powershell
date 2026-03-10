@@ -21953,6 +21953,8 @@ Set-Alias -Name Create-LMBV2UploadUrl -Value New-LMBV2UploadUrl
 Set-Alias -Name LMBV2-CreateUploadUrl -Value New-LMBV2UploadUrl
 Set-Alias -Name Delete-LMBV2BotAlias -Value Remove-LMBV2BotAlias
 Set-Alias -Name LMBV2-DeleteBotAlias -Value Remove-LMBV2BotAlias
+Set-Alias -Name Delete-LMBV2BotAnalyzerRecommendation -Value Remove-LMBV2BotAnalyzerRecommendation
+Set-Alias -Name LMBV2-DeleteBotAnalyzerRecommendation -Value Remove-LMBV2BotAnalyzerRecommendation
 Set-Alias -Name Delete-LMBV2Bot -Value Remove-LMBV2Bot
 Set-Alias -Name LMBV2-DeleteBot -Value Remove-LMBV2Bot
 Set-Alias -Name Delete-LMBV2BotLocale -Value Remove-LMBV2BotLocale
@@ -21984,6 +21986,9 @@ Set-Alias -Name Delete-LMBV2Utterance -Value Remove-LMBV2Utterance
 Set-Alias -Name LMBV2-DeleteUtterances -Value Remove-LMBV2Utterance
 Set-Alias -Name Describe-LMBV2BotAlias -Value Get-LMBV2BotAlias
 Set-Alias -Name LMBV2-DescribeBotAlias -Value Get-LMBV2BotAlias
+Set-Alias -Name Describe-LMBV2BotAnalyzerRecommendation -Value Get-LMBV2BotAnalyzerRecommendationDetail
+Set-Alias -Name Describe-LMBV2BotAnalyzerRecommendationDetail -Value Get-LMBV2BotAnalyzerRecommendationDetail
+Set-Alias -Name LMBV2-DescribeBotAnalyzerRecommendation -Value Get-LMBV2BotAnalyzerRecommendationDetail
 Set-Alias -Name Describe-LMBV2Bot -Value Get-LMBV2Bot
 Set-Alias -Name LMBV2-DescribeBot -Value Get-LMBV2Bot
 Set-Alias -Name Describe-LMBV2BotLocale -Value Get-LMBV2BotLocale
@@ -22030,6 +22035,9 @@ Set-Alias -Name LMBV2-ListBotAliases -Value Get-LMBV2BotAliasList
 Set-Alias -Name List-LMBV2BotAliasReplicas -Value Get-LMBV2BotAliasReplicaList
 Set-Alias -Name List-LMBV2BotAliasReplicaList -Value Get-LMBV2BotAliasReplicaList
 Set-Alias -Name LMBV2-ListBotAliasReplicas -Value Get-LMBV2BotAliasReplicaList
+Set-Alias -Name List-LMBV2BotAnalyzerHistory -Value Get-LMBV2BotAnalyzerHistoryList
+Set-Alias -Name List-LMBV2BotAnalyzerHistoryList -Value Get-LMBV2BotAnalyzerHistoryList
+Set-Alias -Name LMBV2-ListBotAnalyzerHistory -Value Get-LMBV2BotAnalyzerHistoryList
 Set-Alias -Name List-LMBV2BotLocales -Value Get-LMBV2BotLocaleList
 Set-Alias -Name List-LMBV2BotLocaleList -Value Get-LMBV2BotLocaleList
 Set-Alias -Name LMBV2-ListBotLocales -Value Get-LMBV2BotLocaleList
@@ -22114,11 +22122,13 @@ Set-Alias -Name List-LMBV2UtteranceMetricList -Value Get-LMBV2UtteranceMetricLis
 Set-Alias -Name LMBV2-ListUtteranceMetrics -Value Get-LMBV2UtteranceMetricList
 Set-Alias -Name Search-LMBV2AssociatedTranscripts -Value Search-LMBV2AssociatedTranscript
 Set-Alias -Name LMBV2-SearchAssociatedTranscripts -Value Search-LMBV2AssociatedTranscript
+Set-Alias -Name LMBV2-StartBotAnalyzer -Value Start-LMBV2BotAnalyzer
 Set-Alias -Name LMBV2-StartBotRecommendation -Value Start-LMBV2BotRecommendation
 Set-Alias -Name LMBV2-StartBotResourceGeneration -Value Start-LMBV2BotResourceGeneration
 Set-Alias -Name LMBV2-StartImport -Value Start-LMBV2Import
 Set-Alias -Name LMBV2-StartTestExecution -Value Start-LMBV2TestExecution
 Set-Alias -Name LMBV2-StartTestSetGeneration -Value Start-LMBV2TestSetGeneration
+Set-Alias -Name LMBV2-StopBotAnalyzer -Value Stop-LMBV2BotAnalyzer
 Set-Alias -Name LMBV2-StopBotRecommendation -Value Stop-LMBV2BotRecommendation
 Set-Alias -Name LMBV2-TagResource -Value Add-LMBV2ResourceTag
 Set-Alias -Name LMBV2-UntagResource -Value Remove-LMBV2ResourceTag

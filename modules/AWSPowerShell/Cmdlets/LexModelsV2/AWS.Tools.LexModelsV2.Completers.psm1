@@ -87,6 +87,13 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.AnalysisScope
+        "Start-LMBV2BotAnalyzer/AnalysisScope"
+        {
+            $v = "BotLocale"
+            break
+        }
+
         # Amazon.LexModelsV2.AnalyticsSessionSortByName
         "Get-LMBV2SessionAnalyticsDataList/SortBy_Name"
         {
@@ -541,6 +548,7 @@ $LMBV2_Completers = {
 
 $LMBV2_map = @{
     "AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
+    "AnalysisScope"=@("Start-LMBV2BotAnalyzer")
     "ApiMode"=@("Start-LMBV2TestExecution")
     "BedrockModelConfiguration_TraceStatus"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "BotLocaleImportSpecification_SpeechDetectionSensitivity"=@("Start-LMBV2Import")
@@ -680,6 +688,7 @@ $LMBV2_SelectMap = @{
                "New-LMBV2UploadUrl",
                "Remove-LMBV2Bot",
                "Remove-LMBV2BotAlias",
+               "Remove-LMBV2BotAnalyzerRecommendation",
                "Remove-LMBV2BotLocale",
                "Remove-LMBV2BotReplica",
                "Remove-LMBV2BotVersion",
@@ -695,6 +704,7 @@ $LMBV2_SelectMap = @{
                "Remove-LMBV2Utterance",
                "Get-LMBV2Bot",
                "Get-LMBV2BotAlias",
+               "Get-LMBV2BotAnalyzerRecommendationDetail",
                "Get-LMBV2BotLocale",
                "Get-LMBV2BotRecommendation",
                "Get-LMBV2BotReplica",
@@ -716,6 +726,7 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2AggregatedUtteranceList",
                "Get-LMBV2BotAliasList",
                "Get-LMBV2BotAliasReplicaList",
+               "Get-LMBV2BotAnalyzerHistoryList",
                "Get-LMBV2BotLocaleList",
                "Get-LMBV2BotRecommendationList",
                "Get-LMBV2BotReplicaList",
@@ -745,11 +756,13 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2UtteranceAnalyticsDataList",
                "Get-LMBV2UtteranceMetricList",
                "Search-LMBV2AssociatedTranscript",
+               "Start-LMBV2BotAnalyzer",
                "Start-LMBV2BotRecommendation",
                "Start-LMBV2BotResourceGeneration",
                "Start-LMBV2Import",
                "Start-LMBV2TestExecution",
                "Start-LMBV2TestSetGeneration",
+               "Stop-LMBV2BotAnalyzer",
                "Stop-LMBV2BotRecommendation",
                "Add-LMBV2ResourceTag",
                "Remove-LMBV2ResourceTag",
