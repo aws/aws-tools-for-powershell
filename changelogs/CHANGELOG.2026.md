@@ -216,6 +216,57 @@
   * Amazon Elastic Compute Cloud
     * Modified cmdlet Edit-EC2InstanceCpuOption: added parameter NestedVirtualization.
 
+
+### AWS.Tools.Installer 2.0.1-preview001 (2026-02-11 21:35Z)
+  * **[PREVIEW RELEASE]** AWS.Tools.Installer V2 introduces a major architectural redesign to installation performance and reliability. This preview release is available for testing and feedback before general availability.
+  
+  * **New Cmdlets**
+    * Added cmdlet Install-AWSToolsInstaller for installing/updating the installer module itself
+    * Added cmdlet Uninstall-AWSToolsInstaller for removing the installer module
+  
+  * **Enhanced Security**
+    * Implemented SHA512 hash validation for all downloads by default
+    * Added -SkipIntegrityCheck parameter to bypass validation when needed
+    * Added -SourceHashPath parameter for local hash file validation in offline scenarios
+  
+  * **Improved Version Management**
+    * Added support for installing prerelease versions of AWS Tools for PowerShell and AWS Tools Installer
+    * Added support for installing latest major versions using wildcard patterns (e.g., "4.*" installs latest 4.x version)
+    * Restored -MinimumVersion and -MaximumVersion parameters for backward compatibility (marked as deprecated)
+    * Enhanced version resolution with better error messages and validation
+  
+  * **Offline Installation Support**
+    * Enhanced -SourceZipPath parameter to support local AWS.Tools.zip files for air-gapped environments
+    * Added local hash file validation via -SourceHashPath parameter
+  
+  * **Alternative V1 Cmdlets**
+    * Added V1 compatibility cmdlets (Install-AWSToolsModuleV1, Update-AWSToolsModuleV1, Uninstall-AWSToolsModuleV1) that maintain PowerShellGallery-based behavior for scripts that require it
+    * V1 cmdlets display deprecation warnings and will be removed in next major version
+  
+  * **Breaking Changes**
+    * Install-AWSToolsModule now installs all modules by default when -Name parameter is not specified
+    * Removed proxy support (-Proxy and -ProxyCredential parameters); workloads behind proxies should configure session proxy settings
+    * Deprecated parameters: -SkipUpdate, -SkipPublisherCheck, -AllowClobber (ignored in V2, will be removed in V3)
+  
+  * **Module Source**
+    * Changed module source from PowerShellGallery to CloudFront-hosted AWS.Tools.zip
+  
+  * **PowerShellGet Compatibility**
+    * Modules installed by AWS.Tools.Installer can now be removed with Uninstall-Module and Uninstall-PSResource
+  
+  * **Additional Improvements**
+    * Added automatic version check that warns when newer versions of AWS.Tools.Installer are available
+    * Added support for cleaning up legacy AWSPowerShell and AWSPowerShell.NetCore modules via -CleanUpLegacyModuleScope parameter
+    * Refactored codebase into modular function files for better maintainability
+    * Enhanced progress reporting with detailed status updates
+    * Improved error handling with retry logic and exponential backoff
+    * Added comprehensive unit test coverage
+    * Cross-platform compatibility improvements for Windows, Linux, and macOS
+  
+  * **Documentation**
+    * For detailed information about V2 changes, see: https://aws.amazon.com/blogs/developer/aws-tools-installer-v2-preview/
+    * For migration guidance and feedback, see: https://github.com/aws/aws-tools-for-powershell/issues/411
+
 ### 5.0.153 (2026-02-11 21:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.189.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Managed Streaming for Kafka Connect
