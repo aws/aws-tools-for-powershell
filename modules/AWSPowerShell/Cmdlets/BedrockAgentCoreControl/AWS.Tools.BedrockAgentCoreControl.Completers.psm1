@@ -231,7 +231,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCAgentRuntime/ProtocolConfiguration_ServerProtocol")
         }
         {
-            $v = "A2A","HTTP","MCP"
+            $v = "A2A","AGUI","HTTP","MCP"
             break
         }
 
