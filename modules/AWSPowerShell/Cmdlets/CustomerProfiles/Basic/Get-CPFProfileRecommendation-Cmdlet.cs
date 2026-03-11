@@ -46,6 +46,23 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CandidateId
+        /// <summary>
+        /// <para>
+        /// <para>A list of item IDs to rank for the user. Use this when you want to re-rank a specific
+        /// set of items rather than getting recommendations from the full item catalog. Required
+        /// for personalized-ranking use cases.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CandidateIds")]
+        public System.String[] CandidateId { get; set; }
+        #endregion
+        
         #region Parameter Context
         /// <summary>
         /// <para>
@@ -77,6 +94,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter MetadataConfig_MetadataColumn
+        /// <summary>
+        /// <para>
+        /// <para>A list of metadata column names from your Items dataset to include in the recommendation
+        /// response.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataConfig_MetadataColumns")]
+        public System.String[] MetadataConfig_MetadataColumn { get; set; }
+        #endregion
+        
         #region Parameter ProfileId
         /// <summary>
         /// <para>
@@ -94,6 +127,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String ProfileId { get; set; }
         #endregion
         
+        #region Parameter RecommenderFilter
+        /// <summary>
+        /// <para>
+        /// <para>A list of filters to apply to the returned recommendations. Filters define criteria
+        /// for including or excluding items from the recommendation results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommenderFilters")]
+        public Amazon.CustomerProfiles.Model.RecommenderFilter[] RecommenderFilter { get; set; }
+        #endregion
+        
         #region Parameter RecommenderName
         /// <summary>
         /// <para>
@@ -109,6 +158,23 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RecommenderName { get; set; }
+        #endregion
+        
+        #region Parameter RecommenderPromotionalFilter
+        /// <summary>
+        /// <para>
+        /// <para>A list of promotional filters to apply to the recommendations. Promotional filters
+        /// allow you to promote specific items within a configurable subset of recommendation
+        /// results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommenderPromotionalFilters")]
+        public Amazon.CustomerProfiles.Model.RecommenderPromotionalFilter[] RecommenderPromotionalFilter { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -152,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.GetProfileRecommendationsResponse, GetCPFProfileRecommendationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.CandidateId != null)
+            {
+                context.CandidateId = new List<System.String>(this.CandidateId);
+            }
             if (this.Context != null)
             {
                 context.Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -168,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             }
             #endif
             context.MaxResult = this.MaxResult;
+            if (this.MetadataConfig_MetadataColumn != null)
+            {
+                context.MetadataConfig_MetadataColumn = new List<System.String>(this.MetadataConfig_MetadataColumn);
+            }
             context.ProfileId = this.ProfileId;
             #if MODULAR
             if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
@@ -175,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.RecommenderFilter != null)
+            {
+                context.RecommenderFilter = new List<Amazon.CustomerProfiles.Model.RecommenderFilter>(this.RecommenderFilter);
+            }
             context.RecommenderName = this.RecommenderName;
             #if MODULAR
             if (this.RecommenderName == null && ParameterWasBound(nameof(this.RecommenderName)))
@@ -182,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter RecommenderName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.RecommenderPromotionalFilter != null)
+            {
+                context.RecommenderPromotionalFilter = new List<Amazon.CustomerProfiles.Model.RecommenderPromotionalFilter>(this.RecommenderPromotionalFilter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             // create request
             var request = new Amazon.CustomerProfiles.Model.GetProfileRecommendationsRequest();
             
+            if (cmdletContext.CandidateId != null)
+            {
+                request.CandidateIds = cmdletContext.CandidateId;
+            }
             if (cmdletContext.Context != null)
             {
                 request.Context = cmdletContext.Context;
@@ -210,13 +296,40 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
+            
+             // populate MetadataConfig
+            var requestMetadataConfigIsNull = true;
+            request.MetadataConfig = new Amazon.CustomerProfiles.Model.MetadataConfig();
+            List<System.String> requestMetadataConfig_metadataConfig_MetadataColumn = null;
+            if (cmdletContext.MetadataConfig_MetadataColumn != null)
+            {
+                requestMetadataConfig_metadataConfig_MetadataColumn = cmdletContext.MetadataConfig_MetadataColumn;
+            }
+            if (requestMetadataConfig_metadataConfig_MetadataColumn != null)
+            {
+                request.MetadataConfig.MetadataColumns = requestMetadataConfig_metadataConfig_MetadataColumn;
+                requestMetadataConfigIsNull = false;
+            }
+             // determine if request.MetadataConfig should be set to null
+            if (requestMetadataConfigIsNull)
+            {
+                request.MetadataConfig = null;
+            }
             if (cmdletContext.ProfileId != null)
             {
                 request.ProfileId = cmdletContext.ProfileId;
             }
+            if (cmdletContext.RecommenderFilter != null)
+            {
+                request.RecommenderFilters = cmdletContext.RecommenderFilter;
+            }
             if (cmdletContext.RecommenderName != null)
             {
                 request.RecommenderName = cmdletContext.RecommenderName;
+            }
+            if (cmdletContext.RecommenderPromotionalFilter != null)
+            {
+                request.RecommenderPromotionalFilters = cmdletContext.RecommenderPromotionalFilter;
             }
             
             CmdletOutput output;
@@ -273,11 +386,15 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> CandidateId { get; set; }
             public Dictionary<System.String, System.String> Context { get; set; }
             public System.String DomainName { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public List<System.String> MetadataConfig_MetadataColumn { get; set; }
             public System.String ProfileId { get; set; }
+            public List<Amazon.CustomerProfiles.Model.RecommenderFilter> RecommenderFilter { get; set; }
             public System.String RecommenderName { get; set; }
+            public List<Amazon.CustomerProfiles.Model.RecommenderPromotionalFilter> RecommenderPromotionalFilter { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.GetProfileRecommendationsResponse, GetCPFProfileRecommendationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Recommendations;
         }

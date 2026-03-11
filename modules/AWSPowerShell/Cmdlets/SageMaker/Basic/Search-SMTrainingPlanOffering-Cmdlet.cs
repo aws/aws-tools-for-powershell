@@ -136,6 +136,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] TargetResource { get; set; }
         #endregion
         
+        #region Parameter TrainingPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN); of an existing training plan to search for extension
+        /// offerings. When specified, the API returns extension offerings that can be used to
+        /// extend the specified training plan.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrainingPlanArn { get; set; }
+        #endregion
+        
         #region Parameter UltraServerCount
         /// <summary>
         /// <para>
@@ -211,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.TargetResource = new List<System.String>(this.TargetResource);
             }
+            context.TrainingPlanArn = this.TrainingPlanArn;
             context.UltraServerCount = this.UltraServerCount;
             context.UltraServerType = this.UltraServerType;
             
@@ -252,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.TargetResource != null)
             {
                 request.TargetResources = cmdletContext.TargetResource;
+            }
+            if (cmdletContext.TrainingPlanArn != null)
+            {
+                request.TrainingPlanArn = cmdletContext.TrainingPlanArn;
             }
             if (cmdletContext.UltraServerCount != null)
             {
@@ -322,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ReservedCapacityInstanceType InstanceType { get; set; }
             public System.DateTime? StartTimeAfter { get; set; }
             public List<System.String> TargetResource { get; set; }
+            public System.String TrainingPlanArn { get; set; }
             public System.Int32? UltraServerCount { get; set; }
             public System.String UltraServerType { get; set; }
             public System.Func<Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse, SearchSMTrainingPlanOfferingCmdlet, object> Select { get; set; } =

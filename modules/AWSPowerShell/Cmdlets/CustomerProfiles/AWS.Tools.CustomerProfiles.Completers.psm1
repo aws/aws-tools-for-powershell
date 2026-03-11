@@ -228,7 +228,7 @@ $CPF_Completers = {
         # Amazon.CustomerProfiles.RecommenderRecipeName
         "New-CPFRecommender/RecommenderRecipeName"
         {
-            $v = "frequently-paired-items","popular-items","recommended-for-you","similar-items","trending-now"
+            $v = "frequently-paired-items","personalized-ranking","popular-items","recommended-for-you","similar-items","trending-now"
             break
         }
 
@@ -390,6 +390,7 @@ $CPF_SelectMap = @{
                "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
                "New-CPFRecommender",
+               "New-CPFRecommenderFilter",
                "New-CPFSegmentDefinition",
                "New-CPFSegmentEstimate",
                "New-CPFSegmentSnapshot",
@@ -406,6 +407,7 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
                "Remove-CPFRecommender",
+               "Remove-CPFRecommenderFilter",
                "Remove-CPFSegmentDefinition",
                "Remove-CPFWorkflow",
                "Find-CPFProfileObjectType",
@@ -426,6 +428,7 @@ $CPF_SelectMap = @{
                "Get-CPFProfileObjectTypeTemplate",
                "Get-CPFProfileRecommendation",
                "Get-CPFRecommender",
+               "Get-CPFRecommenderFilter",
                "Get-CPFSegmentDefinition",
                "Get-CPFSegmentEstimate",
                "Get-CPFSegmentMembership",
@@ -452,6 +455,7 @@ $CPF_SelectMap = @{
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
+               "Get-CPFRecommenderFilterList",
                "Get-CPFRecommenderRecipeList",
                "Get-CPFRecommenderList",
                "Get-CPFRuleBasedMatchList",

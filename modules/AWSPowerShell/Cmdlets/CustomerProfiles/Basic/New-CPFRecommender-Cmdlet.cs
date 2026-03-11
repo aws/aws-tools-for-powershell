@@ -87,6 +87,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public Amazon.CustomerProfiles.Model.EventParameters[] EventsConfig_EventParametersList { get; set; }
         #endregion
         
+        #region Parameter RecommenderConfig_InferenceConfig_MinProvisionedTPS
+        /// <summary>
+        /// <para>
+        /// <para>The minimum provisioned transactions per second (TPS) that the recommender supports.
+        /// The default value is 1. A high MinProvisionedTPS will increase your cost.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RecommenderConfig_InferenceConfig_MinProvisionedTPS { get; set; }
+        #endregion
+        
         #region Parameter RecommenderName
         /// <summary>
         /// <para>
@@ -204,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 context.EventsConfig_EventParametersList = new List<Amazon.CustomerProfiles.Model.EventParameters>(this.EventsConfig_EventParametersList);
             }
+            context.RecommenderConfig_InferenceConfig_MinProvisionedTPS = this.RecommenderConfig_InferenceConfig_MinProvisionedTPS;
             context.RecommenderConfig_TrainingFrequency = this.RecommenderConfig_TrainingFrequency;
             context.RecommenderName = this.RecommenderName;
             #if MODULAR
@@ -290,6 +302,31 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 request.RecommenderConfig.EventsConfig = requestRecommenderConfig_recommenderConfig_EventsConfig;
                 requestRecommenderConfigIsNull = false;
             }
+            Amazon.CustomerProfiles.Model.InferenceConfig requestRecommenderConfig_recommenderConfig_InferenceConfig = null;
+            
+             // populate InferenceConfig
+            var requestRecommenderConfig_recommenderConfig_InferenceConfigIsNull = true;
+            requestRecommenderConfig_recommenderConfig_InferenceConfig = new Amazon.CustomerProfiles.Model.InferenceConfig();
+            System.Int32? requestRecommenderConfig_recommenderConfig_InferenceConfig_recommenderConfig_InferenceConfig_MinProvisionedTPS = null;
+            if (cmdletContext.RecommenderConfig_InferenceConfig_MinProvisionedTPS != null)
+            {
+                requestRecommenderConfig_recommenderConfig_InferenceConfig_recommenderConfig_InferenceConfig_MinProvisionedTPS = cmdletContext.RecommenderConfig_InferenceConfig_MinProvisionedTPS.Value;
+            }
+            if (requestRecommenderConfig_recommenderConfig_InferenceConfig_recommenderConfig_InferenceConfig_MinProvisionedTPS != null)
+            {
+                requestRecommenderConfig_recommenderConfig_InferenceConfig.MinProvisionedTPS = requestRecommenderConfig_recommenderConfig_InferenceConfig_recommenderConfig_InferenceConfig_MinProvisionedTPS.Value;
+                requestRecommenderConfig_recommenderConfig_InferenceConfigIsNull = false;
+            }
+             // determine if requestRecommenderConfig_recommenderConfig_InferenceConfig should be set to null
+            if (requestRecommenderConfig_recommenderConfig_InferenceConfigIsNull)
+            {
+                requestRecommenderConfig_recommenderConfig_InferenceConfig = null;
+            }
+            if (requestRecommenderConfig_recommenderConfig_InferenceConfig != null)
+            {
+                request.RecommenderConfig.InferenceConfig = requestRecommenderConfig_recommenderConfig_InferenceConfig;
+                requestRecommenderConfigIsNull = false;
+            }
              // determine if request.RecommenderConfig should be set to null
             if (requestRecommenderConfigIsNull)
             {
@@ -365,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String Description { get; set; }
             public System.String DomainName { get; set; }
             public List<Amazon.CustomerProfiles.Model.EventParameters> EventsConfig_EventParametersList { get; set; }
+            public System.Int32? RecommenderConfig_InferenceConfig_MinProvisionedTPS { get; set; }
             public System.Int32? RecommenderConfig_TrainingFrequency { get; set; }
             public System.String RecommenderName { get; set; }
             public Amazon.CustomerProfiles.RecommenderRecipeName RecommenderRecipeName { get; set; }

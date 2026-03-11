@@ -182,7 +182,7 @@ $EKS_Completers = {
             ($_ -eq "Update-EKSClusterConfig/ControlPlaneScalingConfig_Tier")
         }
         {
-            $v = "standard","tier-2xl","tier-4xl","tier-xl"
+            $v = "standard","tier-2xl","tier-4xl","tier-8xl","tier-xl"
             break
         }
 
