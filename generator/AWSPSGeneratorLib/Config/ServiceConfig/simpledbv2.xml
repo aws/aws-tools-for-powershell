@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>simpledbv2</C2jFilename>
+    <AssemblyName>SimpleDBv2</AssemblyName>
+    <ServiceNounPrefix>SDBV2</ServiceNounPrefix>
+    <ServiceName>Amazon SimpleDB v2</ServiceName>
+    <ServiceId>SimpleDBv2</ServiceId>
+    <ServiceClientInterface>IAmazonSimpleDBv2</ServiceClientInterface>
+    <ServiceClient>AmazonSimpleDBv2Client</ServiceClient>
+    <ServiceModuleGuid>16fb9f74-c126-458c-aaff-57ebc7741e2e</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetExport" OutputProperty="*" Verb="Get" Noun="Export" PipelineParameter="ExportArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExports" OutputProperty="ExportSummaries" Verb="Get" Noun="ExportList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDomainExport" OutputProperty="*" Verb="Start" Noun="DomainExport" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

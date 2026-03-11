@@ -72,70 +72,18 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Polly
+# Argument completions for service Amazon SimpleDB v2
 
 
-$POL_Completers = {
+$SDBV2_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.Polly.Engine
+        # Amazon.SimpleDBv2.S3SseAlgorithm
+        "Start-SDBV2DomainExport/S3SseAlgorithm"
         {
-            ($_ -eq "Get-POLSpeech/Engine") -Or
-            ($_ -eq "Get-POLVoice/Engine") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/Engine")
-        }
-        {
-            $v = "generative","long-form","neural","standard"
-            break
-        }
-
-        # Amazon.Polly.LanguageCode
-        {
-            ($_ -eq "Get-POLSpeech/LanguageCode") -Or
-            ($_ -eq "Get-POLVoice/LanguageCode") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
-        }
-        {
-            $v = "ar-AE","arb","ca-ES","cmn-CN","cs-CZ","cy-GB","da-DK","de-AT","de-CH","de-DE","en-AU","en-GB","en-GB-WLS","en-IE","en-IN","en-NZ","en-SG","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-BE","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-BE","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
-            break
-        }
-
-        # Amazon.Polly.OutputFormat
-        {
-            ($_ -eq "Get-POLSpeech/OutputFormat") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/OutputFormat")
-        }
-        {
-            $v = "json","mp3","ogg_opus","ogg_vorbis","pcm"
-            break
-        }
-
-        # Amazon.Polly.TaskStatus
-        "Get-POLSpeechSynthesisTaskList/Status"
-        {
-            $v = "completed","failed","inProgress","scheduled"
-            break
-        }
-
-        # Amazon.Polly.TextType
-        {
-            ($_ -eq "Get-POLSpeech/TextType") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/TextType")
-        }
-        {
-            $v = "ssml","text"
-            break
-        }
-
-        # Amazon.Polly.VoiceId
-        {
-            ($_ -eq "Get-POLSpeech/VoiceId") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
-        }
-        {
-            $v = "Aditi","Adriano","Ambre","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Beatrice","Bianca","Brian","Burcu","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Danielle","Dora","Elin","Emma","Enrique","Ewa","Filiz","Florian","Gabrielle","Geraint","Giorgio","Gregory","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Jasmine","Jihye","Jitka","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Lennart","Liam","Lisa","Liv","Lorenzo","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Sabrina","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tiffany","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
+            $v = "AES256","KMS"
             break
         }
 
@@ -147,21 +95,16 @@ $POL_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$POL_map = @{
-    "Engine"=@("Get-POLSpeech","Get-POLVoice","Start-POLSpeechSynthesisTask")
-    "LanguageCode"=@("Get-POLSpeech","Get-POLVoice","Start-POLSpeechSynthesisTask")
-    "OutputFormat"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
-    "Status"=@("Get-POLSpeechSynthesisTaskList")
-    "TextType"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
-    "VoiceId"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
+$SDBV2_map = @{
+    "S3SseAlgorithm"=@("Start-SDBV2DomainExport")
 }
 
-_awsArgumentCompleterRegistration $POL_Completers $POL_map
+_awsArgumentCompleterRegistration $SDBV2_Completers $SDBV2_map
 
-$POL_SelectCompleters = {
+$SDBV2_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.POL.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SDBV2.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -205,17 +148,11 @@ $POL_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$POL_SelectMap = @{
-    "Select"=@("Remove-POLLexicon",
-               "Get-POLVoice",
-               "Get-POLLexicon",
-               "Get-POLSpeechSynthesisTask",
-               "Get-POLLexiconList",
-               "Get-POLSpeechSynthesisTaskList",
-               "Write-POLLexicon",
-               "Start-POLSpeechSynthesisTask",
-               "Get-POLSpeech")
+$SDBV2_SelectMap = @{
+    "Select"=@("Get-SDBV2Export",
+               "Get-SDBV2ExportList",
+               "Start-SDBV2DomainExport")
 }
 
-_awsArgumentCompleterRegistration $POL_SelectCompleters $POL_SelectMap
+_awsArgumentCompleterRegistration $SDBV2_SelectCompleters $SDBV2_SelectMap
 

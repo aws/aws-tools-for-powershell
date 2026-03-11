@@ -21960,7 +21960,7 @@ $CPF_Completers = {
         # Amazon.CustomerProfiles.RecommenderRecipeName
         "New-CPFRecommender/RecommenderRecipeName"
         {
-            $v = "frequently-paired-items","popular-items","recommended-for-you","similar-items","trending-now"
+            $v = "frequently-paired-items","personalized-ranking","popular-items","recommended-for-you","similar-items","trending-now"
             break
         }
 
@@ -22122,6 +22122,7 @@ $CPF_SelectMap = @{
                "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
                "New-CPFRecommender",
+               "New-CPFRecommenderFilter",
                "New-CPFSegmentDefinition",
                "New-CPFSegmentEstimate",
                "New-CPFSegmentSnapshot",
@@ -22138,6 +22139,7 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
                "Remove-CPFRecommender",
+               "Remove-CPFRecommenderFilter",
                "Remove-CPFSegmentDefinition",
                "Remove-CPFWorkflow",
                "Find-CPFProfileObjectType",
@@ -22158,6 +22160,7 @@ $CPF_SelectMap = @{
                "Get-CPFProfileObjectTypeTemplate",
                "Get-CPFProfileRecommendation",
                "Get-CPFRecommender",
+               "Get-CPFRecommenderFilter",
                "Get-CPFSegmentDefinition",
                "Get-CPFSegmentEstimate",
                "Get-CPFSegmentMembership",
@@ -22184,6 +22187,7 @@ $CPF_SelectMap = @{
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
+               "Get-CPFRecommenderFilterList",
                "Get-CPFRecommenderRecipeList",
                "Get-CPFRecommenderList",
                "Get-CPFRuleBasedMatchList",
@@ -31107,7 +31111,7 @@ $EKS_Completers = {
             ($_ -eq "Update-EKSClusterConfig/ControlPlaneScalingConfig_Tier")
         }
         {
-            $v = "standard","tier-2xl","tier-4xl","tier-xl"
+            $v = "standard","tier-2xl","tier-4xl","tier-8xl","tier-xl"
             break
         }
 
@@ -63969,7 +63973,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Burcu","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Danielle","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gregory","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Jasmine","Jihye","Jitka","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Lisa","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Sabrina","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
+            $v = "Aditi","Adriano","Ambre","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Beatrice","Bianca","Brian","Burcu","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Danielle","Dora","Elin","Emma","Enrique","Ewa","Filiz","Florian","Gabrielle","Geraint","Giorgio","Gregory","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Jasmine","Jihye","Jitka","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Lennart","Liam","Lisa","Liv","Lorenzo","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Sabrina","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tiffany","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
             break
         }
 
@@ -75386,6 +75390,7 @@ $SM_SelectMap = @{
                "Get-SMSubscribedWorkteam",
                "Get-SMTrainingJob",
                "Get-SMTrainingPlan",
+               "Get-SMTrainingPlanExtensionHistoryDetail",
                "Get-SMTransformJob",
                "Get-SMTrial",
                "Get-SMTrialComponent",
@@ -75396,6 +75401,7 @@ $SM_SelectMap = @{
                "Disable-SMSagemakerServicecatalogPortfolio",
                "Unregister-SMTrialComponent",
                "Enable-SMSagemakerServicecatalogPortfolio",
+               "Set-SMTrainingPlanExtension",
                "Get-SMDeviceFleetReport",
                "Get-SMLineageGroupPolicy",
                "Get-SMModelPackageGroupPolicy",
@@ -78074,6 +78080,89 @@ $AMSP_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $AMSP_SelectCompleters $AMSP_SelectMap
+# Argument completions for service Amazon SimpleDB v2
+
+
+$SDBV2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SimpleDBv2.S3SseAlgorithm
+        "Start-SDBV2DomainExport/S3SseAlgorithm"
+        {
+            $v = "AES256","KMS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SDBV2_map = @{
+    "S3SseAlgorithm"=@("Start-SDBV2DomainExport")
+}
+
+_awsArgumentCompleterRegistration $SDBV2_Completers $SDBV2_map
+
+$SDBV2_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SDBV2.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SDBV2_SelectMap = @{
+    "Select"=@("Get-SDBV2Export",
+               "Get-SDBV2ExportList",
+               "Start-SDBV2DomainExport")
+}
+
+_awsArgumentCompleterRegistration $SDBV2_SelectCompleters $SDBV2_SelectMap
 # Argument completions for service AWS SimSpace Weaver
 
 
@@ -86589,7 +86678,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.OperatingSystemName
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_OperatingSystemName"
         {
-            $v = "AMAZON_LINUX_2","RHEL_8","ROCKY_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            $v = "AMAZON_LINUX_2","RHEL_8","ROCKY_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022","WINDOWS_SERVER_2025"
             break
         }
 

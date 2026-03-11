@@ -1343,6 +1343,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrainingPlanExtensionHistory" OutputProperty="TrainingPlanExtensions" Verb="Get" Noun="TrainingPlanExtensionHistoryDetail" PipelineParameter="TrainingPlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTransformJob" OutputProperty="*" Verb="Get" Noun="TransformJob" PipelineParameter="TransformJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1380,6 +1384,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableSagemakerServicecatalogPortfolio" Verb="Enable" Noun="SagemakerServicecatalogPortfolio" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExtendTrainingPlan" OutputProperty="TrainingPlanExtensions" Verb="Set" Noun="TrainingPlanExtension" ShouldProcessTarget="TrainingPlanExtensionOfferingId" PipelineParameter="TrainingPlanExtensionOfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

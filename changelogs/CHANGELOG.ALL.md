@@ -1,4 +1,20 @@
-﻿### 4.1.1016 (2026-03-10 20:49Z)
+﻿### 4.1.1017 (2026-03-11 21:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1240.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFRecommenderFilter leveraging the GetRecommenderFilter service API.
+    * Added cmdlet Get-CPFRecommenderFilterList leveraging the ListRecommenderFilters service API.
+    * Added cmdlet New-CPFRecommenderFilter leveraging the CreateRecommenderFilter service API.
+    * Added cmdlet Remove-CPFRecommenderFilter leveraging the DeleteRecommenderFilter service API.
+    * Modified cmdlet Get-CPFProfileRecommendation: added parameters CandidateId, MetadataConfig_MetadataColumn, RecommenderFilter and RecommenderPromotionalFilter.
+    * Modified cmdlet New-CPFRecommender: added parameter RecommenderConfig_InferenceConfig_MinProvisionedTPS.
+    * Modified cmdlet Update-CPFRecommender: added parameter RecommenderConfig_InferenceConfig_MinProvisionedTPS.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMTrainingPlanExtensionHistoryDetail leveraging the DescribeTrainingPlanExtensionHistory service API.
+    * Added cmdlet Set-SMTrainingPlanExtension leveraging the ExtendTrainingPlan service API.
+    * Modified cmdlet Search-SMTrainingPlanOffering: added parameter TrainingPlanArn.
+  * Amazon SimpleDB v2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SDBV2 and can be listed using the command 'Get-AWSCmdletName -Service SDBV2'.
+
+### 4.1.1016 (2026-03-10 20:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1239.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Lex Model Building V2
     * Added cmdlet Get-LMBV2BotAnalyzerHistoryList leveraging the ListBotAnalyzerHistory service API.

@@ -8081,6 +8081,8 @@ Set-Alias -Name Create-CPFProfile -Value New-CPFProfile
 Set-Alias -Name CPF-CreateProfile -Value New-CPFProfile
 Set-Alias -Name Create-CPFRecommender -Value New-CPFRecommender
 Set-Alias -Name CPF-CreateRecommender -Value New-CPFRecommender
+Set-Alias -Name Create-CPFRecommenderFilter -Value New-CPFRecommenderFilter
+Set-Alias -Name CPF-CreateRecommenderFilter -Value New-CPFRecommenderFilter
 Set-Alias -Name Create-CPFSegmentDefinition -Value New-CPFSegmentDefinition
 Set-Alias -Name CPF-CreateSegmentDefinition -Value New-CPFSegmentDefinition
 Set-Alias -Name Create-CPFSegmentEstimate -Value New-CPFSegmentEstimate
@@ -8113,6 +8115,8 @@ Set-Alias -Name Delete-CPFProfileObjectType -Value Remove-CPFProfileObjectType
 Set-Alias -Name CPF-DeleteProfileObjectType -Value Remove-CPFProfileObjectType
 Set-Alias -Name Delete-CPFRecommender -Value Remove-CPFRecommender
 Set-Alias -Name CPF-DeleteRecommender -Value Remove-CPFRecommender
+Set-Alias -Name Delete-CPFRecommenderFilter -Value Remove-CPFRecommenderFilter
+Set-Alias -Name CPF-DeleteRecommenderFilter -Value Remove-CPFRecommenderFilter
 Set-Alias -Name Delete-CPFSegmentDefinition -Value Remove-CPFSegmentDefinition
 Set-Alias -Name CPF-DeleteSegmentDefinition -Value Remove-CPFSegmentDefinition
 Set-Alias -Name Delete-CPFWorkflow -Value Remove-CPFWorkflow
@@ -8139,6 +8143,7 @@ Set-Alias -Name CPF-GetProfileObjectTypeTemplate -Value Get-CPFProfileObjectType
 Set-Alias -Name Get-CPFProfileRecommendations -Value Get-CPFProfileRecommendation
 Set-Alias -Name CPF-GetProfileRecommendations -Value Get-CPFProfileRecommendation
 Set-Alias -Name CPF-GetRecommender -Value Get-CPFRecommender
+Set-Alias -Name CPF-GetRecommenderFilter -Value Get-CPFRecommenderFilter
 Set-Alias -Name CPF-GetSegmentDefinition -Value Get-CPFSegmentDefinition
 Set-Alias -Name CPF-GetSegmentEstimate -Value Get-CPFSegmentEstimate
 Set-Alias -Name CPF-GetSegmentMembership -Value Get-CPFSegmentMembership
@@ -8201,6 +8206,9 @@ Set-Alias -Name CPF-ListProfileObjectTypes -Value Get-CPFProfileObjectTypeList
 Set-Alias -Name List-CPFProfileObjectTypeTemplates -Value Get-CPFProfileObjectTypeTemplateList
 Set-Alias -Name List-CPFProfileObjectTypeTemplateList -Value Get-CPFProfileObjectTypeTemplateList
 Set-Alias -Name CPF-ListProfileObjectTypeTemplates -Value Get-CPFProfileObjectTypeTemplateList
+Set-Alias -Name List-CPFRecommenderFilters -Value Get-CPFRecommenderFilterList
+Set-Alias -Name List-CPFRecommenderFilterList -Value Get-CPFRecommenderFilterList
+Set-Alias -Name CPF-ListRecommenderFilters -Value Get-CPFRecommenderFilterList
 Set-Alias -Name List-CPFRecommenderRecipes -Value Get-CPFRecommenderRecipeList
 Set-Alias -Name List-CPFRecommenderRecipeList -Value Get-CPFRecommenderRecipeList
 Set-Alias -Name CPF-ListRecommenderRecipes -Value Get-CPFRecommenderRecipeList
@@ -29190,6 +29198,9 @@ Set-Alias -Name Describe-SMTrainingJob -Value Get-SMTrainingJob
 Set-Alias -Name SM-DescribeTrainingJob -Value Get-SMTrainingJob
 Set-Alias -Name Describe-SMTrainingPlan -Value Get-SMTrainingPlan
 Set-Alias -Name SM-DescribeTrainingPlan -Value Get-SMTrainingPlan
+Set-Alias -Name Describe-SMTrainingPlanExtensionHistory -Value Get-SMTrainingPlanExtensionHistoryDetail
+Set-Alias -Name Describe-SMTrainingPlanExtensionHistoryDetail -Value Get-SMTrainingPlanExtensionHistoryDetail
+Set-Alias -Name SM-DescribeTrainingPlanExtensionHistory -Value Get-SMTrainingPlanExtensionHistoryDetail
 Set-Alias -Name Describe-SMTransformJob -Value Get-SMTransformJob
 Set-Alias -Name SM-DescribeTransformJob -Value Get-SMTransformJob
 Set-Alias -Name Describe-SMTrial -Value Get-SMTrial
@@ -29208,6 +29219,9 @@ Set-Alias -Name SM-DisableSagemakerServicecatalogPortfolio -Value Disable-SMSage
 Set-Alias -Name Disassociate-SMTrialComponent -Value Unregister-SMTrialComponent
 Set-Alias -Name SM-DisassociateTrialComponent -Value Unregister-SMTrialComponent
 Set-Alias -Name SM-EnableSagemakerServicecatalogPortfolio -Value Enable-SMSagemakerServicecatalogPortfolio
+Set-Alias -Name Extend-SMTrainingPlan -Value Set-SMTrainingPlanExtension
+Set-Alias -Name Extend-SMTrainingPlanExtension -Value Set-SMTrainingPlanExtension
+Set-Alias -Name SM-ExtendTrainingPlan -Value Set-SMTrainingPlanExtension
 Set-Alias -Name SM-GetDeviceFleetReport -Value Get-SMDeviceFleetReport
 Set-Alias -Name SM-GetLineageGroupPolicy -Value Get-SMLineageGroupPolicy
 Set-Alias -Name SM-GetModelPackageGroupPolicy -Value Get-SMModelPackageGroupPolicy
@@ -30651,6 +30665,11 @@ Set-Alias -Name SHLD-UpdateSubscription -Value Update-SHLDSubscription
 Set-Alias -Name SGND-GetRevocationStatus -Value Get-SGNDRevocationStatus
 Set-Alias -Name Create-AMSPOAuth2Token -Value New-AMSPOAuth2Token
 Set-Alias -Name AMSP-CreateOAuth2Token -Value New-AMSPOAuth2Token
+Set-Alias -Name SDBV2-GetExport -Value Get-SDBV2Export
+Set-Alias -Name List-SDBV2Exports -Value Get-SDBV2ExportList
+Set-Alias -Name List-SDBV2ExportList -Value Get-SDBV2ExportList
+Set-Alias -Name SDBV2-ListExports -Value Get-SDBV2ExportList
+Set-Alias -Name SDBV2-StartDomainExport -Value Start-SDBV2DomainExport
 Set-Alias -Name Create-SSWSnapshot -Value New-SSWSnapshot
 Set-Alias -Name SSW-CreateSnapshot -Value New-SSWSnapshot
 Set-Alias -Name Delete-SSWApp -Value Remove-SSWApp

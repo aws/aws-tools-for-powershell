@@ -1141,6 +1141,9 @@
     <Reference Include="AWSSDK.Signin">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Signin.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SimpleDBv2">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimpleDBv2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
@@ -2375,6 +2378,9 @@
     </Reference>
     <Reference Include="AWSSDK.Signin">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Signin.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleDBv2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SimpleDBv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SimpleEmail.dll</HintPath>

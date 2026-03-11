@@ -452,8 +452,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The control plane scaling tier configuration. Available options are <c>standard</c>,
-        /// <c>tier-xl</c>, <c>tier-2xl</c>, or <c>tier-4xl</c>. For more information, see EKS
-        /// Provisioned Control Plane in the Amazon EKS User Guide.</para>
+        /// <c>tier-xl</c>, <c>tier-2xl</c>, <c>tier-4xl, or tier-8xl</c>. For more information,
+        /// see EKS Provisioned Control Plane in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
