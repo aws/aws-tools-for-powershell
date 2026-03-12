@@ -58,9 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// permission by default and can grant this permission to others. For more information
     /// about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// access permissions to your Amazon S3 resources</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para></li><li><para><b>Directory bucket permissions</b> - You must have the <b><c>s3express:CreateSession</c></b> permission in the <c>Action</c> element of a policy. By default, the session
-    /// is in the <c>ReadWrite</c> mode. If you want to restrict the access, you can explicitly
-    /// set the <c>s3express:SessionMode</c> condition key to <c>ReadOnly</c> on the bucket.
+    /// </para></li><li><para><b>Directory bucket permissions</b> - You must have the <b><c>s3express:CreateSession</c></b> permission in the <c>Action</c> element of a policy. If no session mode is specified,
+    /// the session will be created with the maximum allowable privilege, attempting <c>ReadWrite</c>
+    /// first, then <c>ReadOnly</c> if <c>ReadWrite</c> is not permitted. If you want to explicitly
+    /// restrict the access to be read-only, you can set the <c>s3express:SessionMode</c>
+    /// condition key to <c>ReadOnly</c> on the bucket.
     /// </para><para>
     /// For more information about example bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example
     /// bucket policies for S3 Express One Zone</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-identity-policies.html">Amazon

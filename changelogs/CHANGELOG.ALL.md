@@ -1,4 +1,16 @@
-﻿### 5.0.172 (2026-03-11 21:24Z)
+﻿### 5.0.173 (2026-03-12 20:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.209.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNLocationFsxOntap: added parameters Protocol_SMB_CmkSecretConfig_KmsKeyArn, Protocol_SMB_CmkSecretConfig_SecretArn, Protocol_SMB_CustomSecretConfig_SecretAccessRoleArn, Protocol_SMB_CustomSecretConfig_SecretArn and Protocol_SMB_ManagedSecretConfig_SecretArn.
+    * Modified cmdlet New-DSYNLocationFsxOpenZf: added parameters Protocol_SMB_CmkSecretConfig_KmsKeyArn, Protocol_SMB_CmkSecretConfig_SecretArn, Protocol_SMB_CustomSecretConfig_SecretAccessRoleArn, Protocol_SMB_CustomSecretConfig_SecretArn and Protocol_SMB_ManagedSecretConfig_SecretArn.
+    * Modified cmdlet New-DSYNLocationFsxWindow: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+    * Modified cmdlet New-DSYNLocationHdf: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+    * Modified cmdlet Update-DSYNLocationFsxOntap: added parameters Protocol_SMB_CmkSecretConfig_KmsKeyArn, Protocol_SMB_CmkSecretConfig_SecretArn, Protocol_SMB_CustomSecretConfig_SecretAccessRoleArn and Protocol_SMB_CustomSecretConfig_SecretArn.
+    * Modified cmdlet Update-DSYNLocationFsxOpenZf: added parameters Protocol_SMB_CmkSecretConfig_KmsKeyArn, Protocol_SMB_CmkSecretConfig_SecretArn, Protocol_SMB_CustomSecretConfig_SecretAccessRoleArn, Protocol_SMB_CustomSecretConfig_SecretArn and Protocol_SMB_ManagedSecretConfig_SecretArn.
+    * Modified cmdlet Update-DSYNLocationFsxWindow: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+    * Modified cmdlet Update-DSYNLocationHdf: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+
+### 5.0.172 (2026-03-11 21:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.208.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Customer Profiles
     * Added cmdlet Get-CPFRecommenderFilter leveraging the GetRecommenderFilter service API.
