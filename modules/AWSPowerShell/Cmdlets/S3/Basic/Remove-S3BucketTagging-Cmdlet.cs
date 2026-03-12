@@ -37,11 +37,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// bucket and must use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">UntagResource</a>
     /// instead.
     /// </para><para>
-    /// if ABAC is not enabled for the bucket. When you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">enable
-    /// ABAC for a general purpose bucket</a>, you can no longer use this operation for that
-    /// bucket and must use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">UntagResource</a>
-    /// instead.
-    /// </para><para>
     /// To use this operation, you must have permission to perform the <c>s3:PutBucketTagging</c>
     /// action. By default, the bucket owner has this permission and can grant this permission
     /// to others. 
