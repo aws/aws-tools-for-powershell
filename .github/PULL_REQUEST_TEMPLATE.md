@@ -12,6 +12,14 @@
 <!--- Include details of your testing environment, and the tests you ran to -->
 <!--- see how your change affects other areas of the code, etc. -->
 
+### Dry-run
+- **Dry-run ID:**
+- **Status:**
+  - [ ] Pending
+  - [ ] Completed successfully
+  - [ ] Failed
+- **Failed bypass reason:**
+
 ## Breaking Changes Assessment
 
 1. Identify all breaking changes including the following details:
