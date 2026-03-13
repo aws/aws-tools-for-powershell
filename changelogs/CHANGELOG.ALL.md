@@ -1,4 +1,38 @@
-﻿### 4.1.1018 (2026-03-12 20:35Z)
+﻿### 4.1.1019 (2026-03-13 20:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1242.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Application Migration Service
+    * Added cmdlet Get-MGNImportFileEnrichmentList leveraging the ListImportFileEnrichments service API.
+    * Added cmdlet Get-MGNNetworkMigrationAnalysisList leveraging the ListNetworkMigrationAnalyses service API.
+    * Added cmdlet Get-MGNNetworkMigrationAnalysisResultList leveraging the ListNetworkMigrationAnalysisResults service API.
+    * Added cmdlet Get-MGNNetworkMigrationCodeGenerationList leveraging the ListNetworkMigrationCodeGenerations service API.
+    * Added cmdlet Get-MGNNetworkMigrationCodeGenerationSegmentList leveraging the ListNetworkMigrationCodeGenerationSegments service API.
+    * Added cmdlet Get-MGNNetworkMigrationDefinition leveraging the GetNetworkMigrationDefinition service API.
+    * Added cmdlet Get-MGNNetworkMigrationDefinitionList leveraging the ListNetworkMigrationDefinitions service API.
+    * Added cmdlet Get-MGNNetworkMigrationDeployedStackList leveraging the ListNetworkMigrationDeployedStacks service API.
+    * Added cmdlet Get-MGNNetworkMigrationDeploymentList leveraging the ListNetworkMigrationDeployments service API.
+    * Added cmdlet Get-MGNNetworkMigrationExecutionList leveraging the ListNetworkMigrationExecutions service API.
+    * Added cmdlet Get-MGNNetworkMigrationMapperSegmentConstruct leveraging the GetNetworkMigrationMapperSegmentConstruct service API.
+    * Added cmdlet Get-MGNNetworkMigrationMapperSegmentConstructList leveraging the ListNetworkMigrationMapperSegmentConstructs service API.
+    * Added cmdlet Get-MGNNetworkMigrationMapperSegmentList leveraging the ListNetworkMigrationMapperSegments service API.
+    * Added cmdlet Get-MGNNetworkMigrationMappingList leveraging the ListNetworkMigrationMappings service API.
+    * Added cmdlet Get-MGNNetworkMigrationMappingUpdateList leveraging the ListNetworkMigrationMappingUpdates service API.
+    * Added cmdlet New-MGNNetworkMigrationDefinition leveraging the CreateNetworkMigrationDefinition service API.
+    * Added cmdlet Remove-MGNNetworkMigrationDefinition leveraging the DeleteNetworkMigrationDefinition service API.
+    * Added cmdlet Start-MGNImportFileEnrichment leveraging the StartImportFileEnrichment service API.
+    * Added cmdlet Start-MGNNetworkMigrationAnalysis leveraging the StartNetworkMigrationAnalysis service API.
+    * Added cmdlet Start-MGNNetworkMigrationCodeGeneration leveraging the StartNetworkMigrationCodeGeneration service API.
+    * Added cmdlet Start-MGNNetworkMigrationDeployment leveraging the StartNetworkMigrationDeployment service API.
+    * Added cmdlet Start-MGNNetworkMigrationMapping leveraging the StartNetworkMigrationMapping service API.
+    * Added cmdlet Start-MGNNetworkMigrationMappingUpdate leveraging the StartNetworkMigrationMappingUpdate service API.
+    * Added cmdlet Update-MGNNetworkMigrationDefinition leveraging the UpdateNetworkMigrationDefinition service API.
+    * Added cmdlet Update-MGNNetworkMigrationMapperSegment leveraging the UpdateNetworkMigrationMapperSegment service API.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEPartitionBatch: added parameters AuditContext_AdditionalAuditContext, AuditContext_AllColumnsRequested, AuditContext_RequestedColumn, QuerySessionContext_AdditionalContext, QuerySessionContext_ClusterId, QuerySessionContext_QueryAuthorizationId, QuerySessionContext_QueryId and QuerySessionContext_QueryStartTime.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSCustomPermission: added parameter Capabilities_ManageSharedFolder.
+    * Modified cmdlet Update-QSCustomPermission: added parameter Capabilities_ManageSharedFolder.
+
+### 4.1.1018 (2026-03-12 20:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1241.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataSync
     * Modified cmdlet New-DSYNLocationFsxOntap: added parameters Protocol_SMB_CmkSecretConfig_KmsKeyArn, Protocol_SMB_CmkSecretConfig_SecretArn, Protocol_SMB_CustomSecretConfig_SecretAccessRoleArn, Protocol_SMB_CustomSecretConfig_SecretArn and Protocol_SMB_ManagedSecretConfig_SecretArn.

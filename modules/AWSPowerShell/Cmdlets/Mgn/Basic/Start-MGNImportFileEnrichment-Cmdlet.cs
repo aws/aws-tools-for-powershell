@@ -1,0 +1,433 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Mgn;
+using Amazon.Mgn.Model;
+
+namespace Amazon.PowerShell.Cmdlets.MGN
+{
+    /// <summary>
+    /// Starts an import file enrichment job to process and enrich network migration import
+    /// files with additional metadata and IP assignment strategies.
+    /// </summary>
+    [Cmdlet("Start", "MGNImportFileEnrichment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Application Migration Service StartImportFileEnrichment API operation.", Operation = new[] {"StartImportFileEnrichment"}, SelectReturnType = typeof(Amazon.Mgn.Model.StartImportFileEnrichmentResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Mgn.Model.StartImportFileEnrichmentResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Mgn.Model.StartImportFileEnrichmentResponse) can be returned by specifying '-Select *'."
+    )]
+    public partial class StartMGNImportFileEnrichmentCmdlet : AmazonMgnClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter IpAssignmentStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The IP assignment strategy to use when enriching the import file. Can be STATIC or
+        /// DYNAMIC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.IpAssignmentStrategy")]
+        public Amazon.Mgn.IpAssignmentStrategy IpAssignmentStrategy { get; set; }
+        #endregion
+        
+        #region Parameter S3BucketSource_S3Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket containing the source import file.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String S3BucketSource_S3Bucket { get; set; }
+        #endregion
+        
+        #region Parameter S3BucketTarget_S3Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket where the enriched import file will be stored.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String S3BucketTarget_S3Bucket { get; set; }
+        #endregion
+        
+        #region Parameter S3BucketSource_S3BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID of the S3 bucket owner.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String S3BucketSource_S3BucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter S3BucketTarget_S3BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID of the target S3 bucket owner.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String S3BucketTarget_S3BucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter S3BucketSource_S3Key
+        /// <summary>
+        /// <para>
+        /// <para>The S3 key (path) for the source import file.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String S3BucketSource_S3Key { get; set; }
+        #endregion
+        
+        #region Parameter S3BucketTarget_S3Key
+        /// <summary>
+        /// <para>
+        /// <para>The S3 key (path) where the enriched import file will be stored.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String S3BucketTarget_S3Key { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'JobID'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.StartImportFileEnrichmentResponse).
+        /// Specifying the name of a property of type Amazon.Mgn.Model.StartImportFileEnrichmentResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "JobID";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            this._AWSSignerType = "v4";
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-MGNImportFileEnrichment (StartImportFileEnrichment)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.StartImportFileEnrichmentResponse, StartMGNImportFileEnrichmentCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.ClientToken = this.ClientToken;
+            context.IpAssignmentStrategy = this.IpAssignmentStrategy;
+            context.S3BucketSource_S3Bucket = this.S3BucketSource_S3Bucket;
+            #if MODULAR
+            if (this.S3BucketSource_S3Bucket == null && ParameterWasBound(nameof(this.S3BucketSource_S3Bucket)))
+            {
+                WriteWarning("You are passing $null as a value for parameter S3BucketSource_S3Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.S3BucketSource_S3BucketOwner = this.S3BucketSource_S3BucketOwner;
+            #if MODULAR
+            if (this.S3BucketSource_S3BucketOwner == null && ParameterWasBound(nameof(this.S3BucketSource_S3BucketOwner)))
+            {
+                WriteWarning("You are passing $null as a value for parameter S3BucketSource_S3BucketOwner which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.S3BucketSource_S3Key = this.S3BucketSource_S3Key;
+            #if MODULAR
+            if (this.S3BucketSource_S3Key == null && ParameterWasBound(nameof(this.S3BucketSource_S3Key)))
+            {
+                WriteWarning("You are passing $null as a value for parameter S3BucketSource_S3Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.S3BucketTarget_S3Bucket = this.S3BucketTarget_S3Bucket;
+            #if MODULAR
+            if (this.S3BucketTarget_S3Bucket == null && ParameterWasBound(nameof(this.S3BucketTarget_S3Bucket)))
+            {
+                WriteWarning("You are passing $null as a value for parameter S3BucketTarget_S3Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.S3BucketTarget_S3BucketOwner = this.S3BucketTarget_S3BucketOwner;
+            #if MODULAR
+            if (this.S3BucketTarget_S3BucketOwner == null && ParameterWasBound(nameof(this.S3BucketTarget_S3BucketOwner)))
+            {
+                WriteWarning("You are passing $null as a value for parameter S3BucketTarget_S3BucketOwner which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.S3BucketTarget_S3Key = this.S3BucketTarget_S3Key;
+            #if MODULAR
+            if (this.S3BucketTarget_S3Key == null && ParameterWasBound(nameof(this.S3BucketTarget_S3Key)))
+            {
+                WriteWarning("You are passing $null as a value for parameter S3BucketTarget_S3Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.Mgn.Model.StartImportFileEnrichmentRequest();
+            
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.IpAssignmentStrategy != null)
+            {
+                request.IpAssignmentStrategy = cmdletContext.IpAssignmentStrategy;
+            }
+            
+             // populate S3BucketSource
+            var requestS3BucketSourceIsNull = true;
+            request.S3BucketSource = new Amazon.Mgn.Model.EnrichmentSourceS3Configuration();
+            System.String requestS3BucketSource_s3BucketSource_S3Bucket = null;
+            if (cmdletContext.S3BucketSource_S3Bucket != null)
+            {
+                requestS3BucketSource_s3BucketSource_S3Bucket = cmdletContext.S3BucketSource_S3Bucket;
+            }
+            if (requestS3BucketSource_s3BucketSource_S3Bucket != null)
+            {
+                request.S3BucketSource.S3Bucket = requestS3BucketSource_s3BucketSource_S3Bucket;
+                requestS3BucketSourceIsNull = false;
+            }
+            System.String requestS3BucketSource_s3BucketSource_S3BucketOwner = null;
+            if (cmdletContext.S3BucketSource_S3BucketOwner != null)
+            {
+                requestS3BucketSource_s3BucketSource_S3BucketOwner = cmdletContext.S3BucketSource_S3BucketOwner;
+            }
+            if (requestS3BucketSource_s3BucketSource_S3BucketOwner != null)
+            {
+                request.S3BucketSource.S3BucketOwner = requestS3BucketSource_s3BucketSource_S3BucketOwner;
+                requestS3BucketSourceIsNull = false;
+            }
+            System.String requestS3BucketSource_s3BucketSource_S3Key = null;
+            if (cmdletContext.S3BucketSource_S3Key != null)
+            {
+                requestS3BucketSource_s3BucketSource_S3Key = cmdletContext.S3BucketSource_S3Key;
+            }
+            if (requestS3BucketSource_s3BucketSource_S3Key != null)
+            {
+                request.S3BucketSource.S3Key = requestS3BucketSource_s3BucketSource_S3Key;
+                requestS3BucketSourceIsNull = false;
+            }
+             // determine if request.S3BucketSource should be set to null
+            if (requestS3BucketSourceIsNull)
+            {
+                request.S3BucketSource = null;
+            }
+            
+             // populate S3BucketTarget
+            var requestS3BucketTargetIsNull = true;
+            request.S3BucketTarget = new Amazon.Mgn.Model.EnrichmentTargetS3Configuration();
+            System.String requestS3BucketTarget_s3BucketTarget_S3Bucket = null;
+            if (cmdletContext.S3BucketTarget_S3Bucket != null)
+            {
+                requestS3BucketTarget_s3BucketTarget_S3Bucket = cmdletContext.S3BucketTarget_S3Bucket;
+            }
+            if (requestS3BucketTarget_s3BucketTarget_S3Bucket != null)
+            {
+                request.S3BucketTarget.S3Bucket = requestS3BucketTarget_s3BucketTarget_S3Bucket;
+                requestS3BucketTargetIsNull = false;
+            }
+            System.String requestS3BucketTarget_s3BucketTarget_S3BucketOwner = null;
+            if (cmdletContext.S3BucketTarget_S3BucketOwner != null)
+            {
+                requestS3BucketTarget_s3BucketTarget_S3BucketOwner = cmdletContext.S3BucketTarget_S3BucketOwner;
+            }
+            if (requestS3BucketTarget_s3BucketTarget_S3BucketOwner != null)
+            {
+                request.S3BucketTarget.S3BucketOwner = requestS3BucketTarget_s3BucketTarget_S3BucketOwner;
+                requestS3BucketTargetIsNull = false;
+            }
+            System.String requestS3BucketTarget_s3BucketTarget_S3Key = null;
+            if (cmdletContext.S3BucketTarget_S3Key != null)
+            {
+                requestS3BucketTarget_s3BucketTarget_S3Key = cmdletContext.S3BucketTarget_S3Key;
+            }
+            if (requestS3BucketTarget_s3BucketTarget_S3Key != null)
+            {
+                request.S3BucketTarget.S3Key = requestS3BucketTarget_s3BucketTarget_S3Key;
+                requestS3BucketTargetIsNull = false;
+            }
+             // determine if request.S3BucketTarget should be set to null
+            if (requestS3BucketTargetIsNull)
+            {
+                request.S3BucketTarget = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.Mgn.Model.StartImportFileEnrichmentResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.StartImportFileEnrichmentRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "StartImportFileEnrichment");
+            try
+            {
+                #if DESKTOP
+                return client.StartImportFileEnrichment(request);
+                #elif CORECLR
+                return client.StartImportFileEnrichmentAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String ClientToken { get; set; }
+            public Amazon.Mgn.IpAssignmentStrategy IpAssignmentStrategy { get; set; }
+            public System.String S3BucketSource_S3Bucket { get; set; }
+            public System.String S3BucketSource_S3BucketOwner { get; set; }
+            public System.String S3BucketSource_S3Key { get; set; }
+            public System.String S3BucketTarget_S3Bucket { get; set; }
+            public System.String S3BucketTarget_S3BucketOwner { get; set; }
+            public System.String S3BucketTarget_S3Key { get; set; }
+            public System.Func<Amazon.Mgn.Model.StartImportFileEnrichmentResponse, StartMGNImportFileEnrichmentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.JobID;
+        }
+        
+    }
+}

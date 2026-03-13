@@ -119,6 +119,13 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.IpAssignmentStrategy
+        "Start-MGNImportFileEnrichment/IpAssignmentStrategy"
+        {
+            $v = "DYNAMIC","STATIC"
+            break
+        }
+
         # Amazon.Mgn.LaunchDisposition
         {
             ($_ -eq "New-MGNLaunchConfigurationTemplate/LaunchDisposition") -Or
@@ -181,6 +188,23 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.SecurityGroupMappingStrategy
+        "Start-MGNNetworkMigrationMapping/SecurityGroupMappingStrategy"
+        {
+            $v = "MAP","SKIP"
+            break
+        }
+
+        # Amazon.Mgn.TargetDeployment
+        {
+            ($_ -eq "New-MGNNetworkMigrationDefinition/TargetDeployment") -Or
+            ($_ -eq "Update-MGNNetworkMigrationDefinition/TargetDeployment")
+        }
+        {
+            $v = "MULTI_ACCOUNT","SINGLE_ACCOUNT"
+            break
+        }
+
         # Amazon.Mgn.TargetInstanceTypeRightSizingMethod
         {
             ($_ -eq "New-MGNLaunchConfigurationTemplate/TargetInstanceTypeRightSizingMethod") -Or
@@ -189,6 +213,16 @@ $MGN_Completers = {
         }
         {
             $v = "BASIC","NONE"
+            break
+        }
+
+        # Amazon.Mgn.TargetNetworkTopology
+        {
+            ($_ -eq "New-MGNNetworkMigrationDefinition/TargetNetwork_Topology") -Or
+            ($_ -eq "Update-MGNNetworkMigrationDefinition/TargetNetwork_Topology")
+        }
+        {
+            $v = "HUB_AND_SPOKE","ISOLATED_VPC"
             break
         }
 
@@ -219,13 +253,17 @@ $MGN_map = @{
     "DefaultLargeStagingDiskType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "InternetProtocol"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
+    "IpAssignmentStrategy"=@("Start-MGNImportFileEnrichment")
     "LargeVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
     "LaunchDisposition"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "LifeCycle_State"=@("Set-MGNServerLifeCycleState")
     "PostLaunchActions_Deployment"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "ReplicationType"=@("Update-MGNSourceServerReplicationType")
+    "SecurityGroupMappingStrategy"=@("Start-MGNNetworkMigrationMapping")
     "SmallVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "TargetDeployment"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
     "TargetInstanceTypeRightSizingMethod"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
+    "TargetNetwork_Topology"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
 }
 
 _awsArgumentCompleterRegistration $MGN_Completers $MGN_map
@@ -286,12 +324,14 @@ $MGN_SelectMap = @{
                "New-MGNApplication",
                "New-MGNConnector",
                "New-MGNLaunchConfigurationTemplate",
+               "New-MGNNetworkMigrationDefinition",
                "New-MGNReplicationConfigurationTemplate",
                "New-MGNWave",
                "Remove-MGNApplication",
                "Remove-MGNConnector",
                "Remove-MGNJob",
                "Remove-MGNLaunchConfigurationTemplate",
+               "Remove-MGNNetworkMigrationDefinition",
                "Remove-MGNReplicationConfigurationTemplate",
                "Remove-MGNSourceServer",
                "Remove-MGNVcenterClient",
@@ -307,6 +347,8 @@ $MGN_SelectMap = @{
                "Disconnect-MGNFromService",
                "Complete-MGNCutover",
                "Get-MGNLaunchConfiguration",
+               "Get-MGNNetworkMigrationDefinition",
+               "Get-MGNNetworkMigrationMapperSegmentConstruct",
                "Get-MGNReplicationConfiguration",
                "Initialize-MGNService",
                "Get-MGNApplicationList",
@@ -314,8 +356,21 @@ $MGN_SelectMap = @{
                "Get-MGNExportErrorList",
                "Get-MGNExportList",
                "Get-MGNImportErrorList",
+               "Get-MGNImportFileEnrichmentList",
                "Get-MGNImportList",
                "Get-MGNManagedAccountList",
+               "Get-MGNNetworkMigrationAnalysisList",
+               "Get-MGNNetworkMigrationAnalysisResultList",
+               "Get-MGNNetworkMigrationCodeGenerationList",
+               "Get-MGNNetworkMigrationCodeGenerationSegmentList",
+               "Get-MGNNetworkMigrationDefinitionList",
+               "Get-MGNNetworkMigrationDeployedStackList",
+               "Get-MGNNetworkMigrationDeploymentList",
+               "Get-MGNNetworkMigrationExecutionList",
+               "Get-MGNNetworkMigrationMapperSegmentConstructList",
+               "Get-MGNNetworkMigrationMapperSegmentList",
+               "Get-MGNNetworkMigrationMappingList",
+               "Get-MGNNetworkMigrationMappingUpdateList",
                "Get-MGNSourceServerActionList",
                "Get-MGNResourceTag",
                "Get-MGNTemplateActionList",
@@ -331,6 +386,12 @@ $MGN_SelectMap = @{
                "Start-MGNCutover",
                "Start-MGNExport",
                "Start-MGNImport",
+               "Start-MGNImportFileEnrichment",
+               "Start-MGNNetworkMigrationAnalysis",
+               "Start-MGNNetworkMigrationCodeGeneration",
+               "Start-MGNNetworkMigrationDeployment",
+               "Start-MGNNetworkMigrationMapping",
+               "Start-MGNNetworkMigrationMappingUpdate",
                "Start-MGNReplication",
                "Start-MGNTest",
                "Stop-MGNReplication",
@@ -343,6 +404,8 @@ $MGN_SelectMap = @{
                "Update-MGNConnector",
                "Update-MGNLaunchConfiguration",
                "Update-MGNLaunchConfigurationTemplate",
+               "Update-MGNNetworkMigrationDefinition",
+               "Update-MGNNetworkMigrationMapperSegment",
                "Update-MGNReplicationConfiguration",
                "Update-MGNReplicationConfigurationTemplate",
                "Update-MGNSourceServer",

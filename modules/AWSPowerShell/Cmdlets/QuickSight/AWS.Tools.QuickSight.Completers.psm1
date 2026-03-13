@@ -325,6 +325,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_KnowledgeBase") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_LinearAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_LinearAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ManageSharedFolder") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ManageSharedFolder") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_MCPAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_MCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_MondayAction") -Or
@@ -1290,6 +1292,7 @@ $QS_map = @{
     "Capabilities_JiraAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_KnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_LinearAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ManageSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_MCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_MondayAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_MSExchangeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
