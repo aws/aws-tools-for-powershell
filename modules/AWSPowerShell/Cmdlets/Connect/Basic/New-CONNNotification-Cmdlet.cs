@@ -99,16 +99,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter PredefinedNotificationId
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PredefinedNotificationId { get; set; }
-        #endregion
-        
         #region Parameter Priority
         /// <summary>
         /// <para>
@@ -172,6 +162,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter PredefinedNotificationId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("PredefinedNotificationId is deprecated. Use ClientToken for idempotency.")]
+        public System.String PredefinedNotificationId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -243,7 +245,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PredefinedNotificationId = this.PredefinedNotificationId;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Priority = this.Priority;
             if (this.Recipient != null)
             {
@@ -295,10 +299,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PredefinedNotificationId != null)
             {
                 request.PredefinedNotificationId = cmdletContext.PredefinedNotificationId;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Priority != null)
             {
                 request.Priority = cmdletContext.Priority;
@@ -370,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public Dictionary<System.String, System.String> Content { get; set; }
             public System.DateTime? ExpiresAt { get; set; }
             public System.String InstanceId { get; set; }
+            [System.ObsoleteAttribute]
             public System.String PredefinedNotificationId { get; set; }
             public Amazon.Connect.ConfigurableNotificationPriority Priority { get; set; }
             public List<System.String> Recipient { get; set; }

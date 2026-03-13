@@ -1093,6 +1093,21 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_LinearAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ManageSharedFolder
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, delete and view shared folders (both restricted and
+        /// unrestricted), ability to add any asset to shared folders, and ability to share the
+        /// folders.</para><para><b>Note:</b> This does <i>not</i> prevent inheriting access to assets that others
+        /// share with them through folder membership.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_ManageSharedFolders")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ManageSharedFolder { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_MCPAction
         /// <summary>
         /// <para>
@@ -2635,6 +2650,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_JiraAction = this.Capabilities_JiraAction;
             context.Capabilities_KnowledgeBase = this.Capabilities_KnowledgeBase;
             context.Capabilities_LinearAction = this.Capabilities_LinearAction;
+            context.Capabilities_ManageSharedFolder = this.Capabilities_ManageSharedFolder;
             context.Capabilities_MCPAction = this.Capabilities_MCPAction;
             context.Capabilities_MondayAction = this.Capabilities_MondayAction;
             context.Capabilities_MSExchangeAction = this.Capabilities_MSExchangeAction;
@@ -3703,6 +3719,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_LinearAction != null)
             {
                 request.Capabilities.LinearAction = requestCapabilities_capabilities_LinearAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ManageSharedFolder = null;
+            if (cmdletContext.Capabilities_ManageSharedFolder != null)
+            {
+                requestCapabilities_capabilities_ManageSharedFolder = cmdletContext.Capabilities_ManageSharedFolder;
+            }
+            if (requestCapabilities_capabilities_ManageSharedFolder != null)
+            {
+                request.Capabilities.ManageSharedFolders = requestCapabilities_capabilities_ManageSharedFolder;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MCPAction = null;
@@ -5115,6 +5141,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_JiraAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_KnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_LinearAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ManageSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MCPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MondayAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MSExchangeAction { get; set; }
