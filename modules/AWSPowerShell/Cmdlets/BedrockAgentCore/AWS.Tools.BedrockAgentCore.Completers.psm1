@@ -215,6 +215,7 @@ $BAC_SelectMap = @{
                "Get-BACWorkloadAccessTokenForJWT",
                "Get-BACWorkloadAccessTokenForUserId",
                "Invoke-BACAgentRuntime",
+               "Invoke-BACAgentRuntimeCommand",
                "Invoke-BACCodeInterpreter",
                "Get-BACActorList",
                "Get-BACBrowserSessionList",

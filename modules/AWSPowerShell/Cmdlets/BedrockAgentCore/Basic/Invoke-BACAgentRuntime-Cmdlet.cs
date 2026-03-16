@@ -33,9 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// 
     ///  
     /// <para>
-    /// To invoke an agent you must specify the AgentCore Runtime ARN and provide a payload
-    /// containing your request. You can optionally specify a qualifier to target a specific
-    /// version or endpoint of the agent.
+    /// To invoke an agent, you can specify either the AgentCore Runtime ARN or the agent
+    /// ID with an account ID, and provide a payload containing your request. When you use
+    /// the agent ID instead of the full ARN, you don't need to URL-encode the identifier.
+    /// You can optionally specify a qualifier to target a specific endpoint of the agent.
     /// </para><para>
     /// This operation supports streaming responses, allowing you to receive partial responses
     /// as they become available. We recommend using pagination to ensure that the operation
@@ -86,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Web Services account for the agent runtime resource.</para>
+        /// <para>The identifier of the Amazon Web Services account for the agent runtime resource.
+        /// This parameter is required when you specify an agent ID instead of the full ARN for
+        /// <c>agentRuntimeArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter AgentRuntimeArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Resource Name (ARN) of the agent runtime to invoke. The ARN
-        /// uniquely identifies the agent runtime resource in Amazon Bedrock AgentCore.</para>
+        /// <para>The identifier of the agent runtime to invoke. You can specify either the full Amazon
+        /// Web Services Resource Name (ARN) or the agent ID. If you use the agent ID, you must
+        /// also provide the <c>accountId</c> query parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -175,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>The qualifier to use for the agent runtime. This can be a version number or an endpoint
-        /// name that points to a specific version. If not specified, Amazon Bedrock AgentCore
-        /// uses the default version of the agent runtime.</para>
+        /// <para>The qualifier to use for the agent runtime. This is an endpoint name that points to
+        /// a specific version. If not specified, Amazon Bedrock AgentCore uses the default endpoint
+        /// of the agent runtime.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

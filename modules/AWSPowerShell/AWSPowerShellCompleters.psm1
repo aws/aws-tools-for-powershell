@@ -8697,6 +8697,7 @@ $BAC_SelectMap = @{
                "Get-BACWorkloadAccessTokenForJWT",
                "Get-BACWorkloadAccessTokenForUserId",
                "Invoke-BACAgentRuntime",
+               "Invoke-BACAgentRuntimeCommand",
                "Invoke-BACCodeInterpreter",
                "Get-BACActorList",
                "Get-BACBrowserSessionList",
@@ -9333,7 +9334,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.AutomatedReasoningPolicyBuildWorkflowType
         "Start-BDRAutomatedReasoningPolicyBuildWorkflow/BuildWorkflowType"
         {
-            $v = "GENERATE_FIDELITY_REPORT","IMPORT_POLICY","INGEST_CONTENT","REFINE_POLICY"
+            $v = "GENERATE_FIDELITY_REPORT","GENERATE_POLICY_SCENARIOS","IMPORT_POLICY","INGEST_CONTENT","REFINE_POLICY"
             break
         }
 
