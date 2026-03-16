@@ -1,4 +1,12 @@
-﻿### 5.0.174 (2026-03-13 20:24Z)
+﻿### 5.0.175 (2026-03-16 23:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.211.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Invoke-BACAgentRuntimeCommand leveraging the InvokeAgentRuntimeCommand service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSCapacityProvider: added parameter ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation.
+    * Modified cmdlet Update-ECSCapacityProvider: added parameter ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation.
+
+### 5.0.174 (2026-03-13 20:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.210.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Migration Service
     * Added cmdlet Get-MGNImportFileEnrichmentList leveraging the ListImportFileEnrichments service API.

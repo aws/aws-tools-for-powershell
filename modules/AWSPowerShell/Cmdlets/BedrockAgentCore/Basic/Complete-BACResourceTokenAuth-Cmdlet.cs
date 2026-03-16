@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter UserIdentifier_UserToken
         /// <summary>
         /// <para>
-        /// <para>The OAuth2.0 token issued by the user’s identity provider</para>
+        /// <para>The OAuth2.0 token issued by the user’s identity provider that was used to generate
+        /// the workload access token</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

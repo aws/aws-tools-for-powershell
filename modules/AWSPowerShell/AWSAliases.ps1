@@ -3057,6 +3057,7 @@ Set-Alias -Name BAC-GetWorkloadAccessToken -Value Get-BACWorkloadAccessToken
 Set-Alias -Name BAC-GetWorkloadAccessTokenForJWT -Value Get-BACWorkloadAccessTokenForJWT
 Set-Alias -Name BAC-GetWorkloadAccessTokenForUserId -Value Get-BACWorkloadAccessTokenForUserId
 Set-Alias -Name BAC-InvokeAgentRuntime -Value Invoke-BACAgentRuntime
+Set-Alias -Name BAC-InvokeAgentRuntimeCommand -Value Invoke-BACAgentRuntimeCommand
 Set-Alias -Name BAC-InvokeCodeInterpreter -Value Invoke-BACCodeInterpreter
 Set-Alias -Name List-BACActors -Value Get-BACActorList
 Set-Alias -Name List-BACActorList -Value Get-BACActorList

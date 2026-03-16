@@ -274,6 +274,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String[] InstanceRequirements_InstanceGeneration { get; set; }
         #endregion
         
+        #region Parameter ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether tags are propagated to the instance metadata service (IMDS) for
+        /// Amazon EC2 instances launched by the Managed Instances capacity provider. When enabled,
+        /// all tags associated with the instance are available through the instance metadata
+        /// service. When disabled, tags are not propagated to IMDS.</para><para>Disable this setting if your tags contain characters that are not compatible with
+        /// IMDS, such as <c>/</c>. IMDS requires tag keys to match the pattern <c>[0-9a-zA-Z\-_+=,.@:]{1,255}</c>.</para><para>The default value is <c>true</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work
+        /// with instance tags in instance metadata</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation { get; set; }
+        #endregion
+        
         #region Parameter ManagedScaling_InstanceWarmupPeriod
         /// <summary>
         /// <para>
@@ -895,6 +910,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference = this.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference;
             context.InstanceLaunchTemplate_Ec2InstanceProfileArn = this.InstanceLaunchTemplate_Ec2InstanceProfileArn;
             context.ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled = this.ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled;
+            context.ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation = this.ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation;
             context.AcceleratorCount_Max = this.AcceleratorCount_Max;
             context.AcceleratorCount_Min = this.AcceleratorCount_Min;
             if (this.InstanceRequirements_AcceleratorManufacturer != null)
@@ -1180,6 +1196,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_FipsEnabled != null)
             {
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.FipsEnabled = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_FipsEnabled.Value;
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            System.Boolean? requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation = null;
+            if (cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation = cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation.Value;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.InstanceMetadataTagsPropagation = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation.Value;
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
             }
             Amazon.ECS.ManagedInstancesMonitoringOptions requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_instanceLaunchTemplate_Monitoring = null;
@@ -1861,6 +1887,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public Amazon.ECS.CapacityReservationPreference ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference { get; set; }
             public System.String InstanceLaunchTemplate_Ec2InstanceProfileArn { get; set; }
             public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled { get; set; }
+            public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation { get; set; }
             public System.Int32? AcceleratorCount_Max { get; set; }
             public System.Int32? AcceleratorCount_Min { get; set; }
             public List<System.String> InstanceRequirements_AcceleratorManufacturer { get; set; }
