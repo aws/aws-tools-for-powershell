@@ -1,4 +1,12 @@
-﻿### 4.1.1020 (2026-03-16 20:31Z)
+﻿### 4.1.1021 (2026-03-17 20:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1244.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Start-EMRJobFlow: added parameter MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy.
+  * Amazon Glue
+    * Modified cmdlet New-GLUECatalog: added parameter CatalogInput_OverwriteChildResourcePermissionsWithDefault.
+    * Modified cmdlet Update-GLUECatalog: added parameter CatalogInput_OverwriteChildResourcePermissionsWithDefault.
+
+### 4.1.1020 (2026-03-16 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1243.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock AgentCore Data Plane Fronting Layer
     * Added cmdlet Invoke-BACAgentRuntimeCommand leveraging the InvokeAgentRuntimeCommand service API.
