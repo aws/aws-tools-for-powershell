@@ -548,6 +548,26 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.Collections.Hashtable CloudWatchLogConfiguration_LogType { get; set; }
         #endregion
         
+        #region Parameter MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy
+        /// <summary>
+        /// <para>
+        /// <para>A map that specifies the upload policy for each log type. The key is the log type,
+        /// and the value is the upload policy.</para><para>Valid log types:</para><ul><li><para><c>system-logs</c>: System-level logs including daemon logs, bootstrap logs, and
+        /// other infrastructure logs.</para></li><li><para><c>application-logs</c>: Application-level logs from frameworks like Hadoop, Spark,
+        /// Hive, etc.</para></li><li><para><c>persistent-ui-logs</c>: Logs for persistent application UIs like Spark History
+        /// Server.</para></li></ul><para>Valid upload policies:</para><ul><li><para><c>emr-managed</c>: Logs are uploaded to both the EMR-managed S3 bucket and the customer-specified
+        /// S3 bucket (if LogUri is provided).</para></li><li><para><c>on-customer-s3only</c>: Logs are uploaded only to the customer-specified S3 bucket.
+        /// Requires LogUri to be specified in the cluster configuration.</para></li><li><para><c>disabled</c>: Log upload is disabled for this log type.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy { get; set; }
+        #endregion
+        
         #region Parameter LogUri
         /// <summary>
         /// <para>
@@ -1076,6 +1096,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                     context.CloudWatchLogConfiguration_LogType.Add((String)hashKey, valueSet);
                 }
             }
+            if (this.MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy != null)
+            {
+                context.MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy.Keys)
+                {
+                    context.MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy.Add((String)hashKey, (System.String)(this.MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy[hashKey]));
+                }
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -1573,6 +1601,31 @@ namespace Amazon.PowerShell.Cmdlets.EMR
              // populate MonitoringConfiguration
             var requestMonitoringConfigurationIsNull = true;
             request.MonitoringConfiguration = new Amazon.ElasticMapReduce.Model.MonitoringConfiguration();
+            Amazon.ElasticMapReduce.Model.S3LoggingConfiguration requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration = null;
+            
+             // populate S3LoggingConfiguration
+            var requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfigurationIsNull = true;
+            requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration = new Amazon.ElasticMapReduce.Model.S3LoggingConfiguration();
+            Dictionary<System.String, System.String> requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration_monitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy = null;
+            if (cmdletContext.MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy != null)
+            {
+                requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration_monitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy = cmdletContext.MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy;
+            }
+            if (requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration_monitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy != null)
+            {
+                requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration.LogTypeUploadPolicy = requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration_monitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy;
+                requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfigurationIsNull = false;
+            }
+             // determine if requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration should be set to null
+            if (requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfigurationIsNull)
+            {
+                requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration = null;
+            }
+            if (requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration != null)
+            {
+                request.MonitoringConfiguration.S3LoggingConfiguration = requestMonitoringConfiguration_monitoringConfiguration_S3LoggingConfiguration;
+                requestMonitoringConfigurationIsNull = false;
+            }
             Amazon.ElasticMapReduce.Model.CloudWatchLogConfiguration requestMonitoringConfiguration_monitoringConfiguration_CloudWatchLogConfiguration = null;
             
              // populate CloudWatchLogConfiguration
@@ -1805,6 +1858,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String CloudWatchLogConfiguration_LogGroupName { get; set; }
             public System.String CloudWatchLogConfiguration_LogStreamNamePrefix { get; set; }
             public Dictionary<System.String, List<System.String>> CloudWatchLogConfiguration_LogType { get; set; }
+            public Dictionary<System.String, System.String> MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ElasticMapReduce.Model.SupportedProductConfig> NewSupportedProduct { get; set; }
             public System.String OSReleaseLabel { get; set; }

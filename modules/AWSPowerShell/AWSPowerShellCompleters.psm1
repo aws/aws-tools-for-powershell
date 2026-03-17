@@ -37850,6 +37850,16 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.OverwriteChildResourcePermissionsWithDefaultEnum
+        {
+            ($_ -eq "New-GLUECatalog/CatalogInput_OverwriteChildResourcePermissionsWithDefault") -Or
+            ($_ -eq "Update-GLUECatalog/CatalogInput_OverwriteChildResourcePermissionsWithDefault")
+        }
+        {
+            $v = "Accept","Deny"
+            break
+        }
+
         # Amazon.Glue.PropertyLocation
         {
             ($_ -eq "Register-GLUEConnectionType/ConnectionProperties_Url_PropertyLocation") -Or
@@ -38093,6 +38103,7 @@ $GLUE_map = @{
     "AuthenticationConfiguration_AuthenticationType"=@("Test-GLUEConnection")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "CatalogInput_AllowFullTableExternalDataAccess"=@("New-GLUECatalog","Update-GLUECatalog")
+    "CatalogInput_OverwriteChildResourcePermissionsWithDefault"=@("New-GLUECatalog","Update-GLUECatalog")
     "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
     "ConnectionProperties_Url_PropertyLocation"=@("Register-GLUEConnectionType")

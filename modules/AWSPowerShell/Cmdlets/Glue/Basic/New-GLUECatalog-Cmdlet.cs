@@ -262,6 +262,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Collections.Hashtable IcebergOptimizationProperties_OrphanFileDeletion { get; set; }
         #endregion
         
+        #region Parameter CatalogInput_OverwriteChildResourcePermissionsWithDefault
+        /// <summary>
+        /// <para>
+        /// <para> Overwrites existing Amazon Web Services Lake Formation permissions with <c>CatalogInput$CreateTableDefaultPermissions</c>
+        /// and <c>CatalogInput$CreateDatabaseDefaultPermissions</c> for all child resources.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.OverwriteChildResourcePermissionsWithDefaultEnum")]
+        public Amazon.Glue.OverwriteChildResourcePermissionsWithDefaultEnum CatalogInput_OverwriteChildResourcePermissionsWithDefault { get; set; }
+        #endregion
+        
         #region Parameter CatalogInput_Parameter
         /// <summary>
         /// <para>
@@ -417,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.FederatedCatalog_ConnectionName = this.FederatedCatalog_ConnectionName;
             context.FederatedCatalog_ConnectionType = this.FederatedCatalog_ConnectionType;
             context.FederatedCatalog_Identifier = this.FederatedCatalog_Identifier;
+            context.CatalogInput_OverwriteChildResourcePermissionsWithDefault = this.CatalogInput_OverwriteChildResourcePermissionsWithDefault;
             if (this.CatalogInput_Parameter != null)
             {
                 context.CatalogInput_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -499,6 +513,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCatalogInput_catalogInput_Description != null)
             {
                 request.CatalogInput.Description = requestCatalogInput_catalogInput_Description;
+                requestCatalogInputIsNull = false;
+            }
+            Amazon.Glue.OverwriteChildResourcePermissionsWithDefaultEnum requestCatalogInput_catalogInput_OverwriteChildResourcePermissionsWithDefault = null;
+            if (cmdletContext.CatalogInput_OverwriteChildResourcePermissionsWithDefault != null)
+            {
+                requestCatalogInput_catalogInput_OverwriteChildResourcePermissionsWithDefault = cmdletContext.CatalogInput_OverwriteChildResourcePermissionsWithDefault;
+            }
+            if (requestCatalogInput_catalogInput_OverwriteChildResourcePermissionsWithDefault != null)
+            {
+                request.CatalogInput.OverwriteChildResourcePermissionsWithDefault = requestCatalogInput_catalogInput_OverwriteChildResourcePermissionsWithDefault;
                 requestCatalogInputIsNull = false;
             }
             Dictionary<System.String, System.String> requestCatalogInput_catalogInput_Parameter = null;
@@ -800,6 +824,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String FederatedCatalog_ConnectionName { get; set; }
             public System.String FederatedCatalog_ConnectionType { get; set; }
             public System.String FederatedCatalog_Identifier { get; set; }
+            public Amazon.Glue.OverwriteChildResourcePermissionsWithDefaultEnum CatalogInput_OverwriteChildResourcePermissionsWithDefault { get; set; }
             public Dictionary<System.String, System.String> CatalogInput_Parameter { get; set; }
             public System.String TargetRedshiftCatalog_CatalogArn { get; set; }
             public System.String Name { get; set; }

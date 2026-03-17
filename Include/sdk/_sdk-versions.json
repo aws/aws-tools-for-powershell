@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.211.1",
+    "ProductVersion"    : "4.0.212.0",
     "CoreVersion"       : "4.0.3.18",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -194,7 +194,7 @@
             "InPreview"               : false
         },
         "ElasticMapReduce"     : {
-            "Version" : "4.0.7.12",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.17"
@@ -788,7 +788,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.26.0",
+            "Version" : "4.0.27.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.17"
@@ -3220,7 +3220,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.20.0",
+            "Version" : "4.0.21.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.17"
