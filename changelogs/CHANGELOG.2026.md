@@ -1,4 +1,7 @@
-﻿### 4.1.1021 (2026-03-17 20:42Z)
+﻿### 4.1.1022 (2026-03-18 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1245.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.1021 (2026-03-17 20:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1244.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic MapReduce
     * Modified cmdlet Start-EMRJobFlow: added parameter MonitoringConfiguration_S3LoggingConfiguration_LogTypeUploadPolicy.
