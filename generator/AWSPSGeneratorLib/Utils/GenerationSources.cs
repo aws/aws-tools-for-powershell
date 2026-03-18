@@ -129,6 +129,12 @@ namespace AWSPowerShellGenerator.Utils
             {
                 var assemblyFile = Path.Combine(SdkAssembliesFolder, DotNetPlatformNetStandard20, $"{baseName}.dll");
                 var ndocFile = Path.Combine(SdkAssembliesFolder, DotNetPlatformNetStandard20, $"{baseName}.xml");
+
+                if (!File.Exists(assemblyFile))
+                {
+                    throw new FileNotFoundException(string.Format("Error loading assembly file {0} as it does not exist.", assemblyFile));
+                }
+
                 try
                 {
                     var assembly = Assembly.LoadFrom(assemblyFile);

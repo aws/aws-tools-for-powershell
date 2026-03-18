@@ -264,7 +264,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     // This ensures the flag file is not created if an exception occurs during XML processing or if the report is not saved.
                     if (hasErrors)
                     {
-                        File.WriteAllText(Path.Combine(folderPath, "buildConfigErrors"), string.Empty);
+                        var errorReport = BuildErrorReport(models);
+                        Console.WriteLine($"hasErrors: true; Error report: \n{errorReport}");
+                        File.WriteAllText(Path.Combine(folderPath, "buildConfigErrors"), errorReport);
                     }
                 }
                 else if ((hasNewOperations || isReservedParameterNameHandled || isCircularDependencyDetected || isOperationRemoved) && !hasErrors)
@@ -287,6 +289,55 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 throw new Exception(errorMessage);
             }
         }
+        /// <summary>
+        /// Builds a JSON error report for all models that have analysis errors.
+        /// The output is a JSON array where each element represents a service with errors.
+        /// Service-level errors (not tied to a specific operation) are listed under <c>serviceErrors</c>.
+        /// Operation-level errors are grouped by operation under <c>operationErrors</c>.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// [
+        ///   {
+        ///     "service": "EC2",
+        ///     "serviceErrors": [
+        ///       "Error during code generation: ..."
+        ///     ],
+        ///     "operationErrors": [
+        ///       {
+        ///         "operation": "DescribeInstances",
+        ///         "messages": [
+        ///           "Cannot determine 'Verb' and 'Noun' for this operation."
+        ///         ]
+        ///       }
+        ///     ]
+        ///   }
+        /// ]
+        /// </code>
+        /// </example>
+        private static string BuildErrorReport(IEnumerable<ConfigModel> models)
+        {
+            var serviceErrors = models
+                .Where(m => m.AnalysisErrors.Any() || m.ServiceOperationsList.Any(op => op.AnalysisErrors.Any()))
+                .Select(m => new
+                {
+                    service = m.ServiceName,
+                    serviceErrors = m.AnalysisErrors.Select(e => e.Message).ToArray(),
+                    operationErrors = m.ServiceOperationsList
+                        .Where(op => op.AnalysisErrors.Any())
+                        .Select(op => new
+                        {
+                            operation = op.MethodName,
+                            messages = op.AnalysisErrors.Select(e => e.Message).ToArray()
+                        })
+                        .ToArray()
+                });
+
+            return System.Text.Json.JsonSerializer.Serialize(
+                serviceErrors,
+                new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+        }
+
         private static string GetReturnTypeComment(OperationAnalyzer operationAnalyzer)
         {
             var returnType = operationAnalyzer.ReturnType;
