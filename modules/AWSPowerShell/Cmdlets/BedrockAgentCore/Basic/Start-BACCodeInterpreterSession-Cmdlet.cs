@@ -56,6 +56,21 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Certificate
+        /// <summary>
+        /// <para>
+        /// <para>A list of certificates to install in the code interpreter session.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Certificates")]
+        public Amazon.BedrockAgentCore.Model.Certificate[] Certificate { get; set; }
+        #endregion
+        
         #region Parameter CodeInterpreterIdentifier
         /// <summary>
         /// <para>
@@ -177,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionResponse, StartBACCodeInterpreterSessionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Certificate != null)
+            {
+                context.Certificate = new List<Amazon.BedrockAgentCore.Model.Certificate>(this.Certificate);
+            }
             context.ClientToken = this.ClientToken;
             context.CodeInterpreterIdentifier = this.CodeInterpreterIdentifier;
             #if MODULAR
@@ -205,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             // create request
             var request = new Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionRequest();
             
+            if (cmdletContext.Certificate != null)
+            {
+                request.Certificates = cmdletContext.Certificate;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -284,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.BedrockAgentCore.Model.Certificate> Certificate { get; set; }
             public System.String ClientToken { get; set; }
             public System.String CodeInterpreterIdentifier { get; set; }
             public System.String Name { get; set; }

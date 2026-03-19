@@ -30,33 +30,27 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Deletes the specified job queue. You must first disable submissions for a queue with
-    /// the <a>UpdateJobQueue</a> operation. All jobs in the queue are eventually terminated
-    /// when you delete a job queue.
-    /// 
-    ///  
-    /// <para>
-    /// It's not necessary to disassociate compute environments from a queue before submitting
-    /// a <c>DeleteJobQueue</c> request.
-    /// </para>
+    /// Deletes the specified quota share. You must first disable submissions for the share
+    /// by updating the state to <c>DISABLED</c> using the <a>UpdateQuotaShare</a> operation.
+    /// All jobs in the share are eventually terminated when you delete a quota share.
     /// </summary>
-    [Cmdlet("Remove", "BATJobQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "BATQuotaShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Batch DeleteJobQueue API operation.", Operation = new[] {"DeleteJobQueue"}, SelectReturnType = typeof(Amazon.Batch.Model.DeleteJobQueueResponse))]
-    [AWSCmdletOutput("None or Amazon.Batch.Model.DeleteJobQueueResponse",
+    [AWSCmdlet("Calls the AWS Batch DeleteQuotaShare API operation.", Operation = new[] {"DeleteQuotaShare"}, SelectReturnType = typeof(Amazon.Batch.Model.DeleteQuotaShareResponse))]
+    [AWSCmdletOutput("None or Amazon.Batch.Model.DeleteQuotaShareResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.DeleteJobQueueResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Batch.Model.DeleteQuotaShareResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveBATJobQueueCmdlet : AmazonBatchClientCmdlet, IExecutor
+    public partial class RemoveBATQuotaShareCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter JobQueue
+        #region Parameter QuotaShareArn
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the queue to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the quota share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,13 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobQueue { get; set; }
+        public System.String QuotaShareArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.DeleteJobQueueResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.DeleteQuotaShareResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobQueue), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BATJobQueue (DeleteJobQueue)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QuotaShareArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BATQuotaShare (DeleteQuotaShare)"))
             {
                 return;
             }
@@ -112,14 +106,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Batch.Model.DeleteJobQueueResponse, RemoveBATJobQueueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.DeleteQuotaShareResponse, RemoveBATQuotaShareCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.JobQueue = this.JobQueue;
+            context.QuotaShareArn = this.QuotaShareArn;
             #if MODULAR
-            if (this.JobQueue == null && ParameterWasBound(nameof(this.JobQueue)))
+            if (this.QuotaShareArn == null && ParameterWasBound(nameof(this.QuotaShareArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobQueue which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter QuotaShareArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -136,11 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Batch.Model.DeleteJobQueueRequest();
+            var request = new Amazon.Batch.Model.DeleteQuotaShareRequest();
             
-            if (cmdletContext.JobQueue != null)
+            if (cmdletContext.QuotaShareArn != null)
             {
-                request.JobQueue = cmdletContext.JobQueue;
+                request.QuotaShareArn = cmdletContext.QuotaShareArn;
             }
             
             CmdletOutput output;
@@ -175,12 +169,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private Amazon.Batch.Model.DeleteJobQueueResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeleteJobQueueRequest request)
+        private Amazon.Batch.Model.DeleteQuotaShareResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeleteQuotaShareRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DeleteJobQueue");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DeleteQuotaShare");
             try
             {
-                return client.DeleteJobQueueAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteQuotaShareAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -197,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobQueue { get; set; }
-            public System.Func<Amazon.Batch.Model.DeleteJobQueueResponse, RemoveBATJobQueueCmdlet, object> Select { get; set; } =
+            public System.String QuotaShareArn { get; set; }
+            public System.Func<Amazon.Batch.Model.DeleteQuotaShareResponse, RemoveBATQuotaShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -2494,6 +2494,8 @@ Set-Alias -Name Create-BATConsumableResource -Value New-BATConsumableResource
 Set-Alias -Name BAT-CreateConsumableResource -Value New-BATConsumableResource
 Set-Alias -Name Create-BATJobQueue -Value New-BATJobQueue
 Set-Alias -Name BAT-CreateJobQueue -Value New-BATJobQueue
+Set-Alias -Name Create-BATQuotaShare -Value New-BATQuotaShare
+Set-Alias -Name BAT-CreateQuotaShare -Value New-BATQuotaShare
 Set-Alias -Name Create-BATSchedulingPolicy -Value New-BATSchedulingPolicy
 Set-Alias -Name BAT-CreateSchedulingPolicy -Value New-BATSchedulingPolicy
 Set-Alias -Name Create-BATServiceEnvironment -Value New-BATServiceEnvironment
@@ -2504,6 +2506,8 @@ Set-Alias -Name Delete-BATConsumableResource -Value Remove-BATConsumableResource
 Set-Alias -Name BAT-DeleteConsumableResource -Value Remove-BATConsumableResource
 Set-Alias -Name Delete-BATJobQueue -Value Remove-BATJobQueue
 Set-Alias -Name BAT-DeleteJobQueue -Value Remove-BATJobQueue
+Set-Alias -Name Delete-BATQuotaShare -Value Remove-BATQuotaShare
+Set-Alias -Name BAT-DeleteQuotaShare -Value Remove-BATQuotaShare
 Set-Alias -Name Delete-BATSchedulingPolicy -Value Remove-BATSchedulingPolicy
 Set-Alias -Name BAT-DeleteSchedulingPolicy -Value Remove-BATSchedulingPolicy
 Set-Alias -Name Delete-BATServiceEnvironment -Value Remove-BATServiceEnvironment
@@ -2524,6 +2528,9 @@ Set-Alias -Name BAT-DescribeJobQueues -Value Get-BATJobQueue
 Set-Alias -Name Describe-BATJobs -Value Get-BATJobDetail
 Set-Alias -Name Describe-BATJobDetail -Value Get-BATJobDetail
 Set-Alias -Name BAT-DescribeJobs -Value Get-BATJobDetail
+Set-Alias -Name Describe-BATQuotaShare -Value Get-BATQuotaShareDetail
+Set-Alias -Name Describe-BATQuotaShareDetail -Value Get-BATQuotaShareDetail
+Set-Alias -Name BAT-DescribeQuotaShare -Value Get-BATQuotaShareDetail
 Set-Alias -Name Describe-BATSchedulingPolicies -Value Get-BATSchedulingPolicy
 Set-Alias -Name Describe-BATSchedulingPolicy -Value Get-BATSchedulingPolicy
 Set-Alias -Name BAT-DescribeSchedulingPolicies -Value Get-BATSchedulingPolicy
@@ -2542,6 +2549,9 @@ Set-Alias -Name BAT-ListJobs -Value Get-BATJobList
 Set-Alias -Name List-BATJobsByConsumableResource -Value Get-BATJobsByConsumableResourceList
 Set-Alias -Name List-BATJobsByConsumableResourceList -Value Get-BATJobsByConsumableResourceList
 Set-Alias -Name BAT-ListJobsByConsumableResource -Value Get-BATJobsByConsumableResourceList
+Set-Alias -Name List-BATQuotaShares -Value Get-BATQuotaShareList
+Set-Alias -Name List-BATQuotaShareList -Value Get-BATQuotaShareList
+Set-Alias -Name BAT-ListQuotaShares -Value Get-BATQuotaShareList
 Set-Alias -Name List-BATSchedulingPolicies -Value Get-BATSchedulingPolicyList
 Set-Alias -Name List-BATSchedulingPolicyList -Value Get-BATSchedulingPolicyList
 Set-Alias -Name BAT-ListSchedulingPolicies -Value Get-BATSchedulingPolicyList
@@ -2561,8 +2571,10 @@ Set-Alias -Name BAT-UntagResource -Value Remove-BATResourceTag
 Set-Alias -Name BAT-UpdateComputeEnvironment -Value Update-BATComputeEnvironment
 Set-Alias -Name BAT-UpdateConsumableResource -Value Update-BATConsumableResource
 Set-Alias -Name BAT-UpdateJobQueue -Value Update-BATJobQueue
+Set-Alias -Name BAT-UpdateQuotaShare -Value Update-BATQuotaShare
 Set-Alias -Name BAT-UpdateSchedulingPolicy -Value Update-BATSchedulingPolicy
 Set-Alias -Name BAT-UpdateServiceEnvironment -Value Update-BATServiceEnvironment
+Set-Alias -Name BAT-UpdateServiceJob -Value Update-BATServiceJob
 Set-Alias -Name Create-BCMDEExport -Value New-BCMDEExport
 Set-Alias -Name BCMDE-CreateExport -Value New-BCMDEExport
 Set-Alias -Name Delete-BCMDEExport -Value Remove-BCMDEExport

@@ -59,6 +59,21 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public System.String Destination_Account { get; set; }
         #endregion
         
+        #region Parameter Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion
+        /// <summary>
+        /// <para>
+        /// <para>The selection criteria that specifies which data sources to centralize. The selection
+        /// criteria uses the same filter expression format as <c>LogGroupSelectionCriteria</c>,
+        /// but operates on <c>DataSourceName</c> and <c>DataSourceType</c> operands. When both
+        /// <c>LogGroupSelectionCriteria</c> and <c>DataSourceSelectionCriteria</c> are specified,
+        /// a log event must match both criteria to be centralized.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriteria")]
+        public System.String Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion { get; set; }
+        #endregion
+        
         #region Parameter SourceLogsConfiguration_EncryptedLogGroupStrategy
         /// <summary>
         /// <para>
@@ -133,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// <para>The pattern used to generate destination log group names during centralization. The
         /// pattern can contain static text and dynamic variables that are replaced with source
         /// attributes. If a variable cannot be resolved, it inherits the value from its parent
-        /// variable in the hierarchy. The pattern must be between 1 and 512 characters.</para><para>Supported variables:</para><ul><li><para><b>${source.logGroup}</b> — The original log group name from the source account.</para></li><li><para><b>${source.accountId}</b> — The AWS account ID where the log originated.</para></li><li><para><b>${source.region}</b> — The AWS Region where the log originated.</para></li><li><para><b>${source.org.id}</b> — The AWS Organization ID of the source account.</para></li><li><para><b>${source.org.ouId}</b> — The organizational unit ID of the source account.</para></li><li><para><b>${source.org.rootId}</b> — The organization Root ID.</para></li><li><para><b>${source.org.path}</b> — The organizational path from account to root.</para></li></ul>
+        /// variable in the hierarchy. The pattern must be between 1 and 512 characters.</para><para>Supported variables:</para><ul><li><para><b>${source.logGroup}</b> — The original log group name from the source account.</para></li><li><para><b>${source.accountId}</b> — The Amazon Web Services account ID where the log originated.</para></li><li><para><b>${source.region}</b> — The Amazon Web Services Region where the log originated.</para></li><li><para><b>${source.org.id}</b> — The Amazon Web Services Organization ID of the source account.</para></li><li><para><b>${source.org.ouId}</b> — The organizational unit ID of the source account.</para></li><li><para><b>${source.org.rootId}</b> — The organization Root ID.</para></li><li><para><b>${source.org.path}</b> — The organizational path from account to root.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -320,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             }
             #endif
             context.Source_Scope = this.Source_Scope;
+            context.Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion = this.Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion;
             context.SourceLogsConfiguration_EncryptedLogGroupStrategy = this.SourceLogsConfiguration_EncryptedLogGroupStrategy;
             context.SourceLogsConfiguration_LogGroupSelectionCriterion = this.SourceLogsConfiguration_LogGroupSelectionCriterion;
             context.RuleName = this.RuleName;
@@ -542,6 +558,16 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
              // populate SourceLogsConfiguration
             var requestRule_rule_Source_rule_Source_SourceLogsConfigurationIsNull = true;
             requestRule_rule_Source_rule_Source_SourceLogsConfiguration = new Amazon.ObservabilityAdmin.Model.SourceLogsConfiguration();
+            System.String requestRule_rule_Source_rule_Source_SourceLogsConfiguration_rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion = null;
+            if (cmdletContext.Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion != null)
+            {
+                requestRule_rule_Source_rule_Source_SourceLogsConfiguration_rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion = cmdletContext.Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion;
+            }
+            if (requestRule_rule_Source_rule_Source_SourceLogsConfiguration_rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion != null)
+            {
+                requestRule_rule_Source_rule_Source_SourceLogsConfiguration.DataSourceSelectionCriteria = requestRule_rule_Source_rule_Source_SourceLogsConfiguration_rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion;
+                requestRule_rule_Source_rule_Source_SourceLogsConfigurationIsNull = false;
+            }
             Amazon.ObservabilityAdmin.EncryptedLogGroupStrategy requestRule_rule_Source_rule_Source_SourceLogsConfiguration_sourceLogsConfiguration_EncryptedLogGroupStrategy = null;
             if (cmdletContext.SourceLogsConfiguration_EncryptedLogGroupStrategy != null)
             {
@@ -660,6 +686,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public System.String Destination_Region { get; set; }
             public List<System.String> Source_Region { get; set; }
             public System.String Source_Scope { get; set; }
+            public System.String Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion { get; set; }
             public Amazon.ObservabilityAdmin.EncryptedLogGroupStrategy SourceLogsConfiguration_EncryptedLogGroupStrategy { get; set; }
             public System.String SourceLogsConfiguration_LogGroupSelectionCriterion { get; set; }
             public System.String RuleName { get; set; }

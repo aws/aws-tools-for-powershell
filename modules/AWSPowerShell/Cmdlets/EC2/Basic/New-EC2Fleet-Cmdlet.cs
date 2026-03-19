@@ -296,6 +296,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? ReplaceUnhealthyInstance { get; set; }
         #endregion
         
+        #region Parameter ReservedCapacityOptions_ReservationType
+        /// <summary>
+        /// <para>
+        /// <para>The types of Capacity Reservations to use for fulfilling the EC2 Fleet request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReservedCapacityOptions_ReservationTypes")]
+        public System.String[] ReservedCapacityOptions_ReservationType { get; set; }
+        #endregion
+        
         #region Parameter OnDemandOptions_SingleAvailabilityZone
         /// <summary>
         /// <para>
@@ -559,6 +574,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.OnDemandOptions_SingleAvailabilityZone = this.OnDemandOptions_SingleAvailabilityZone;
             context.OnDemandOptions_SingleInstanceType = this.OnDemandOptions_SingleInstanceType;
             context.ReplaceUnhealthyInstance = this.ReplaceUnhealthyInstance;
+            if (this.ReservedCapacityOptions_ReservationType != null)
+            {
+                context.ReservedCapacityOptions_ReservationType = new List<System.String>(this.ReservedCapacityOptions_ReservationType);
+            }
             context.SpotOptions_AllocationStrategy = this.SpotOptions_AllocationStrategy;
             context.SpotOptions_InstanceInterruptionBehavior = this.SpotOptions_InstanceInterruptionBehavior;
             context.SpotOptions_InstancePoolsToUseCount = this.SpotOptions_InstancePoolsToUseCount;
@@ -710,6 +729,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ReplaceUnhealthyInstance != null)
             {
                 request.ReplaceUnhealthyInstances = cmdletContext.ReplaceUnhealthyInstance.Value;
+            }
+            
+             // populate ReservedCapacityOptions
+            var requestReservedCapacityOptionsIsNull = true;
+            request.ReservedCapacityOptions = new Amazon.EC2.Model.ReservedCapacityOptionsRequest();
+            List<System.String> requestReservedCapacityOptions_reservedCapacityOptions_ReservationType = null;
+            if (cmdletContext.ReservedCapacityOptions_ReservationType != null)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_ReservationType = cmdletContext.ReservedCapacityOptions_ReservationType;
+            }
+            if (requestReservedCapacityOptions_reservedCapacityOptions_ReservationType != null)
+            {
+                request.ReservedCapacityOptions.ReservationTypes = requestReservedCapacityOptions_reservedCapacityOptions_ReservationType;
+                requestReservedCapacityOptionsIsNull = false;
+            }
+             // determine if request.ReservedCapacityOptions should be set to null
+            if (requestReservedCapacityOptionsIsNull)
+            {
+                request.ReservedCapacityOptions = null;
             }
             
              // populate SpotOptions
@@ -986,6 +1024,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? OnDemandOptions_SingleAvailabilityZone { get; set; }
             public System.Boolean? OnDemandOptions_SingleInstanceType { get; set; }
             public System.Boolean? ReplaceUnhealthyInstance { get; set; }
+            public List<System.String> ReservedCapacityOptions_ReservationType { get; set; }
             public Amazon.EC2.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }
             public Amazon.EC2.SpotInstanceInterruptionBehavior SpotOptions_InstanceInterruptionBehavior { get; set; }
             public System.Int32? SpotOptions_InstancePoolsToUseCount { get; set; }

@@ -30,9 +30,12 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Provides a list of the first 100 <c>RUNNABLE</c> jobs associated to a single job queue
-    /// and includes capacity utilization, including total usage and breakdown by share for
-    /// fairshare scheduling job queues.
+    /// Provides a snapshot of job queue state, including ordering of <c>RUNNABLE</c> jobs,
+    /// as well as capacity utilization for already dispatched jobs. The first 100 <c>RUNNABLE</c>
+    /// jobs in the job queue are listed in order of dispatch. For job queues with an attached
+    /// quota-share policy, the first <c>RUNNABLE</c> job in each quota share is also listed.
+    /// Capacity utilization for the job queue is provided, as well as break downs by share
+    /// for job queues with attached fair-share or quota-share scheduling policies.
     /// </summary>
     [Cmdlet("Get", "BATJobQueueSnapshot")]
     [OutputType("Amazon.Batch.Model.FrontOfQueueDetail")]

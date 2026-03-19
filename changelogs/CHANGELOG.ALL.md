@@ -1,4 +1,28 @@
-﻿### 5.0.177 (2026-03-18 23:14Z)
+﻿### 5.0.178 (2026-03-19 22:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.214.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Added cmdlet Get-BATQuotaShareDetail leveraging the DescribeQuotaShare service API.
+    * Added cmdlet Get-BATQuotaShareList leveraging the ListQuotaShares service API.
+    * Added cmdlet New-BATQuotaShare leveraging the CreateQuotaShare service API.
+    * Added cmdlet Remove-BATQuotaShare leveraging the DeleteQuotaShare service API.
+    * Added cmdlet Update-BATQuotaShare leveraging the UpdateQuotaShare service API.
+    * Added cmdlet Update-BATServiceJob leveraging the UpdateServiceJob service API.
+    * Modified cmdlet New-BATSchedulingPolicy: added parameter QuotaSharePolicy_IdleResourceAssignmentStrategy.
+    * Modified cmdlet Submit-BATServiceJob: added parameters PreemptionConfiguration_PreemptionRetriesBeforeTermination and QuotaShareName.
+    * Modified cmdlet Update-BATSchedulingPolicy: added parameter QuotaSharePolicy_IdleResourceAssignmentStrategy.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCBrowser: added parameters Certificate and EnterprisePolicy.
+    * Modified cmdlet New-BACCCodeInterpreter: added parameter Certificate.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Start-BACBrowserSession: added parameters Certificate and EnterprisePolicy.
+    * Modified cmdlet Start-BACCodeInterpreterSession: added parameter Certificate.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion.
+    * Modified cmdlet Update-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2Fleet: added parameter ReservedCapacityOptions_ReservationType.
+
+### 5.0.177 (2026-03-18 23:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.213.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.176 (2026-03-17 20:05Z)

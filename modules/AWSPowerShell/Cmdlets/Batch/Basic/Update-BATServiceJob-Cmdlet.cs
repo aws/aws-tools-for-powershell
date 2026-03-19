@@ -30,33 +30,24 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Deletes the specified job queue. You must first disable submissions for a queue with
-    /// the <a>UpdateJobQueue</a> operation. All jobs in the queue are eventually terminated
-    /// when you delete a job queue.
-    /// 
-    ///  
-    /// <para>
-    /// It's not necessary to disassociate compute environments from a queue before submitting
-    /// a <c>DeleteJobQueue</c> request.
-    /// </para>
+    /// Updates the priority of a specified service job in an Batch job queue.
     /// </summary>
-    [Cmdlet("Remove", "BATJobQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Batch DeleteJobQueue API operation.", Operation = new[] {"DeleteJobQueue"}, SelectReturnType = typeof(Amazon.Batch.Model.DeleteJobQueueResponse))]
-    [AWSCmdletOutput("None or Amazon.Batch.Model.DeleteJobQueueResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.DeleteJobQueueResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Update", "BATServiceJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Batch.Model.UpdateServiceJobResponse")]
+    [AWSCmdlet("Calls the AWS Batch UpdateServiceJob API operation.", Operation = new[] {"UpdateServiceJob"}, SelectReturnType = typeof(Amazon.Batch.Model.UpdateServiceJobResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.UpdateServiceJobResponse",
+        "This cmdlet returns an Amazon.Batch.Model.UpdateServiceJobResponse object containing multiple properties."
     )]
-    public partial class RemoveBATJobQueueCmdlet : AmazonBatchClientCmdlet, IExecutor
+    public partial class UpdateBATServiceJobCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter JobQueue
+        #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the queue to delete.</para>
+        /// <para>The Batch job ID of the job to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,13 +58,32 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobQueue { get; set; }
+        public System.String JobId { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingPriority
+        /// <summary>
+        /// <para>
+        /// <para>The scheduling priority for the job. This only affects jobs in job queues with a quota-share
+        /// or fair-share scheduling policy. Jobs with a higher scheduling priority are scheduled
+        /// before jobs with a lower scheduling priority within a share.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int32? SchedulingPriority { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.DeleteJobQueueResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.UpdateServiceJobResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.UpdateServiceJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobQueue), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BATJobQueue (DeleteJobQueue)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BATServiceJob (UpdateServiceJob)"))
             {
                 return;
             }
@@ -112,14 +122,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Batch.Model.DeleteJobQueueResponse, RemoveBATJobQueueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.UpdateServiceJobResponse, UpdateBATServiceJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.JobQueue = this.JobQueue;
+            context.JobId = this.JobId;
             #if MODULAR
-            if (this.JobQueue == null && ParameterWasBound(nameof(this.JobQueue)))
+            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobQueue which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SchedulingPriority = this.SchedulingPriority;
+            #if MODULAR
+            if (this.SchedulingPriority == null && ParameterWasBound(nameof(this.SchedulingPriority)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SchedulingPriority which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -136,11 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Batch.Model.DeleteJobQueueRequest();
+            var request = new Amazon.Batch.Model.UpdateServiceJobRequest();
             
-            if (cmdletContext.JobQueue != null)
+            if (cmdletContext.JobId != null)
             {
-                request.JobQueue = cmdletContext.JobQueue;
+                request.JobId = cmdletContext.JobId;
+            }
+            if (cmdletContext.SchedulingPriority != null)
+            {
+                request.SchedulingPriority = cmdletContext.SchedulingPriority.Value;
             }
             
             CmdletOutput output;
@@ -175,12 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private Amazon.Batch.Model.DeleteJobQueueResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeleteJobQueueRequest request)
+        private Amazon.Batch.Model.UpdateServiceJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.UpdateServiceJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DeleteJobQueue");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "UpdateServiceJob");
             try
             {
-                return client.DeleteJobQueueAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateServiceJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -197,9 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobQueue { get; set; }
-            public System.Func<Amazon.Batch.Model.DeleteJobQueueResponse, RemoveBATJobQueueCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String JobId { get; set; }
+            public System.Int32? SchedulingPriority { get; set; }
+            public System.Func<Amazon.Batch.Model.UpdateServiceJobResponse, UpdateBATServiceJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

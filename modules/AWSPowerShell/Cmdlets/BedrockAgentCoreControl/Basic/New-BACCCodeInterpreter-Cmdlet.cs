@@ -44,6 +44,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Certificate
+        /// <summary>
+        /// <para>
+        /// <para>A list of certificates to install in the code interpreter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Certificates")]
+        public Amazon.BedrockAgentCoreControl.Model.Certificate[] Certificate { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -204,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterResponse, NewBACCCodeInterpreterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Certificate != null)
+            {
+                context.Certificate = new List<Amazon.BedrockAgentCoreControl.Model.Certificate>(this.Certificate);
+            }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
@@ -253,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             // create request
             var request = new Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterRequest();
             
+            if (cmdletContext.Certificate != null)
+            {
+                request.Certificates = cmdletContext.Certificate;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -382,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.BedrockAgentCoreControl.Model.Certificate> Certificate { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String ExecutionRoleArn { get; set; }
