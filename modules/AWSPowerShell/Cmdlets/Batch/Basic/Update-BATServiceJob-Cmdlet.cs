@@ -28,29 +28,23 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Provides a snapshot of job queue state, including ordering of <c>RUNNABLE</c> jobs,
-    /// as well as capacity utilization for already dispatched jobs. The first 100 <c>RUNNABLE</c>
-    /// jobs in the job queue are listed in order of dispatch. For job queues with an attached
-    /// quota-share policy, the first <c>RUNNABLE</c> job in each quota share is also listed.
-    /// Capacity utilization for the job queue is provided, as well as break downs by share
-    /// for job queues with attached fair-share or quota-share scheduling policies.
+    /// Updates the priority of a specified service job in an Batch job queue.
     /// </summary>
-    [Cmdlet("Get", "BATJobQueueSnapshot")]
-    [OutputType("Amazon.Batch.Model.FrontOfQueueDetail")]
-    [AWSCmdlet("Calls the AWS Batch GetJobQueueSnapshot API operation.", Operation = new[] {"GetJobQueueSnapshot"}, SelectReturnType = typeof(Amazon.Batch.Model.GetJobQueueSnapshotResponse))]
-    [AWSCmdletOutput("Amazon.Batch.Model.FrontOfQueueDetail or Amazon.Batch.Model.GetJobQueueSnapshotResponse",
-        "This cmdlet returns an Amazon.Batch.Model.FrontOfQueueDetail object.",
-        "The service call response (type Amazon.Batch.Model.GetJobQueueSnapshotResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "BATServiceJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Batch.Model.UpdateServiceJobResponse")]
+    [AWSCmdlet("Calls the AWS Batch UpdateServiceJob API operation.", Operation = new[] {"UpdateServiceJob"}, SelectReturnType = typeof(Amazon.Batch.Model.UpdateServiceJobResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.UpdateServiceJobResponse",
+        "This cmdlet returns an Amazon.Batch.Model.UpdateServiceJobResponse object containing multiple properties."
     )]
-    public partial class GetBATJobQueueSnapshotCmdlet : AmazonBatchClientCmdlet, IExecutor
+    public partial class UpdateBATServiceJobCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter JobQueue
+        #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job queue’s name or full queue Amazon Resource Name (ARN).</para>
+        /// <para>The Batch job ID of the job to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,34 +55,68 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobQueue { get; set; }
+        public System.String JobId { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingPriority
+        /// <summary>
+        /// <para>
+        /// <para>The scheduling priority for the job. This only affects jobs in job queues with a quota-share
+        /// or fair-share scheduling policy. Jobs with a higher scheduling priority are scheduled
+        /// before jobs with a lower scheduling priority within a share.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int32? SchedulingPriority { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'FrontOfQueue'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.GetJobQueueSnapshotResponse).
-        /// Specifying the name of a property of type Amazon.Batch.Model.GetJobQueueSnapshotResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.UpdateServiceJobResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.UpdateServiceJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "FrontOfQueue";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobQueue parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobQueue' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the JobId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobQueue' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BATServiceJob (UpdateServiceJob)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -98,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Batch.Model.GetJobQueueSnapshotResponse, GetBATJobQueueSnapshotCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.UpdateServiceJobResponse, UpdateBATServiceJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -107,14 +135,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobQueue;
+                context.Select = (response, cmdlet) => this.JobId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.JobQueue = this.JobQueue;
+            context.JobId = this.JobId;
             #if MODULAR
-            if (this.JobQueue == null && ParameterWasBound(nameof(this.JobQueue)))
+            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobQueue which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SchedulingPriority = this.SchedulingPriority;
+            #if MODULAR
+            if (this.SchedulingPriority == null && ParameterWasBound(nameof(this.SchedulingPriority)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SchedulingPriority which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,11 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Batch.Model.GetJobQueueSnapshotRequest();
+            var request = new Amazon.Batch.Model.UpdateServiceJobRequest();
             
-            if (cmdletContext.JobQueue != null)
+            if (cmdletContext.JobId != null)
             {
-                request.JobQueue = cmdletContext.JobQueue;
+                request.JobId = cmdletContext.JobId;
+            }
+            if (cmdletContext.SchedulingPriority != null)
+            {
+                request.SchedulingPriority = cmdletContext.SchedulingPriority.Value;
             }
             
             CmdletOutput output;
@@ -170,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private Amazon.Batch.Model.GetJobQueueSnapshotResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.GetJobQueueSnapshotRequest request)
+        private Amazon.Batch.Model.UpdateServiceJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.UpdateServiceJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "GetJobQueueSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "UpdateServiceJob");
             try
             {
                 #if DESKTOP
-                return client.GetJobQueueSnapshot(request);
+                return client.UpdateServiceJob(request);
                 #elif CORECLR
-                return client.GetJobQueueSnapshotAsync(request).GetAwaiter().GetResult();
+                return client.UpdateServiceJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -198,9 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobQueue { get; set; }
-            public System.Func<Amazon.Batch.Model.GetJobQueueSnapshotResponse, GetBATJobQueueSnapshotCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.FrontOfQueue;
+            public System.String JobId { get; set; }
+            public System.Int32? SchedulingPriority { get; set; }
+            public System.Func<Amazon.Batch.Model.UpdateServiceJobResponse, UpdateBATServiceJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

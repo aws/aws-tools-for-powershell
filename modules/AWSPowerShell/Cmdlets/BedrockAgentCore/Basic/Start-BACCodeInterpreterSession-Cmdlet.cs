@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Certificate
+        /// <summary>
+        /// <para>
+        /// <para>A list of certificates to install in the code interpreter session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Certificates")]
+        public Amazon.BedrockAgentCore.Model.Certificate[] Certificate { get; set; }
+        #endregion
+        
         #region Parameter CodeInterpreterIdentifier
         /// <summary>
         /// <para>
@@ -190,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 context.Select = (response, cmdlet) => this.CodeInterpreterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Certificate != null)
+            {
+                context.Certificate = new List<Amazon.BedrockAgentCore.Model.Certificate>(this.Certificate);
+            }
             context.ClientToken = this.ClientToken;
             context.CodeInterpreterIdentifier = this.CodeInterpreterIdentifier;
             #if MODULAR
@@ -218,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             // create request
             var request = new Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionRequest();
             
+            if (cmdletContext.Certificate != null)
+            {
+                request.Certificates = cmdletContext.Certificate;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -303,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.BedrockAgentCore.Model.Certificate> Certificate { get; set; }
             public System.String ClientToken { get; set; }
             public System.String CodeInterpreterIdentifier { get; set; }
             public System.String Name { get; set; }

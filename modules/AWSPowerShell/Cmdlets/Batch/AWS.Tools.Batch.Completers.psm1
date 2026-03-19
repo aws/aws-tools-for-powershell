@@ -166,6 +166,46 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.QuotaShareIdleResourceAssignmentStrategy
+        {
+            ($_ -eq "New-BATSchedulingPolicy/QuotaSharePolicy_IdleResourceAssignmentStrategy") -Or
+            ($_ -eq "Update-BATSchedulingPolicy/QuotaSharePolicy_IdleResourceAssignmentStrategy")
+        }
+        {
+            $v = "FIFO"
+            break
+        }
+
+        # Amazon.Batch.QuotaShareInSharePreemptionState
+        {
+            ($_ -eq "New-BATQuotaShare/PreemptionConfiguration_InSharePreemption") -Or
+            ($_ -eq "Update-BATQuotaShare/PreemptionConfiguration_InSharePreemption")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Batch.QuotaShareResourceSharingStrategy
+        {
+            ($_ -eq "New-BATQuotaShare/ResourceSharingConfiguration_Strategy") -Or
+            ($_ -eq "Update-BATQuotaShare/ResourceSharingConfiguration_Strategy")
+        }
+        {
+            $v = "LEND","LEND_AND_BORROW","RESERVE"
+            break
+        }
+
+        # Amazon.Batch.QuotaShareState
+        {
+            ($_ -eq "New-BATQuotaShare/State") -Or
+            ($_ -eq "Update-BATQuotaShare/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Batch.ServiceEnvironmentState
         {
             ($_ -eq "New-BATServiceEnvironment/State") -Or
@@ -223,9 +263,12 @@ $BAT_map = @{
     "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "LogConfiguration_LogDriver"=@("Register-BATJobDefinition")
     "NetworkConfiguration_AssignPublicIp"=@("Register-BATJobDefinition")
+    "PreemptionConfiguration_InSharePreemption"=@("New-BATQuotaShare","Update-BATQuotaShare")
+    "QuotaSharePolicy_IdleResourceAssignmentStrategy"=@("New-BATSchedulingPolicy","Update-BATSchedulingPolicy")
+    "ResourceSharingConfiguration_Strategy"=@("New-BATQuotaShare","Update-BATQuotaShare")
     "ServiceEnvironmentType"=@("New-BATServiceEnvironment")
     "ServiceJobType"=@("Submit-BATServiceJob")
-    "State"=@("New-BATComputeEnvironment","New-BATJobQueue","New-BATServiceEnvironment","Update-BATComputeEnvironment","Update-BATJobQueue","Update-BATServiceEnvironment")
+    "State"=@("New-BATComputeEnvironment","New-BATJobQueue","New-BATQuotaShare","New-BATServiceEnvironment","Update-BATComputeEnvironment","Update-BATJobQueue","Update-BATQuotaShare","Update-BATServiceEnvironment")
     "Type"=@("New-BATComputeEnvironment","Register-BATJobDefinition")
 }
 
@@ -283,11 +326,13 @@ $BAT_SelectMap = @{
                "New-BATComputeEnvironment",
                "New-BATConsumableResource",
                "New-BATJobQueue",
+               "New-BATQuotaShare",
                "New-BATSchedulingPolicy",
                "New-BATServiceEnvironment",
                "Remove-BATComputeEnvironment",
                "Remove-BATConsumableResource",
                "Remove-BATJobQueue",
+               "Remove-BATQuotaShare",
                "Remove-BATSchedulingPolicy",
                "Remove-BATServiceEnvironment",
                "Unregister-BATJobDefinition",
@@ -296,6 +341,7 @@ $BAT_SelectMap = @{
                "Get-BATJobDefinition",
                "Get-BATJobQueue",
                "Get-BATJobDetail",
+               "Get-BATQuotaShareDetail",
                "Get-BATSchedulingPolicy",
                "Get-BATServiceEnvironment",
                "Get-BATServiceJob",
@@ -303,6 +349,7 @@ $BAT_SelectMap = @{
                "Get-BATConsumableResourceList",
                "Get-BATJobList",
                "Get-BATJobsByConsumableResourceList",
+               "Get-BATQuotaShareList",
                "Get-BATSchedulingPolicyList",
                "Get-BATServiceJobList",
                "Get-BATResourceTag",
@@ -316,8 +363,10 @@ $BAT_SelectMap = @{
                "Update-BATComputeEnvironment",
                "Update-BATConsumableResource",
                "Update-BATJobQueue",
+               "Update-BATQuotaShare",
                "Update-BATSchedulingPolicy",
-               "Update-BATServiceEnvironment")
+               "Update-BATServiceEnvironment",
+               "Update-BATServiceJob")
 }
 
 _awsArgumentCompleterRegistration $BAT_SelectCompleters $BAT_SelectMap

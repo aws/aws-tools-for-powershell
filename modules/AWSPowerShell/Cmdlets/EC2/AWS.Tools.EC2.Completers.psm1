@@ -321,7 +321,7 @@ $EC2_Completers = {
             ($_ -eq "New-EC2Fleet/TargetCapacitySpecification_DefaultTargetCapacityType")
         }
         {
-            $v = "capacity-block","on-demand","spot"
+            $v = "capacity-block","on-demand","reserved-capacity","spot"
             break
         }
 

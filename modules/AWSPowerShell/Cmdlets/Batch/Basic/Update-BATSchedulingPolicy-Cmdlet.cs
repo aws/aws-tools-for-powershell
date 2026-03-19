@@ -76,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? FairsharePolicy_ComputeReservation { get; set; }
         #endregion
         
+        #region Parameter QuotaSharePolicy_IdleResourceAssignmentStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The strategy that determines how idle resources are assigned to quota shares that
+        /// are borrowing capacity. Currently, only <c>FIFO</c> is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Batch.QuotaShareIdleResourceAssignmentStrategy")]
+        public Amazon.Batch.QuotaShareIdleResourceAssignmentStrategy QuotaSharePolicy_IdleResourceAssignmentStrategy { get; set; }
+        #endregion
+        
         #region Parameter FairsharePolicy_ShareDecaySecond
         /// <summary>
         /// <para>
@@ -178,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.FairsharePolicy_ShareDistribution = new List<Amazon.Batch.Model.ShareAttributes>(this.FairsharePolicy_ShareDistribution);
             }
+            context.QuotaSharePolicy_IdleResourceAssignmentStrategy = this.QuotaSharePolicy_IdleResourceAssignmentStrategy;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -236,6 +249,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestFairsharePolicyIsNull)
             {
                 request.FairsharePolicy = null;
+            }
+            
+             // populate QuotaSharePolicy
+            var requestQuotaSharePolicyIsNull = true;
+            request.QuotaSharePolicy = new Amazon.Batch.Model.QuotaSharePolicy();
+            Amazon.Batch.QuotaShareIdleResourceAssignmentStrategy requestQuotaSharePolicy_quotaSharePolicy_IdleResourceAssignmentStrategy = null;
+            if (cmdletContext.QuotaSharePolicy_IdleResourceAssignmentStrategy != null)
+            {
+                requestQuotaSharePolicy_quotaSharePolicy_IdleResourceAssignmentStrategy = cmdletContext.QuotaSharePolicy_IdleResourceAssignmentStrategy;
+            }
+            if (requestQuotaSharePolicy_quotaSharePolicy_IdleResourceAssignmentStrategy != null)
+            {
+                request.QuotaSharePolicy.IdleResourceAssignmentStrategy = requestQuotaSharePolicy_quotaSharePolicy_IdleResourceAssignmentStrategy;
+                requestQuotaSharePolicyIsNull = false;
+            }
+             // determine if request.QuotaSharePolicy should be set to null
+            if (requestQuotaSharePolicyIsNull)
+            {
+                request.QuotaSharePolicy = null;
             }
             
             CmdletOutput output;
@@ -302,6 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? FairsharePolicy_ComputeReservation { get; set; }
             public System.Int32? FairsharePolicy_ShareDecaySecond { get; set; }
             public List<Amazon.Batch.Model.ShareAttributes> FairsharePolicy_ShareDistribution { get; set; }
+            public Amazon.Batch.QuotaShareIdleResourceAssignmentStrategy QuotaSharePolicy_IdleResourceAssignmentStrategy { get; set; }
             public System.Func<Amazon.Batch.Model.UpdateSchedulingPolicyResponse, UpdateBATSchedulingPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -44,6 +44,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateQuotaShare" OutputProperty="*" Verb="New" Noun="QuotaShare" ShouldProcessTarget="QuotaShareName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSchedulingPolicy" OutputProperty="*" Verb="New" Noun="SchedulingPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -61,6 +65,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteJobQueue" Verb="Remove" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQuotaShare" Verb="Remove" Noun="QuotaShare" ShouldProcessTarget="QuotaShareArn" PipelineParameter="QuotaShareArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -96,6 +104,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQuotaShare" OutputProperty="*" Verb="Get" Noun="QuotaShareDetail" PipelineParameter="QuotaShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSchedulingPolicies" OutputProperty="SchedulingPolicies" Verb="Get" Noun="SchedulingPolicy" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -121,6 +133,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListJobsByConsumableResource" OutputProperty="Jobs" Verb="Get" Noun="JobsByConsumableResourceList" PipelineParameter="ConsumableResource" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQuotaShares" OutputProperty="QuotaShares" Verb="Get" Noun="QuotaShareList" PipelineParameter="JobQueue" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,11 +231,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQuotaShare" OutputProperty="*" Verb="Update" Noun="QuotaShare" ShouldProcessTarget="QuotaShareArn" PipelineParameter="QuotaShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateSchedulingPolicy" Verb="Update" Noun="SchedulingPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateServiceEnvironment" OutputProperty="*" Verb="Update" Noun="ServiceEnvironment" ShouldProcessTarget="ServiceEnvironment" PipelineParameter="ServiceEnvironment" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceJob" OutputProperty="*" Verb="Update" Noun="ServiceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

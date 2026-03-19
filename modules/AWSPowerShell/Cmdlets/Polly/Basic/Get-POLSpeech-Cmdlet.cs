@@ -96,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// <summary>
         /// <para>
         /// <para> The format in which the returned output will be encoded. For audio stream, this will
-        /// be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </para><para>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel
+        /// be mp3, ogg_vorbis, ogg_opus, mu-law, a-law or pcm. For speech marks, this will be
+        /// json. </para><para>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel
         /// (mono), little-endian format. </para>
         /// </para>
         /// </summary>
@@ -117,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// <para>The audio frequency specified in Hz.</para><para>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", "24000", "44100"
         /// and "48000". The default value for standard voices is "22050". The default value for
         /// neural voices is "24000". The default value for long-form voices is "24000". The default
-        /// value for generative voices is "24000".</para><para>Valid values for pcm are "8000" and "16000" The default value is "16000". </para>
+        /// value for generative voices is "24000".</para><para>Valid values for pcm are "8000" and "16000" The default value is "16000". </para><para>Valid value for ogg_opus is "48000". </para><para>Valid value for mu-law and a-law is "8000". </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

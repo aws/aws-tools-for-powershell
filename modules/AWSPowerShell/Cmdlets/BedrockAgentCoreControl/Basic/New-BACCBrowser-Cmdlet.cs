@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String S3Location_Bucket { get; set; }
         #endregion
         
+        #region Parameter Certificate
+        /// <summary>
+        /// <para>
+        /// <para>A list of certificates to install in the browser.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Certificates")]
+        public Amazon.BedrockAgentCoreControl.Model.Certificate[] Certificate { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -84,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Recording_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter EnterprisePolicy
+        /// <summary>
+        /// <para>
+        /// <para>A list of enterprise policy files for the browser.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnterprisePolicies")]
+        public Amazon.BedrockAgentCoreControl.Model.BrowserEnterprisePolicy[] EnterprisePolicy { get; set; }
         #endregion
         
         #region Parameter ExecutionRoleArn
@@ -265,8 +287,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BrowserSigning_Enabled = this.BrowserSigning_Enabled;
+            if (this.Certificate != null)
+            {
+                context.Certificate = new List<Amazon.BedrockAgentCoreControl.Model.Certificate>(this.Certificate);
+            }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            if (this.EnterprisePolicy != null)
+            {
+                context.EnterprisePolicy = new List<Amazon.BedrockAgentCoreControl.Model.BrowserEnterprisePolicy>(this.EnterprisePolicy);
+            }
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.Name = this.Name;
             #if MODULAR
@@ -337,6 +367,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.BrowserSigning = null;
             }
+            if (cmdletContext.Certificate != null)
+            {
+                request.Certificates = cmdletContext.Certificate;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -344,6 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EnterprisePolicy != null)
+            {
+                request.EnterprisePolicies = cmdletContext.EnterprisePolicy;
             }
             if (cmdletContext.ExecutionRoleArn != null)
             {
@@ -537,8 +575,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? BrowserSigning_Enabled { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.Certificate> Certificate { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.BrowserEnterprisePolicy> EnterprisePolicy { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String Name { get; set; }
             public Amazon.BedrockAgentCoreControl.BrowserNetworkMode NetworkConfiguration_NetworkMode { get; set; }

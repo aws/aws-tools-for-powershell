@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Certificate
+        /// <summary>
+        /// <para>
+        /// <para>A list of certificates to install in the code interpreter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Certificates")]
+        public Amazon.BedrockAgentCoreControl.Model.Certificate[] Certificate { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -207,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Certificate != null)
+            {
+                context.Certificate = new List<Amazon.BedrockAgentCoreControl.Model.Certificate>(this.Certificate);
+            }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
@@ -256,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             // create request
             var request = new Amazon.BedrockAgentCoreControl.Model.CreateCodeInterpreterRequest();
             
+            if (cmdletContext.Certificate != null)
+            {
+                request.Certificates = cmdletContext.Certificate;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -391,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.BedrockAgentCoreControl.Model.Certificate> Certificate { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String ExecutionRoleArn { get; set; }

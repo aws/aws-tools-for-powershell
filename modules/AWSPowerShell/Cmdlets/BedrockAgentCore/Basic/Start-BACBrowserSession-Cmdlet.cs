@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String BrowserIdentifier { get; set; }
         #endregion
         
+        #region Parameter Certificate
+        /// <summary>
+        /// <para>
+        /// <para>A list of certificates to install in the browser session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Certificates")]
+        public Amazon.BedrockAgentCore.Model.Certificate[] Certificate { get; set; }
+        #endregion
+        
         #region Parameter ProxyConfiguration_Bypass_DomainPattern
         /// <summary>
         /// <para>
@@ -83,6 +94,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ProxyConfiguration_Bypass_DomainPatterns")]
         public System.String[] ProxyConfiguration_Bypass_DomainPattern { get; set; }
+        #endregion
+        
+        #region Parameter EnterprisePolicy
+        /// <summary>
+        /// <para>
+        /// <para>A list of files containing enterprise policies for the browser.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnterprisePolicies")]
+        public Amazon.BedrockAgentCore.Model.BrowserEnterprisePolicy[] EnterprisePolicy { get; set; }
         #endregion
         
         #region Parameter Extension
@@ -268,7 +290,15 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter BrowserIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Certificate != null)
+            {
+                context.Certificate = new List<Amazon.BedrockAgentCore.Model.Certificate>(this.Certificate);
+            }
             context.ClientToken = this.ClientToken;
+            if (this.EnterprisePolicy != null)
+            {
+                context.EnterprisePolicy = new List<Amazon.BedrockAgentCore.Model.BrowserEnterprisePolicy>(this.EnterprisePolicy);
+            }
             if (this.Extension != null)
             {
                 context.Extension = new List<Amazon.BedrockAgentCore.Model.BrowserExtension>(this.Extension);
@@ -308,9 +338,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.BrowserIdentifier = cmdletContext.BrowserIdentifier;
             }
+            if (cmdletContext.Certificate != null)
+            {
+                request.Certificates = cmdletContext.Certificate;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.EnterprisePolicy != null)
+            {
+                request.EnterprisePolicies = cmdletContext.EnterprisePolicy;
             }
             if (cmdletContext.Extension != null)
             {
@@ -486,7 +524,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BrowserIdentifier { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.Certificate> Certificate { get; set; }
             public System.String ClientToken { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.BrowserEnterprisePolicy> EnterprisePolicy { get; set; }
             public List<Amazon.BedrockAgentCore.Model.BrowserExtension> Extension { get; set; }
             public System.String Name { get; set; }
             public System.String ProfileConfiguration_ProfileIdentifier { get; set; }

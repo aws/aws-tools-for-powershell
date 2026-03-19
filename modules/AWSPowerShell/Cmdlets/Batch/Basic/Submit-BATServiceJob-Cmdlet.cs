@@ -113,6 +113,30 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String JobQueue { get; set; }
         #endregion
         
+        #region Parameter PreemptionConfiguration_PreemptionRetriesBeforeTermination
+        /// <summary>
+        /// <para>
+        /// <para>The number of times a service job can be retried after it is preempted. A job will
+        /// be terminated when preemption retries have been exhausted. If this field is unset,
+        /// preempted jobs will be requeued an unlimited number of times. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PreemptionConfiguration_PreemptionRetriesBeforeTermination { get; set; }
+        #endregion
+        
+        #region Parameter QuotaShareName
+        /// <summary>
+        /// <para>
+        /// <para>The quota share for the service job. Don't specify this parameter if the job queue
+        /// doesn't have a quota share scheduling policy. If the job queue has a quota share scheduling
+        /// policy, then this parameter must be specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QuotaShareName { get; set; }
+        #endregion
+        
         #region Parameter SchedulingPriority
         /// <summary>
         /// <para>
@@ -274,6 +298,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 WriteWarning("You are passing $null as a value for parameter JobQueue which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PreemptionConfiguration_PreemptionRetriesBeforeTermination = this.PreemptionConfiguration_PreemptionRetriesBeforeTermination;
+            context.QuotaShareName = this.QuotaShareName;
             context.RetryStrategy_Attempt = this.RetryStrategy_Attempt;
             if (this.RetryStrategy_EvaluateOnExit != null)
             {
@@ -331,6 +357,29 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.JobQueue != null)
             {
                 request.JobQueue = cmdletContext.JobQueue;
+            }
+            
+             // populate PreemptionConfiguration
+            var requestPreemptionConfigurationIsNull = true;
+            request.PreemptionConfiguration = new Amazon.Batch.Model.ServiceJobPreemptionConfiguration();
+            System.Int32? requestPreemptionConfiguration_preemptionConfiguration_PreemptionRetriesBeforeTermination = null;
+            if (cmdletContext.PreemptionConfiguration_PreemptionRetriesBeforeTermination != null)
+            {
+                requestPreemptionConfiguration_preemptionConfiguration_PreemptionRetriesBeforeTermination = cmdletContext.PreemptionConfiguration_PreemptionRetriesBeforeTermination.Value;
+            }
+            if (requestPreemptionConfiguration_preemptionConfiguration_PreemptionRetriesBeforeTermination != null)
+            {
+                request.PreemptionConfiguration.PreemptionRetriesBeforeTermination = requestPreemptionConfiguration_preemptionConfiguration_PreemptionRetriesBeforeTermination.Value;
+                requestPreemptionConfigurationIsNull = false;
+            }
+             // determine if request.PreemptionConfiguration should be set to null
+            if (requestPreemptionConfigurationIsNull)
+            {
+                request.PreemptionConfiguration = null;
+            }
+            if (cmdletContext.QuotaShareName != null)
+            {
+                request.QuotaShareName = cmdletContext.QuotaShareName;
             }
             
              // populate RetryStrategy
@@ -464,6 +513,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.String ClientToken { get; set; }
             public System.String JobName { get; set; }
             public System.String JobQueue { get; set; }
+            public System.Int32? PreemptionConfiguration_PreemptionRetriesBeforeTermination { get; set; }
+            public System.String QuotaShareName { get; set; }
             public System.Int32? RetryStrategy_Attempt { get; set; }
             public List<Amazon.Batch.Model.ServiceJobEvaluateOnExit> RetryStrategy_EvaluateOnExit { get; set; }
             public System.Int32? SchedulingPriority { get; set; }
