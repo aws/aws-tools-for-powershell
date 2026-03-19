@@ -145,7 +145,7 @@ try {
       # build-report-only generates report.xml when there are new operations,
       # reserved parameter name resolutions, circular dependency detections, or operation removals.
       # Operations with errors are included in report.xml and will be re-validated during the build.
-      dotnet msbuild ./buildtools/build.proj /t:build-report-only `
+      dotnet msbuild ./buildtools/build.proj /t:build-report-only /v:minimal `
         /p:CleanSdkReferences=false `
         /p:BreakOnNewOperations=false `
         /p:Configuration=$Configuration
@@ -166,9 +166,9 @@ try {
     else {
       Write-Host "report.xml not generated"
     }
-    
 
-    dotnet msbuild ./buildtools/build.proj /t:preview-build `
+
+    dotnet msbuild ./buildtools/build.proj /t:preview-build /v:minimal `
       /p:RunTests=$RunTests `
       /p:CleanSdkReferences=false `
       /p:BreakOnNewOperations=true `
@@ -222,7 +222,7 @@ try {
       # build-report-only generates report.xml when there are new operations,
       # reserved parameter name resolutions, circular dependency detections, or operation removals.
       # Operations with errors are included in report.xml and will be re-validated during the build.
-      dotnet msbuild ./buildtools/build.proj /t:build-report-only `
+      dotnet msbuild ./buildtools/build.proj /t:build-report-only /v:minimal `
         /p:CleanSdkReferences=false `
         /p:BreakOnNewOperations=false `
         /p:Configuration=$Configuration
@@ -246,14 +246,14 @@ try {
     
     
     if ($RunAsStagingBuild -eq 'true') {
-      msbuild ./buildtools/build.proj `
+      msbuild ./buildtools/build.proj /v:minimal `
         /t:staging-build `
         /p:Configuration=$Configuration `
         /p:CleanSdkReferences=$cleanSDKReferenceInMsBuild `
         /p:PreviewLabel=$PreviewLabel
     }
     else {
-      msbuild ./buildtools/build.proj `
+      msbuild ./buildtools/build.proj /v:minimal `
         /t:full-build `
         /p:PatchNumber=$Version `
         /p:RunTests=$RunTests `

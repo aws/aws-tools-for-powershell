@@ -17,7 +17,6 @@ namespace AWSPowerShellGenerator.Generators
         #region Public properties
 
         public List<Assembly> TargetAssemblies { get; set; }
-        public string Name { get; set; }
 
         #endregion
 

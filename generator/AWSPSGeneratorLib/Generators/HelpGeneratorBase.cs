@@ -26,7 +26,6 @@ namespace AWSPowerShellGenerator.Generators
 
         public Assembly CmdletAssembly { get; set; }
         public XmlDocument AssemblyDocumentation { get; set; }
-        public string Name { get; set; }
 
         #endregion
 
@@ -213,7 +212,7 @@ namespace AWSPowerShellGenerator.Generators
 
             if (servicePrefix != null)
             {
-                Console.WriteLine(ExampleMetadataFiles.Count > 0
+                Logger.Log(ExampleMetadataFiles.Count > 0
                     ? $"Loading example metadata files for {servicePrefix}"
                     : $"No example metadata files found for {servicePrefix}");
             }
@@ -225,14 +224,13 @@ namespace AWSPowerShellGenerator.Generators
                     var cmdletName = GetCmdletNameFromMetadataPath(metadataPath);
                     var document = GetExampleXmlFromMetadata(metadataPath, Options.RootPath);
                     ExamplesCache[cmdletName] = document;
-                    Console.WriteLine("...loaded examples for {0}", cmdletName);
+                    Logger.Log("...loaded examples for {0}", cmdletName);
                 }
                 catch (Exception ex)
                 {
                     Logger.LogError($"Error processing {metadataPath}. {ex}");
                 }
             }
-            Console.WriteLine();
         }
 
         private string GetCmdletNameFromMetadataPath(string metadataPath)
@@ -440,7 +438,7 @@ namespace AWSPowerShellGenerator.Generators
 
             if (servicePrefix != null)
             {
-                Console.WriteLine(linkFiles.Length > 0
+                Logger.Log(linkFiles.Length > 0
                     ? $"Loading link files for {servicePrefix}"
                     : $"No link files found for {servicePrefix}");
             }
@@ -454,10 +452,8 @@ namespace AWSPowerShellGenerator.Generators
                 document.Load(linkFile);
                 var servicePrefixFromFileName = Path.GetFileNameWithoutExtension(linkFile);
                 LinksCache[servicePrefixFromFileName] = document;
-                Console.WriteLine("...loaded links library for {0}", servicePrefixFromFileName);
+                Logger.Log("...loaded links library for {0}", servicePrefixFromFileName);
             }
-
-            Console.WriteLine();
         }
 
         protected XmlNodeList GetRelatedLinks(XmlDocument document, string target)
@@ -466,7 +462,7 @@ namespace AWSPowerShellGenerator.Generators
             var set = document.SelectSingleNode(xpath);
             if (set == null)
             {
-                Console.WriteLine("Unable to find related links for target {0} in service {1}, probed xpath {2}", target,
+                Logger.Log("Unable to find related links for target {0} in service {1}, probed xpath {2}", target,
                     document.Name, xpath);
                 return null;
             }
@@ -477,7 +473,7 @@ namespace AWSPowerShellGenerator.Generators
             var firstLink = set.FirstChild;
             if (firstLink == null || string.IsNullOrEmpty(firstLink.InnerText))
             {
-                Console.WriteLine("Skipping empty link set for target {0} in {1}", target, document.Name);
+                Logger.Log("Skipping empty link set for target {0} in {1}", target, document.Name);
                 return null;
             }
 

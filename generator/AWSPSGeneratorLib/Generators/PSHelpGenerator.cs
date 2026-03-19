@@ -24,7 +24,7 @@ namespace AWSPowerShellGenerator.Generators
 
         protected override void GenerateHelper()
         {
-            Console.WriteLine("Generating Native PowerShell help (Get-Help) documentation file");
+            Logger.Log("Generating Native PowerShell help (Get-Help) documentation file");
             base.GenerateHelper();
 
             var buildLogsPath = Path.Combine(this.Options.RootPath, "logs");

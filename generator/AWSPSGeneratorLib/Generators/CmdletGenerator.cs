@@ -24,6 +24,12 @@ namespace AWSPowerShellGenerator.Generators
 
         public string OutputFolder { get; set; }
 
+        /// <summary>
+        /// Display name for the generator, used for log file naming.
+        /// Set by subclasses (e.g. assembly name for help generators).
+        /// </summary>
+        public string Name { get; set; }
+
         public GeneratorOptions Options { get; set; }
 
         protected readonly StringBuilder _argumentCompletionScript = new StringBuilder();
@@ -40,7 +46,8 @@ namespace AWSPowerShellGenerator.Generators
 
         public void Generate()
         {
-            Logger = new BasicLogger(Options.Verbose);
+            var logFilePath = GetLogFilePath();
+            Logger = new BasicLogger(Options.Verbose, logFilePath);
 
             try
             {
@@ -51,6 +58,8 @@ namespace AWSPowerShellGenerator.Generators
                 Logger.LogError(e, "Exception thrown in generate method");
             }
 
+            Logger.Dispose();
+
             if (Logger.HasErrors)
             {
                 using (var sw = new StringWriter())
@@ -59,6 +68,20 @@ namespace AWSPowerShellGenerator.Generators
                     throw new Exception(sw.ToString());
                 }
             }
+        }
+
+        /// <summary>
+        /// Builds the log file path for this generator under {RootPath}/logs/.
+        /// Uses Name if set (e.g. "AWS.Tools.S3"), otherwise falls back to the class name.
+        /// </summary>
+        private string GetLogFilePath()
+        {
+            if (Options?.RootPath == null)
+                return null;
+
+            var logDir = Path.Combine(Options.RootPath, "logs");
+            var logName = !string.IsNullOrEmpty(Name) ? Name : GetType().Name;
+            return Path.Combine(logDir, logName + ".log");
         }
 
         protected abstract void GenerateHelper();
@@ -531,7 +554,7 @@ namespace AWSPowerShellGenerator.Generators
                 {
                     operation.IsOperationRemoved = true;
                     InfoMessage.OperationRemovedFromSdk(CurrentModel, operation);
-                    Console.WriteLine($"Operation Removed: '{operation.MethodName}' in service '{CurrentModel.C2jFilename}' no longer exists in the SDK assembly.");
+                    Logger.LogConsole($"Operation Removed: '{operation.MethodName}' in service '{CurrentModel.C2jFilename}' no longer exists in the SDK assembly.");
                 }
                 else
                 {

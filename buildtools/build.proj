@@ -89,8 +89,8 @@
     </Target>
 
     <Target Name="clean-bin">
-        <Exec Command="dotnet clean -c $(Configuration) ../solutions/ModularAWSPowerShell.sln"/>
-        <Exec Command="dotnet clean -c $(Configuration) ../solutions/AWSPowerShell.sln"/>
+        <Exec Command="dotnet clean -c $(Configuration) -v:quiet ../solutions/ModularAWSPowerShell.sln"/>
+        <Exec Command="dotnet clean -c $(Configuration) -v:quiet ../solutions/AWSPowerShell.sln"/>
     </Target>
 
     <Target Name="clean-deployment">
@@ -107,8 +107,8 @@
     <Target Name="build-generator">
         <Message Text="Building AWS PowerShell generator"/>
         <!-- Parallel restore randomly fails package certificate trust https://github.com/NuGet/Home/issues/10322 -->
-        <Exec Command="dotnet restore --disable-parallel ../solutions/AWSPowerShellGenerator.sln"/>
-        <Exec Command="dotnet build -c $(Configuration) --force --no-incremental --no-restore -p:UseSharedCompilation=false ../solutions/AWSPowerShellGenerator.sln"/>
+        <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../solutions/AWSPowerShellGenerator.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) --force --no-incremental --no-restore -v:quiet -p:UseSharedCompilation=false ../solutions/AWSPowerShellGenerator.sln"/>
     </Target>
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator">
@@ -125,14 +125,14 @@
 
     <Target Name="build-desktop-module" DependsOnTargets="create-cmdlets;build-netcore-module">
         <Message Text="Building AWSPowerShell desktop module edition"/>
-        <Exec Command="dotnet restore --disable-parallel ../solutions/AWSPowerShell.sln"/>
-        <Exec Command="dotnet build -c $(Configuration) -f net472 --force --no-incremental --no-restore -p:UseSharedCompilation=false ../solutions/AWSPowerShell.sln"/>
+        <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../solutions/AWSPowerShell.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) -f net472 --force --no-incremental --no-restore -v:quiet -p:UseSharedCompilation=false ../solutions/AWSPowerShell.sln"/>
     </Target>
 
     <Target Name="build-netcore-module" DependsOnTargets="create-cmdlets">
         <Message Text="Building AWSPowerShell netcore module edition"/>
-        <Exec Command="dotnet restore --disable-parallel ../solutions/AWSPowerShell.sln"/>
-        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore -p:UseSharedCompilation=false ../solutions/AWSPowerShell.sln"/>
+        <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../solutions/AWSPowerShell.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore -v:quiet -p:UseSharedCompilation=false ../solutions/AWSPowerShell.sln"/>
 
         <Message Text="Generating custom view formats ps1xml file"/>
         <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t formats -e coreclr" />
@@ -140,8 +140,8 @@
 
     <Target Name="build-modular-modules" DependsOnTargets="create-cmdlets">
         <Message Text="Building AWSPowerShell modular edition"/>
-        <Exec Command="dotnet restore --disable-parallel ../solutions/ModularAWSPowerShell.sln"/>
-        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore -p:UseSharedCompilation=false ../solutions/ModularAWSPowerShell.sln"/>
+        <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../solutions/ModularAWSPowerShell.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore -v:quiet -p:UseSharedCompilation=false ../solutions/ModularAWSPowerShell.sln"/>
     </Target>
 
     <Target Name="create-help" DependsOnTargets="create-pshelp;create-webhelp" />
@@ -172,8 +172,8 @@
 
     <Target Name="build-test-modules" DependsOnTargets="create-cmdlets">
         <Message Text="Building test modules"/>
-        <Exec Command="dotnet restore --disable-parallel ../tests/modules/TestModule.sln"/>
-        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore -p:UseSharedCompilation=false ../tests/modules/TestModule.sln"/>
+        <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../tests/modules/TestModule.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore -v:quiet -p:UseSharedCompilation=false ../tests/modules/TestModule.sln"/>
     </Target>
 	
     <Target Name="run-tests" Condition="'$(RunTests)'">
@@ -429,7 +429,14 @@
         </CodeSignTask>
     </Target>
 
-    <Target Name="keyscan" DependsOnTargets="build-tools" Condition="$(RunKeyScan) And Exists('$(InternalBuildTools)/references.targets')">
+    <!-- Wrapper target that invokes keyscan-impl in a child MSBuild process with -v:quiet
+         to suppress per-file "Testing file" and "Skipping file" messages (93K+ lines).
+         Errors still surface at -v:quiet. -->
+    <Target Name="keyscan" Condition="$(RunKeyScan) And Exists('$(InternalBuildTools)/references.targets')">
+        <Exec Command="dotnet msbuild $(MSBuildProjectFile) /t:keyscan-impl /v:quiet /p:InternalBuildTools=$(InternalBuildTools) /p:Configuration=$(Configuration) /p:RunKeyScan=$(RunKeyScan)" />
+    </Target>
+
+    <Target Name="keyscan-impl" DependsOnTargets="build-tools" Condition="$(RunKeyScan) And Exists('$(InternalBuildTools)/references.targets')">
         <!-- note that paths to files for the scanner should be relative to build root -->
         <ItemGroup>
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\EC2\New-EC2KeyPair.xml" />
@@ -500,8 +507,8 @@
         <PropertyGroup>
             <PreviewLabel Condition="'$(PreviewLabel)'==''">""</PreviewLabel>
         </PropertyGroup>
-        <Exec Command="dotnet restore --disable-parallel ../solutions/ReleaseNotesGenerator.sln"/>
-        <Exec Command="dotnet build -c Release --no-incremental --no-restore -p:UseSharedCompilation=false ../solutions/ReleaseNotesGenerator.sln"/>
+        <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../solutions/ReleaseNotesGenerator.sln"/>
+        <Exec Command="dotnet build -c Release --no-incremental --no-restore -v:quiet -p:UseSharedCompilation=false ../solutions/ReleaseNotesGenerator.sln"/>
         <Exec Condition="'$(PreviousVersionPath)'==''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml -pl $(PreviewLabel) -nv $(PatchNumber)" />
         <Exec Condition="'$(PreviousVersionPath)'!=''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -oa $(PreviousVersionPath) -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml"/>
     </Target>
