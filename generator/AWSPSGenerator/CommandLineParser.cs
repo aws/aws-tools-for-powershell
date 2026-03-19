@@ -266,7 +266,7 @@ namespace AWSPowerShellGenerator
                 ShortName = "ro",
                 HasValue = true,
                 Parse = (arguments, argValue) => arguments.ParsedOptions.GenerateReportOnly = bool.Parse(argValue),
-                HelpText = "Only generate report.xml if there are operations not in config and no errors."
+                HelpText = "Only generate report.xml when there are new operations, reserved parameter name resolutions, circular dependency detections, or operation removals."
             }
         };
 

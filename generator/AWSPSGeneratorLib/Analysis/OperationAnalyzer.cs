@@ -1043,11 +1043,23 @@ namespace AWSPowerShellGenerator.Analysis
         /// flattened set of properties to be exposed as parameters on the cmdlet.
         /// </summary>
         /// <param name="generator"></param>
-        private void DetermineParameters(CmdletGenerator generator)
+        protected virtual void DetermineParameters(CmdletGenerator generator)
         {
             // analyze the request members to get a flattened set of all
             // properties
             var allProperties = GetFlatProperties(RequestType).ToList();
+
+            // If circular dependency was detected during flattening, TypesNotToFlatten was updated
+            // mid-traversal. The cached flat/root properties may include deeply flattened parameters
+            // from the circular type that won't exist on subsequent runs. Re-compute all properties
+            // with the updated TypesNotToFlatten to ensure consistency between first and subsequent runs.
+            if (CurrentOperation.IsCircularDependencyDetected)
+            {
+                _flatPropertiesCache.Remove(RequestType);
+                _rootSimplePropertiesCache.Remove(RequestType);
+                StreamParameters.Clear();
+                allProperties = GetFlatProperties(RequestType).ToList();
+            }
 
             // remove excluded properties, if any, from the flattened set
             AnalyzedParameters = allProperties

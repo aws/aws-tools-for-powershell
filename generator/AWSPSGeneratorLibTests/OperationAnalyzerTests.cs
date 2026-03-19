@@ -2079,4 +2079,253 @@ namespace AWSPSGeneratorLibTests
         public new bool ShouldApplyPluralNounRule(string verb, string originalNoun, string singularNoun) =>
             base.ShouldApplyPluralNounRule(verb, originalNoun, singularNoun);
     }
+
+    #region Circular Dependency Test Types
+
+    /// <summary>
+    /// Test types to simulate circular dependency in property hierarchy.
+    /// CircularNodeA → CircularNodeB → CircularNodeA (circular reference).
+    /// </summary>
+    public class CircularNodeA
+    {
+        public string NodeName { get; set; }
+        public string ResourceArn { get; set; }
+        public CircularNodeB Child { get; set; }
+    }
+
+    public class CircularNodeB
+    {
+        public string Value { get; set; }
+        public CircularNodeA Parent { get; set; }  // Circular reference back to A
+    }
+
+    /// <summary>
+    /// Test request type that contains a property with a circular dependency
+    /// and simple non-circular properties for comparison.
+    /// </summary>
+    public class TestRequestWithCircularDependency
+    {
+        public CircularNodeA CircularItem { get; set; }
+        public string SimpleParam { get; set; }
+        public string SortOrder { get; set; }
+    }
+
+
+    #endregion
+
+    /// <summary>
+    /// Testable version of OperationAnalyzer that exposes circular dependency detection methods for testing.
+    /// Uses real .NET types with circular references to test through the actual CreateSimplePropertyFor reflection path.
+    /// </summary>
+    internal class TestableCircularDependencyAnalyzer : OperationAnalyzer
+    {
+        public TestableCircularDependencyAnalyzer(ConfigModelCollection allModels, ConfigModel currentModel,
+            ServiceOperation currentOperation, XmlDocument assemblyDocumentation)
+            : base(allModels, currentModel, currentOperation, assemblyDocumentation)
+        {
+            AnalyzedParameters = new List<SimplePropertyInfo>();
+        }
+
+        /// <summary>
+        /// Exposes CreateSimplePropertyFor for direct testing of circular dependency detection.
+        /// </summary>
+        public new SimplePropertyInfo CreateSimplePropertyFor(PropertyInfo property, SimplePropertyInfo parent, bool isCmdletParameter, HashSet<string> visitedTypes = null) =>
+            base.CreateSimplePropertyFor(property, parent, isCmdletParameter, visitedTypes);
+
+        /// <summary>
+        /// Processes all properties of a request type and populates AnalyzedParameters,
+        /// simulating what DetermineParameters does but without needing a CmdletGenerator.
+        /// </summary>
+        public void ProcessRequestType(Type requestType)
+        {
+            var allProperties = new List<SimplePropertyInfo>();
+            var rootProperties = requestType.GetProperties()
+                .Where(p => p.CanWrite && p.CanRead && p.GetIndexParameters().Length == 0);
+
+            foreach (var prop in rootProperties)
+            {
+                var simpleProp = CreateSimplePropertyFor(prop, null, true);
+                if (simpleProp != null)
+                {
+                    allProperties.AddRange(FlattenPropertiesHelper(simpleProp));
+                }
+            }
+
+            // First pass result (may contain stale deeply-flattened params)
+            var firstPassParams = allProperties.ToList();
+
+            // Apply the same fix as DetermineParameters: if circular dep detected, re-compute
+            if (CurrentOperation.IsCircularDependencyDetected)
+            {
+                allProperties.Clear();
+                rootProperties = requestType.GetProperties()
+                    .Where(p => p.CanWrite && p.CanRead && p.GetIndexParameters().Length == 0);
+
+                foreach (var prop in rootProperties)
+                {
+                    var simpleProp = CreateSimplePropertyFor(prop, null, true);
+                    if (simpleProp != null)
+                    {
+                        allProperties.AddRange(FlattenPropertiesHelper(simpleProp));
+                    }
+                }
+            }
+
+            AnalyzedParameters = allProperties;
+            FirstPassParameterCount = firstPassParams.Count;
+        }
+
+        /// <summary>
+        /// Stores the parameter count from the first pass (before cache clearing) for test assertions.
+        /// </summary>
+        public int FirstPassParameterCount { get; private set; }
+
+        public override IEnumerable<SimplePropertyInfo> NonIterationParameters => AnalyzedParameters;
+
+        public new List<SimplePropertyInfo> SelectShouldProcessTarget() =>
+            base.SelectShouldProcessTarget();
+
+        private static IEnumerable<SimplePropertyInfo> FlattenPropertiesHelper(SimplePropertyInfo property)
+        {
+            if (property.Children.Count > 0)
+            {
+                foreach (var child in property.Children)
+                {
+                    if (child.Children.Count == 0)
+                    {
+                        yield return child;
+                    }
+                    else
+                    {
+                        foreach (var flatProperty in FlattenPropertiesHelper(child))
+                        {
+                            yield return flatProperty;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                yield return property;
+            }
+        }
+    }
+
+    [TestClass]
+    public class CircularDependencyDetectionTests
+    {
+        private ConfigModelCollection _allModels;
+        private ConfigModel _testModel;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _allModels = new ConfigModelCollection
+            {
+                MetadataParameterNames = new List<string>()
+            };
+            _testModel = new ConfigModel
+            {
+                AssemblyName = "TestService",
+                ServiceName = "Test Service",
+                ServiceNounPrefix = "TEST",
+                MetadataPropertyNames = new List<string>()
+            };
+        }
+
+        [TestMethod]
+        public void CircularDependency_IsDetected_AndTypeAddedToTypesNotToFlatten()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("CreateCircularItem");
+            var analyzer = new TestableCircularDependencyAnalyzer(_allModels, _testModel, operation, null);
+
+            // Act - process the request type with circular dependency
+            var circularProperty = typeof(TestRequestWithCircularDependency).GetProperty("CircularItem");
+            analyzer.CreateSimplePropertyFor(circularProperty, null, true);
+
+            // Assert - circular dependency should be detected and type added to TypesNotToFlatten
+            Assert.IsTrue(operation.IsCircularDependencyDetected,
+                "IsCircularDependencyDetected should be true when circular type is encountered");
+            Assert.IsTrue(_testModel.TypesNotToFlatten.Any(t => t.Contains("CircularNodeA") || t.Contains("CircularNodeB")),
+                "The circular type should be added to TypesNotToFlatten");
+        }
+
+        [TestMethod]
+        public void CircularDependency_RecomputedParameters_DoNotIncludeDeeplyFlattenedPaths()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("CreateCircularItem");
+            var analyzer = new TestableCircularDependencyAnalyzer(_allModels, _testModel, operation, null);
+
+            // Act
+            analyzer.ProcessRequestType(typeof(TestRequestWithCircularDependency));
+
+            // Assert - after re-computation, no parameter should have deeply flattened paths from the circular type
+            var paramNames = analyzer.AnalyzedParameters.Select(p => p.AnalyzedName).ToList();
+
+            // The first pass would have had deeply-flattened params like CircularItem_NodeName, CircularItem_ResourceArn, etc.
+            // After re-computation with the circular type in TypesNotToFlatten, CircularItem should NOT be flattened
+            Assert.IsTrue(operation.IsCircularDependencyDetected,
+                "Circular dependency should be detected");
+
+            // CircularItem should appear as a single non-flattened parameter
+            Assert.IsTrue(paramNames.Contains("CircularItem"),
+                "CircularItem should be a single non-flattened parameter after re-computation");
+
+            // Deeply-flattened paths from inside the circular type should NOT exist
+            Assert.IsFalse(paramNames.Any(n => n.StartsWith("CircularItem_")),
+                "No deeply-flattened paths from the circular type should exist after re-computation");
+
+            // Simple non-circular params should still be present
+            Assert.IsTrue(paramNames.Contains("SimpleParam"), "SimpleParam should be present");
+            Assert.IsTrue(paramNames.Contains("SortOrder"), "SortOrder should be present");
+        }
+
+        [TestMethod]
+        public void CircularDependency_ShouldProcessTarget_UsesCorrectParameters()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("SearchCertificate");
+            operation.SelectedVerb = "Search";
+            operation.SelectedNoun = "Certificate";
+            operation.OriginalNoun = "Certificate";
+            var analyzer = new TestableCircularDependencyAnalyzer(_allModels, _testModel, operation, null);
+
+            // Act
+            analyzer.ProcessRequestType(typeof(TestRequestWithCircularDependency));
+            var shouldProcessTargetParams = analyzer.SelectShouldProcessTarget();
+
+            // Assert - none of the correct parameters (CircularItem, SimpleParam, SortOrder) have
+            // Id/Name/Arn/Identifier suffix, so we should get an empty list (leading to anonymous target)
+            // The key point: we should NOT get any deeply-flattened params like CircularItem_ResourceArn
+            var selectedNames = shouldProcessTargetParams.Select(p => p.AnalyzedName).ToList();
+            Assert.IsFalse(selectedNames.Any(n => n.Contains("_")),
+                "ShouldProcessTarget should not contain any deeply-flattened parameter names from circular types");
+        }
+
+        #region Helper Methods
+
+        private ServiceOperation CreateAutoConfiguringOperation(string methodName = "TestOperation")
+        {
+            var operation = new ServiceOperation
+            {
+                MethodName = methodName,
+                IsAutoConfiguring = true
+            };
+
+            for (var i = 1; i < methodName.Length; i++)
+            {
+                if (char.IsUpper(methodName[i]))
+                {
+                    operation.OriginalNoun = methodName.Substring(i);
+                    break;
+                }
+            }
+
+            return operation;
+        }
+
+        #endregion
+    }
 }

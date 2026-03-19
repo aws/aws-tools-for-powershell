@@ -80,7 +80,7 @@
     </Target>
 
     <Target Name="build-report-only" DependsOnTargets="clean-deployment;build-generator">
-        <Message Text="Generates report.xml only when there is a new operation and there are no errors during auto-generation of the buildconfig."/>
+        <Message Text="Generates report.xml when there are new operations, reserved parameter name resolutions, circular dependency detections, or operation removals."/>
         <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -cnc true -scg false -bno false -ro true -vn $(PatchNumber)" />
     </Target>
 

@@ -38,8 +38,9 @@ namespace AWSPowerShellGenerator
         public bool CreateNewCmdlets { get; set; } = true;
 
         /// <summary>
-        /// If true, report.xml is generated when there is a new operation and
-        /// there are no errors during auto-generation of the buildconfig
+        /// If true, report.xml is generated when there are new operations, reserved parameter name
+        /// resolutions, circular dependency detections, or operation removals.
+        /// Operations with errors are included in report.xml and will be re-validated during the build.
         /// When this is set, the generator won't throw exception for any analysis errors.
         /// The cmdlets will not be generated when this is true.
         /// </summary>

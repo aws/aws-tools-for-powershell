@@ -269,9 +269,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         File.WriteAllText(Path.Combine(folderPath, "buildConfigErrors"), errorReport);
                     }
                 }
-                else if ((hasNewOperations || isReservedParameterNameHandled || isCircularDependencyDetected || isOperationRemoved) && !hasErrors)
+                else if (hasNewOperations || isReservedParameterNameHandled || isCircularDependencyDetected || isOperationRemoved)
                 {
-                    Console.WriteLine("Service Operations were auto-configured without errors and saved in report.xml");
+                    if (hasErrors)
+                    {
+                        Console.WriteLine("WARNING: report.xml contains operations with errors. Error-free operations and operation removals are preserved. Errors will be re-validated during the build.");
+                    }
+                    Console.WriteLine("Service Operations were auto-configured and saved in report.xml");
                     doc.Save(filename);
                 }
                 else
