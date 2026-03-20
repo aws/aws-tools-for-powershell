@@ -32679,6 +32679,8 @@ Set-Alias -Name Create-AVPIdentitySource -Value New-AVPIdentitySource
 Set-Alias -Name AVP-CreateIdentitySource -Value New-AVPIdentitySource
 Set-Alias -Name Create-AVPPolicy -Value New-AVPPolicy
 Set-Alias -Name AVP-CreatePolicy -Value New-AVPPolicy
+Set-Alias -Name Create-AVPPolicyStoreAlias -Value New-AVPPolicyStoreAlias
+Set-Alias -Name AVP-CreatePolicyStoreAlias -Value New-AVPPolicyStoreAlias
 Set-Alias -Name Create-AVPPolicyStore -Value New-AVPPolicyStore
 Set-Alias -Name AVP-CreatePolicyStore -Value New-AVPPolicyStore
 Set-Alias -Name Create-AVPPolicyTemplate -Value New-AVPPolicyTemplate
@@ -32687,12 +32689,15 @@ Set-Alias -Name Delete-AVPIdentitySource -Value Remove-AVPIdentitySource
 Set-Alias -Name AVP-DeleteIdentitySource -Value Remove-AVPIdentitySource
 Set-Alias -Name Delete-AVPPolicy -Value Remove-AVPPolicy
 Set-Alias -Name AVP-DeletePolicy -Value Remove-AVPPolicy
+Set-Alias -Name Delete-AVPPolicyStoreAlias -Value Remove-AVPPolicyStoreAlias
+Set-Alias -Name AVP-DeletePolicyStoreAlias -Value Remove-AVPPolicyStoreAlias
 Set-Alias -Name Delete-AVPPolicyStore -Value Remove-AVPPolicyStore
 Set-Alias -Name AVP-DeletePolicyStore -Value Remove-AVPPolicyStore
 Set-Alias -Name Delete-AVPPolicyTemplate -Value Remove-AVPPolicyTemplate
 Set-Alias -Name AVP-DeletePolicyTemplate -Value Remove-AVPPolicyTemplate
 Set-Alias -Name AVP-GetIdentitySource -Value Get-AVPIdentitySource
 Set-Alias -Name AVP-GetPolicy -Value Get-AVPPolicy
+Set-Alias -Name AVP-GetPolicyStoreAlias -Value Get-AVPPolicyStoreAlias
 Set-Alias -Name AVP-GetPolicyStore -Value Get-AVPPolicyStore
 Set-Alias -Name AVP-GetPolicyTemplate -Value Get-AVPPolicyTemplate
 Set-Alias -Name AVP-GetSchema -Value Get-AVPSchema
@@ -32708,6 +32713,9 @@ Set-Alias -Name AVP-ListIdentitySources -Value Get-AVPIdentitySourceList
 Set-Alias -Name List-AVPPolicies -Value Get-AVPPolicyList
 Set-Alias -Name List-AVPPolicyList -Value Get-AVPPolicyList
 Set-Alias -Name AVP-ListPolicies -Value Get-AVPPolicyList
+Set-Alias -Name List-AVPPolicyStoreAliases -Value Get-AVPPolicyStoreAliasList
+Set-Alias -Name List-AVPPolicyStoreAliasList -Value Get-AVPPolicyStoreAliasList
+Set-Alias -Name AVP-ListPolicyStoreAliases -Value Get-AVPPolicyStoreAliasList
 Set-Alias -Name List-AVPPolicyStores -Value Get-AVPPolicyStoreList
 Set-Alias -Name List-AVPPolicyStoreList -Value Get-AVPPolicyStoreList
 Set-Alias -Name AVP-ListPolicyStores -Value Get-AVPPolicyStoreList

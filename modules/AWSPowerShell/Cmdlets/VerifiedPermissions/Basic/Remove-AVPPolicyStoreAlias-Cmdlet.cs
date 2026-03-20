@@ -28,70 +28,67 @@ using Amazon.VerifiedPermissions.Model;
 namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
-    /// Deletes the specified policy from the policy store.
+    /// Deletes the specified policy store alias.
     /// 
     ///  
     /// <para>
-    /// This operation is idempotent; if you specify a policy that doesn't exist, the request
-    /// response returns a successful <c>HTTP 200</c> status code.
+    /// This operation is idempotent. If you specify a policy store alias that does not exist,
+    /// the request response will still return a successful HTTP 200 status code.
+    /// </para><para>
+    /// When a policy store alias is deleted, it enters the <c>PendingDeletion</c> state.
+    /// When a policy store alias is in the <c>PendingDeletion</c> state, new policy store
+    /// aliases cannot be created with the same name. If the policy store alias is used in
+    /// an API that has a <c>policyStoreId</c> field, the operation will fail with a <c>ResourceNotFound</c>
+    /// exception.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "AVPPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "AVPPolicyStoreAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Verified Permissions DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.DeletePolicyResponse))]
-    [AWSCmdletOutput("None or Amazon.VerifiedPermissions.Model.DeletePolicyResponse",
+    [AWSCmdlet("Calls the Amazon Verified Permissions DeletePolicyStoreAlias API operation.", Operation = new[] {"DeletePolicyStoreAlias"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse))]
+    [AWSCmdletOutput("None or Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VerifiedPermissions.Model.DeletePolicyResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveAVPPolicyCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
+    public partial class RemoveAVPPolicyStoreAliasCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter PolicyId
+        #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of the policy that you want to delete.</para><para>You can use the policy name in place of the policy ID. When using a name, prefix it
-        /// with <c>name/</c>. For example:</para><ul><li><para>ID: <c>SPEXAMPLEabcdefg111111</c></para></li><li><para>Name: <c>name/example-policy</c></para></li></ul>
+        /// <para>Specifies the name of the policy store alias that you want to delete.</para><note><para>The alias name must always be prefixed with <c>policy-store-alias/</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyId { get; set; }
-        #endregion
-        
-        #region Parameter PolicyStoreId
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the ID of the policy store that contains the policy that you want to delete.</para><para>To specify a policy store, use its ID or alias name. When using an alias name, prefix
-        /// it with <c>policy-store-alias/</c>. For example:</para><ul><li><para>ID: <c>PSEXAMPLEabcdefg111111</c></para></li><li><para>Alias name: <c>policy-store-alias/example-policy-store</c></para></li></ul><para>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyStoreId { get; set; }
+        public System.String AliasName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.DeletePolicyResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the AliasName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AliasName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AliasName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -109,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PolicyId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AVPPolicy (DeletePolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AliasName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AVPPolicyStoreAlias (DeletePolicyStoreAlias)"))
             {
                 return;
             }
@@ -120,23 +117,26 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.DeletePolicyResponse, RemoveAVPPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse, RemoveAVPPolicyStoreAliasCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.PolicyId = this.PolicyId;
-            #if MODULAR
-            if (this.PolicyId == null && ParameterWasBound(nameof(this.PolicyId)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.AliasName;
             }
-            #endif
-            context.PolicyStoreId = this.PolicyStoreId;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AliasName = this.AliasName;
             #if MODULAR
-            if (this.PolicyStoreId == null && ParameterWasBound(nameof(this.PolicyStoreId)))
+            if (this.AliasName == null && ParameterWasBound(nameof(this.AliasName)))
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AliasName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -153,15 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.VerifiedPermissions.Model.DeletePolicyRequest();
+            var request = new Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasRequest();
             
-            if (cmdletContext.PolicyId != null)
+            if (cmdletContext.AliasName != null)
             {
-                request.PolicyId = cmdletContext.PolicyId;
-            }
-            if (cmdletContext.PolicyStoreId != null)
-            {
-                request.PolicyStoreId = cmdletContext.PolicyStoreId;
+                request.AliasName = cmdletContext.AliasName;
             }
             
             CmdletOutput output;
@@ -196,15 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region AWS Service Operation Call
         
-        private Amazon.VerifiedPermissions.Model.DeletePolicyResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.DeletePolicyRequest request)
+        private Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "DeletePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "DeletePolicyStoreAlias");
             try
             {
                 #if DESKTOP
-                return client.DeletePolicy(request);
+                return client.DeletePolicyStoreAlias(request);
                 #elif CORECLR
-                return client.DeletePolicyAsync(request).GetAwaiter().GetResult();
+                return client.DeletePolicyStoreAliasAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -224,9 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PolicyId { get; set; }
-            public System.String PolicyStoreId { get; set; }
-            public System.Func<Amazon.VerifiedPermissions.Model.DeletePolicyResponse, RemoveAVPPolicyCmdlet, object> Select { get; set; } =
+            public System.String AliasName { get; set; }
+            public System.Func<Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse, RemoveAVPPolicyStoreAliasCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

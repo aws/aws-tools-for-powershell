@@ -28,9 +28,10 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates whether the Amazon Web Services account is opted in to cross-account backup.
-    /// Returns an error if the account is not an Organizations management account. Use the
-    /// <c>DescribeGlobalSettings</c> API to determine the current settings.
+    /// Updates whether the Amazon Web Services account has enabled different cross-account
+    /// management options, including cross-account backup, multi-party approval, and delegated
+    /// administrator. Returns an error if the account is not an Organizations management
+    /// account. Use the <c>DescribeGlobalSettings</c> API to determine the current settings.
     /// </summary>
     [Cmdlet("Update", "BAKGlobalSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,12 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter GlobalSetting
         /// <summary>
         /// <para>
-        /// <para>Inputs can include:</para><para>A value for <c>isCrossAccountBackupEnabled</c> and a Region. Example: <c>update-global-settings
-        /// --global-settings isCrossAccountBackupEnabled=false --region us-west-2</c>.</para><para>A value for Multi-party approval, styled as "Mpa": <c>isMpaEnabled</c>. Values can
-        /// be true or false. Example: <c>update-global-settings --global-settings isMpaEnabled=false
-        /// --region us-west-2</c>.</para><para>A value for Backup Service-Linked Role creation, styled as<c>isDelegatedAdministratorEnabled</c>.
+        /// <para>Inputs can include:</para><para>A value for <c>isCrossAccountBackupEnabled</c>. Values can be true or false. Example:
+        /// <c>update-global-settings --global-settings isCrossAccountBackupEnabled=false</c>.</para><para>A value for Multi-party approval, styled as <c>isMpaEnabled</c>. Values can be true
+        /// or false. Example: <c>update-global-settings --global-settings isMpaEnabled=false</c>.</para><para>A value for Backup Service-Linked Role creation, styled as <c>isDelegatedAdministratorEnabled</c>.
         /// Values can be true or false. Example: <c>update-global-settings --global-settings
-        /// isDelegatedAdministratorEnabled=false --region us-west-2</c>.</para>
+        /// isDelegatedAdministratorEnabled=false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

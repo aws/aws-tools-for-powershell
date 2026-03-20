@@ -28,26 +28,23 @@ using Amazon.VerifiedPermissions.Model;
 namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
-    /// Retrieve the details for the specified schema in the specified policy store.
+    /// Retrieves details about the specified policy store alias.
     /// </summary>
-    [Cmdlet("Get", "AVPSchema")]
-    [OutputType("Amazon.VerifiedPermissions.Model.GetSchemaResponse")]
-    [AWSCmdlet("Calls the Amazon Verified Permissions GetSchema API operation.", Operation = new[] {"GetSchema"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.GetSchemaResponse))]
-    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.GetSchemaResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.GetSchemaResponse object containing multiple properties."
+    [Cmdlet("Get", "AVPPolicyStoreAlias")]
+    [OutputType("Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse")]
+    [AWSCmdlet("Calls the Amazon Verified Permissions GetPolicyStoreAlias API operation.", Operation = new[] {"GetPolicyStoreAlias"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse))]
+    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse",
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse object containing multiple properties."
     )]
-    public partial class GetAVPSchemaCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
+    public partial class GetAVPPolicyStoreAliasCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter PolicyStoreId
+        #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of the policy store that contains the schema.</para><para>To specify a policy store, use its ID or alias name. When using an alias name, prefix
-        /// it with <c>policy-store-alias/</c>. For example:</para><ul><li><para>ID: <c>PSEXAMPLEabcdefg111111</c></para></li><li><para>Alias name: <c>policy-store-alias/example-policy-store</c></para></li></ul><para>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</para>
+        /// <para>Specifies the name of the policy store alias that you want information about.</para><note><para>The alias name must always be prefixed with <c>policy-store-alias/</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,14 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyStoreId { get; set; }
+        public System.String AliasName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.GetSchemaResponse).
-        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.GetSchemaResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse).
+        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PolicyStoreId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PolicyStoreId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AliasName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AliasName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PolicyStoreId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AliasName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -95,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.GetSchemaResponse, GetAVPSchemaCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse, GetAVPPolicyStoreAliasCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -104,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PolicyStoreId;
+                context.Select = (response, cmdlet) => this.AliasName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.PolicyStoreId = this.PolicyStoreId;
+            context.AliasName = this.AliasName;
             #if MODULAR
-            if (this.PolicyStoreId == null && ParameterWasBound(nameof(this.PolicyStoreId)))
+            if (this.AliasName == null && ParameterWasBound(nameof(this.AliasName)))
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AliasName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -128,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.VerifiedPermissions.Model.GetSchemaRequest();
+            var request = new Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasRequest();
             
-            if (cmdletContext.PolicyStoreId != null)
+            if (cmdletContext.AliasName != null)
             {
-                request.PolicyStoreId = cmdletContext.PolicyStoreId;
+                request.AliasName = cmdletContext.AliasName;
             }
             
             CmdletOutput output;
@@ -167,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region AWS Service Operation Call
         
-        private Amazon.VerifiedPermissions.Model.GetSchemaResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.GetSchemaRequest request)
+        private Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "GetSchema");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "GetPolicyStoreAlias");
             try
             {
                 #if DESKTOP
-                return client.GetSchema(request);
+                return client.GetPolicyStoreAlias(request);
                 #elif CORECLR
-                return client.GetSchemaAsync(request).GetAwaiter().GetResult();
+                return client.GetPolicyStoreAliasAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PolicyStoreId { get; set; }
-            public System.Func<Amazon.VerifiedPermissions.Model.GetSchemaResponse, GetAVPSchemaCmdlet, object> Select { get; set; } =
+            public System.String AliasName { get; set; }
+            public System.Func<Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse, GetAVPPolicyStoreAliasCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

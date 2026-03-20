@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>The Backup Vault Lock configuration that specifies the number of days before the lock
         /// date. For example, setting <c>ChangeableForDays</c> to 30 on Jan. 1, 2022 at 8pm UTC
         /// will set the lock date to Jan. 31, 2022 at 8pm UTC.</para><para>Backup enforces a 72-hour cooling-off period before Vault Lock takes effect and becomes
-        /// immutable. Therefore, you must set <c>ChangeableForDays</c> to 3 or greater.</para><para>Before the lock date, you can delete Vault Lock from the vault using <c>DeleteBackupVaultLockConfiguration</c>
+        /// immutable. Therefore, you must set <c>ChangeableForDays</c> to 3 or greater.</para><para>The maximum value you can specify is 36,500 days (approximately 100 years).</para><para>Before the lock date, you can delete Vault Lock from the vault using <c>DeleteBackupVaultLockConfiguration</c>
         /// or change the Vault Lock configuration using <c>PutBackupVaultLockConfiguration</c>.
         /// On and after the lock date, the Vault Lock becomes immutable and cannot be changed
         /// or deleted.</para><para>If this parameter is not specified, you can delete Vault Lock from the vault using

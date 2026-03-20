@@ -1,4 +1,19 @@
-﻿### 4.1.1023 (2026-03-19 21:56Z)
+﻿### 4.1.1024 (2026-03-20 20:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1247.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon OpenSearch Service
+    * Modified cmdlet Add-OSDirectQueryDataSource: added parameters DataSourceType_Prometheus_RoleArn and DataSourceType_Prometheus_WorkspaceArn.
+    * Modified cmdlet Update-OSDirectQueryDataSource: added parameters DataSourceType_Prometheus_RoleArn and DataSourceType_Prometheus_WorkspaceArn.
+  * Amazon Verified Permissions
+    * Added cmdlet Get-AVPPolicyStoreAlias leveraging the GetPolicyStoreAlias service API.
+    * Added cmdlet Get-AVPPolicyStoreAliasList leveraging the ListPolicyStoreAliases service API.
+    * Added cmdlet New-AVPPolicyStoreAlias leveraging the CreatePolicyStoreAlias service API.
+    * Added cmdlet Remove-AVPPolicyStoreAlias leveraging the DeletePolicyStoreAlias service API.
+    * Modified cmdlet New-AVPPolicy: added parameter Name.
+    * Modified cmdlet New-AVPPolicyTemplate: added parameter Name.
+    * Modified cmdlet Update-AVPPolicy: added parameter Name.
+    * Modified cmdlet Update-AVPPolicyTemplate: added parameter Name.
+
+### 4.1.1023 (2026-03-19 21:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1246.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Added cmdlet Get-BATQuotaShareDetail leveraging the DescribeQuotaShare service API.
