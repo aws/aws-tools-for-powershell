@@ -37,7 +37,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 var configModelsToOutput = models.Where(configModel =>
                         configModel.AnalysisErrors.Any() ||
                         overrides.ContainsKey(configModel.C2jFilename) ||
-                        configModel.ServiceOperationsList.Any(op => op.IsAutoConfiguring || op.AnalysisErrors.Any() || op.IsReservedParameterNameHandled || op.IsCircularDependencyDetected || op.IsOperationRemoved))
+                        configModel.ServiceOperationsList.Any(op => op.IsAutoConfiguring || op.AnalysisErrors.Any() || op.IsReservedParameterNameHandled || op.IsCircularDependencyDetected || op.IsSingularizationCollisionResolved || op.IsOperationRemoved))
                     .ToArray();
 
                 bool hasErrors = models.Any(configModel =>
@@ -47,6 +47,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 bool hasNewOperations = models.Any(model => model.ServiceOperationsList.Any(op => op.IsAutoConfiguring));
                 bool isReservedParameterNameHandled = models.Any(model => model.ServiceOperationsList.Any(op => op.IsReservedParameterNameHandled));
                 bool isCircularDependencyDetected = models.Any(model => model.ServiceOperationsList.Any(op => op.IsCircularDependencyDetected));
+                bool isSingularizationCollisionResolved = models.Any(model => model.ServiceOperationsList.Any(op => op.IsSingularizationCollisionResolved));
                 bool isOperationRemoved = models.Any(model => model.ServiceOperationsList.Any(op => op.IsOperationRemoved));
 
                 var doc = new XDocument();
@@ -169,6 +170,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                             isConfigurationOverridden ||
                             operation.operation.IsReservedParameterNameHandled ||
                             operation.operation.IsCircularDependencyDetected ||
+                            operation.operation.IsSingularizationCollisionResolved ||
                             operation.operation.IsOperationRemoved)
                         {
                             var firstOperationChildElement = operation.element.Elements().FirstOrDefault();
@@ -204,7 +206,8 @@ namespace AWSPowerShellGenerator.ServiceConfig
                                     {
                                         var analyzedParametersWithCustomization = operation.operation.Analyzer.AnalyzedParameters.Where(p => p.Customization != null);
                                         
-                                        // Handle reserved parameter name customizations at operation level
+                                        // Handle reserved parameter name customizations at operation level.
+                                        // Filter to only reserved-name-resolved parameters using CustomizationOrigin.
                                         if (operation.operation.IsReservedParameterNameHandled && analyzedParametersWithCustomization.Any())
                                         {
                                             var paramsElement = operation.element.Element("Params");
@@ -214,7 +217,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                                                 operation.element.Add(paramsElement);
                                             }
 
-                                            foreach (var analyzedParameter in analyzedParametersWithCustomization)
+                                            foreach (var analyzedParameter in analyzedParametersWithCustomization.Where(p => p.Customization.Origin == Param.CustomizationOrigin.ReservedParameterNameResolution))
                                             {
                                                 var parameterElement = paramsElement.Elements("Param").FirstOrDefault(child => (string)child.Attribute("Name") == analyzedParameter.Customization.Name);
                                                 if (parameterElement == null)
@@ -226,8 +229,32 @@ namespace AWSPowerShellGenerator.ServiceConfig
                                                 parameterElement.SetAttributeValue("NewName", analyzedParameter.Customization.NewName);
                                                 parameterElement.SetAttributeValue("AutoApplyAlias", analyzedParameter.Customization.AutoApplyAlias);
 
-                                                // We can add a XML comment before Param element if customization is due to reserved parameter handling. But we cannot rely on analyzedParameter.Customization.Origin
-                                                // as DuringGeneration since it could happen for other shortning scenarios. We are already adding info message if reserved parameter handling was done, which is good enough.
+                                                // We could add a per-Param XML comment for reserved parameter handling now that Origin distinguishes
+                                                // ReservedParameterNameResolution from other scenarios. We are already adding info message if reserved
+                                                // parameter handling was done, which is good enough.
+                                            }
+                                        }
+
+                                        // Handle singularization collision customizations at operation level
+                                        if (operation.operation.IsSingularizationCollisionResolved && analyzedParametersWithCustomization.Any())
+                                        {
+                                            var paramsElement = operation.element.Element("Params");
+                                            if (paramsElement == null)
+                                            {
+                                                paramsElement = new XElement("Params");
+                                                operation.element.Add(paramsElement);
+                                            }
+
+                                            foreach (var analyzedParameter in analyzedParametersWithCustomization.Where(p => p.Customization.Origin == Param.CustomizationOrigin.SingularizationCollisionRevert))
+                                            {
+                                                var parameterElement = paramsElement.Elements("Param").FirstOrDefault(child => (string)child.Attribute("Name") == analyzedParameter.Customization.Name);
+                                                if (parameterElement == null)
+                                                {
+                                                    parameterElement = new XElement("Param", new XAttribute("Name", analyzedParameter.Customization.Name));
+                                                    paramsElement.Add(parameterElement);
+                                                }
+
+                                                parameterElement.SetAttributeValue("AutoRename", analyzedParameter.Customization.AutoRename);
                                             }
                                         }
 
@@ -269,7 +296,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         File.WriteAllText(Path.Combine(folderPath, "buildConfigErrors"), errorReport);
                     }
                 }
-                else if (hasNewOperations || isReservedParameterNameHandled || isCircularDependencyDetected || isOperationRemoved)
+                else if (hasNewOperations || isReservedParameterNameHandled || isCircularDependencyDetected || isSingularizationCollisionResolved || isOperationRemoved)
                 {
                     if (hasErrors)
                     {

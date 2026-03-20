@@ -2414,7 +2414,7 @@ namespace AWSPowerShellGenerator.Analysis
         /// analysis can shorten flattened structure names to just one _ component and make
         /// the final word fragment singular.
         /// </summary>
-        private void FinalizeParameterNames()
+        protected void FinalizeParameterNames()
         {
             // possible scenarios:
             //   param Name="foo" Alias="baz"                      => add alias, also auto-rename
@@ -2493,6 +2493,10 @@ namespace AWSPowerShellGenerator.Analysis
                     // For new operations, the CurrentOperation.CustomParameters would not contain the resolved reserved parameter name. During report serialization, we should emit new parameter customization.
                 }
             }
+
+            // Post-loop: revert singularization for any parameters where it created a duplicate name.
+            // Must run after ALL parameters are processed so we can detect duplicates across the full set.
+            RevertSingularizationOnCollision();
         }
 
         /// <summary>
@@ -2518,7 +2522,7 @@ namespace AWSPowerShellGenerator.Analysis
                     {
                         customization = new Param
                         {
-                            Origin = Param.CustomizationOrigin.DuringGeneration,
+                            Origin = Param.CustomizationOrigin.ReservedParameterNameResolution,
                             Name = property.AnalyzedName
                         };
                         property.Customization = customization;
@@ -2530,13 +2534,58 @@ namespace AWSPowerShellGenerator.Analysis
                     property.Customization.AutoApplyAlias = false;
 
                     // We should override this even if there was NewName specified in customization.
-                    property.Customization.Origin = Param.CustomizationOrigin.DuringGeneration;
+                    property.Customization.Origin = Param.CustomizationOrigin.ReservedParameterNameResolution;
 
                     return true;
                 }
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Detects and reverts singularization collisions where singularizing a list parameter name
+        /// (e.g., AgentTypes → AgentType) collides with an existing parameter (e.g., AgentType enum).
+        /// Reverts the singularization by clearing NewName and setting AutoRename=false so the
+        /// original plural name is retained and persisted in report.xml.
+        ///
+        /// Only reverts parameters with Reason=Singularization. Parameters renamed by other auto-resolution
+        /// features (e.g., reserved name resolution: Select → WidgetSelect) are not reverted, even if they
+        /// happen to collide with a singularized name. Example: if an operation has both a reserved parameter
+        /// "Select" (resolved to "WidgetSelect") and a list parameter "WidgetSelects" (singularized to
+        /// "WidgetSelect"), only the singularization of "WidgetSelects" is reverted — the reserved name
+        /// resolution for "Select" is preserved.
+        /// </summary>
+        protected void RevertSingularizationOnCollision()
+        {
+            var duplicateGroups = AnalyzedParameters
+                .Where(p => p.Customization == null || !p.Customization.Exclude)
+                .GroupBy(p => p.CmdletParameterName, StringComparer.OrdinalIgnoreCase)
+                .Where(g => g.Count() > 1)
+                .ToArray();
+
+            foreach (var group in duplicateGroups)
+            {
+                // Only revert parameters that were singularized (not reserved-name-resolved or config-loaded)
+                var singularizedParams = group
+                    .Where(p => p.Customization != null
+                                && p.Customization.Origin == Param.CustomizationOrigin.Singularization
+                                && !string.IsNullOrEmpty(p.Customization.NewName)
+                                && !string.Equals(p.Customization.NewName, p.AnalyzedName, StringComparison.Ordinal))
+                    .ToList();
+
+                foreach (var param in singularizedParams)
+                {
+                    // Revert: clear NewName so CmdletParameterName falls back to AnalyzedName (plural form)
+                    param.Customization.NewName = null;
+                    // Set AutoRename=false so this is persisted and prevents re-singularization on subsequent runs
+                    param.Customization.AutoRename = false;
+                    param.Customization.Origin = Param.CustomizationOrigin.SingularizationCollisionRevert;
+
+                    CurrentOperation.IsSingularizationCollisionResolved = true;
+                    InfoMessage.SingularizationCollisionResolved(CurrentModel, CurrentOperation, param);
+                }
+            }
         }
 
         /// <summary>
@@ -2675,7 +2724,7 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 customization = new Param
                 {
-                    Origin = Param.CustomizationOrigin.DuringGeneration,
+                    Origin = Param.CustomizationOrigin.Singularization,
                     Name = property.AnalyzedName
                 };
                 property.Customization = customization;
@@ -2688,7 +2737,7 @@ namespace AWSPowerShellGenerator.Analysis
                 // relies on this to determine the context member name)
                 if (string.IsNullOrEmpty(customization.NewName))
                 {
-                    customization.Origin = Param.CustomizationOrigin.DuringGeneration;
+                    customization.Origin = Param.CustomizationOrigin.Singularization;
                 }
             }
 

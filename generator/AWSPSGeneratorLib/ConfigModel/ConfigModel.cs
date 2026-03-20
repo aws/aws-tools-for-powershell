@@ -1266,6 +1266,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public bool IsCircularDependencyDetected;
 
         /// <summary>
+        /// Set when the generator detects a singularization collision where singularizing a list parameter
+        /// name would collide with an existing parameter. The generator reverts the singularization and
+        /// sets AutoRename=false for the colliding parameter.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsSingularizationCollisionResolved;
+
+        /// <summary>
         /// Set when the generator detects that an operation defined in the service config
         /// no longer exists in the .NET SDK assembly (i.e., the operation was removed).
         /// During report-only mode, the generator will emit Remove="true" for this operation.
@@ -1305,12 +1313,20 @@ namespace AWSPowerShellGenerator.ServiceConfig
     public class Param
     {
         /// <summary>
-        /// Tells us where the customization originated.
+        /// Identifies why a parameter customization was created. Used by downstream methods
+        /// (e.g., RevertSingularizationOnCollision, XmlReportWriter) to filter parameters
+        /// by the specific auto-resolution that created them.
         /// </summary>
         public enum CustomizationOrigin
         {
+            /// <summary>From persisted XML config — never revert.</summary>
             FromConfig = 0,
-            DuringGeneration
+            /// <summary>Auto-singularized parameter name (e.g., AgentTypes → AgentType).</summary>
+            Singularization,
+            /// <summary>Auto-resolved reserved name conflict (e.g., Select → WidgetSelect).</summary>
+            ReservedParameterNameResolution,
+            /// <summary>Singularization reverted due to collision with existing parameter.</summary>
+            SingularizationCollisionRevert,
         }
 
         [XmlIgnore]

@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -2327,5 +2327,184 @@ namespace AWSPSGeneratorLibTests
         }
 
         #endregion
+    }
+
+    #region Singularization Collision Test Types
+
+    /// <summary>
+    /// Nested type that contains both a singular property and a plural property
+    /// whose singularized form collides with the singular property.
+    /// Simulates the Skill type with AgentType/AgentTypes from the devops-agent service.
+    /// </summary>
+    public class SingularPluralCollisionType
+    {
+        public string ItemType { get; set; }
+        public string ItemTypes { get; set; }
+    }
+
+    /// <summary>
+    /// Test request type that contains a nested type with singular/plural collision.
+    /// After flattening, produces Properties_ItemType and Properties_ItemTypes,
+    /// and singularization of Properties_ItemTypes → Properties_ItemType causes a collision.
+    /// </summary>
+    public class TestRequestWithSingularizationCollision
+    {
+        public string AgentSpaceId { get; set; }
+        public SingularPluralCollisionType Properties { get; set; }
+    }
+
+    #endregion
+
+    /// <summary>
+    /// Testable version of OperationAnalyzer for singularization collision testing.
+    /// Reuses the flattening + finalization pipeline to test ResolveSingularizationCollisions.
+    /// </summary>
+    internal class TestableSingularizationCollisionAnalyzer : OperationAnalyzer
+    {
+        public TestableSingularizationCollisionAnalyzer(ConfigModelCollection allModels, ConfigModel currentModel,
+            ServiceOperation currentOperation, XmlDocument assemblyDocumentation)
+            : base(allModels, currentModel, currentOperation, assemblyDocumentation)
+        {
+            AnalyzedParameters = new List<SimplePropertyInfo>();
+        }
+
+        /// <summary>
+        /// Processes a request type through the full parameter pipeline:
+        /// flattening, finalization (singularization), collision resolution, and validation.
+        /// </summary>
+        public void ProcessRequestTypeWithFinalization(Type requestType)
+        {
+            var allProperties = new List<SimplePropertyInfo>();
+            var rootProperties = requestType.GetProperties()
+                .Where(p => p.CanWrite && p.CanRead && p.GetIndexParameters().Length == 0);
+
+            foreach (var prop in rootProperties)
+            {
+                var simpleProp = CreateSimplePropertyFor(prop, null, true);
+                if (simpleProp != null)
+                {
+                    allProperties.AddRange(FlattenPropertiesHelper(simpleProp));
+                }
+            }
+
+            AnalyzedParameters = allProperties;
+        }
+
+        /// <summary>
+        /// Exposes the finalization + collision resolution pipeline for testing.
+        /// </summary>
+        public void RunParameterFinalization()
+        {
+            FinalizeParameterNames();  // includes RevertSingularizationOnCollision at the end
+        }
+
+        public new SimplePropertyInfo CreateSimplePropertyFor(PropertyInfo property, SimplePropertyInfo parent, bool isCmdletParameter, HashSet<string> visitedTypes = null) =>
+            base.CreateSimplePropertyFor(property, parent, isCmdletParameter, visitedTypes);
+
+        private static IEnumerable<SimplePropertyInfo> FlattenPropertiesHelper(SimplePropertyInfo property)
+        {
+            if (property.Children.Count > 0)
+            {
+                foreach (var child in property.Children)
+                {
+                    if (child.Children.Count == 0)
+                    {
+                        yield return child;
+                    }
+                    else
+                    {
+                        foreach (var flatProperty in FlattenPropertiesHelper(child))
+                        {
+                            yield return flatProperty;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                yield return property;
+            }
+        }
+    }
+
+    [TestClass]
+    public class SingularizationCollisionResolutionTests
+    {
+        private ConfigModelCollection _allModels;
+        private ConfigModel _testModel;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _allModels = new ConfigModelCollection
+            {
+                MetadataParameterNames = new List<string>()
+            };
+            _testModel = new ConfigModel
+            {
+                AssemblyName = "TestService",
+                ServiceName = "Test Service",
+                ServiceNounPrefix = "TEST",
+                MetadataPropertyNames = new List<string>()
+            };
+        }
+
+        [TestMethod]
+        public void SingularizationCollision_IsDetected_AndReverted()
+        {
+            // Arrange - create an operation with both ItemType (singular) and ItemTypes (list)
+            var operation = new ServiceOperation
+            {
+                MethodName = "CreateItem",
+                IsAutoConfiguring = true,
+                OriginalNoun = "Item"
+            };
+            var analyzer = new TestableSingularizationCollisionAnalyzer(_allModels, _testModel, operation, null);
+
+            // Act - process the request type and run finalization
+            analyzer.ProcessRequestTypeWithFinalization(typeof(TestRequestWithSingularizationCollision));
+            analyzer.RunParameterFinalization();
+
+            // Assert - collision should be detected and resolved
+            Assert.IsTrue(operation.IsSingularizationCollisionResolved,
+                "IsSingularizationCollisionResolved should be true when singularization causes a name collision");
+
+            // The plural parameter (Properties_ItemTypes) should keep its original plural name after flattening
+            var paramNames = analyzer.AnalyzedParameters.Select(p => p.CmdletParameterName).ToList();
+            Assert.IsTrue(paramNames.Contains("Properties_ItemType"),
+                "The singular parameter 'Properties_ItemType' should remain unchanged");
+            Assert.IsTrue(paramNames.Contains("Properties_ItemTypes"),
+                "The plural parameter 'Properties_ItemTypes' should retain its original plural name after collision resolution");
+
+            // No duplicate parameter names should exist
+            var groupedNames = paramNames.GroupBy(n => n, StringComparer.OrdinalIgnoreCase);
+            Assert.IsFalse(groupedNames.Any(g => g.Count() > 1),
+                "No duplicate parameter names should exist after singularization collision resolution");
+        }
+
+        [TestMethod]
+        public void SingularizationCollision_AutoRenameSetToFalse()
+        {
+            // Arrange
+            var operation = new ServiceOperation
+            {
+                MethodName = "CreateItem",
+                IsAutoConfiguring = true,
+                OriginalNoun = "Item"
+            };
+            var analyzer = new TestableSingularizationCollisionAnalyzer(_allModels, _testModel, operation, null);
+
+            // Act
+            analyzer.ProcessRequestTypeWithFinalization(typeof(TestRequestWithSingularizationCollision));
+            analyzer.RunParameterFinalization();
+
+            // Assert - the reverted parameter should have AutoRename=false in its customization
+            var pluralParam = analyzer.AnalyzedParameters.FirstOrDefault(p => p.AnalyzedName == "Properties_ItemTypes");
+            Assert.IsNotNull(pluralParam, "Properties_ItemTypes parameter should exist");
+            Assert.IsNotNull(pluralParam.Customization, "Properties_ItemTypes parameter should have a Customization");
+            Assert.IsFalse(pluralParam.Customization.AutoRename,
+                "AutoRename should be false for the reverted parameter to prevent re-singularization on subsequent runs");
+        }
+
     }
 }
