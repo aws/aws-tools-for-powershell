@@ -30,38 +30,31 @@ using Amazon.VerifiedPermissions.Model;
 namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
-    /// Returns a paginated list of all policy templates in the specified policy store.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Returns a paginated list of all policy store aliases in the calling Amazon Web Services
+    /// account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "AVPPolicyTemplateList")]
-    [OutputType("Amazon.VerifiedPermissions.Model.PolicyTemplateItem")]
-    [AWSCmdlet("Calls the Amazon Verified Permissions ListPolicyTemplates API operation.", Operation = new[] {"ListPolicyTemplates"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.ListPolicyTemplatesResponse))]
-    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.PolicyTemplateItem or Amazon.VerifiedPermissions.Model.ListPolicyTemplatesResponse",
-        "This cmdlet returns a collection of Amazon.VerifiedPermissions.Model.PolicyTemplateItem objects.",
-        "The service call response (type Amazon.VerifiedPermissions.Model.ListPolicyTemplatesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "AVPPolicyStoreAliasList")]
+    [OutputType("Amazon.VerifiedPermissions.Model.PolicyStoreAliasItem")]
+    [AWSCmdlet("Calls the Amazon Verified Permissions ListPolicyStoreAliases API operation.", Operation = new[] {"ListPolicyStoreAliases"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesResponse))]
+    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.PolicyStoreAliasItem or Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesResponse",
+        "This cmdlet returns a collection of Amazon.VerifiedPermissions.Model.PolicyStoreAliasItem objects.",
+        "The service call response (type Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetAVPPolicyTemplateListCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
+    public partial class GetAVPPolicyStoreAliasListCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter PolicyStoreId
+        #region Parameter Filter_PolicyStoreId
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of the policy store that contains the policy templates you want to
-        /// list.</para><para>To specify a policy store, use its ID or alias name. When using an alias name, prefix
-        /// it with <c>policy-store-alias/</c>. For example:</para><ul><li><para>ID: <c>PSEXAMPLEabcdefg111111</c></para></li><li><para>Alias name: <c>policy-store-alias/example-policy-store</c></para></li></ul><para>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</para>
+        /// <para>The ID of the policy store to filter by. Only policy store aliases associated with
+        /// this policy store are returned.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyStoreId { get; set; }
+        public System.String Filter_PolicyStoreId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -73,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// request parameter in the next call to the operation to get the next set of results.
         /// Note that the service might return fewer results than the maximum even when there
         /// are more results available. You should check <c>NextToken</c> after every operation
-        /// to ensure that you receive all of the results.</para><para>If you do not specify this parameter, the operation defaults to 10 policy templates
-        /// per response. You can specify a maximum of 50 policy templates per response.</para>
+        /// to ensure that you receive all of the results.</para><para>If you do not specify this parameter, the operation defaults to 5 policy store aliases
+        /// per response. You can specify a maximum of 50 policy store aliases per response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -106,13 +99,13 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PolicyTemplates'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.ListPolicyTemplatesResponse).
-        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.ListPolicyTemplatesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PolicyStoreAliases'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesResponse).
+        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PolicyTemplates";
+        public string Select { get; set; } = "PolicyStoreAliases";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -120,7 +113,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -142,9 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.ListPolicyTemplatesResponse, GetAVPPolicyTemplateListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesResponse, GetAVPPolicyStoreAliasListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Filter_PolicyStoreId = this.Filter_PolicyStoreId;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -156,13 +149,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             }
             #endif
             context.NextToken = this.NextToken;
-            context.PolicyStoreId = this.PolicyStoreId;
-            #if MODULAR
-            if (this.PolicyStoreId == null && ParameterWasBound(nameof(this.PolicyStoreId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PolicyStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,21 +165,35 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.VerifiedPermissions.Model.ListPolicyTemplatesRequest();
+            var request = new Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesRequest();
             
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.VerifiedPermissions.Model.PolicyStoreAliasFilter();
+            System.String requestFilter_filter_PolicyStoreId = null;
+            if (cmdletContext.Filter_PolicyStoreId != null)
+            {
+                requestFilter_filter_PolicyStoreId = cmdletContext.Filter_PolicyStoreId;
+            }
+            if (requestFilter_filter_PolicyStoreId != null)
+            {
+                request.Filter.PolicyStoreId = requestFilter_filter_PolicyStoreId;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
-            }
-            if (cmdletContext.PolicyStoreId != null)
-            {
-                request.PolicyStoreId = cmdletContext.PolicyStoreId;
             }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -247,12 +247,12 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region AWS Service Operation Call
         
-        private Amazon.VerifiedPermissions.Model.ListPolicyTemplatesResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.ListPolicyTemplatesRequest request)
+        private Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "ListPolicyTemplates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "ListPolicyStoreAliases");
             try
             {
-                return client.ListPolicyTemplatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListPolicyStoreAliasesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -269,11 +269,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Filter_PolicyStoreId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String PolicyStoreId { get; set; }
-            public System.Func<Amazon.VerifiedPermissions.Model.ListPolicyTemplatesResponse, GetAVPPolicyTemplateListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PolicyTemplates;
+            public System.Func<Amazon.VerifiedPermissions.Model.ListPolicyStoreAliasesResponse, GetAVPPolicyStoreAliasListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PolicyStoreAliases;
         }
         
     }

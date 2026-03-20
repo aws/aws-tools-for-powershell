@@ -30,61 +30,42 @@ using Amazon.VerifiedPermissions.Model;
 namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
-    /// Retrieves the details about the specified identity source.
+    /// Retrieves details about the specified policy store alias.
     /// </summary>
-    [Cmdlet("Get", "AVPIdentitySource")]
-    [OutputType("Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse")]
-    [AWSCmdlet("Calls the Amazon Verified Permissions GetIdentitySource API operation.", Operation = new[] {"GetIdentitySource"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse))]
-    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse object containing multiple properties."
+    [Cmdlet("Get", "AVPPolicyStoreAlias")]
+    [OutputType("Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse")]
+    [AWSCmdlet("Calls the Amazon Verified Permissions GetPolicyStoreAlias API operation.", Operation = new[] {"GetPolicyStoreAlias"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse))]
+    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse",
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse object containing multiple properties."
     )]
-    public partial class GetAVPIdentitySourceCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
+    public partial class GetAVPPolicyStoreAliasCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter IdentitySourceId
+        #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of the identity source you want information about.</para>
+        /// <para>Specifies the name of the policy store alias that you want information about.</para><note><para>The alias name must always be prefixed with <c>policy-store-alias/</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IdentitySourceId { get; set; }
-        #endregion
-        
-        #region Parameter PolicyStoreId
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the ID of the policy store that contains the identity source you want information
-        /// about.</para><para>To specify a policy store, use its ID or alias name. When using an alias name, prefix
-        /// it with <c>policy-store-alias/</c>. For example:</para><ul><li><para>ID: <c>PSEXAMPLEabcdefg111111</c></para></li><li><para>Alias name: <c>policy-store-alias/example-policy-store</c></para></li></ul><para>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyStoreId { get; set; }
+        public System.String AliasName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse).
-        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse).
+        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,21 +88,14 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse, GetAVPIdentitySourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse, GetAVPPolicyStoreAliasCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.IdentitySourceId = this.IdentitySourceId;
+            context.AliasName = this.AliasName;
             #if MODULAR
-            if (this.IdentitySourceId == null && ParameterWasBound(nameof(this.IdentitySourceId)))
+            if (this.AliasName == null && ParameterWasBound(nameof(this.AliasName)))
             {
-                WriteWarning("You are passing $null as a value for parameter IdentitySourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.PolicyStoreId = this.PolicyStoreId;
-            #if MODULAR
-            if (this.PolicyStoreId == null && ParameterWasBound(nameof(this.PolicyStoreId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PolicyStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AliasName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -138,15 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.VerifiedPermissions.Model.GetIdentitySourceRequest();
+            var request = new Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasRequest();
             
-            if (cmdletContext.IdentitySourceId != null)
+            if (cmdletContext.AliasName != null)
             {
-                request.IdentitySourceId = cmdletContext.IdentitySourceId;
-            }
-            if (cmdletContext.PolicyStoreId != null)
-            {
-                request.PolicyStoreId = cmdletContext.PolicyStoreId;
+                request.AliasName = cmdletContext.AliasName;
             }
             
             CmdletOutput output;
@@ -181,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region AWS Service Operation Call
         
-        private Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.GetIdentitySourceRequest request)
+        private Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "GetIdentitySource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "GetPolicyStoreAlias");
             try
             {
-                return client.GetIdentitySourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetPolicyStoreAliasAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -203,9 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String IdentitySourceId { get; set; }
-            public System.String PolicyStoreId { get; set; }
-            public System.Func<Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse, GetAVPIdentitySourceCmdlet, object> Select { get; set; } =
+            public System.String AliasName { get; set; }
+            public System.Func<Amazon.VerifiedPermissions.Model.GetPolicyStoreAliasResponse, GetAVPPolicyStoreAliasCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -66,11 +66,27 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a name for the policy template that is unique among all policy templates
+        /// within the policy store. You can use the name in place of the policy template ID in
+        /// API operations that reference the policy template. The name must be prefixed with
+        /// <c>name/</c>.</para><note><para>If you don't include the name in an update request, the existing name is unchanged.
+        /// To remove a name, set it to an empty string (<c>""</c>).</para></note><para>If you specify a name that is already associated with another policy template in the
+        /// policy store, you receive a <c>ConflictException</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter PolicyStoreId
         /// <summary>
         /// <para>
         /// <para>Specifies the ID of the policy store that contains the policy template that you want
-        /// to update.</para>
+        /// to update.</para><para>To specify a policy store, use its ID or alias name. When using an alias name, prefix
+        /// it with <c>policy-store-alias/</c>. For example:</para><ul><li><para>ID: <c>PSEXAMPLEabcdefg111111</c></para></li><li><para>Alias name: <c>policy-store-alias/example-policy-store</c></para></li></ul><para>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter PolicyTemplateId
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of the policy template that you want to update.</para>
+        /// <para>Specifies the ID of the policy template that you want to update.</para><para>You can use the policy template name in place of the policy template ID. When using
+        /// a name, prefix it with <c>name/</c>. For example:</para><ul><li><para>ID: <c>PTEXAMPLEabcdefg111111</c></para></li><li><para>Name: <c>name/example-policy-template</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -166,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
+            context.Name = this.Name;
             context.PolicyStoreId = this.PolicyStoreId;
             #if MODULAR
             if (this.PolicyStoreId == null && ParameterWasBound(nameof(this.PolicyStoreId)))
@@ -206,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             if (cmdletContext.PolicyStoreId != null)
             {
@@ -275,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String Name { get; set; }
             public System.String PolicyStoreId { get; set; }
             public System.String PolicyTemplateId { get; set; }
             public System.String Statement { get; set; }

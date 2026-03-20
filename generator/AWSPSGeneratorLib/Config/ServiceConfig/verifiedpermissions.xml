@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicyStoreAlias" OutputProperty="*" Verb="New" Noun="PolicyStoreAlias" ShouldProcessTarget="PolicyStoreId,AliasName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicyTemplate" OutputProperty="*" Verb="New" Noun="PolicyTemplate" ShouldProcessTarget="PolicyStoreId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +83,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicyStoreAlias" Verb="Remove" Noun="PolicyStoreAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePolicyTemplate" Verb="Remove" Noun="PolicyTemplate" ShouldProcessTarget="PolicyTemplateId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +100,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPolicyStore" OutputProperty="*" Verb="Get" Noun="PolicyStore" PipelineParameter="PolicyStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicyStoreAlias" OutputProperty="*" Verb="Get" Noun="PolicyStoreAlias" PipelineParameter="AliasName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -124,6 +136,10 @@
                 <Param Name="Filter_Principal_Unspecified" NewName="Principal_Unspecified" />
                 <Param Name="Filter_Resource_Unspecified" NewName="Resource_Unspecified" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyStoreAliases" OutputProperty="PolicyStoreAliases" Verb="Get" Noun="PolicyStoreAliasList" PipelineParameter="Filter_PolicyStoreId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPolicyStores" OutputProperty="PolicyStores" Verb="Get" Noun="PolicyStoreList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">

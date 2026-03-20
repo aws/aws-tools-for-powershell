@@ -134,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>The Amazon Resource Names (ARNs) of the resources to assign to a backup plan. The
         /// maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</para><para>If you need to assign many resources to a backup plan, consider a different resource
         /// selection strategy, such as assigning all resources of a resource type or refining
-        /// your resource selection using tags.</para><para>If you specify multiple ARNs, the resources much match any of the ARNs (OR logic).</para><para />
+        /// your resource selection using tags.</para><para>If you specify multiple ARNs, the resources much match any of the ARNs (OR logic).</para><note><para>When using wildcards in ARN patterns for backup selections, the asterisk (*) must
+        /// appear at the end of the ARN string (prefix pattern). For example, <c>arn:aws:s3:::my-bucket-*</c>
+        /// is valid, but <c>arn:aws:s3:::*-logs</c> is not supported.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

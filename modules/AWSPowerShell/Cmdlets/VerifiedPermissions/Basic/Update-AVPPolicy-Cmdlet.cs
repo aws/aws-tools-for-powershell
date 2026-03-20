@@ -87,11 +87,26 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         public System.String Static_Description { get; set; }
         #endregion
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a name for the policy that is unique among all policies within the policy
+        /// store. You can use the name in place of the policy ID in API operations that reference
+        /// the policy. The name must be prefixed with <c>name/</c>.</para><note><para>If you don't include the name in an update request, the existing name is unchanged.
+        /// To remove a name, set it to an empty string (<c>""</c>).</para></note><para>If you specify a name that is already associated with another policy in the policy
+        /// store, you receive a <c>ConflictException</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter PolicyId
         /// <summary>
         /// <para>
         /// <para>Specifies the ID of the policy that you want to update. To find this value, you can
-        /// use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a>.</para>
+        /// use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a>.</para><para>You can use the policy name in place of the policy ID. When using a name, prefix it
+        /// with <c>name/</c>. For example:</para><ul><li><para>ID: <c>SPEXAMPLEabcdefg111111</c></para></li><li><para>Name: <c>name/example-policy</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter PolicyStoreId
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of the policy store that contains the policy that you want to update.</para>
+        /// <para>Specifies the ID of the policy store that contains the policy that you want to update.</para><para>To specify a policy store, use its ID or alias name. When using an alias name, prefix
+        /// it with <c>policy-store-alias/</c>. For example:</para><ul><li><para>ID: <c>PSEXAMPLEabcdefg111111</c></para></li><li><para>Alias name: <c>policy-store-alias/example-policy-store</c></para></li></ul><para>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             }
             context.Static_Description = this.Static_Description;
             context.Static_Statement = this.Static_Statement;
+            context.Name = this.Name;
             context.PolicyId = this.PolicyId;
             #if MODULAR
             if (this.PolicyId == null && ParameterWasBound(nameof(this.PolicyId)))
@@ -256,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             {
                 request.Definition = null;
             }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
             if (cmdletContext.PolicyId != null)
             {
                 request.PolicyId = cmdletContext.PolicyId;
@@ -321,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             public System.String Static_Description { get; set; }
             public System.String Static_Statement { get; set; }
+            public System.String Name { get; set; }
             public System.String PolicyId { get; set; }
             public System.String PolicyStoreId { get; set; }
             public System.Func<Amazon.VerifiedPermissions.Model.UpdatePolicyResponse, UpdateAVPPolicyCmdlet, object> Select { get; set; } =

@@ -65,10 +65,25 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a name for the policy template that is unique among all policy templates
+        /// within the policy store. You can use the name in place of the policy template ID in
+        /// API operations that reference the policy template. The name must be prefixed with
+        /// <c>name/</c>.</para><para>If you specify a name that is already associated with another policy template in the
+        /// policy store, you receive a <c>ConflictException</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter PolicyStoreId
         /// <summary>
         /// <para>
-        /// <para>The ID of the policy store in which to create the policy template.</para>
+        /// <para>The ID of the policy store in which to create the policy template.</para><para>To specify a policy store, use its ID or alias name. When using an alias name, prefix
+        /// it with <c>policy-store-alias/</c>. For example:</para><ul><li><para>ID: <c>PSEXAMPLEabcdefg111111</c></para></li><li><para>Alias name: <c>policy-store-alias/example-policy-store</c></para></li></ul><para>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -167,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.Name = this.Name;
             context.PolicyStoreId = this.PolicyStoreId;
             #if MODULAR
             if (this.PolicyStoreId == null && ParameterWasBound(nameof(this.PolicyStoreId)))
@@ -204,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             if (cmdletContext.PolicyStoreId != null)
             {
@@ -270,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String Name { get; set; }
             public System.String PolicyStoreId { get; set; }
             public System.String Statement { get; set; }
             public System.Func<Amazon.VerifiedPermissions.Model.CreatePolicyTemplateResponse, NewAVPPolicyTemplateCmdlet, object> Select { get; set; } =

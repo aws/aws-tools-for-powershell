@@ -91,22 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter OpenSearchArn
         /// <summary>
         /// <para>
-        /// <para> A list of Amazon Resource Names (ARNs) for the OpenSearch collections that are associated
-        /// with the direct query data source. </para><para />
+        /// <para> An optional list of Amazon Resource Names (ARNs) for the OpenSearch collections that
+        /// are associated with the direct query data source. This field is required for CloudWatchLogs
+        /// and SecurityLake datasource types. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("OpenSearchArns")]
         public System.String[] OpenSearchArn { get; set; }
         #endregion
@@ -123,6 +117,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String CloudWatchLog_RoleArn { get; set; }
         #endregion
         
+        #region Parameter DataSourceType_Prometheus_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para> The unique identifier of the IAM role that grants OpenSearch Service permission to
+        /// access the specified data source. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceType_Prometheus_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter SecurityLake_RoleArn
         /// <summary>
         /// <para>
@@ -133,6 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceType_SecurityLake_RoleArn")]
         public System.String SecurityLake_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceType_Prometheus_WorkspaceArn
+        /// <summary>
+        /// <para>
+        /// <para> The unique identifier of the Amazon Managed Prometheus Workspace that is associated
+        /// with the specified data source. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceType_Prometheus_WorkspaceArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -190,18 +206,14 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             #endif
             context.CloudWatchLog_RoleArn = this.CloudWatchLog_RoleArn;
+            context.DataSourceType_Prometheus_RoleArn = this.DataSourceType_Prometheus_RoleArn;
+            context.DataSourceType_Prometheus_WorkspaceArn = this.DataSourceType_Prometheus_WorkspaceArn;
             context.SecurityLake_RoleArn = this.SecurityLake_RoleArn;
             context.Description = this.Description;
             if (this.OpenSearchArn != null)
             {
                 context.OpenSearchArn = new List<System.String>(this.OpenSearchArn);
             }
-            #if MODULAR
-            if (this.OpenSearchArn == null && ParameterWasBound(nameof(this.OpenSearchArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OpenSearchArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -280,6 +292,41 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 request.DataSourceType.SecurityLake = requestDataSourceType_dataSourceType_SecurityLake;
                 requestDataSourceTypeIsNull = false;
             }
+            Amazon.OpenSearchService.Model.PrometheusDirectQueryDataSource requestDataSourceType_dataSourceType_Prometheus = null;
+            
+             // populate Prometheus
+            var requestDataSourceType_dataSourceType_PrometheusIsNull = true;
+            requestDataSourceType_dataSourceType_Prometheus = new Amazon.OpenSearchService.Model.PrometheusDirectQueryDataSource();
+            System.String requestDataSourceType_dataSourceType_Prometheus_dataSourceType_Prometheus_RoleArn = null;
+            if (cmdletContext.DataSourceType_Prometheus_RoleArn != null)
+            {
+                requestDataSourceType_dataSourceType_Prometheus_dataSourceType_Prometheus_RoleArn = cmdletContext.DataSourceType_Prometheus_RoleArn;
+            }
+            if (requestDataSourceType_dataSourceType_Prometheus_dataSourceType_Prometheus_RoleArn != null)
+            {
+                requestDataSourceType_dataSourceType_Prometheus.RoleArn = requestDataSourceType_dataSourceType_Prometheus_dataSourceType_Prometheus_RoleArn;
+                requestDataSourceType_dataSourceType_PrometheusIsNull = false;
+            }
+            System.String requestDataSourceType_dataSourceType_Prometheus_dataSourceType_Prometheus_WorkspaceArn = null;
+            if (cmdletContext.DataSourceType_Prometheus_WorkspaceArn != null)
+            {
+                requestDataSourceType_dataSourceType_Prometheus_dataSourceType_Prometheus_WorkspaceArn = cmdletContext.DataSourceType_Prometheus_WorkspaceArn;
+            }
+            if (requestDataSourceType_dataSourceType_Prometheus_dataSourceType_Prometheus_WorkspaceArn != null)
+            {
+                requestDataSourceType_dataSourceType_Prometheus.WorkspaceArn = requestDataSourceType_dataSourceType_Prometheus_dataSourceType_Prometheus_WorkspaceArn;
+                requestDataSourceType_dataSourceType_PrometheusIsNull = false;
+            }
+             // determine if requestDataSourceType_dataSourceType_Prometheus should be set to null
+            if (requestDataSourceType_dataSourceType_PrometheusIsNull)
+            {
+                requestDataSourceType_dataSourceType_Prometheus = null;
+            }
+            if (requestDataSourceType_dataSourceType_Prometheus != null)
+            {
+                request.DataSourceType.Prometheus = requestDataSourceType_dataSourceType_Prometheus;
+                requestDataSourceTypeIsNull = false;
+            }
              // determine if request.DataSourceType should be set to null
             if (requestDataSourceTypeIsNull)
             {
@@ -351,6 +398,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String DataSourceAccessPolicy { get; set; }
             public System.String DataSourceName { get; set; }
             public System.String CloudWatchLog_RoleArn { get; set; }
+            public System.String DataSourceType_Prometheus_RoleArn { get; set; }
+            public System.String DataSourceType_Prometheus_WorkspaceArn { get; set; }
             public System.String SecurityLake_RoleArn { get; set; }
             public System.String Description { get; set; }
             public List<System.String> OpenSearchArn { get; set; }

@@ -30,55 +30,63 @@ using Amazon.VerifiedPermissions.Model;
 namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
-    /// Creates or updates the policy schema in the specified policy store. The schema is
-    /// used to validate any Cedar policies and policy templates submitted to the policy store.
-    /// Any changes to the schema validate only policies and templates submitted after the
-    /// schema change. Existing policies and templates are not re-evaluated against the changed
-    /// schema. If you later update a policy, then it is evaluated against the new schema
-    /// at that time.
+    /// Creates a policy store alias for the specified policy store. A policy store alias
+    /// is an alternative identifier that you can use to reference a policy store in API operations.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// This operation is idempotent. If multiple CreatePolicyStoreAlias requests are made
+    /// where the <c>aliasName</c> and <c>policyStoreId</c> fields are the same between the
+    /// requests, subsequent requests will be ignored. For each duplicate CreatePolicyStoreAlias
+    /// request, a Success response will be returned and a new policy store alias will not
+    /// be created.
+    /// </para><note><para>
     /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
     /// consistent</a></i>. It can take a few seconds for a new or changed element to propagate
     /// through the service and be visible in the results of other Verified Permissions operations.
     /// </para></note>
     /// </summary>
-    [Cmdlet("Write", "AVPSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.VerifiedPermissions.Model.PutSchemaResponse")]
-    [AWSCmdlet("Calls the Amazon Verified Permissions PutSchema API operation.", Operation = new[] {"PutSchema"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.PutSchemaResponse))]
-    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.PutSchemaResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.PutSchemaResponse object containing multiple properties."
+    [Cmdlet("New", "AVPPolicyStoreAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasResponse")]
+    [AWSCmdlet("Calls the Amazon Verified Permissions CreatePolicyStoreAlias API operation.", Operation = new[] {"CreatePolicyStoreAlias"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasResponse))]
+    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasResponse",
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasResponse object containing multiple properties."
     )]
-    public partial class WriteAVPSchemaCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
+    public partial class NewAVPPolicyStoreAliasCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Definition_CedarJson
+        #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>A JSON string representation of the schema supported by applications that use this
-        /// policy store. To delete the schema, run <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PutSchema.html">PutSchema</a>
-        /// with <c>{}</c> for this parameter. For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy
-        /// store schema</a> in the <i>Amazon Verified Permissions User Guide</i>.</para>
+        /// <para>Specifies the name of the policy store alias to create. The name must be unique within
+        /// your Amazon Web Services account and Amazon Web Services Region.</para><note><para>The alias name must always be prefixed with <c>policy-store-alias/</c>.</para></note>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Definition_CedarJson { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AliasName { get; set; }
         #endregion
         
         #region Parameter PolicyStoreId
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of the policy store in which to place the schema.</para><para>To specify a policy store, use its ID or alias name. When using an alias name, prefix
-        /// it with <c>policy-store-alias/</c>. For example:</para><ul><li><para>ID: <c>PSEXAMPLEabcdefg111111</c></para></li><li><para>Alias name: <c>policy-store-alias/example-policy-store</c></para></li></ul><para>To view aliases, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html">ListPolicyStoreAliases</a>.</para>
+        /// <para>Specifies the ID of the policy store to associate with the alias.</para><note><para>The associated policy store must be specified using its ID. The alias name cannot
+        /// be used.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -89,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.PutSchemaResponse).
-        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.PutSchemaResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasResponse).
+        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +124,13 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PolicyStoreId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-AVPSchema (PutSchema)"))
+            var targetParameterNames = new string[]
+            {
+                nameof(this.PolicyStoreId),
+                nameof(this.AliasName)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AVPPolicyStoreAlias (CreatePolicyStoreAlias)"))
             {
                 return;
             }
@@ -129,10 +142,16 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.PutSchemaResponse, WriteAVPSchemaCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasResponse, NewAVPPolicyStoreAliasCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Definition_CedarJson = this.Definition_CedarJson;
+            context.AliasName = this.AliasName;
+            #if MODULAR
+            if (this.AliasName == null && ParameterWasBound(nameof(this.AliasName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AliasName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.PolicyStoreId = this.PolicyStoreId;
             #if MODULAR
             if (this.PolicyStoreId == null && ParameterWasBound(nameof(this.PolicyStoreId)))
@@ -154,26 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.VerifiedPermissions.Model.PutSchemaRequest();
+            var request = new Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasRequest();
             
-            
-             // populate Definition
-            var requestDefinitionIsNull = true;
-            request.Definition = new Amazon.VerifiedPermissions.Model.SchemaDefinition();
-            System.String requestDefinition_definition_CedarJson = null;
-            if (cmdletContext.Definition_CedarJson != null)
+            if (cmdletContext.AliasName != null)
             {
-                requestDefinition_definition_CedarJson = cmdletContext.Definition_CedarJson;
-            }
-            if (requestDefinition_definition_CedarJson != null)
-            {
-                request.Definition.CedarJson = requestDefinition_definition_CedarJson;
-                requestDefinitionIsNull = false;
-            }
-             // determine if request.Definition should be set to null
-            if (requestDefinitionIsNull)
-            {
-                request.Definition = null;
+                request.AliasName = cmdletContext.AliasName;
             }
             if (cmdletContext.PolicyStoreId != null)
             {
@@ -212,12 +216,12 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region AWS Service Operation Call
         
-        private Amazon.VerifiedPermissions.Model.PutSchemaResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.PutSchemaRequest request)
+        private Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "PutSchema");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "CreatePolicyStoreAlias");
             try
             {
-                return client.PutSchemaAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CreatePolicyStoreAliasAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -234,9 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Definition_CedarJson { get; set; }
+            public System.String AliasName { get; set; }
             public System.String PolicyStoreId { get; set; }
-            public System.Func<Amazon.VerifiedPermissions.Model.PutSchemaResponse, WriteAVPSchemaCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.VerifiedPermissions.Model.CreatePolicyStoreAliasResponse, NewAVPPolicyStoreAliasCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
