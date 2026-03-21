@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -1176,6 +1176,12 @@ namespace AWSPowerShellGenerator.Analysis
         /// <param name="generator"></param>
         protected virtual void DeterminePipelineParameter(CmdletGenerator generator)
         {
+            // Treat empty PipelineParameter with NoPipelineParameter=false as NoPipelineParameter=true.
+            if (!CurrentOperation.IsAutoConfiguring && string.IsNullOrEmpty(CurrentOperation.PipelineParameter) && !CurrentOperation.NoPipelineParameter)
+            {
+                CurrentOperation.NoPipelineParameter = true;
+            }
+
             if (CurrentOperation.NoPipelineParameter && !string.IsNullOrEmpty(CurrentOperation.PipelineParameter))
             {
                 AnalysisError.NoPipelineParameterAndPipelineParameterSpecified(CurrentModel, CurrentOperation);
