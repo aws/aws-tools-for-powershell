@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -1182,6 +1182,12 @@ namespace AWSPowerShellGenerator.Analysis
             }
             if (!NonIterationParameters.Any() || CurrentOperation.NoPipelineParameter)
             {
+                // Persist NoPipelineParameter=true when all parameters are pagination-only.
+                if (CurrentOperation.IsAutoConfiguring && !CurrentOperation.NoPipelineParameter && !NonIterationParameters.Any())
+                {
+                    CurrentOperation.NoPipelineParameter = true;
+                    InfoMessage.NoPipelineParameterCandidates(CurrentModel, CurrentOperation);
+                }
                 return;
             }
 
