@@ -40,6 +40,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelRunBatch" Verb="Stop" Noun="RunBatch" ShouldProcessTarget="BatchId" PipelineParameter="BatchId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelVariantImportJob" Verb="Stop" Noun="VariantImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -118,6 +122,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBatch" Verb="Remove" Noun="Batch" ShouldProcessTarget="BatchId" PipelineParameter="BatchId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteReference" Verb="Remove" Noun="Reference" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -127,6 +135,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRun" Verb="Remove" Noun="Run" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRunBatch" Verb="Remove" Noun="RunBatch" ShouldProcessTarget="BatchId" PipelineParameter="BatchId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -173,6 +185,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAnnotationStoreVersion" OutputProperty="*" Verb="Get" Noun="AnnotationStoreVersion" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBatch" OutputProperty="*" Verb="Get" Noun="Batch" PipelineParameter="BatchId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -268,6 +284,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBatch" OutputProperty="Items" Verb="Get" Noun="BatchList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMultipartReadSetUploads" OutputProperty="Uploads" Verb="Get" Noun="MultipartReadSetUploadList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -313,6 +333,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRuns" OutputProperty="Items" Verb="Get" Noun="RunList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRunsInBatch" OutputProperty="Runs" Verb="Get" Noun="RunsInBatchList" PipelineParameter="BatchId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -385,6 +409,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartRun" OutputProperty="*" Verb="Start" Noun="Run" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRunBatch" OutputProperty="*" Verb="Start" Noun="RunBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

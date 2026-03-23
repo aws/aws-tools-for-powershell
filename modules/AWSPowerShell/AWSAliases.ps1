@@ -7970,6 +7970,7 @@ Set-Alias -Name CCAS-UpdateCase -Value Update-CCASCase
 Set-Alias -Name CCAS-UpdateCaseRule -Value Update-CCASCaseRule
 Set-Alias -Name CCAS-UpdateField -Value Update-CCASField
 Set-Alias -Name CCAS-UpdateLayout -Value Update-CCASLayout
+Set-Alias -Name CCAS-UpdateRelatedItem -Value Update-CCASRelatedItem
 Set-Alias -Name CCAS-UpdateTemplate -Value Update-CCASTemplate
 Set-Alias -Name Cancel-CONNPParticipantAuthentication -Value Stop-CONNPParticipantAuthentication
 Set-Alias -Name CONNP-CancelParticipantAuthentication -Value Stop-CONNPParticipantAuthentication
@@ -23498,6 +23499,8 @@ Set-Alias -Name Cancel-OMICSAnnotationImportJob -Value Stop-OMICSAnnotationImpor
 Set-Alias -Name OMICS-CancelAnnotationImportJob -Value Stop-OMICSAnnotationImportJob
 Set-Alias -Name Cancel-OMICSRun -Value Stop-OMICSRun
 Set-Alias -Name OMICS-CancelRun -Value Stop-OMICSRun
+Set-Alias -Name Cancel-OMICSRunBatch -Value Stop-OMICSRunBatch
+Set-Alias -Name OMICS-CancelRunBatch -Value Stop-OMICSRunBatch
 Set-Alias -Name Cancel-OMICSVariantImportJob -Value Stop-OMICSVariantImportJob
 Set-Alias -Name OMICS-CancelVariantImportJob -Value Stop-OMICSVariantImportJob
 Set-Alias -Name OMICS-CompleteMultipartReadSetUpload -Value Complete-OMICSMultipartReadSetUpload
@@ -23528,12 +23531,16 @@ Set-Alias -Name OMICS-DeleteAnnotationStore -Value Remove-OMICSAnnotationStore
 Set-Alias -Name Delete-OMICSAnnotationStoreVersions -Value Remove-OMICSAnnotationStoreVersion
 Set-Alias -Name Delete-OMICSAnnotationStoreVersion -Value Remove-OMICSAnnotationStoreVersion
 Set-Alias -Name OMICS-DeleteAnnotationStoreVersions -Value Remove-OMICSAnnotationStoreVersion
+Set-Alias -Name Delete-OMICSBatch -Value Remove-OMICSBatch
+Set-Alias -Name OMICS-DeleteBatch -Value Remove-OMICSBatch
 Set-Alias -Name Delete-OMICSReference -Value Remove-OMICSReference
 Set-Alias -Name OMICS-DeleteReference -Value Remove-OMICSReference
 Set-Alias -Name Delete-OMICSReferenceStore -Value Remove-OMICSReferenceStore
 Set-Alias -Name OMICS-DeleteReferenceStore -Value Remove-OMICSReferenceStore
 Set-Alias -Name Delete-OMICSRun -Value Remove-OMICSRun
 Set-Alias -Name OMICS-DeleteRun -Value Remove-OMICSRun
+Set-Alias -Name Delete-OMICSRunBatch -Value Remove-OMICSRunBatch
+Set-Alias -Name OMICS-DeleteRunBatch -Value Remove-OMICSRunBatch
 Set-Alias -Name Delete-OMICSRunCache -Value Remove-OMICSRunCache
 Set-Alias -Name OMICS-DeleteRunCache -Value Remove-OMICSRunCache
 Set-Alias -Name Delete-OMICSRunGroup -Value Remove-OMICSRunGroup
@@ -23553,6 +23560,7 @@ Set-Alias -Name OMICS-DeleteWorkflowVersion -Value Remove-OMICSWorkflowVersion
 Set-Alias -Name OMICS-GetAnnotationImportJob -Value Get-OMICSAnnotationImportJob
 Set-Alias -Name OMICS-GetAnnotationStore -Value Get-OMICSAnnotationStore
 Set-Alias -Name OMICS-GetAnnotationStoreVersion -Value Get-OMICSAnnotationStoreVersion
+Set-Alias -Name OMICS-GetBatch -Value Get-OMICSBatch
 Set-Alias -Name OMICS-GetReadSetActivationJob -Value Get-OMICSReadSetActivationJob
 Set-Alias -Name OMICS-GetReadSet -Value Get-OMICSReadSet
 Set-Alias -Name OMICS-GetReadSetExportJob -Value Get-OMICSReadSetExportJob
@@ -23582,6 +23590,9 @@ Set-Alias -Name OMICS-ListAnnotationStores -Value Get-OMICSAnnotationStoreList
 Set-Alias -Name List-OMICSAnnotationStoreVersions -Value Get-OMICSAnnotationStoreVersionList
 Set-Alias -Name List-OMICSAnnotationStoreVersionList -Value Get-OMICSAnnotationStoreVersionList
 Set-Alias -Name OMICS-ListAnnotationStoreVersions -Value Get-OMICSAnnotationStoreVersionList
+Set-Alias -Name List-OMICSBatch -Value Get-OMICSBatchList
+Set-Alias -Name List-OMICSBatchList -Value Get-OMICSBatchList
+Set-Alias -Name OMICS-ListBatch -Value Get-OMICSBatchList
 Set-Alias -Name List-OMICSMultipartReadSetUploads -Value Get-OMICSMultipartReadSetUploadList
 Set-Alias -Name List-OMICSMultipartReadSetUploadList -Value Get-OMICSMultipartReadSetUploadList
 Set-Alias -Name OMICS-ListMultipartReadSetUploads -Value Get-OMICSMultipartReadSetUploadList
@@ -23618,6 +23629,9 @@ Set-Alias -Name OMICS-ListRunGroups -Value Get-OMICSRunGroupList
 Set-Alias -Name List-OMICSRuns -Value Get-OMICSRunList
 Set-Alias -Name List-OMICSRunList -Value Get-OMICSRunList
 Set-Alias -Name OMICS-ListRuns -Value Get-OMICSRunList
+Set-Alias -Name List-OMICSRunsInBatch -Value Get-OMICSRunsInBatchList
+Set-Alias -Name List-OMICSRunsInBatchList -Value Get-OMICSRunsInBatchList
+Set-Alias -Name OMICS-ListRunsInBatch -Value Get-OMICSRunsInBatchList
 Set-Alias -Name List-OMICSRunTasks -Value Get-OMICSRunTaskList
 Set-Alias -Name List-OMICSRunTaskList -Value Get-OMICSRunTaskList
 Set-Alias -Name OMICS-ListRunTasks -Value Get-OMICSRunTaskList
@@ -23648,6 +23662,7 @@ Set-Alias -Name OMICS-StartReadSetExportJob -Value Start-OMICSReadSetExportJob
 Set-Alias -Name OMICS-StartReadSetImportJob -Value Start-OMICSReadSetImportJob
 Set-Alias -Name OMICS-StartReferenceImportJob -Value Start-OMICSReferenceImportJob
 Set-Alias -Name OMICS-StartRun -Value Start-OMICSRun
+Set-Alias -Name OMICS-StartRunBatch -Value Start-OMICSRunBatch
 Set-Alias -Name OMICS-StartVariantImportJob -Value Start-OMICSVariantImportJob
 Set-Alias -Name OMICS-TagResource -Value Add-OMICSResourceTag
 Set-Alias -Name OMICS-UntagResource -Value Remove-OMICSResourceTag

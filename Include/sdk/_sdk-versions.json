@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1247.0",
+    "ProductVersion"    : "3.7.1248.0",
     "CoreVersion"       : "3.7.500.94",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -596,7 +596,7 @@
             "InPreview"               : false
         },
         "Lightsail"                       : {
-            "Version" : "3.7.504.60",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"
@@ -676,7 +676,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "3.7.505.1",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"
@@ -2348,7 +2348,7 @@
             "InPreview"               : false
         },
         "ConnectCases"                        : {
-            "Version" : "3.7.509.6",
+            "Version" : "3.7.510.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"
@@ -2428,7 +2428,7 @@
             "InPreview"               : false
         },
         "Omics"                               : {
-            "Version" : "3.7.504.51",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"
