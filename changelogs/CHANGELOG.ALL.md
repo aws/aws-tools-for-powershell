@@ -1,4 +1,20 @@
-﻿### 5.0.179 (2026-03-20 20:46Z)
+﻿### 5.0.180 (2026-03-23 20:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.216.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Cases
+    * Added cmdlet Update-CCASRelatedItem leveraging the UpdateRelatedItem service API.
+  * Amazon Lightsail
+    * Modified cmdlet New-LSContactMethod: added parameter Tag.
+  * Amazon Omics
+    * Added cmdlet Get-OMICSBatch leveraging the GetBatch service API.
+    * Added cmdlet Get-OMICSBatchList leveraging the ListBatch service API.
+    * Added cmdlet Get-OMICSRunsInBatchList leveraging the ListRunsInBatch service API.
+    * Added cmdlet Remove-OMICSBatch leveraging the DeleteBatch service API.
+    * Added cmdlet Remove-OMICSRunBatch leveraging the DeleteRunBatch service API.
+    * Added cmdlet Start-OMICSRunBatch leveraging the StartRunBatch service API.
+    * Added cmdlet Stop-OMICSRunBatch leveraging the CancelRunBatch service API.
+    * Modified cmdlet Get-OMICSRunList: added parameter BatchId.
+
+### 5.0.179 (2026-03-20 20:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.215.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon OpenSearch Service
     * Modified cmdlet Add-OSDirectQueryDataSource: added parameters DataSourceType_Prometheus_RoleArn and DataSourceType_Prometheus_WorkspaceArn.

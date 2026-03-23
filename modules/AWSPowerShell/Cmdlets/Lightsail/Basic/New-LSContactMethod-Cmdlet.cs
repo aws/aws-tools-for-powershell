@@ -98,6 +98,21 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public Amazon.Lightsail.ContactProtocol Protocol { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys and optional values to add to the contact method during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Operations'.
@@ -158,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 WriteWarning("You are passing $null as a value for parameter Protocol which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.Protocol != null)
             {
                 request.Protocol = cmdletContext.Protocol;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -239,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             public System.String ContactEndpoint { get; set; }
             public Amazon.Lightsail.ContactProtocol Protocol { get; set; }
+            public List<Amazon.Lightsail.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Lightsail.Model.CreateContactMethodResponse, NewLSContactMethodCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Operations;
         }

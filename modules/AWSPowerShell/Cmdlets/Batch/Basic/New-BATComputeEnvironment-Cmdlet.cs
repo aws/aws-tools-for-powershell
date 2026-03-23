@@ -174,7 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>Provides information that's used to select Amazon Machine Images (AMIs) for Amazon
         /// EC2 instances in the compute environment. If <c>Ec2Configuration</c> isn't specified,
-        /// the default is <c>ECS_AL2</c>.</para><para>One or two values can be provided.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// the default is <c>ECS_AL2</c> for EC2 (ECS) compute environments and <c>EKS_AL2023</c>
+        /// for EKS compute environments.</para><para>One or two values can be provided.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

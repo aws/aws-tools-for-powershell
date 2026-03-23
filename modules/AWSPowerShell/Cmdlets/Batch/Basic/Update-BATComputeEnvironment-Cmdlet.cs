@@ -144,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances
         /// in the compute environment. If <c>Ec2Configuration</c> isn't specified, the default
-        /// is <c>ECS_AL2</c>.</para><para>When updating a compute environment, changing this setting requires an infrastructure
+        /// is <c>ECS_AL2</c> for EC2 (ECS) compute environments and <c>EKS_AL2023</c> for EKS
+        /// compute environments.</para><para>When updating a compute environment, changing this setting requires an infrastructure
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
         /// compute environments</a> in the <i>Batch User Guide</i>. To remove the Amazon EC2
         /// configuration and any custom AMI ID specified in <c>imageIdOverride</c>, set this

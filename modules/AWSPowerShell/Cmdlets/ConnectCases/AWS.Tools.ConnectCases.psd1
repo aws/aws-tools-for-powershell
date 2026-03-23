@@ -127,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CCASCaseRule', 
         'Update-CCASField', 
         'Update-CCASLayout', 
+        'Update-CCASRelatedItem', 
         'Update-CCASTemplate', 
         'Write-CCASCaseEventConfiguration')
 

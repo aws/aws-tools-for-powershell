@@ -81,7 +81,10 @@ $CCAS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.ConnectCases.CommentBodyTextType
-        "New-CCASRelatedItem/Comment_ContentType"
+        {
+            ($_ -eq "New-CCASRelatedItem/Comment_ContentType") -Or
+            ($_ -eq "Update-CCASRelatedItem/Content_Comment_ContentType")
+        }
         {
             $v = "Text/Plain"
             break
@@ -128,6 +131,7 @@ $CCAS_Completers = {
 
 $CCAS_map = @{
     "Comment_ContentType"=@("New-CCASRelatedItem")
+    "Content_Comment_ContentType"=@("Update-CCASRelatedItem")
     "SlaInputConfiguration_Type"=@("New-CCASRelatedItem")
     "Status"=@("New-CCASTemplate","Update-CCASTemplate")
     "Type"=@("New-CCASField","New-CCASRelatedItem")
@@ -224,6 +228,7 @@ $CCAS_SelectMap = @{
                "Update-CCASCaseRule",
                "Update-CCASField",
                "Update-CCASLayout",
+               "Update-CCASRelatedItem",
                "Update-CCASTemplate")
 }
 

@@ -30,25 +30,18 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of runs and returns each run's metadata and status.
-    /// 
-    ///  
-    /// <para>
-    /// Amazon Web Services HealthOmics stores a configurable number of runs, as determined
-    /// by service limits, that are available to the console and API. If the <c>ListRuns</c>
-    /// response doesn't include specific runs that you expected, you can find all run logs
-    /// in the CloudWatch logs. For more information about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/monitoring-cloudwatch-logs.html">CloudWatch
-    /// logs</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Returns a paginated list of individual workflow runs within a specific batch. Use
+    /// this operation to map each <c>runSettingId</c> to its HealthOmics-generated <c>runId</c>,
+    /// and to check the submission status of each run. Only one filter per call is supported.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "OMICSRunList")]
-    [OutputType("Amazon.Omics.Model.RunListItem")]
-    [AWSCmdlet("Calls the Amazon Omics ListRuns API operation.", Operation = new[] {"ListRuns"}, SelectReturnType = typeof(Amazon.Omics.Model.ListRunsResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.RunListItem or Amazon.Omics.Model.ListRunsResponse",
-        "This cmdlet returns a collection of Amazon.Omics.Model.RunListItem objects.",
-        "The service call response (type Amazon.Omics.Model.ListRunsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "OMICSRunsInBatchList")]
+    [OutputType("Amazon.Omics.Model.RunBatchListItem")]
+    [AWSCmdlet("Calls the Amazon Omics ListRunsInBatch API operation.", Operation = new[] {"ListRunsInBatch"}, SelectReturnType = typeof(Amazon.Omics.Model.ListRunsInBatchResponse))]
+    [AWSCmdletOutput("Amazon.Omics.Model.RunBatchListItem or Amazon.Omics.Model.ListRunsInBatchResponse",
+        "This cmdlet returns a collection of Amazon.Omics.Model.RunBatchListItem objects.",
+        "The service call response (type Amazon.Omics.Model.ListRunsInBatchResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOMICSRunListCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class GetOMICSRunsInBatchListCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -57,48 +50,55 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter BatchId
         /// <summary>
         /// <para>
-        /// <para>Filter by batch ID.</para>
+        /// <para>The identifier portion of the run batch ARN.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BatchId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter RunId
         /// <summary>
         /// <para>
-        /// <para>Filter the list by run name.</para>
+        /// <para>Filter runs by the HealthOmics-generated run ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        public System.String RunId { get; set; }
         #endregion
         
-        #region Parameter RunGroupId
+        #region Parameter RunSettingId
         /// <summary>
         /// <para>
-        /// <para>Filter the list by run group ID.</para>
+        /// <para>Filter runs by the customer-provided run setting ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RunGroupId { get; set; }
+        public System.String RunSettingId { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter SubmissionStatus
         /// <summary>
         /// <para>
-        /// <para>The status of a run.</para>
+        /// <para>Filter runs by submission status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Omics.RunStatus")]
-        public Amazon.Omics.RunStatus Status { get; set; }
+        [AWSConstantClassSource("Amazon.Omics.SubmissionStatus")]
+        public Amazon.Omics.SubmissionStatus SubmissionStatus { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of runs to return in one page of results.</para>
+        /// <para>The maximum number of runs to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -107,15 +107,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        [Alias("MaxItems")]
+        public int? MaxItem { get; set; }
         #endregion
         
         #region Parameter StartingToken
         /// <summary>
         /// <para>
-        /// <para>Specify the pagination token from a previous request to retrieve the next page of
-        /// results.</para>
+        /// <para>A pagination token returned from a prior <c>ListRunsInBatch</c> call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -129,13 +128,13 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListRunsResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.ListRunsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Runs'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListRunsInBatchResponse).
+        /// Specifying the name of a property of type Amazon.Omics.Model.ListRunsInBatchResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "Runs";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -143,7 +142,6 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of StartingToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -165,24 +163,30 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListRunsResponse, GetOMICSRunListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListRunsInBatchResponse, GetOMICSRunsInBatchListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BatchId = this.BatchId;
-            context.MaxResult = this.MaxResult;
-            #if !MODULAR
-            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            #if MODULAR
+            if (this.BatchId == null && ParameterWasBound(nameof(this.BatchId)))
             {
-                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                WriteWarning("You are passing $null as a value for parameter BatchId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MaxItem = this.MaxItem;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxItem)) && this.MaxItem.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxItem parameter to limit the total number of items returned by the cmdlet." +
                     " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
-                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxItem" +
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
-            context.Name = this.Name;
-            context.RunGroupId = this.RunGroupId;
+            context.RunId = this.RunId;
+            context.RunSettingId = this.RunSettingId;
             context.StartingToken = this.StartingToken;
-            context.Status = this.Status;
+            context.SubmissionStatus = this.SubmissionStatus;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -199,33 +203,32 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Omics.Model.ListRunsRequest();
+            var request = new Amazon.Omics.Model.ListRunsInBatchRequest();
             
             if (cmdletContext.BatchId != null)
             {
                 request.BatchId = cmdletContext.BatchId;
             }
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.MaxItem != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxItem.Value);
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.RunId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.RunId = cmdletContext.RunId;
             }
-            if (cmdletContext.RunGroupId != null)
+            if (cmdletContext.RunSettingId != null)
             {
-                request.RunGroupId = cmdletContext.RunGroupId;
+                request.RunSettingId = cmdletContext.RunSettingId;
             }
-            if (cmdletContext.Status != null)
+            if (cmdletContext.SubmissionStatus != null)
             {
-                request.Status = cmdletContext.Status;
+                request.SubmissionStatus = cmdletContext.SubmissionStatus;
             }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.StartingToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.StartingToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -259,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -279,12 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.ListRunsResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListRunsRequest request)
+        private Amazon.Omics.Model.ListRunsInBatchResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListRunsInBatchRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListRuns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListRunsInBatch");
             try
             {
-                return client.ListRunsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListRunsInBatchAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -302,13 +305,13 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BatchId { get; set; }
-            public int? MaxResult { get; set; }
-            public System.String Name { get; set; }
-            public System.String RunGroupId { get; set; }
+            public int? MaxItem { get; set; }
+            public System.String RunId { get; set; }
+            public System.String RunSettingId { get; set; }
             public System.String StartingToken { get; set; }
-            public Amazon.Omics.RunStatus Status { get; set; }
-            public System.Func<Amazon.Omics.Model.ListRunsResponse, GetOMICSRunListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public Amazon.Omics.SubmissionStatus SubmissionStatus { get; set; }
+            public System.Func<Amazon.Omics.Model.ListRunsInBatchResponse, GetOMICSRunsInBatchListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Runs;
         }
         
     }

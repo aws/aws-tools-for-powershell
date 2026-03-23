@@ -100,11 +100,19 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.BatchStatus
+        "Get-OMICSBatchList/Status"
+        {
+            $v = "CANCELLED","FAILED","INPROGRESS","PENDING","PROCESSED","RUNS_DELETED","RUNS_DELETING","STOPPING","SUBMITTING"
+            break
+        }
+
         # Amazon.Omics.CacheBehavior
         {
             ($_ -eq "New-OMICSRunCache/CacheBehavior") -Or
             ($_ -eq "Start-OMICSRun/CacheBehavior") -Or
-            ($_ -eq "Update-OMICSRunCache/CacheBehavior")
+            ($_ -eq "Update-OMICSRunCache/CacheBehavior") -Or
+            ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_CacheBehavior")
         }
         {
             $v = "CACHE_ALWAYS","CACHE_ON_FAILURE"
@@ -221,14 +229,20 @@ $OMICS_Completers = {
         }
 
         # Amazon.Omics.RunLogLevel
-        "Start-OMICSRun/LogLevel"
+        {
+            ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_LogLevel") -Or
+            ($_ -eq "Start-OMICSRun/LogLevel")
+        }
         {
             $v = "ALL","ERROR","FATAL","OFF"
             break
         }
 
         # Amazon.Omics.RunRetentionMode
-        "Start-OMICSRun/RetentionMode"
+        {
+            ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_RetentionMode") -Or
+            ($_ -eq "Start-OMICSRun/RetentionMode")
+        }
         {
             $v = "REMOVE","RETAIN"
             break
@@ -260,6 +274,7 @@ $OMICS_Completers = {
 
         # Amazon.Omics.StorageType
         {
+            ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_StorageType") -Or
             ($_ -eq "New-OMICSWorkflow/StorageType") -Or
             ($_ -eq "New-OMICSWorkflowVersion/StorageType") -Or
             ($_ -eq "Start-OMICSRun/StorageType") -Or
@@ -285,6 +300,13 @@ $OMICS_Completers = {
         }
         {
             $v = "ACTIVE","CREATING","DELETING","FAILED","UPDATING"
+            break
+        }
+
+        # Amazon.Omics.SubmissionStatus
+        "Get-OMICSRunsInBatchList/SubmissionStatus"
+        {
+            $v = "CANCEL_FAILED","CANCEL_SUCCESS","DELETE_FAILED","DELETE_SUCCESS","FAILED","SUCCESS"
             break
         }
 
@@ -314,6 +336,7 @@ $OMICS_Completers = {
 
         # Amazon.Omics.WorkflowType
         {
+            ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_WorkflowType") -Or
             ($_ -eq "Get-OMICSWorkflow/Type") -Or
             ($_ -eq "Get-OMICSWorkflowList/Type") -Or
             ($_ -eq "Get-OMICSWorkflowVersion/Type") -Or
@@ -336,6 +359,11 @@ $OMICS_Completers = {
 $OMICS_map = @{
     "Accelerator"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
     "CacheBehavior"=@("New-OMICSRunCache","Start-OMICSRun","Update-OMICSRunCache")
+    "DefaultRunSetting_CacheBehavior"=@("Start-OMICSRunBatch")
+    "DefaultRunSetting_LogLevel"=@("Start-OMICSRunBatch")
+    "DefaultRunSetting_RetentionMode"=@("Start-OMICSRunBatch")
+    "DefaultRunSetting_StorageType"=@("Start-OMICSRunBatch")
+    "DefaultRunSetting_WorkflowType"=@("Start-OMICSRunBatch")
     "Engine"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
     "ETagAlgorithmFamily"=@("New-OMICSSequenceStore")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
@@ -348,9 +376,10 @@ $OMICS_map = @{
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
     "SourceReference_Type"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
-    "Status"=@("Get-OMICSRunList","Get-OMICSRunTaskList")
+    "Status"=@("Get-OMICSBatchList","Get-OMICSRunList","Get-OMICSRunTaskList")
     "StorageType"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion","Start-OMICSRun","Update-OMICSWorkflow","Update-OMICSWorkflowVersion")
     "StoreFormat"=@("New-OMICSAnnotationStore")
+    "SubmissionStatus"=@("Get-OMICSRunsInBatchList")
     "TsvStoreOptions_AnnotationType"=@("New-OMICSAnnotationStore")
     "TsvVersionOptions_AnnotationType"=@("New-OMICSAnnotationStoreVersion")
     "Type"=@("Get-OMICSWorkflow","Get-OMICSWorkflowList","Get-OMICSWorkflowVersion","Get-OMICSWorkflowVersionList")
@@ -412,6 +441,7 @@ $OMICS_SelectMap = @{
                "Remove-OMICSReadSet",
                "Stop-OMICSAnnotationImportJob",
                "Stop-OMICSRun",
+               "Stop-OMICSRunBatch",
                "Stop-OMICSVariantImportJob",
                "Complete-OMICSMultipartReadSetUpload",
                "New-OMICSAnnotationStore",
@@ -427,9 +457,11 @@ $OMICS_SelectMap = @{
                "New-OMICSWorkflowVersion",
                "Remove-OMICSAnnotationStore",
                "Remove-OMICSAnnotationStoreVersion",
+               "Remove-OMICSBatch",
                "Remove-OMICSReference",
                "Remove-OMICSReferenceStore",
                "Remove-OMICSRun",
+               "Remove-OMICSRunBatch",
                "Remove-OMICSRunCache",
                "Remove-OMICSRunGroup",
                "Remove-OMICSS3AccessPolicy",
@@ -441,6 +473,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSAnnotationImportJob",
                "Get-OMICSAnnotationStore",
                "Get-OMICSAnnotationStoreVersion",
+               "Get-OMICSBatch",
                "Get-OMICSReadSet",
                "Get-OMICSReadSetActivationJob",
                "Get-OMICSReadSetExportJob",
@@ -464,6 +497,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSAnnotationImportJobList",
                "Get-OMICSAnnotationStoreList",
                "Get-OMICSAnnotationStoreVersionList",
+               "Get-OMICSBatchList",
                "Get-OMICSMultipartReadSetUploadList",
                "Get-OMICSReadSetActivationJobList",
                "Get-OMICSReadSetExportJobList",
@@ -476,6 +510,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSRunCachList",
                "Get-OMICSRunGroupList",
                "Get-OMICSRunList",
+               "Get-OMICSRunsInBatchList",
                "Get-OMICSRunTaskList",
                "Get-OMICSSequenceStoreList",
                "Get-OMICSShareList",
@@ -491,6 +526,7 @@ $OMICS_SelectMap = @{
                "Start-OMICSReadSetImportJob",
                "Start-OMICSReferenceImportJob",
                "Start-OMICSRun",
+               "Start-OMICSRunBatch",
                "Start-OMICSVariantImportJob",
                "Add-OMICSResourceTag",
                "Remove-OMICSResourceTag",
