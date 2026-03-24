@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the browser profile to filter results by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -125,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.Name = this.Name;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -147,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
             // Initialize loop variant and commence piping
@@ -228,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public int? MaxResult { get; set; }
+            public System.String Name { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse, GetBACCBrowserProfileListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProfileSummaries;

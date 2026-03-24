@@ -56,6 +56,21 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter SlurmConfiguration_CgroupCustomSetting
+        /// <summary>
+        /// <para>
+        /// <para>Additional Cgroup-specific configuration that directly maps to Cgroup settings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_CgroupCustomSettings")]
+        public Amazon.PCS.Model.CgroupCustomSetting[] SlurmConfiguration_CgroupCustomSetting { get; set; }
+        #endregion
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>
@@ -184,6 +199,21 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public Amazon.PCS.Model.SlurmCustomSetting[] SlurmConfiguration_SlurmCustomSetting { get; set; }
         #endregion
         
+        #region Parameter SlurmConfiguration_SlurmdbdCustomSetting
+        /// <summary>
+        /// <para>
+        /// <para>Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_SlurmdbdCustomSettings")]
+        public Amazon.PCS.Model.SlurmdbdCustomSetting[] SlurmConfiguration_SlurmdbdCustomSetting { get; set; }
+        #endregion
+        
         #region Parameter Networking_SubnetId
         /// <summary>
         /// <para>
@@ -239,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <para>
         /// <para>The version of the specified scheduling software that PCS uses to manage cluster scaling
         /// and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm
-        /// versions in PCS</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>23.11 | 24.05 | 24.11</c></para>
+        /// versions in PCS</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>24.11 | 25.05</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -354,10 +384,18 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             #endif
             context.Accounting_DefaultPurgeTimeInDay = this.Accounting_DefaultPurgeTimeInDay;
             context.Accounting_Mode = this.Accounting_Mode;
+            if (this.SlurmConfiguration_CgroupCustomSetting != null)
+            {
+                context.SlurmConfiguration_CgroupCustomSetting = new List<Amazon.PCS.Model.CgroupCustomSetting>(this.SlurmConfiguration_CgroupCustomSetting);
+            }
             context.SlurmConfiguration_ScaleDownIdleTimeInSecond = this.SlurmConfiguration_ScaleDownIdleTimeInSecond;
             if (this.SlurmConfiguration_SlurmCustomSetting != null)
             {
                 context.SlurmConfiguration_SlurmCustomSetting = new List<Amazon.PCS.Model.SlurmCustomSetting>(this.SlurmConfiguration_SlurmCustomSetting);
+            }
+            if (this.SlurmConfiguration_SlurmdbdCustomSetting != null)
+            {
+                context.SlurmConfiguration_SlurmdbdCustomSetting = new List<Amazon.PCS.Model.SlurmdbdCustomSetting>(this.SlurmConfiguration_SlurmdbdCustomSetting);
             }
             context.SlurmRest_Mode = this.SlurmRest_Mode;
             if (this.Tag != null)
@@ -468,6 +506,16 @@ namespace Amazon.PowerShell.Cmdlets.PCS
              // populate SlurmConfiguration
             var requestSlurmConfigurationIsNull = true;
             request.SlurmConfiguration = new Amazon.PCS.Model.ClusterSlurmConfigurationRequest();
+            List<Amazon.PCS.Model.CgroupCustomSetting> requestSlurmConfiguration_slurmConfiguration_CgroupCustomSetting = null;
+            if (cmdletContext.SlurmConfiguration_CgroupCustomSetting != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_CgroupCustomSetting = cmdletContext.SlurmConfiguration_CgroupCustomSetting;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_CgroupCustomSetting != null)
+            {
+                request.SlurmConfiguration.CgroupCustomSettings = requestSlurmConfiguration_slurmConfiguration_CgroupCustomSetting;
+                requestSlurmConfigurationIsNull = false;
+            }
             System.Int32? requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond = null;
             if (cmdletContext.SlurmConfiguration_ScaleDownIdleTimeInSecond != null)
             {
@@ -486,6 +534,16 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting != null)
             {
                 request.SlurmConfiguration.SlurmCustomSettings = requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting;
+                requestSlurmConfigurationIsNull = false;
+            }
+            List<Amazon.PCS.Model.SlurmdbdCustomSetting> requestSlurmConfiguration_slurmConfiguration_SlurmdbdCustomSetting = null;
+            if (cmdletContext.SlurmConfiguration_SlurmdbdCustomSetting != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_SlurmdbdCustomSetting = cmdletContext.SlurmConfiguration_SlurmdbdCustomSetting;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_SlurmdbdCustomSetting != null)
+            {
+                request.SlurmConfiguration.SlurmdbdCustomSettings = requestSlurmConfiguration_slurmConfiguration_SlurmdbdCustomSetting;
                 requestSlurmConfigurationIsNull = false;
             }
             Amazon.PCS.Model.SlurmRestRequest requestSlurmConfiguration_slurmConfiguration_SlurmRest = null;
@@ -622,8 +680,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public Amazon.PCS.Size Size { get; set; }
             public System.Int32? Accounting_DefaultPurgeTimeInDay { get; set; }
             public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
+            public List<Amazon.PCS.Model.CgroupCustomSetting> SlurmConfiguration_CgroupCustomSetting { get; set; }
             public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
             public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
+            public List<Amazon.PCS.Model.SlurmdbdCustomSetting> SlurmConfiguration_SlurmdbdCustomSetting { get; set; }
             public Amazon.PCS.SlurmRestMode SlurmRest_Mode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.PCS.Model.CreateClusterResponse, NewPCSClusterCmdlet, object> Select { get; set; } =

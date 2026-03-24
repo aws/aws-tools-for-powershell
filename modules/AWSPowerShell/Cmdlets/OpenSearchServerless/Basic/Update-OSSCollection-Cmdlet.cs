@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter VectorOptions_ServerlessVectorAcceleration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether serverless vector acceleration is enabled for the collection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus")]
+        public Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus VectorOptions_ServerlessVectorAcceleration { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -137,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VectorOptions_ServerlessVectorAcceleration = this.VectorOptions_ServerlessVectorAcceleration;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,6 +176,25 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            
+             // populate VectorOptions
+            var requestVectorOptionsIsNull = true;
+            request.VectorOptions = new Amazon.OpenSearchServerless.Model.VectorOptions();
+            Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus requestVectorOptions_vectorOptions_ServerlessVectorAcceleration = null;
+            if (cmdletContext.VectorOptions_ServerlessVectorAcceleration != null)
+            {
+                requestVectorOptions_vectorOptions_ServerlessVectorAcceleration = cmdletContext.VectorOptions_ServerlessVectorAcceleration;
+            }
+            if (requestVectorOptions_vectorOptions_ServerlessVectorAcceleration != null)
+            {
+                request.VectorOptions.ServerlessVectorAcceleration = requestVectorOptions_vectorOptions_ServerlessVectorAcceleration;
+                requestVectorOptionsIsNull = false;
+            }
+             // determine if request.VectorOptions should be set to null
+            if (requestVectorOptionsIsNull)
+            {
+                request.VectorOptions = null;
             }
             
             CmdletOutput output;
@@ -223,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String Id { get; set; }
+            public Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus VectorOptions_ServerlessVectorAcceleration { get; set; }
             public System.Func<Amazon.OpenSearchServerless.Model.UpdateCollectionResponse, UpdateOSSCollectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UpdateCollectionDetail;
         }

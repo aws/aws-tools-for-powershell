@@ -325,7 +325,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBrowserProfiles" OutputProperty="ProfileSummaries" Verb="Get" Noun="BrowserProfileList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBrowserProfiles" OutputProperty="ProfileSummaries" Verb="Get" Noun="BrowserProfileList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

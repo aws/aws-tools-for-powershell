@@ -30,20 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This API works with the following fleet types:</b> Anywhere
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
     /// Lists all custom and Amazon Web Services locations where Amazon GameLift Servers can
-    /// host game servers. 
-    /// </para><para>
-    /// Note that if you call this API using a location that doesn't have a service endpoint,
-    /// such as one that can only be a remote location in a multi-location fleet, the API
-    /// returns an error.
-    /// </para><para>
-    /// Consult the table of supported locations in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon
-    /// GameLift Servers service locations</a> to identify home Regions that support single
-    /// and multi-location fleets.
+    /// host game servers. This operation also returns UDP ping beacon information for locations,
+    /// which you can use to measure network latency between player devices and potential
+    /// hosting locations.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Service
     /// locations</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
