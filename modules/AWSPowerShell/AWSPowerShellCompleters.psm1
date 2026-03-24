@@ -59576,7 +59576,7 @@ $OSS_Completers = {
         # Amazon.OpenSearchServerless.CollectionStatus
         "Get-OSSCollectionList/CollectionFilters_Status"
         {
-            $v = "ACTIVE","CREATING","DELETING","FAILED"
+            $v = "ACTIVE","CREATING","DELETING","FAILED","UPDATE_FAILED","UPDATING"
             break
         }
 
@@ -59643,7 +59643,10 @@ $OSS_Completers = {
         }
 
         # Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus
-        "New-OSSCollection/VectorOptions_ServerlessVectorAcceleration"
+        {
+            ($_ -eq "New-OSSCollection/VectorOptions_ServerlessVectorAcceleration") -Or
+            ($_ -eq "Update-OSSCollection/VectorOptions_ServerlessVectorAcceleration")
+        }
         {
             $v = "ALLOWED","DISABLED","ENABLED"
             break
@@ -59682,7 +59685,7 @@ $OSS_map = @{
     "IamIdentityCenterOptionsUpdates_UserAttribute"=@("Update-OSSSecurityConfig")
     "StandbyReplica"=@("New-OSSCollection","New-OSSCollectionGroup")
     "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSLifecyclePolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSLifecyclePolicy","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSLifecyclePolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSLifecyclePolicy","Update-OSSSecurityPolicy")
-    "VectorOptions_ServerlessVectorAcceleration"=@("New-OSSCollection")
+    "VectorOptions_ServerlessVectorAcceleration"=@("New-OSSCollection","Update-OSSCollection")
     "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")
 }
 

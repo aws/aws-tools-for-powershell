@@ -174,6 +174,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.Collections.Hashtable EnvironmentVariable { get; set; }
         #endregion
         
+        #region Parameter FilesystemConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The updated filesystem configurations to mount into the AgentCore Runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilesystemConfigurations")]
+        public Amazon.BedrockAgentCoreControl.Model.FilesystemConfiguration[] FilesystemConfiguration { get; set; }
+        #endregion
+        
         #region Parameter LifecycleConfiguration_IdleRuntimeSessionTimeout
         /// <summary>
         /// <para>
@@ -416,6 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 {
                     context.EnvironmentVariable.Add((String)hashKey, (System.String)(this.EnvironmentVariable[hashKey]));
                 }
+            }
+            if (this.FilesystemConfiguration != null)
+            {
+                context.FilesystemConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.FilesystemConfiguration>(this.FilesystemConfiguration);
             }
             context.LifecycleConfiguration_IdleRuntimeSessionTimeout = this.LifecycleConfiguration_IdleRuntimeSessionTimeout;
             context.LifecycleConfiguration_MaxLifetime = this.LifecycleConfiguration_MaxLifetime;
@@ -682,6 +697,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.EnvironmentVariables = cmdletContext.EnvironmentVariable;
             }
+            if (cmdletContext.FilesystemConfiguration != null)
+            {
+                request.FilesystemConfigurations = cmdletContext.FilesystemConfiguration;
+            }
             
              // populate LifecycleConfiguration
             var requestLifecycleConfigurationIsNull = true;
@@ -902,6 +921,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.FilesystemConfiguration> FilesystemConfiguration { get; set; }
             public System.Int32? LifecycleConfiguration_IdleRuntimeSessionTimeout { get; set; }
             public System.Int32? LifecycleConfiguration_MaxLifetime { get; set; }
             public System.Boolean? MetadataConfiguration_RequireMMDSV2 { get; set; }

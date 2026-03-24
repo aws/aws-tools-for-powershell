@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         #region Parameter Segment_Encryption_SpekeKeyProvider_CertificateArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the certificate that you imported to AWS Certificate Manager to add content
-        /// key encryption to this endpoint. For this feature to work, your DRM key provider must
-        /// support content key encryption.</para>
+        /// <para>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager
+        /// to add content key encryption to this endpoint. For this feature to work, your DRM
+        /// key provider must support content key encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,20 @@
-﻿### 4.1.1025 (2026-03-23 20:19Z)
+﻿### 4.1.1026 (2026-03-24 20:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1249.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet Get-BACCBrowserProfileList: added parameter Name.
+    * Modified cmdlet New-BACCAgentRuntime: added parameter FilesystemConfiguration.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameter FilesystemConfiguration.
+  * Amazon OpenSearch Serverless
+    * Modified cmdlet Update-OSSCollection: added parameter VectorOptions_ServerlessVectorAcceleration.
+  * Amazon Parallel Computing Service
+    * Modified cmdlet New-PCSCluster: added parameters SlurmConfiguration_CgroupCustomSetting and SlurmConfiguration_SlurmdbdCustomSetting.
+    * Modified cmdlet Update-PCSCluster: added parameters SlurmConfiguration_CgroupCustomSetting and SlurmConfiguration_SlurmdbdCustomSetting.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBCluster: added parameter WithExpressConfiguration.
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameters EnableInternetAccessGateway and EnableVPCNetworking.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameters EnableInternetAccessGateway and EnableVPCNetworking.
+
+### 4.1.1025 (2026-03-23 20:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1248.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Cases
     * Added cmdlet Update-CCASRelatedItem leveraging the UpdateRelatedItem service API.

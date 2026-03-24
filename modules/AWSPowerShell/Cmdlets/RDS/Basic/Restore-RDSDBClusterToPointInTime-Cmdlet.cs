@@ -37,7 +37,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// The AZ where RDS restores the DB cluster depends on the AZs in the specified subnet
     /// group.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// You can use the <c>EnableVPCNetworking</c> and <c>EnableInternetAccessGateway</c>
+    /// parameters together to restore an Aurora PostgreSQL cluster without VPC networking
+    /// and with internet-based connectivity. These two parameters must always be specified
+    /// together. Set <c>EnableVPCNetworking</c> to <c>false</c> to disable the VPC network
+    /// interface (ENI) for the cluster. <c>EnableInternetAccessGateway</c> enables internet-based
+    /// connectivity through an internet access gateway. IAM database authentication is required
+    /// and must be enabled using <c>EnableIAMDatabaseAuthentication</c>. Once the cluster
+    /// is restored, you need to modify the DB cluster to update <c>MasterUserAuthenticationType</c>
+    /// to <c>iam-db-auth</c>. 
+    /// </para><note><para>
     /// For Aurora, this operation only restores the DB cluster, not the DB instances for
     /// that DB cluster. You must invoke the <c>CreateDBInstance</c> operation to create DB
     /// instances for the restored DB cluster, specifying the identifier of the restored DB
@@ -227,6 +238,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EnableInternetAccessGateway
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that the restored DB cluster should use internet-based connectivity through
+        /// an internet access gateway. This allows clients to connect to the cluster over the
+        /// internet without requiring a VPC.</para><para>This parameter must be used together with <c>EnableVPCNetworking</c> set to <c>false</c>.
+        /// When both parameters are specified, IAM database authentication is required. You must
+        /// also specify <c>EnableIAMDatabaseAuthentication</c>.</para><para>Valid for Cluster Type: Aurora PostgreSQL clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableInternetAccessGateway { get; set; }
+        #endregion
+        
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
@@ -236,6 +261,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnablePerformanceInsights")]
         public System.Boolean? EnablePerformanceInsight { get; set; }
+        #endregion
+        
+        #region Parameter EnableVPCNetworking
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable VPC networking for the restored DB cluster. Set this parameter
+        /// to <c>false</c> to create a cluster without the VPC network interface (ENI).</para><para>This parameter must be used together with <c>EnableInternetAccessGateway</c>. When
+        /// both parameters are specified, IAM database authentication is required. You must also
+        /// specify <c>EnableIAMDatabaseAuthentication</c>.</para><para>Valid for Cluster Type: Aurora PostgreSQL clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableVPCNetworking { get; set; }
         #endregion
         
         #region Parameter EngineLifecycleSupport
@@ -755,7 +793,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
             }
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            context.EnableInternetAccessGateway = this.EnableInternetAccessGateway;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
+            context.EnableVPCNetworking = this.EnableVPCNetworking;
             context.EngineLifecycleSupport = this.EngineLifecycleSupport;
             context.EngineMode = this.EngineMode;
             context.Iops = this.Iops;
@@ -866,9 +906,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
+            if (cmdletContext.EnableInternetAccessGateway != null)
+            {
+                request.EnableInternetAccessGateway = cmdletContext.EnableInternetAccessGateway.Value;
+            }
             if (cmdletContext.EnablePerformanceInsight != null)
             {
                 request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
+            if (cmdletContext.EnableVPCNetworking != null)
+            {
+                request.EnableVPCNetworking = cmdletContext.EnableVPCNetworking.Value;
             }
             if (cmdletContext.EngineLifecycleSupport != null)
             {
@@ -1188,7 +1236,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnableInternetAccessGateway { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
+            public System.Boolean? EnableVPCNetworking { get; set; }
             public System.String EngineLifecycleSupport { get; set; }
             public System.String EngineMode { get; set; }
             public System.Int32? Iops { get; set; }

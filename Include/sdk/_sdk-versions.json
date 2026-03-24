@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1248.0",
+    "ProductVersion"    : "3.7.1249.0",
     "CoreVersion"       : "3.7.500.94",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -268,7 +268,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.514.13",
+            "Version" : "3.7.515.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"
@@ -500,7 +500,7 @@
             "InPreview"               : false
         },
         "GameLift"                        : {
-            "Version" : "3.7.506.8",
+            "Version" : "3.7.506.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"
@@ -2420,7 +2420,7 @@
             "InPreview"               : false
         },
         "OpenSearchServerless"                : {
-            "Version" : "3.7.505.25",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"
@@ -2556,7 +2556,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "3.7.506.36",
+            "Version" : "3.7.507.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"
@@ -2940,7 +2940,7 @@
             "InPreview"               : false
         },
         "PCS"                                 : {
-            "Version" : "3.7.508.15",
+            "Version" : "3.7.509.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"
@@ -3204,7 +3204,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "3.7.522.1",
+            "Version" : "3.7.523.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.94"

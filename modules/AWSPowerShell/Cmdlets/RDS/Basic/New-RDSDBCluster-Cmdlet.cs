@@ -46,6 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the source.
     /// For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ
     /// DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.
+    /// </para><para>
+    /// You can use the <c>WithExpressConfiguration</c> parameter to create an Aurora DB Cluster
+    /// with express configuration and create cluster in seconds. Express configuration provides
+    /// a cluster with a writer instance and feature specific values set to all other input
+    /// parameters of this API. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -957,6 +962,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] VpcSecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter WithExpressConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies to create an Aurora DB Cluster with express configuration in seconds. Express
+        /// configuration provides a cluster with a writer instance and feature specific values
+        /// set to all other input parameters of this API. </para><para>Valid for Cluster Type: Aurora DB clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WithExpressConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DBCluster'.
@@ -1114,6 +1131,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.VpcSecurityGroupId = new List<System.String>(this.VpcSecurityGroupId);
             }
+            context.WithExpressConfiguration = this.WithExpressConfiguration;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1501,6 +1519,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupId;
             }
+            if (cmdletContext.WithExpressConfiguration != null)
+            {
+                request.WithExpressConfiguration = cmdletContext.WithExpressConfiguration.Value;
+            }
             
             CmdletOutput output;
             
@@ -1630,6 +1652,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public List<Amazon.RDS.Model.TagSpecification> TagSpecification { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
+            public System.Boolean? WithExpressConfiguration { get; set; }
             public System.Func<Amazon.RDS.Model.CreateDBClusterResponse, NewRDSDBClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBCluster;
         }
