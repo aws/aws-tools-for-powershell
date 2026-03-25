@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.MarketplaceAgreement'
+# Module manifest for module 'AWS.Tools.Uxc'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.MarketplaceAgreement.dll'
+    RootModule = 'AWS.Tools.Uxc.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = 'F88C94C0-BA80-496D-8027-ECFFA6095A99'
+    GUID = 'fd3812ab-c90c-464a-b515-499421874543'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -26,7 +26,7 @@
 
     # Description of the functionality provided by this module
     Description = 'IMPORTANT: AWS Tools for PowerShell v4 is in maintenance mode as of March 1st, 2026, with only critical bugs and security issues addressed until end of support on June 1st, 2026. See https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html for migration guidance.
-The MarketplaceAgreement module of AWS Tools for PowerShell lets developers and administrators manage AWS Marketplace Agreement Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+The Uxc module of AWS Tools for PowerShell lets developers and administrators manage AWSAccountUXSetting from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.
 '
@@ -61,7 +61,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.MarketplaceAgreement.dll'
+        'AWSSDK.Uxc.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -76,13 +76,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.MarketplaceAgreement.Format.ps1xml'
+        'AWS.Tools.Uxc.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.MarketplaceAgreement.Completers.psm1',
-        'AWS.Tools.MarketplaceAgreement.Aliases.psm1'
+        'AWS.Tools.Uxc.Completers.psm1',
+        'AWS.Tools.Uxc.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -90,13 +90,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Get-MASAgreement', 
-        'Get-MASAgreementPaymentRequest', 
-        'Get-MASAgreementPaymentRequestList', 
-        'Get-MASAgreementTerm', 
-        'Search-MASAgreement', 
-        'Send-MASAgreementPaymentRequest', 
-        'Stop-MASAgreementPaymentRequest')
+        'Get-UXCAccountCustomization', 
+        'Get-UXCServiceList', 
+        'Update-UXCAccountCustomization')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -109,7 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.MarketplaceAgreement.dll-Help.xml'
+        'AWS.Tools.Uxc.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

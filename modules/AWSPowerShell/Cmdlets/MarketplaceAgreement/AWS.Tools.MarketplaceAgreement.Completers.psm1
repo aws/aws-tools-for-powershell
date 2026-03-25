@@ -80,6 +80,13 @@ $MAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceAgreement.PaymentRequestStatus
+        "Get-MASAgreementPaymentRequestList/Status"
+        {
+            $v = "APPROVED","CANCELLED","PENDING_APPROVAL","REJECTED","VALIDATING","VALIDATION_FAILED"
+            break
+        }
+
         # Amazon.MarketplaceAgreement.SortOrder
         "Search-MASAgreement/Sort_SortOrder"
         {
@@ -97,6 +104,7 @@ $MAS_Completers = {
 
 $MAS_map = @{
     "Sort_SortOrder"=@("Search-MASAgreement")
+    "Status"=@("Get-MASAgreementPaymentRequestList")
 }
 
 _awsArgumentCompleterRegistration $MAS_Completers $MAS_map
@@ -149,9 +157,13 @@ $MAS_SelectCompleters = {
 }
 
 $MAS_SelectMap = @{
-    "Select"=@("Get-MASAgreement",
+    "Select"=@("Stop-MASAgreementPaymentRequest",
+               "Get-MASAgreement",
+               "Get-MASAgreementPaymentRequest",
                "Get-MASAgreementTerm",
-               "Search-MASAgreement")
+               "Get-MASAgreementPaymentRequestList",
+               "Search-MASAgreement",
+               "Send-MASAgreementPaymentRequest")
 }
 
 _awsArgumentCompleterRegistration $MAS_SelectCompleters $MAS_SelectMap

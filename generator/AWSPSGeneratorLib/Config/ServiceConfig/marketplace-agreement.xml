@@ -19,7 +19,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelAgreementPaymentRequest" OutputProperty="*" Verb="Stop" Noun="AgreementPaymentRequest" ShouldProcessTarget="AgreementId,PaymentRequestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAgreement" OutputProperty="*" Verb="Get" Noun="Agreement" PipelineParameter="AgreementId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgreementPaymentRequest" OutputProperty="*" Verb="Get" Noun="AgreementPaymentRequest" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -27,7 +35,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAgreementPaymentRequests" OutputProperty="Items" Verb="Get" Noun="AgreementPaymentRequestList" PipelineParameter="PartyType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchAgreements" OutputProperty="*" Verb="Search" Noun="Agreement" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendAgreementPaymentRequest" OutputProperty="*" Verb="Send" Noun="AgreementPaymentRequest" ShouldProcessTarget="AgreementId,TermId,Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
