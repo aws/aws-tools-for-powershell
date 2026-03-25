@@ -109,11 +109,41 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public System.Collections.Hashtable KeyAttribute { get; set; }
         #endregion
         
+        #region Parameter MetricSource_MetricSourceAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Additional attributes for the metric source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSource_MetricSourceAttributes")]
+        public System.Collections.Hashtable MetricSource_MetricSourceAttribute { get; set; }
+        #endregion
+        
+        #region Parameter MetricSource_MetricSourceKeyAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Key attributes that identify the metric source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSource_MetricSourceKeyAttributes")]
+        public System.Collections.Hashtable MetricSource_MetricSourceKeyAttribute { get; set; }
+        #endregion
+        
         #region Parameter MetricSourceType
         /// <summary>
         /// <para>
         /// <para>Use this optional field to only include SLOs with the specified metric source types
-        /// in the output. Supported types are:</para><ul><li><para>Service operation</para></li><li><para>Service dependency</para></li><li><para>CloudWatch metric</para></li></ul><para />
+        /// in the output. Supported types are:</para><ul><li><para>Service operation</para></li><li><para>Service dependency</para></li><li><para>Service</para></li><li><para>CloudWatch metric</para></li><li><para>AppMonitor</para></li><li><para>Canary</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -231,6 +261,22 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 }
             }
             context.MaxResult = this.MaxResult;
+            if (this.MetricSource_MetricSourceAttribute != null)
+            {
+                context.MetricSource_MetricSourceAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MetricSource_MetricSourceAttribute.Keys)
+                {
+                    context.MetricSource_MetricSourceAttribute.Add((String)hashKey, (System.String)(this.MetricSource_MetricSourceAttribute[hashKey]));
+                }
+            }
+            if (this.MetricSource_MetricSourceKeyAttribute != null)
+            {
+                context.MetricSource_MetricSourceKeyAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MetricSource_MetricSourceKeyAttribute.Keys)
+                {
+                    context.MetricSource_MetricSourceKeyAttribute.Add((String)hashKey, (System.String)(this.MetricSource_MetricSourceKeyAttribute[hashKey]));
+                }
+            }
             if (this.MetricSourceType != null)
             {
                 context.MetricSourceType = new List<System.String>(this.MetricSourceType);
@@ -296,6 +342,35 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            
+             // populate MetricSource
+            var requestMetricSourceIsNull = true;
+            request.MetricSource = new Amazon.ApplicationSignals.Model.MetricSource();
+            Dictionary<System.String, System.String> requestMetricSource_metricSource_MetricSourceAttribute = null;
+            if (cmdletContext.MetricSource_MetricSourceAttribute != null)
+            {
+                requestMetricSource_metricSource_MetricSourceAttribute = cmdletContext.MetricSource_MetricSourceAttribute;
+            }
+            if (requestMetricSource_metricSource_MetricSourceAttribute != null)
+            {
+                request.MetricSource.MetricSourceAttributes = requestMetricSource_metricSource_MetricSourceAttribute;
+                requestMetricSourceIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestMetricSource_metricSource_MetricSourceKeyAttribute = null;
+            if (cmdletContext.MetricSource_MetricSourceKeyAttribute != null)
+            {
+                requestMetricSource_metricSource_MetricSourceKeyAttribute = cmdletContext.MetricSource_MetricSourceKeyAttribute;
+            }
+            if (requestMetricSource_metricSource_MetricSourceKeyAttribute != null)
+            {
+                request.MetricSource.MetricSourceKeyAttributes = requestMetricSource_metricSource_MetricSourceKeyAttribute;
+                requestMetricSourceIsNull = false;
+            }
+             // determine if request.MetricSource should be set to null
+            if (requestMetricSourceIsNull)
+            {
+                request.MetricSource = null;
             }
             if (cmdletContext.MetricSourceType != null)
             {
@@ -393,6 +468,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             public System.Boolean? IncludeLinkedAccount { get; set; }
             public Dictionary<System.String, System.String> KeyAttribute { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public Dictionary<System.String, System.String> MetricSource_MetricSourceAttribute { get; set; }
+            public Dictionary<System.String, System.String> MetricSource_MetricSourceKeyAttribute { get; set; }
             public List<System.String> MetricSourceType { get; set; }
             public System.String NextToken { get; set; }
             public System.String OperationName { get; set; }

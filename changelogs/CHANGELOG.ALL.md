@@ -1,4 +1,17 @@
-﻿### 5.0.181 (2026-03-24 19:52Z)
+﻿### 5.0.182 (2026-03-25 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.218.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSAccountUXSetting. Added cmdlets to support the service. Cmdlets for the service have the noun prefix UXC and can be listed using the command 'Get-AWSCmdletName -Service UXC'.
+  * Amazon CloudWatch Application Signals
+    * Modified cmdlet Get-CWASServiceLevelObjectiveList: added parameters MetricSource_MetricSourceAttribute and MetricSource_MetricSourceKeyAttribute.
+    * Modified cmdlet New-CWASServiceLevelObjective: added parameters RequestBasedSliConfig_RequestBasedSliMetricConfig_MetricName, RequestBasedSliConfig_RequestBasedSliMetricConfig_MetricSource_MetricSourceAttribute, RequestBasedSliConfig_RequestBasedSliMetricConfig_MetricSource_MetricSourceKeyAttribute, SliConfig_SliMetricConfig_MetricSource_MetricSourceAttribute and SliConfig_SliMetricConfig_MetricSource_MetricSourceKeyAttribute.
+    * Modified cmdlet Update-CWASServiceLevelObjective: added parameters RequestBasedSliConfig_RequestBasedSliMetricConfig_MetricName, RequestBasedSliConfig_RequestBasedSliMetricConfig_MetricSource_MetricSourceAttribute, RequestBasedSliConfig_RequestBasedSliMetricConfig_MetricSource_MetricSourceKeyAttribute, SliConfig_SliMetricConfig_MetricSource_MetricSourceAttribute and SliConfig_SliMetricConfig_MetricSource_MetricSourceKeyAttribute.
+  * Amazon Marketplace Agreement Service
+    * Added cmdlet Get-MASAgreementPaymentRequest leveraging the GetAgreementPaymentRequest service API.
+    * Added cmdlet Get-MASAgreementPaymentRequestList leveraging the ListAgreementPaymentRequests service API.
+    * Added cmdlet Send-MASAgreementPaymentRequest leveraging the SendAgreementPaymentRequest service API.
+    * Added cmdlet Stop-MASAgreementPaymentRequest leveraging the CancelAgreementPaymentRequest service API.
+
+### 5.0.181 (2026-03-24 19:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.217.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet Get-BACCBrowserProfileList: added parameter Name.

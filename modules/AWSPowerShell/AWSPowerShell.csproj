@@ -1255,6 +1255,9 @@
     <Reference Include="AWSSDK.TrustedAdvisor">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.TrustedAdvisor.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Uxc">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Uxc.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.VerifiedPermissions">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.VerifiedPermissions.dll</HintPath>
     </Reference>
@@ -2505,6 +2508,9 @@
     </Reference>
     <Reference Include="AWSSDK.TrustedAdvisor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TrustedAdvisor.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Uxc">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Uxc.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.VerifiedPermissions">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.VerifiedPermissions.dll</HintPath>

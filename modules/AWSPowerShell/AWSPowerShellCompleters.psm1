@@ -51273,6 +51273,13 @@ $MAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceAgreement.PaymentRequestStatus
+        "Get-MASAgreementPaymentRequestList/Status"
+        {
+            $v = "APPROVED","CANCELLED","PENDING_APPROVAL","REJECTED","VALIDATING","VALIDATION_FAILED"
+            break
+        }
+
         # Amazon.MarketplaceAgreement.SortOrder
         "Search-MASAgreement/Sort_SortOrder"
         {
@@ -51290,6 +51297,7 @@ $MAS_Completers = {
 
 $MAS_map = @{
     "Sort_SortOrder"=@("Search-MASAgreement")
+    "Status"=@("Get-MASAgreementPaymentRequestList")
 }
 
 _awsArgumentCompleterRegistration $MAS_Completers $MAS_map
@@ -51342,9 +51350,13 @@ $MAS_SelectCompleters = {
 }
 
 $MAS_SelectMap = @{
-    "Select"=@("Get-MASAgreement",
+    "Select"=@("Stop-MASAgreementPaymentRequest",
+               "Get-MASAgreement",
+               "Get-MASAgreementPaymentRequest",
                "Get-MASAgreementTerm",
-               "Search-MASAgreement")
+               "Get-MASAgreementPaymentRequestList",
+               "Search-MASAgreement",
+               "Send-MASAgreementPaymentRequest")
 }
 
 _awsArgumentCompleterRegistration $MAS_SelectCompleters $MAS_SelectMap
@@ -64195,7 +64207,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/OutputFormat")
         }
         {
-            $v = "json","mp3","ogg_opus","ogg_vorbis","pcm"
+            $v = "alaw","json","mp3","mulaw","ogg_opus","ogg_vorbis","pcm"
             break
         }
 
@@ -83785,6 +83797,89 @@ $TA_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $TA_SelectCompleters $TA_SelectMap
+# Argument completions for service AWSAccountUXSetting
+
+
+$UXC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Uxc.AccountColor
+        "Update-UXCAccountCustomization/AccountColor"
+        {
+            $v = "darkBlue","green","lightBlue","none","orange","pink","purple","red","teal","yellow"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$UXC_map = @{
+    "AccountColor"=@("Update-UXCAccountCustomization")
+}
+
+_awsArgumentCompleterRegistration $UXC_Completers $UXC_map
+
+$UXC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.UXC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$UXC_SelectMap = @{
+    "Select"=@("Get-UXCAccountCustomization",
+               "Get-UXCServiceList",
+               "Update-UXCAccountCustomization")
+}
+
+_awsArgumentCompleterRegistration $UXC_SelectCompleters $UXC_SelectMap
 # Argument completions for service Amazon Verified Permissions
 
 

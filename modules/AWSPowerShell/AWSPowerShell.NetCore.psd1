@@ -452,6 +452,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Transfer.dll',
         'AWSSDK.Translate.dll',
         'AWSSDK.TrustedAdvisor.dll',
+        'AWSSDK.Uxc.dll',
         'AWSSDK.VerifiedPermissions.dll',
         'AWSSDK.VoiceID.dll',
         'AWSSDK.VPCLattice.dll',

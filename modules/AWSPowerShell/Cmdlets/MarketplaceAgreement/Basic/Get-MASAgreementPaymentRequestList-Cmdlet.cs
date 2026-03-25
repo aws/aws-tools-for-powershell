@@ -23,92 +23,102 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Batch;
-using Amazon.Batch.Model;
+using Amazon.MarketplaceAgreement;
+using Amazon.MarketplaceAgreement.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BAT
+namespace Amazon.PowerShell.Cmdlets.MAS
 {
     /// <summary>
-    /// Returns a list of service jobs for a specified job queue.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists payment requests available to you as a seller or buyer. Both sellers (proposers)
+    /// and buyers (acceptors) can use this operation to find payment requests by specifying
+    /// their party type and applying optional parameters.
+    /// 
+    ///  <note><para><c>PartyType</c> is a required parameter. A <c>ValidationException</c> is returned
+    /// if <c>PartyType</c> is not provided. Pagination is supported through <c>maxResults</c>
+    /// (1-50, default 50) and <c>nextToken</c> parameters.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "BATServiceJobList")]
-    [OutputType("Amazon.Batch.Model.ServiceJobSummary")]
-    [AWSCmdlet("Calls the AWS Batch ListServiceJobs API operation.", Operation = new[] {"ListServiceJobs"}, SelectReturnType = typeof(Amazon.Batch.Model.ListServiceJobsResponse))]
-    [AWSCmdletOutput("Amazon.Batch.Model.ServiceJobSummary or Amazon.Batch.Model.ListServiceJobsResponse",
-        "This cmdlet returns a collection of Amazon.Batch.Model.ServiceJobSummary objects.",
-        "The service call response (type Amazon.Batch.Model.ListServiceJobsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "MASAgreementPaymentRequestList")]
+    [OutputType("Amazon.MarketplaceAgreement.Model.PaymentRequestSummary")]
+    [AWSCmdlet("Calls the AWS Marketplace Agreement Service ListAgreementPaymentRequests API operation.", Operation = new[] {"ListAgreementPaymentRequests"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsResponse))]
+    [AWSCmdletOutput("Amazon.MarketplaceAgreement.Model.PaymentRequestSummary or Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsResponse",
+        "This cmdlet returns a collection of Amazon.MarketplaceAgreement.Model.PaymentRequestSummary objects.",
+        "The service call response (type Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetBATServiceJobListCmdlet : AmazonBatchClientCmdlet, IExecutor
+    public partial class GetMASAgreementPaymentRequestListCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Filter
+        #region Parameter AgreementId
         /// <summary>
         /// <para>
-        /// <para>The filter to apply to the query. Only one filter can be used at a time. When the
-        /// filter is used, <c>jobStatus</c> is ignored with the exception that <c>SHARE_IDENTIFIER</c>
-        /// or <c>QUOTA_SHARE_NAME</c> and <c>jobStatus</c> can be used together. The results
-        /// are sorted by the <c>createdAt</c> field, with the most recent jobs being first.</para><note><para>The <c>SHARE_IDENTIFIER</c> or <c>QUOTA_SHARE_NAME</c> filter and the <c>jobStatus</c>
-        /// field can be used together to filter results.</para></note><dl><dt>JOB_NAME</dt><dd><para>The value of the filter is a case-insensitive match for the job name. If the value
-        /// ends with an asterisk (*), the filter matches any job name that begins with the string
-        /// before the '*'. This corresponds to the <c>jobName</c> value. For example, <c>test1</c>
-        /// matches both <c>Test1</c> and <c>test1</c>, and <c>test1*</c> matches both <c>test1</c>
-        /// and <c>Test10</c>. When the <c>JOB_NAME</c> filter is used, the results are grouped
-        /// by the job name and version.</para></dd><dt>BEFORE_CREATED_AT</dt><dd><para>The value for the filter is the time that's before the job was created. This corresponds
-        /// to the <c>createdAt</c> value. The value is a string representation of the number
-        /// of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd><dt>AFTER_CREATED_AT</dt><dd><para>The value for the filter is the time that's after the job was created. This corresponds
-        /// to the <c>createdAt</c> value. The value is a string representation of the number
-        /// of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd><dt>SHARE_IDENTIFIER</dt><dd><para>The value for the filter is the fairshare scheduling share identifier.</para></dd><dt>QUOTA_SHARE_NAME</dt><dd><para>The value for the filter is the quota management share name.</para></dd></dl><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>An optional parameter to list payment requests for a specific agreement.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.Batch.Model.KeyValuesPair[] Filter { get; set; }
+        public System.String AgreementId { get; set; }
         #endregion
         
-        #region Parameter JobQueue
+        #region Parameter AgreementType
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the job queue with which to list service jobs.</para>
+        /// <para>An optional parameter to list payment requests by agreement type (e.g., <c>PurchaseAgreement</c>).</para>
         /// </para>
         /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AgreementType { get; set; }
+        #endregion
+        
+        #region Parameter Catalog
+        /// <summary>
+        /// <para>
+        /// <para>An optional parameter to list payment requests by catalog (e.g., <c>AWSMarketplace</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Catalog { get; set; }
+        #endregion
+        
+        #region Parameter PartyType
+        /// <summary>
+        /// <para>
+        /// <para>The party type for the payment requests. Required parameter. Use <c>Proposer</c> to
+        /// list payment requests where you are the seller, or <c>Acceptor</c> to list payment
+        /// requests where you are the buyer.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String JobQueue { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PartyType { get; set; }
         #endregion
         
-        #region Parameter JobStatus
+        #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The job status used to filter service jobs in the specified queue. If the <c>filters</c>
-        /// parameter is specified, the <c>jobStatus</c> parameter is ignored and jobs with any
-        /// status are returned. The exceptions are the <c>SHARE_IDENTIFIER</c> filter and <c>QUOTA_SHARE_NAME</c>
-        /// filter, which can be used with <c>jobStatus</c>. If you don't specify a status, only
-        /// <c>RUNNING</c> jobs are returned.</para><note><para>The <c>SHARE_IDENTIFIER</c> filter or <c>QUOTA_SHARE_NAME</c> filter can be used with
-        /// the <c>jobStatus</c> field to filter results.</para></note>
+        /// <para>An optional parameter to list payment requests by status. Valid values include <c>VALIDATING</c>,
+        /// <c>VALIDATION_FAILED</c>, <c>PENDING_APPROVAL</c>, <c>APPROVED</c>, <c>REJECTED</c>,
+        /// and <c>CANCELLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Batch.ServiceJobStatus")]
-        public Amazon.Batch.ServiceJobStatus JobStatus { get; set; }
+        [AWSConstantClassSource("Amazon.MarketplaceAgreement.PaymentRequestStatus")]
+        public Amazon.MarketplaceAgreement.PaymentRequestStatus Status { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results returned by <c>ListServiceJobs</c> in paginated output.
-        /// When this parameter is used, <c>ListServiceJobs</c> only returns <c>maxResults</c>
-        /// results in a single page and a <c>nextToken</c> response element. The remaining results
-        /// of the initial request can be seen by sending another <c>ListServiceJobs</c> request
-        /// with the returned <c>nextToken</c> value. This value can be between 1 and 100. If
-        /// this parameter isn't used, then <c>ListServiceJobs</c> returns up to 100 results and
-        /// a <c>nextToken</c> value if applicable.</para>
+        /// <para>The maximum number of payment requests to return in a single response (1-50). Default
+        /// is 50.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -124,12 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListServiceJobs</c>
-        /// request where <c>maxResults</c> was used and the results exceeded the value of that
-        /// parameter. Pagination continues from the end of the previous results that returned
-        /// the <c>nextToken</c> value. This value is <c>null</c> when there are no more results
-        /// to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
-        /// in a list and not for other programmatic purposes.</para></note>
+        /// <para>A token to specify where to start pagination. Use the <c>nextToken</c> value from
+        /// a previous response to retrieve the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -142,13 +148,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'JobSummaryList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.ListServiceJobsResponse).
-        /// Specifying the name of a property of type Amazon.Batch.Model.ListServiceJobsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsResponse).
+        /// Specifying the name of a property of type Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "JobSummaryList";
+        public string Select { get; set; } = "Items";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -177,15 +183,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Batch.Model.ListServiceJobsResponse, GetBATServiceJobListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsResponse, GetMASAgreementPaymentRequestListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Filter != null)
-            {
-                context.Filter = new List<Amazon.Batch.Model.KeyValuesPair>(this.Filter);
-            }
-            context.JobQueue = this.JobQueue;
-            context.JobStatus = this.JobStatus;
+            context.AgreementId = this.AgreementId;
+            context.AgreementType = this.AgreementType;
+            context.Catalog = this.Catalog;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -197,6 +200,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             #endif
             context.NextToken = this.NextToken;
+            context.PartyType = this.PartyType;
+            #if MODULAR
+            if (this.PartyType == null && ParameterWasBound(nameof(this.PartyType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PartyType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -213,23 +224,31 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Batch.Model.ListServiceJobsRequest();
+            var request = new Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsRequest();
             
-            if (cmdletContext.Filter != null)
+            if (cmdletContext.AgreementId != null)
             {
-                request.Filters = cmdletContext.Filter;
+                request.AgreementId = cmdletContext.AgreementId;
             }
-            if (cmdletContext.JobQueue != null)
+            if (cmdletContext.AgreementType != null)
             {
-                request.JobQueue = cmdletContext.JobQueue;
+                request.AgreementType = cmdletContext.AgreementType;
             }
-            if (cmdletContext.JobStatus != null)
+            if (cmdletContext.Catalog != null)
             {
-                request.JobStatus = cmdletContext.JobStatus;
+                request.Catalog = cmdletContext.Catalog;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.PartyType != null)
+            {
+                request.PartyType = cmdletContext.PartyType;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             // Initialize loop variant and commence piping
@@ -288,12 +307,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private Amazon.Batch.Model.ListServiceJobsResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.ListServiceJobsRequest request)
+        private Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsResponse CallAWSServiceOperation(IAmazonMarketplaceAgreement client, Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "ListServiceJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Agreement Service", "ListAgreementPaymentRequests");
             try
             {
-                return client.ListServiceJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListAgreementPaymentRequestsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -310,13 +329,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.Batch.Model.KeyValuesPair> Filter { get; set; }
-            public System.String JobQueue { get; set; }
-            public Amazon.Batch.ServiceJobStatus JobStatus { get; set; }
+            public System.String AgreementId { get; set; }
+            public System.String AgreementType { get; set; }
+            public System.String Catalog { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Batch.Model.ListServiceJobsResponse, GetBATServiceJobListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.JobSummaryList;
+            public System.String PartyType { get; set; }
+            public Amazon.MarketplaceAgreement.PaymentRequestStatus Status { get; set; }
+            public System.Func<Amazon.MarketplaceAgreement.Model.ListAgreementPaymentRequestsResponse, GetMASAgreementPaymentRequestListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }
