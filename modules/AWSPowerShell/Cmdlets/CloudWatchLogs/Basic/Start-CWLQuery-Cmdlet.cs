@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// cross-account observability</a>. For a cross-account <c>StartQuery</c> operation,
     /// the query definition must be defined in the monitoring account.
     /// </para><para>
-    /// You can have up to 30 concurrent CloudWatch Logs insights queries, including queries
+    /// You can have up to 100 concurrent CloudWatch Logs insights queries, including queries
     /// that have been added to dashboards. 
     /// </para>
     /// </summary>

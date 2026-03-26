@@ -1,4 +1,21 @@
-﻿### 4.1.1027 (2026-03-25 20:16Z)
+﻿### 4.1.1028 (2026-03-26 20:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1251.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSBillingAndCostManagementDataExports
+    * Modified cmdlet New-BCMDEExport: added parameter Export_DestinationConfigurations_S3Destination_S3BucketOwner.
+    * Modified cmdlet Update-BCMDEExport: added parameter Export_DestinationConfigurations_S3Destination_S3BucketOwner.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet New-CWLScheduledQuery: added parameters DestinationConfiguration_S3Configuration_KmsKeyId and DestinationConfiguration_S3Configuration_OwnerAccountId.
+    * Modified cmdlet Update-CWLScheduledQuery: added parameters DestinationConfiguration_S3Configuration_KmsKeyId and DestinationConfiguration_S3Configuration_OwnerAccountId.
+    * Modified cmdlet Write-CWLQueryDefinition: added parameter Parameter.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Start-EMRJobFlow: added parameter StepExecutionRoleArn.
+  * Amazon Timestream InfluxDB
+    * Modified cmdlet New-TIDBDbCluster: added parameters MaintenanceSchedule_PreferredMaintenanceWindow and MaintenanceSchedule_Timezone.
+    * Modified cmdlet New-TIDBDbInstance: added parameters MaintenanceSchedule_PreferredMaintenanceWindow and MaintenanceSchedule_Timezone.
+    * Modified cmdlet Update-TIDBDbCluster: added parameters MaintenanceSchedule_PreferredMaintenanceWindow and MaintenanceSchedule_Timezone.
+    * Modified cmdlet Update-TIDBDbInstance: added parameters MaintenanceSchedule_PreferredMaintenanceWindow and MaintenanceSchedule_Timezone.
+
+### 4.1.1027 (2026-03-25 20:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1250.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSAccountUXSetting. Added cmdlets to support the service. Cmdlets for the service have the noun prefix UXC and can be listed using the command 'Get-AWSCmdletName -Service UXC'.
   * Amazon CloudWatch Application Signals

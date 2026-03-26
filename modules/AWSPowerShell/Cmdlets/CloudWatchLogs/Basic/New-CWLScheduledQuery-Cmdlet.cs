@@ -84,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
+        #region Parameter DestinationConfiguration_S3Configuration_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS encryption key. Must belong to the same
+        /// AWS Region as the destination Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationConfiguration_S3Configuration_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter LogGroupIdentifier
         /// <summary>
         /// <para>
@@ -115,11 +126,21 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter DestinationConfiguration_S3Configuration_OwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS accountId for the bucket owning account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationConfiguration_S3Configuration_OwnerAccountId { get; set; }
+        #endregion
+        
         #region Parameter QueryLanguage
         /// <summary>
         /// <para>
-        /// <para>The query language to use for the scheduled query. Valid values are <c>LogsQL</c>,
-        /// <c>PPL</c>, and <c>SQL</c>.</para>
+        /// <para>The query language to use for the scheduled query. Valid values are <c>CWLI</c>, <c>PPL</c>,
+        /// and <c>SQL</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -298,6 +319,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             context.Description = this.Description;
             context.S3Configuration_DestinationIdentifier = this.S3Configuration_DestinationIdentifier;
+            context.DestinationConfiguration_S3Configuration_KmsKeyId = this.DestinationConfiguration_S3Configuration_KmsKeyId;
+            context.DestinationConfiguration_S3Configuration_OwnerAccountId = this.DestinationConfiguration_S3Configuration_OwnerAccountId;
             context.S3Configuration_RoleArn = this.S3Configuration_RoleArn;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             #if MODULAR
@@ -388,6 +411,26 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (requestDestinationConfiguration_destinationConfiguration_S3Configuration_s3Configuration_DestinationIdentifier != null)
             {
                 requestDestinationConfiguration_destinationConfiguration_S3Configuration.DestinationIdentifier = requestDestinationConfiguration_destinationConfiguration_S3Configuration_s3Configuration_DestinationIdentifier;
+                requestDestinationConfiguration_destinationConfiguration_S3ConfigurationIsNull = false;
+            }
+            System.String requestDestinationConfiguration_destinationConfiguration_S3Configuration_destinationConfiguration_S3Configuration_KmsKeyId = null;
+            if (cmdletContext.DestinationConfiguration_S3Configuration_KmsKeyId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_S3Configuration_destinationConfiguration_S3Configuration_KmsKeyId = cmdletContext.DestinationConfiguration_S3Configuration_KmsKeyId;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_S3Configuration_destinationConfiguration_S3Configuration_KmsKeyId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_S3Configuration.KmsKeyId = requestDestinationConfiguration_destinationConfiguration_S3Configuration_destinationConfiguration_S3Configuration_KmsKeyId;
+                requestDestinationConfiguration_destinationConfiguration_S3ConfigurationIsNull = false;
+            }
+            System.String requestDestinationConfiguration_destinationConfiguration_S3Configuration_destinationConfiguration_S3Configuration_OwnerAccountId = null;
+            if (cmdletContext.DestinationConfiguration_S3Configuration_OwnerAccountId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_S3Configuration_destinationConfiguration_S3Configuration_OwnerAccountId = cmdletContext.DestinationConfiguration_S3Configuration_OwnerAccountId;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_S3Configuration_destinationConfiguration_S3Configuration_OwnerAccountId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_S3Configuration.OwnerAccountId = requestDestinationConfiguration_destinationConfiguration_S3Configuration_destinationConfiguration_S3Configuration_OwnerAccountId;
                 requestDestinationConfiguration_destinationConfiguration_S3ConfigurationIsNull = false;
             }
             System.String requestDestinationConfiguration_destinationConfiguration_S3Configuration_s3Configuration_RoleArn = null;
@@ -526,6 +569,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public System.String Description { get; set; }
             public System.String S3Configuration_DestinationIdentifier { get; set; }
+            public System.String DestinationConfiguration_S3Configuration_KmsKeyId { get; set; }
+            public System.String DestinationConfiguration_S3Configuration_OwnerAccountId { get; set; }
             public System.String S3Configuration_RoleArn { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public List<System.String> LogGroupIdentifier { get; set; }

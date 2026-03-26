@@ -92,6 +92,21 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Parameter
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to include specific query parameters as part of your query definition.
+        /// Query parameters are supported only for Logs Insights QL queries. Query parameters
+        /// allow you to use placeholder variables in your query string that are substituted with
+        /// values at execution time. Use the <c>{{parameterName}}</c> syntax in your query string
+        /// to reference a parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Parameters")]
+        public Amazon.CloudWatchLogs.Model.QueryParameter[] Parameter { get; set; }
+        #endregion
+        
         #region Parameter QueryDefinitionId
         /// <summary>
         /// <para>
@@ -223,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Parameter != null)
+            {
+                context.Parameter = new List<Amazon.CloudWatchLogs.Model.QueryParameter>(this.Parameter);
+            }
             context.QueryDefinitionId = this.QueryDefinitionId;
             context.QueryLanguage = this.QueryLanguage;
             context.QueryString = this.QueryString;
@@ -259,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Parameter != null)
+            {
+                request.Parameters = cmdletContext.Parameter;
             }
             if (cmdletContext.QueryDefinitionId != null)
             {
@@ -336,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.String ClientToken { get; set; }
             public List<System.String> LogGroupName { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.CloudWatchLogs.Model.QueryParameter> Parameter { get; set; }
             public System.String QueryDefinitionId { get; set; }
             public Amazon.CloudWatchLogs.QueryLanguage QueryLanguage { get; set; }
             public System.String QueryString { get; set; }

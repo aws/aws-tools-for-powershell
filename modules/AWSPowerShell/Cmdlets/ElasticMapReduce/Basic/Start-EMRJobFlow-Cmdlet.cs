@@ -783,6 +783,21 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.Int32? StepConcurrencyLevel { get; set; }
         #endregion
         
+        #region Parameter StepExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the runtime role for steps specified in the RunJobFlow
+        /// request. The runtime role can be a cross-account IAM role. The runtime role ARN is
+        /// a combination of account ID, role name, and role type using the following format:
+        /// <c>arn:partition:iam::account-id:role/role-name</c>.</para><para>For example, <c>arn:aws:iam::1234567890:role/ReadOnly</c> is a correctly formatted
+        /// runtime role ARN.</para><para>This parameter applies only to steps included in the <c>Steps</c> parameter of this
+        /// RunJobFlow request. It does not apply to steps added later to the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StepExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Step
         /// <summary>
         /// <para>
@@ -1075,6 +1090,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.SecurityConfiguration = this.SecurityConfiguration;
             context.ServiceRole = this.ServiceRole;
             context.StepConcurrencyLevel = this.StepConcurrencyLevel;
+            context.StepExecutionRoleArn = this.StepExecutionRoleArn;
             if (this.Step != null)
             {
                 context.Step = new List<Amazon.ElasticMapReduce.Model.StepConfig>(this.Step);
@@ -1685,6 +1701,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.StepConcurrencyLevel = cmdletContext.StepConcurrencyLevel.Value;
             }
+            if (cmdletContext.StepExecutionRoleArn != null)
+            {
+                request.StepExecutionRoleArn = cmdletContext.StepExecutionRoleArn;
+            }
             if (cmdletContext.Step != null)
             {
                 request.Steps = cmdletContext.Step;
@@ -1824,6 +1844,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String SecurityConfiguration { get; set; }
             public System.String ServiceRole { get; set; }
             public System.Int32? StepConcurrencyLevel { get; set; }
+            public System.String StepExecutionRoleArn { get; set; }
             public List<Amazon.ElasticMapReduce.Model.StepConfig> Step { get; set; }
             public List<System.String> SupportedProduct { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Tag> Tag { get; set; }
