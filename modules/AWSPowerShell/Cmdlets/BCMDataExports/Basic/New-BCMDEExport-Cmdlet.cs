@@ -250,6 +250,16 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
         public System.String S3Destination_S3Bucket { get; set; }
         #endregion
         
+        #region Parameter Export_DestinationConfigurations_S3Destination_S3BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Account ID that owns the S3 bucket used as the destination for the data export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Export_DestinationConfigurations_S3Destination_S3BucketOwner { get; set; }
+        #endregion
+        
         #region Parameter S3Destination_S3Prefix
         /// <summary>
         /// <para>
@@ -370,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
                 WriteWarning("You are passing $null as a value for parameter S3Destination_S3Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Export_DestinationConfigurations_S3Destination_S3BucketOwner = this.Export_DestinationConfigurations_S3Destination_S3BucketOwner;
             context.S3OutputConfigurations_Compression = this.S3OutputConfigurations_Compression;
             #if MODULAR
             if (this.S3OutputConfigurations_Compression == null && ParameterWasBound(nameof(this.S3OutputConfigurations_Compression)))
@@ -499,6 +510,16 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
             if (requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3Destination_s3Destination_S3Bucket != null)
             {
                 requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3Destination.S3Bucket = requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3Destination_s3Destination_S3Bucket;
+                requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3DestinationIsNull = false;
+            }
+            System.String requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3Destination_export_DestinationConfigurations_S3Destination_S3BucketOwner = null;
+            if (cmdletContext.Export_DestinationConfigurations_S3Destination_S3BucketOwner != null)
+            {
+                requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3Destination_export_DestinationConfigurations_S3Destination_S3BucketOwner = cmdletContext.Export_DestinationConfigurations_S3Destination_S3BucketOwner;
+            }
+            if (requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3Destination_export_DestinationConfigurations_S3Destination_S3BucketOwner != null)
+            {
+                requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3Destination.S3BucketOwner = requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3Destination_export_DestinationConfigurations_S3Destination_S3BucketOwner;
                 requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3DestinationIsNull = false;
             }
             System.String requestExport_export_DestinationConfigurations_export_DestinationConfigurations_S3Destination_s3Destination_S3Prefix = null;
@@ -724,6 +745,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
             public Dictionary<System.String, Dictionary<System.String, System.String>> DataQuery_TableConfiguration { get; set; }
             public System.String Export_Description { get; set; }
             public System.String S3Destination_S3Bucket { get; set; }
+            public System.String Export_DestinationConfigurations_S3Destination_S3BucketOwner { get; set; }
             public Amazon.BCMDataExports.CompressionOption S3OutputConfigurations_Compression { get; set; }
             public Amazon.BCMDataExports.FormatOption S3OutputConfigurations_Format { get; set; }
             public Amazon.BCMDataExports.S3OutputType S3OutputConfigurations_OutputType { get; set; }

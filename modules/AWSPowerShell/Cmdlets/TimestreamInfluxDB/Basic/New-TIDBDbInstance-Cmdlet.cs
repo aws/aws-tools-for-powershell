@@ -220,6 +220,18 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.Int32? Port { get; set; }
         #endregion
         
+        #region Parameter MaintenanceSchedule_PreferredMaintenanceWindow
+        /// <summary>
+        /// <para>
+        /// <para>The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM (UTC). Day must
+        /// be one of: Mon, Tue, Wed, Thu, Fri, Sat, Sun. For example, Sun:02:00-Sun:06:00. Provide
+        /// an empty string to let the system choose a window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MaintenanceSchedule_PreferredMaintenanceWindow { get; set; }
+        #endregion
+        
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
@@ -243,6 +255,17 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter MaintenanceSchedule_Timezone
+        /// <summary>
+        /// <para>
+        /// <para>The IANA timezone identifier for the maintenance window. Format: Region/City or UTC.
+        /// For example, America/New_York or UTC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MaintenanceSchedule_Timezone { get; set; }
         #endregion
         
         #region Parameter Username
@@ -370,6 +393,8 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             context.DeploymentType = this.DeploymentType;
             context.S3Configuration_BucketName = this.S3Configuration_BucketName;
             context.S3Configuration_Enabled = this.S3Configuration_Enabled;
+            context.MaintenanceSchedule_PreferredMaintenanceWindow = this.MaintenanceSchedule_PreferredMaintenanceWindow;
+            context.MaintenanceSchedule_Timezone = this.MaintenanceSchedule_Timezone;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -501,6 +526,35 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             {
                 request.LogDeliveryConfiguration = null;
             }
+            
+             // populate MaintenanceSchedule
+            var requestMaintenanceScheduleIsNull = true;
+            request.MaintenanceSchedule = new Amazon.TimestreamInfluxDB.Model.MaintenanceSchedule();
+            System.String requestMaintenanceSchedule_maintenanceSchedule_PreferredMaintenanceWindow = null;
+            if (cmdletContext.MaintenanceSchedule_PreferredMaintenanceWindow != null)
+            {
+                requestMaintenanceSchedule_maintenanceSchedule_PreferredMaintenanceWindow = cmdletContext.MaintenanceSchedule_PreferredMaintenanceWindow;
+            }
+            if (requestMaintenanceSchedule_maintenanceSchedule_PreferredMaintenanceWindow != null)
+            {
+                request.MaintenanceSchedule.PreferredMaintenanceWindow = requestMaintenanceSchedule_maintenanceSchedule_PreferredMaintenanceWindow;
+                requestMaintenanceScheduleIsNull = false;
+            }
+            System.String requestMaintenanceSchedule_maintenanceSchedule_Timezone = null;
+            if (cmdletContext.MaintenanceSchedule_Timezone != null)
+            {
+                requestMaintenanceSchedule_maintenanceSchedule_Timezone = cmdletContext.MaintenanceSchedule_Timezone;
+            }
+            if (requestMaintenanceSchedule_maintenanceSchedule_Timezone != null)
+            {
+                request.MaintenanceSchedule.Timezone = requestMaintenanceSchedule_maintenanceSchedule_Timezone;
+                requestMaintenanceScheduleIsNull = false;
+            }
+             // determine if request.MaintenanceSchedule should be set to null
+            if (requestMaintenanceScheduleIsNull)
+            {
+                request.MaintenanceSchedule = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -604,6 +658,8 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public Amazon.TimestreamInfluxDB.DeploymentType DeploymentType { get; set; }
             public System.String S3Configuration_BucketName { get; set; }
             public System.Boolean? S3Configuration_Enabled { get; set; }
+            public System.String MaintenanceSchedule_PreferredMaintenanceWindow { get; set; }
+            public System.String MaintenanceSchedule_Timezone { get; set; }
             public System.String Name { get; set; }
             public Amazon.TimestreamInfluxDB.NetworkType NetworkType { get; set; }
             public System.String Organization { get; set; }
