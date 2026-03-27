@@ -123,6 +123,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String CacheId { get; set; }
         #endregion
         
+        #region Parameter ConfigurationName
+        /// <summary>
+        /// <para>
+        /// <para>Optional configuration name to use for the workflow run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationName { get; set; }
+        #endregion
+        
         #region Parameter LogLevel
         /// <summary>
         /// <para>
@@ -143,6 +153,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter NetworkingMode
+        /// <summary>
+        /// <para>
+        /// <para>Optional configuration for run networking behavior. If not specified, this will default
+        /// to RESTRICTED.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.NetworkingMode")]
+        public Amazon.Omics.NetworkingMode NetworkingMode { get; set; }
         #endregion
         
         #region Parameter OutputUri
@@ -403,8 +425,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             context.CacheBehavior = this.CacheBehavior;
             context.CacheId = this.CacheId;
+            context.ConfigurationName = this.ConfigurationName;
             context.LogLevel = this.LogLevel;
             context.Name = this.Name;
+            context.NetworkingMode = this.NetworkingMode;
             context.OutputUri = this.OutputUri;
             #if MODULAR
             if (this.OutputUri == null && ParameterWasBound(nameof(this.OutputUri)))
@@ -463,6 +487,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             {
                 request.CacheId = cmdletContext.CacheId;
             }
+            if (cmdletContext.ConfigurationName != null)
+            {
+                request.ConfigurationName = cmdletContext.ConfigurationName;
+            }
             if (cmdletContext.LogLevel != null)
             {
                 request.LogLevel = cmdletContext.LogLevel;
@@ -470,6 +498,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NetworkingMode != null)
+            {
+                request.NetworkingMode = cmdletContext.NetworkingMode;
             }
             if (cmdletContext.OutputUri != null)
             {
@@ -588,8 +620,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             public Amazon.Omics.CacheBehavior CacheBehavior { get; set; }
             public System.String CacheId { get; set; }
+            public System.String ConfigurationName { get; set; }
             public Amazon.Omics.RunLogLevel LogLevel { get; set; }
             public System.String Name { get; set; }
+            public Amazon.Omics.NetworkingMode NetworkingMode { get; set; }
             public System.String OutputUri { get; set; }
             public System.Management.Automation.PSObject Parameter { get; set; }
             public System.Int32? Priority { get; set; }

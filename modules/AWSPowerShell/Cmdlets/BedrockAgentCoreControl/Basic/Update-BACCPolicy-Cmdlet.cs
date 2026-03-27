@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>Represents an optional value that is used to update the human-readable description
-        /// of the resource. If set to null, it will clear the current description of the resource.</para>
+        /// of the resource. If not specified, it will clear the current description of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

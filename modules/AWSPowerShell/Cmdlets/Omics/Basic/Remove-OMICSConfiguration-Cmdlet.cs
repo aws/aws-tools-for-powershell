@@ -23,45 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCoreControl;
-using Amazon.BedrockAgentCoreControl.Model;
+using Amazon.Omics;
+using Amazon.Omics.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BACC
+namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Updates an existing policy engine within the AgentCore Policy system. This operation
-    /// allows modification of the policy engine description while maintaining its identity.
-    /// This is an asynchronous operation. Use the <c>GetPolicyEngine</c> operation to poll
-    /// the <c>status</c> field to track completion.
+    /// Delete an existing configuration.
     /// </summary>
-    [Cmdlet("Update", "BACCPolicyEngine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UpdatePolicyEngine API operation.", Operation = new[] {"UpdatePolicyEngine"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse object containing multiple properties."
+    [Cmdlet("Remove", "OMICSConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Omics DeleteConfiguration API operation.", Operation = new[] {"DeleteConfiguration"}, SelectReturnType = typeof(Amazon.Omics.Model.DeleteConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.Omics.Model.DeleteConfigurationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Omics.Model.DeleteConfigurationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateBACCPolicyEngineCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class RemoveOMICSConfigurationCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Description_OptionalValue
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Represents an optional value that is used to update the human-readable description
-        /// of the resource. If not specified, it will clear the current description of the resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description_OptionalValue { get; set; }
-        #endregion
-        
-        #region Parameter PolicyEngineId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the policy engine to be updated.</para>
+        /// <para>Configuration name to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,14 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyEngineId { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.DeleteConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PolicyEngineId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BACCPolicyEngine (UpdatePolicyEngine)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-OMICSConfiguration (DeleteConfiguration)"))
             {
                 return;
             }
@@ -118,15 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse, UpdateBACCPolicyEngineCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Omics.Model.DeleteConfigurationResponse, RemoveOMICSConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Description_OptionalValue = this.Description_OptionalValue;
-            context.PolicyEngineId = this.PolicyEngineId;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.PolicyEngineId == null && ParameterWasBound(nameof(this.PolicyEngineId)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyEngineId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -143,30 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineRequest();
+            var request = new Amazon.Omics.Model.DeleteConfigurationRequest();
             
-            
-             // populate Description
-            var requestDescriptionIsNull = true;
-            request.Description = new Amazon.BedrockAgentCoreControl.Model.UpdatedDescription();
-            System.String requestDescription_description_OptionalValue = null;
-            if (cmdletContext.Description_OptionalValue != null)
+            if (cmdletContext.Name != null)
             {
-                requestDescription_description_OptionalValue = cmdletContext.Description_OptionalValue;
-            }
-            if (requestDescription_description_OptionalValue != null)
-            {
-                request.Description.OptionalValue = requestDescription_description_OptionalValue;
-                requestDescriptionIsNull = false;
-            }
-             // determine if request.Description should be set to null
-            if (requestDescriptionIsNull)
-            {
-                request.Description = null;
-            }
-            if (cmdletContext.PolicyEngineId != null)
-            {
-                request.PolicyEngineId = cmdletContext.PolicyEngineId;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -201,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineRequest request)
+        private Amazon.Omics.Model.DeleteConfigurationResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.DeleteConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UpdatePolicyEngine");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "DeleteConfiguration");
             try
             {
-                return client.UpdatePolicyEngineAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -223,10 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description_OptionalValue { get; set; }
-            public System.String PolicyEngineId { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdatePolicyEngineResponse, UpdateBACCPolicyEngineCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Name { get; set; }
+            public System.Func<Amazon.Omics.Model.DeleteConfigurationResponse, RemoveOMICSConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

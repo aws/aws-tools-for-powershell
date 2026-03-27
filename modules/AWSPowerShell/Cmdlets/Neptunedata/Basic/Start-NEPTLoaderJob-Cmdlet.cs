@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter EdgeOnlyLoad
         /// <summary>
         /// <para>
-        /// <para><b><c>edgeOnlyLoad</c></b>   –   A flag that controls file processing order during
+        /// <para><b><c>edgeOnlyLoad</c></b> - A flag that controls file processing order during
         /// bulk loading.</para><para><i>Allowed values</i>: <c>"TRUE"</c>, <c>"FALSE"</c>.</para><para><i>Default value</i>: <c>"FALSE"</c>.</para><para>When this parameter is set to "FALSE", the loader automatically loads vertex files
         /// first, then edge files afterwards. It does this by first scanning all files to determine
         /// their contents (vertices or edges). When this parameter is set to "TRUE", the loader
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter FailOnError
         /// <summary>
         /// <para>
-        /// <para><b><c>failOnError</c></b>   –   A flag to toggle a complete stop on an error.</para><para><i>Allowed values</i>: <c>"TRUE"</c>, <c>"FALSE"</c>.</para><para><i>Default value</i>: <c>"TRUE"</c>.</para><para>When this parameter is set to <c>"FALSE"</c>, the loader tries to load all the data
+        /// <para><b><c>failOnError</c></b> - A flag to toggle a complete stop on an error.</para><para><i>Allowed values</i>: <c>"TRUE"</c>, <c>"FALSE"</c>.</para><para><i>Default value</i>: <c>"TRUE"</c>.</para><para>When this parameter is set to <c>"FALSE"</c>, the loader tries to load all the data
         /// in the location specified, skipping any entries with errors.</para><para>When this parameter is set to <c>"TRUE"</c>, the loader stops as soon as it encounters
         /// an error. Data loaded up to that point persists.</para>
         /// </para>
@@ -156,16 +156,16 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>The load job mode.</para><para><i>Allowed values</i>: <c>RESUME</c>, <c>NEW</c>, <c>AUTO</c>.</para><para><i>Default value</i>: <c>AUTO</c>.</para><para><b /></para><ul><li><para><c>RESUME</c>   –   In RESUME mode, the loader looks for a previous load from this
-        /// source, and if it finds one, resumes that load job. If no previous load job is found,
-        /// the loader stops.</para><para>The loader avoids reloading files that were successfully loaded in a previous job.
+        /// <para>The load job mode.</para><para><i>Allowed values</i>: <c>RESUME</c>, <c>NEW</c>, <c>AUTO</c>.</para><para><i>Default value</i>: <c>AUTO</c>.</para><para><b /></para><ul><li><para><c>RESUME</c> - In RESUME mode, the loader looks for a previous load from this source,
+        /// and if it finds one, resumes that load job. If no previous load job is found, the
+        /// loader stops.</para><para>The loader avoids reloading files that were successfully loaded in a previous job.
         /// It only tries to process failed files. If you dropped previously loaded data from
         /// your Neptune cluster, that data is not reloaded in this mode. If a previous load job
         /// loaded all files from the same source successfully, nothing is reloaded, and the loader
-        /// returns success.</para></li><li><para><c>NEW</c>   –   In NEW mode, the creates a new load request regardless of any previous
+        /// returns success.</para></li><li><para><c>NEW</c> - In NEW mode, the creates a new load request regardless of any previous
         /// loads. You can use this mode to reload all the data from a source after dropping previously
-        /// loaded data from your Neptune cluster, or to load new data available at the same source.</para></li><li><para><c>AUTO</c>   –   In AUTO mode, the loader looks for a previous load job from the
-        /// same source, and if it finds one, resumes that job, just as in <c>RESUME</c> mode.</para><para>If the loader doesn't find a previous load job from the same source, it loads all
+        /// loaded data from your Neptune cluster, or to load new data available at the same source.</para></li><li><para><c>AUTO</c> - In AUTO mode, the loader looks for a previous load job from the same
+        /// source, and if it finds one, resumes that job, just as in <c>RESUME</c> mode.</para><para>If the loader doesn't find a previous load job from the same source, it loads all
         /// data from the source, just as in <c>NEW</c> mode.</para></li></ul>
         /// </para>
         /// </summary>
@@ -199,9 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para><b><c>parserConfiguration</c></b>   –   An optional object with additional parser
-        /// configuration values. Each of the child parameters is also optional:</para><para><b /></para><ul><li><para><b><c>namedGraphUri</c></b>   –   The default graph for all RDF formats when no
-        /// graph is specified (for non-quads formats and NQUAD entries with no graph).</para><para>The default is <c>https://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph</c>.</para></li><li><para><b><c>baseUri</c></b>   –   The base URI for RDF/XML and Turtle formats.</para><para>The default is <c>https://aws.amazon.com/neptune/default</c>.</para></li><li><para><b><c>allowEmptyStrings</c></b>   –   Gremlin users need to be able to pass empty
-        /// string values("") as node and edge properties when loading CSV data. If <c>allowEmptyStrings</c>
+        /// configuration values. Each of the child parameters is also optional:</para><para><b /></para><ul><li><para><b><c>namedGraphUri</c></b> - The default graph for all RDF formats when no graph
+        /// is specified (for non-quads formats and NQUAD entries with no graph).</para><para>The default is <c>https://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph</c>.</para></li><li><para><b><c>baseUri</c></b> - The base URI for RDF/XML and Turtle formats.</para><para>The default is <c>https://aws.amazon.com/neptune/default</c>.</para></li><li><para><b><c>allowEmptyStrings</c></b> - Gremlin users need to be able to pass empty string
+        /// values("") as node and edge properties when loading CSV data. If <c>allowEmptyStrings</c>
         /// is set to <c>false</c> (the default), such empty strings are treated as nulls and
         /// are not loaded.</para><para>If <c>allowEmptyStrings</c> is set to <c>true</c>, the loader treats empty strings
         /// as valid property values and loads them accordingly.</para></li></ul><para />

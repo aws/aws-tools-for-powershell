@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// <para>
         /// <para> The unique identifier of the evaluator to use for scoring. Can be a built-in evaluator
         /// (e.g., <c>Builtin.Helpfulness</c>, <c>Builtin.Correctness</c>) or a custom evaluator
-        /// ARN created through the control plane API. </para>
+        /// Id created through the control plane API. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

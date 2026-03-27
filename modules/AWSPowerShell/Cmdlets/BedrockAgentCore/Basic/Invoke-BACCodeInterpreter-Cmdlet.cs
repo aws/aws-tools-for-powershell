@@ -135,8 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// <summary>
         /// <para>
         /// <para>The programming language of the code to execute. This tells the code interpreter which
-        /// language runtime to use for execution. Common values include 'python', 'javascript',
-        /// and 'r'.</para>
+        /// language runtime to use for execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,6 +182,18 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] Arguments_Paths { get; set; }
+        #endregion
+        
+        #region Parameter Arguments_Runtime
+        /// <summary>
+        /// <para>
+        /// <para>The runtime environment to use for code execution. If not specified, defaults to <c>deno</c>
+        /// for JavaScript and TypeScript.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCore.LanguageRuntime")]
+        public Amazon.BedrockAgentCore.LanguageRuntime Arguments_Runtime { get; set; }
         #endregion
         
         #region Parameter SessionId
@@ -287,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 context.Arguments_Paths = new List<System.String>(this.Arguments_Paths);
             }
+            context.Arguments_Runtime = this.Arguments_Runtime;
             context.Arguments_TaskId = this.Arguments_TaskId;
             context.CodeInterpreterIdentifier = this.CodeInterpreterIdentifier;
             #if MODULAR
@@ -405,6 +417,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 request.Arguments.Paths = requestArguments_arguments_Paths;
                 requestArgumentsIsNull = false;
             }
+            Amazon.BedrockAgentCore.LanguageRuntime requestArguments_arguments_Runtime = null;
+            if (cmdletContext.Arguments_Runtime != null)
+            {
+                requestArguments_arguments_Runtime = cmdletContext.Arguments_Runtime;
+            }
+            if (requestArguments_arguments_Runtime != null)
+            {
+                request.Arguments.Runtime = requestArguments_arguments_Runtime;
+                requestArgumentsIsNull = false;
+            }
             System.String requestArguments_arguments_TaskId = null;
             if (cmdletContext.Arguments_TaskId != null)
             {
@@ -503,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public Amazon.BedrockAgentCore.ProgrammingLanguage Arguments_Language { get; set; }
             public System.String Arguments_Path { get; set; }
             public List<System.String> Arguments_Paths { get; set; }
+            public Amazon.BedrockAgentCore.LanguageRuntime Arguments_Runtime { get; set; }
             public System.String Arguments_TaskId { get; set; }
             public System.String CodeInterpreterIdentifier { get; set; }
             public Amazon.BedrockAgentCore.ToolName Name { get; set; }

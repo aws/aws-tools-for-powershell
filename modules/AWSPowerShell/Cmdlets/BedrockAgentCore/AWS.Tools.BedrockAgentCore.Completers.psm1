@@ -108,6 +108,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.LanguageRuntime
+        "Invoke-BACCodeInterpreter/Arguments_Runtime"
+        {
+            $v = "deno","nodejs","python"
+            break
+        }
+
         # Amazon.BedrockAgentCore.Oauth2FlowType
         "Get-BACResourceOauth2Token/Oauth2Flow"
         {
@@ -139,6 +146,7 @@ $BAC_Completers = {
 
 $BAC_map = @{
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
+    "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Name"=@("Invoke-BACCodeInterpreter")

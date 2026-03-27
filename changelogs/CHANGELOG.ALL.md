@@ -1,4 +1,18 @@
-﻿### 5.0.183 (2026-03-26 20:14Z)
+﻿### 5.0.184 (2026-03-27 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.220.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCEvaluator: added parameters EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn and EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond.
+    * Modified cmdlet Update-BACCEvaluator: added parameters EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn and EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Invoke-BACCodeInterpreter: added parameter Arguments_Runtime.
+  * Amazon Omics
+    * Added cmdlet Get-OMICSConfiguration leveraging the GetConfiguration service API.
+    * Added cmdlet Get-OMICSConfigurationList leveraging the ListConfigurations service API.
+    * Added cmdlet New-OMICSConfiguration leveraging the CreateConfiguration service API.
+    * Added cmdlet Remove-OMICSConfiguration leveraging the DeleteConfiguration service API.
+    * Modified cmdlet Start-OMICSRun: added parameters ConfigurationName and NetworkingMode.
+
+### 5.0.183 (2026-03-26 20:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.219.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSBillingAndCostManagementDataExports
     * Modified cmdlet New-BCMDEExport: added parameter Export_DestinationConfigurations_S3Destination_S3BucketOwner.

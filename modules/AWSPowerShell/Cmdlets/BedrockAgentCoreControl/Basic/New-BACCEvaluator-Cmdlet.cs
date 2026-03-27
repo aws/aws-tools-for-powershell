@@ -30,9 +30,10 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Creates a custom evaluator for agent quality assessment. Custom evaluators use LLM-as-a-Judge
-    /// configurations with user-defined prompts, rating scales, and model settings to evaluate
-    /// agent performance at tool call, trace, or session levels.
+    /// Creates a custom evaluator for agent quality assessment. Custom evaluators can use
+    /// either LLM-as-a-Judge configurations with user-defined prompts, rating scales, and
+    /// model settings, or code-based configurations with customer-managed Lambda functions
+    /// to evaluate agent performance at tool call, trace, or session levels.
     /// </summary>
     [Cmdlet("New", "BACCEvaluator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateEvaluatorResponse")]
@@ -112,6 +113,29 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EvaluatorConfig_LlmAsAJudge_Instructions")]
         public System.String LlmAsAJudge_Instruction { get; set; }
+        #endregion
+        
+        #region Parameter EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the Lambda function that implements the evaluation
+        /// logic. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn { get; set; }
+        #endregion
+        
+        #region Parameter EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para> The timeout in seconds for the Lambda function invocation. Defaults to 60. Must be
+        /// between 1 and 300. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSeconds")]
+        public System.Int32? EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond { get; set; }
         #endregion
         
         #region Parameter Level
@@ -292,6 +316,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn = this.EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn;
+            context.EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond = this.EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond;
             context.LlmAsAJudge_Instruction = this.LlmAsAJudge_Instruction;
             context.BedrockEvaluatorModelConfig_AdditionalModelRequestField = this.BedrockEvaluatorModelConfig_AdditionalModelRequestField;
             context.InferenceConfig_MaxToken = this.InferenceConfig_MaxToken;
@@ -360,6 +386,56 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate EvaluatorConfig
             var requestEvaluatorConfigIsNull = true;
             request.EvaluatorConfig = new Amazon.BedrockAgentCoreControl.Model.EvaluatorConfig();
+            Amazon.BedrockAgentCoreControl.Model.CodeBasedEvaluatorConfig requestEvaluatorConfig_evaluatorConfig_CodeBased = null;
+            
+             // populate CodeBased
+            var requestEvaluatorConfig_evaluatorConfig_CodeBasedIsNull = true;
+            requestEvaluatorConfig_evaluatorConfig_CodeBased = new Amazon.BedrockAgentCoreControl.Model.CodeBasedEvaluatorConfig();
+            Amazon.BedrockAgentCoreControl.Model.LambdaEvaluatorConfig requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig = null;
+            
+             // populate LambdaConfig
+            var requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfigIsNull = true;
+            requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig = new Amazon.BedrockAgentCoreControl.Model.LambdaEvaluatorConfig();
+            System.String requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig_evaluatorConfig_CodeBased_LambdaConfig_LambdaArn = null;
+            if (cmdletContext.EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig_evaluatorConfig_CodeBased_LambdaConfig_LambdaArn = cmdletContext.EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig_evaluatorConfig_CodeBased_LambdaConfig_LambdaArn != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig.LambdaArn = requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig_evaluatorConfig_CodeBased_LambdaConfig_LambdaArn;
+                requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfigIsNull = false;
+            }
+            System.Int32? requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig_evaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond = null;
+            if (cmdletContext.EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig_evaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond = cmdletContext.EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond.Value;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig_evaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig.LambdaTimeoutInSeconds = requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig_evaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond.Value;
+                requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfigIsNull = false;
+            }
+             // determine if requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig should be set to null
+            if (requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfigIsNull)
+            {
+                requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig = null;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_CodeBased.LambdaConfig = requestEvaluatorConfig_evaluatorConfig_CodeBased_evaluatorConfig_CodeBased_LambdaConfig;
+                requestEvaluatorConfig_evaluatorConfig_CodeBasedIsNull = false;
+            }
+             // determine if requestEvaluatorConfig_evaluatorConfig_CodeBased should be set to null
+            if (requestEvaluatorConfig_evaluatorConfig_CodeBasedIsNull)
+            {
+                requestEvaluatorConfig_evaluatorConfig_CodeBased = null;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_CodeBased != null)
+            {
+                request.EvaluatorConfig.CodeBased = requestEvaluatorConfig_evaluatorConfig_CodeBased;
+                requestEvaluatorConfigIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.LlmAsAJudgeEvaluatorConfig requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge = null;
             
              // populate LlmAsAJudge
@@ -599,6 +675,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn { get; set; }
+            public System.Int32? EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond { get; set; }
             public System.String LlmAsAJudge_Instruction { get; set; }
             public System.Management.Automation.PSObject BedrockEvaluatorModelConfig_AdditionalModelRequestField { get; set; }
             public System.Int32? InferenceConfig_MaxToken { get; set; }

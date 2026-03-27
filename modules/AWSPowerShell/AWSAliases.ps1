@@ -23537,6 +23537,8 @@ Set-Alias -Name Create-OMICSAnnotationStore -Value New-OMICSAnnotationStore
 Set-Alias -Name OMICS-CreateAnnotationStore -Value New-OMICSAnnotationStore
 Set-Alias -Name Create-OMICSAnnotationStoreVersion -Value New-OMICSAnnotationStoreVersion
 Set-Alias -Name OMICS-CreateAnnotationStoreVersion -Value New-OMICSAnnotationStoreVersion
+Set-Alias -Name Create-OMICSConfiguration -Value New-OMICSConfiguration
+Set-Alias -Name OMICS-CreateConfiguration -Value New-OMICSConfiguration
 Set-Alias -Name Create-OMICSMultipartReadSetUpload -Value New-OMICSMultipartReadSetUpload
 Set-Alias -Name OMICS-CreateMultipartReadSetUpload -Value New-OMICSMultipartReadSetUpload
 Set-Alias -Name Create-OMICSReferenceStore -Value New-OMICSReferenceStore
@@ -23562,6 +23564,8 @@ Set-Alias -Name Delete-OMICSAnnotationStoreVersion -Value Remove-OMICSAnnotation
 Set-Alias -Name OMICS-DeleteAnnotationStoreVersions -Value Remove-OMICSAnnotationStoreVersion
 Set-Alias -Name Delete-OMICSBatch -Value Remove-OMICSBatch
 Set-Alias -Name OMICS-DeleteBatch -Value Remove-OMICSBatch
+Set-Alias -Name Delete-OMICSConfiguration -Value Remove-OMICSConfiguration
+Set-Alias -Name OMICS-DeleteConfiguration -Value Remove-OMICSConfiguration
 Set-Alias -Name Delete-OMICSReference -Value Remove-OMICSReference
 Set-Alias -Name OMICS-DeleteReference -Value Remove-OMICSReference
 Set-Alias -Name Delete-OMICSReferenceStore -Value Remove-OMICSReferenceStore
@@ -23590,6 +23594,7 @@ Set-Alias -Name OMICS-GetAnnotationImportJob -Value Get-OMICSAnnotationImportJob
 Set-Alias -Name OMICS-GetAnnotationStore -Value Get-OMICSAnnotationStore
 Set-Alias -Name OMICS-GetAnnotationStoreVersion -Value Get-OMICSAnnotationStoreVersion
 Set-Alias -Name OMICS-GetBatch -Value Get-OMICSBatch
+Set-Alias -Name OMICS-GetConfiguration -Value Get-OMICSConfiguration
 Set-Alias -Name OMICS-GetReadSetActivationJob -Value Get-OMICSReadSetActivationJob
 Set-Alias -Name OMICS-GetReadSet -Value Get-OMICSReadSet
 Set-Alias -Name OMICS-GetReadSetExportJob -Value Get-OMICSReadSetExportJob
@@ -23622,6 +23627,9 @@ Set-Alias -Name OMICS-ListAnnotationStoreVersions -Value Get-OMICSAnnotationStor
 Set-Alias -Name List-OMICSBatch -Value Get-OMICSBatchList
 Set-Alias -Name List-OMICSBatchList -Value Get-OMICSBatchList
 Set-Alias -Name OMICS-ListBatch -Value Get-OMICSBatchList
+Set-Alias -Name List-OMICSConfigurations -Value Get-OMICSConfigurationList
+Set-Alias -Name List-OMICSConfigurationList -Value Get-OMICSConfigurationList
+Set-Alias -Name OMICS-ListConfigurations -Value Get-OMICSConfigurationList
 Set-Alias -Name List-OMICSMultipartReadSetUploads -Value Get-OMICSMultipartReadSetUploadList
 Set-Alias -Name List-OMICSMultipartReadSetUploadList -Value Get-OMICSMultipartReadSetUploadList
 Set-Alias -Name OMICS-ListMultipartReadSetUploads -Value Get-OMICSMultipartReadSetUploadList

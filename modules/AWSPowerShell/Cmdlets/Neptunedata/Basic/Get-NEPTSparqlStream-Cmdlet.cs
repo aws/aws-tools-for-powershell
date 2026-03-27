@@ -94,13 +94,12 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter IteratorType
         /// <summary>
         /// <para>
-        /// <para>Can be one of:</para><ul><li><para><c>AT_SEQUENCE_NUMBER</c>   –   Indicates that reading should start from the event
-        /// sequence number specified jointly by the <c>commitNum</c> and <c>opNum</c> parameters.</para></li><li><para><c>AFTER_SEQUENCE_NUMBER</c>   –   Indicates that reading should start right after
-        /// the event sequence number specified jointly by the <c>commitNum</c> and <c>opNum</c>
-        /// parameters.</para></li><li><para><c>TRIM_HORIZON</c>   –   Indicates that reading should start at the last untrimmed
-        /// record in the system, which is the oldest unexpired (not yet deleted) record in the
-        /// change-log stream.</para></li><li><para><c>LATEST</c>   –   Indicates that reading should start at the most recent record
-        /// in the system, which is the latest unexpired (not yet deleted) record in the change-log
+        /// <para>Can be one of:</para><ul><li><para><c>AT_SEQUENCE_NUMBER</c> - Indicates that reading should start from the event sequence
+        /// number specified jointly by the <c>commitNum</c> and <c>opNum</c> parameters.</para></li><li><para><c>AFTER_SEQUENCE_NUMBER</c> - Indicates that reading should start right after the
+        /// event sequence number specified jointly by the <c>commitNum</c> and <c>opNum</c> parameters.</para></li><li><para><c>TRIM_HORIZON</c> - Indicates that reading should start at the last untrimmed record
+        /// in the system, which is the oldest unexpired (not yet deleted) record in the change-log
+        /// stream.</para></li><li><para><c>LATEST</c> - Indicates that reading should start at the most recent record in
+        /// the system, which is the latest unexpired (not yet deleted) record in the change-log
         /// stream.</para></li></ul>
         /// </para>
         /// </summary>

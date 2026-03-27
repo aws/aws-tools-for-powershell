@@ -8639,6 +8639,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.LanguageRuntime
+        "Invoke-BACCodeInterpreter/Arguments_Runtime"
+        {
+            $v = "deno","nodejs","python"
+            break
+        }
+
         # Amazon.BedrockAgentCore.Oauth2FlowType
         "Get-BACResourceOauth2Token/Oauth2Flow"
         {
@@ -8670,6 +8677,7 @@ $BAC_Completers = {
 
 $BAC_map = @{
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
+    "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Name"=@("Invoke-BACCodeInterpreter")
@@ -58870,6 +58878,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.NetworkingMode
+        "Start-OMICSRun/NetworkingMode"
+        {
+            $v = "RESTRICTED","VPC"
+            break
+        }
+
         # Amazon.Omics.ReadSetActivationJobStatus
         "Get-OMICSReadSetActivationJobList/Filter_Status"
         {
@@ -59078,6 +59093,7 @@ $OMICS_map = @{
     "Filter_CreationType"=@("Get-OMICSReadSetList")
     "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSSequenceStoreList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
     "LogLevel"=@("Start-OMICSRun")
+    "NetworkingMode"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
     "ResourceOwner"=@("Get-OMICSShareList")
     "RetentionMode"=@("Start-OMICSRun")
@@ -59154,6 +59170,7 @@ $OMICS_SelectMap = @{
                "Complete-OMICSMultipartReadSetUpload",
                "New-OMICSAnnotationStore",
                "New-OMICSAnnotationStoreVersion",
+               "New-OMICSConfiguration",
                "New-OMICSMultipartReadSetUpload",
                "New-OMICSReferenceStore",
                "New-OMICSRunCache",
@@ -59166,6 +59183,7 @@ $OMICS_SelectMap = @{
                "Remove-OMICSAnnotationStore",
                "Remove-OMICSAnnotationStoreVersion",
                "Remove-OMICSBatch",
+               "Remove-OMICSConfiguration",
                "Remove-OMICSReference",
                "Remove-OMICSReferenceStore",
                "Remove-OMICSRun",
@@ -59182,6 +59200,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSAnnotationStore",
                "Get-OMICSAnnotationStoreVersion",
                "Get-OMICSBatch",
+               "Get-OMICSConfiguration",
                "Get-OMICSReadSet",
                "Get-OMICSReadSetActivationJob",
                "Get-OMICSReadSetExportJob",
@@ -59206,6 +59225,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSAnnotationStoreList",
                "Get-OMICSAnnotationStoreVersionList",
                "Get-OMICSBatchList",
+               "Get-OMICSConfigurationList",
                "Get-OMICSMultipartReadSetUploadList",
                "Get-OMICSReadSetActivationJobList",
                "Get-OMICSReadSetExportJobList",
