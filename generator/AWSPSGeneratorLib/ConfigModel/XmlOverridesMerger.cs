@@ -67,6 +67,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 }
                 else
                 {
+                    // Strip operations with Remove="true" from the XML before deserialization.
+                    RemoveMarkedOperations(serviceOverride.Value);
+
                     var overrides = new XmlAttributeOverrides();
                     overrides.Add(typeof(ConfigModel), new XmlAttributes() { XmlRoot = new XmlRootAttribute("Service") });
                     var serializer = new XmlSerializer(typeof(ConfigModel), overrides);
@@ -144,6 +147,29 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 if (string.IsNullOrWhiteSpace(removeAttribute) || !bool.Parse(removeAttribute))
                 {
                     destination.AppendChild(destination.OwnerDocument.ImportNode(operationOverride, true));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes ServiceOperation elements with Remove="true" from the XML before deserialization.
+        /// Used for new services where there is no existing config to merge into.
+        /// </summary>
+        public static void RemoveMarkedOperations(XmlElement serviceElement)
+        {
+            var operationsElement = serviceElement.GetElementsByTagName(nameof(ConfigModel.ServiceOperations))
+                .OfType<XmlElement>().FirstOrDefault();
+            if (operationsElement == null)
+            {
+                return;
+            }
+
+            foreach (var operation in operationsElement.ChildNodes.OfType<XmlElement>().ToArray())
+            {
+                var removeAttribute = operation.GetAttribute("Remove");
+                if (!string.IsNullOrWhiteSpace(removeAttribute) && bool.Parse(removeAttribute))
+                {
+                    operationsElement.RemoveChild(operation);
                 }
             }
         }
