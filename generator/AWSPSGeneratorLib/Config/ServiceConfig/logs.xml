@@ -62,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLookupTable" OutputProperty="*" Verb="New" Noun="LookupTable" ShouldProcessTarget="LookupTableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateScheduledQuery" OutputProperty="*" Verb="New" Noun="ScheduledQuery" ShouldProcessTarget="Name,ExecutionRoleArn" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="DestinationConfiguration_S3Configuration_DestinationIdentifier" NewName="S3Configuration_DestinationIdentifier" />
@@ -116,6 +120,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLogStream" Verb="Remove" Noun="LogStream" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLookupTable" Verb="Remove" Noun="LookupTable" ShouldProcessTarget="LookupTableArn" PipelineParameter="LookupTableArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -199,6 +207,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLookupTables" OutputProperty="LookupTables" Verb="Get" Noun="LookupTableDetail" PipelineParameter="LookupTableNamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeMetricFilters" OutputProperty="MetricFilters" Verb="Get" Noun="MetricFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLMetricFilters">
             <Params />
             <TypesNotToFlatten />
@@ -276,6 +288,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetLogRecord" OutputProperty="LogRecord" Verb="Get" Noun="LogRecord" PipelineParameter="LogRecordPointer" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLookupTable" OutputProperty="*" Verb="Get" Noun="LookupTable" PipelineParameter="LookupTableArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -462,6 +478,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLogAnomalyDetector" Verb="Update" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLookupTable" OutputProperty="*" Verb="Update" Noun="LookupTable" ShouldProcessTarget="LookupTableArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

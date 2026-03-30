@@ -183,9 +183,12 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter DataLakeSettings_Parameter
         /// <summary>
         /// <para>
-        /// <para>A key-value map that provides an additional configuration on your data lake. CROSS_ACCOUNT_VERSION
-        /// is the key you can configure in the Parameters field. Accepted values for the CrossAccountVersion
-        /// key are 1, 2, 3, 4 and 5.</para><para />
+        /// <para>A key-value map that provides an additional configuration on your data lake. The following
+        /// key-value pairs are supported:</para><ul><li><para><c>CROSS_ACCOUNT_VERSION</c> - Accepted values are 1, 2, 3, 4, and 5.</para></li><li><para><c>SET_SOURCE_IDENTITY</c> - Accepted values are <c>TRUE</c> and <c>FALSE</c>. When
+        /// set to <c>TRUE</c>, Lake Formation includes the IAM role identifier that was used
+        /// to query in the S3 data event CloudTrail logs for <c>s3:GetObject</c> calls. For more
+        /// information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/cloudtrail-logging.html#source-identity-cloudtrail">Tracking
+        /// query engine IAM roles in S3 data events</a>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

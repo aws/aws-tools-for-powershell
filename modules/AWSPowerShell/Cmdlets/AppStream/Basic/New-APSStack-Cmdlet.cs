@@ -62,6 +62,38 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public Amazon.AppStream.Model.AccessEndpoint[] AccessEndpoint { get; set; }
         #endregion
         
+        #region Parameter ContentRedirection_HostToClient_AllowedUrl
+        /// <summary>
+        /// <para>
+        /// <para>List of URL patterns that are allowed to be redirected. URLs matching these patterns
+        /// will be redirected unless they also match a pattern in the denied list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContentRedirection_HostToClient_AllowedUrls")]
+        public System.String[] ContentRedirection_HostToClient_AllowedUrl { get; set; }
+        #endregion
+        
+        #region Parameter ContentRedirection_HostToClient_DeniedUrl
+        /// <summary>
+        /// <para>
+        /// <para>List of URL patterns that are denied from redirection. This list takes precedence
+        /// over the allowed list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContentRedirection_HostToClient_DeniedUrls")]
+        public System.String[] ContentRedirection_HostToClient_DeniedUrl { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -108,6 +140,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ApplicationSettings_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter ContentRedirection_HostToClient_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether URL redirection is enabled for this direction.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ContentRedirection_HostToClient_Enabled { get; set; }
         #endregion
         
         #region Parameter FeedbackURL
@@ -273,6 +315,15 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             context.ApplicationSettings_Enabled = this.ApplicationSettings_Enabled;
             context.ApplicationSettings_SettingsGroup = this.ApplicationSettings_SettingsGroup;
+            if (this.ContentRedirection_HostToClient_AllowedUrl != null)
+            {
+                context.ContentRedirection_HostToClient_AllowedUrl = new List<System.String>(this.ContentRedirection_HostToClient_AllowedUrl);
+            }
+            if (this.ContentRedirection_HostToClient_DeniedUrl != null)
+            {
+                context.ContentRedirection_HostToClient_DeniedUrl = new List<System.String>(this.ContentRedirection_HostToClient_DeniedUrl);
+            }
+            context.ContentRedirection_HostToClient_Enabled = this.ContentRedirection_HostToClient_Enabled;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             if (this.EmbedHostDomain != null)
@@ -353,6 +404,60 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (requestApplicationSettingsIsNull)
             {
                 request.ApplicationSettings = null;
+            }
+            
+             // populate ContentRedirection
+            var requestContentRedirectionIsNull = true;
+            request.ContentRedirection = new Amazon.AppStream.Model.ContentRedirection();
+            Amazon.AppStream.Model.UrlRedirectionConfig requestContentRedirection_contentRedirection_HostToClient = null;
+            
+             // populate HostToClient
+            var requestContentRedirection_contentRedirection_HostToClientIsNull = true;
+            requestContentRedirection_contentRedirection_HostToClient = new Amazon.AppStream.Model.UrlRedirectionConfig();
+            List<System.String> requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_AllowedUrl = null;
+            if (cmdletContext.ContentRedirection_HostToClient_AllowedUrl != null)
+            {
+                requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_AllowedUrl = cmdletContext.ContentRedirection_HostToClient_AllowedUrl;
+            }
+            if (requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_AllowedUrl != null)
+            {
+                requestContentRedirection_contentRedirection_HostToClient.AllowedUrls = requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_AllowedUrl;
+                requestContentRedirection_contentRedirection_HostToClientIsNull = false;
+            }
+            List<System.String> requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_DeniedUrl = null;
+            if (cmdletContext.ContentRedirection_HostToClient_DeniedUrl != null)
+            {
+                requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_DeniedUrl = cmdletContext.ContentRedirection_HostToClient_DeniedUrl;
+            }
+            if (requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_DeniedUrl != null)
+            {
+                requestContentRedirection_contentRedirection_HostToClient.DeniedUrls = requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_DeniedUrl;
+                requestContentRedirection_contentRedirection_HostToClientIsNull = false;
+            }
+            System.Boolean? requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_Enabled = null;
+            if (cmdletContext.ContentRedirection_HostToClient_Enabled != null)
+            {
+                requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_Enabled = cmdletContext.ContentRedirection_HostToClient_Enabled.Value;
+            }
+            if (requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_Enabled != null)
+            {
+                requestContentRedirection_contentRedirection_HostToClient.Enabled = requestContentRedirection_contentRedirection_HostToClient_contentRedirection_HostToClient_Enabled.Value;
+                requestContentRedirection_contentRedirection_HostToClientIsNull = false;
+            }
+             // determine if requestContentRedirection_contentRedirection_HostToClient should be set to null
+            if (requestContentRedirection_contentRedirection_HostToClientIsNull)
+            {
+                requestContentRedirection_contentRedirection_HostToClient = null;
+            }
+            if (requestContentRedirection_contentRedirection_HostToClient != null)
+            {
+                request.ContentRedirection.HostToClient = requestContentRedirection_contentRedirection_HostToClient;
+                requestContentRedirectionIsNull = false;
+            }
+             // determine if request.ContentRedirection should be set to null
+            if (requestContentRedirectionIsNull)
+            {
+                request.ContentRedirection = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -467,6 +572,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public List<Amazon.AppStream.Model.AccessEndpoint> AccessEndpoint { get; set; }
             public System.Boolean? ApplicationSettings_Enabled { get; set; }
             public System.String ApplicationSettings_SettingsGroup { get; set; }
+            public List<System.String> ContentRedirection_HostToClient_AllowedUrl { get; set; }
+            public List<System.String> ContentRedirection_HostToClient_DeniedUrl { get; set; }
+            public System.Boolean? ContentRedirection_HostToClient_Enabled { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public List<System.String> EmbedHostDomain { get; set; }

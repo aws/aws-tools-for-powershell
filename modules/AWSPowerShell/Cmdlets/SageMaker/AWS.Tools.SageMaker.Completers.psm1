@@ -272,6 +272,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.AvailabilityZoneBalanceEnforcementMode
+        {
+            ($_ -eq "New-SMInferenceComponent/Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode") -Or
+            ($_ -eq "Update-SMInferenceComponent/Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode")
+        }
+        {
+            $v = "PERMISSIVE"
+            break
+        }
+
         # Amazon.SageMaker.AwsManagedHumanLoopRequestSource
         "New-SMFlowDefinition/HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
         {
@@ -766,6 +776,16 @@ $SM_Completers = {
         }
         {
             $v = "CAPACITY_PERCENT","COPY_COUNT"
+            break
+        }
+
+        # Amazon.SageMaker.InferenceComponentPlacementStrategy
+        {
+            ($_ -eq "New-SMInferenceComponent/Specification_SchedulingConfig_PlacementStrategy") -Or
+            ($_ -eq "Update-SMInferenceComponent/Specification_SchedulingConfig_PlacementStrategy")
+        }
+        {
+            $v = "BINPACK","SPREAD"
             break
         }
 
@@ -1993,6 +2013,8 @@ $SM_map = @{
     "SpaceSettings_RemoteAccess"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_SpaceManagedResource"=@("New-SMSpace","Update-SMSpace")
     "SpaceSharingSettings_SharingType"=@("New-SMSpace")
+    "Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
+    "Specification_SchedulingConfig_PlacementStrategy"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","Get-SMMlflowAppList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEqual"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")

@@ -24993,6 +24993,314 @@ $DF_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $DF_SelectCompleters $DF_SelectMap
+# Argument completions for service AWS DevOps Agent Service
+
+
+$DOPS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DevOpsAgent.AuthFlow
+        {
+            ($_ -eq "Disable-DOPSOperatorApp/AuthFlow") -Or
+            ($_ -eq "Enable-DOPSOperatorApp/AuthFlow")
+        }
+        {
+            $v = "iam","idc","idp"
+            break
+        }
+
+        # Amazon.DevOpsAgent.EventChannelType
+        "Register-DOPSService/ServiceDetails_EventChannel_Type"
+        {
+            $v = "webhook"
+            break
+        }
+
+        # Amazon.DevOpsAgent.GithubRepoOwnerType
+        {
+            ($_ -eq "Add-DOPSService/Configuration_Github_OwnerType") -Or
+            ($_ -eq "Update-DOPSAssociation/Configuration_Github_OwnerType")
+        }
+        {
+            $v = "organization","user"
+            break
+        }
+
+        # Amazon.DevOpsAgent.GitLabTokenType
+        "Register-DOPSService/ServiceDetails_Gitlab_TokenType"
+        {
+            $v = "group","personal"
+            break
+        }
+
+        # Amazon.DevOpsAgent.GoalStatus
+        "Get-DOPSGoalList/Status"
+        {
+            $v = "ACTIVE","COMPLETE","PAUSED"
+            break
+        }
+
+        # Amazon.DevOpsAgent.GoalType
+        "Get-DOPSGoalList/GoalType"
+        {
+            $v = "CUSTOMER_DEFINED","ONCALL_REPORT"
+            break
+        }
+
+        # Amazon.DevOpsAgent.IpAddressType
+        "New-DOPSPrivateConnection/Mode_ServiceManaged_IpAddressType"
+        {
+            $v = "DUAL_STACK","IPV4","IPV6"
+            break
+        }
+
+        # Amazon.DevOpsAgent.MonitorAccountType
+        {
+            ($_ -eq "Add-DOPSService/Configuration_Aws_AccountType") -Or
+            ($_ -eq "Update-DOPSAssociation/Configuration_Aws_AccountType")
+        }
+        {
+            $v = "monitor"
+            break
+        }
+
+        # Amazon.DevOpsAgent.NewRelicRegion
+        "Register-DOPSService/ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_Region"
+        {
+            $v = "EU","US"
+            break
+        }
+
+        # Amazon.DevOpsAgent.OrderType
+        "Get-DOPSJournalRecordList/Order"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.DevOpsAgent.PostRegisterServiceSupportedService
+        "Register-DOPSService/Service"
+        {
+            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","servicenow"
+            break
+        }
+
+        # Amazon.DevOpsAgent.Priority
+        "New-DOPSBacklogTask/Priority"
+        {
+            $v = "CRITICAL","HIGH","LOW","MEDIUM","MINIMAL"
+            break
+        }
+
+        # Amazon.DevOpsAgent.RecommendationPriority
+        "Get-DOPSRecommendationList/Priority"
+        {
+            $v = "HIGH","LOW","MEDIUM"
+            break
+        }
+
+        # Amazon.DevOpsAgent.RecommendationStatus
+        {
+            ($_ -eq "Get-DOPSRecommendationList/Status") -Or
+            ($_ -eq "Update-DOPSRecommendation/Status")
+        }
+        {
+            $v = "ACCEPTED","CLOSED","COMPLETED","PROPOSED","REJECTED","UPDATE_IN_PROGRESS"
+            break
+        }
+
+        # Amazon.DevOpsAgent.SchedulerState
+        "Update-DOPSGoal/EvaluationSchedule_State"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.DevOpsAgent.Service
+        "Get-DOPSServiceList/FilterServiceType"
+        {
+            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","msteams","pagerduty","servicenow","slack"
+            break
+        }
+
+        # Amazon.DevOpsAgent.SourceAccountType
+        {
+            ($_ -eq "Add-DOPSService/Configuration_SourceAws_AccountType") -Or
+            ($_ -eq "Update-DOPSAssociation/Configuration_SourceAws_AccountType")
+        }
+        {
+            $v = "source"
+            break
+        }
+
+        # Amazon.DevOpsAgent.TaskSortField
+        "Get-DOPSBacklogTaskList/SortField"
+        {
+            $v = "CREATED_AT","PRIORITY"
+            break
+        }
+
+        # Amazon.DevOpsAgent.TaskSortOrder
+        "Get-DOPSBacklogTaskList/Order"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.DevOpsAgent.TaskStatus
+        "Update-DOPSBacklogTask/TaskStatus"
+        {
+            $v = "CANCELED","COMPLETED","FAILED","IN_PROGRESS","LINKED","PENDING_CUSTOMER_APPROVAL","PENDING_START","PENDING_TRIAGE","TIMED_OUT"
+            break
+        }
+
+        # Amazon.DevOpsAgent.TaskType
+        "New-DOPSBacklogTask/TaskType"
+        {
+            $v = "EVALUATION","INVESTIGATION"
+            break
+        }
+
+        # Amazon.DevOpsAgent.UserType
+        "New-DOPSChat/UserType"
+        {
+            $v = "IAM","IDC","IDP"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DOPS_map = @{
+    "AuthFlow"=@("Disable-DOPSOperatorApp","Enable-DOPSOperatorApp")
+    "Configuration_Aws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
+    "Configuration_Github_OwnerType"=@("Add-DOPSService","Update-DOPSAssociation")
+    "Configuration_SourceAws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
+    "EvaluationSchedule_State"=@("Update-DOPSGoal")
+    "FilterServiceType"=@("Get-DOPSServiceList")
+    "GoalType"=@("Get-DOPSGoalList")
+    "Mode_ServiceManaged_IpAddressType"=@("New-DOPSPrivateConnection")
+    "Order"=@("Get-DOPSBacklogTaskList","Get-DOPSJournalRecordList")
+    "Priority"=@("Get-DOPSRecommendationList","New-DOPSBacklogTask")
+    "Service"=@("Register-DOPSService")
+    "ServiceDetails_EventChannel_Type"=@("Register-DOPSService")
+    "ServiceDetails_Gitlab_TokenType"=@("Register-DOPSService")
+    "ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_Region"=@("Register-DOPSService")
+    "SortField"=@("Get-DOPSBacklogTaskList")
+    "Status"=@("Get-DOPSGoalList","Get-DOPSRecommendationList","Update-DOPSRecommendation")
+    "TaskStatus"=@("Update-DOPSBacklogTask")
+    "TaskType"=@("New-DOPSBacklogTask")
+    "UserType"=@("New-DOPSChat")
+}
+
+_awsArgumentCompleterRegistration $DOPS_Completers $DOPS_map
+
+$DOPS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.DOPS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DOPS_SelectMap = @{
+    "Select"=@("Enable-DOPSVendedLogDeliveryForResource",
+               "Add-DOPSService",
+               "New-DOPSAgentSpace",
+               "New-DOPSBacklogTask",
+               "New-DOPSChat",
+               "New-DOPSPrivateConnection",
+               "Remove-DOPSAgentSpace",
+               "Remove-DOPSPrivateConnection",
+               "Unregister-DOPSService",
+               "Get-DOPSPrivateConnectionDetail",
+               "Get-DOPSSupportLevelDetail",
+               "Disable-DOPSOperatorApp",
+               "Remove-DOPSService",
+               "Enable-DOPSOperatorApp",
+               "Close-DOPSChatForCase",
+               "Get-DOPSAccountUsage",
+               "Get-DOPSAgentSpace",
+               "Get-DOPSAssociation",
+               "Get-DOPSBacklogTask",
+               "Get-DOPSOperatorApp",
+               "Get-DOPSRecommendation",
+               "Get-DOPSService",
+               "Start-DOPSChatForCase",
+               "Get-DOPSAgentSpaceList",
+               "Get-DOPSAssociationList",
+               "Get-DOPSBacklogTaskList",
+               "Get-DOPSChatList",
+               "Get-DOPSExecutionList",
+               "Get-DOPSGoalList",
+               "Get-DOPSJournalRecordList",
+               "Get-DOPSPendingMessageList",
+               "Get-DOPSPrivateConnectionList",
+               "Get-DOPSRecommendationList",
+               "Get-DOPSServiceList",
+               "Get-DOPSResourceTag",
+               "Get-DOPSWebhookList",
+               "Register-DOPSService",
+               "Send-DOPSMessage",
+               "Add-DOPSResourceTag",
+               "Remove-DOPSResourceTag",
+               "Update-DOPSAgentSpace",
+               "Update-DOPSAssociation",
+               "Update-DOPSBacklogTask",
+               "Update-DOPSGoal",
+               "Update-DOPSOperatorAppIdpConfig",
+               "Update-DOPSPrivateConnectionCertificate",
+               "Update-DOPSRecommendation",
+               "Test-DOPSAwsAssociation")
+}
+
+_awsArgumentCompleterRegistration $DOPS_SelectCompleters $DOPS_SelectMap
 # Argument completions for service Amazon DevOps Guru
 
 
@@ -49829,6 +50137,7 @@ $CWL_SelectMap = @{
                "New-CWLLogAnomalyDetector",
                "New-CWLLogGroup",
                "New-CWLLogStream",
+               "New-CWLLookupTable",
                "New-CWLScheduledQuery",
                "Remove-CWLAccountPolicy",
                "Remove-CWLDataProtectionPolicy",
@@ -49842,6 +50151,7 @@ $CWL_SelectMap = @{
                "Remove-CWLLogAnomalyDetector",
                "Remove-CWLLogGroup",
                "Remove-CWLLogStream",
+               "Remove-CWLLookupTable",
                "Remove-CWLMetricFilter",
                "Remove-CWLQueryDefinition",
                "Remove-CWLResourcePolicy",
@@ -49862,6 +50172,7 @@ $CWL_SelectMap = @{
                "Get-CWLIndexPolicy",
                "Get-CWLLogGroup",
                "Get-CWLLogStream",
+               "Get-CWLLookupTableDetail",
                "Get-CWLMetricFilter",
                "Get-CWLQuery",
                "Get-CWLQueryDefinition",
@@ -49882,6 +50193,7 @@ $CWL_SelectMap = @{
                "Get-CWLLogGroupField",
                "Get-CWLLogObject",
                "Get-CWLLogRecord",
+               "Get-CWLLookupTable",
                "Get-CWLQueryResult",
                "Get-CWLScheduledQuery",
                "Get-CWLScheduledQueryHistory",
@@ -49926,6 +50238,7 @@ $CWL_SelectMap = @{
                "Update-CWLAnomaly",
                "Update-CWLDeliveryConfiguration",
                "Update-CWLLogAnomalyDetector",
+               "Update-CWLLookupTable",
                "Update-CWLScheduledQuery")
 }
 
@@ -59343,6 +59656,23 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.InsightEntityType
+        {
+            ($_ -eq "Get-OSInsightDetailDetail/Entity_Type") -Or
+            ($_ -eq "Get-OSInsightList/Entity_Type")
+        }
+        {
+            $v = "Account","DomainName"
+            break
+        }
+
+        # Amazon.OpenSearchService.InsightSortOrder
+        "Get-OSInsightList/SortOrder"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
         # Amazon.OpenSearchService.IPAddressType
         {
             ($_ -eq "New-OSDomain/IPAddressType") -Or
@@ -59516,6 +59846,7 @@ $OS_map = @{
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
+    "Entity_Type"=@("Get-OSInsightDetailDetail","Get-OSInsightList")
     "IdentityCenterOptions_RolesKey"=@("New-OSDomain","Update-OSDomainConfig")
     "IdentityCenterOptions_SubjectKey"=@("New-OSDomain","Update-OSDomainConfig")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
@@ -59527,6 +59858,7 @@ $OS_map = @{
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
+    "SortOrder"=@("Get-OSInsightList")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
 }
 
@@ -59613,6 +59945,7 @@ $OS_SelectMap = @{
                "Get-OSDomainList",
                "Get-OSDryRunProgress",
                "Get-OSInboundConnection",
+               "Get-OSInsightDetailDetail",
                "Get-OSInstanceTypeLimit",
                "Get-OSOutboundConnection",
                "Get-OSPackage",
@@ -59637,6 +59970,7 @@ $OS_SelectMap = @{
                "Get-OSDomainMaintenanceList",
                "Get-OSDomainNameList",
                "Get-OSDomainsForPackageList",
+               "Get-OSInsightList",
                "Get-OSInstanceTypeDetailList",
                "Get-OSPackagesForDomainList",
                "Get-OSScheduledActionList",
@@ -73679,6 +74013,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.AvailabilityZoneBalanceEnforcementMode
+        {
+            ($_ -eq "New-SMInferenceComponent/Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode") -Or
+            ($_ -eq "Update-SMInferenceComponent/Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode")
+        }
+        {
+            $v = "PERMISSIVE"
+            break
+        }
+
         # Amazon.SageMaker.AwsManagedHumanLoopRequestSource
         "New-SMFlowDefinition/HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
         {
@@ -74173,6 +74517,16 @@ $SM_Completers = {
         }
         {
             $v = "CAPACITY_PERCENT","COPY_COUNT"
+            break
+        }
+
+        # Amazon.SageMaker.InferenceComponentPlacementStrategy
+        {
+            ($_ -eq "New-SMInferenceComponent/Specification_SchedulingConfig_PlacementStrategy") -Or
+            ($_ -eq "Update-SMInferenceComponent/Specification_SchedulingConfig_PlacementStrategy")
+        }
+        {
+            $v = "BINPACK","SPREAD"
             break
         }
 
@@ -75400,6 +75754,8 @@ $SM_map = @{
     "SpaceSettings_RemoteAccess"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_SpaceManagedResource"=@("New-SMSpace","Update-SMSpace")
     "SpaceSharingSettings_SharingType"=@("New-SMSpace")
+    "Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
+    "Specification_SchedulingConfig_PlacementStrategy"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","Get-SMMlflowAppList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEqual"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")

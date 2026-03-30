@@ -448,6 +448,9 @@
     <Reference Include="AWSSDK.DeviceFarm">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DeviceFarm.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.DevOpsAgent">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DevOpsAgent.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.DevOpsGuru">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DevOpsGuru.dll</HintPath>
     </Reference>
@@ -1701,6 +1704,9 @@
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DeviceFarm.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DevOpsAgent">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DevOpsAgent.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DevOpsGuru">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DevOpsGuru.dll</HintPath>

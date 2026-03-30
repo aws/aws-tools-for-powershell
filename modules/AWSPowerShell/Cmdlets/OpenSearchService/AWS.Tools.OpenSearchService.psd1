@@ -115,6 +115,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OSDryRunProgress', 
         'Get-OSInboundConnection', 
         'Get-OSIndex', 
+        'Get-OSInsightDetailDetail', 
+        'Get-OSInsightList', 
         'Get-OSInstanceTypeDetailList', 
         'Get-OSInstanceTypeLimit', 
         'Get-OSOutboundConnection', 

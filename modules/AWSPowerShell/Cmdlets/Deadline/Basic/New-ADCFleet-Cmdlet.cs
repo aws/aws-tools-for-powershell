@@ -486,6 +486,26 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute
+        /// <summary>
+        /// <para>
+        /// <para>The number of workers that can be scaled out per minute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute
+        /// <summary>
+        /// <para>
+        /// <para>The number of workers that can be scaled out per minute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute { get; set; }
+        #endregion
+        
         #region Parameter HostConfiguration_ScriptBody
         /// <summary>
         /// <para>
@@ -542,6 +562,26 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_ServiceManagedEc2_InstanceCapabilities_RootEbsVolume_SizeGiB")]
         public System.Int32? RootEbsVolume_SizeGiB { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of standby workers to maintain for the fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of standby workers to maintain for the fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount { get; set; }
         #endregion
         
         #region Parameter CustomerManaged_StorageProfileId
@@ -617,6 +657,28 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public Amazon.Deadline.Ec2MarketType InstanceMarketOptions_Type { get; set; }
         #endregion
         
+        #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond
+        /// <summary>
+        /// <para>
+        /// <para>The duration in seconds that a worker can be idle before it is scaled down.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSeconds")]
+        public System.Int32? Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond
+        /// <summary>
+        /// <para>
+        /// <para>The duration in seconds that a worker can be idle before it is scaled down.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSeconds")]
+        public System.Int32? Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -674,6 +736,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute = this.Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute;
+            context.Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount = this.Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount;
+            context.Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond = this.Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond;
             context.CustomerManaged_Mode = this.CustomerManaged_Mode;
             context.CustomerManaged_StorageProfileId = this.CustomerManaged_StorageProfileId;
             context.CustomerManaged_TagPropagationMode = this.CustomerManaged_TagPropagationMode;
@@ -699,6 +764,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.WorkerCapabilities_OsFamily = this.WorkerCapabilities_OsFamily;
             context.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max = this.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max;
             context.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min = this.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min;
+            context.Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute = this.Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute;
+            context.Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount = this.Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount;
+            context.Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond = this.Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond;
             context.Count_Max = this.Count_Max;
             context.Count_Min = this.Count_Min;
             if (this.AcceleratorCapabilities_Selection != null)
@@ -833,6 +901,51 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode != null)
             {
                 requestConfiguration_configuration_CustomerManaged.TagPropagationMode = requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode;
+                requestConfiguration_configuration_CustomerManagedIsNull = false;
+            }
+            Amazon.Deadline.Model.CustomerManagedAutoScalingConfiguration requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration = null;
+            
+             // populate AutoScalingConfiguration
+            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfigurationIsNull = true;
+            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration = new Amazon.Deadline.Model.CustomerManagedAutoScalingConfiguration();
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute = null;
+            if (cmdletContext.Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute = cmdletContext.Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration.ScaleOutWorkersPerMinute = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount = null;
+            if (cmdletContext.Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount = cmdletContext.Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration.StandbyWorkerCount = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond = null;
+            if (cmdletContext.Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond = cmdletContext.Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration.WorkerIdleDurationSeconds = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration_configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration should be set to null
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfigurationIsNull)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration = null;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration != null)
+            {
+                requestConfiguration_configuration_CustomerManaged.AutoScalingConfiguration = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_AutoScalingConfiguration;
                 requestConfiguration_configuration_CustomerManagedIsNull = false;
             }
             Amazon.Deadline.Model.CustomerManagedWorkerCapabilities requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities = null;
@@ -1113,6 +1226,51 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration != null)
             {
                 requestConfiguration_configuration_ServiceManagedEc2.VpcConfiguration = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration;
+                requestConfiguration_configuration_ServiceManagedEc2IsNull = false;
+            }
+            Amazon.Deadline.Model.ServiceManagedEc2AutoScalingConfiguration requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration = null;
+            
+             // populate AutoScalingConfiguration
+            var requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfigurationIsNull = true;
+            requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration = new Amazon.Deadline.Model.ServiceManagedEc2AutoScalingConfiguration();
+            System.Int32? requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute = null;
+            if (cmdletContext.Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute = cmdletContext.Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute.Value;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration.ScaleOutWorkersPerMinute = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute.Value;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount = null;
+            if (cmdletContext.Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount = cmdletContext.Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount.Value;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration.StandbyWorkerCount = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount.Value;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond = null;
+            if (cmdletContext.Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond = cmdletContext.Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond.Value;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration.WorkerIdleDurationSeconds = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration_configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond.Value;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration should be set to null
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfigurationIsNull)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration = null;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2.AutoScalingConfiguration = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration;
                 requestConfiguration_configuration_ServiceManagedEc2IsNull = false;
             }
             Amazon.Deadline.Model.ServiceManagedEc2InstanceCapabilities requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities = null;
@@ -1493,6 +1651,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Int32? Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute { get; set; }
+            public System.Int32? Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount { get; set; }
+            public System.Int32? Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond { get; set; }
             public Amazon.Deadline.AutoScalingMode CustomerManaged_Mode { get; set; }
             public System.String CustomerManaged_StorageProfileId { get; set; }
             public Amazon.Deadline.TagPropagationMode CustomerManaged_TagPropagationMode { get; set; }
@@ -1509,6 +1670,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public Amazon.Deadline.CustomerManagedFleetOperatingSystemFamily WorkerCapabilities_OsFamily { get; set; }
             public System.Int32? Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max { get; set; }
             public System.Int32? Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min { get; set; }
+            public System.Int32? Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute { get; set; }
+            public System.Int32? Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount { get; set; }
+            public System.Int32? Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond { get; set; }
             public System.Int32? Count_Max { get; set; }
             public System.Int32? Count_Min { get; set; }
             public List<Amazon.Deadline.Model.AcceleratorSelection> AcceleratorCapabilities_Selection { get; set; }

@@ -36,7 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// level.
     /// 
     ///  
-    /// <para>
+    /// <para><c>GetDataAccess</c> is logged in CloudTrail whenever a principal requests temporary
+    /// data location credentials to access data in a data lake location that is registered
+    /// with Lake Formation.
+    /// </para><para>
     ///  The API operation returns an error in the following scenarios:
     /// </para><ul><li><para>
     /// The data location is not registered with Lake Formation. 

@@ -228,7 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// operation is allowed. When deletion protection is enabled, users cannot delete the
         /// Auto Scaling group according to the specified protection level until the setting is
         /// changed back to a less restrictive level. </para><para> The valid values are <c>none</c>, <c>prevent-force-deletion</c>, and <c>prevent-all-deletion</c>.
-        /// </para><para> Default: <c>none</c></para>
+        /// </para><para> Default: <c>none</c></para><para> For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/resource-deletion-protection.html">
+        /// Configure deletion protection for your Amazon EC2 Auto Scaling resources</a> in the
+        /// <i>Amazon EC2 Auto Scaling User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

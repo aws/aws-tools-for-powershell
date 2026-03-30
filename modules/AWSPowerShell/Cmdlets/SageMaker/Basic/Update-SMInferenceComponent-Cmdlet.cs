@@ -132,6 +132,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? DataCacheConfig_EnableCaching { get; set; }
         #endregion
         
+        #region Parameter Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode
+        /// <summary>
+        /// <para>
+        /// <para>Determines how strictly the Availability Zone balance constraint is enforced.</para><dl><dt>PERMISSIVE</dt><dd><para>The endpoint attempts to balance copies across Availability Zones but proceeds with
+        /// scheduling even if balance can't be achieved due to available capacity or instance
+        /// distribution across Availability Zones.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.AvailabilityZoneBalanceEnforcementMode")]
+        public Amazon.SageMaker.AvailabilityZoneBalanceEnforcementMode Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode { get; set; }
+        #endregion
+        
         #region Parameter Container_Environment
         /// <summary>
         /// <para>
@@ -176,6 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InferenceComponentName { get; set; }
+        #endregion
+        
+        #region Parameter Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance
+        /// <summary>
+        /// <para>
+        /// <para>The maximum allowed difference in the number of inference component copies between
+        /// any two Availability Zones. This parameter applies only when the endpoint has instances
+        /// across two or more Availability Zones. A copy placement is allowed if it reduces imbalance
+        /// or the resulting imbalance is within this value.</para><para>Default value: <c>0</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance { get; set; }
         #endregion
         
         #region Parameter RollingUpdatePolicy_MaximumExecutionTimeoutInSecond
@@ -259,6 +285,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Specification_ComputeResourceRequirements_NumberOfCpuCoresRequired")]
         public System.Single? ComputeResourceRequirements_NumberOfCpuCoresRequired { get; set; }
+        #endregion
+        
+        #region Parameter Specification_SchedulingConfig_PlacementStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The strategy for placing inference component copies across available instances. If
+        /// you also set <c>AvailabilityZoneBalance</c>, this strategy applies to placement within
+        /// each Availability Zone.</para><dl><dt>SPREAD</dt><dd><para>Distributes copies evenly across available instances for better resilience.</para></dd><dt>BINPACK</dt><dd><para>Packs copies onto fewer instances to optimize resource utilization.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.InferenceComponentPlacementStrategy")]
+        public Amazon.SageMaker.InferenceComponentPlacementStrategy Specification_SchedulingConfig_PlacementStrategy { get; set; }
         #endregion
         
         #region Parameter MaximumBatchSize_Type
@@ -402,6 +441,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.Container_Image = this.Container_Image;
             context.DataCacheConfig_EnableCaching = this.DataCacheConfig_EnableCaching;
             context.Specification_ModelName = this.Specification_ModelName;
+            context.Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode = this.Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode;
+            context.Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance = this.Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance;
+            context.Specification_SchedulingConfig_PlacementStrategy = this.Specification_SchedulingConfig_PlacementStrategy;
             context.StartupParameters_ContainerStartupHealthCheckTimeoutInSecond = this.StartupParameters_ContainerStartupHealthCheckTimeoutInSecond;
             context.StartupParameters_ModelDataDownloadTimeoutInSecond = this.StartupParameters_ModelDataDownloadTimeoutInSecond;
             
@@ -631,6 +673,66 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.Specification.DataCacheConfig = requestSpecification_specification_DataCacheConfig;
                 requestSpecificationIsNull = false;
             }
+            Amazon.SageMaker.Model.InferenceComponentSchedulingConfig requestSpecification_specification_SchedulingConfig = null;
+            
+             // populate SchedulingConfig
+            var requestSpecification_specification_SchedulingConfigIsNull = true;
+            requestSpecification_specification_SchedulingConfig = new Amazon.SageMaker.Model.InferenceComponentSchedulingConfig();
+            Amazon.SageMaker.InferenceComponentPlacementStrategy requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_PlacementStrategy = null;
+            if (cmdletContext.Specification_SchedulingConfig_PlacementStrategy != null)
+            {
+                requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_PlacementStrategy = cmdletContext.Specification_SchedulingConfig_PlacementStrategy;
+            }
+            if (requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_PlacementStrategy != null)
+            {
+                requestSpecification_specification_SchedulingConfig.PlacementStrategy = requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_PlacementStrategy;
+                requestSpecification_specification_SchedulingConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.InferenceComponentAvailabilityZoneBalance requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance = null;
+            
+             // populate AvailabilityZoneBalance
+            var requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalanceIsNull = true;
+            requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance = new Amazon.SageMaker.Model.InferenceComponentAvailabilityZoneBalance();
+            Amazon.SageMaker.AvailabilityZoneBalanceEnforcementMode requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance_specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode = null;
+            if (cmdletContext.Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode != null)
+            {
+                requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance_specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode = cmdletContext.Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode;
+            }
+            if (requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance_specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode != null)
+            {
+                requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance.EnforcementMode = requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance_specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode;
+                requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalanceIsNull = false;
+            }
+            System.Int32? requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance_specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance = null;
+            if (cmdletContext.Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance != null)
+            {
+                requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance_specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance = cmdletContext.Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance.Value;
+            }
+            if (requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance_specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance != null)
+            {
+                requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance.MaxImbalance = requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance_specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance.Value;
+                requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalanceIsNull = false;
+            }
+             // determine if requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance should be set to null
+            if (requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalanceIsNull)
+            {
+                requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance = null;
+            }
+            if (requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance != null)
+            {
+                requestSpecification_specification_SchedulingConfig.AvailabilityZoneBalance = requestSpecification_specification_SchedulingConfig_specification_SchedulingConfig_AvailabilityZoneBalance;
+                requestSpecification_specification_SchedulingConfigIsNull = false;
+            }
+             // determine if requestSpecification_specification_SchedulingConfig should be set to null
+            if (requestSpecification_specification_SchedulingConfigIsNull)
+            {
+                requestSpecification_specification_SchedulingConfig = null;
+            }
+            if (requestSpecification_specification_SchedulingConfig != null)
+            {
+                request.Specification.SchedulingConfig = requestSpecification_specification_SchedulingConfig;
+                requestSpecificationIsNull = false;
+            }
             Amazon.SageMaker.Model.InferenceComponentStartupParameters requestSpecification_specification_StartupParameters = null;
             
              // populate StartupParameters
@@ -845,6 +947,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String Container_Image { get; set; }
             public System.Boolean? DataCacheConfig_EnableCaching { get; set; }
             public System.String Specification_ModelName { get; set; }
+            public Amazon.SageMaker.AvailabilityZoneBalanceEnforcementMode Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode { get; set; }
+            public System.Int32? Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance { get; set; }
+            public Amazon.SageMaker.InferenceComponentPlacementStrategy Specification_SchedulingConfig_PlacementStrategy { get; set; }
             public System.Int32? StartupParameters_ContainerStartupHealthCheckTimeoutInSecond { get; set; }
             public System.Int32? StartupParameters_ModelDataDownloadTimeoutInSecond { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateInferenceComponentResponse, UpdateSMInferenceComponentCmdlet, object> Select { get; set; } =

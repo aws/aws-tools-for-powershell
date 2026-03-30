@@ -183,6 +183,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Deadline.dll',
         'AWSSDK.Detective.dll',
         'AWSSDK.DeviceFarm.dll',
+        'AWSSDK.DevOpsAgent.dll',
         'AWSSDK.DevOpsGuru.dll',
         'AWSSDK.DirectConnect.dll',
         'AWSSDK.DirectoryService.dll',

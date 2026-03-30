@@ -783,7 +783,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter StorageConfiguration_StorageSizeGiB
         /// <summary>
         /// <para>
-        /// <para>The size of the tasks volume.</para>
+        /// <para>The size of the data volume.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -846,6 +846,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AutoScalingGroupProvider_ManagedScaling_TargetCapacity")]
         public System.Int32? ManagedScaling_TargetCapacity { get; set; }
+        #endregion
+        
+        #region Parameter ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage
+        /// <summary>
+        /// <para>
+        /// <para>Use instance store volumes for data storage when available. EBS volumes are not provisioned
+        /// for data storage. If the container instance has multiple instance store volumes, a
+        /// single data volume is created. Consider defining instance store requirements using
+        /// the <c>localStorage</c>, <c>localStorageTypes</c> and <c>totalLocalStorageGB</c> properties.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage { get; set; }
         #endregion
         
         #region Parameter Select
@@ -968,6 +981,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.TotalLocalStorageGB_Min = this.TotalLocalStorageGB_Min;
             context.VCpuCount_Max = this.VCpuCount_Max;
             context.VCpuCount_Min = this.VCpuCount_Min;
+            context.ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage = this.ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage;
             context.InstanceLaunchTemplate_Monitoring = this.InstanceLaunchTemplate_Monitoring;
             if (this.NetworkConfiguration_SecurityGroup != null)
             {
@@ -1216,6 +1230,31 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_instanceLaunchTemplate_Monitoring != null)
             {
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.Monitoring = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_instanceLaunchTemplate_Monitoring;
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            Amazon.ECS.Model.ManagedInstancesLocalStorageConfiguration requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration = null;
+            
+             // populate LocalStorageConfiguration
+            var requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfigurationIsNull = true;
+            requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration = new Amazon.ECS.Model.ManagedInstancesLocalStorageConfiguration();
+            System.Boolean? requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage = null;
+            if (cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage = cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage.Value;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration.UseLocalStorage = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage.Value;
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfigurationIsNull = false;
+            }
+             // determine if requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration should be set to null
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfigurationIsNull)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration = null;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.LocalStorageConfiguration = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration;
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
             }
             Amazon.ECS.Model.ManagedInstancesStorageConfiguration requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration = null;
@@ -1921,6 +1960,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Double? TotalLocalStorageGB_Min { get; set; }
             public System.Int32? VCpuCount_Max { get; set; }
             public System.Int32? VCpuCount_Min { get; set; }
+            public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage { get; set; }
             public Amazon.ECS.ManagedInstancesMonitoringOptions InstanceLaunchTemplate_Monitoring { get; set; }
             public List<System.String> NetworkConfiguration_SecurityGroup { get; set; }
             public List<System.String> NetworkConfiguration_Subnet { get; set; }

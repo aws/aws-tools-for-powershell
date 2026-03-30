@@ -30,8 +30,20 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Executes a command in a runtime session container. Returns streaming output with contentStart,
-    /// contentDelta, and contentStop events.
+    /// Executes a command in a runtime session container and streams the output back to the
+    /// caller. This operation allows you to run shell commands within the agent runtime environment
+    /// and receive real-time streaming responses including standard output and standard error.
+    /// 
+    ///  
+    /// <para>
+    /// To invoke a command, you must specify the agent runtime ARN and a runtime session
+    /// ID. The command execution supports streaming responses, allowing you to receive output
+    /// as it becomes available through <c>contentStart</c>, <c>contentDelta</c>, and <c>contentStop</c>
+    /// events.
+    /// </para><para>
+    /// To use this operation, you must have the <c>bedrock-agentcore:InvokeAgentRuntimeCommand</c>
+    /// permission.
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "BACAgentRuntimeCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.InvokeAgentRuntimeCommandResponse")]
@@ -60,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>Account ID (12 digits)</para>
+        /// <para>The identifier of the Amazon Web Services account for the agent runtime resource.
+        /// This parameter is required when you specify an agent ID instead of the full ARN for
+        /// <c>agentRuntimeArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter AgentRuntimeArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the agent runtime</para>
+        /// <para>The Amazon Resource Name (ARN) of the agent runtime on which to execute the command.
+        /// This identifies the specific agent runtime environment where the command will run.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Body_Command
         /// <summary>
         /// <para>
-        /// <para>The command to execute in the runtime container</para>
+        /// <para>The shell command to execute on the agent runtime. This command is executed in the
+        /// runtime environment and its output is streamed back to the caller.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,7 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>Version or alias qualifier</para>
+        /// <para>The qualifier to use for the agent runtime. This is an endpoint name that points to
+        /// a specific version. If not specified, Amazon Bedrock AgentCore uses the default endpoint
+        /// of the agent runtime.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter RuntimeSessionId
         /// <summary>
         /// <para>
-        /// <para>Runtime session identifier</para>
+        /// <para>The unique identifier of the runtime session in which to execute the command. This
+        /// session ID is used to maintain state and context across multiple command invocations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Body_Timeout
         /// <summary>
         /// <para>
-        /// <para>Command timeout in seconds (default: 300, min:1, max: 3600)</para>
+        /// <para>The maximum duration in seconds to wait for the command to complete. If the command
+        /// execution exceeds this timeout, it will be terminated. Default is 300 seconds. Minimum
+        /// is 1 second. Maximum is 3600 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

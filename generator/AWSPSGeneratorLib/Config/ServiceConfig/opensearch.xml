@@ -194,6 +194,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInsightDetails" OutputProperty="Fields" Verb="Get" Noun="InsightDetailDetail" PipelineParameter="InsightId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceTypeLimits" OutputProperty="LimitsByRole" Verb="Get" Noun="InstanceTypeLimit" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -287,6 +291,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDomainsForPackage" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="DomainsForPackageList" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInsights" OutputProperty="Insights" Verb="Get" Noun="InsightList" PipelineParameter="Entity_Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

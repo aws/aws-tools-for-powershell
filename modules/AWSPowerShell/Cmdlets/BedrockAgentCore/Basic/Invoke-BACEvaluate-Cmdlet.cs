@@ -47,6 +47,25 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter EvaluationReferenceInput
+        /// <summary>
+        /// <para>
+        /// <para> Ground truth data to compare against agent responses during evaluation. Allows to
+        /// provide expected responses, assertions, and expected tool trajectories at different
+        /// evaluation levels. Session-level reference inputs apply to the entire conversation,
+        /// while trace-level reference inputs target specific request-response interactions identified
+        /// by trace ID. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EvaluationReferenceInputs")]
+        public Amazon.BedrockAgentCore.Model.EvaluationReferenceInput[] EvaluationReferenceInput { get; set; }
+        #endregion
+        
         #region Parameter EvaluatorId
         /// <summary>
         /// <para>
@@ -167,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 context.EvaluationInput_SessionSpan = new List<Amazon.Runtime.Documents.Document>(this.EvaluationInput_SessionSpan);
             }
+            if (this.EvaluationReferenceInput != null)
+            {
+                context.EvaluationReferenceInput = new List<Amazon.BedrockAgentCore.Model.EvaluationReferenceInput>(this.EvaluationReferenceInput);
+            }
             if (this.EvaluationTarget_SpanId != null)
             {
                 context.EvaluationTarget_SpanId = new List<System.String>(this.EvaluationTarget_SpanId);
@@ -216,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestEvaluationInputIsNull)
             {
                 request.EvaluationInput = null;
+            }
+            if (cmdletContext.EvaluationReferenceInput != null)
+            {
+                request.EvaluationReferenceInputs = cmdletContext.EvaluationReferenceInput;
             }
             
              // populate EvaluationTarget
@@ -306,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.Runtime.Documents.Document> EvaluationInput_SessionSpan { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.EvaluationReferenceInput> EvaluationReferenceInput { get; set; }
             public List<System.String> EvaluationTarget_SpanId { get; set; }
             public List<System.String> EvaluationTarget_TraceId { get; set; }
             public System.String EvaluatorId { get; set; }

@@ -145,6 +145,23 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.InsightEntityType
+        {
+            ($_ -eq "Get-OSInsightDetailDetail/Entity_Type") -Or
+            ($_ -eq "Get-OSInsightList/Entity_Type")
+        }
+        {
+            $v = "Account","DomainName"
+            break
+        }
+
+        # Amazon.OpenSearchService.InsightSortOrder
+        "Get-OSInsightList/SortOrder"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
         # Amazon.OpenSearchService.IPAddressType
         {
             ($_ -eq "New-OSDomain/IPAddressType") -Or
@@ -318,6 +335,7 @@ $OS_map = @{
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
+    "Entity_Type"=@("Get-OSInsightDetailDetail","Get-OSInsightList")
     "IdentityCenterOptions_RolesKey"=@("New-OSDomain","Update-OSDomainConfig")
     "IdentityCenterOptions_SubjectKey"=@("New-OSDomain","Update-OSDomainConfig")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
@@ -329,6 +347,7 @@ $OS_map = @{
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
+    "SortOrder"=@("Get-OSInsightList")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
 }
 
@@ -415,6 +434,7 @@ $OS_SelectMap = @{
                "Get-OSDomainList",
                "Get-OSDryRunProgress",
                "Get-OSInboundConnection",
+               "Get-OSInsightDetailDetail",
                "Get-OSInstanceTypeLimit",
                "Get-OSOutboundConnection",
                "Get-OSPackage",
@@ -439,6 +459,7 @@ $OS_SelectMap = @{
                "Get-OSDomainMaintenanceList",
                "Get-OSDomainNameList",
                "Get-OSDomainsForPackageList",
+               "Get-OSInsightList",
                "Get-OSInstanceTypeDetailList",
                "Get-OSPackagesForDomainList",
                "Get-OSScheduledActionList",

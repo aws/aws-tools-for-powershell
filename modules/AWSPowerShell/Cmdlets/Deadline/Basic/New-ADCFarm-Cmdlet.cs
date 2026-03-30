@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter CostScaleFactor
         /// <summary>
         /// <para>
-        /// <para>The cost scale factor to apply on the farm.</para>
+        /// <para>A multiplier applied to the farm's calculated costs for usage data and budget tracking.
+        /// A value less than 1 represents a discount, a value greater than 1 represents a premium,
+        /// and a value of 1 represents no adjustment. The default value is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -337,6 +337,7 @@ $CWL_SelectMap = @{
                "New-CWLLogAnomalyDetector",
                "New-CWLLogGroup",
                "New-CWLLogStream",
+               "New-CWLLookupTable",
                "New-CWLScheduledQuery",
                "Remove-CWLAccountPolicy",
                "Remove-CWLDataProtectionPolicy",
@@ -350,6 +351,7 @@ $CWL_SelectMap = @{
                "Remove-CWLLogAnomalyDetector",
                "Remove-CWLLogGroup",
                "Remove-CWLLogStream",
+               "Remove-CWLLookupTable",
                "Remove-CWLMetricFilter",
                "Remove-CWLQueryDefinition",
                "Remove-CWLResourcePolicy",
@@ -370,6 +372,7 @@ $CWL_SelectMap = @{
                "Get-CWLIndexPolicy",
                "Get-CWLLogGroup",
                "Get-CWLLogStream",
+               "Get-CWLLookupTableDetail",
                "Get-CWLMetricFilter",
                "Get-CWLQuery",
                "Get-CWLQueryDefinition",
@@ -390,6 +393,7 @@ $CWL_SelectMap = @{
                "Get-CWLLogGroupField",
                "Get-CWLLogObject",
                "Get-CWLLogRecord",
+               "Get-CWLLookupTable",
                "Get-CWLQueryResult",
                "Get-CWLScheduledQuery",
                "Get-CWLScheduledQueryHistory",
@@ -434,6 +438,7 @@ $CWL_SelectMap = @{
                "Update-CWLAnomaly",
                "Update-CWLDeliveryConfiguration",
                "Update-CWLLogAnomalyDetector",
+               "Update-CWLLookupTable",
                "Update-CWLScheduledQuery")
 }
 

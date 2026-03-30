@@ -1,4 +1,30 @@
-﻿### 5.0.184 (2026-03-27 21:36Z)
+﻿### 5.0.185 (2026-03-30 20:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.221.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Modified cmdlet New-APSStack: added parameters ContentRedirection_HostToClient_AllowedUrl, ContentRedirection_HostToClient_DeniedUrl and ContentRedirection_HostToClient_Enabled.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCFleet: added parameters Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute, Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount, Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond, Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute, Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount and Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond.
+    * Modified cmdlet Update-ADCFleet: added parameters Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute, Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount, Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond, Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute, Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount and Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Invoke-BACEvaluate: added parameter EvaluationReferenceInput.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLLookupTable leveraging the GetLookupTable service API.
+    * Added cmdlet Get-CWLLookupTableDetail leveraging the DescribeLookupTables service API.
+    * Added cmdlet New-CWLLookupTable leveraging the CreateLookupTable service API.
+    * Added cmdlet Remove-CWLLookupTable leveraging the DeleteLookupTable service API.
+    * Added cmdlet Update-CWLLookupTable leveraging the UpdateLookupTable service API.
+  * Amazon DevOps Agent Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix DOPS and can be listed using the command 'Get-AWSCmdletName -Service DOPS'.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSCapacityProvider: added parameter ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage.
+    * Modified cmdlet Update-ECSCapacityProvider: added parameter ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSInsightDetailDetail leveraging the DescribeInsightDetails service API.
+    * Added cmdlet Get-OSInsightList leveraging the ListInsights service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceComponent: added parameters Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode, Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance and Specification_SchedulingConfig_PlacementStrategy.
+    * Modified cmdlet Update-SMInferenceComponent: added parameters Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode, Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance and Specification_SchedulingConfig_PlacementStrategy.
+
+### 5.0.184 (2026-03-27 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.220.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCEvaluator: added parameters EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn and EvaluatorConfig_CodeBased_LambdaConfig_LambdaTimeoutInSecond.
