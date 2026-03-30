@@ -861,6 +861,16 @@
         <Mapping Verb="Stop" Weight="2" />
       </Mappings>
     </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Insert">
+      <Mappings>
+        <Mapping Verb="Add" Weight="100" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Drain">
+      <Mappings>
+        <Mapping Verb="Clear" Weight="100" />
+      </Mappings>
+    </ServiceOperationVerb>
   </VerbMappings>
 
   <TypesNotToFlatten>
