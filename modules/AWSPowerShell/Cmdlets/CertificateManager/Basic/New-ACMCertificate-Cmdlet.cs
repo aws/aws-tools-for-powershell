@@ -134,7 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Options_Export
         /// <summary>
         /// <para>
-        /// <para>You can opt in to allow the export of your certificates by specifying <c>ENABLED</c>.</para>
+        /// <para>You can opt in to allow the export of your certificates by specifying <c>ENABLED</c>.
+        /// You cannot update the value of <c>Export</c> after the the certificate is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// only support ECDSA keys of a particular size, while others allow the use of either
         /// RSA and ECDSA keys to ensure that compatibility is not broken. Check the requirements
         /// for the Amazon Web Services service where you plan to deploy your certificate. For
-        /// more information about selecting an algorithm, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms">Key
+        /// more information about selecting an algorithm, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate-characteristics.html#algorithms-term">Key
         /// algorithms</a>.</para><note><para>Algorithms supported for an ACM certificate request include: </para><ul><li><para><c>RSA_2048</c></para></li><li><para><c>EC_prime256v1</c></para></li><li><para><c>EC_secp384r1</c></para></li></ul><para>Other listed algorithms are for imported certificates only. </para></note><note><para>When you request a private PKI certificate signed by a CA from Amazon Web Services
         /// Private CA, the specified signing algorithm family (RSA or ECDSA) must match the algorithm
         /// family of the CA's secret key.</para></note><para>Default: RSA_2048</para>

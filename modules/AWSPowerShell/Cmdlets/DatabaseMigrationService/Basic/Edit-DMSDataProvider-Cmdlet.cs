@@ -351,6 +351,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Settings_IbmDb2LuwSettings_EncryptionAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para> The encryption algorithm used for securing the connection to the IBM DB2 LUW database
+        /// server. You can provide an integer value corresponding to a specific encryption algorithm,
+        /// or leave this parameter empty to use the default behavior. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Settings_IbmDb2LuwSettings_EncryptionAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter SybaseAseSettings_EncryptPassword
         /// <summary>
         /// <para>
@@ -748,6 +760,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String OracleSettings_SecretsManagerSecurityDbEncryptionSecretId { get; set; }
         #endregion
         
+        #region Parameter Settings_IbmDb2LuwSettings_SecurityMechanism
+        /// <summary>
+        /// <para>
+        /// <para> The security mechanism used for authenticating the connection to the IBM DB2 LUW
+        /// database server. You can provide an integer value corresponding to a specific security
+        /// mechanism, or leave this parameter empty to use the default behavior. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Settings_IbmDb2LuwSettings_SecurityMechanism { get; set; }
+        #endregion
+        
         #region Parameter DocDbSettings_ServerName
         /// <summary>
         /// <para>
@@ -1068,9 +1092,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.DocDbSettings_SslMode = this.DocDbSettings_SslMode;
             context.IbmDb2LuwSettings_CertificateArn = this.IbmDb2LuwSettings_CertificateArn;
             context.IbmDb2LuwSettings_DatabaseName = this.IbmDb2LuwSettings_DatabaseName;
+            context.Settings_IbmDb2LuwSettings_EncryptionAlgorithm = this.Settings_IbmDb2LuwSettings_EncryptionAlgorithm;
             context.IbmDb2LuwSettings_Port = this.IbmDb2LuwSettings_Port;
             context.IbmDb2LuwSettings_S3AccessRoleArn = this.IbmDb2LuwSettings_S3AccessRoleArn;
             context.IbmDb2LuwSettings_S3Path = this.IbmDb2LuwSettings_S3Path;
+            context.Settings_IbmDb2LuwSettings_SecurityMechanism = this.Settings_IbmDb2LuwSettings_SecurityMechanism;
             context.IbmDb2LuwSettings_ServerName = this.IbmDb2LuwSettings_ServerName;
             context.IbmDb2LuwSettings_SslMode = this.IbmDb2LuwSettings_SslMode;
             context.IbmDb2zOsSettings_CertificateArn = this.IbmDb2zOsSettings_CertificateArn;
@@ -1533,91 +1559,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.Settings.SybaseAseSettings = requestSettings_settings_SybaseAseSettings;
                 requestSettingsIsNull = false;
             }
-            Amazon.DatabaseMigrationService.Model.IbmDb2LuwDataProviderSettings requestSettings_settings_IbmDb2LuwSettings = null;
-            
-             // populate IbmDb2LuwSettings
-            var requestSettings_settings_IbmDb2LuwSettingsIsNull = true;
-            requestSettings_settings_IbmDb2LuwSettings = new Amazon.DatabaseMigrationService.Model.IbmDb2LuwDataProviderSettings();
-            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn = null;
-            if (cmdletContext.IbmDb2LuwSettings_CertificateArn != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn = cmdletContext.IbmDb2LuwSettings_CertificateArn;
-            }
-            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings.CertificateArn = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn;
-                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
-            }
-            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName = null;
-            if (cmdletContext.IbmDb2LuwSettings_DatabaseName != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName = cmdletContext.IbmDb2LuwSettings_DatabaseName;
-            }
-            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings.DatabaseName = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName;
-                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
-            }
-            System.Int32? requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port = null;
-            if (cmdletContext.IbmDb2LuwSettings_Port != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port = cmdletContext.IbmDb2LuwSettings_Port.Value;
-            }
-            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings.Port = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port.Value;
-                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
-            }
-            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3AccessRoleArn = null;
-            if (cmdletContext.IbmDb2LuwSettings_S3AccessRoleArn != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3AccessRoleArn = cmdletContext.IbmDb2LuwSettings_S3AccessRoleArn;
-            }
-            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3AccessRoleArn != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings.S3AccessRoleArn = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3AccessRoleArn;
-                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
-            }
-            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3Path = null;
-            if (cmdletContext.IbmDb2LuwSettings_S3Path != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3Path = cmdletContext.IbmDb2LuwSettings_S3Path;
-            }
-            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3Path != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings.S3Path = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3Path;
-                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
-            }
-            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName = null;
-            if (cmdletContext.IbmDb2LuwSettings_ServerName != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName = cmdletContext.IbmDb2LuwSettings_ServerName;
-            }
-            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings.ServerName = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName;
-                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
-            }
-            Amazon.DatabaseMigrationService.DmsSslModeValue requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode = null;
-            if (cmdletContext.IbmDb2LuwSettings_SslMode != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode = cmdletContext.IbmDb2LuwSettings_SslMode;
-            }
-            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode != null)
-            {
-                requestSettings_settings_IbmDb2LuwSettings.SslMode = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode;
-                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
-            }
-             // determine if requestSettings_settings_IbmDb2LuwSettings should be set to null
-            if (requestSettings_settings_IbmDb2LuwSettingsIsNull)
-            {
-                requestSettings_settings_IbmDb2LuwSettings = null;
-            }
-            if (requestSettings_settings_IbmDb2LuwSettings != null)
-            {
-                request.Settings.IbmDb2LuwSettings = requestSettings_settings_IbmDb2LuwSettings;
-                requestSettingsIsNull = false;
-            }
             Amazon.DatabaseMigrationService.Model.IbmDb2zOsDataProviderSettings requestSettings_settings_IbmDb2zOsSettings = null;
             
              // populate IbmDb2zOsSettings
@@ -1968,6 +1909,111 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.Settings.MongoDbSettings = requestSettings_settings_MongoDbSettings;
                 requestSettingsIsNull = false;
             }
+            Amazon.DatabaseMigrationService.Model.IbmDb2LuwDataProviderSettings requestSettings_settings_IbmDb2LuwSettings = null;
+            
+             // populate IbmDb2LuwSettings
+            var requestSettings_settings_IbmDb2LuwSettingsIsNull = true;
+            requestSettings_settings_IbmDb2LuwSettings = new Amazon.DatabaseMigrationService.Model.IbmDb2LuwDataProviderSettings();
+            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn = null;
+            if (cmdletContext.IbmDb2LuwSettings_CertificateArn != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn = cmdletContext.IbmDb2LuwSettings_CertificateArn;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.CertificateArn = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName = null;
+            if (cmdletContext.IbmDb2LuwSettings_DatabaseName != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName = cmdletContext.IbmDb2LuwSettings_DatabaseName;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.DatabaseName = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_IbmDb2LuwSettings_settings_IbmDb2LuwSettings_EncryptionAlgorithm = null;
+            if (cmdletContext.Settings_IbmDb2LuwSettings_EncryptionAlgorithm != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_settings_IbmDb2LuwSettings_EncryptionAlgorithm = cmdletContext.Settings_IbmDb2LuwSettings_EncryptionAlgorithm.Value;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_settings_IbmDb2LuwSettings_EncryptionAlgorithm != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.EncryptionAlgorithm = requestSettings_settings_IbmDb2LuwSettings_settings_IbmDb2LuwSettings_EncryptionAlgorithm.Value;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port = null;
+            if (cmdletContext.IbmDb2LuwSettings_Port != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port = cmdletContext.IbmDb2LuwSettings_Port.Value;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.Port = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port.Value;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3AccessRoleArn = null;
+            if (cmdletContext.IbmDb2LuwSettings_S3AccessRoleArn != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3AccessRoleArn = cmdletContext.IbmDb2LuwSettings_S3AccessRoleArn;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3AccessRoleArn != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.S3AccessRoleArn = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3AccessRoleArn;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3Path = null;
+            if (cmdletContext.IbmDb2LuwSettings_S3Path != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3Path = cmdletContext.IbmDb2LuwSettings_S3Path;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3Path != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.S3Path = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_S3Path;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_IbmDb2LuwSettings_settings_IbmDb2LuwSettings_SecurityMechanism = null;
+            if (cmdletContext.Settings_IbmDb2LuwSettings_SecurityMechanism != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_settings_IbmDb2LuwSettings_SecurityMechanism = cmdletContext.Settings_IbmDb2LuwSettings_SecurityMechanism.Value;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_settings_IbmDb2LuwSettings_SecurityMechanism != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.SecurityMechanism = requestSettings_settings_IbmDb2LuwSettings_settings_IbmDb2LuwSettings_SecurityMechanism.Value;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName = null;
+            if (cmdletContext.IbmDb2LuwSettings_ServerName != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName = cmdletContext.IbmDb2LuwSettings_ServerName;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.ServerName = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.DmsSslModeValue requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode = null;
+            if (cmdletContext.IbmDb2LuwSettings_SslMode != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode = cmdletContext.IbmDb2LuwSettings_SslMode;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.SslMode = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+             // determine if requestSettings_settings_IbmDb2LuwSettings should be set to null
+            if (requestSettings_settings_IbmDb2LuwSettingsIsNull)
+            {
+                requestSettings_settings_IbmDb2LuwSettings = null;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings != null)
+            {
+                request.Settings.IbmDb2LuwSettings = requestSettings_settings_IbmDb2LuwSettings;
+                requestSettingsIsNull = false;
+            }
             Amazon.DatabaseMigrationService.Model.OracleDataProviderSettings requestSettings_settings_OracleSettings = null;
             
              // populate OracleSettings
@@ -2179,9 +2225,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public Amazon.DatabaseMigrationService.DmsSslModeValue DocDbSettings_SslMode { get; set; }
             public System.String IbmDb2LuwSettings_CertificateArn { get; set; }
             public System.String IbmDb2LuwSettings_DatabaseName { get; set; }
+            public System.Int32? Settings_IbmDb2LuwSettings_EncryptionAlgorithm { get; set; }
             public System.Int32? IbmDb2LuwSettings_Port { get; set; }
             public System.String IbmDb2LuwSettings_S3AccessRoleArn { get; set; }
             public System.String IbmDb2LuwSettings_S3Path { get; set; }
+            public System.Int32? Settings_IbmDb2LuwSettings_SecurityMechanism { get; set; }
             public System.String IbmDb2LuwSettings_ServerName { get; set; }
             public Amazon.DatabaseMigrationService.DmsSslModeValue IbmDb2LuwSettings_SslMode { get; set; }
             public System.String IbmDb2zOsSettings_CertificateArn { get; set; }

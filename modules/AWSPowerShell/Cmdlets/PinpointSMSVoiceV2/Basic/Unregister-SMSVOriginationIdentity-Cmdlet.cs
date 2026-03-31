@@ -53,17 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter IsoCountryCode
         /// <summary>
         /// <para>
-        /// <para>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </para>
+        /// <para>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. This
+        /// field is optional and is not required for origination identity types that are not
+        /// country-specific, such as RCS agents.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IsoCountryCode { get; set; }
         #endregion
         
@@ -167,12 +162,6 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             context.ClientToken = this.ClientToken;
             context.IsoCountryCode = this.IsoCountryCode;
-            #if MODULAR
-            if (this.IsoCountryCode == null && ParameterWasBound(nameof(this.IsoCountryCode)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IsoCountryCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.OriginationIdentity = this.OriginationIdentity;
             #if MODULAR
             if (this.OriginationIdentity == null && ParameterWasBound(nameof(this.OriginationIdentity)))

@@ -98,8 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// are used to send the emails. This must be the same as the <c>Domain</c> value or a
         /// superdomain of the <c>Domain</c> value. For example, if you requested a certificate
         /// for <c>site.subdomain.example.com</c> and specify a <b>ValidationDomain</b> of <c>subdomain.example.com</c>,
-        /// ACM sends email to the domain registrant, technical contact, and administrative contact
-        /// in WHOIS and the following five addresses:</para><ul><li><para>admin@subdomain.example.com</para></li><li><para>administrator@subdomain.example.com</para></li><li><para>hostmaster@subdomain.example.com</para></li><li><para>postmaster@subdomain.example.com</para></li><li><para>webmaster@subdomain.example.com</para></li></ul>
+        /// ACM sends email to the the following five addresses:</para><ul><li><para>admin@subdomain.example.com</para></li><li><para>administrator@subdomain.example.com</para></li><li><para>hostmaster@subdomain.example.com</para></li><li><para>postmaster@subdomain.example.com</para></li><li><para>webmaster@subdomain.example.com</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

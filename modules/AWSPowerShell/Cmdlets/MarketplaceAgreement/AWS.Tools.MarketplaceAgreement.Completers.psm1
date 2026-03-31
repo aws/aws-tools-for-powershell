@@ -80,6 +80,41 @@ $MAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceAgreement.AgreementCancellationRequestReasonCode
+        "Send-MASAgreementCancellationRequest/ReasonCode"
+        {
+            $v = "ALTERNATIVE_PROCUREMENT_CHANNEL","BUYER_DISSATISFACTION","INCORRECT_TERMS_ACCEPTED","OTHER","PRODUCT_DISCONTINUED","REPLACING_AGREEMENT","TEST_AGREEMENT","UNINTENDED_RENEWAL"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.AgreementCancellationRequestStatus
+        "Get-MASAgreementCancellationRequestList/Status"
+        {
+            $v = "APPROVED","CANCELLED","PENDING_APPROVAL","REJECTED","VALIDATION_FAILED"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.BillingAdjustmentStatus
+        "Get-MASBillingAdjustmentRequestList/Status"
+        {
+            $v = "COMPLETED","PENDING","VALIDATION_FAILED"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.InvoiceType
+        "Get-MASAgreementInvoiceLineItemList/InvoiceType"
+        {
+            $v = "CREDIT_MEMO","INVOICE"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.LineItemGroupBy
+        "Get-MASAgreementInvoiceLineItemList/GroupBy"
+        {
+            $v = "INVOICE_ID"
+            break
+        }
+
         # Amazon.MarketplaceAgreement.PaymentRequestStatus
         "Get-MASAgreementPaymentRequestList/Status"
         {
@@ -103,8 +138,11 @@ $MAS_Completers = {
 }
 
 $MAS_map = @{
+    "GroupBy"=@("Get-MASAgreementInvoiceLineItemList")
+    "InvoiceType"=@("Get-MASAgreementInvoiceLineItemList")
+    "ReasonCode"=@("Send-MASAgreementCancellationRequest")
     "Sort_SortOrder"=@("Search-MASAgreement")
-    "Status"=@("Get-MASAgreementPaymentRequestList")
+    "Status"=@("Get-MASAgreementCancellationRequestList","Get-MASAgreementPaymentRequestList","Get-MASBillingAdjustmentRequestList")
 }
 
 _awsArgumentCompleterRegistration $MAS_Completers $MAS_map
@@ -157,12 +195,20 @@ $MAS_SelectCompleters = {
 }
 
 $MAS_SelectMap = @{
-    "Select"=@("Stop-MASAgreementPaymentRequest",
+    "Select"=@("New-MASBillingAdjustmentRequestBatch",
+               "Stop-MASAgreementCancellationRequest",
+               "Stop-MASAgreementPaymentRequest",
                "Get-MASAgreement",
+               "Get-MASAgreementCancellationRequest",
                "Get-MASAgreementPaymentRequest",
                "Get-MASAgreementTerm",
+               "Get-MASBillingAdjustmentRequest",
+               "Get-MASAgreementCancellationRequestList",
+               "Get-MASAgreementInvoiceLineItemList",
                "Get-MASAgreementPaymentRequestList",
+               "Get-MASBillingAdjustmentRequestList",
                "Search-MASAgreement",
+               "Send-MASAgreementCancellationRequest",
                "Send-MASAgreementPaymentRequest")
 }
 

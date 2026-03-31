@@ -125,6 +125,20 @@ $ACM_Completers = {
             break
         }
 
+        # Amazon.CertificateManager.SearchCertificatesSortBy
+        "Search-ACMCertificate/SortBy"
+        {
+            $v = "CERTIFICATE_ARN","COMMON_NAME","CREATED_AT","EXPORTED","EXPORT_OPTION","IMPORTED_AT","IN_USE","ISSUED_AT","KEY_ALGORITHM","MANAGED_BY","NOT_AFTER","NOT_BEFORE","RENEWAL_ELIGIBILITY","RENEWAL_STATUS","REVOKED_AT","STATUS","TYPE","VALIDATION_METHOD"
+            break
+        }
+
+        # Amazon.CertificateManager.SearchCertificatesSortOrder
+        "Search-ACMCertificate/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.CertificateManager.SortBy
         "Get-ACMCertificateList/SortBy"
         {
@@ -162,8 +176,8 @@ $ACM_map = @{
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "Options_Export"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "RevocationReason"=@("Revoke-ACMCertificate")
-    "SortBy"=@("Get-ACMCertificateList")
-    "SortOrder"=@("Get-ACMCertificateList")
+    "SortBy"=@("Get-ACMCertificateList","Search-ACMCertificate")
+    "SortOrder"=@("Get-ACMCertificateList","Search-ACMCertificate")
     "ValidationMethod"=@("New-ACMCertificate")
 }
 
@@ -232,6 +246,7 @@ $ACM_SelectMap = @{
                "New-ACMCertificate",
                "Send-ACMValidationEmail",
                "Revoke-ACMCertificate",
+               "Search-ACMCertificate",
                "Update-ACMCertificateOption")
 }
 

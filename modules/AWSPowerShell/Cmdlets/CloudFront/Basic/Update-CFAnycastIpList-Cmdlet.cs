@@ -91,6 +91,22 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
         #endregion
         
+        #region Parameter IpamCidrConfig
+        /// <summary>
+        /// <para>
+        /// <para> A list of IPAM CIDR configurations that specify the IP address ranges and IPAM pool
+        /// settings for updating the Anycast static IP list. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IpamCidrConfigs")]
+        public Amazon.CloudFront.Model.IpamCidrConfig[] IpamCidrConfig { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AnycastIpList'.
@@ -152,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             #endif
             context.IpAddressType = this.IpAddressType;
+            if (this.IpamCidrConfig != null)
+            {
+                context.IpamCidrConfig = new List<Amazon.CloudFront.Model.IpamCidrConfig>(this.IpamCidrConfig);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (cmdletContext.IpAddressType != null)
             {
                 request.IpAddressType = cmdletContext.IpAddressType;
+            }
+            if (cmdletContext.IpamCidrConfig != null)
+            {
+                request.IpamCidrConfigs = cmdletContext.IpamCidrConfig;
             }
             
             CmdletOutput output;
@@ -238,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.String Id { get; set; }
             public System.String IfMatch { get; set; }
             public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
+            public List<Amazon.CloudFront.Model.IpamCidrConfig> IpamCidrConfig { get; set; }
             public System.Func<Amazon.CloudFront.Model.UpdateAnycastIpListResponse, UpdateCFAnycastIpListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AnycastIpList;
         }

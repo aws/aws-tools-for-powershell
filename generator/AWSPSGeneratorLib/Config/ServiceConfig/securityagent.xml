@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>securityagent</C2jFilename>
+    <AssemblyName>SecurityAgent</AssemblyName>
+    <ServiceNounPrefix>SECAG</ServiceNounPrefix>
+    <ServiceName>AWS Security Agent</ServiceName>
+    <ServiceId>SecurityAgent</ServiceId>
+    <ServiceClientInterface>IAmazonSecurityAgent</ServiceClientInterface>
+    <ServiceClient>AmazonSecurityAgentClient</ServiceClient>
+    <ServiceModuleGuid>53b910cb-198a-4f11-b682-dafd0a473d07</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddArtifact" OutputProperty="ArtifactId" Verb="Add" Noun="Artifact" ShouldProcessTarget="AgentSpaceId,FileName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeletePentests" OutputProperty="*" Verb="Remove" Noun="PentestBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetAgentSpaces" OutputProperty="*" Verb="Get" Noun="AgentSpaceBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetArtifactMetadata" OutputProperty="ArtifactMetadataList" Verb="Get" Noun="ArtifactMetadataBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetFindings" OutputProperty="*" Verb="Get" Noun="FindingBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetPentestJobs" OutputProperty="*" Verb="Get" Noun="PentestJobBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetPentestJobTasks" OutputProperty="*" Verb="Get" Noun="PentestJobTaskBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetPentests" OutputProperty="*" Verb="Get" Noun="PentestBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetTargetDomains" OutputProperty="*" Verb="Get" Noun="TargetDomainBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentSpace" OutputProperty="*" Verb="New" Noun="AgentSpace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationId" Verb="New" Noun="Application" ShouldProcessTarget="DefaultKmsKeyId,IdcInstanceArn,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntegration" OutputProperty="IntegrationId" Verb="New" Noun="Integration" ShouldProcessTarget="IntegrationDisplayName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMembership" Verb="New" Noun="Membership" ShouldProcessTarget="MembershipId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePentest" OutputProperty="*" Verb="New" Noun="Pentest" ShouldProcessTarget="AgentSpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTargetDomain" OutputProperty="*" Verb="New" Noun="TargetDomain" ShouldProcessTarget="TargetDomainName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentSpace" OutputProperty="AgentSpaceId" Verb="Remove" Noun="AgentSpace" ShouldProcessTarget="AgentSpaceId" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteArtifact" Verb="Remove" Noun="Artifact" ShouldProcessTarget="ArtifactId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntegration" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="IntegrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMembership" Verb="Remove" Noun="Membership" ShouldProcessTarget="MembershipId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTargetDomain" OutputProperty="TargetDomainId" Verb="Remove" Noun="TargetDomain" ShouldProcessTarget="TargetDomainId" PipelineParameter="TargetDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetArtifact" OutputProperty="*" Verb="Get" Noun="Artifact" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIntegration" OutputProperty="*" Verb="Get" Noun="Integration" PipelineParameter="IntegrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InitiateProviderRegistration" OutputProperty="*" Verb="Start" Noun="ProviderRegistration" ShouldProcessTarget="Provider" PipelineParameter="Provider" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentSpaces" OutputProperty="AgentSpaceSummaries" Verb="Get" Noun="AgentSpaceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListArtifacts" OutputProperty="ArtifactSummaries" Verb="Get" Noun="ArtifactList" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoveredEndpoints" OutputProperty="DiscoveredEndpoints" Verb="Get" Noun="DiscoveredEndpointList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingsSummaries" Verb="Get" Noun="FindingList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIntegratedResources" OutputProperty="IntegratedResourceSummaries" Verb="Get" Noun="IntegratedResourceList" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIntegrations" OutputProperty="IntegrationSummaries" Verb="Get" Noun="IntegrationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMemberships" OutputProperty="MembershipSummaries" Verb="Get" Noun="MembershipList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPentestJobsForPentest" OutputProperty="PentestJobSummaries" Verb="Get" Noun="PentestJobsForPentestList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPentestJobTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="PentestJobTaskList" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPentests" OutputProperty="PentestSummaries" Verb="Get" Noun="PentestList" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTargetDomains" OutputProperty="TargetDomainSummaries" Verb="Get" Noun="TargetDomainList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCodeRemediation" Verb="Start" Noun="CodeRemediation" ShouldProcessTarget="AgentSpaceId,PentestJobId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPentestJob" OutputProperty="*" Verb="Start" Noun="PentestJob" ShouldProcessTarget="AgentSpaceId,PentestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopPentestJob" Verb="Stop" Noun="PentestJob" ShouldProcessTarget="PentestJobId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentSpace" OutputProperty="*" Verb="Update" Noun="AgentSpace" ShouldProcessTarget="AgentSpaceId" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="ApplicationId" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFinding" Verb="Update" Noun="Finding" ShouldProcessTarget="FindingId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIntegratedResources" Verb="Update" Noun="IntegratedResource" ShouldProcessTarget="AgentSpaceId,IntegrationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePentest" OutputProperty="*" Verb="Update" Noun="Pentest" ShouldProcessTarget="PentestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTargetDomain" OutputProperty="*" Verb="Update" Noun="TargetDomain" ShouldProcessTarget="TargetDomainId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyTargetDomain" OutputProperty="*" Verb="Confirm" Noun="TargetDomain" ShouldProcessTarget="TargetDomainId" PipelineParameter="TargetDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

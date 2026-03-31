@@ -162,7 +162,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.PostRegisterServiceSupportedService
         "Register-DOPSService/Service"
         {
-            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","servicenow"
+            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversplunk","pagerduty","servicenow"
             break
         }
 
@@ -200,7 +200,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.Service
         "Get-DOPSServiceList/FilterServiceType"
         {
-            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","msteams","pagerduty","servicenow","slack"
+            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversplunk","pagerduty","servicenow","slack"
             break
         }
 
@@ -339,11 +339,9 @@ $DOPS_SelectMap = @{
                "Remove-DOPSPrivateConnection",
                "Unregister-DOPSService",
                "Get-DOPSPrivateConnectionDetail",
-               "Get-DOPSSupportLevelDetail",
                "Disable-DOPSOperatorApp",
                "Remove-DOPSService",
                "Enable-DOPSOperatorApp",
-               "Close-DOPSChatForCase",
                "Get-DOPSAccountUsage",
                "Get-DOPSAgentSpace",
                "Get-DOPSAssociation",
@@ -351,7 +349,6 @@ $DOPS_SelectMap = @{
                "Get-DOPSOperatorApp",
                "Get-DOPSRecommendation",
                "Get-DOPSService",
-               "Start-DOPSChatForCase",
                "Get-DOPSAgentSpaceList",
                "Get-DOPSAssociationList",
                "Get-DOPSBacklogTaskList",

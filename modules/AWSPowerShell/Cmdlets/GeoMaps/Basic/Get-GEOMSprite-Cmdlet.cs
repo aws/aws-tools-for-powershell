@@ -53,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         #region Parameter ColorScheme
         /// <summary>
         /// <para>
-        /// <para>Sets color tone for map such as dark and light for specific map styles. It applies
-        /// to only vector map styles such as Standard and Monochrome.</para><para>Example: <c>Light</c></para><para>Default value: <c>Light</c></para><note><para>Valid values for ColorScheme are case sensitive.</para></note>
+        /// <para>Sets the color tone for the map sprites, such as dark and light.</para><para>Example: <c>Light</c></para><para>Default value: <c>Light</c></para><note><para>Valid values for ColorScheme are case sensitive.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

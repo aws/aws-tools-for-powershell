@@ -570,16 +570,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Mcpservergrafana_Description { get; set; }
         #endregion
         
-        #region Parameter ServiceDetails_Mcpserversigv4_Description
-        /// <summary>
-        /// <para>
-        /// <para>Optional description for the MCP server.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceDetails_Mcpserversigv4_Description { get; set; }
-        #endregion
-        
         #region Parameter ServiceDetails_Mcpserversplunk_Description
         /// <summary>
         /// <para>
@@ -618,16 +608,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpservergrafana_Endpoint { get; set; }
-        #endregion
-        
-        #region Parameter ServiceDetails_Mcpserversigv4_Endpoint
-        /// <summary>
-        /// <para>
-        /// <para>MCP server endpoint URL.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceDetails_Mcpserversigv4_Endpoint { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpserversplunk_Endpoint
@@ -921,16 +901,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Mcpservergrafana_Name { get; set; }
         #endregion
         
-        #region Parameter ServiceDetails_Mcpserversigv4_Name
-        /// <summary>
-        /// <para>
-        /// <para>MCP server name.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceDetails_Mcpserversigv4_Name { get; set; }
-        #endregion
-        
         #region Parameter ServiceDetails_Mcpserversplunk_Name
         /// <summary>
         /// <para>
@@ -960,16 +930,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DevOpsAgent.NewRelicRegion")]
         public Amazon.DevOpsAgent.NewRelicRegion ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_Region { get; set; }
-        #endregion
-        
-        #region Parameter ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region
-        /// <summary>
-        /// <para>
-        /// <para>AWS region for SigV4 signing.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_AuthorizationDiscovery_ReturnToEndpoint
@@ -1040,16 +1000,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_ReturnToEndpoint { get; set; }
-        #endregion
-        
-        #region Parameter ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn
-        /// <summary>
-        /// <para>
-        /// <para>IAM role ARN to assume for SigV4 signing.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_Scope
@@ -1172,16 +1122,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.DevOpsAgent.PostRegisterServiceSupportedService")]
         public Amazon.DevOpsAgent.PostRegisterServiceSupportedService Service { get; set; }
-        #endregion
-        
-        #region Parameter ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service
-        /// <summary>
-        /// <para>
-        /// <para>AWS service name for SigV4 signing.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_SupportCodeChallenge
@@ -1558,12 +1498,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 context.ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_EntityGuid = new List<System.String>(this.ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_EntityGuid);
             }
             context.ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_Region = this.ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_Region;
-            context.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region = this.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region;
-            context.ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn = this.ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn;
-            context.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service = this.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service;
-            context.ServiceDetails_Mcpserversigv4_Description = this.ServiceDetails_Mcpserversigv4_Description;
-            context.ServiceDetails_Mcpserversigv4_Endpoint = this.ServiceDetails_Mcpserversigv4_Endpoint;
-            context.ServiceDetails_Mcpserversigv4_Name = this.ServiceDetails_Mcpserversigv4_Name;
             context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyHeader = this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyHeader;
             context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyName = this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyName;
             context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyValue = this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyValue;
@@ -3000,96 +2934,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.ServiceDetails.Mcpservergrafana = requestServiceDetails_serviceDetails_Mcpservergrafana;
                 requestServiceDetailsIsNull = false;
             }
-            Amazon.DevOpsAgent.Model.MCPServerSigV4ServiceDetails requestServiceDetails_serviceDetails_Mcpserversigv4 = null;
-            
-             // populate Mcpserversigv4
-            var requestServiceDetails_serviceDetails_Mcpserversigv4IsNull = true;
-            requestServiceDetails_serviceDetails_Mcpserversigv4 = new Amazon.DevOpsAgent.Model.MCPServerSigV4ServiceDetails();
-            System.String requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Description = null;
-            if (cmdletContext.ServiceDetails_Mcpserversigv4_Description != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Description = cmdletContext.ServiceDetails_Mcpserversigv4_Description;
-            }
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Description != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4.Description = requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Description;
-                requestServiceDetails_serviceDetails_Mcpserversigv4IsNull = false;
-            }
-            System.String requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Endpoint = null;
-            if (cmdletContext.ServiceDetails_Mcpserversigv4_Endpoint != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Endpoint = cmdletContext.ServiceDetails_Mcpserversigv4_Endpoint;
-            }
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Endpoint != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4.Endpoint = requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Endpoint;
-                requestServiceDetails_serviceDetails_Mcpserversigv4IsNull = false;
-            }
-            System.String requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Name = null;
-            if (cmdletContext.ServiceDetails_Mcpserversigv4_Name != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Name = cmdletContext.ServiceDetails_Mcpserversigv4_Name;
-            }
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Name != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4.Name = requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_Name;
-                requestServiceDetails_serviceDetails_Mcpserversigv4IsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.MCPServerSigV4AuthorizationConfig requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig = null;
-            
-             // populate AuthorizationConfig
-            var requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfigIsNull = true;
-            requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig = new Amazon.DevOpsAgent.Model.MCPServerSigV4AuthorizationConfig();
-            System.String requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_Region = null;
-            if (cmdletContext.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_Region = cmdletContext.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region;
-            }
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_Region != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig.Region = requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_Region;
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfigIsNull = false;
-            }
-            System.String requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn = null;
-            if (cmdletContext.ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn = cmdletContext.ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn;
-            }
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig.RoleArn = requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn;
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfigIsNull = false;
-            }
-            System.String requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_Service = null;
-            if (cmdletContext.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_Service = cmdletContext.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service;
-            }
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_Service != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig.Service = requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_Service;
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfigIsNull = false;
-            }
-             // determine if requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig should be set to null
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfigIsNull)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig = null;
-            }
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig != null)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4.AuthorizationConfig = requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig;
-                requestServiceDetails_serviceDetails_Mcpserversigv4IsNull = false;
-            }
-             // determine if requestServiceDetails_serviceDetails_Mcpserversigv4 should be set to null
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4IsNull)
-            {
-                requestServiceDetails_serviceDetails_Mcpserversigv4 = null;
-            }
-            if (requestServiceDetails_serviceDetails_Mcpserversigv4 != null)
-            {
-                request.ServiceDetails.Mcpserversigv4 = requestServiceDetails_serviceDetails_Mcpserversigv4;
-                requestServiceDetailsIsNull = false;
-            }
             Amazon.DevOpsAgent.Model.MCPServerDetails requestServiceDetails_serviceDetails_Mcpserversplunk = null;
             
              // populate Mcpserversplunk
@@ -3587,12 +3431,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public List<System.String> ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_ApplicationId { get; set; }
             public List<System.String> ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_EntityGuid { get; set; }
             public Amazon.DevOpsAgent.NewRelicRegion ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_Region { get; set; }
-            public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region { get; set; }
-            public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn { get; set; }
-            public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service { get; set; }
-            public System.String ServiceDetails_Mcpserversigv4_Description { get; set; }
-            public System.String ServiceDetails_Mcpserversigv4_Endpoint { get; set; }
-            public System.String ServiceDetails_Mcpserversigv4_Name { get; set; }
             public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyHeader { get; set; }
             public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyName { get; set; }
             public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyValue { get; set; }

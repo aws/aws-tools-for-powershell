@@ -89,7 +89,6 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-DOPSResourceTag', 
         'Add-DOPSService', 
-        'Close-DOPSChatForCase', 
         'Disable-DOPSOperatorApp', 
         'Enable-DOPSOperatorApp', 
         'Enable-DOPSVendedLogDeliveryForResource', 
@@ -113,7 +112,6 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DOPSResourceTag', 
         'Get-DOPSService', 
         'Get-DOPSServiceList', 
-        'Get-DOPSSupportLevelDetail', 
         'Get-DOPSWebhookList', 
         'New-DOPSAgentSpace', 
         'New-DOPSBacklogTask', 
@@ -125,7 +123,6 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DOPSResourceTag', 
         'Remove-DOPSService', 
         'Send-DOPSMessage', 
-        'Start-DOPSChatForCase', 
         'Test-DOPSAwsAssociation', 
         'Unregister-DOPSService', 
         'Update-DOPSAgentSpace', 

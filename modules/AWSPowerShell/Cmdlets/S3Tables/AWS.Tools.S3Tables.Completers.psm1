@@ -104,6 +104,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.SchemaV2FieldType
+        "New-S3TTable/Metadata_Iceberg_SchemaV2_Type"
+        {
+            $v = "struct"
+            break
+        }
+
         # Amazon.S3Tables.SSEAlgorithm
         {
             ($_ -eq "New-S3TTable/EncryptionConfiguration_SseAlgorithm") -Or
@@ -166,6 +173,7 @@ $S3T_map = @{
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
+    "Metadata_Iceberg_SchemaV2_Type"=@("New-S3TTable")
     "StorageClassConfiguration_StorageClass"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketStorageClass")
     "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration","Write-S3TTableRecordExpirationConfiguration")

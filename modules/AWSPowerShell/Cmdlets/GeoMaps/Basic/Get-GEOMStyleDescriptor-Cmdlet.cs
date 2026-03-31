@@ -66,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         #region Parameter ColorScheme
         /// <summary>
         /// <para>
-        /// <para>Sets color tone for map such as dark and light for specific map styles. It applies
-        /// to only vector map styles such as Standard and Monochrome.</para><para>Example: <c>Light</c></para><para>Default value: <c>Light</c></para><note><para>Valid values for ColorScheme are case sensitive.</para></note>
+        /// <para>Sets the color tone for the map, such as dark and light.</para><para>Example: <c>Light</c></para><para>Default value: <c>Light</c></para><note><para>Valid values for ColorScheme are case sensitive.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <para>
         /// <para>Displays the shape and steepness of terrain features using elevation lines. The density
         /// value controls how densely the available contour line information is rendered on the
-        /// map.</para><para>This parameter is valid only for the <c>Standard</c>, <c>Monochrome</c>, and <c>Hybrid</c>
-        /// map styles.</para>
+        /// map.</para><para>This parameter is valid for all map styles except <c>Satellite</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <summary>
         /// <para>
         /// <para>Displays real-time traffic information overlay on map, such as incident events and
-        /// flow events.</para><para>This parameter is valid only for the <c>Standard</c> map style.</para>
+        /// flow events.</para><para>This parameter is valid for all map styles except <c>Satellite</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <para>
         /// <para>Renders additional map information relevant to selected travel modes. Information
         /// for multiple travel modes can be displayed simultaneously, although this increases
-        /// the overall information density rendered on the map.</para><para>This parameter is valid only for the <c>Standard</c> map style.</para><para />
+        /// the overall information density rendered on the map.</para><para>This parameter is valid for all map styles except <c>Satellite</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

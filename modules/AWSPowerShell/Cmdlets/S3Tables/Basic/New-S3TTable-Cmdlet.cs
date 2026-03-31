@@ -98,6 +98,22 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public Amazon.S3Tables.Model.SchemaField[] Schema_Field { get; set; }
         #endregion
         
+        #region Parameter Metadata_Iceberg_SchemaV2_Field
+        /// <summary>
+        /// <para>
+        /// <para>The schema fields for the table. Each field defines a column in the table, including
+        /// its name, type, and whether it is required.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Metadata_Iceberg_SchemaV2_Fields")]
+        public Amazon.S3Tables.Model.SchemaV2Field[] Metadata_Iceberg_SchemaV2_Field { get; set; }
+        #endregion
+        
         #region Parameter Metadata_Iceberg_WriteOrder_Field
         /// <summary>
         /// <para>
@@ -130,6 +146,22 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.S3Tables.OpenTableFormat")]
         public Amazon.S3Tables.OpenTableFormat Format { get; set; }
+        #endregion
+        
+        #region Parameter Metadata_Iceberg_SchemaV2_IdentifierFieldId
+        /// <summary>
+        /// <para>
+        /// <para>A list of field IDs that are used as the identifier fields for the table. Identifier
+        /// fields uniquely identify a row in the table.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Metadata_Iceberg_SchemaV2_IdentifierFieldIds")]
+        public System.Int32[] Metadata_Iceberg_SchemaV2_IdentifierFieldId { get; set; }
         #endregion
         
         #region Parameter EncryptionConfiguration_KmsKeyArn
@@ -201,6 +233,17 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Metadata_Iceberg_Properties")]
         public System.Collections.Hashtable Iceberg_Property { get; set; }
+        #endregion
+        
+        #region Parameter Metadata_Iceberg_SchemaV2_SchemaId
+        /// <summary>
+        /// <para>
+        /// <para>An optional unique identifier for the schema. Schema IDs are used by Apache Iceberg
+        /// to track schema evolution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Metadata_Iceberg_SchemaV2_SchemaId { get; set; }
         #endregion
         
         #region Parameter Metadata_Iceberg_PartitionSpec_SpecId
@@ -278,6 +321,19 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter Metadata_Iceberg_SchemaV2_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of the top-level schema, which is always a <c>struct</c> type as defined
+        /// in the <a href="https://iceberg.apache.org/spec/#schemas-and-data-types">Apache Iceberg
+        /// specification</a>. This value must be <c>struct</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Tables.SchemaV2FieldType")]
+        public Amazon.S3Tables.SchemaV2FieldType Metadata_Iceberg_SchemaV2_Type { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -350,6 +406,16 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             {
                 context.Schema_Field = new List<Amazon.S3Tables.Model.SchemaField>(this.Schema_Field);
             }
+            if (this.Metadata_Iceberg_SchemaV2_Field != null)
+            {
+                context.Metadata_Iceberg_SchemaV2_Field = new List<Amazon.S3Tables.Model.SchemaV2Field>(this.Metadata_Iceberg_SchemaV2_Field);
+            }
+            if (this.Metadata_Iceberg_SchemaV2_IdentifierFieldId != null)
+            {
+                context.Metadata_Iceberg_SchemaV2_IdentifierFieldId = new List<System.Int32>(this.Metadata_Iceberg_SchemaV2_IdentifierFieldId);
+            }
+            context.Metadata_Iceberg_SchemaV2_SchemaId = this.Metadata_Iceberg_SchemaV2_SchemaId;
+            context.Metadata_Iceberg_SchemaV2_Type = this.Metadata_Iceberg_SchemaV2_Type;
             if (this.Metadata_Iceberg_WriteOrder_Field != null)
             {
                 context.Metadata_Iceberg_WriteOrder_Field = new List<Amazon.S3Tables.Model.IcebergSortField>(this.Metadata_Iceberg_WriteOrder_Field);
@@ -548,6 +614,61 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 requestMetadata_metadata_Iceberg.WriteOrder = requestMetadata_metadata_Iceberg_metadata_Iceberg_WriteOrder;
                 requestMetadata_metadata_IcebergIsNull = false;
             }
+            Amazon.S3Tables.Model.IcebergSchemaV2 requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2 = null;
+            
+             // populate SchemaV2
+            var requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2IsNull = true;
+            requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2 = new Amazon.S3Tables.Model.IcebergSchemaV2();
+            List<Amazon.S3Tables.Model.SchemaV2Field> requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_Field = null;
+            if (cmdletContext.Metadata_Iceberg_SchemaV2_Field != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_Field = cmdletContext.Metadata_Iceberg_SchemaV2_Field;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_Field != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2.Fields = requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_Field;
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2IsNull = false;
+            }
+            List<System.Int32> requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_IdentifierFieldId = null;
+            if (cmdletContext.Metadata_Iceberg_SchemaV2_IdentifierFieldId != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_IdentifierFieldId = cmdletContext.Metadata_Iceberg_SchemaV2_IdentifierFieldId;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_IdentifierFieldId != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2.IdentifierFieldIds = requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_IdentifierFieldId;
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2IsNull = false;
+            }
+            System.Int32? requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_SchemaId = null;
+            if (cmdletContext.Metadata_Iceberg_SchemaV2_SchemaId != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_SchemaId = cmdletContext.Metadata_Iceberg_SchemaV2_SchemaId.Value;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_SchemaId != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2.SchemaId = requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_SchemaId.Value;
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2IsNull = false;
+            }
+            Amazon.S3Tables.SchemaV2FieldType requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_Type = null;
+            if (cmdletContext.Metadata_Iceberg_SchemaV2_Type != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_Type = cmdletContext.Metadata_Iceberg_SchemaV2_Type;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_Type != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2.Type = requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2_metadata_Iceberg_SchemaV2_Type;
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2IsNull = false;
+            }
+             // determine if requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2 should be set to null
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2IsNull)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2 = null;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2 != null)
+            {
+                requestMetadata_metadata_Iceberg.SchemaV2 = requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaV2;
+                requestMetadata_metadata_IcebergIsNull = false;
+            }
              // determine if requestMetadata_metadata_Iceberg should be set to null
             if (requestMetadata_metadata_IcebergIsNull)
             {
@@ -660,6 +781,10 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             public System.Int32? Metadata_Iceberg_PartitionSpec_SpecId { get; set; }
             public Dictionary<System.String, System.String> Iceberg_Property { get; set; }
             public List<Amazon.S3Tables.Model.SchemaField> Schema_Field { get; set; }
+            public List<Amazon.S3Tables.Model.SchemaV2Field> Metadata_Iceberg_SchemaV2_Field { get; set; }
+            public List<System.Int32> Metadata_Iceberg_SchemaV2_IdentifierFieldId { get; set; }
+            public System.Int32? Metadata_Iceberg_SchemaV2_SchemaId { get; set; }
+            public Amazon.S3Tables.SchemaV2FieldType Metadata_Iceberg_SchemaV2_Type { get; set; }
             public List<Amazon.S3Tables.Model.IcebergSortField> Metadata_Iceberg_WriteOrder_Field { get; set; }
             public System.Int32? Metadata_Iceberg_WriteOrder_OrderId { get; set; }
             public System.String Name { get; set; }

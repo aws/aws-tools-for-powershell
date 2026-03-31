@@ -23,22 +23,22 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DevOpsAgent;
-using Amazon.DevOpsAgent.Model;
+using Amazon.SecurityAgent;
+using Amazon.SecurityAgent.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DOPS
+namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// End a chat session for a support case in the specified agent space
+    /// Retrieves multiple findings in a single request
     /// </summary>
-    [Cmdlet("Close", "DOPSChatForCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DevOpsAgent.Model.EndChatForCaseResponse")]
-    [AWSCmdlet("Calls the AWS DevOps Agent Service EndChatForCase API operation.", Operation = new[] {"EndChatForCase"}, SelectReturnType = typeof(Amazon.DevOpsAgent.Model.EndChatForCaseResponse))]
-    [AWSCmdletOutput("Amazon.DevOpsAgent.Model.EndChatForCaseResponse",
-        "This cmdlet returns an Amazon.DevOpsAgent.Model.EndChatForCaseResponse object containing multiple properties."
+    [Cmdlet("Get", "SECAGFindingBatch")]
+    [OutputType("Amazon.SecurityAgent.Model.BatchGetFindingsResponse")]
+    [AWSCmdlet("Calls the AWS Security Agent BatchGetFindings API operation.", Operation = new[] {"BatchGetFindings"}, SelectReturnType = typeof(Amazon.SecurityAgent.Model.BatchGetFindingsResponse))]
+    [AWSCmdletOutput("Amazon.SecurityAgent.Model.BatchGetFindingsResponse",
+        "This cmdlet returns an Amazon.SecurityAgent.Model.BatchGetFindingsResponse object containing multiple properties."
     )]
-    public partial class CloseDOPSChatForCaseCmdlet : AmazonDevOpsAgentClientCmdlet, IExecutor
+    public partial class GetSECAGFindingBatchCmdlet : AmazonSecurityAgentClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -47,13 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the agent space containing the task</para>
+        /// <para>ID of the agent space where the findings exist</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -61,72 +61,37 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String AgentSpaceId { get; set; }
         #endregion
         
-        #region Parameter Reason
+        #region Parameter FindingId
         /// <summary>
         /// <para>
-        /// <para>Reason for ending the chat session (optional, defaults to 'Chat Ended by CloudSmith')</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Reason { get; set; }
-        #endregion
-        
-        #region Parameter Requester
-        /// <summary>
-        /// <para>
-        /// <para>Who initiated the chat end request (optional, defaults to 'CloudSmith')</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Requester { get; set; }
-        #endregion
-        
-        #region Parameter TaskId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier for the task execution to end</para>
+        /// <para>List of finding IDs to retrieve</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TaskId { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Client-provided token for idempotent operations</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        [Alias("FindingIds")]
+        public System.String[] FindingId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DevOpsAgent.Model.EndChatForCaseResponse).
-        /// Specifying the name of a property of type Amazon.DevOpsAgent.Model.EndChatForCaseResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityAgent.Model.BatchGetFindingsResponse).
+        /// Specifying the name of a property of type Amazon.SecurityAgent.Model.BatchGetFindingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -138,17 +103,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         {
             base.ProcessRecord();
             
-            var targetParameterNames = new string[]
-            {
-                nameof(this.AgentSpaceId),
-                nameof(this.TaskId)
-            };
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Close-DOPSChatForCase (EndChatForCase)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -156,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DevOpsAgent.Model.EndChatForCaseResponse, CloseDOPSChatForCaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityAgent.Model.BatchGetFindingsResponse, GetSECAGFindingBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AgentSpaceId = this.AgentSpaceId;
@@ -166,14 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ClientToken = this.ClientToken;
-            context.Reason = this.Reason;
-            context.Requester = this.Requester;
-            context.TaskId = this.TaskId;
-            #if MODULAR
-            if (this.TaskId == null && ParameterWasBound(nameof(this.TaskId)))
+            if (this.FindingId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter TaskId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.FindingId = new List<System.String>(this.FindingId);
+            }
+            #if MODULAR
+            if (this.FindingId == null && ParameterWasBound(nameof(this.FindingId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FindingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -190,27 +144,15 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DevOpsAgent.Model.EndChatForCaseRequest();
+            var request = new Amazon.SecurityAgent.Model.BatchGetFindingsRequest();
             
             if (cmdletContext.AgentSpaceId != null)
             {
                 request.AgentSpaceId = cmdletContext.AgentSpaceId;
             }
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.FindingId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.Reason != null)
-            {
-                request.Reason = cmdletContext.Reason;
-            }
-            if (cmdletContext.Requester != null)
-            {
-                request.Requester = cmdletContext.Requester;
-            }
-            if (cmdletContext.TaskId != null)
-            {
-                request.TaskId = cmdletContext.TaskId;
+                request.FindingIds = cmdletContext.FindingId;
             }
             
             CmdletOutput output;
@@ -245,12 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         #region AWS Service Operation Call
         
-        private Amazon.DevOpsAgent.Model.EndChatForCaseResponse CallAWSServiceOperation(IAmazonDevOpsAgent client, Amazon.DevOpsAgent.Model.EndChatForCaseRequest request)
+        private Amazon.SecurityAgent.Model.BatchGetFindingsResponse CallAWSServiceOperation(IAmazonSecurityAgent client, Amazon.SecurityAgent.Model.BatchGetFindingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DevOps Agent Service", "EndChatForCase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Agent", "BatchGetFindings");
             try
             {
-                return client.EndChatForCaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.BatchGetFindingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -268,11 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentSpaceId { get; set; }
-            public System.String ClientToken { get; set; }
-            public System.String Reason { get; set; }
-            public System.String Requester { get; set; }
-            public System.String TaskId { get; set; }
-            public System.Func<Amazon.DevOpsAgent.Model.EndChatForCaseResponse, CloseDOPSChatForCaseCmdlet, object> Select { get; set; } =
+            public List<System.String> FindingId { get; set; }
+            public System.Func<Amazon.SecurityAgent.Model.BatchGetFindingsResponse, GetSECAGFindingBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

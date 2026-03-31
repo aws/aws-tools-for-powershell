@@ -45,6 +45,27 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent
+        /// <summary>
+        /// <para>
+        /// <para>The PEM-encoded certificate authority (CA) certificates bundle for the trust store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent { get; set; }
+        #endregion
+        
+        #region Parameter IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent
+        /// <summary>
+        /// <para>
+        /// <para>The PEM-encoded certificate revocation lists (CRLs) for the trust store. There can
+        /// be one CRL per certificate authority (CA) in the trust store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent { get; set; }
+        #endregion
+        
         #region Parameter IngressPointId
         /// <summary>
         /// <para>
@@ -70,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IngressPointName { get; set; }
+        #endregion
+        
+        #region Parameter IngressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key used to encrypt the trust store contents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IngressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter RuleSetId
@@ -111,6 +142,19 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MailManager.IngressPointStatusToUpdate")]
         public Amazon.MailManager.IngressPointStatusToUpdate StatusToUpdate { get; set; }
+        #endregion
+        
+        #region Parameter TlsPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The Transport Layer Security (TLS) policy for the ingress point. Valid values are
+        /// REQUIRED, OPTIONAL. Only ingress endpoints using REQUIRED or OPTIONAL as TlsPolicy
+        /// can be updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MailManager.TlsPolicy")]
+        public Amazon.MailManager.TlsPolicy TlsPolicy { get; set; }
         #endregion
         
         #region Parameter TrafficPolicyId
@@ -171,6 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             }
             context.IngressPointConfiguration_SecretArn = this.IngressPointConfiguration_SecretArn;
             context.IngressPointConfiguration_SmtpPassword = this.IngressPointConfiguration_SmtpPassword;
+            context.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent = this.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent;
+            context.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent = this.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent;
+            context.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn = this.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn;
             context.IngressPointId = this.IngressPointId;
             #if MODULAR
             if (this.IngressPointId == null && ParameterWasBound(nameof(this.IngressPointId)))
@@ -181,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             context.IngressPointName = this.IngressPointName;
             context.RuleSetId = this.RuleSetId;
             context.StatusToUpdate = this.StatusToUpdate;
+            context.TlsPolicy = this.TlsPolicy;
             context.TrafficPolicyId = this.TrafficPolicyId;
             
             // allow further manipulation of loaded context prior to processing
@@ -222,6 +270,66 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
                 request.IngressPointConfiguration.SmtpPassword = requestIngressPointConfiguration_ingressPointConfiguration_SmtpPassword;
                 requestIngressPointConfigurationIsNull = false;
             }
+            Amazon.MailManager.Model.TlsAuthConfiguration requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration = null;
+            
+             // populate TlsAuthConfiguration
+            var requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfigurationIsNull = true;
+            requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration = new Amazon.MailManager.Model.TlsAuthConfiguration();
+            Amazon.MailManager.Model.TrustStore requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore = null;
+            
+             // populate TrustStore
+            var requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStoreIsNull = true;
+            requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore = new Amazon.MailManager.Model.TrustStore();
+            System.String requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent = null;
+            if (cmdletContext.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent != null)
+            {
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent = cmdletContext.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent;
+            }
+            if (requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent != null)
+            {
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore.CAContent = requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent;
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStoreIsNull = false;
+            }
+            System.String requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent = null;
+            if (cmdletContext.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent != null)
+            {
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent = cmdletContext.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent;
+            }
+            if (requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent != null)
+            {
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore.CrlContent = requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent;
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStoreIsNull = false;
+            }
+            System.String requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn = null;
+            if (cmdletContext.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn != null)
+            {
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn = cmdletContext.IngressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn;
+            }
+            if (requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn != null)
+            {
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore.KmsKeyArn = requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_ingressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn;
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStoreIsNull = false;
+            }
+             // determine if requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore should be set to null
+            if (requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStoreIsNull)
+            {
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore = null;
+            }
+            if (requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore != null)
+            {
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration.TrustStore = requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration_ingressPointConfiguration_TlsAuthConfiguration_TrustStore;
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfigurationIsNull = false;
+            }
+             // determine if requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration should be set to null
+            if (requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfigurationIsNull)
+            {
+                requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration = null;
+            }
+            if (requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration != null)
+            {
+                request.IngressPointConfiguration.TlsAuthConfiguration = requestIngressPointConfiguration_ingressPointConfiguration_TlsAuthConfiguration;
+                requestIngressPointConfigurationIsNull = false;
+            }
              // determine if request.IngressPointConfiguration should be set to null
             if (requestIngressPointConfigurationIsNull)
             {
@@ -242,6 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             if (cmdletContext.StatusToUpdate != null)
             {
                 request.StatusToUpdate = cmdletContext.StatusToUpdate;
+            }
+            if (cmdletContext.TlsPolicy != null)
+            {
+                request.TlsPolicy = cmdletContext.TlsPolicy;
             }
             if (cmdletContext.TrafficPolicyId != null)
             {
@@ -304,10 +416,14 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         {
             public System.String IngressPointConfiguration_SecretArn { get; set; }
             public System.String IngressPointConfiguration_SmtpPassword { get; set; }
+            public System.String IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent { get; set; }
+            public System.String IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent { get; set; }
+            public System.String IngressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn { get; set; }
             public System.String IngressPointId { get; set; }
             public System.String IngressPointName { get; set; }
             public System.String RuleSetId { get; set; }
             public Amazon.MailManager.IngressPointStatusToUpdate StatusToUpdate { get; set; }
+            public Amazon.MailManager.TlsPolicy TlsPolicy { get; set; }
             public System.String TrafficPolicyId { get; set; }
             public System.Func<Amazon.MailManager.Model.UpdateIngressPointResponse, UpdateMMGRIngressPointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

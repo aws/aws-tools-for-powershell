@@ -44,6 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter IncludeTrustStoreContent
+        /// <summary>
+        /// <para>
+        /// <para>Whether to include the trust store contents in the response. Use INCLUDE to retrieve
+        /// trust store certificate and CRL contents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeTrustStoreContents")]
+        [AWSConstantClassSource("Amazon.MailManager.TrustStoreResponseOption")]
+        public Amazon.MailManager.TrustStoreResponseOption IncludeTrustStoreContent { get; set; }
+        #endregion
+        
         #region Parameter IngressPointId
         /// <summary>
         /// <para>
@@ -91,6 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
                 context.Select = CreateSelectDelegate<Amazon.MailManager.Model.GetIngressPointResponse, GetMMGRIngressPointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IncludeTrustStoreContent = this.IncludeTrustStoreContent;
             context.IngressPointId = this.IngressPointId;
             #if MODULAR
             if (this.IngressPointId == null && ParameterWasBound(nameof(this.IngressPointId)))
@@ -114,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             // create request
             var request = new Amazon.MailManager.Model.GetIngressPointRequest();
             
+            if (cmdletContext.IncludeTrustStoreContent != null)
+            {
+                request.IncludeTrustStoreContents = cmdletContext.IncludeTrustStoreContent;
+            }
             if (cmdletContext.IngressPointId != null)
             {
                 request.IngressPointId = cmdletContext.IngressPointId;
@@ -173,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MailManager.TrustStoreResponseOption IncludeTrustStoreContent { get; set; }
             public System.String IngressPointId { get; set; }
             public System.Func<Amazon.MailManager.Model.GetIngressPointResponse, GetMMGRIngressPointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

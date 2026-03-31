@@ -40,6 +40,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotifyConfiguration" OutputProperty="*" Verb="New" Noun="NotifyConfiguration" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateOptOutList" OutputProperty="*" Verb="New" Noun="OptOutList" ShouldProcessTarget="OptOutListName" PipelineParameter="OptOutListName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -49,6 +53,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProtectConfiguration" OutputProperty="*" Verb="New" Noun="ProtectConfiguration" ShouldProcessTarget="DeletionProtectionEnabled" PipelineParameter="DeletionProtectionEnabled" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRcsAgent" OutputProperty="*" Verb="New" Noun="RcsAgent" ShouldProcessTarget="OptOutListName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -100,6 +108,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotifyConfiguration" OutputProperty="*" Verb="Remove" Noun="NotifyConfiguration" ShouldProcessTarget="NotifyConfigurationId" PipelineParameter="NotifyConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotifyMessageSpendLimitOverride" OutputProperty="MonthlyLimit" Verb="Remove" Noun="NotifyMessageSpendLimitOverride" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteOptedOutNumber" OutputProperty="*" Verb="Remove" Noun="OptedOutNumber" ShouldProcessTarget="OptOutListName" PipelineParameter="OptOutListName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -117,6 +133,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProtectConfigurationRuleSetNumberOverride" OutputProperty="*" Verb="Remove" Noun="ProtectConfigurationRuleSetNumberOverride" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRcsAgent" OutputProperty="*" Verb="Remove" Noun="RcsAgent" ShouldProcessTarget="RcsAgentId" PipelineParameter="RcsAgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,6 +184,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotifyConfigurations" OutputProperty="NotifyConfigurations" Verb="Get" Noun="NotifyConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotifyTemplates" OutputProperty="NotifyTemplates" Verb="Get" Noun="NotifyTemplate" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeOptedOutNumbers" OutputProperty="*" Verb="Get" Noun="OptedOutNumber" PipelineParameter="OptOutListName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -181,6 +209,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeProtectConfigurations" OutputProperty="ProtectConfigurations" Verb="Get" Noun="ProtectConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRcsAgentCountryLaunchStatus" OutputProperty="*" Verb="Get" Noun="RcsAgentCountryLaunchStatus" PipelineParameter="RcsAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRcsAgents" OutputProperty="RcsAgents" Verb="Get" Noun="RcsAgent" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -241,6 +277,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotifyCountries" OutputProperty="NotifyCountries" Verb="Get" Noun="NotifyCountryList" PipelineParameter="Tier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -308,6 +348,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendNotifyTextMessage" OutputProperty="*" Verb="Send" Noun="NotifyTextMessage" ShouldProcessTarget="NotifyConfigurationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendNotifyVoiceMessage" OutputProperty="*" Verb="Send" Noun="NotifyVoiceMessage" ShouldProcessTarget="NotifyConfigurationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendTextMessage" OutputProperty="*" Verb="Send" Noun="TextMessage" ShouldProcessTarget="DestinationPhoneNumber" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -336,6 +384,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SetNotifyMessageSpendLimitOverride" OutputProperty="MonthlyLimit" Verb="Set" Noun="NotifyMessageSpendLimitOverride" ShouldProcessTarget="MonthlyLimit" PipelineParameter="MonthlyLimit" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetTextMessageSpendLimitOverride" OutputProperty="*" Verb="Set" Noun="TextMessageSpendLimitOverride" AnonymousShouldProcessTarget="true" PipelineParameter="MonthlyLimit" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -360,6 +412,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotifyConfiguration" OutputProperty="*" Verb="Update" Noun="NotifyConfiguration" ShouldProcessTarget="NotifyConfigurationId" PipelineParameter="NotifyConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdatePhoneNumber" OutputProperty="*" Verb="Update" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -373,6 +429,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProtectConfigurationCountryRuleSet" OutputProperty="*" Verb="Update" Noun="ProtectConfigurationCountryRuleSet" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRcsAgent" OutputProperty="*" Verb="Update" Noun="RcsAgent" ShouldProcessTarget="RcsAgentId" PipelineParameter="RcsAgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

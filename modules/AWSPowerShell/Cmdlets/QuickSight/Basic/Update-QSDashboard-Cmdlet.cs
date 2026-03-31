@@ -637,6 +637,21 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Options_Timezone { get; set; }
         #endregion
         
+        #region Parameter Definition_TooltipSheet
+        /// <summary>
+        /// <para>
+        /// <para>An array of tooltip sheet definitions for a dashboard.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_TooltipSheets")]
+        public Amazon.QuickSight.Model.TooltipSheetDefinition[] Definition_TooltipSheet { get; set; }
+        #endregion
+        
         #region Parameter PaperMargin_Top
         /// <summary>
         /// <para>
@@ -815,6 +830,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.Definition_StaticFile != null)
             {
                 context.Definition_StaticFile = new List<Amazon.QuickSight.Model.StaticFile>(this.Definition_StaticFile);
+            }
+            if (this.Definition_TooltipSheet != null)
+            {
+                context.Definition_TooltipSheet = new List<Amazon.QuickSight.Model.TooltipSheetDefinition>(this.Definition_TooltipSheet);
             }
             context.Name = this.Name;
             #if MODULAR
@@ -1344,6 +1363,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDefinition_definition_StaticFile != null)
             {
                 request.Definition.StaticFiles = requestDefinition_definition_StaticFile;
+                requestDefinitionIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.TooltipSheetDefinition> requestDefinition_definition_TooltipSheet = null;
+            if (cmdletContext.Definition_TooltipSheet != null)
+            {
+                requestDefinition_definition_TooltipSheet = cmdletContext.Definition_TooltipSheet;
+            }
+            if (requestDefinition_definition_TooltipSheet != null)
+            {
+                request.Definition.TooltipSheets = requestDefinition_definition_TooltipSheet;
                 requestDefinitionIsNull = false;
             }
             Amazon.QuickSight.Model.AnalysisDefaults requestDefinition_definition_AnalysisDefaults = null;
@@ -1974,6 +2003,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }
             public List<Amazon.QuickSight.Model.SheetDefinition> Definition_Sheet { get; set; }
             public List<Amazon.QuickSight.Model.StaticFile> Definition_StaticFile { get; set; }
+            public List<Amazon.QuickSight.Model.TooltipSheetDefinition> Definition_TooltipSheet { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QuickSight.Model.DateTimeParameter> Parameters_DateTimeParameter { get; set; }
             public List<Amazon.QuickSight.Model.DecimalParameter> Parameters_DecimalParameter { get; set; }

@@ -100,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ACMCertificate', 
         'Remove-ACMCertificateTag', 
         'Revoke-ACMCertificate', 
+        'Search-ACMCertificate', 
         'Send-ACMValidationEmail', 
         'Update-ACMCertificateOption', 
         'Write-ACMAccountConfiguration')

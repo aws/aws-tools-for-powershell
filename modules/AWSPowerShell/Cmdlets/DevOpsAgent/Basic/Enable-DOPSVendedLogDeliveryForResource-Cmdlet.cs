@@ -30,8 +30,7 @@ using Amazon.DevOpsAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.DOPS
 {
     /// <summary>
-    /// Authorize Ingestion Hub subscription operation. Looks to see if the derived accountId
-    /// from FAS has an AgentSpace.
+    /// Authorize Ingestion Hub subscription operation.
     /// </summary>
     [Cmdlet("Enable", "DOPSVendedLogDeliveryForResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

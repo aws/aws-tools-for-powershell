@@ -1123,6 +1123,9 @@
     <Reference Include="AWSSDK.SecretsManager">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SecurityAgent">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SecurityAgent.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SecurityHub">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SecurityHub.dll</HintPath>
     </Reference>
@@ -1224,6 +1227,9 @@
     </Reference>
     <Reference Include="AWSSDK.SupportApp">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SupportApp.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Sustainability">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Sustainability.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Synthetics">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Synthetics.dll</HintPath>
@@ -2380,6 +2386,9 @@
     <Reference Include="AWSSDK.SecretsManager">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SecurityAgent">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityAgent.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SecurityHub">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityHub.dll</HintPath>
     </Reference>
@@ -2481,6 +2490,9 @@
     </Reference>
     <Reference Include="AWSSDK.SupportApp">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SupportApp.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Sustainability">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Sustainability.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Synthetics">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Synthetics.dll</HintPath>

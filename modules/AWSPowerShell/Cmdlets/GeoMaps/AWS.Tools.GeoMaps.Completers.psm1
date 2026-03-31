@@ -101,7 +101,7 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.ContourDensity
         "Get-GEOMStyleDescriptor/ContourDensity"
         {
-            $v = "Medium"
+            $v = "High","Low","Medium"
             break
         }
 
@@ -153,7 +153,7 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.Traffic
         "Get-GEOMStyleDescriptor/Traffic"
         {
-            $v = "All"
+            $v = "All","Congestion"
             break
         }
 

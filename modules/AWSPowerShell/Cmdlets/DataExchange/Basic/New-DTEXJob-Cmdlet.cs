@@ -569,6 +569,21 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String ImportAssetFromApiGatewayApi_Stage { get; set; }
         #endregion
         
+        #region Parameter AssetConfiguration_Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be applied to assets created by the job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssetConfiguration_Tags")]
+        public Amazon.DataExchange.Model.Tag[] AssetConfiguration_Tag { get; set; }
+        #endregion
+        
         #region Parameter Encryption_Type
         /// <summary>
         /// <para>
@@ -654,6 +669,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             {
                 context.Select = CreateSelectDelegate<Amazon.DataExchange.Model.CreateJobResponse, NewDTEXJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.AssetConfiguration_Tag != null)
+            {
+                context.AssetConfiguration_Tag = new List<Amazon.DataExchange.Model.Tag>(this.AssetConfiguration_Tag);
             }
             context.AssetSource_Bucket = this.AssetSource_Bucket;
             if (this.AssetSource_KeyPrefix != null)
@@ -756,6 +775,25 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             // create request
             var request = new Amazon.DataExchange.Model.CreateJobRequest();
             
+            
+             // populate AssetConfiguration
+            var requestAssetConfigurationIsNull = true;
+            request.AssetConfiguration = new Amazon.DataExchange.Model.AssetConfiguration();
+            List<Amazon.DataExchange.Model.Tag> requestAssetConfiguration_assetConfiguration_Tag = null;
+            if (cmdletContext.AssetConfiguration_Tag != null)
+            {
+                requestAssetConfiguration_assetConfiguration_Tag = cmdletContext.AssetConfiguration_Tag;
+            }
+            if (requestAssetConfiguration_assetConfiguration_Tag != null)
+            {
+                request.AssetConfiguration.Tags = requestAssetConfiguration_assetConfiguration_Tag;
+                requestAssetConfigurationIsNull = false;
+            }
+             // determine if request.AssetConfiguration should be set to null
+            if (requestAssetConfigurationIsNull)
+            {
+                request.AssetConfiguration = null;
+            }
             
              // populate Details
             var requestDetailsIsNull = true;
@@ -1484,6 +1522,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.DataExchange.Model.Tag> AssetConfiguration_Tag { get; set; }
             public System.String AssetSource_Bucket { get; set; }
             public List<System.String> AssetSource_KeyPrefix { get; set; }
             public List<System.String> AssetSource_Key { get; set; }

@@ -167,26 +167,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String[] Configuration_Servicenow_AuthScope { get; set; }
         #endregion
         
-        #region Parameter Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId
-        /// <summary>
-        /// <para>
-        /// <para>MS Teams Channel ID</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId { get; set; }
-        #endregion
-        
-        #region Parameter Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId
-        /// <summary>
-        /// <para>
-        /// <para>MS Teams Channel ID</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId { get; set; }
-        #endregion
-        
         #region Parameter Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId
         /// <summary>
         /// <para>
@@ -205,26 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId { get; set; }
-        #endregion
-        
-        #region Parameter Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName
-        /// <summary>
-        /// <para>
-        /// <para>MS Teams channel name</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName { get; set; }
-        #endregion
-        
-        #region Parameter Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName
-        /// <summary>
-        /// <para>
-        /// <para>MS Teams channel name</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName { get; set; }
         #endregion
         
         #region Parameter Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName
@@ -479,26 +439,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Azure_SubscriptionId { get; set; }
         #endregion
         
-        #region Parameter Configuration_Msteams_TeamId
-        /// <summary>
-        /// <para>
-        /// <para>Associated MS Teams teams ID</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Configuration_Msteams_TeamId { get; set; }
-        #endregion
-        
-        #region Parameter Configuration_Msteams_TeamName
-        /// <summary>
-        /// <para>
-        /// <para>Associated MS Teams team name</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Configuration_Msteams_TeamName { get; set; }
-        #endregion
-        
         #region Parameter Configuration_Mcpservergrafana_Tool
         /// <summary>
         /// <para>
@@ -623,12 +563,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             }
             context.Configuration_Mcpservernewrelic_AccountId = this.Configuration_Mcpservernewrelic_AccountId;
             context.Configuration_Mcpservernewrelic_Endpoint = this.Configuration_Mcpservernewrelic_Endpoint;
-            context.Configuration_Msteams_TeamId = this.Configuration_Msteams_TeamId;
-            context.Configuration_Msteams_TeamName = this.Configuration_Msteams_TeamName;
-            context.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId = this.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId;
-            context.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName = this.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName;
-            context.Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId = this.Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId;
-            context.Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName = this.Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName;
             context.Configuration_Pagerduty_CustomerEmail = this.Configuration_Pagerduty_CustomerEmail;
             if (this.Configuration_Pagerduty_Service != null)
             {
@@ -1032,126 +966,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Mcpservergrafana = requestConfiguration_configuration_Mcpservergrafana;
                 requestConfigurationIsNull = false;
             }
-            Amazon.DevOpsAgent.Model.MSTeamsConfiguration requestConfiguration_configuration_Msteams = null;
-            
-             // populate Msteams
-            var requestConfiguration_configuration_MsteamsIsNull = true;
-            requestConfiguration_configuration_Msteams = new Amazon.DevOpsAgent.Model.MSTeamsConfiguration();
-            System.String requestConfiguration_configuration_Msteams_configuration_Msteams_TeamId = null;
-            if (cmdletContext.Configuration_Msteams_TeamId != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TeamId = cmdletContext.Configuration_Msteams_TeamId;
-            }
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TeamId != null)
-            {
-                requestConfiguration_configuration_Msteams.TeamId = requestConfiguration_configuration_Msteams_configuration_Msteams_TeamId;
-                requestConfiguration_configuration_MsteamsIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Msteams_configuration_Msteams_TeamName = null;
-            if (cmdletContext.Configuration_Msteams_TeamName != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TeamName = cmdletContext.Configuration_Msteams_TeamName;
-            }
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TeamName != null)
-            {
-                requestConfiguration_configuration_Msteams.TeamName = requestConfiguration_configuration_Msteams_configuration_Msteams_TeamName;
-                requestConfiguration_configuration_MsteamsIsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.MSTeamsTransmissionTarget requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget = null;
-            
-             // populate TransmissionTarget
-            var requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTargetIsNull = true;
-            requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget = new Amazon.DevOpsAgent.Model.MSTeamsTransmissionTarget();
-            Amazon.DevOpsAgent.Model.MSTeamsChannel requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget = null;
-            
-             // populate OpsOncallTarget
-            var requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTargetIsNull = true;
-            requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget = new Amazon.DevOpsAgent.Model.MSTeamsChannel();
-            System.String requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId = null;
-            if (cmdletContext.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId = cmdletContext.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId;
-            }
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget.ChannelId = requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId;
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTargetIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName = null;
-            if (cmdletContext.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName = cmdletContext.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName;
-            }
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget.ChannelName = requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName;
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTargetIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget should be set to null
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTargetIsNull)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget = null;
-            }
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget.OpsOncallTarget = requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsOncallTarget;
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTargetIsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.MSTeamsChannel requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget = null;
-            
-             // populate OpsSRETarget
-            var requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETargetIsNull = true;
-            requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget = new Amazon.DevOpsAgent.Model.MSTeamsChannel();
-            System.String requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId = null;
-            if (cmdletContext.Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId = cmdletContext.Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId;
-            }
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget.ChannelId = requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId;
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETargetIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName = null;
-            if (cmdletContext.Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName = cmdletContext.Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName;
-            }
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget.ChannelName = requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName;
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETargetIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget should be set to null
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETargetIsNull)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget = null;
-            }
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget != null)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget.OpsSRETarget = requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget_configuration_Msteams_TransmissionTarget_OpsSRETarget;
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTargetIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget should be set to null
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTargetIsNull)
-            {
-                requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget = null;
-            }
-            if (requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget != null)
-            {
-                requestConfiguration_configuration_Msteams.TransmissionTarget = requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget;
-                requestConfiguration_configuration_MsteamsIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Msteams should be set to null
-            if (requestConfiguration_configuration_MsteamsIsNull)
-            {
-                requestConfiguration_configuration_Msteams = null;
-            }
-            if (requestConfiguration_configuration_Msteams != null)
-            {
-                request.Configuration.Msteams = requestConfiguration_configuration_Msteams;
-                requestConfigurationIsNull = false;
-            }
             Amazon.DevOpsAgent.Model.SlackConfiguration requestConfiguration_configuration_Slack = null;
             
              // populate Slack
@@ -1477,12 +1291,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public List<System.String> Configuration_Mcpservergrafana_Tool { get; set; }
             public System.String Configuration_Mcpservernewrelic_AccountId { get; set; }
             public System.String Configuration_Mcpservernewrelic_Endpoint { get; set; }
-            public System.String Configuration_Msteams_TeamId { get; set; }
-            public System.String Configuration_Msteams_TeamName { get; set; }
-            public System.String Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId { get; set; }
-            public System.String Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName { get; set; }
-            public System.String Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId { get; set; }
-            public System.String Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName { get; set; }
             public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
             public List<System.String> Configuration_Pagerduty_Service { get; set; }
             public List<System.String> Configuration_Servicenow_AuthScope { get; set; }

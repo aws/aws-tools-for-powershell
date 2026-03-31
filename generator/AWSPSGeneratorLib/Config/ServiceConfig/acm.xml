@@ -80,10 +80,16 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchCertificates" OutputProperty="Results" Verb="Search" Noun="Certificate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateCertificateOptions" Verb="Update" Noun="CertificateOption" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <TypesNotToFlatten />
+    <TypesNotToFlatten>
+        <Type>Amazon.CertificateManager.Model.CertificateFilterStatement</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

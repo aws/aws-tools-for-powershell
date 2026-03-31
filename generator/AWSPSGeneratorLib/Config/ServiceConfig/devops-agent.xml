@@ -59,10 +59,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSupportLevel" OutputProperty="*" Verb="Get" Noun="SupportLevelDetail" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="DisableOperatorApp" Verb="Disable" Noun="OperatorApp" ShouldProcessTarget="AgentSpaceId" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -72,10 +68,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableOperatorApp" OutputProperty="*" Verb="Enable" Noun="OperatorApp" ShouldProcessTarget="OperatorAppRoleArn" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="EndChatForCase" OutputProperty="*" Verb="Close" Noun="ChatForCase" ShouldProcessTarget="AgentSpaceId,TaskId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -104,10 +96,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetService" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="ServiceId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="InitiateChatForCase" OutputProperty="ChatParticipantConnection" Verb="Start" Noun="ChatForCase" ShouldProcessTarget="AgentSpaceId,TaskId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

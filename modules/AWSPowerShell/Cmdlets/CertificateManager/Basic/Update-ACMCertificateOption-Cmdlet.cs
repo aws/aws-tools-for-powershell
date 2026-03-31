@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Options_Export
         /// <summary>
         /// <para>
-        /// <para>You can opt in to allow the export of your certificates by specifying <c>ENABLED</c>.</para>
+        /// <para>You can opt in to allow the export of your certificates by specifying <c>ENABLED</c>.
+        /// You cannot update the value of <c>Export</c> after the the certificate is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

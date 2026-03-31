@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.String DestinationPhoneNumber { get; set; }
         #endregion
         
+        #region Parameter RcsAgentId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the RCS agent to associate with the verified destination
+        /// number. You can use either the RcsAgentId or RcsAgentArn.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RcsAgentId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -143,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 WriteWarning("You are passing $null as a value for parameter DestinationPhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RcsAgentId = this.RcsAgentId;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.PinpointSMSVoiceV2.Model.Tag>(this.Tag);
@@ -170,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.DestinationPhoneNumber != null)
             {
                 request.DestinationPhoneNumber = cmdletContext.DestinationPhoneNumber;
+            }
+            if (cmdletContext.RcsAgentId != null)
+            {
+                request.RcsAgentId = cmdletContext.RcsAgentId;
             }
             if (cmdletContext.Tag != null)
             {
@@ -232,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         {
             public System.String ClientToken { get; set; }
             public System.String DestinationPhoneNumber { get; set; }
+            public System.String RcsAgentId { get; set; }
             public List<Amazon.PinpointSMSVoiceV2.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.CreateVerifiedDestinationNumberResponse, NewSMSVVerifiedDestinationNumberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

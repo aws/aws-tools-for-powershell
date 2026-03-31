@@ -107,7 +107,7 @@ $MMGR_Completers = {
         # Amazon.MailManager.IngressPointType
         "New-MMGRIngressPoint/Type"
         {
-            $v = "AUTH","OPEN"
+            $v = "AUTH","MTLS","OPEN"
             break
         }
 
@@ -128,6 +128,23 @@ $MMGR_Completers = {
             break
         }
 
+        # Amazon.MailManager.TlsPolicy
+        {
+            ($_ -eq "New-MMGRIngressPoint/TlsPolicy") -Or
+            ($_ -eq "Update-MMGRIngressPoint/TlsPolicy")
+        }
+        {
+            $v = "FIPS","OPTIONAL","REQUIRED"
+            break
+        }
+
+        # Amazon.MailManager.TrustStoreResponseOption
+        "Get-MMGRIngressPoint/IncludeTrustStoreContent"
+        {
+            $v = "EXCLUDE","INCLUDE"
+            break
+        }
+
 
     }
 
@@ -139,9 +156,11 @@ $MMGR_Completers = {
 $MMGR_map = @{
     "DefaultAction"=@("New-MMGRTrafficPolicy","Update-MMGRTrafficPolicy")
     "ImportDataFormat_ImportDataType"=@("New-MMGRAddressListImportJob")
+    "IncludeTrustStoreContent"=@("Get-MMGRIngressPoint")
     "PublicNetworkConfiguration_IpType"=@("New-MMGRIngressPoint")
     "Retention_RetentionPeriod"=@("New-MMGRArchive","Update-MMGRArchive")
     "StatusToUpdate"=@("Update-MMGRIngressPoint")
+    "TlsPolicy"=@("New-MMGRIngressPoint","Update-MMGRIngressPoint")
     "Type"=@("New-MMGRIngressPoint")
 }
 

@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String AccountId { get; set; }
         #endregion
         
+        #region Parameter AuditContext
+        /// <summary>
+        /// <para>
+        /// <para>The context to identify the job or query associated with the credential request. This
+        /// information will be displayed in CloudTrail log in your account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuditContext { get; set; }
+        #endregion
+        
         #region Parameter DurationSecond
         /// <summary>
         /// <para>
@@ -190,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AuditContext = this.AuditContext;
             context.DurationSecond = this.DurationSecond;
             context.Permission = this.Permission;
             #if MODULAR
@@ -226,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (cmdletContext.AccountId != null)
             {
                 request.AccountId = cmdletContext.AccountId;
+            }
+            if (cmdletContext.AuditContext != null)
+            {
+                request.AuditContext = cmdletContext.AuditContext;
             }
             if (cmdletContext.DurationSecond != null)
             {
@@ -303,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
+            public System.String AuditContext { get; set; }
             public System.Int32? DurationSecond { get; set; }
             public Amazon.S3Control.Permission Permission { get; set; }
             public Amazon.S3Control.Privilege Privilege { get; set; }

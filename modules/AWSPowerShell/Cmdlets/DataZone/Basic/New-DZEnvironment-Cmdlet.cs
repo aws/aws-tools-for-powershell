@@ -121,6 +121,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String EnvironmentConfigurationId { get; set; }
         #endregion
         
+        #region Parameter EnvironmentConfigurationName
+        /// <summary>
+        /// <para>
+        /// <para>The configuration name of the environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnvironmentConfigurationName { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentProfileIdentifier
         /// <summary>
         /// <para>
@@ -255,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.EnvironmentAccountRegion = this.EnvironmentAccountRegion;
             context.EnvironmentBlueprintIdentifier = this.EnvironmentBlueprintIdentifier;
             context.EnvironmentConfigurationId = this.EnvironmentConfigurationId;
+            context.EnvironmentConfigurationName = this.EnvironmentConfigurationName;
             context.EnvironmentProfileIdentifier = this.EnvironmentProfileIdentifier;
             if (this.GlossaryTerm != null)
             {
@@ -321,6 +332,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.EnvironmentConfigurationId != null)
             {
                 request.EnvironmentConfigurationId = cmdletContext.EnvironmentConfigurationId;
+            }
+            if (cmdletContext.EnvironmentConfigurationName != null)
+            {
+                request.EnvironmentConfigurationName = cmdletContext.EnvironmentConfigurationName;
             }
             if (cmdletContext.EnvironmentProfileIdentifier != null)
             {
@@ -404,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String EnvironmentAccountRegion { get; set; }
             public System.String EnvironmentBlueprintIdentifier { get; set; }
             public System.String EnvironmentConfigurationId { get; set; }
+            public System.String EnvironmentConfigurationName { get; set; }
             public System.String EnvironmentProfileIdentifier { get; set; }
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Name { get; set; }

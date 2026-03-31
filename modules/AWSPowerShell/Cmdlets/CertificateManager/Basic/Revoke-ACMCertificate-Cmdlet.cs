@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// <summary>
     /// Revokes a public ACM certificate. You can only revoke certificates that have been
     /// previously exported.
+    /// 
+    ///  <important><para>
+    /// Once a certificate is revoked, you cannot reuse the certificate. Revoking a certificate
+    /// is permanent.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Revoke", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

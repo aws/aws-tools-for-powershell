@@ -23,66 +23,71 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DevOpsAgent;
-using Amazon.DevOpsAgent.Model;
+using Amazon.PinpointSMSVoiceV2;
+using Amazon.PinpointSMSVoiceV2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DOPS
+namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Initiate a chat for support case in the specified agent space
+    /// Creates a new RCS agent for sending rich messages through the RCS channel. The RCS
+    /// agent serves as an origination identity for sending RCS messages to your recipients.
     /// </summary>
-    [Cmdlet("Start", "DOPSChatForCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DevOpsAgent.Model.ChatParticipantConnection")]
-    [AWSCmdlet("Calls the AWS DevOps Agent Service InitiateChatForCase API operation.", Operation = new[] {"InitiateChatForCase"}, SelectReturnType = typeof(Amazon.DevOpsAgent.Model.InitiateChatForCaseResponse))]
-    [AWSCmdletOutput("Amazon.DevOpsAgent.Model.ChatParticipantConnection or Amazon.DevOpsAgent.Model.InitiateChatForCaseResponse",
-        "This cmdlet returns an Amazon.DevOpsAgent.Model.ChatParticipantConnection object.",
-        "The service call response (type Amazon.DevOpsAgent.Model.InitiateChatForCaseResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("New", "SMSVRcsAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 CreateRcsAgent API operation.", Operation = new[] {"CreateRcsAgent"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentResponse))]
+    [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentResponse",
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentResponse object containing multiple properties."
     )]
-    public partial class StartDOPSChatForCaseCmdlet : AmazonDevOpsAgentClientCmdlet, IExecutor
+    public partial class NewSMSVRcsAgentCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AgentSpaceId
+        #region Parameter DeletionProtectionEnabled
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the agent space containing the task</para>
+        /// <para>By default this is set to false. When set to true the RCS agent can't be deleted.
+        /// You can change this value using the <a>UpdateRcsAgent</a> action.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AgentSpaceId { get; set; }
+        public System.Boolean? DeletionProtectionEnabled { get; set; }
         #endregion
         
-        #region Parameter TaskId
+        #region Parameter OptOutListName
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for this task</para>
+        /// <para>The OptOutList to associate with the RCS agent. Valid values are either OptOutListName
+        /// or OptOutListArn.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TaskId { get; set; }
+        public System.String OptOutListName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of tags (key and value pairs) associated with the RCS agent.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.PinpointSMSVoiceV2.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Client-provided token for idempotent operations</para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. If you don't specify a client token, a randomly generated token is used for
+        /// the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,13 +96,13 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ChatParticipantConnection'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DevOpsAgent.Model.InitiateChatForCaseResponse).
-        /// Specifying the name of a property of type Amazon.DevOpsAgent.Model.InitiateChatForCaseResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentResponse).
+        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ChatParticipantConnection";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -119,13 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         {
             base.ProcessRecord();
             
-            var targetParameterNames = new string[]
-            {
-                nameof(this.AgentSpaceId),
-                nameof(this.TaskId)
-            };
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-DOPSChatForCase (InitiateChatForCase)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OptOutListName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SMSVRcsAgent (CreateRcsAgent)"))
             {
                 return;
             }
@@ -137,24 +137,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DevOpsAgent.Model.InitiateChatForCaseResponse, StartDOPSChatForCaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentResponse, NewSMSVRcsAgentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AgentSpaceId = this.AgentSpaceId;
-            #if MODULAR
-            if (this.AgentSpaceId == null && ParameterWasBound(nameof(this.AgentSpaceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClientToken = this.ClientToken;
-            context.TaskId = this.TaskId;
-            #if MODULAR
-            if (this.TaskId == null && ParameterWasBound(nameof(this.TaskId)))
+            context.DeletionProtectionEnabled = this.DeletionProtectionEnabled;
+            context.OptOutListName = this.OptOutListName;
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter TaskId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new List<Amazon.PinpointSMSVoiceV2.Model.Tag>(this.Tag);
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -169,19 +161,23 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DevOpsAgent.Model.InitiateChatForCaseRequest();
+            var request = new Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentRequest();
             
-            if (cmdletContext.AgentSpaceId != null)
-            {
-                request.AgentSpaceId = cmdletContext.AgentSpaceId;
-            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.TaskId != null)
+            if (cmdletContext.DeletionProtectionEnabled != null)
             {
-                request.TaskId = cmdletContext.TaskId;
+                request.DeletionProtectionEnabled = cmdletContext.DeletionProtectionEnabled.Value;
+            }
+            if (cmdletContext.OptOutListName != null)
+            {
+                request.OptOutListName = cmdletContext.OptOutListName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -216,12 +212,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         #region AWS Service Operation Call
         
-        private Amazon.DevOpsAgent.Model.InitiateChatForCaseResponse CallAWSServiceOperation(IAmazonDevOpsAgent client, Amazon.DevOpsAgent.Model.InitiateChatForCaseRequest request)
+        private Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DevOps Agent Service", "InitiateChatForCase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "CreateRcsAgent");
             try
             {
-                return client.InitiateChatForCaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CreateRcsAgentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -238,11 +234,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AgentSpaceId { get; set; }
             public System.String ClientToken { get; set; }
-            public System.String TaskId { get; set; }
-            public System.Func<Amazon.DevOpsAgent.Model.InitiateChatForCaseResponse, StartDOPSChatForCaseCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ChatParticipantConnection;
+            public System.Boolean? DeletionProtectionEnabled { get; set; }
+            public System.String OptOutListName { get; set; }
+            public List<Amazon.PinpointSMSVoiceV2.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.PinpointSMSVoiceV2.Model.CreateRcsAgentResponse, NewSMSVRcsAgentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

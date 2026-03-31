@@ -23,70 +23,65 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DevOpsAgent;
-using Amazon.DevOpsAgent.Model;
+using Amazon.PinpointSMSVoiceV2;
+using Amazon.PinpointSMSVoiceV2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DOPS
+namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Describe the support level of a CloudSmith customer account.
+    /// Sets an account level monthly spend limit override for sending notify messages. The
+    /// requested spend limit must be less than or equal to the <c>MaxLimit</c>, which is
+    /// set by Amazon Web Services.
     /// </summary>
-    [Cmdlet("Get", "DOPSSupportLevelDetail")]
-    [OutputType("Amazon.DevOpsAgent.Model.DescribeSupportLevelResponse")]
-    [AWSCmdlet("Calls the AWS DevOps Agent Service DescribeSupportLevel API operation.", Operation = new[] {"DescribeSupportLevel"}, SelectReturnType = typeof(Amazon.DevOpsAgent.Model.DescribeSupportLevelResponse))]
-    [AWSCmdletOutput("Amazon.DevOpsAgent.Model.DescribeSupportLevelResponse",
-        "This cmdlet returns an Amazon.DevOpsAgent.Model.DescribeSupportLevelResponse object containing multiple properties."
+    [Cmdlet("Set", "SMSVNotifyMessageSpendLimitOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.Int64")]
+    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 SetNotifyMessageSpendLimitOverride API operation.", Operation = new[] {"SetNotifyMessageSpendLimitOverride"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideResponse))]
+    [AWSCmdletOutput("System.Int64 or Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideResponse",
+        "This cmdlet returns a collection of System.Int64 objects.",
+        "The service call response (type Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetDOPSSupportLevelDetailCmdlet : AmazonDevOpsAgentClientCmdlet, IExecutor
+    public partial class SetSMSVNotifyMessageSpendLimitOverrideCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AgentSpaceId
+        #region Parameter MonthlyLimit
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the agent space containing the task</para>
+        /// <para>The new monthly limit to enforce on notify messages.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AgentSpaceId { get; set; }
-        #endregion
-        
-        #region Parameter TaskId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier for this task</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TaskId { get; set; }
+        public System.Int64? MonthlyLimit { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DevOpsAgent.Model.DescribeSupportLevelResponse).
-        /// Specifying the name of a property of type Amazon.DevOpsAgent.Model.DescribeSupportLevelResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MonthlyLimit'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideResponse).
+        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "MonthlyLimit";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -98,6 +93,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MonthlyLimit), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SMSVNotifyMessageSpendLimitOverride (SetNotifyMessageSpendLimitOverride)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -105,21 +106,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DevOpsAgent.Model.DescribeSupportLevelResponse, GetDOPSSupportLevelDetailCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideResponse, SetSMSVNotifyMessageSpendLimitOverrideCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AgentSpaceId = this.AgentSpaceId;
+            context.MonthlyLimit = this.MonthlyLimit;
             #if MODULAR
-            if (this.AgentSpaceId == null && ParameterWasBound(nameof(this.AgentSpaceId)))
+            if (this.MonthlyLimit == null && ParameterWasBound(nameof(this.MonthlyLimit)))
             {
-                WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.TaskId = this.TaskId;
-            #if MODULAR
-            if (this.TaskId == null && ParameterWasBound(nameof(this.TaskId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TaskId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MonthlyLimit which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -136,15 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DevOpsAgent.Model.DescribeSupportLevelRequest();
+            var request = new Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideRequest();
             
-            if (cmdletContext.AgentSpaceId != null)
+            if (cmdletContext.MonthlyLimit != null)
             {
-                request.AgentSpaceId = cmdletContext.AgentSpaceId;
-            }
-            if (cmdletContext.TaskId != null)
-            {
-                request.TaskId = cmdletContext.TaskId;
+                request.MonthlyLimit = cmdletContext.MonthlyLimit.Value;
             }
             
             CmdletOutput output;
@@ -179,12 +169,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         #region AWS Service Operation Call
         
-        private Amazon.DevOpsAgent.Model.DescribeSupportLevelResponse CallAWSServiceOperation(IAmazonDevOpsAgent client, Amazon.DevOpsAgent.Model.DescribeSupportLevelRequest request)
+        private Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DevOps Agent Service", "DescribeSupportLevel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "SetNotifyMessageSpendLimitOverride");
             try
             {
-                return client.DescribeSupportLevelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.SetNotifyMessageSpendLimitOverrideAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -201,10 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AgentSpaceId { get; set; }
-            public System.String TaskId { get; set; }
-            public System.Func<Amazon.DevOpsAgent.Model.DescribeSupportLevelResponse, GetDOPSSupportLevelDetailCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Int64? MonthlyLimit { get; set; }
+            public System.Func<Amazon.PinpointSMSVoiceV2.Model.SetNotifyMessageSpendLimitOverrideResponse, SetSMSVNotifyMessageSpendLimitOverrideCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MonthlyLimit;
         }
         
     }

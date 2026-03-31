@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sustainability</C2jFilename>
+    <AssemblyName>Sustainability</AssemblyName>
+    <ServiceNounPrefix>SUST</ServiceNounPrefix>
+    <ServiceName>AWS Sustainability</ServiceName>
+    <ServiceId>Sustainability</ServiceId>
+    <ServiceClientInterface>IAmazonSustainability</ServiceClientInterface>
+    <ServiceClient>AmazonSustainabilityClient</ServiceClient>
+    <ServiceModuleGuid>a600ea7c-e794-431b-83eb-9b8fd89368a5</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetEstimatedCarbonEmissions" OutputProperty="Results" Verb="Get" Noun="EstimatedCarbonEmission" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEstimatedCarbonEmissionsDimensionValues" OutputProperty="Results" Verb="Get" Noun="EstimatedCarbonEmissionsDimensionValue" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

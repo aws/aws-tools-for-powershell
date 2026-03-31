@@ -645,6 +645,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutomationJob" OutputProperty="*" Verb="Get" Noun="AutomationJobDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeBrand" OutputProperty="*" Verb="Get" Noun="Brand" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1127,6 +1131,10 @@
             <Params>
                 <Param Name="OverrideParameters_ResourceIdOverrideConfiguration_PrefixForAllResources" NewName="ResourceIdOverrideConfiguration_PrefixForAllResource" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAutomationJob" OutputProperty="*" Verb="Start" Noun="AutomationJob" ShouldProcessTarget="AutomationGroupId,AutomationId,AwsAccountId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDashboardSnapshotJob" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJob" AnonymousShouldProcessTarget="true" PipelineParameter="SnapshotJobId" NoPipelineParameter="false" LegacyV4Pagination="true">

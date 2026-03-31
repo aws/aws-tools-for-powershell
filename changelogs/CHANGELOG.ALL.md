@@ -1,4 +1,77 @@
-﻿### 5.0.185 (2026-03-30 20:14Z)
+﻿### 5.0.186 (2026-03-31 20:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.222.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Certificate Manager
+    * Added cmdlet Search-ACMCertificate leveraging the SearchCertificates service API.
+  * Amazon CloudFront
+    * Modified cmdlet Update-CFAnycastIpList: added parameter IpamCidrConfig.
+  * Amazon Data Exchange
+    * Modified cmdlet New-DTEXJob: added parameter AssetConfiguration_Tag.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSDataProvider: added parameters Settings_IbmDb2LuwSettings_EncryptionAlgorithm and Settings_IbmDb2LuwSettings_SecurityMechanism.
+    * Modified cmdlet New-DMSDataProvider: added parameters Settings_IbmDb2LuwSettings_EncryptionAlgorithm and Settings_IbmDb2LuwSettings_SecurityMechanism.
+  * Amazon DataZone
+    * Modified cmdlet New-DZEnvironment: added parameter EnvironmentConfigurationName.
+    * Modified cmdlet Update-DZEnvironment: added parameter EnvironmentConfigurationName.
+  * DOPS
+    * [Breaking Change] Removed cmdlets Close-DOPSChatForCase, Get-DOPSSupportLevelDetail and Start-DOPSChatForCase.
+    * [Breaking Change] Modified cmdlet Add-DOPSService: removed parameters Configuration_Msteams_TeamId, Configuration_Msteams_TeamName, Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId, Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName, Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId and Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName.
+    * [Breaking Change] Modified cmdlet Register-DOPSService: removed parameters ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region, ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn, ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service, ServiceDetails_Mcpserversigv4_Description, ServiceDetails_Mcpserversigv4_Endpoint and ServiceDetails_Mcpserversigv4_Name.
+    * [Breaking Change] Modified cmdlet Update-DOPSAssociation: removed parameters Configuration_Msteams_TeamId, Configuration_Msteams_TeamName, Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId, Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName, Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId and Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName.
+  * Amazon Marketplace Agreement Service
+    * Added cmdlet Get-MASAgreementCancellationRequest leveraging the GetAgreementCancellationRequest service API.
+    * Added cmdlet Get-MASAgreementCancellationRequestList leveraging the ListAgreementCancellationRequests service API.
+    * Added cmdlet Get-MASAgreementInvoiceLineItemList leveraging the ListAgreementInvoiceLineItems service API.
+    * Added cmdlet Get-MASBillingAdjustmentRequest leveraging the GetBillingAdjustmentRequest service API.
+    * Added cmdlet Get-MASBillingAdjustmentRequestList leveraging the ListBillingAdjustmentRequests service API.
+    * Added cmdlet New-MASBillingAdjustmentRequestBatch leveraging the BatchCreateBillingAdjustmentRequest service API.
+    * Added cmdlet Send-MASAgreementCancellationRequest leveraging the SendAgreementCancellationRequest service API.
+    * Added cmdlet Stop-MASAgreementCancellationRequest leveraging the CancelAgreementCancellationRequest service API.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSCapability leveraging the GetCapability service API.
+    * Added cmdlet Register-OSCapability leveraging the RegisterCapability service API.
+    * Added cmdlet Unregister-OSCapability leveraging the DeregisterCapability service API.
+  * Amazon Pinpoint SMS Voice V2
+    * Added cmdlet Get-SMSVNotifyConfiguration leveraging the DescribeNotifyConfigurations service API.
+    * Added cmdlet Get-SMSVNotifyCountryList leveraging the ListNotifyCountries service API.
+    * Added cmdlet Get-SMSVNotifyTemplate leveraging the DescribeNotifyTemplates service API.
+    * Added cmdlet Get-SMSVRcsAgent leveraging the DescribeRcsAgents service API.
+    * Added cmdlet Get-SMSVRcsAgentCountryLaunchStatus leveraging the DescribeRcsAgentCountryLaunchStatus service API.
+    * Added cmdlet New-SMSVNotifyConfiguration leveraging the CreateNotifyConfiguration service API.
+    * Added cmdlet New-SMSVRcsAgent leveraging the CreateRcsAgent service API.
+    * Added cmdlet Remove-SMSVNotifyConfiguration leveraging the DeleteNotifyConfiguration service API.
+    * Added cmdlet Remove-SMSVNotifyMessageSpendLimitOverride leveraging the DeleteNotifyMessageSpendLimitOverride service API.
+    * Added cmdlet Remove-SMSVRcsAgent leveraging the DeleteRcsAgent service API.
+    * Added cmdlet Send-SMSVNotifyTextMessage leveraging the SendNotifyTextMessage service API.
+    * Added cmdlet Send-SMSVNotifyVoiceMessage leveraging the SendNotifyVoiceMessage service API.
+    * Added cmdlet Set-SMSVNotifyMessageSpendLimitOverride leveraging the SetNotifyMessageSpendLimitOverride service API.
+    * Added cmdlet Update-SMSVNotifyConfiguration leveraging the UpdateNotifyConfiguration service API.
+    * Added cmdlet Update-SMSVRcsAgent leveraging the UpdateRcsAgent service API.
+    * Modified cmdlet New-SMSVVerifiedDestinationNumber: added parameter RcsAgentId.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSAutomationJobDetail leveraging the DescribeAutomationJob service API.
+    * Added cmdlet Start-QSAutomationJob leveraging the StartAutomationJob service API.
+    * Modified cmdlet New-QSAnalysis: added parameter Definition_TooltipSheet.
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_CreateSpace, Capabilities_ShareChatAgent and Capabilities_ShareSpace.
+    * Modified cmdlet New-QSDashboard: added parameter Definition_TooltipSheet.
+    * Modified cmdlet New-QSDataSource: added parameters Credentials_OAuthClientCredentials_ClientId, Credentials_OAuthClientCredentials_ClientSecret and Credentials_OAuthClientCredentials_Username.
+    * Modified cmdlet New-QSTemplate: added parameter Definition_TooltipSheet.
+    * Modified cmdlet Update-QSAnalysis: added parameter Definition_TooltipSheet.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_CreateSpace, Capabilities_ShareChatAgent and Capabilities_ShareSpace.
+    * Modified cmdlet Update-QSDashboard: added parameter Definition_TooltipSheet.
+    * Modified cmdlet Update-QSDataSource: added parameters Credentials_OAuthClientCredentials_ClientId, Credentials_OAuthClientCredentials_ClientSecret and Credentials_OAuthClientCredentials_Username.
+    * Modified cmdlet Update-QSTemplate: added parameter Definition_TooltipSheet.
+  * Amazon S3 Control
+    * Modified cmdlet Get-S3CDataAccess: added parameter AuditContext.
+  * Amazon S3 Tables
+    * Modified cmdlet New-S3TTable: added parameters Metadata_Iceberg_SchemaV2_Field, Metadata_Iceberg_SchemaV2_IdentifierFieldId, Metadata_Iceberg_SchemaV2_SchemaId and Metadata_Iceberg_SchemaV2_Type.
+  * Amazon Security Agent. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SECAG and can be listed using the command 'Get-AWSCmdletName -Service SECAG'.
+  * Amazon SES Mail Manager
+    * Modified cmdlet Get-MMGRIngressPoint: added parameter IncludeTrustStoreContent.
+    * Modified cmdlet New-MMGRIngressPoint: added parameters IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent, IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent, IngressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn and TlsPolicy.
+    * Modified cmdlet Update-MMGRIngressPoint: added parameters IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CAContent, IngressPointConfiguration_TlsAuthConfiguration_TrustStore_CrlContent, IngressPointConfiguration_TlsAuthConfiguration_TrustStore_KmsKeyArn and TlsPolicy.
+  * Amazon Sustainability. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SUST and can be listed using the command 'Get-AWSCmdletName -Service SUST'.
+
+### 5.0.185 (2026-03-30 20:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.221.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Modified cmdlet New-APSStack: added parameters ContentRedirection_HostToClient_AllowedUrl, ContentRedirection_HostToClient_DeniedUrl and ContentRedirection_HostToClient_Enabled.

@@ -82,6 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter EnvironmentConfigurationName
+        /// <summary>
+        /// <para>
+        /// <para>The configuration name of the environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnvironmentConfigurationName { get; set; }
+        #endregion
+        
         #region Parameter GlossaryTerm
         /// <summary>
         /// <para>
@@ -194,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnvironmentConfigurationName = this.EnvironmentConfigurationName;
             if (this.GlossaryTerm != null)
             {
                 context.GlossaryTerm = new List<System.String>(this.GlossaryTerm);
@@ -237,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.EnvironmentConfigurationName != null)
+            {
+                request.EnvironmentConfigurationName = cmdletContext.EnvironmentConfigurationName;
             }
             if (cmdletContext.GlossaryTerm != null)
             {
@@ -312,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String BlueprintVersion { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
+            public System.String EnvironmentConfigurationName { get; set; }
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Identifier { get; set; }
             public System.String Name { get; set; }

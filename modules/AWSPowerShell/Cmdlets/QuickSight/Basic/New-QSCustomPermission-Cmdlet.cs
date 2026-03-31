@@ -831,6 +831,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_CreateSharedFolder { get; set; }
         #endregion
         
+        #region Parameter Capabilities_CreateSpace
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create spaces.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_CreateSpaces")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateSpace { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_CreateSPICEDataset
         /// <summary>
         /// <para>
@@ -1473,6 +1485,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareCanvaAgentAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareChatAgent
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share chat agents with other users and groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_ShareChatAgents")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareChatAgent { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareComprehendAction
         /// <summary>
         /// <para>
@@ -1881,6 +1905,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareSmartsheetAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareSpace
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share spaces with other users and groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_ShareSpaces")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareSpace { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareTextractAction
@@ -2628,6 +2664,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateChatAgent = this.Capabilities_CreateChatAgent;
             context.Capabilities_CreateDashboardExecutiveSummaryWithQ = this.Capabilities_CreateDashboardExecutiveSummaryWithQ;
             context.Capabilities_CreateSharedFolder = this.Capabilities_CreateSharedFolder;
+            context.Capabilities_CreateSpace = this.Capabilities_CreateSpace;
             context.Capabilities_CreateSPICEDataset = this.Capabilities_CreateSPICEDataset;
             context.Capabilities_Dashboard = this.Capabilities_Dashboard;
             context.Capabilities_EditVisualWithQ = this.Capabilities_EditVisualWithQ;
@@ -2684,6 +2721,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ShareBambooHRAction = this.Capabilities_ShareBambooHRAction;
             context.Capabilities_ShareBoxAgentAction = this.Capabilities_ShareBoxAgentAction;
             context.Capabilities_ShareCanvaAgentAction = this.Capabilities_ShareCanvaAgentAction;
+            context.Capabilities_ShareChatAgent = this.Capabilities_ShareChatAgent;
             context.Capabilities_ShareComprehendAction = this.Capabilities_ShareComprehendAction;
             context.Capabilities_ShareComprehendMedicalAction = this.Capabilities_ShareComprehendMedicalAction;
             context.Capabilities_ShareConfluenceAction = this.Capabilities_ShareConfluenceAction;
@@ -2721,6 +2759,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ShareSharePointAction = this.Capabilities_ShareSharePointAction;
             context.Capabilities_ShareSlackAction = this.Capabilities_ShareSlackAction;
             context.Capabilities_ShareSmartsheetAction = this.Capabilities_ShareSmartsheetAction;
+            context.Capabilities_ShareSpace = this.Capabilities_ShareSpace;
             context.Capabilities_ShareTextractAction = this.Capabilities_ShareTextractAction;
             context.Capabilities_ShareZendeskAction = this.Capabilities_ShareZendeskAction;
             context.Capabilities_SlackAction = this.Capabilities_SlackAction;
@@ -3501,6 +3540,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateSharedFolders = requestCapabilities_capabilities_CreateSharedFolder;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSpace = null;
+            if (cmdletContext.Capabilities_CreateSpace != null)
+            {
+                requestCapabilities_capabilities_CreateSpace = cmdletContext.Capabilities_CreateSpace;
+            }
+            if (requestCapabilities_capabilities_CreateSpace != null)
+            {
+                request.Capabilities.CreateSpaces = requestCapabilities_capabilities_CreateSpace;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSPICEDataset = null;
             if (cmdletContext.Capabilities_CreateSPICEDataset != null)
             {
@@ -4061,6 +4110,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareCanvaAgentAction = requestCapabilities_capabilities_ShareCanvaAgentAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareChatAgent = null;
+            if (cmdletContext.Capabilities_ShareChatAgent != null)
+            {
+                requestCapabilities_capabilities_ShareChatAgent = cmdletContext.Capabilities_ShareChatAgent;
+            }
+            if (requestCapabilities_capabilities_ShareChatAgent != null)
+            {
+                request.Capabilities.ShareChatAgents = requestCapabilities_capabilities_ShareChatAgent;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareComprehendAction = null;
             if (cmdletContext.Capabilities_ShareComprehendAction != null)
             {
@@ -4429,6 +4488,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareSmartsheetAction != null)
             {
                 request.Capabilities.ShareSmartsheetAction = requestCapabilities_capabilities_ShareSmartsheetAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSpace = null;
+            if (cmdletContext.Capabilities_ShareSpace != null)
+            {
+                requestCapabilities_capabilities_ShareSpace = cmdletContext.Capabilities_ShareSpace;
+            }
+            if (requestCapabilities_capabilities_ShareSpace != null)
+            {
+                request.Capabilities.ShareSpaces = requestCapabilities_capabilities_ShareSpace;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareTextractAction = null;
@@ -5119,6 +5188,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateChatAgent { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateDashboardExecutiveSummaryWithQ { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSharedFolder { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateSpace { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSPICEDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Dashboard { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_EditVisualWithQ { get; set; }
@@ -5175,6 +5245,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ShareBambooHRAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareBoxAgentAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareCanvaAgentAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareChatAgent { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareComprehendAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareComprehendMedicalAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareConfluenceAction { get; set; }
@@ -5212,6 +5283,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSharePointAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSlackAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSmartsheetAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSpace { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareTextractAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareZendeskAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SlackAction { get; set; }

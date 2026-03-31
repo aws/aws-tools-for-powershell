@@ -43,7 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon
     /// S3 Inventory</a>.
-    /// </para><para>
+    /// </para><note><para>
+    /// After deleting a configuration, Amazon S3 might still deliver one additional inventory
+    /// report during a brief transition period while the system processes the deletion.
+    /// </para></note><para>
     /// Operations related to <c>DeleteBucketInventoryConfiguration</c> include: 
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html">GetBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html">PutBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html">ListBucketInventoryConfigurations</a></para></li></ul><important><para>
     /// You must URL encode any signed header values that contain spaces. For example, if

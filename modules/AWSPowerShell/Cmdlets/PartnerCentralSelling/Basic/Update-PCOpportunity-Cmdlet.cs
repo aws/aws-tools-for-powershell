@@ -268,7 +268,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Value_CurrencyCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the payment currency.</para>
+        /// <para>Specifies the payment currency. Accepted values are <c>USD</c> (US Dollars) and <c>EUR</c>
+        /// (Euros). If the AWS Partition is <c>aws-eusc</c> (AWS European Sovereign Cloud), the
+        /// currency code must be <c>EUR</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

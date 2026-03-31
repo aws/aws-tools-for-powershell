@@ -571,6 +571,20 @@ $ACM_Completers = {
             break
         }
 
+        # Amazon.CertificateManager.SearchCertificatesSortBy
+        "Search-ACMCertificate/SortBy"
+        {
+            $v = "CERTIFICATE_ARN","COMMON_NAME","CREATED_AT","EXPORTED","EXPORT_OPTION","IMPORTED_AT","IN_USE","ISSUED_AT","KEY_ALGORITHM","MANAGED_BY","NOT_AFTER","NOT_BEFORE","RENEWAL_ELIGIBILITY","RENEWAL_STATUS","REVOKED_AT","STATUS","TYPE","VALIDATION_METHOD"
+            break
+        }
+
+        # Amazon.CertificateManager.SearchCertificatesSortOrder
+        "Search-ACMCertificate/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.CertificateManager.SortBy
         "Get-ACMCertificateList/SortBy"
         {
@@ -608,8 +622,8 @@ $ACM_map = @{
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "Options_Export"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "RevocationReason"=@("Revoke-ACMCertificate")
-    "SortBy"=@("Get-ACMCertificateList")
-    "SortOrder"=@("Get-ACMCertificateList")
+    "SortBy"=@("Get-ACMCertificateList","Search-ACMCertificate")
+    "SortOrder"=@("Get-ACMCertificateList","Search-ACMCertificate")
     "ValidationMethod"=@("New-ACMCertificate")
 }
 
@@ -678,6 +692,7 @@ $ACM_SelectMap = @{
                "New-ACMCertificate",
                "Send-ACMValidationEmail",
                "Revoke-ACMCertificate",
+               "Search-ACMCertificate",
                "Update-ACMCertificateOption")
 }
 
@@ -25083,7 +25098,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.PostRegisterServiceSupportedService
         "Register-DOPSService/Service"
         {
-            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","servicenow"
+            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversplunk","pagerduty","servicenow"
             break
         }
 
@@ -25121,7 +25136,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.Service
         "Get-DOPSServiceList/FilterServiceType"
         {
-            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","msteams","pagerduty","servicenow","slack"
+            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversplunk","pagerduty","servicenow","slack"
             break
         }
 
@@ -25260,11 +25275,9 @@ $DOPS_SelectMap = @{
                "Remove-DOPSPrivateConnection",
                "Unregister-DOPSService",
                "Get-DOPSPrivateConnectionDetail",
-               "Get-DOPSSupportLevelDetail",
                "Disable-DOPSOperatorApp",
                "Remove-DOPSService",
                "Enable-DOPSOperatorApp",
-               "Close-DOPSChatForCase",
                "Get-DOPSAccountUsage",
                "Get-DOPSAgentSpace",
                "Get-DOPSAssociation",
@@ -25272,7 +25285,6 @@ $DOPS_SelectMap = @{
                "Get-DOPSOperatorApp",
                "Get-DOPSRecommendation",
                "Get-DOPSService",
-               "Start-DOPSChatForCase",
                "Get-DOPSAgentSpaceList",
                "Get-DOPSAssociationList",
                "Get-DOPSBacklogTaskList",
@@ -37429,7 +37441,7 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.ContourDensity
         "Get-GEOMStyleDescriptor/ContourDensity"
         {
-            $v = "Medium"
+            $v = "High","Low","Medium"
             break
         }
 
@@ -37481,7 +37493,7 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.Traffic
         "Get-GEOMStyleDescriptor/Traffic"
         {
-            $v = "All"
+            $v = "All","Congestion"
             break
         }
 
@@ -47107,7 +47119,7 @@ $KINA2_Completers = {
             ($_ -eq "Update-KINA2Application/RuntimeEnvironmentUpdate")
         }
         {
-            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_19","FLINK-1_20","FLINK-1_6","FLINK-1_8","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
+            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_19","FLINK-1_20","FLINK-1_6","FLINK-1_8","FLINK-2_2","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
             break
         }
 
@@ -51117,7 +51129,7 @@ $MMGR_Completers = {
         # Amazon.MailManager.IngressPointType
         "New-MMGRIngressPoint/Type"
         {
-            $v = "AUTH","OPEN"
+            $v = "AUTH","MTLS","OPEN"
             break
         }
 
@@ -51138,6 +51150,23 @@ $MMGR_Completers = {
             break
         }
 
+        # Amazon.MailManager.TlsPolicy
+        {
+            ($_ -eq "New-MMGRIngressPoint/TlsPolicy") -Or
+            ($_ -eq "Update-MMGRIngressPoint/TlsPolicy")
+        }
+        {
+            $v = "FIPS","OPTIONAL","REQUIRED"
+            break
+        }
+
+        # Amazon.MailManager.TrustStoreResponseOption
+        "Get-MMGRIngressPoint/IncludeTrustStoreContent"
+        {
+            $v = "EXCLUDE","INCLUDE"
+            break
+        }
+
 
     }
 
@@ -51149,9 +51178,11 @@ $MMGR_Completers = {
 $MMGR_map = @{
     "DefaultAction"=@("New-MMGRTrafficPolicy","Update-MMGRTrafficPolicy")
     "ImportDataFormat_ImportDataType"=@("New-MMGRAddressListImportJob")
+    "IncludeTrustStoreContent"=@("Get-MMGRIngressPoint")
     "PublicNetworkConfiguration_IpType"=@("New-MMGRIngressPoint")
     "Retention_RetentionPeriod"=@("New-MMGRArchive","Update-MMGRArchive")
     "StatusToUpdate"=@("Update-MMGRIngressPoint")
+    "TlsPolicy"=@("New-MMGRIngressPoint","Update-MMGRIngressPoint")
     "Type"=@("New-MMGRIngressPoint")
 }
 
@@ -51594,6 +51625,41 @@ $MAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceAgreement.AgreementCancellationRequestReasonCode
+        "Send-MASAgreementCancellationRequest/ReasonCode"
+        {
+            $v = "ALTERNATIVE_PROCUREMENT_CHANNEL","BUYER_DISSATISFACTION","INCORRECT_TERMS_ACCEPTED","OTHER","PRODUCT_DISCONTINUED","REPLACING_AGREEMENT","TEST_AGREEMENT","UNINTENDED_RENEWAL"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.AgreementCancellationRequestStatus
+        "Get-MASAgreementCancellationRequestList/Status"
+        {
+            $v = "APPROVED","CANCELLED","PENDING_APPROVAL","REJECTED","VALIDATION_FAILED"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.BillingAdjustmentStatus
+        "Get-MASBillingAdjustmentRequestList/Status"
+        {
+            $v = "COMPLETED","PENDING","VALIDATION_FAILED"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.InvoiceType
+        "Get-MASAgreementInvoiceLineItemList/InvoiceType"
+        {
+            $v = "CREDIT_MEMO","INVOICE"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.LineItemGroupBy
+        "Get-MASAgreementInvoiceLineItemList/GroupBy"
+        {
+            $v = "INVOICE_ID"
+            break
+        }
+
         # Amazon.MarketplaceAgreement.PaymentRequestStatus
         "Get-MASAgreementPaymentRequestList/Status"
         {
@@ -51617,8 +51683,11 @@ $MAS_Completers = {
 }
 
 $MAS_map = @{
+    "GroupBy"=@("Get-MASAgreementInvoiceLineItemList")
+    "InvoiceType"=@("Get-MASAgreementInvoiceLineItemList")
+    "ReasonCode"=@("Send-MASAgreementCancellationRequest")
     "Sort_SortOrder"=@("Search-MASAgreement")
-    "Status"=@("Get-MASAgreementPaymentRequestList")
+    "Status"=@("Get-MASAgreementCancellationRequestList","Get-MASAgreementPaymentRequestList","Get-MASBillingAdjustmentRequestList")
 }
 
 _awsArgumentCompleterRegistration $MAS_Completers $MAS_map
@@ -51671,12 +51740,20 @@ $MAS_SelectCompleters = {
 }
 
 $MAS_SelectMap = @{
-    "Select"=@("Stop-MASAgreementPaymentRequest",
+    "Select"=@("New-MASBillingAdjustmentRequestBatch",
+               "Stop-MASAgreementCancellationRequest",
+               "Stop-MASAgreementPaymentRequest",
                "Get-MASAgreement",
+               "Get-MASAgreementCancellationRequest",
                "Get-MASAgreementPaymentRequest",
                "Get-MASAgreementTerm",
+               "Get-MASBillingAdjustmentRequest",
+               "Get-MASAgreementCancellationRequestList",
+               "Get-MASAgreementInvoiceLineItemList",
                "Get-MASAgreementPaymentRequestList",
+               "Get-MASBillingAdjustmentRequestList",
                "Search-MASAgreement",
+               "Send-MASAgreementCancellationRequest",
                "Send-MASAgreementPaymentRequest")
 }
 
@@ -58771,7 +58848,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Runtime","AWS::CloudTrail","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::Route53Resolver::ResolverEndpoint","AWS::WAFv2::WebACL"
+            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::Route53Resolver::ResolverEndpoint","AWS::SecurityHub::Hub","AWS::WAFv2::WebACL"
             break
         }
 
@@ -59936,6 +60013,7 @@ $OS_SelectMap = @{
                "Remove-OSOutboundConnection",
                "Remove-OSPackage",
                "Remove-OSVpcEndpoint",
+               "Unregister-OSCapability",
                "Get-OSDomain",
                "Get-OSDomainAutoTune",
                "Get-OSDomainChangeProgress",
@@ -59955,6 +60033,7 @@ $OS_SelectMap = @{
                "Start-OSDissociatePackage",
                "Start-OSOSDissociatePackageList",
                "Get-OSApplication",
+               "Get-OSCapability",
                "Get-OSCompatibleVersion",
                "Get-OSDataSource",
                "Get-OSDefaultApplicationSetting",
@@ -59981,6 +60060,7 @@ $OS_SelectMap = @{
                "Get-OSVpcEndpointsForDomainList",
                "New-OSReservedInstanceOffering",
                "Write-OSDefaultApplicationSetting",
+               "Register-OSCapability",
                "Deny-OSInboundConnection",
                "Remove-OSResourceTag",
                "Revoke-OSVpcEndpointAccess",
@@ -63660,13 +63740,27 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.NotifyConfigurationTier
+        "Get-SMSVNotifyCountryList/Tier"
+        {
+            $v = "ADVANCED","BASIC"
+            break
+        }
+
+        # Amazon.PinpointSMSVoiceV2.NotifyConfigurationUseCase
+        "New-SMSVNotifyConfiguration/UseCase"
+        {
+            $v = "CODE_VERIFICATION"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.NumberCapability
         {
             ($_ -eq "Get-SMSVProtectConfigurationCountryRuleSet/NumberCapability") -Or
             ($_ -eq "Update-SMSVProtectConfigurationCountryRuleSet/NumberCapability")
         }
         {
-            $v = "MMS","SMS","VOICE"
+            $v = "MMS","RCS","SMS","VOICE"
             break
         }
 
@@ -63675,6 +63769,7 @@ $SMSV_Completers = {
             ($_ -eq "Get-SMSVOptOutList/Owner") -Or
             ($_ -eq "Get-SMSVPhoneNumber/Owner") -Or
             ($_ -eq "Get-SMSVPool/Owner") -Or
+            ($_ -eq "Get-SMSVRcsAgent/Owner") -Or
             ($_ -eq "Get-SMSVSenderId/Owner")
         }
         {
@@ -63704,7 +63799,10 @@ $SMSV_Completers = {
         }
 
         # Amazon.PinpointSMSVoiceV2.VoiceId
-        "Send-SMSVVoiceMessage/VoiceId"
+        {
+            ($_ -eq "Send-SMSVNotifyVoiceMessage/VoiceId") -Or
+            ($_ -eq "Send-SMSVVoiceMessage/VoiceId")
+        }
         {
             $v = "AMY","ASTRID","BIANCA","BRIAN","CAMILA","CARLA","CARMEN","CELINE","CHANTAL","CONCHITA","CRISTIANO","DORA","EMMA","ENRIQUE","EWA","FILIZ","GERAINT","GIORGIO","GWYNETH","HANS","INES","IVY","JACEK","JAN","JOANNA","JOEY","JUSTIN","KARL","KENDRA","KIMBERLY","LEA","LIV","LOTTE","LUCIA","LUPE","MADS","MAJA","MARLENE","MATHIEU","MATTHEW","MAXIM","MIA","MIGUEL","MIZUKI","NAJA","NICOLE","PENELOPE","RAVEENA","RICARDO","RUBEN","RUSSELL","SALLI","SEOYEON","TAKUMI","TATYANA","VICKI","VITORIA","ZEINA","ZHIYU"
             break
@@ -63734,9 +63832,11 @@ $SMSV_map = @{
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
     "NumberCapability"=@("Get-SMSVProtectConfigurationCountryRuleSet","Update-SMSVProtectConfigurationCountryRuleSet")
     "NumberType"=@("New-SMSVPhoneNumber")
-    "Owner"=@("Get-SMSVOptOutList","Get-SMSVPhoneNumber","Get-SMSVPool","Get-SMSVSenderId")
+    "Owner"=@("Get-SMSVOptOutList","Get-SMSVPhoneNumber","Get-SMSVPool","Get-SMSVRcsAgent","Get-SMSVSenderId")
+    "Tier"=@("Get-SMSVNotifyCountryList")
+    "UseCase"=@("New-SMSVNotifyConfiguration")
     "VerificationChannel"=@("Send-SMSVDestinationNumberVerificationCode")
-    "VoiceId"=@("Send-SMSVVoiceMessage")
+    "VoiceId"=@("Send-SMSVNotifyVoiceMessage","Send-SMSVVoiceMessage")
 }
 
 _awsArgumentCompleterRegistration $SMSV_Completers $SMSV_map
@@ -63794,9 +63894,11 @@ $SMSV_SelectMap = @{
                "Use-SMSVCarrierLookup",
                "New-SMSVConfigurationSet",
                "New-SMSVEventDestination",
+               "New-SMSVNotifyConfiguration",
                "New-SMSVOptOutList",
                "New-SMSVPool",
                "New-SMSVProtectConfiguration",
+               "New-SMSVRcsAgent",
                "New-SMSVRegistration",
                "New-SMSVRegistrationAssociation",
                "New-SMSVRegistrationAttachment",
@@ -63809,11 +63911,14 @@ $SMSV_SelectMap = @{
                "Remove-SMSVEventDestination",
                "Remove-SMSVKeyword",
                "Remove-SMSVMediaMessageSpendLimitOverride",
+               "Remove-SMSVNotifyConfiguration",
+               "Remove-SMSVNotifyMessageSpendLimitOverride",
                "Remove-SMSVOptedOutNumber",
                "Remove-SMSVOptOutList",
                "Remove-SMSVPool",
                "Remove-SMSVProtectConfiguration",
                "Remove-SMSVProtectConfigurationRuleSetNumberOverride",
+               "Remove-SMSVRcsAgent",
                "Remove-SMSVRegistration",
                "Remove-SMSVRegistrationAttachment",
                "Remove-SMSVRegistrationFieldValue",
@@ -63825,11 +63930,15 @@ $SMSV_SelectMap = @{
                "Get-SMSVAccountLimit",
                "Get-SMSVConfigurationSet",
                "Get-SMSVKeyword",
+               "Get-SMSVNotifyConfiguration",
+               "Get-SMSVNotifyTemplate",
                "Get-SMSVOptedOutNumber",
                "Get-SMSVOptOutList",
                "Get-SMSVPhoneNumber",
                "Get-SMSVPool",
                "Get-SMSVProtectConfiguration",
+               "Get-SMSVRcsAgentCountryLaunchStatus",
+               "Get-SMSVRcsAgent",
                "Get-SMSVRegistrationAttachment",
                "Get-SMSVRegistrationFieldDefinition",
                "Get-SMSVRegistrationFieldValue",
@@ -63845,6 +63954,7 @@ $SMSV_SelectMap = @{
                "Close-SMSVRegistrationVersion",
                "Get-SMSVProtectConfigurationCountryRuleSet",
                "Get-SMSVResourcePolicy",
+               "Get-SMSVNotifyCountryList",
                "Get-SMSVPoolOriginationIdentityList",
                "Get-SMSVProtectConfigurationRuleSetNumberOverrideList",
                "Get-SMSVRegistrationAssociationList",
@@ -63861,6 +63971,8 @@ $SMSV_SelectMap = @{
                "Request-SMSVSenderId",
                "Send-SMSVDestinationNumberVerificationCode",
                "Send-SMSVMediaMessage",
+               "Send-SMSVNotifyTextMessage",
+               "Send-SMSVNotifyVoiceMessage",
                "Send-SMSVTextMessage",
                "Send-SMSVVoiceMessage",
                "Set-SMSVAccountDefaultProtectConfiguration",
@@ -63868,16 +63980,19 @@ $SMSV_SelectMap = @{
                "Set-SMSVDefaultMessageType",
                "Set-SMSVDefaultSenderId",
                "Set-SMSVMediaMessageSpendLimitOverride",
+               "Set-SMSVNotifyMessageSpendLimitOverride",
                "Set-SMSVTextMessageSpendLimitOverride",
                "Set-SMSVVoiceMessageSpendLimitOverride",
                "Submit-SMSVRegistrationVersion",
                "Add-SMSVResourceTag",
                "Remove-SMSVResourceTag",
                "Update-SMSVEventDestination",
+               "Update-SMSVNotifyConfiguration",
                "Update-SMSVPhoneNumber",
                "Update-SMSVPool",
                "Update-SMSVProtectConfiguration",
                "Update-SMSVProtectConfigurationCountryRuleSet",
+               "Update-SMSVRcsAgent",
                "Update-SMSVSenderId",
                "Confirm-SMSVDestinationNumber")
 }
@@ -66091,7 +66206,7 @@ $QS_Completers = {
             ($_ -eq "Update-QSDataSource/StarburstParameters_AuthenticationType")
         }
         {
-            $v = "PASSWORD","TOKEN","X509"
+            $v = "KEYPAIR","PASSWORD","TOKEN","X509"
             break
         }
 
@@ -66245,6 +66360,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateDashboardExecutiveSummaryWithQ") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateSpace") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSpace") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Dashboard") -Or
@@ -66357,6 +66474,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareBoxAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareCanvaAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareCanvaAgentAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareChatAgent") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareChatAgent") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareComprehendAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareComprehendAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareComprehendMedicalAction") -Or
@@ -66431,6 +66550,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSlackAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareSmartsheetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSmartsheetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareSpace") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSpace") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareTextractAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareTextractAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareZendeskAction") -Or
@@ -67234,6 +67355,7 @@ $QS_map = @{
     "Capabilities_CreateChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateDashboardExecutiveSummaryWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateSpace"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSPICEDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Dashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_EditVisualWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -67290,6 +67412,7 @@ $QS_map = @{
     "Capabilities_ShareBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareCanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareComprehendMedicalAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareConfluenceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -67327,6 +67450,7 @@ $QS_map = @{
     "Capabilities_ShareSharePointAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSmartsheetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareSpace"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareTextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -67596,6 +67720,7 @@ $QS_SelectMap = @{
                "Get-QSAnalysisPermission",
                "Get-QSAssetBundleExportJob",
                "Get-QSAssetBundleImportJob",
+               "Get-QSAutomationJobDetail",
                "Get-QSBrand",
                "Get-QSBrandAssignment",
                "Get-QSBrandPublishedVersion",
@@ -67700,6 +67825,7 @@ $QS_SelectMap = @{
                "Search-QSTopic",
                "Start-QSAssetBundleExportJob",
                "Start-QSAssetBundleImportJob",
+               "Start-QSAutomationJob",
                "Start-QSDashboardSnapshotJob",
                "Start-QSDashboardSnapshotJobSchedule",
                "Add-QSResourceTag",
@@ -73028,6 +73154,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.SchemaV2FieldType
+        "New-S3TTable/Metadata_Iceberg_SchemaV2_Type"
+        {
+            $v = "struct"
+            break
+        }
+
         # Amazon.S3Tables.SSEAlgorithm
         {
             ($_ -eq "New-S3TTable/EncryptionConfiguration_SseAlgorithm") -Or
@@ -73090,6 +73223,7 @@ $S3T_map = @{
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
+    "Metadata_Iceberg_SchemaV2_Type"=@("New-S3TTable")
     "StorageClassConfiguration_StorageClass"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketStorageClass")
     "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration","Write-S3TTableRecordExpirationConfiguration")
@@ -76826,6 +76960,251 @@ $SecurityIR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SecurityIR_SelectCompleters $SecurityIR_SelectMap
+# Argument completions for service AWS Security Agent
+
+
+$SECAG_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SecurityAgent.ArtifactType
+        "Add-SECAGArtifact/ArtifactType"
+        {
+            $v = "DOC","DOCX","JPEG","JSON","MD","PDF","PNG","TXT","YAML"
+            break
+        }
+
+        # Amazon.SecurityAgent.CodeRemediationStrategy
+        {
+            ($_ -eq "New-SECAGPentest/CodeRemediationStrategy") -Or
+            ($_ -eq "Update-SECAGPentest/CodeRemediationStrategy")
+        }
+        {
+            $v = "AUTOMATIC","DISABLED"
+            break
+        }
+
+        # Amazon.SecurityAgent.ConfidenceLevel
+        "Get-SECAGFindingList/Confidence"
+        {
+            $v = "FALSE_POSITIVE","HIGH","LOW","MEDIUM","UNCONFIRMED"
+            break
+        }
+
+        # Amazon.SecurityAgent.DomainVerificationMethod
+        {
+            ($_ -eq "New-SECAGTargetDomain/VerificationMethod") -Or
+            ($_ -eq "Update-SECAGTargetDomain/VerificationMethod")
+        }
+        {
+            $v = "DNS_TXT","HTTP_ROUTE"
+            break
+        }
+
+        # Amazon.SecurityAgent.FindingStatus
+        {
+            ($_ -eq "Get-SECAGFindingList/Status") -Or
+            ($_ -eq "Update-SECAGFinding/Status")
+        }
+        {
+            $v = "ACCEPTED","ACTIVE","FALSE_POSITIVE","RESOLVED"
+            break
+        }
+
+        # Amazon.SecurityAgent.MembershipType
+        {
+            ($_ -eq "New-SECAGMembership/MemberType") -Or
+            ($_ -eq "Remove-SECAGMembership/MemberType")
+        }
+        {
+            $v = "USER"
+            break
+        }
+
+        # Amazon.SecurityAgent.MembershipTypeFilter
+        "Get-SECAGMembershipList/MemberType"
+        {
+            $v = "ALL","USER"
+            break
+        }
+
+        # Amazon.SecurityAgent.Provider
+        {
+            ($_ -eq "Get-SECAGIntegrationList/Filter_Provider") -Or
+            ($_ -eq "New-SECAGIntegration/Provider") -Or
+            ($_ -eq "Start-SECAGProviderRegistration/Provider")
+        }
+        {
+            $v = "GITHUB"
+            break
+        }
+
+        # Amazon.SecurityAgent.ProviderType
+        "Get-SECAGIntegrationList/Filter_ProviderType"
+        {
+            $v = "DOCUMENTATION","SOURCE_CODE"
+            break
+        }
+
+        # Amazon.SecurityAgent.ResourceType
+        "Get-SECAGIntegratedResourceList/ResourceType"
+        {
+            $v = "CODE_REPOSITORY"
+            break
+        }
+
+        # Amazon.SecurityAgent.RiskLevel
+        {
+            ($_ -eq "Get-SECAGFindingList/RiskLevel") -Or
+            ($_ -eq "Update-SECAGFinding/RiskLevel")
+        }
+        {
+            $v = "CRITICAL","HIGH","INFORMATIONAL","LOW","MEDIUM","UNKNOWN"
+            break
+        }
+
+        # Amazon.SecurityAgent.StepName
+        "Get-SECAGPentestJobTaskList/StepName"
+        {
+            $v = "FINALIZING","PENTEST","PREFLIGHT","STATIC_ANALYSIS"
+            break
+        }
+
+        # Amazon.SecurityAgent.UserRole
+        "New-SECAGMembership/Config_User_Role"
+        {
+            $v = "MEMBER"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SECAG_map = @{
+    "ArtifactType"=@("Add-SECAGArtifact")
+    "CodeRemediationStrategy"=@("New-SECAGPentest","Update-SECAGPentest")
+    "Confidence"=@("Get-SECAGFindingList")
+    "Config_User_Role"=@("New-SECAGMembership")
+    "Filter_Provider"=@("Get-SECAGIntegrationList")
+    "Filter_ProviderType"=@("Get-SECAGIntegrationList")
+    "MemberType"=@("Get-SECAGMembershipList","New-SECAGMembership","Remove-SECAGMembership")
+    "Provider"=@("New-SECAGIntegration","Start-SECAGProviderRegistration")
+    "ResourceType"=@("Get-SECAGIntegratedResourceList")
+    "RiskLevel"=@("Get-SECAGFindingList","Update-SECAGFinding")
+    "Status"=@("Get-SECAGFindingList","Update-SECAGFinding")
+    "StepName"=@("Get-SECAGPentestJobTaskList")
+    "VerificationMethod"=@("New-SECAGTargetDomain","Update-SECAGTargetDomain")
+}
+
+_awsArgumentCompleterRegistration $SECAG_Completers $SECAG_map
+
+$SECAG_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SECAG.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SECAG_SelectMap = @{
+    "Select"=@("Add-SECAGArtifact",
+               "Remove-SECAGPentestBatch",
+               "Get-SECAGAgentSpaceBatch",
+               "Get-SECAGArtifactMetadataBatch",
+               "Get-SECAGFindingBatch",
+               "Get-SECAGPentestJobBatch",
+               "Get-SECAGPentestJobTaskBatch",
+               "Get-SECAGPentestBatch",
+               "Get-SECAGTargetDomainBatch",
+               "New-SECAGAgentSpace",
+               "New-SECAGApplication",
+               "New-SECAGIntegration",
+               "New-SECAGMembership",
+               "New-SECAGPentest",
+               "New-SECAGTargetDomain",
+               "Remove-SECAGAgentSpace",
+               "Remove-SECAGApplication",
+               "Remove-SECAGArtifact",
+               "Remove-SECAGIntegration",
+               "Remove-SECAGMembership",
+               "Remove-SECAGTargetDomain",
+               "Get-SECAGApplication",
+               "Get-SECAGArtifact",
+               "Get-SECAGIntegration",
+               "Start-SECAGProviderRegistration",
+               "Get-SECAGAgentSpaceList",
+               "Get-SECAGApplicationList",
+               "Get-SECAGArtifactList",
+               "Get-SECAGDiscoveredEndpointList",
+               "Get-SECAGFindingList",
+               "Get-SECAGIntegratedResourceList",
+               "Get-SECAGIntegrationList",
+               "Get-SECAGMembershipList",
+               "Get-SECAGPentestJobsForPentestList",
+               "Get-SECAGPentestJobTaskList",
+               "Get-SECAGPentestList",
+               "Get-SECAGResourceTag",
+               "Get-SECAGTargetDomainList",
+               "Start-SECAGCodeRemediation",
+               "Start-SECAGPentestJob",
+               "Stop-SECAGPentestJob",
+               "Add-SECAGResourceTag",
+               "Remove-SECAGResourceTag",
+               "Update-SECAGAgentSpace",
+               "Update-SECAGApplication",
+               "Update-SECAGFinding",
+               "Update-SECAGIntegratedResource",
+               "Update-SECAGPentest",
+               "Update-SECAGTargetDomain",
+               "Confirm-SECAGTargetDomain")
+}
+
+_awsArgumentCompleterRegistration $SECAG_SelectCompleters $SECAG_SelectMap
 # Argument completions for service AWS Security Hub
 
 
@@ -81802,6 +82181,88 @@ $ASA_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $ASA_SelectCompleters $ASA_SelectMap
+# Argument completions for service AWS Sustainability
+
+
+$SUST_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Sustainability.TimeGranularity
+        "Get-SUSTEstimatedCarbonEmission/Granularity"
+        {
+            $v = "MONTHLY","QUARTERLY_CALENDAR","QUARTERLY_FISCAL","YEARLY_CALENDAR","YEARLY_FISCAL"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SUST_map = @{
+    "Granularity"=@("Get-SUSTEstimatedCarbonEmission")
+}
+
+_awsArgumentCompleterRegistration $SUST_Completers $SUST_map
+
+$SUST_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SUST.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SUST_SelectMap = @{
+    "Select"=@("Get-SUSTEstimatedCarbonEmission",
+               "Get-SUSTEstimatedCarbonEmissionsDimensionValue")
+}
+
+_awsArgumentCompleterRegistration $SUST_SelectCompleters $SUST_SelectMap
 # Argument completions for service AWS Simple Workflow Service (SWF)
 
 

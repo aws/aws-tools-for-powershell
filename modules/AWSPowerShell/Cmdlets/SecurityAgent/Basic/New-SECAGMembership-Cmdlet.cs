@@ -1,0 +1,332 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.SecurityAgent;
+using Amazon.SecurityAgent.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.SECAG
+{
+    /// <summary>
+    /// Adds a single member to an agent space with specified role
+    /// </summary>
+    [Cmdlet("New", "SECAGMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Security Agent CreateMembership API operation.", Operation = new[] {"CreateMembership"}, SelectReturnType = typeof(Amazon.SecurityAgent.Model.CreateMembershipResponse))]
+    [AWSCmdletOutput("None or Amazon.SecurityAgent.Model.CreateMembershipResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SecurityAgent.Model.CreateMembershipResponse) be returned by specifying '-Select *'."
+    )]
+    public partial class NewSECAGMembershipCmdlet : AmazonSecurityAgentClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AgentSpaceId
+        /// <summary>
+        /// <para>
+        /// <para>Agent space identifier</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AgentSpaceId { get; set; }
+        #endregion
+        
+        #region Parameter ApplicationId
+        /// <summary>
+        /// <para>
+        /// <para>Application identifier</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter MembershipId
+        /// <summary>
+        /// <para>
+        /// <para>Member identifier (userId or agentSpaceId)</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MembershipId { get; set; }
+        #endregion
+        
+        #region Parameter MemberType
+        /// <summary>
+        /// <para>
+        /// <para>Type of member (USER or AGENT_SPACE)</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.SecurityAgent.MembershipType")]
+        public Amazon.SecurityAgent.MembershipType MemberType { get; set; }
+        #endregion
+        
+        #region Parameter Config_User_Role
+        /// <summary>
+        /// <para>
+        /// <para>Role of the user associated to the agent space</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityAgent.UserRole")]
+        public Amazon.SecurityAgent.UserRole Config_User_Role { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityAgent.Model.CreateMembershipResponse).
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MembershipId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SECAGMembership (CreateMembership)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.SecurityAgent.Model.CreateMembershipResponse, NewSECAGMembershipCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.AgentSpaceId = this.AgentSpaceId;
+            #if MODULAR
+            if (this.AgentSpaceId == null && ParameterWasBound(nameof(this.AgentSpaceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ApplicationId = this.ApplicationId;
+            #if MODULAR
+            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Config_User_Role = this.Config_User_Role;
+            context.MembershipId = this.MembershipId;
+            #if MODULAR
+            if (this.MembershipId == null && ParameterWasBound(nameof(this.MembershipId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MembershipId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MemberType = this.MemberType;
+            #if MODULAR
+            if (this.MemberType == null && ParameterWasBound(nameof(this.MemberType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MemberType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.SecurityAgent.Model.CreateMembershipRequest();
+            
+            if (cmdletContext.AgentSpaceId != null)
+            {
+                request.AgentSpaceId = cmdletContext.AgentSpaceId;
+            }
+            if (cmdletContext.ApplicationId != null)
+            {
+                request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            
+             // populate Config
+            var requestConfigIsNull = true;
+            request.Config = new Amazon.SecurityAgent.Model.MembershipConfig();
+            Amazon.SecurityAgent.Model.UserConfig requestConfig_config_User = null;
+            
+             // populate User
+            var requestConfig_config_UserIsNull = true;
+            requestConfig_config_User = new Amazon.SecurityAgent.Model.UserConfig();
+            Amazon.SecurityAgent.UserRole requestConfig_config_User_config_User_Role = null;
+            if (cmdletContext.Config_User_Role != null)
+            {
+                requestConfig_config_User_config_User_Role = cmdletContext.Config_User_Role;
+            }
+            if (requestConfig_config_User_config_User_Role != null)
+            {
+                requestConfig_config_User.Role = requestConfig_config_User_config_User_Role;
+                requestConfig_config_UserIsNull = false;
+            }
+             // determine if requestConfig_config_User should be set to null
+            if (requestConfig_config_UserIsNull)
+            {
+                requestConfig_config_User = null;
+            }
+            if (requestConfig_config_User != null)
+            {
+                request.Config.User = requestConfig_config_User;
+                requestConfigIsNull = false;
+            }
+             // determine if request.Config should be set to null
+            if (requestConfigIsNull)
+            {
+                request.Config = null;
+            }
+            if (cmdletContext.MembershipId != null)
+            {
+                request.MembershipId = cmdletContext.MembershipId;
+            }
+            if (cmdletContext.MemberType != null)
+            {
+                request.MemberType = cmdletContext.MemberType;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.SecurityAgent.Model.CreateMembershipResponse CallAWSServiceOperation(IAmazonSecurityAgent client, Amazon.SecurityAgent.Model.CreateMembershipRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Agent", "CreateMembership");
+            try
+            {
+                return client.CreateMembershipAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String AgentSpaceId { get; set; }
+            public System.String ApplicationId { get; set; }
+            public Amazon.SecurityAgent.UserRole Config_User_Role { get; set; }
+            public System.String MembershipId { get; set; }
+            public Amazon.SecurityAgent.MembershipType MemberType { get; set; }
+            public System.Func<Amazon.SecurityAgent.Model.CreateMembershipResponse, NewSECAGMembershipCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
+        }
+        
+    }
+}

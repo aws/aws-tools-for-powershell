@@ -127,7 +127,7 @@ $QS_Completers = {
             ($_ -eq "Update-QSDataSource/StarburstParameters_AuthenticationType")
         }
         {
-            $v = "PASSWORD","TOKEN","X509"
+            $v = "KEYPAIR","PASSWORD","TOKEN","X509"
             break
         }
 
@@ -281,6 +281,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateDashboardExecutiveSummaryWithQ") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateSpace") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSpace") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Dashboard") -Or
@@ -393,6 +395,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareBoxAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareCanvaAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareCanvaAgentAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareChatAgent") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareChatAgent") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareComprehendAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareComprehendAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareComprehendMedicalAction") -Or
@@ -467,6 +471,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSlackAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareSmartsheetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSmartsheetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareSpace") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSpace") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareTextractAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareTextractAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareZendeskAction") -Or
@@ -1270,6 +1276,7 @@ $QS_map = @{
     "Capabilities_CreateChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateDashboardExecutiveSummaryWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateSpace"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSPICEDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Dashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_EditVisualWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1326,6 +1333,7 @@ $QS_map = @{
     "Capabilities_ShareBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareCanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareComprehendMedicalAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareConfluenceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1363,6 +1371,7 @@ $QS_map = @{
     "Capabilities_ShareSharePointAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSmartsheetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareSpace"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareTextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1632,6 +1641,7 @@ $QS_SelectMap = @{
                "Get-QSAnalysisPermission",
                "Get-QSAssetBundleExportJob",
                "Get-QSAssetBundleImportJob",
+               "Get-QSAutomationJobDetail",
                "Get-QSBrand",
                "Get-QSBrandAssignment",
                "Get-QSBrandPublishedVersion",
@@ -1736,6 +1746,7 @@ $QS_SelectMap = @{
                "Search-QSTopic",
                "Start-QSAssetBundleExportJob",
                "Start-QSAssetBundleImportJob",
+               "Start-QSAutomationJob",
                "Start-QSDashboardSnapshotJob",
                "Start-QSDashboardSnapshotJobSchedule",
                "Add-QSResourceTag",

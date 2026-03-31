@@ -190,6 +190,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String TrinoParameters_Catalog { get; set; }
         #endregion
         
+        #region Parameter Credentials_OAuthClientCredentials_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The client ID of the OAuth 2.0 application that is registered with the data source
+        /// provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_OAuthClientCredentials_ClientId { get; set; }
+        #endregion
+        
+        #region Parameter Credentials_OAuthClientCredentials_ClientSecret
+        /// <summary>
+        /// <para>
+        /// <para>The client secret of the OAuth 2.0 application that is registered with the data source
+        /// provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_OAuthClientCredentials_ClientSecret { get; set; }
+        #endregion
+        
         #region Parameter RedshiftParameters_ClusterId
         /// <summary>
         /// <para>
@@ -1238,6 +1260,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String CredentialPair_Username { get; set; }
         #endregion
         
+        #region Parameter Credentials_OAuthClientCredentials_Username
+        /// <summary>
+        /// <para>
+        /// <para>The username of the account that is used for OAuth 2.0 client credentials authentication
+        /// with the data source provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_OAuthClientCredentials_Username { get; set; }
+        #endregion
+        
         #region Parameter WebCrawlerParameters_UsernameButtonXpath
         /// <summary>
         /// <para>
@@ -1444,6 +1477,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.KeyPairCredentials_KeyPairUsername = this.KeyPairCredentials_KeyPairUsername;
             context.KeyPairCredentials_PrivateKey = this.KeyPairCredentials_PrivateKey;
             context.KeyPairCredentials_PrivateKeyPassphrase = this.KeyPairCredentials_PrivateKeyPassphrase;
+            context.Credentials_OAuthClientCredentials_ClientId = this.Credentials_OAuthClientCredentials_ClientId;
+            context.Credentials_OAuthClientCredentials_ClientSecret = this.Credentials_OAuthClientCredentials_ClientSecret;
+            context.Credentials_OAuthClientCredentials_Username = this.Credentials_OAuthClientCredentials_Username;
             context.Credentials_SecretArn = this.Credentials_SecretArn;
             context.WebProxyCredentials_WebProxyPassword = this.WebProxyCredentials_WebProxyPassword;
             context.WebProxyCredentials_WebProxyUsername = this.WebProxyCredentials_WebProxyUsername;
@@ -1734,6 +1770,51 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCredentials_credentials_KeyPairCredentials != null)
             {
                 request.Credentials.KeyPairCredentials = requestCredentials_credentials_KeyPairCredentials;
+                requestCredentialsIsNull = false;
+            }
+            Amazon.QuickSight.Model.OAuthClientCredentials requestCredentials_credentials_OAuthClientCredentials = null;
+            
+             // populate OAuthClientCredentials
+            var requestCredentials_credentials_OAuthClientCredentialsIsNull = true;
+            requestCredentials_credentials_OAuthClientCredentials = new Amazon.QuickSight.Model.OAuthClientCredentials();
+            System.String requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_ClientId = null;
+            if (cmdletContext.Credentials_OAuthClientCredentials_ClientId != null)
+            {
+                requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_ClientId = cmdletContext.Credentials_OAuthClientCredentials_ClientId;
+            }
+            if (requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_ClientId != null)
+            {
+                requestCredentials_credentials_OAuthClientCredentials.ClientId = requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_ClientId;
+                requestCredentials_credentials_OAuthClientCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_ClientSecret = null;
+            if (cmdletContext.Credentials_OAuthClientCredentials_ClientSecret != null)
+            {
+                requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_ClientSecret = cmdletContext.Credentials_OAuthClientCredentials_ClientSecret;
+            }
+            if (requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_ClientSecret != null)
+            {
+                requestCredentials_credentials_OAuthClientCredentials.ClientSecret = requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_ClientSecret;
+                requestCredentials_credentials_OAuthClientCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_Username = null;
+            if (cmdletContext.Credentials_OAuthClientCredentials_Username != null)
+            {
+                requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_Username = cmdletContext.Credentials_OAuthClientCredentials_Username;
+            }
+            if (requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_Username != null)
+            {
+                requestCredentials_credentials_OAuthClientCredentials.Username = requestCredentials_credentials_OAuthClientCredentials_credentials_OAuthClientCredentials_Username;
+                requestCredentials_credentials_OAuthClientCredentialsIsNull = false;
+            }
+             // determine if requestCredentials_credentials_OAuthClientCredentials should be set to null
+            if (requestCredentials_credentials_OAuthClientCredentialsIsNull)
+            {
+                requestCredentials_credentials_OAuthClientCredentials = null;
+            }
+            if (requestCredentials_credentials_OAuthClientCredentials != null)
+            {
+                request.Credentials.OAuthClientCredentials = requestCredentials_credentials_OAuthClientCredentials;
                 requestCredentialsIsNull = false;
             }
              // determine if request.Credentials should be set to null
@@ -3469,6 +3550,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String KeyPairCredentials_KeyPairUsername { get; set; }
             public System.String KeyPairCredentials_PrivateKey { get; set; }
             public System.String KeyPairCredentials_PrivateKeyPassphrase { get; set; }
+            public System.String Credentials_OAuthClientCredentials_ClientId { get; set; }
+            public System.String Credentials_OAuthClientCredentials_ClientSecret { get; set; }
+            public System.String Credentials_OAuthClientCredentials_Username { get; set; }
             public System.String Credentials_SecretArn { get; set; }
             public System.String WebProxyCredentials_WebProxyPassword { get; set; }
             public System.String WebProxyCredentials_WebProxyUsername { get; set; }

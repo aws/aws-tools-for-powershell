@@ -113,13 +113,27 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.NotifyConfigurationTier
+        "Get-SMSVNotifyCountryList/Tier"
+        {
+            $v = "ADVANCED","BASIC"
+            break
+        }
+
+        # Amazon.PinpointSMSVoiceV2.NotifyConfigurationUseCase
+        "New-SMSVNotifyConfiguration/UseCase"
+        {
+            $v = "CODE_VERIFICATION"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.NumberCapability
         {
             ($_ -eq "Get-SMSVProtectConfigurationCountryRuleSet/NumberCapability") -Or
             ($_ -eq "Update-SMSVProtectConfigurationCountryRuleSet/NumberCapability")
         }
         {
-            $v = "MMS","SMS","VOICE"
+            $v = "MMS","RCS","SMS","VOICE"
             break
         }
 
@@ -128,6 +142,7 @@ $SMSV_Completers = {
             ($_ -eq "Get-SMSVOptOutList/Owner") -Or
             ($_ -eq "Get-SMSVPhoneNumber/Owner") -Or
             ($_ -eq "Get-SMSVPool/Owner") -Or
+            ($_ -eq "Get-SMSVRcsAgent/Owner") -Or
             ($_ -eq "Get-SMSVSenderId/Owner")
         }
         {
@@ -157,7 +172,10 @@ $SMSV_Completers = {
         }
 
         # Amazon.PinpointSMSVoiceV2.VoiceId
-        "Send-SMSVVoiceMessage/VoiceId"
+        {
+            ($_ -eq "Send-SMSVNotifyVoiceMessage/VoiceId") -Or
+            ($_ -eq "Send-SMSVVoiceMessage/VoiceId")
+        }
         {
             $v = "AMY","ASTRID","BIANCA","BRIAN","CAMILA","CARLA","CARMEN","CELINE","CHANTAL","CONCHITA","CRISTIANO","DORA","EMMA","ENRIQUE","EWA","FILIZ","GERAINT","GIORGIO","GWYNETH","HANS","INES","IVY","JACEK","JAN","JOANNA","JOEY","JUSTIN","KARL","KENDRA","KIMBERLY","LEA","LIV","LOTTE","LUCIA","LUPE","MADS","MAJA","MARLENE","MATHIEU","MATTHEW","MAXIM","MIA","MIGUEL","MIZUKI","NAJA","NICOLE","PENELOPE","RAVEENA","RICARDO","RUBEN","RUSSELL","SALLI","SEOYEON","TAKUMI","TATYANA","VICKI","VITORIA","ZEINA","ZHIYU"
             break
@@ -187,9 +205,11 @@ $SMSV_map = @{
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
     "NumberCapability"=@("Get-SMSVProtectConfigurationCountryRuleSet","Update-SMSVProtectConfigurationCountryRuleSet")
     "NumberType"=@("New-SMSVPhoneNumber")
-    "Owner"=@("Get-SMSVOptOutList","Get-SMSVPhoneNumber","Get-SMSVPool","Get-SMSVSenderId")
+    "Owner"=@("Get-SMSVOptOutList","Get-SMSVPhoneNumber","Get-SMSVPool","Get-SMSVRcsAgent","Get-SMSVSenderId")
+    "Tier"=@("Get-SMSVNotifyCountryList")
+    "UseCase"=@("New-SMSVNotifyConfiguration")
     "VerificationChannel"=@("Send-SMSVDestinationNumberVerificationCode")
-    "VoiceId"=@("Send-SMSVVoiceMessage")
+    "VoiceId"=@("Send-SMSVNotifyVoiceMessage","Send-SMSVVoiceMessage")
 }
 
 _awsArgumentCompleterRegistration $SMSV_Completers $SMSV_map
@@ -247,9 +267,11 @@ $SMSV_SelectMap = @{
                "Use-SMSVCarrierLookup",
                "New-SMSVConfigurationSet",
                "New-SMSVEventDestination",
+               "New-SMSVNotifyConfiguration",
                "New-SMSVOptOutList",
                "New-SMSVPool",
                "New-SMSVProtectConfiguration",
+               "New-SMSVRcsAgent",
                "New-SMSVRegistration",
                "New-SMSVRegistrationAssociation",
                "New-SMSVRegistrationAttachment",
@@ -262,11 +284,14 @@ $SMSV_SelectMap = @{
                "Remove-SMSVEventDestination",
                "Remove-SMSVKeyword",
                "Remove-SMSVMediaMessageSpendLimitOverride",
+               "Remove-SMSVNotifyConfiguration",
+               "Remove-SMSVNotifyMessageSpendLimitOverride",
                "Remove-SMSVOptedOutNumber",
                "Remove-SMSVOptOutList",
                "Remove-SMSVPool",
                "Remove-SMSVProtectConfiguration",
                "Remove-SMSVProtectConfigurationRuleSetNumberOverride",
+               "Remove-SMSVRcsAgent",
                "Remove-SMSVRegistration",
                "Remove-SMSVRegistrationAttachment",
                "Remove-SMSVRegistrationFieldValue",
@@ -278,11 +303,15 @@ $SMSV_SelectMap = @{
                "Get-SMSVAccountLimit",
                "Get-SMSVConfigurationSet",
                "Get-SMSVKeyword",
+               "Get-SMSVNotifyConfiguration",
+               "Get-SMSVNotifyTemplate",
                "Get-SMSVOptedOutNumber",
                "Get-SMSVOptOutList",
                "Get-SMSVPhoneNumber",
                "Get-SMSVPool",
                "Get-SMSVProtectConfiguration",
+               "Get-SMSVRcsAgentCountryLaunchStatus",
+               "Get-SMSVRcsAgent",
                "Get-SMSVRegistrationAttachment",
                "Get-SMSVRegistrationFieldDefinition",
                "Get-SMSVRegistrationFieldValue",
@@ -298,6 +327,7 @@ $SMSV_SelectMap = @{
                "Close-SMSVRegistrationVersion",
                "Get-SMSVProtectConfigurationCountryRuleSet",
                "Get-SMSVResourcePolicy",
+               "Get-SMSVNotifyCountryList",
                "Get-SMSVPoolOriginationIdentityList",
                "Get-SMSVProtectConfigurationRuleSetNumberOverrideList",
                "Get-SMSVRegistrationAssociationList",
@@ -314,6 +344,8 @@ $SMSV_SelectMap = @{
                "Request-SMSVSenderId",
                "Send-SMSVDestinationNumberVerificationCode",
                "Send-SMSVMediaMessage",
+               "Send-SMSVNotifyTextMessage",
+               "Send-SMSVNotifyVoiceMessage",
                "Send-SMSVTextMessage",
                "Send-SMSVVoiceMessage",
                "Set-SMSVAccountDefaultProtectConfiguration",
@@ -321,16 +353,19 @@ $SMSV_SelectMap = @{
                "Set-SMSVDefaultMessageType",
                "Set-SMSVDefaultSenderId",
                "Set-SMSVMediaMessageSpendLimitOverride",
+               "Set-SMSVNotifyMessageSpendLimitOverride",
                "Set-SMSVTextMessageSpendLimitOverride",
                "Set-SMSVVoiceMessageSpendLimitOverride",
                "Submit-SMSVRegistrationVersion",
                "Add-SMSVResourceTag",
                "Remove-SMSVResourceTag",
                "Update-SMSVEventDestination",
+               "Update-SMSVNotifyConfiguration",
                "Update-SMSVPhoneNumber",
                "Update-SMSVPool",
                "Update-SMSVProtectConfiguration",
                "Update-SMSVProtectConfigurationCountryRuleSet",
+               "Update-SMSVRcsAgent",
                "Update-SMSVSenderId",
                "Confirm-SMSVDestinationNumber")
 }
