@@ -90,6 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         public System.String ImageSetId { get; set; }
         #endregion
         
+        #region Parameter IncludeStudyImageSet
+        /// <summary>
+        /// <para>
+        /// <para>Flag to apply the metadata updates to all image sets in the same Study as the requested
+        /// image set ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeStudyImageSets")]
+        public System.Boolean? IncludeStudyImageSet { get; set; }
+        #endregion
+        
         #region Parameter LatestVersionId
         /// <summary>
         /// <para>
@@ -206,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                 WriteWarning("You are passing $null as a value for parameter ImageSetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludeStudyImageSet = this.IncludeStudyImageSet;
             context.LatestVersionId = this.LatestVersionId;
             #if MODULAR
             if (this.LatestVersionId == null && ParameterWasBound(nameof(this.LatestVersionId)))
@@ -248,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                 if (cmdletContext.ImageSetId != null)
                 {
                     request.ImageSetId = cmdletContext.ImageSetId;
+                }
+                if (cmdletContext.IncludeStudyImageSet != null)
+                {
+                    request.IncludeStudyImageSets = cmdletContext.IncludeStudyImageSet.Value;
                 }
                 if (cmdletContext.LatestVersionId != null)
                 {
@@ -379,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             public System.String DatastoreId { get; set; }
             public System.Boolean? ForceUpdate { get; set; }
             public System.String ImageSetId { get; set; }
+            public System.Boolean? IncludeStudyImageSet { get; set; }
             public System.String LatestVersionId { get; set; }
             public byte[] DICOMUpdates_RemovableAttribute { get; set; }
             public byte[] DICOMUpdates_UpdatableAttribute { get; set; }

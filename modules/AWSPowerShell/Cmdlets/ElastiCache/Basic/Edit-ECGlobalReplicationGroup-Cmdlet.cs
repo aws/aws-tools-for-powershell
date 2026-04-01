@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Modifies the engine listed in a global replication group message. The options are
-        /// redis, memcached or valkey.</para>
+        /// valkey, memcached or redis.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

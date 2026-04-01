@@ -87,6 +87,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDaemon" OutputProperty="*" Verb="New" Noun="Daemon" ShouldProcessTarget="DaemonName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateExpressGatewayService" OutputProperty="Service" Verb="New" Noun="ExpressGatewayService" ShouldProcessTarget="ExecutionRoleArn,InfrastructureRoleArn" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params>
                 <Param Name="PrimaryContainer_AwsLogsConfiguration_LogGroup" NewName="AwsLogsConfiguration_LogGroup" />
@@ -141,6 +145,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDaemon" OutputProperty="*" Verb="Remove" Noun="Daemon" ShouldProcessTarget="DaemonArn" PipelineParameter="DaemonArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDaemonTaskDefinition" OutputProperty="DaemonTaskDefinitionArn" Verb="Remove" Noun="DaemonTaskDefinition" ShouldProcessTarget="DaemonTaskDefinition" PipelineParameter="DaemonTaskDefinition" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteExpressGatewayService" OutputProperty="Service" Verb="Remove" Noun="ExpressGatewayService" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -180,6 +192,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeContainerInstances" OutputProperty="*" Verb="Get" Noun="ContainerInstanceDetail" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDaemon" OutputProperty="Daemon" Verb="Get" Noun="DaemonDetail" PipelineParameter="DaemonArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDaemonDeployments" OutputProperty="*" Verb="Get" Noun="DaemonDeploymentDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDaemonRevisions" OutputProperty="*" Verb="Get" Noun="DaemonRevisionDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDaemonTaskDefinition" OutputProperty="DaemonTaskDefinition" Verb="Get" Noun="DaemonTaskDefinitionDetail" PipelineParameter="DaemonTaskDefinition" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -235,6 +263,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDaemonDeployments" OutputProperty="DaemonDeployments" Verb="Get" Noun="DaemonDeploymentList" PipelineParameter="DaemonArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDaemons" OutputProperty="DaemonSummariesList" Verb="Get" Noun="DaemonList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDaemonTaskDefinitions" OutputProperty="DaemonTaskDefinitions" Verb="Get" Noun="DaemonTaskDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListServiceDeployments" OutputProperty="ServiceDeployments" Verb="Get" Noun="ServiceDeploymentList" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -276,6 +316,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutClusterCapacityProviders" OutputProperty="Cluster" Verb="Write" Noun="ClusterCapacityProvider" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterDaemonTaskDefinition" OutputProperty="DaemonTaskDefinitionArn" Verb="Register" Noun="DaemonTaskDefinition" ShouldProcessTarget="Family" PipelineParameter="Family" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -393,6 +437,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContainerInstancesState" OutputProperty="*" Verb="Update" Noun="ContainerInstancesState" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDaemon" OutputProperty="*" Verb="Update" Noun="Daemon" ShouldProcessTarget="DaemonArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserGroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user group.</para>
+        /// <para>The ID of the user group. This value is stored as a lowercase string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

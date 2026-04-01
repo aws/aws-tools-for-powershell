@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The identifier for the snapshot to be created. Available for Valkey, Redis OSS and
-        /// Serverless Memcached only.</para>
+        /// Serverless Memcached only. This value is stored as a lowercase string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

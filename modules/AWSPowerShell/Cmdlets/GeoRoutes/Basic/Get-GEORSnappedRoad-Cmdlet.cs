@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
 {
     /// <summary>
     /// <c>SnapToRoads</c> matches GPS trace to roads most likely traveled on.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-roads.html">Snap
+    /// to Roads</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GEORSnappedRoad")]
     [OutputType("Amazon.GeoRoutes.Model.SnapToRoadsResponse")]
@@ -47,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_GrossWeight
         /// <summary>
         /// <para>
-        /// <para>Gross weight of the vehicle including trailers, and goods at capacity.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Gross weight of the vehicle including trailers, and goods at capacity.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter SnappedGeometryFormat
         /// <summary>
         /// <para>
-        /// <para>Chooses what the returned SnappedGeometry format should be.</para><para>Default Value: <c>FlexiblePolyline</c></para>
+        /// <para>Chooses what the returned SnappedGeometry format should be.</para><para>Default value: <c>FlexiblePolyline</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Trailer_TrailerCount
         /// <summary>
         /// <para>
-        /// <para>Number of trailers attached to the vehicle.</para><para>Default Value: <c>0</c></para>
+        /// <para>Number of trailers attached to the vehicle.</para><para>Default value: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>Specifies the mode of transport when calculating a route. Used in estimating the speed
-        /// of travel and road compatibility.</para><para>Default Value: <c>Car</c></para>
+        /// of travel and road compatibility.</para><para>Default value: <c>Car</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_Width
         /// <summary>
         /// <para>
-        /// <para>Width of the vehicle in centimenters.</para>
+        /// <para>Width of the vehicle in centimeters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

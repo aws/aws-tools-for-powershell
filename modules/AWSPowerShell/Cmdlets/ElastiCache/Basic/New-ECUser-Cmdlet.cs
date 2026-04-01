@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user.</para>
+        /// <para>The ID of the user. This value is stored as a lowercase string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

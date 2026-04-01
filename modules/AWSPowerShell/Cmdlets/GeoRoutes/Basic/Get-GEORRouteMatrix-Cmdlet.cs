@@ -33,6 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
     /// Use <c>CalculateRouteMatrix</c> to compute results for all pairs of Origins to Destinations.
     /// Each row corresponds to one entry in Origins. Each entry in the row corresponds to
     /// the route from that entry in Origins to an entry in Destinations positions.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html">Calculate
+    /// route matrix</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GEORRouteMatrix")]
     [OutputType("Amazon.GeoRoutes.Model.CalculateRouteMatrixResponse")]
@@ -104,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Circle_Center
         /// <summary>
         /// <para>
-        /// <para>Center of the Circle defined in longitude and latitude coordinates.</para><para>Example: <c>[-123.1174, 49.2847]</c> represents the position with longitude <c>-123.1174</c>
+        /// <para>Center of the Circle in World Geodetic System (WGS 84) format: [longitude, latitude].</para><para>Example: <c>[-123.1174, 49.2847]</c> represents the position with longitude <c>-123.1174</c>
         /// and latitude <c>49.2847</c>. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -156,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DepartureTime
         /// <summary>
         /// <para>
-        /// <para>Time of departure from thr origin.</para><para>Time format:<c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
+        /// <para>Time of departure from the origin.</para><para>Time format:<c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,8 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>List of destinations for the route.</para><note><para>Route calculations are billed for each origin and destination pair. If you use a large
-        /// matrix of origins and destinations, your costs will increase accordingly. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html`">
-        /// Amazon Location's pricing page</a> for more information.</para></note><para />
+        /// matrix of origins and destinations, your costs will increase accordingly. For more
+        /// information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html">Routes
+        /// pricing</a> in the <i>Amazon Location Service Developer Guide</i>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -226,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_GrossWeight
         /// <summary>
         /// <para>
-        /// <para>Gross weight of the vehicle including trailers, and goods at capacity.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Gross weight of the vehicle including trailers, and goods at capacity.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -368,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Car_MaxSpeed
         /// <summary>
         /// <para>
-        /// <para>Maximum speed</para><para><b>Unit</b>: <c>KilometersPerHour</c></para>
+        /// <para>Maximum speed</para><para><b>Unit</b>: <c>kilometers per hour</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -379,7 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Scooter_MaxSpeed
         /// <summary>
         /// <para>
-        /// <para>Maximum speed.</para><para><b>Unit</b>: <c>KilometersPerHour</c></para>
+        /// <para>Maximum speed.</para><para><b>Unit</b>: <c>kilometers per hour</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,7 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_MaxSpeed
         /// <summary>
         /// <para>
-        /// <para>Maximum speed</para><para><b>Unit</b>: <c>KilometersPerHour</c></para>
+        /// <para>Maximum speed</para><para><b>Unit</b>: <c>kilometers per hour</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,7 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Car_Occupancy
         /// <summary>
         /// <para>
-        /// <para>The number of occupants in the vehicle.</para><para>Default Value: <c>1</c></para>
+        /// <para>The number of occupants in the vehicle.</para><para>Default value: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -412,7 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Scooter_Occupancy
         /// <summary>
         /// <para>
-        /// <para>The number of occupants in the vehicle.</para><para>Default Value: <c>1</c></para>
+        /// <para>The number of occupants in the vehicle.</para><para>Default value: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -423,7 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_Occupancy
         /// <summary>
         /// <para>
-        /// <para>The number of occupants in the vehicle.</para><para>Default Value: <c>1</c></para>
+        /// <para>The number of occupants in the vehicle.</para><para>Default value: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -434,7 +441,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OptimizeRoutingFor
         /// <summary>
         /// <para>
-        /// <para>Specifies the optimization criteria for calculating a route.</para><para>Default Value: <c>FastestRoute</c></para>
+        /// <para>Controls the trade-off between finding the shortest travel time (<c>FastestRoute</c>)
+        /// and the shortest distance (<c>ShortestRoute</c>) when calculating reachable areas.</para><para>Default value: <c>FastestRoute</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -445,9 +453,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Origin
         /// <summary>
         /// <para>
-        /// <para>The position in longitude and latitude for the origin.</para><note><para>Route calculations are billed for each origin and destination pair. Using a large
-        /// amount of Origins in a request can lead you to incur unexpected charges. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html`">
-        /// Amazon Location's pricing page</a> for more information.</para></note><para />
+        /// <para>The position for the origin in World Geodetic System (WGS 84) format: [longitude,
+        /// latitude].</para><note><para>Route calculations are billed for each origin and destination pair. Using a large
+        /// amount of Origins in a request can lead you to incur unexpected charges. For more
+        /// information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html">Routes
+        /// pricing</a> in the <i>Amazon Location Service Developer Guide</i>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -495,7 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Quad
         /// <summary>
         /// <para>
-        /// <para>Weight for quad axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for quad (four adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,7 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Quint
         /// <summary>
         /// <para>
-        /// <para>Weight for quad quint group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for quint (five adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -528,7 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Single
         /// <summary>
         /// <para>
-        /// <para>Weight for single axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for single axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -539,7 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Tandem
         /// <summary>
         /// <para>
-        /// <para>Weight for tandem axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for tandem (two adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -572,7 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Trailer_TrailerCount
         /// <summary>
         /// <para>
-        /// <para>Number of trailers attached to the vehicle.</para><para>Default Value: <c>0</c></para>
+        /// <para>Number of trailers attached to the vehicle.</para><para>Default value: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -583,8 +593,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter TravelMode
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of transport when calculating a route. Used in estimating the speed
-        /// of travel and road compatibility.</para><para>Default Value: <c>Car</c></para>
+        /// <para> Specifies the mode of transport when calculating a route. Used in estimating the
+        /// speed of travel and road compatibility. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only <c>Car</c>,
+        /// <c>Pedestrian</c>, and <c>Scooter</c>. </para><para>Default value: <c>Car</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -595,7 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Triple
         /// <summary>
         /// <para>
-        /// <para>Weight for triple axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for triple (three adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -622,7 +634,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_TruckType
         /// <summary>
         /// <para>
-        /// <para>Type of the truck.</para>
+        /// <para>The type of truck: <c>LightTruck</c> for smaller delivery vehicles, <c> StraightTruck</c>
+        /// for rigid body trucks, or <c>Tractor</c> for tractor-trailer combinations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -668,7 +681,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Traffic_Usage
         /// <summary>
         /// <para>
-        /// <para>Determines if traffic should be used or ignored while calculating the route.</para><para>Default Value: <c>UseTrafficData</c></para>
+        /// <para>Determines if traffic should be used or ignored while calculating the route.</para><para>Default value: <c>UseTrafficData</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -691,7 +704,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for
-        /// usage in countries where the differences in axle types or axle groups are not distinguished.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// usage in countries where the differences in axle types or axle groups are not distinguished.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

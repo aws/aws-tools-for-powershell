@@ -30,8 +30,31 @@ using Amazon.GeoRoutes.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOR
 {
     /// <summary>
-    /// Use the <c>CalculateIsolines</c> action to find service areas that can be reached
-    /// in a given threshold of time, distance.
+    /// Calculates areas that can be reached within specified time or distance thresholds
+    /// from a given point. For example, you can use this operation to determine the area
+    /// within a 30-minute drive of a store location, find neighborhoods within walking distance
+    /// of a school, or identify delivery zones based on drive time.
+    /// 
+    ///  
+    /// <para>
+    /// Isolines (also known as isochrones for time-based calculations) are useful for various
+    /// applications including:
+    /// </para><ul><li><para>
+    /// Service area visualization - Show customers the area you can serve within promised
+    /// delivery times
+    /// </para></li><li><para>
+    /// Site selection - Analyze potential business locations based on population within travel
+    /// distance
+    /// </para></li><li><para>
+    /// Site selection - Determine areas that can be reached within specified response times
+    /// </para></li></ul><note><para>
+    /// Route preferences such as avoiding toll roads or ferries are treated as preferences
+    /// rather than absolute restrictions. If a viable route cannot be calculated while honoring
+    /// all preferences, some may be ignored.
+    /// </para></note><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-isolines.html">Calculate
+    /// isolines</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GEORIsoline")]
     [OutputType("Amazon.GeoRoutes.Model.CalculateIsolinesResponse")]
@@ -48,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_Area
         /// <summary>
         /// <para>
-        /// <para>Areas to be avoided.</para><para />
+        /// <para>Specifies geographic areas to avoid where possible. Routes may still pass through
+        /// these areas if no reasonable alternative exists.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -63,7 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter ArrivalTime
         /// <summary>
         /// <para>
-        /// <para>Time of arrival at the destination.</para><para>Time format: <c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
+        /// <para>Determine areas from which <c>Destination</c> can be reached by this time, taking
+        /// into account predicted traffic conditions and working backward to account for congestion
+        /// patterns. This attribute cannot be used together with <c>DepartureTime</c> or <c>DepartNow</c>.
+        /// Specified as an ISO-8601 timestamp with timezone offset.</para><para>Time format: <c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,9 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_AvoidActionsForDistance
         /// <summary>
         /// <para>
-        /// <para>Avoids actions for the provided distance. This is typically to consider for users
-        /// in moving vehicles who may not have sufficient time to make an action at an origin
-        /// or a destination.</para>
+        /// <para>The distance in meters from the destination point within which certain routing actions
+        /// (such as U-turns or left turns across traffic) are restricted. This helps generate
+        /// more practical routes by avoiding potentially dangerous maneuvers near the endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_AvoidActionsForDistance
         /// <summary>
         /// <para>
-        /// <para>Avoids actions for the provided distance. This is typically to consider for users
-        /// in moving vehicles who may not have sufficient time to make an action at an origin
-        /// or a destination.</para>
+        /// <para>The distance in meters from the origin point within which certain routing actions
+        /// (such as U-turns or left turns across traffic) are restricted. This helps generate
+        /// more practical routes by avoiding potentially dangerous maneuvers near the starting
+        /// point.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_AxleCount
         /// <summary>
         /// <para>
-        /// <para>Total number of axles of the vehicle.</para>
+        /// <para>The total number of axles on the vehicle. Required for certain road restrictions and
+        /// weight limit calculations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Trailer_AxleCount
         /// <summary>
         /// <para>
-        /// <para>Total number of axles of the vehicle.</para>
+        /// <para>The total number of axles across all trailers. Used for weight distribution calculations
+        /// and road restrictions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_CarShuttleTrain
         /// <summary>
         /// <para>
-        /// <para>Avoid car-shuttle-trains while calculating an isoline.</para>
+        /// <para>Indicates a preference to avoid car shuttle trains (auto trains) where possible. These
+        /// may still be included if no reasonable alternative route exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_ControlledAccessHighway
         /// <summary>
         /// <para>
-        /// <para>Avoid controlled access highways while calculating an isoline.</para>
+        /// <para>Indicates a preference to avoid controlled-access highways (such as interstate highways
+        /// or motorways) where possible. If a viable route cannot be calculated using only local
+        /// roads, controlled-access highways may still be included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DepartNow
         /// <summary>
         /// <para>
-        /// <para>Uses the current time as the time of departure.</para>
+        /// <para>When true, uses the current time as the departure time and takes current traffic conditions
+        /// into account. This attribute cannot be used together with <c>DepartureTime</c> or
+        /// <c>ArrivalTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DepartureTime
         /// <summary>
         /// <para>
-        /// <para>Time of departure from thr origin.</para><para>Time format:<c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
+        /// <para>Determine areas that can be reached when departing at this time, taking into account
+        /// predicted traffic conditions. This attribute cannot be used together with <c>ArrivalTime</c>
+        /// or <c>DepartNow</c>. Specified as an ISO-8601 timestamp with timezone offset.</para><para>Time format:<c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,8 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>The final position for the route. In the World Geodetic System (WGS 84) format: <c>[longitude,
-        /// latitude]</c>.</para><para />
+        /// <para>An optional destination point, specified as <c>[longitude, latitude]</c> coordinates.
+        /// When provided, the service calculates areas from which this destination can be reached
+        /// within the specified thresholds. This reverses the usual isoline calculation to show
+        /// areas that could reach your location, rather than areas you could reach from your
+        /// location. Either <c>Origin</c> or <c>Destination</c> must be provided.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -176,7 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_DirtRoad
         /// <summary>
         /// <para>
-        /// <para>Avoid dirt roads while calculating an isoline.</para>
+        /// <para>Indicates a preference to avoid unpaved or dirt roads where possible. Routes may still
+        /// include dirt roads if no reasonable paved alternative exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Thresholds_Distance
         /// <summary>
         /// <para>
-        /// <para>Distance to be used for the isoline calculation.</para><para />
+        /// <para>List of travel distances in meters. For example, [1000, 2000, 5000] would calculate
+        /// areas reachable within 1, 2, and 5 kilometers.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -201,7 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Car_EngineType
         /// <summary>
         /// <para>
-        /// <para>Engine type of the vehicle.</para>
+        /// <para>The type of engine powering the vehicle, which may affect route calculation due to
+        /// road restrictions or vehicle characteristics.</para><ul><li><para><c>INTERNAL_COMBUSTION</c>—Standard gasoline or diesel engine.</para></li><li><para><c>ELECTRIC</c>—Battery electric vehicle.</para></li><li><para><c>PLUGIN_HYBRID</c>—Combination of electric and internal combustion engines with
+        /// plug-in charging capability.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Scooter_EngineType
         /// <summary>
         /// <para>
-        /// <para>Engine type of the vehicle.</para>
+        /// <para>The type of engine powering the vehicle, which may affect route calculation due to
+        /// road restrictions or vehicle characteristics.</para><ul><li><para><c>INTERNAL_COMBUSTION</c>—Standard gasoline or diesel engine.</para></li><li><para><c>ELECTRIC</c>—Battery electric vehicle.</para></li><li><para><c>PLUGIN_HYBRID</c>—Combination of electric and internal combustion engines with
+        /// plug-in charging capability.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +271,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_EngineType
         /// <summary>
         /// <para>
-        /// <para>Engine type of the vehicle.</para>
+        /// <para>The type of engine powering the vehicle, which may affect route calculation due to
+        /// road restrictions or vehicle characteristics.</para><ul><li><para><c>INTERNAL_COMBUSTION</c>—Standard gasoline or diesel engine.</para></li><li><para><c>ELECTRIC</c>—Battery electric vehicle.</para></li><li><para><c>PLUGIN_HYBRID</c>—Combination of electric and internal combustion engines with
+        /// plug-in charging capability.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,7 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_Ferry
         /// <summary>
         /// <para>
-        /// <para>Avoid ferries while calculating an isoline.</para>
+        /// <para>Indicates a preference to avoid ferries where possible. If a viable route cannot be
+        /// calculated without using ferries, they may still be included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,11 +297,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Traffic_FlowEventThresholdOverride
         /// <summary>
         /// <para>
-        /// <para>Duration for which flow traffic is considered valid. For this period, the flow traffic
-        /// is used over historical traffic data. Flow traffic refers to congestion, which changes
-        /// very quickly. Duration in seconds for which flow traffic event would be considered
-        /// valid. While flow traffic event is valid it will be used over the historical traffic
-        /// data. </para><para><b>Unit</b>: <c>seconds</c></para>
+        /// <para>The duration in seconds that real-time congestion data is considered valid before
+        /// reverting to historical traffic patterns. This helps balance between using current
+        /// conditions and more predictable historical data when calculating travel times.</para><para><b>Unit</b>: <c>seconds</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,7 +309,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_GrossWeight
         /// <summary>
         /// <para>
-        /// <para>Gross weight of the vehicle including trailers, and goods at capacity.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>The gross vehicle weight (the maximum weight a vehicle can safely operate at, as specified
+        /// by the manufacturer) in kilograms. Used to avoid roads with weight restrictions and
+        /// ensure compliance with maximum allowed vehicle weight regulations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_HazardousCargo
         /// <summary>
         /// <para>
-        /// <para>List of Hazardous cargo contained in the vehicle.</para><para />
+        /// <para>Types of hazardous materials being transported. This affects which roads and tunnels
+        /// can be used based on local regulations.</para><ul><li><para><c>Combustible</c>—Materials that can burn readily</para></li><li><para><c>Corrosive</c>—Materials that can destroy or irreversibly damage other substances</para></li><li><para><c>Explosive</c>—Materials that can produce an explosion by chemical reaction</para></li><li><para><c>Flammable</c>—Materials that can easily ignite</para></li><li><para><c>Gas</c>—Hazardous materials in gaseous form</para></li><li><para><c>HarmfulToWater</c>—Materials that pose a risk to water sources if released</para></li><li><para><c>Organic</c>—Hazardous organic compounds</para></li><li><para><c>Other</c>—Hazardous materials not covered by other categories</para></li><li><para><c>Poison</c>—Toxic materials</para></li><li><para><c>PoisonousInhalation</c>—Materials that are toxic when inhaled</para></li><li><para><c>Radioactive</c>—Materials that emit ionizing radiation</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -288,7 +338,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_Heading
         /// <summary>
         /// <para>
-        /// <para>GPS Heading at the position.</para>
+        /// <para>The initial direction of travel in degrees (0-360, where 0 is north). This can affect
+        /// which road segments are considered accessible from the starting point.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,7 +349,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_Heading
         /// <summary>
         /// <para>
-        /// <para>GPS Heading at the position.</para>
+        /// <para>Initial direction of travel in degrees (0-360, where 0 is north). This affects which
+        /// road segments are considered accessible from the starting point and is particularly
+        /// useful when the origin is on a divided road or at a complex intersection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,7 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_Height
         /// <summary>
         /// <para>
-        /// <para>Height of the vehicle.</para><para><b>Unit</b>: <c>centimeters</c></para>
+        /// <para>The vehicle height in centimeters. Used to avoid routes with low bridges or other
+        /// height restrictions.</para><para><b>Unit</b>: <c>centimeters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,7 +373,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_HeightAboveFirstAxle
         /// <summary>
         /// <para>
-        /// <para>Height of the vehicle above its first axle.</para><para><b>Unit</b>: <c>centimeters</c></para>
+        /// <para>The height in centimeters measured from the ground to the highest point above the
+        /// first axle. Used for specific bridge and tunnel clearance restrictions.</para><para><b>Unit</b>: <c>centimeters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -330,7 +385,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Allow_Hot
         /// <summary>
         /// <para>
-        /// <para>Allow Hot (High Occupancy Toll) lanes while calculating an isoline.</para><para>Default value: <c>false</c></para>
+        /// <para>When true, allows the use of HOT (high-occupancy toll) lanes, which may affect travel
+        /// times and reachable areas.</para><para>Default value: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,7 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Allow_Hov
         /// <summary>
         /// <para>
-        /// <para>Allow Hov (High Occupancy vehicle) lanes while calculating an isoline.</para><para>Default value: <c>false</c></para>
+        /// <para>When true, allows the use of HOV (high-occupancy vehicle) lanes, which may affect
+        /// travel times and reachable areas.</para><para>Default value: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter IsolineGeometryFormat
         /// <summary>
         /// <para>
-        /// <para>The format of the returned IsolineGeometry. </para><para>Default Value:<c>FlexiblePolyline</c></para>
+        /// <para>The format of the returned IsolineGeometry. </para><para>Default value:<c>FlexiblePolyline</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,8 +418,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>Optional: The API key to be used for authorization. Either an API key or valid SigV4
-        /// signature must be provided when making a request. </para>
+        /// <para>An Amazon Location Service API Key with access to this action. If omitted, the request
+        /// must be signed using Signature Version 4.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +429,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_KpraLength
         /// <summary>
         /// <para>
-        /// <para>Kingpin to rear axle length of the vehicle.</para><para><b>Unit</b>: <c>centimeters</c></para>
+        /// <para>The kingpin to rear axle (KPRA) length in centimeters. Used to determine if the vehicle
+        /// can safely navigate turns and intersections.</para><para><b>Unit</b>: <c>centimeters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,7 +441,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter TravelModeOptions_Car_LicensePlate_LastCharacter
         /// <summary>
         /// <para>
-        /// <para>The last character of the License Plate.</para>
+        /// <para>The last character of the vehicle's license plate. Used to determine road access restrictions
+        /// in regions with license plate-based traffic management systems.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -393,7 +452,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter TravelModeOptions_Scooter_LicensePlate_LastCharacter
         /// <summary>
         /// <para>
-        /// <para>The last character of the License Plate.</para>
+        /// <para>The last character of the vehicle's license plate. Used to determine road access restrictions
+        /// in regions with license plate-based traffic management systems.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -403,7 +463,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter TravelModeOptions_Truck_LicensePlate_LastCharacter
         /// <summary>
         /// <para>
-        /// <para>The last character of the License Plate.</para>
+        /// <para>The last character of the vehicle's license plate. Used to determine road access restrictions
+        /// in regions with license plate-based traffic management systems.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -413,7 +474,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_Length
         /// <summary>
         /// <para>
-        /// <para>Length of the vehicle.</para><para><b>Unit</b>: <c>centimeters</c></para>
+        /// <para>The total vehicle length in centimeters. Used to avoid roads with length restrictions
+        /// and determine if the vehicle can safely navigate turns.</para><para><b>Unit</b>: <c>centimeters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,7 +486,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter IsolineGranularity_MaxPoint
         /// <summary>
         /// <para>
-        /// <para>Maximum number of points of returned Isoline.</para>
+        /// <para>The maximum number of points used to define each isoline. Higher values create smoother,
+        /// more detailed shapes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -435,7 +498,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter IsolineGranularity_MaxResolution
         /// <summary>
         /// <para>
-        /// <para>Maximum resolution of the returned isoline.</para><para><b>Unit</b>: <c>meters</c></para>
+        /// <para>The maximum distance in meters between points along the isoline. Smaller values create
+        /// more detailed shapes.</para><para><b>Unit</b>: <c>meters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -445,7 +509,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Car_MaxSpeed
         /// <summary>
         /// <para>
-        /// <para>Maximum speed.</para><para><b>Unit</b>: <c>KilometersPerHour</c></para>
+        /// <para>The maximum speed of the vehicle in kilometers per hour. When specified, routes will
+        /// not include roads with higher speed limits. Valid values range from 3.6 km/h (1 m/s)
+        /// to 252 km/h (70 m/s).</para><para><b>Unit</b>: <c>kilometers per hour</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -456,7 +522,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Scooter_MaxSpeed
         /// <summary>
         /// <para>
-        /// <para>Maximum speed specified.</para><para><b>Unit</b>: <c>KilometersPerHour</c></para>
+        /// <para>The maximum speed of the vehicle in kilometers per hour. When specified, routes will
+        /// not include roads with higher speed limits. Valid values range from 3.6 km/h (1 m/s)
+        /// to 252 km/h (70 m/s).</para><para><b>Unit</b>: <c>kilometers per hour</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -467,7 +535,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_MaxSpeed
         /// <summary>
         /// <para>
-        /// <para>Maximum speed specified.</para><para><b>Unit</b>: <c>KilometersPerHour</c></para>
+        /// <para>The maximum speed in kilometers per hour at which the vehicle can or is permitted
+        /// to travel. This affects travel time calculations and may result in different reachable
+        /// areas compared to using default speed limits. Value must be between 3.6 and 252 kilometers
+        /// per hour.</para><para><b>Unit</b>: <c>kilometers per hour</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,7 +549,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_Matching_NameHint
         /// <summary>
         /// <para>
-        /// <para>Attempts to match the provided position to a road similar to the provided name.</para>
+        /// <para>The expected street name near the point. Helps disambiguate matching when multiple
+        /// roads are within range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -488,7 +560,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_Matching_NameHint
         /// <summary>
         /// <para>
-        /// <para>Attempts to match the provided position to a road similar to the provided name.</para>
+        /// <para>The expected street name near the point. Helps disambiguate matching when multiple
+        /// roads are within range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -498,7 +571,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Car_Occupancy
         /// <summary>
         /// <para>
-        /// <para>The number of occupants in the vehicle.</para><para>Default Value: <c>1</c></para>
+        /// <para>The number of occupants in the vehicle. This can affect route calculations by enabling
+        /// the use of high-occupancy vehicle (HOV) lanes where minimum occupancy requirements
+        /// are met.</para><para>Default value: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -509,7 +584,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Scooter_Occupancy
         /// <summary>
         /// <para>
-        /// <para>The number of occupants in the vehicle.</para><para>Default Value: <c>1</c></para>
+        /// <para>The number of occupants in the vehicle. This can affect route calculations by enabling
+        /// the use of high-occupancy vehicle (HOV) lanes where minimum occupancy requirements
+        /// are met.</para><para>Default value: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -520,7 +597,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_Occupancy
         /// <summary>
         /// <para>
-        /// <para>The number of occupants in the vehicle.</para><para>Default Value: <c>1</c></para>
+        /// <para>The number of occupants in the vehicle. This can affect route calculations by enabling
+        /// the use of high-occupancy vehicle (HOV) lanes where minimum occupancy requirements
+        /// are met.</para><para>Default value: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -531,8 +610,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_Matching_OnRoadThreshold
         /// <summary>
         /// <para>
-        /// <para>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint
-        /// will be snapped to the highway/bridge/tunnel/sliproad.</para><para><b>Unit</b>: <c>meters</c></para>
+        /// <para>The maximum distance in meters that a point can be from a road while still being considered
+        /// "on" that road. Points further than this distance require explicit matching.</para><para><b>Unit</b>: <c>meters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -542,8 +621,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_Matching_OnRoadThreshold
         /// <summary>
         /// <para>
-        /// <para>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint
-        /// will be snapped to the highway/bridge/tunnel/sliproad.</para><para><b>Unit</b>: <c>meters</c></para>
+        /// <para>The maximum distance in meters that a point can be from a road while still being considered
+        /// "on" that road. Points further than this distance require explicit matching.</para><para><b>Unit</b>: <c>meters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -553,11 +632,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OptimizeIsolineFor
         /// <summary>
         /// <para>
-        /// <para>Specifies the optimization criteria for when calculating an isoline. AccurateCalculation
-        /// generates an isoline of higher granularity that is more precise. FastCalculation generates
-        /// an isoline faster by reducing the granularity, and in turn the quality of the isoline.
-        /// BalancedCalculation generates an isoline by balancing between quality and performance.
-        /// </para><para>Default Value: <c>BalancedCalculation</c></para>
+        /// <para>Controls the trade-off between calculation speed and isoline precision. Choose <c>
+        /// FastCalculation</c> for quicker results with less detail, <c>AccurateCalculation</c>
+        /// for more precise results, or <c>BalancedCalculation</c> for a middle ground.</para><para>Default value: <c>BalancedCalculation</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -568,7 +645,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OptimizeRoutingFor
         /// <summary>
         /// <para>
-        /// <para>Specifies the optimization criteria for calculating a route.</para><para>Default Value: <c>FastestRoute</c></para>
+        /// <para>Determines whether routes prioritize shortest travel time (<c>FastestRoute</c>) or
+        /// shortest physical distance (<c>ShortestRoute</c>) when calculating reachable areas.</para><para>Default value: <c>FastestRoute</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -579,7 +657,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Origin
         /// <summary>
         /// <para>
-        /// <para>The start position for the route.</para><para />
+        /// <para>The starting point for isoline calculations, specified as <c>[longitude, latitude]</c>
+        /// coordinates. For example, this could be a store location, service center, or any point
+        /// from which you want to calculate reachable areas. Either <c>Origin</c> or <c>Destination</c>
+        /// must be provided.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -593,7 +674,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_PayloadCapacity
         /// <summary>
         /// <para>
-        /// <para>Payload capacity of the vehicle and trailers attached.</para><para><b>Unit</b>: <c>kilograms</c></para>
+        /// <para>The maximum cargo weight in kilograms that the vehicle (including attached trailers)
+        /// is rated to carry.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -604,7 +686,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_SideOfStreet_Position
         /// <summary>
         /// <para>
-        /// <para>Position defined as <c>[longitude, latitude]</c>.</para><para />
+        /// <para>The <c>[longitude, latitude]</c> coordinates of the point that should be matched to
+        /// a specific side of the street.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -618,7 +701,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_SideOfStreet_Position
         /// <summary>
         /// <para>
-        /// <para>Position defined as <c>[longitude, latitude]</c>.</para><para />
+        /// <para>The <c>[longitude, latitude]</c> coordinates of the point that should be matched to
+        /// a specific side of the street.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -632,7 +716,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Quad
         /// <summary>
         /// <para>
-        /// <para>Weight for quad axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for quad (four adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -643,7 +727,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Quint
         /// <summary>
         /// <para>
-        /// <para>Weight for quad quint group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for quint (five adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -654,8 +738,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_Matching_Radius
         /// <summary>
         /// <para>
-        /// <para>Considers all roads within the provided radius to match the provided destination to.
-        /// The roads that are considered are determined by the provided Strategy.</para><para><b>Unit</b>: <c>Meters</c></para>
+        /// <para>The maximum distance in meters to search for roads to match to. Points with no roads
+        /// within this radius will fail to match. The roads that are considered within this radius
+        /// are determined by the specified <c>Strategy</c></para><para><b>Unit</b>: <c>meters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -665,8 +750,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_Matching_Radius
         /// <summary>
         /// <para>
-        /// <para>Considers all roads within the provided radius to match the provided destination to.
-        /// The roads that are considered are determined by the provided Strategy.</para><para><b>Unit</b>: <c>Meters</c></para>
+        /// <para>The maximum distance in meters to search for roads to match to. Points with no roads
+        /// within this radius will fail to match. The roads that are considered within this radius
+        /// are determined by the specified <c>Strategy</c></para><para><b>Unit</b>: <c>meters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -676,7 +762,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_SeasonalClosure
         /// <summary>
         /// <para>
-        /// <para>Avoid roads that have seasonal closure while calculating an isoline.</para>
+        /// <para>Indicates a preference to avoid roads that may be subject to seasonal closures where
+        /// possible. These roads may still be included if no reasonable year-round alternative
+        /// exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -686,7 +774,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Single
         /// <summary>
         /// <para>
-        /// <para>Weight for single axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for single axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -697,9 +785,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_Matching_Strategy
         /// <summary>
         /// <para>
-        /// <para>Strategy that defines matching of the position onto the road network. MatchAny considers
-        /// all roads possible, whereas MatchMostSignificantRoad matches to the most significant
-        /// road.</para>
+        /// <para>Determines how points are matched to the road network. <c>MatchAny</c> finds the nearest
+        /// viable road segment, while <c>MatchMostSignificantRoad</c> prioritizes major roads.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -710,9 +797,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_Matching_Strategy
         /// <summary>
         /// <para>
-        /// <para>Strategy that defines matching of the position onto the road network. MatchAny considers
-        /// all roads possible, whereas MatchMostSignificantRoad matches to the most significant
-        /// road.</para>
+        /// <para>Determines how points are matched to the road network. <c>MatchAny</c> finds the nearest
+        /// viable road segment, while <c>MatchMostSignificantRoad</c> prioritizes major roads.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -723,7 +809,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Tandem
         /// <summary>
         /// <para>
-        /// <para>Weight for tandem axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for tandem (two adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -734,7 +820,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Thresholds_Time
         /// <summary>
         /// <para>
-        /// <para>Time to be used for the isoline calculation.</para><para />
+        /// <para>List of travel times in seconds. For example, [300, 600, 900] would calculate areas
+        /// reachable within 5, 10, and 15 minutes.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -748,7 +835,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_TireCount
         /// <summary>
         /// <para>
-        /// <para>Number of tires on the vehicle.</para>
+        /// <para>The total number of tires on the vehicle.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -759,7 +846,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_TollRoad
         /// <summary>
         /// <para>
-        /// <para>Avoids roads where the specified toll transponders are the only mode of payment.</para>
+        /// <para>Indicates a preference to avoid toll roads where possible. If a viable route cannot
+        /// be calculated without using toll roads, they may still be included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -770,7 +858,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_TollTransponder
         /// <summary>
         /// <para>
-        /// <para>Avoids roads where the specified toll transponders are the only mode of payment.</para>
+        /// <para>Indicates a preference to avoid roads that require electronic toll collection transponders
+        /// where possible. These roads may still be included if no viable alternative route exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -781,7 +870,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Trailer_TrailerCount
         /// <summary>
         /// <para>
-        /// <para>Number of trailers attached to the vehicle.</para><para>Default Value: <c>0</c></para>
+        /// <para>The number of trailers being pulled. Affects which roads can be used based on local
+        /// regulations.</para><para>Default value: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -792,9 +882,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter TravelMode
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of transport when calculating a route. Used in estimating the speed
-        /// of travel and road compatibility.</para><note><para> The mode <c>Scooter</c> also applies to motorcycles, set to <c>Scooter</c> when wanted
-        /// to calculate options for motorcycles.</para></note><para>Default Value: <c>Car</c></para>
+        /// <para>The mode of transportation to use for calculations. This affects which road types
+        /// or features can be used, estimated speed, and the traffic levels that are applied.</para><ul><li><para><c>Car</c>—Standard passenger vehicle routing using roads accessible to cars</para></li><li><para><c>Pedestrian</c>—Walking routes using pedestrian paths, sidewalks, and crossings</para></li><li><para><c>Scooter</c>—Light two-wheeled vehicle routing using roads and paths accessible
+        /// to scooters</para></li><li><para><c>Truck</c>—Commercial truck routing considering vehicle dimensions, weight restrictions,
+        /// and hazardous material regulations</para></li></ul><note><para>The mode <c>Scooter</c> also applies to motorcycles; set this to <c>Scooter</c> when
+        /// calculating isolines for motorcycles.</para></note><para>Default value: <c>Car</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -805,7 +897,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Triple
         /// <summary>
         /// <para>
-        /// <para>Weight for triple axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for triple (three adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -816,8 +908,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_TruckRoadType
         /// <summary>
         /// <para>
-        /// <para>Truck road type identifiers. <c>BK1</c> through <c>BK4</c> apply only to Sweden. <c>A2,A4,B2,B4,C,D,ET2,ET4</c>
-        /// apply only to Mexico.</para><note><para>There are currently no other supported values as of 26th April 2024.</para></note><para />
+        /// <para>For truck travel modes, indicates specific road classification types in Sweden (<c>
+        /// BK1</c> through <c>BK4</c>) and Mexico (<c>A2, A4, B2, B4, C, D, ET2, ET4</c>) to
+        /// avoid where possible. These road types may still be used if no reasonable alternative
+        /// exists.</para><note><para>There are currently no other supported values as of 26th April 2024.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -832,7 +926,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_TruckType
         /// <summary>
         /// <para>
-        /// <para>Type of the truck.</para>
+        /// <para>The type of truck: <c>LightTruck</c> for smaller delivery vehicles, <c> StraightTruck
+        /// </c> for rigid body trucks, or <c>Tractor</c> for tractor-trailer combinations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -857,7 +952,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_Tunnel
         /// <summary>
         /// <para>
-        /// <para>Avoid tunnels while calculating an isoline.</para>
+        /// <para>Indicates a preference to avoid tunnels where possible. If a viable route cannot be
+        /// calculated without using tunnels, they may still be included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -868,7 +964,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Traffic_Usage
         /// <summary>
         /// <para>
-        /// <para>Determines if traffic should be used or ignored while calculating the route.</para><para>Default Value: <c>UseTrafficData</c></para>
+        /// <para>Controls whether traffic data is used in calculations. <c>UseTrafficData</c> considers
+        /// both real-time congestion and historical patterns, while <c>IgnoreTrafficData</c>
+        /// calculates routes based solely on road types and speed limits. Using traffic data
+        /// provides more accurate real-world estimates but may produce different results at different
+        /// times of day.</para><para>Default value: <c>UseTrafficData</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -879,8 +979,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_SideOfStreet_UseWith
         /// <summary>
         /// <para>
-        /// <para>Strategy that defines when the side of street position should be used. AnyStreet will
-        /// always use the provided position.</para><para>Default Value: <c>DividedStreetOnly</c></para>
+        /// <para>Controls whether side-of-street matching is applied to any street (<c>AnyStreet</c>)
+        /// or only to divided roads (<c>DividedStreetOnly</c>). This is important when the exact
+        /// side of the street matters - for example, if a building entrance is only accessible
+        /// from one side of a divided highway, or if a parking lot can only be entered from northbound
+        /// lanes. Without correct side-of-street matching, travel time estimates may be inaccurate
+        /// because they don't account for necessary U-turns or detours to reach the correct side.</para><para>Default value: <c>DividedStreetOnly</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -891,8 +995,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_SideOfStreet_UseWith
         /// <summary>
         /// <para>
-        /// <para>Strategy that defines when the side of street position should be used. AnyStreet will
-        /// always use the provided position.</para><para>Default Value: <c>DividedStreetOnly</c></para>
+        /// <para>Controls whether side-of-street matching is applied to any street (<c>AnyStreet</c>)
+        /// or only to divided roads (<c>DividedStreetOnly</c>). This is important when the exact
+        /// side of the street matters - for example, if a building entrance is only accessible
+        /// from one side of a divided highway, or if a parking lot can only be entered from northbound
+        /// lanes. Without correct side-of-street matching, travel time estimates may be inaccurate
+        /// because they don't account for necessary U-turns or detours to reach the correct side.</para><para>Default value: <c>DividedStreetOnly</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -903,7 +1011,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_UTurn
         /// <summary>
         /// <para>
-        /// <para>Avoid U-turns for calculation on highways and motorways.</para>
+        /// <para>Indicates a preference to avoid U-turns where possible. U-turns may still be included
+        /// if necessary to reach certain areas or when no reasonable alternative exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -914,8 +1023,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_WeightPerAxle
         /// <summary>
         /// <para>
-        /// <para>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for
-        /// usage in countries where the differences in axle types or axle groups are not distinguished.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>The heaviest weight per axle in kilograms, regardless of axle type or grouping. Used
+        /// for roads with axle-weight restrictions in regions where regulations don't distinguish
+        /// between different axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -926,7 +1036,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_Width
         /// <summary>
         /// <para>
-        /// <para>Width of the vehicle.</para><para><b>Unit</b>: <c>centimeters</c></para>
+        /// <para>The vehicle width in centimeters. Used to avoid routes with width restrictions.</para><para><b>Unit</b>: <c>centimeters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -937,7 +1047,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_ZoneCategory
         /// <summary>
         /// <para>
-        /// <para>Zone categories to be avoided.</para><para />
+        /// <para>Indicates types of regulated zones (such as congestion pricing or environmental zones)
+        /// to avoid where possible. Routes may still pass through these zones if no reasonable
+        /// alternative exists.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

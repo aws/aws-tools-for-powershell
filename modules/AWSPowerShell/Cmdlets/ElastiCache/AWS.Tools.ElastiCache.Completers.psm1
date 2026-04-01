@@ -145,7 +145,8 @@ $EC_Completers = {
         # Amazon.ElastiCache.NetworkType
         {
             ($_ -eq "New-ECCacheCluster/NetworkType") -Or
-            ($_ -eq "New-ECReplicationGroup/NetworkType")
+            ($_ -eq "New-ECReplicationGroup/NetworkType") -Or
+            ($_ -eq "New-ECServerlessCache/NetworkType")
         }
         {
             $v = "dual_stack","ipv4","ipv6"
@@ -191,7 +192,7 @@ $EC_map = @{
     "ClusterMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
     "DataStorage_Unit"=@("Edit-ECServerlessCache","New-ECServerlessCache")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
-    "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup")
+    "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup","New-ECServerlessCache")
     "OutpostMode"=@("New-ECCacheCluster")
     "SourceType"=@("Get-ECEvent")
     "TransitEncryptionMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")

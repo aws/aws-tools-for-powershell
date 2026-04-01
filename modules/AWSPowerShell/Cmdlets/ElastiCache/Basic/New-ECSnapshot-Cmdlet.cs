@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshotName
         /// <summary>
         /// <para>
-        /// <para>A name for the snapshot being created.</para>
+        /// <para>A name for the snapshot being created. This value is stored as a lowercase string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,6 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
     /// <summary>
     /// <c>CalculateRoutes</c> computes routes given the following required parameters: <c>Origin</c>
     /// and <c>Destination</c>.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-routes.html">Calculate
+    /// routes</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GEORRoute")]
     [OutputType("Amazon.GeoRoutes.Model.CalculateRoutesResponse")]
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_Area
         /// <summary>
         /// <para>
-        /// <para>Areas to be avoided.</para><para />
+        /// <para> Areas to be avoided. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c>
+        /// regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter ArrivalTime
         /// <summary>
         /// <para>
-        /// <para>Time of arrival at the destination.</para><para>Time format:<c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
+        /// <para> Time of arrival at the destination. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c>
+        /// regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><para>Time format:<c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_AvoidActionsForDistance
         /// <summary>
         /// <para>
-        /// <para>Avoids actions for the provided distance. This is typically to consider for users
-        /// in moving vehicles who may not have sufficient time to make an action at an origin
-        /// or a destination.</para>
+        /// <para>The distance in meters from the destination point within which certain routing actions
+        /// (such as U-turns or left turns across traffic) are restricted. This helps generate
+        /// more practical routes by avoiding potentially dangerous maneuvers near the endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_CarShuttleTrain
         /// <summary>
         /// <para>
-        /// <para>Avoid car-shuttle-trains while calculating the route.</para>
+        /// <para> Avoid car-shuttle-trains while calculating the route. Not supported in <c>ap-southeast-1</c>
+        /// and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DepartureTime
         /// <summary>
         /// <para>
-        /// <para>Time of departure from thr origin.</para><para>Time format:<c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
+        /// <para>Time of departure from the origin.</para><para>Time format:<c>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</c></para><para>Examples:</para><para><c>2020-04-22T17:57:24Z</c></para><para><c>2020-04-22T17:57:24+02:00</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,7 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_DirtRoad
         /// <summary>
         /// <para>
-        /// <para>Avoid dirt roads while calculating the route.</para>
+        /// <para> Avoid dirt roads while calculating the route. Not supported in <c>ap-southeast-1</c>
+        /// and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,7 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Car_EngineType
         /// <summary>
         /// <para>
-        /// <para>Engine type of the vehicle.</para>
+        /// <para> Engine type of the vehicle. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c>
+        /// regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,7 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Scooter_EngineType
         /// <summary>
         /// <para>
-        /// <para>Engine type of the vehicle.</para>
+        /// <para> Engine type of the vehicle. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c>
+        /// regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -339,7 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_GrossWeight
         /// <summary>
         /// <para>
-        /// <para>Gross weight of the vehicle including trailers, and goods at capacity.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Gross weight of the vehicle including trailers, and goods at capacity.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -460,7 +478,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>List of languages for instructions within steps in the response.</para><note><para>Instructions in the requested language are returned only if they are available.</para></note><para />
+        /// <para> List of languages for instructions within steps in the response. Not supported in
+        /// <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><note><para>Instructions in the requested language are returned only if they are available.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -505,8 +525,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter LegAdditionalFeature
         /// <summary>
         /// <para>
-        /// <para>A list of optional additional parameters such as timezone that can be requested for
-        /// each result.</para><ul><li><para><c>Elevation</c>: Retrieves the elevation information for each location.</para></li><li><para><c>Incidents</c>: Provides information on traffic incidents along the route.</para></li><li><para><c>PassThroughWaypoints</c>: Indicates waypoints that are passed through without
+        /// <para> A list of optional additional parameters such as timezone that can be requested for
+        /// each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only <c>PassThroughWaypoints</c>,
+        /// <c>Summary</c>, and <c>TravelStepInstructions</c></para><ul><li><para><c>Elevation</c>: Retrieves the elevation information for each location.</para></li><li><para><c>Incidents</c>: Provides information on traffic incidents along the route.</para></li><li><para><c>PassThroughWaypoints</c>: Indicates waypoints that are passed through without
         /// stopping.</para></li><li><para><c>Summary</c>: Returns a summary of the route, including distance and duration.</para></li><li><para><c>Tolls</c>: Supplies toll cost information along the route.</para></li><li><para><c>TravelStepInstructions</c>: Provides step-by-step instructions for travel along
         /// the route.</para></li><li><para><c>TruckRoadTypes</c>: Returns information about road types suitable for trucks.</para></li><li><para><c>TypicalDuration</c>: Gives typical travel duration based on historical data.</para></li><li><para><c>Zones</c>: Specifies the time zone information for each waypoint.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -525,7 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>Specifies the format of the geometry returned for each leg of the route. You can choose
         /// between two different geometry encoding formats.</para><para><c>FlexiblePolyline</c>: A compact and precise encoding format for the leg geometry.
-        /// For more information on the format, see the GitHub repository for <a href="https://github.com/heremaps/flexible-polyline"><c>FlexiblePolyline</c></a>.</para><para><c>Simple</c>: A less compact encoding, which is easier to decode but may be less
+        /// For more information on the format, see the GitHub repository for <a href="https://github.com/aws-geospatial/polyline">https://github.com/aws-geospatial/polyline</a>.</para><para><c>Simple</c>: A less compact encoding, which is easier to decode but may be less
         /// precise and result in larger payloads.</para>
         /// </para>
         /// </summary>
@@ -548,7 +570,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter MaxAlternative
         /// <summary>
         /// <para>
-        /// <para>Maximum number of alternative routes to be provided in the response, if available.</para>
+        /// <para>Maximum number of alternative routes to be provided in the response, if available.
+        /// For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only up
+        /// to 3 alternative routes. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -559,7 +584,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Car_MaxSpeed
         /// <summary>
         /// <para>
-        /// <para>Maximum speed specified.</para><para><b>Unit</b>: <c>KilometersPerHour</c></para>
+        /// <para> Maximum speed specified. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c>
+        /// regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><para><b>Unit</b>: <c>kilometers per hour</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -570,7 +597,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Scooter_MaxSpeed
         /// <summary>
         /// <para>
-        /// <para>Maximum speed</para><para><b>Unit</b>: <c>KilometersPerHour</c></para>
+        /// <para> Maximum speed Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions
+        /// for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><para><b>Unit</b>: <c>kilometers per hour</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -581,7 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_MaxSpeed
         /// <summary>
         /// <para>
-        /// <para>Maximum speed</para><para><b>Unit</b>: <c>KilometersPerHour</c></para>
+        /// <para>Maximum speed</para><para><b>Unit</b>: <c>kilometers per hour</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -612,7 +641,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Car_Occupancy
         /// <summary>
         /// <para>
-        /// <para>The number of occupants in the vehicle.</para><para>Default Value: <c>1</c></para>
+        /// <para> The number of occupants in the vehicle. Not supported in <c>ap-southeast-1</c> and
+        /// <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><para>Default value: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -623,7 +654,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Scooter_Occupancy
         /// <summary>
         /// <para>
-        /// <para>The number of occupants in the vehicle.</para><para>Default Value: <c>1</c></para>
+        /// <para> The number of occupants in the vehicle. Not supported in <c>ap-southeast-1</c> and
+        /// <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><para>Default value: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -634,7 +667,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_Occupancy
         /// <summary>
         /// <para>
-        /// <para>The number of occupants in the vehicle.</para><para>Default Value: <c>1</c></para>
+        /// <para>The number of occupants in the vehicle.</para><para>Default value: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -667,7 +700,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OptimizeRoutingFor
         /// <summary>
         /// <para>
-        /// <para>Specifies the optimization criteria for calculating a route.</para><para>Default Value: <c>FastestRoute</c></para>
+        /// <para>Controls the trade-off between achieving the shortest travel time (<c>FastestRoute</c>)
+        /// and achieving the shortest physical distance ((<c>ShortestRoute</c>) when calculating
+        /// each route in the matrix.</para><para>Default value: <c>FastestRoute</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -678,7 +713,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Origin
         /// <summary>
         /// <para>
-        /// <para>The start position for the route.</para><para />
+        /// <para>The start position for the route in World Geodetic System (WGS 84) format: [longitude,
+        /// latitude].</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -710,7 +746,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_SideOfStreet_Position
         /// <summary>
         /// <para>
-        /// <para>Position defined as <c>[longitude, latitude]</c>.</para><para />
+        /// <para>Position in World Geodetic System (WGS 84) format: [longitude, latitude].</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -724,7 +760,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_SideOfStreet_Position
         /// <summary>
         /// <para>
-        /// <para>Position defined as <c>[longitude, latitude]</c>.</para><para />
+        /// <para>Position in World Geodetic System (WGS 84) format: [longitude, latitude].</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -738,7 +774,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Quad
         /// <summary>
         /// <para>
-        /// <para>Weight for quad axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for quad (four adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -749,7 +785,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Quint
         /// <summary>
         /// <para>
-        /// <para>Weight for quad quint group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for quint (five adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -761,7 +797,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>Considers all roads within the provided radius to match the provided destination to.
-        /// The roads that are considered are determined by the provided Strategy.</para><para><b>Unit</b>: <c>Meters</c></para>
+        /// The roads that are considered are determined by the provided Strategy.</para><para><b>Unit</b>: <c>meters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -772,7 +808,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>Considers all roads within the provided radius to match the provided destination to.
-        /// The roads that are considered are determined by the provided Strategy.</para><para><b>Unit</b>: <c>Meters</c></para>
+        /// The roads that are considered are determined by the provided Strategy.</para><para><b>Unit</b>: <c>meters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -796,7 +832,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_SeasonalClosure
         /// <summary>
         /// <para>
-        /// <para>Avoid roads that have seasonal closure while calculating the route.</para>
+        /// <para> Avoid roads that have seasonal closure while calculating the route. Not supported
+        /// in <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -806,7 +844,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Single
         /// <summary>
         /// <para>
-        /// <para>Weight for single axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for single axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -817,8 +855,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter SpanAdditionalFeature
         /// <summary>
         /// <para>
-        /// <para>A list of optional features such as SpeedLimit that can be requested for a Span. A
-        /// span is a section of a Leg for which the requested features have the same values.</para><para />
+        /// <para> A list of optional features such as <c>SpeedLimit</c> that can be requested for a
+        /// Span. A span is a section of a Leg for which the requested features have the same
+        /// values. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for
+        /// <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -880,7 +921,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Tandem
         /// <summary>
         /// <para>
-        /// <para>Weight for tandem axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for tandem (two adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -913,7 +954,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_TollTransponder
         /// <summary>
         /// <para>
-        /// <para>Avoids roads where the specified toll transponders are the only mode of payment.</para>
+        /// <para> Avoids roads where the specified toll transponders are the only mode of payment.
+        /// Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -924,7 +967,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Trailer_TrailerCount
         /// <summary>
         /// <para>
-        /// <para>Number of trailers attached to the vehicle.</para><para>Default Value: <c>0</c></para>
+        /// <para>Number of trailers attached to the vehicle.</para><para>Default value: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -935,8 +978,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter TravelMode
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of transport when calculating a route. Used in estimating the speed
-        /// of travel and road compatibility.</para><para>Default Value: <c>Car</c></para>
+        /// <para> Specifies the mode of transport when calculating a route. Used in estimating the
+        /// speed of travel and road compatibility. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only <c>Car</c>,
+        /// <c>Pedestrian</c>, and <c>Scooter</c> values. </para><para>Default value: <c>Car</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -947,9 +992,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter TravelStepType
         /// <summary>
         /// <para>
-        /// <para>Type of step returned by the response. Default provides basic steps intended for web
-        /// based applications. TurnByTurn provides detailed instructions with more granularity
-        /// intended for a turn based navigation system.</para>
+        /// <para>Type of step returned by the response. <c>Default</c> provides basic steps intended
+        /// for web based applications. <c>TurnByTurn</c> provides detailed instructions with
+        /// more granularity intended for a turn based navigation system. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions <c>Default</c>
+        /// does not return any steps. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -960,7 +1007,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter WeightPerAxleGroup_Triple
         /// <summary>
         /// <para>
-        /// <para>Weight for triple axle group.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// <para>Total weight in kilograms for triple (three adjacent) axle configurations.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -971,8 +1018,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_TruckRoadType
         /// <summary>
         /// <para>
-        /// <para>Truck road type identifiers. <c>BK1</c> through <c>BK4</c> apply only to Sweden. <c>A2,A4,B2,B4,C,D,ET2,ET4</c>
-        /// apply only to Mexico.</para><note><para>There are currently no other supported values as of 26th April 2024.</para></note><para />
+        /// <para> Truck road type identifiers. <c>BK1</c> through <c>BK4</c> apply only to Sweden.
+        /// <c>A2,A4,B2,B4,C,D,ET2,ET4</c> apply only to Mexico. Not supported in <c>ap-southeast-1</c>
+        /// and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><note><para>There are currently no other supported values as of 26th April 2024.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -987,7 +1036,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_TruckType
         /// <summary>
         /// <para>
-        /// <para>Type of the truck.</para>
+        /// <para>The type of truck: <c>LightTruck</c> for smaller delivery vehicles, <c> StraightTruck</c>
+        /// for rigid body trucks, or <c>Tractor</c> for tractor-trailer combinations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1012,7 +1062,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_Tunnel
         /// <summary>
         /// <para>
-        /// <para>Avoid tunnels while calculating the route.</para>
+        /// <para> Avoid tunnels while calculating the route. Not supported in <c>ap-southeast-1</c>
+        /// and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1034,7 +1086,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Traffic_Usage
         /// <summary>
         /// <para>
-        /// <para>Determines if traffic should be used or ignored while calculating the route.</para><para>Default Value: <c>UseTrafficData</c></para>
+        /// <para>Specifies how traffic data should be used when calculating routes.</para><para>Default Value: <c>UseTrafficData</c></para><note><para>Traffic data usage depends on the time parameters in your route request:</para><ul><li><para>When <c>Usage</c> is set to <c>UseTrafficData</c>:</para><ul><li><para>If <c>DepartNow</c> is set to <c>true</c>, or if you specify <c>DepartureTime</c>
+        /// or <c>ArrivalTime</c>, then all traffic data is considered (including live traffic
+        /// and closures).</para></li><li><para>If <c>DepartNow</c>, <c>DepartureTime</c>, and <c>ArrivalTime</c> are all unspecified,
+        /// then only long-term closures are considered, regardless of this setting.</para></li></ul></li><li><para>When <c>Usage</c> is set to <c>IgnoreTrafficData</c>, then all traffic data is ignored
+        /// regardless of the time parameters in your route request.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1045,7 +1101,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_SideOfStreet_UseWith
         /// <summary>
         /// <para>
-        /// <para>Strategy that defines when the side of street position should be used.</para><para>Default Value: <c>DividedStreetOnly</c></para>
+        /// <para>Strategy that defines when the side of street position should be used.</para><para>Default value: <c>DividedStreetOnly</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1056,7 +1112,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_SideOfStreet_UseWith
         /// <summary>
         /// <para>
-        /// <para>Strategy that defines when the side of street position should be used.</para><para>Default Value: <c>DividedStreetOnly</c></para>
+        /// <para>Strategy that defines when the side of street position should be used.</para><para>Default value: <c>DividedStreetOnly</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1067,7 +1123,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_UTurn
         /// <summary>
         /// <para>
-        /// <para>Avoid U-turns for calculation on highways and motorways.</para>
+        /// <para> Avoid U-turns for calculation on highways and motorways. Not supported in <c>ap-southeast-1</c>
+        /// and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1089,7 +1147,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Waypoint
         /// <summary>
         /// <para>
-        /// <para>List of waypoints between the Origin and Destination.</para><para />
+        /// <para> List of waypoints between the Origin and Destination. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions max length is <c>100</c>.
+        /// </para><para>Max length: <c>23</c></para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -1105,7 +1165,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for
-        /// usage in countries where the differences in axle types or axle groups are not distinguished.</para><para><b>Unit</b>: <c>Kilograms</c></para>
+        /// usage in countries where the differences in axle types or axle groups are not distinguished.</para><para><b>Unit</b>: <c>kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1127,7 +1187,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_ZoneCategory
         /// <summary>
         /// <para>
-        /// <para>Zone categories to be avoided.</para><para />
+        /// <para> Zone categories to be avoided. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c>
+        /// regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

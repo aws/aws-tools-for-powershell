@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// group is created. To enable encryption at rest on a replication group you must set
         /// <c>AtRestEncryptionEnabled</c> to <c>true</c> when you create the replication group.
         /// </para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
-        /// using Valkey 7.2 and later, Redis OSS version <c>3.2.6</c>, or Redis OSS <c>4.x</c>
+        /// using Valkey <c>7.2</c> and later, Redis OSS version <c>3.2.6</c>, or Redis OSS <c>4.x</c>
         /// and later.</para><para>Default: <c>true</c> when using Valkey, <c>false</c> when using Redis OSS</para>
         /// </para>
         /// </summary>

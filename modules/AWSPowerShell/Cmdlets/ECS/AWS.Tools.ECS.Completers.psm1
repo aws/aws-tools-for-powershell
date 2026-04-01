@@ -157,6 +157,30 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.DaemonPropagateTags
+        {
+            ($_ -eq "New-ECSDaemon/PropagateTag") -Or
+            ($_ -eq "Update-ECSDaemon/PropagateTag")
+        }
+        {
+            $v = "DAEMON","NONE"
+            break
+        }
+
+        # Amazon.ECS.DaemonTaskDefinitionRevisionFilter
+        "Get-ECSDaemonTaskDefinitionList/Revision"
+        {
+            $v = "LAST_REGISTERED"
+            break
+        }
+
+        # Amazon.ECS.DaemonTaskDefinitionStatusFilter
+        "Get-ECSDaemonTaskDefinitionList/Status"
+        {
+            $v = "ACTIVE","ALL","DELETE_IN_PROGRESS"
+            break
+        }
+
         # Amazon.ECS.DeploymentControllerType
         {
             ($_ -eq "New-ECSService/DeploymentController_Type") -Or
@@ -394,7 +418,10 @@ $ECS_Completers = {
         }
 
         # Amazon.ECS.SortOrder
-        "Get-ECSTaskDefinitionList/Sort"
+        {
+            ($_ -eq "Get-ECSDaemonTaskDefinitionList/Sort") -Or
+            ($_ -eq "Get-ECSTaskDefinitionList/Sort")
+        }
         {
             $v = "ASC","DESC"
             break
@@ -461,16 +488,17 @@ $ECS_map = @{
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "PidMode"=@("Register-ECSTaskDefinition")
-    "PropagateTag"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
+    "PropagateTag"=@("New-ECSDaemon","New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSDaemon","Update-ECSService")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
     "ResourceManagementType"=@("Get-ECSClusterService")
+    "Revision"=@("Get-ECSDaemonTaskDefinitionList")
     "RuntimePlatform_CpuArchitecture"=@("Register-ECSTaskDefinition")
     "RuntimePlatform_OperatingSystemFamily"=@("Register-ECSTaskDefinition")
     "Scale_Unit"=@("New-ECSTaskSet","Update-ECSTaskSet")
     "ScalingTarget_AutoScalingMetric"=@("New-ECSExpressGatewayService","Update-ECSExpressGatewayService")
     "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
-    "Sort"=@("Get-ECSTaskDefinitionList")
-    "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
+    "Sort"=@("Get-ECSDaemonTaskDefinitionList","Get-ECSTaskDefinitionList")
+    "Status"=@("Get-ECSContainerInstanceList","Get-ECSDaemonTaskDefinitionList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
     "StopType"=@("Stop-ECSServiceDeployment")
     "TargetType"=@("Get-ECSAttributeList")
 }
@@ -527,6 +555,7 @@ $ECS_SelectCompleters = {
 $ECS_SelectMap = @{
     "Select"=@("New-ECSCapacityProvider",
                "New-ECSCluster",
+               "New-ECSDaemon",
                "New-ECSExpressGatewayService",
                "New-ECSService",
                "New-ECSTaskSet",
@@ -534,6 +563,8 @@ $ECS_SelectMap = @{
                "Remove-ECSAttribute",
                "Remove-ECSCapacityProvider",
                "Remove-ECSCluster",
+               "Remove-ECSDaemon",
+               "Remove-ECSDaemonTaskDefinition",
                "Remove-ECSExpressGatewayService",
                "Remove-ECSService",
                "Remove-ECSTaskDefinition",
@@ -543,6 +574,10 @@ $ECS_SelectMap = @{
                "Get-ECSCapacityProvider",
                "Get-ECSClusterDetail",
                "Get-ECSContainerInstanceDetail",
+               "Get-ECSDaemonDetail",
+               "Get-ECSDaemonDeploymentDetail",
+               "Get-ECSDaemonRevisionDetail",
+               "Get-ECSDaemonTaskDefinitionDetail",
                "Get-ECSExpressGatewayService",
                "Get-ECSServiceDeploymentDetail",
                "Get-ECSServiceRevision",
@@ -556,6 +591,9 @@ $ECS_SelectMap = @{
                "Get-ECSAttributeList",
                "Get-ECSClusterList",
                "Get-ECSContainerInstanceList",
+               "Get-ECSDaemonDeploymentList",
+               "Get-ECSDaemonList",
+               "Get-ECSDaemonTaskDefinitionList",
                "Get-ECSServiceDeploymentList",
                "Get-ECSClusterService",
                "Get-ECSServicesByNamespace",
@@ -567,6 +605,7 @@ $ECS_SelectMap = @{
                "Write-ECSAccountSettingDefault",
                "Write-ECSAttribute",
                "Write-ECSClusterCapacityProvider",
+               "Register-ECSDaemonTaskDefinition",
                "Register-ECSTaskDefinition",
                "New-ECSTask",
                "Start-ECSTask",
@@ -580,6 +619,7 @@ $ECS_SelectMap = @{
                "Update-ECSClusterSetting",
                "Update-ECSContainerAgent",
                "Update-ECSContainerInstancesState",
+               "Update-ECSDaemon",
                "Update-ECSExpressGatewayService",
                "Update-ECSService",
                "Update-ECSServicePrimaryTaskSet",

@@ -172,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>Modifies the engine listed in a replication group message. The options are redis,
-        /// memcached or valkey.</para>
+        /// <para>Modifies the engine listed in a replication group message. The options are valkey,
+        /// memcached or redis.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

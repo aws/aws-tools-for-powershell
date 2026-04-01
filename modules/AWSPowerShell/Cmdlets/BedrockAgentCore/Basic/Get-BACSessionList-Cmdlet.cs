@@ -68,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String ActorId { get; set; }
         #endregion
         
+        #region Parameter Filter_EventFilter
+        /// <summary>
+        /// <para>
+        /// <para>The event filter condition to apply. Use this to filter sessions based on event presence.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCore.EventFilterCondition")]
+        public Amazon.BedrockAgentCore.EventFilterCondition Filter_EventFilter { get; set; }
+        #endregion
+        
         #region Parameter MemoryId
         /// <summary>
         /// <para>
@@ -163,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter ActorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Filter_EventFilter = this.Filter_EventFilter;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -202,6 +214,25 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.ActorId != null)
             {
                 request.ActorId = cmdletContext.ActorId;
+            }
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.BedrockAgentCore.Model.SessionFilter();
+            Amazon.BedrockAgentCore.EventFilterCondition requestFilter_filter_EventFilter = null;
+            if (cmdletContext.Filter_EventFilter != null)
+            {
+                requestFilter_filter_EventFilter = cmdletContext.Filter_EventFilter;
+            }
+            if (requestFilter_filter_EventFilter != null)
+            {
+                request.Filter.EventFilter = requestFilter_filter_EventFilter;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -291,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ActorId { get; set; }
+            public Amazon.BedrockAgentCore.EventFilterCondition Filter_EventFilter { get; set; }
             public int? MaxResult { get; set; }
             public System.String MemoryId { get; set; }
             public System.String NextToken { get; set; }

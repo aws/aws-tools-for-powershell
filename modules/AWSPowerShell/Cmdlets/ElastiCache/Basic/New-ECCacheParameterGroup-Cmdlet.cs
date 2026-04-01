@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>A user-specified name for the cache parameter group.</para>
+        /// <para>A user-specified name for the cache parameter group. This value is stored as a lowercase
+        /// string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

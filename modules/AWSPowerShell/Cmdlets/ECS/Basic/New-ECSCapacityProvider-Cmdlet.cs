@@ -235,8 +235,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>Determines whether to enable FIPS 140-2 validated cryptographic modules on EC2 instances
         /// launched by the capacity provider. If <c>true</c>, instances use FIPS-compliant cryptographic
         /// algorithms and modules for enhanced security compliance. If <c>false</c>, instances
-        /// use standard cryptographic implementations.</para><para>If not specified, instances are launched with FIPS enabled in AWS GovCloud (US) regions
-        /// and FIPS disabled in other regions.</para>
+        /// use standard cryptographic implementations.</para><para>If not specified, instances are launched with FIPS enabled in Amazon Web Services
+        /// GovCloud (US) regions and FIPS disabled in other regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

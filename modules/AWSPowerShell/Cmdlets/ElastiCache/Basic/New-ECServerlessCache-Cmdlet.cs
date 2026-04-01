@@ -152,6 +152,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.Int32? ECPUPerSecond_Minimum { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The IP protocol version used by the serverless cache. Must be either <c>ipv4</c> |
+        /// <c>ipv6</c> | <c>dual_stack</c>. <c>ipv6</c> is only supported with ipv6-only subnets.
+        /// If not specified, defaults to <c>ipv4</c>, unless all provided subnets are IPv6-only,
+        /// in which case it defaults to <c>ipv6</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.NetworkType")]
+        public Amazon.ElastiCache.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
@@ -206,10 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshotRetentionLimit
         /// <summary>
         /// <para>
-        /// <para>The number of snapshots that will be retained for the serverless cache that is being
-        /// created. As new snapshots beyond this limit are added, the oldest snapshots will be
-        /// deleted on a rolling basis. Available for Valkey, Redis OSS and Serverless Memcached
-        /// only.</para>
+        /// <para>The number of days for which ElastiCache retains automatic snapshots before deleting
+        /// them. Available for Valkey, Redis OSS and Serverless Memcached only. The maximum value
+        /// allowed is 35 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -333,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             #endif
             context.KmsKeyId = this.KmsKeyId;
             context.MajorEngineVersion = this.MajorEngineVersion;
+            context.NetworkType = this.NetworkType;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -483,6 +497,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.MajorEngineVersion = cmdletContext.MajorEngineVersion;
             }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
+            }
             if (cmdletContext.SecurityGroupId != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
@@ -576,6 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String Engine { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MajorEngineVersion { get; set; }
+            public Amazon.ElastiCache.NetworkType NetworkType { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.String ServerlessCacheName { get; set; }
             public List<System.String> SnapshotArnsToRestore { get; set; }

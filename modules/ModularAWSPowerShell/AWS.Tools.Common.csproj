@@ -63,6 +63,9 @@
     -->
     <PackageReference Include="System.Text.Json" Version="6.0.11" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <!-- Pin System.Memory to 4.5.5 to match the version AWSSDK.Core and service DLLs were compiled against (asm 4.0.1.2).
+         System.Text.Json 6.0.11 transitively pulls 4.5.4 (asm 4.0.1.1), causing MSB3277 against AWSSDK DLLs. -->
+    <PackageReference Include="System.Memory" Version="4.5.5" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <Reference Include="AWSSDK.Core">

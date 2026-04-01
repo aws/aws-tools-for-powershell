@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot,
         /// therefore this name must be unique within its context - ElastiCache or an Amazon S3
-        /// bucket if exporting.</para>
+        /// bucket if exporting. This value is stored as a lowercase string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -8342,6 +8342,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.EndpointIpAddressType
+        {
+            ($_ -eq "New-BACCGatewayTarget/PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-BACCGatewayTarget/PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType")
+        }
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.EvaluatorLevel
         {
             ($_ -eq "New-BACCEvaluator/Level") -Or
@@ -8472,6 +8482,7 @@ $BACC_map = @{
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
     "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
+    "PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
@@ -8647,6 +8658,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.EventFilterCondition
+        "Get-BACSessionList/Filter_EventFilter"
+        {
+            $v = "HAS_EVENTS"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ExtractionJobStatus
         "Get-BACMemoryExtractionJobList/Filter_Status"
         {
@@ -8694,6 +8712,7 @@ $BAC_map = @{
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
+    "Filter_EventFilter"=@("Get-BACSessionList")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
@@ -30980,6 +30999,30 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.DaemonPropagateTags
+        {
+            ($_ -eq "New-ECSDaemon/PropagateTag") -Or
+            ($_ -eq "Update-ECSDaemon/PropagateTag")
+        }
+        {
+            $v = "DAEMON","NONE"
+            break
+        }
+
+        # Amazon.ECS.DaemonTaskDefinitionRevisionFilter
+        "Get-ECSDaemonTaskDefinitionList/Revision"
+        {
+            $v = "LAST_REGISTERED"
+            break
+        }
+
+        # Amazon.ECS.DaemonTaskDefinitionStatusFilter
+        "Get-ECSDaemonTaskDefinitionList/Status"
+        {
+            $v = "ACTIVE","ALL","DELETE_IN_PROGRESS"
+            break
+        }
+
         # Amazon.ECS.DeploymentControllerType
         {
             ($_ -eq "New-ECSService/DeploymentController_Type") -Or
@@ -31217,7 +31260,10 @@ $ECS_Completers = {
         }
 
         # Amazon.ECS.SortOrder
-        "Get-ECSTaskDefinitionList/Sort"
+        {
+            ($_ -eq "Get-ECSDaemonTaskDefinitionList/Sort") -Or
+            ($_ -eq "Get-ECSTaskDefinitionList/Sort")
+        }
         {
             $v = "ASC","DESC"
             break
@@ -31284,16 +31330,17 @@ $ECS_map = @{
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "PidMode"=@("Register-ECSTaskDefinition")
-    "PropagateTag"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
+    "PropagateTag"=@("New-ECSDaemon","New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSDaemon","Update-ECSService")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
     "ResourceManagementType"=@("Get-ECSClusterService")
+    "Revision"=@("Get-ECSDaemonTaskDefinitionList")
     "RuntimePlatform_CpuArchitecture"=@("Register-ECSTaskDefinition")
     "RuntimePlatform_OperatingSystemFamily"=@("Register-ECSTaskDefinition")
     "Scale_Unit"=@("New-ECSTaskSet","Update-ECSTaskSet")
     "ScalingTarget_AutoScalingMetric"=@("New-ECSExpressGatewayService","Update-ECSExpressGatewayService")
     "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
-    "Sort"=@("Get-ECSTaskDefinitionList")
-    "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
+    "Sort"=@("Get-ECSDaemonTaskDefinitionList","Get-ECSTaskDefinitionList")
+    "Status"=@("Get-ECSContainerInstanceList","Get-ECSDaemonTaskDefinitionList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
     "StopType"=@("Stop-ECSServiceDeployment")
     "TargetType"=@("Get-ECSAttributeList")
 }
@@ -31350,6 +31397,7 @@ $ECS_SelectCompleters = {
 $ECS_SelectMap = @{
     "Select"=@("New-ECSCapacityProvider",
                "New-ECSCluster",
+               "New-ECSDaemon",
                "New-ECSExpressGatewayService",
                "New-ECSService",
                "New-ECSTaskSet",
@@ -31357,6 +31405,8 @@ $ECS_SelectMap = @{
                "Remove-ECSAttribute",
                "Remove-ECSCapacityProvider",
                "Remove-ECSCluster",
+               "Remove-ECSDaemon",
+               "Remove-ECSDaemonTaskDefinition",
                "Remove-ECSExpressGatewayService",
                "Remove-ECSService",
                "Remove-ECSTaskDefinition",
@@ -31366,6 +31416,10 @@ $ECS_SelectMap = @{
                "Get-ECSCapacityProvider",
                "Get-ECSClusterDetail",
                "Get-ECSContainerInstanceDetail",
+               "Get-ECSDaemonDetail",
+               "Get-ECSDaemonDeploymentDetail",
+               "Get-ECSDaemonRevisionDetail",
+               "Get-ECSDaemonTaskDefinitionDetail",
                "Get-ECSExpressGatewayService",
                "Get-ECSServiceDeploymentDetail",
                "Get-ECSServiceRevision",
@@ -31379,6 +31433,9 @@ $ECS_SelectMap = @{
                "Get-ECSAttributeList",
                "Get-ECSClusterList",
                "Get-ECSContainerInstanceList",
+               "Get-ECSDaemonDeploymentList",
+               "Get-ECSDaemonList",
+               "Get-ECSDaemonTaskDefinitionList",
                "Get-ECSServiceDeploymentList",
                "Get-ECSClusterService",
                "Get-ECSServicesByNamespace",
@@ -31390,6 +31447,7 @@ $ECS_SelectMap = @{
                "Write-ECSAccountSettingDefault",
                "Write-ECSAttribute",
                "Write-ECSClusterCapacityProvider",
+               "Register-ECSDaemonTaskDefinition",
                "Register-ECSTaskDefinition",
                "New-ECSTask",
                "Start-ECSTask",
@@ -31403,6 +31461,7 @@ $ECS_SelectMap = @{
                "Update-ECSClusterSetting",
                "Update-ECSContainerAgent",
                "Update-ECSContainerInstancesState",
+               "Update-ECSDaemon",
                "Update-ECSExpressGatewayService",
                "Update-ECSService",
                "Update-ECSServicePrimaryTaskSet",
@@ -31824,7 +31883,8 @@ $EC_Completers = {
         # Amazon.ElastiCache.NetworkType
         {
             ($_ -eq "New-ECCacheCluster/NetworkType") -Or
-            ($_ -eq "New-ECReplicationGroup/NetworkType")
+            ($_ -eq "New-ECReplicationGroup/NetworkType") -Or
+            ($_ -eq "New-ECServerlessCache/NetworkType")
         }
         {
             $v = "dual_stack","ipv4","ipv6"
@@ -31870,7 +31930,7 @@ $EC_map = @{
     "ClusterMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
     "DataStorage_Unit"=@("Edit-ECServerlessCache","New-ECServerlessCache")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
-    "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup")
+    "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup","New-ECServerlessCache")
     "OutpostMode"=@("New-ECCacheCluster")
     "SourceType"=@("Get-ECEvent")
     "TransitEncryptionMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
@@ -33840,7 +33900,7 @@ $ES_Completers = {
             ($_ -eq "Update-ESDomainConfig/DomainEndpointOptions_TLSSecurityPolicy")
         }
         {
-            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07","Policy-Min-TLS-1-2-PFS-2023-10"
+            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07","Policy-Min-TLS-1-2-PFS-2023-10","Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08"
             break
         }
 
@@ -59886,7 +59946,7 @@ $OS_Completers = {
             ($_ -eq "Update-OSDomainConfig/DomainEndpointOptions_TLSSecurityPolicy")
         }
         {
-            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07","Policy-Min-TLS-1-2-PFS-2023-10"
+            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07","Policy-Min-TLS-1-2-PFS-2023-10","Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08"
             break
         }
 

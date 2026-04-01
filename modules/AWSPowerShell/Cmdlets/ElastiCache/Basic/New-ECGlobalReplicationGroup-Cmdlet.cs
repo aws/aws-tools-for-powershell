@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of the primary cluster that accepts writes and will replicate updates to
-        /// the secondary cluster.</para>
+        /// the secondary cluster. This value is stored as a lowercase string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

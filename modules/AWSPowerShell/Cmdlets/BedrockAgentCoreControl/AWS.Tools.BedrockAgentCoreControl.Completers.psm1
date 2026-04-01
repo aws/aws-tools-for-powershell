@@ -124,6 +124,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.EndpointIpAddressType
+        {
+            ($_ -eq "New-BACCGatewayTarget/PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-BACCGatewayTarget/PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType")
+        }
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.EvaluatorLevel
         {
             ($_ -eq "New-BACCEvaluator/Level") -Or
@@ -254,6 +264,7 @@ $BACC_map = @{
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
     "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
+    "PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")

@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String ContainerInstance { get; set; }
         #endregion
         
+        #region Parameter DaemonName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the daemon to use when filtering the <c>ListTasks</c> results. Specifying
+        /// a <c>daemonName</c> limits the results to tasks that belong to that daemon.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DaemonName { get; set; }
+        #endregion
+        
         #region Parameter DesiredStatus
         /// <summary>
         /// <para>
@@ -222,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             context.Cluster = this.Cluster;
             context.ContainerInstance = this.ContainerInstance;
+            context.DaemonName = this.DaemonName;
             context.DesiredStatus = this.DesiredStatus;
             context.Family = this.Family;
             context.LaunchType = this.LaunchType;
@@ -264,6 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.ContainerInstance != null)
             {
                 request.ContainerInstance = cmdletContext.ContainerInstance;
+            }
+            if (cmdletContext.DaemonName != null)
+            {
+                request.DaemonName = cmdletContext.DaemonName;
             }
             if (cmdletContext.DesiredStatus != null)
             {
@@ -351,6 +367,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.ContainerInstance != null)
             {
                 request.ContainerInstance = cmdletContext.ContainerInstance;
+            }
+            if (cmdletContext.DaemonName != null)
+            {
+                request.DaemonName = cmdletContext.DaemonName;
             }
             if (cmdletContext.DesiredStatus != null)
             {
@@ -480,6 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public System.String Cluster { get; set; }
             public System.String ContainerInstance { get; set; }
+            public System.String DaemonName { get; set; }
             public Amazon.ECS.DesiredStatus DesiredStatus { get; set; }
             public System.String Family { get; set; }
             public Amazon.ECS.LaunchType LaunchType { get; set; }

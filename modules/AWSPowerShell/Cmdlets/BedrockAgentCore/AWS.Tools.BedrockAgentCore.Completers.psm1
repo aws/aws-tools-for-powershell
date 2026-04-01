@@ -101,6 +101,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.EventFilterCondition
+        "Get-BACSessionList/Filter_EventFilter"
+        {
+            $v = "HAS_EVENTS"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ExtractionJobStatus
         "Get-BACMemoryExtractionJobList/Filter_Status"
         {
@@ -148,6 +155,7 @@ $BAC_map = @{
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
+    "Filter_EventFilter"=@("Get-BACSessionList")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")

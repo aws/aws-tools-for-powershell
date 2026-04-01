@@ -578,7 +578,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </b> TLS security policy that supports TLS version 1.0 to TLS version 1.2</li><li><b>Policy-Min-TLS-1-2-2019-07:
         /// </b> TLS security policy that supports only TLS version 1.2</li><li><b>Policy-Min-TLS-1-2-PFS-2023-10:
         /// </b> TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect
-        /// forward secrecy cipher suites</li></ul></para>
+        /// forward secrecy cipher suites</li><li><b>Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08:
+        /// </b> TLS security policy that supports TLS version 1.3 with FIPS</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

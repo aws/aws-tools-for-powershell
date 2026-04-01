@@ -1,4 +1,30 @@
-﻿### 5.0.186 (2026-03-31 20:03Z)
+﻿### 5.0.187 (2026-04-01 20:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.223.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGatewayTarget: added parameters PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType, PrivateEndpoint_ManagedLatticeResource_RoutingDomain, PrivateEndpoint_ManagedLatticeResource_SecurityGroupId, PrivateEndpoint_ManagedLatticeResource_SubnetId, PrivateEndpoint_ManagedLatticeResource_Tag, PrivateEndpoint_ManagedLatticeResource_VpcIdentifier and PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameters PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType, PrivateEndpoint_ManagedLatticeResource_RoutingDomain, PrivateEndpoint_ManagedLatticeResource_SecurityGroupId, PrivateEndpoint_ManagedLatticeResource_SubnetId, PrivateEndpoint_ManagedLatticeResource_Tag, PrivateEndpoint_ManagedLatticeResource_VpcIdentifier and PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Get-BACSessionList: added parameter Filter_EventFilter.
+  * Amazon EC2 Container Service
+    * Added cmdlet Get-ECSDaemonDeploymentDetail leveraging the DescribeDaemonDeployments service API.
+    * Added cmdlet Get-ECSDaemonDeploymentList leveraging the ListDaemonDeployments service API.
+    * Added cmdlet Get-ECSDaemonDetail leveraging the DescribeDaemon service API.
+    * Added cmdlet Get-ECSDaemonList leveraging the ListDaemons service API.
+    * Added cmdlet Get-ECSDaemonRevisionDetail leveraging the DescribeDaemonRevisions service API.
+    * Added cmdlet Get-ECSDaemonTaskDefinitionDetail leveraging the DescribeDaemonTaskDefinition service API.
+    * Added cmdlet Get-ECSDaemonTaskDefinitionList leveraging the ListDaemonTaskDefinitions service API.
+    * Added cmdlet New-ECSDaemon leveraging the CreateDaemon service API.
+    * Added cmdlet Register-ECSDaemonTaskDefinition leveraging the RegisterDaemonTaskDefinition service API.
+    * Added cmdlet Remove-ECSDaemon leveraging the DeleteDaemon service API.
+    * Added cmdlet Remove-ECSDaemonTaskDefinition leveraging the DeleteDaemonTaskDefinition service API.
+    * Added cmdlet Update-ECSDaemon leveraging the UpdateDaemon service API.
+    * Modified cmdlet Get-ECSTaskList: added parameter DaemonName.
+  * Amazon ElastiCache
+    * Modified cmdlet New-ECServerlessCache: added parameter NetworkType.
+  * Amazon Medical Imaging Service
+    * Modified cmdlet Update-MISImageSetMetadata: added parameter IncludeStudyImageSet.
+
+### 5.0.186 (2026-03-31 20:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.222.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Certificate Manager
     * Added cmdlet Search-ACMCertificate leveraging the SearchCertificates service API.
