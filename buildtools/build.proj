@@ -276,7 +276,12 @@
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/Microsoft.Bcl.HashCode.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
     </Target>
 
-    <Target Name="copy-modular-artifacts" DependsOnTargets="build-modular-modules">
+    <Target Name="generate-modular-help" DependsOnTargets="build-modular-modules">
+        <Message Text="Generating formats and pshelp for all modular services (batch mode)"/>
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t modular-formats,modular-pshelp"/>
+    </Target>
+
+    <Target Name="copy-modular-artifacts" DependsOnTargets="generate-modular-help">
         <Exec Command="pwsh $(RootPath)/buildtools/CopyModularAWSPowerShell.ps1 $(RootPath) $(Configuration)"/>
     </Target>
 

@@ -14,6 +14,8 @@ namespace AWSPowerShellGenerator
         public const string GenerateFormats = "formats";
         public const string GeneratePsHelp = "pshelp";
         public const string GenerateWebHelp = "webhelp";
+        public const string GenerateModularFormats = "modular-formats";
+        public const string GenerateModularPsHelp = "modular-pshelp";
     }
 
     public class GeneratorOptions

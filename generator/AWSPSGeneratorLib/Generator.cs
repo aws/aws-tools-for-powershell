@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Xml;
 using System.IO;
 
 using AWSPowerShellGenerator.Generators;
+using AWSPowerShellGenerator.ServiceConfig;
 using System.Reflection;
 using AWSPowerShellGenerator.Utils;
 
@@ -60,19 +62,9 @@ namespace AWSPowerShellGenerator
                 // todo: echo out generator options
             }
 
-#if DEBUG
-            var configuration = "Debug";
-#else
-            var configuration = "Release";
-#endif
-            BinSubFolder = Path.Combine("bin", configuration, options.TargetFramework);
-
             var fqRootPath = options.RootPath;
-
             var sdkAssembliesFolder = options.SdkAssembliesFolder;
             var awsPowerShellSourcePath = Path.Combine(fqRootPath, ModulesSubFolder, AWSPowerShellModuleName);
-
-            var deploymentArtifactsPath = Path.Combine(fqRootPath, options.GetEditionOutputFolder(DeploymentArtifactsSubFolder));
 
             if (options.ShouldRunTask(GeneratorTasknames.GenerateCmdlets))
             {
@@ -92,6 +84,29 @@ namespace AWSPowerShellGenerator
                 Console.WriteLine("Task 'GenerateCmdlets' complete, exiting...");
                 return;
             }
+
+            // Batch modular tasks: generate formats and/or pshelp for all modular services in a single invocation.
+            if (options.ShouldRunTask(GeneratorTasknames.GenerateModularFormats) ||
+                options.ShouldRunTask(GeneratorTasknames.GenerateModularPsHelp))
+            {
+                ExecuteModularBatchTasks(options, fqRootPath, sdkAssembliesFolder);
+
+                // If no other tasks are requested, we're done
+                if (!options.ShouldRunTask(GeneratorTasknames.GenerateFormats) &&
+                    !options.ShouldRunTask(GeneratorTasknames.GeneratePsHelp) &&
+                    !options.ShouldRunTask(GeneratorTasknames.GenerateWebHelp))
+                {
+                    return;
+                }
+            }
+
+            // Edition-dependent setup — only needed for single-assembly tasks (formats, pshelp, webhelp)
+#if DEBUG
+            var configuration = "Debug";
+#else
+            var configuration = "Release";
+#endif
+            BinSubFolder = Path.Combine("bin", configuration, options.TargetFramework);
 
             var basePath = string.IsNullOrEmpty(options.BuiltModulesLocation) ? Path.Combine(awsPowerShellSourcePath, BinSubFolder)
                                                                               : options.BuiltModulesLocation;
@@ -134,7 +149,7 @@ namespace AWSPowerShellGenerator
                 cmdletDocumentation.Load(awsPsXmlPath);
 
                 // For modular versions of AWS Tools module, load additional help for common parameters defined in AWS.Tools.Common.
-                LoadCommonParameterHelpForModularVersion(options, basePath, cmdletDocumentation);
+                LoadCommonParameterHelpForModularVersion(options.AssemblyName, basePath, cmdletDocumentation);
 
                 var pshelpGenerator = new PsHelpGenerator
                 {
@@ -173,9 +188,146 @@ namespace AWSPowerShellGenerator
             }
         }
 
-        private static void LoadCommonParameterHelpForModularVersion(GeneratorOptions options, string basePath, XmlDocument cmdletDocumentation)
+        /// <summary>
+        /// Generates format and/or pshelp files for all modular services (AWS.Tools.Common + all
+        /// per-service modules) in a single process invocation.
+        /// </summary>
+        private void ExecuteModularBatchTasks(GeneratorOptions options, string fqRootPath, string sdkAssembliesFolder)
         {
-            if (options.AssemblyName.StartsWith("AWS.Tools", StringComparison.OrdinalIgnoreCase))
+            var doFormats = options.ShouldRunTask(GeneratorTasknames.GenerateModularFormats);
+            var doPsHelp = options.ShouldRunTask(GeneratorTasknames.GenerateModularPsHelp);
+
+            if (!doFormats && !doPsHelp)
+                return;
+
+            var taskDesc = doFormats && doPsHelp ? "modular-formats + modular-pshelp"
+                         : doFormats ? "modular-formats"
+                         : "modular-pshelp";
+            Console.WriteLine($"Executing batch task '{taskDesc}'");
+
+            // Load service configurations
+            var configurationsFolder = Path.Combine(fqRootPath, CmdletGenerator.ConfigurationFolderName);
+            var modelCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, options.Verbose);
+
+            // Modular edition is always netstandard2.0
+#if DEBUG
+            var configurationName = "Debug";
+#else
+            var configurationName = "Release";
+#endif
+            var binRelPath = Path.Combine("bin", configurationName, "netstandard2.0");
+
+            var serviceProjectsFolder = Path.Combine(fqRootPath, ModulesSubFolder, AWSPowerShellModuleName, "Cmdlets");
+            var commonModuleFolder = Path.Combine(fqRootPath, ModulesSubFolder, "ModularAWSPowerShell");
+
+            // Get list of modular services
+            var modularServices = modelCollection.ConfigModels.Values
+                .Where(service => !string.IsNullOrWhiteSpace(service.ServiceModuleGuid))
+                .OrderBy(service => service.AssemblyName)
+                .ToList();
+
+            var totalSw = Stopwatch.StartNew();
+            var serviceCount = 0;
+
+            // Process AWS.Tools.Common first
+            {
+                var commonBasePath = Path.Combine(commonModuleFolder, binRelPath);
+
+                Console.WriteLine($"  Processing {AWSPowerShellCommonDllName}...");
+                GenerateModularHelpForAssembly(options, AWSPowerShellCommonDllName, commonBasePath,
+                    sdkAssembliesFolder, doFormats, doPsHelp, includeCore: true);
+                serviceCount++;
+            }
+
+            // Process each service module
+            foreach (var service in modularServices)
+            {
+                var assemblyName = "AWS.Tools." + service.AssemblyName;
+                var basePath = Path.Combine(serviceProjectsFolder, service.AssemblyName, binRelPath);
+
+                if (options.Verbose)
+                    Console.WriteLine($"  Processing {assemblyName}...");
+
+                GenerateModularHelpForAssembly(options, assemblyName, basePath,
+                    sdkAssembliesFolder, doFormats, doPsHelp, includeCore: false);
+                serviceCount++;
+            }
+
+            totalSw.Stop();
+            Console.WriteLine($"Batch '{taskDesc}' complete: {serviceCount} modules in {totalSw.Elapsed.TotalSeconds:F1}s");
+        }
+
+        /// <summary>
+        /// Generates format and/or pshelp files for a single modular assembly.
+        /// </summary>
+        private void GenerateModularHelpForAssembly(
+            GeneratorOptions options,
+            string assemblyName,
+            string basePath,
+            string sdkAssembliesFolder,
+            bool doFormats,
+            bool doPsHelp,
+            bool includeCore)
+        {
+            var dllPath = Path.Combine(basePath, assemblyName + ".dll");
+            if (!File.Exists(dllPath))
+            {
+                throw new FileNotFoundException($"Assembly not found: {dllPath}. Ensure 'build-modular-modules' completed successfully.");
+            }
+
+            var assembly = Assembly.LoadFrom(dllPath);
+
+            if (doFormats)
+            {
+                var targetAssemblies = new List<Assembly> { assembly };
+                var sdkAssemblies = assembly.GetReferencedAssemblies()
+                    .Where(a => a.Name.StartsWith("AWSSDK.", StringComparison.OrdinalIgnoreCase) &&
+                                (includeCore || !a.Name.Equals("AWSSDK.Core", StringComparison.OrdinalIgnoreCase)))
+                    .ToArray();
+                targetAssemblies.AddRange(sdkAssemblies.Select(a =>
+                    Assembly.LoadFrom(Path.Combine(sdkAssembliesFolder, GenerationSources.DotNetPlatformNetStandard20, a.Name + ".dll"))));
+                targetAssemblies.AddRange(AppDomain.CurrentDomain.GetAssemblies()
+                    .Where(a => sdkAssemblies.Contains(a.GetName())));
+
+                var formatsGenerator = new FormatGenerator
+                {
+                    OutputFolder = basePath,
+                    Name = assemblyName,
+                    TargetAssemblies = targetAssemblies,
+                    Options = options
+                };
+                formatsGenerator.Generate();
+            }
+
+            if (doPsHelp)
+            {
+                var xmlPath = Path.Combine(basePath, assemblyName + ".XML");
+                if (!File.Exists(xmlPath))
+                {
+                    throw new FileNotFoundException($"XML documentation not found: {xmlPath}. Ensure 'build-modular-modules' completed successfully.");
+                }
+
+                var cmdletDocumentation = new XmlDocument();
+                cmdletDocumentation.Load(xmlPath);
+
+                // For modular versions, load additional help for common parameters from AWS.Tools.Common
+                LoadCommonParameterHelpForModularVersion(assemblyName, basePath, cmdletDocumentation);
+
+                var pshelpGenerator = new PsHelpGenerator
+                {
+                    CmdletAssembly = assembly,
+                    AssemblyDocumentation = cmdletDocumentation,
+                    Name = assemblyName,
+                    OutputFolder = basePath,
+                    Options = options
+                };
+                pshelpGenerator.Generate();
+            }
+        }
+
+        private static void LoadCommonParameterHelpForModularVersion(string assemblyName, string basePath, XmlDocument cmdletDocumentation)
+        {
+            if (assemblyName.StartsWith("AWS.Tools", StringComparison.OrdinalIgnoreCase))
             {
                 string membersXpath = "doc/members";
 
@@ -184,8 +336,7 @@ namespace AWSPowerShellGenerator
 
                 if (!File.Exists(awsToolsCommonHelpXmlPath))
                 {
-                    Console.WriteLine(string.Format("WARNING: Unable to find file {0} to load help for common parameters.", awsToolsCommonHelpXmlPath));
-                    return;
+                    throw new FileNotFoundException($"Common parameter help XML not found: {awsToolsCommonHelpXmlPath}. Ensure 'build-modular-modules' completed successfully.");
                 }
 
                 var awsToolsCommonDocumentation = new XmlDocument();
