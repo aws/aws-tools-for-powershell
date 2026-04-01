@@ -941,6 +941,7 @@
     <Modifier StartsWith="Chat" NounTransformation="Chat{Noun}" />
     <Modifier StartsWith="Orchestrated" NounTransformation="Orchestrated{Noun}" />
     <Modifier StartsWith="Transact" NounTransformation="Transactional{Noun}" />
+    <Modifier StartsWith="Agentic" NounTransformation="Agentic{Noun}" />
 
   </MethodPrefixModifiers>
 
