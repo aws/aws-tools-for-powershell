@@ -23,73 +23,49 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCoreControl;
-using Amazon.BedrockAgentCoreControl.Model;
+using Amazon.BedrockDataAutomation;
+using Amazon.BedrockDataAutomation.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BACC
+namespace Amazon.PowerShell.Cmdlets.BDA
 {
     /// <summary>
-    /// Deletes a gateway target.
-    /// 
-    ///  
-    /// <para>
-    /// You cannot delete a target that is in a pending authorization state (<c>CREATE_PENDING_AUTH</c>,
-    /// <c>UPDATE_PENDING_AUTH</c>, or <c>SYNCHRONIZE_PENDING_AUTH</c>). Wait for the authorization
-    /// to complete or fail before deleting the target.
-    /// </para>
+    /// Deletes an existing Amazon Bedrock Data Automation Library
     /// </summary>
-    [Cmdlet("Remove", "BACCGatewayTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteGatewayTarget API operation.", Operation = new[] {"DeleteGatewayTarget"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse object containing multiple properties."
+    [Cmdlet("Remove", "BDADataAutomationLibrary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryResponse")]
+    [AWSCmdlet("Calls the Data Automation for Amazon Bedrock DeleteDataAutomationLibrary API operation.", Operation = new[] {"DeleteDataAutomationLibrary"}, SelectReturnType = typeof(Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryResponse))]
+    [AWSCmdletOutput("Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryResponse",
+        "This cmdlet returns an Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryResponse object containing multiple properties."
     )]
-    public partial class RemoveBACCGatewayTargetCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class RemoveBDADataAutomationLibraryCmdlet : AmazonBedrockDataAutomationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter GatewayIdentifier
+        #region Parameter LibraryArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the gateway associated with the target.</para>
+        /// <para>ARN generated at the server side when a DataAutomationLibrary is created</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GatewayIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter TargetId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the gateway target to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TargetId { get; set; }
+        public System.String LibraryArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryResponse).
+        /// Specifying the name of a property of type Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TargetId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACCGatewayTarget (DeleteGatewayTarget)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LibraryArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BDADataAutomationLibrary (DeleteDataAutomationLibrary)"))
             {
                 return;
             }
@@ -128,21 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse, RemoveBACCGatewayTargetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryResponse, RemoveBDADataAutomationLibraryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.GatewayIdentifier = this.GatewayIdentifier;
+            context.LibraryArn = this.LibraryArn;
             #if MODULAR
-            if (this.GatewayIdentifier == null && ParameterWasBound(nameof(this.GatewayIdentifier)))
+            if (this.LibraryArn == null && ParameterWasBound(nameof(this.LibraryArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter GatewayIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.TargetId = this.TargetId;
-            #if MODULAR
-            if (this.TargetId == null && ParameterWasBound(nameof(this.TargetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LibraryArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -159,15 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetRequest();
+            var request = new Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryRequest();
             
-            if (cmdletContext.GatewayIdentifier != null)
+            if (cmdletContext.LibraryArn != null)
             {
-                request.GatewayIdentifier = cmdletContext.GatewayIdentifier;
-            }
-            if (cmdletContext.TargetId != null)
-            {
-                request.TargetId = cmdletContext.TargetId;
+                request.LibraryArn = cmdletContext.LibraryArn;
             }
             
             CmdletOutput output;
@@ -202,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetRequest request)
+        private Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryResponse CallAWSServiceOperation(IAmazonBedrockDataAutomation client, Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteGatewayTarget");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Data Automation for Amazon Bedrock", "DeleteDataAutomationLibrary");
             try
             {
-                return client.DeleteGatewayTargetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteDataAutomationLibraryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -224,9 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GatewayIdentifier { get; set; }
-            public System.String TargetId { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse, RemoveBACCGatewayTargetCmdlet, object> Select { get; set; } =
+            public System.String LibraryArn { get; set; }
+            public System.Func<Amazon.BedrockDataAutomation.Model.DeleteDataAutomationLibraryResponse, RemoveBDADataAutomationLibraryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

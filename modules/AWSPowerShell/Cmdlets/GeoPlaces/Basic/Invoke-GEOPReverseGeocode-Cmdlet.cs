@@ -58,8 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter AdditionalFeature
         /// <summary>
         /// <para>
-        /// <para>A list of optional additional parameters, such as time zone that can be requested
-        /// for each result.</para><para />
+        /// <para> A list of optional additional parameters, such as time zone that can be requested
+        /// for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only the
+        /// <c>TimeZone</c> value. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -86,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Filter_IncludePlaceType
         /// <summary>
         /// <para>
-        /// <para>The included place types.</para><para />
+        /// <para> The included place types. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only <c>Street</c>
+        /// and <c>PointAddress</c> values. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -101,10 +105,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter IntendedUse
         /// <summary>
         /// <para>
-        /// <para>Indicates if the results will be stored. Defaults to <c>SingleUse</c>, if left empty.</para><note><para>Storing the response of an ReverseGeocode query is required to comply with service
-        /// terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user
-        /// agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing
-        /// structure</a> to determine the correct setting for your use case.</para></note>
+        /// <para> Indicates if the query results will be persisted in customer infrastructure. Defaults
+        /// to <c>SingleUse</c> (not stored). </para><note><para>When storing <c>ReverseGeocode</c> responses, you <i>must</i> set this field to <c>Storage</c>
+        /// to comply with the terms of service. These requests will be charged at a higher rate.
+        /// Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a>
+        /// and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a>
+        /// to determine the correct setting for your use case.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,9 +132,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant
+        /// <para> A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant
         /// language codes for the results to be rendered in. If there is no data for the result
-        /// in the requested language, data will be returned in the default language for the entry.</para>
+        /// in the requested language, data will be returned in the default language for the entry.
+        /// For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only the
+        /// following codes: <c>en, id, km, lo, ms, my, pt, th, tl, vi, zh</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,9 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter PoliticalView
         /// <summary>
         /// <para>
-        /// <para>The alpha-2 or alpha-3 character code for the political view of a country. The political
+        /// <para> The alpha-2 or alpha-3 character code for the political view of a country. The political
         /// view applies to the results of the request to represent unresolved territorial claims
-        /// through the point of view of the specified country.</para>
+        /// through the point of view of the specified country. Not supported in <c>ap-southeast-1</c>
+        /// and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,8 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter QueryRadius
         /// <summary>
         /// <para>
-        /// <para>The maximum distance in meters from the QueryPosition from which a result will be
-        /// returned.</para>
+        /// <para> The maximum distance in meters from the QueryPosition from which a result will be
+        /// returned. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only up
+        /// to a maximum value of 100,000. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional limit for the number of results returned in a single call.</para><para>Default value: 1</para>
+        /// <para> An optional limit for the number of results returned in a single call.</para><para>Default value: 1</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

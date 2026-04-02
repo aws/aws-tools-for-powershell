@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the KMS encryption key. Must belong to the same
-        /// AWS Region as the destination Amazon S3 bucket.</para>
+        /// Amazon Web Services Region as the destination Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter DestinationConfiguration_S3Configuration_OwnerAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS accountId for the bucket owning account.</para>
+        /// <para>The Amazon Web Services accountId for the bucket owning account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

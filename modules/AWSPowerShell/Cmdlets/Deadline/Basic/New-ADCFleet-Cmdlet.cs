@@ -489,7 +489,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute
         /// <summary>
         /// <para>
-        /// <para>The number of workers that can be scaled out per minute.</para>
+        /// <para>The number of workers that can be added per minute to the fleet. The default is a
+        /// service-defined value that balances efficiency with cost.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -499,7 +500,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute
         /// <summary>
         /// <para>
-        /// <para>The number of workers that can be scaled out per minute.</para>
+        /// <para>The number of workers that can be added per minute to the fleet. The default is a
+        /// service-defined value that balances efficiency with cost.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -567,7 +569,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The number of standby workers to maintain for the fleet.</para>
+        /// <para>The number of idle workers maintained and ready to process incoming tasks. The default
+        /// is 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -577,7 +580,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The number of standby workers to maintain for the fleet.</para>
+        /// <para>The number of idle workers maintained and ready to process incoming tasks. The default
+        /// is 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -660,7 +664,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond
         /// <summary>
         /// <para>
-        /// <para>The duration in seconds that a worker can be idle before it is scaled down.</para>
+        /// <para>The number of seconds that a worker can remain idle before it is shut down. The default
+        /// is 300 seconds (5 minutes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -671,7 +676,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond
         /// <summary>
         /// <para>
-        /// <para>The duration in seconds that a worker can be idle before it is scaled down.</para>
+        /// <para>The number of seconds that a worker can remain idle before it is shut down. The default
+        /// is 300 seconds (5 minutes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

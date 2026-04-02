@@ -118,6 +118,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetOTelEnrichment" OutputProperty="Status" Verb="Get" Noun="OTelEnrichment" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAlarmMuteRules" OutputProperty="AlarmMuteRuleSummaries" Verb="Get" Noun="AlarmMuteRuleList" PipelineParameter="AlarmName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -187,7 +191,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartOTelEnrichment" Verb="Start" Noun="OTelEnrichment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopMetricStreams" Verb="Stop" Noun="MetricStream" ShouldProcessTarget="Names" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopOTelEnrichment" Verb="Stop" Noun="OTelEnrichment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

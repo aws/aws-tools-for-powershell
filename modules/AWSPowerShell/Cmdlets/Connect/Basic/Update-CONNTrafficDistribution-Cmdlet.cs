@@ -47,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update
     /// telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon
     /// Connect Administrator Guide</i>. 
-    /// </para>
+    /// </para><para><b>Important things to know</b></para><ul><li><para>
+    /// Invoke the UpdateTrafficDistribution API in the region that should handle traffic.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "CONNTrafficDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

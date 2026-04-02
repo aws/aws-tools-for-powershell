@@ -61,6 +61,30 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String[] AllowedStorageProfileId { get; set; }
         #endregion
         
+        #region Parameter SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst
+        /// <summary>
+        /// <para>
+        /// <para>Jobs at the maximum priority (100) are always scheduled before other jobs, regardless
+        /// of the weighted scheduling formula. If multiple jobs have priority 100, ties are broken
+        /// using the standard weighted formula.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Deadline.Model.SchedulingMaxPriorityOverrideAlwaysScheduleFirst SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast
+        /// <summary>
+        /// <para>
+        /// <para>Jobs at the minimum priority (0) are always scheduled after all other jobs, regardless
+        /// of the weighted scheduling formula. If multiple jobs have priority 0, ties are broken
+        /// using the standard weighted formula.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Deadline.Model.SchedulingMinPriorityOverrideAlwaysScheduleLast SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast { get; set; }
+        #endregion
+        
         #region Parameter DefaultBudgetAction
         /// <summary>
         /// <para>
@@ -101,6 +125,18 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter SchedulingConfiguration_WeightedBalanced_ErrorWeight
+        /// <summary>
+        /// <para>
+        /// <para>The weight applied to the number of errors on a job. A negative value means jobs without
+        /// errors are scheduled first. A value of <c>0</c> means errors are ignored. The default
+        /// value is <c>-10.0</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? SchedulingConfiguration_WeightedBalanced_ErrorWeight { get; set; }
+        #endregion
+        
         #region Parameter FarmId
         /// <summary>
         /// <para>
@@ -138,6 +174,69 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobRunAsUser_Windows_PasswordArn")]
         public System.String Windows_PasswordArn { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingConfiguration_PriorityFifo
+        /// <summary>
+        /// <para>
+        /// <para>Workers are assigned to the highest-priority job first. When multiple jobs share the
+        /// same priority, the job submitted earliest receives workers first. This is the default
+        /// scheduling configuration for new queues.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Deadline.Model.PriorityFifoSchedulingConfiguration SchedulingConfiguration_PriorityFifo { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingConfiguration_WeightedBalanced_PriorityWeight
+        /// <summary>
+        /// <para>
+        /// <para>The weight applied to job priority in the scheduling formula. Higher values give more
+        /// influence to job priority. A value of <c>0</c> means priority is ignored. The default
+        /// value is <c>100.0</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? SchedulingConfiguration_WeightedBalanced_PriorityWeight { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer
+        /// <summary>
+        /// <para>
+        /// <para>The rendering task buffer controls worker stickiness. A worker only switches from
+        /// its current job to another job at the same priority if the other job has fewer rendering
+        /// tasks by more than this buffer value. Higher values make workers stickier to their
+        /// current jobs. The default value is <c>1</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer
+        /// <summary>
+        /// <para>
+        /// <para>The rendering task buffer is subtracted from the number of rendering tasks before
+        /// applying the rendering task weight. This creates a stickiness effect where workers
+        /// prefer to stay with their current job. Higher values make workers stickier. The default
+        /// value is <c>1</c>. The buffer is only applied in the weight calculation for a job
+        /// if the worker is currently assigned to that job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight
+        /// <summary>
+        /// <para>
+        /// <para>The weight applied to the number of tasks currently rendering on a job. A negative
+        /// value means jobs that are not already rendering are scheduled next. A value of <c>0</c>
+        /// means the rendering state is ignored. The default value is <c>-100.0</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight { get; set; }
         #endregion
         
         #region Parameter RequiredFileSystemLocationName
@@ -195,6 +294,18 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String JobAttachmentSettings_S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight
+        /// <summary>
+        /// <para>
+        /// <para>The weight applied to job submission time. A positive value means earlier jobs are
+        /// scheduled first. A value of <c>0</c> means submission time is ignored. The default
+        /// value is <c>3.0</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -324,6 +435,15 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 context.RequiredFileSystemLocationName = new List<System.String>(this.RequiredFileSystemLocationName);
             }
             context.RoleArn = this.RoleArn;
+            context.SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer = this.SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer;
+            context.SchedulingConfiguration_PriorityFifo = this.SchedulingConfiguration_PriorityFifo;
+            context.SchedulingConfiguration_WeightedBalanced_ErrorWeight = this.SchedulingConfiguration_WeightedBalanced_ErrorWeight;
+            context.SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst = this.SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst;
+            context.SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast = this.SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast;
+            context.SchedulingConfiguration_WeightedBalanced_PriorityWeight = this.SchedulingConfiguration_WeightedBalanced_PriorityWeight;
+            context.SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer = this.SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer;
+            context.SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight = this.SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight;
+            context.SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight = this.SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -498,6 +618,165 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.RoleArn = cmdletContext.RoleArn;
             }
+            
+             // populate SchedulingConfiguration
+            var requestSchedulingConfigurationIsNull = true;
+            request.SchedulingConfiguration = new Amazon.Deadline.Model.SchedulingConfiguration();
+            Amazon.Deadline.Model.PriorityFifoSchedulingConfiguration requestSchedulingConfiguration_schedulingConfiguration_PriorityFifo = null;
+            if (cmdletContext.SchedulingConfiguration_PriorityFifo != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_PriorityFifo = cmdletContext.SchedulingConfiguration_PriorityFifo;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_PriorityFifo != null)
+            {
+                request.SchedulingConfiguration.PriorityFifo = requestSchedulingConfiguration_schedulingConfiguration_PriorityFifo;
+                requestSchedulingConfigurationIsNull = false;
+            }
+            Amazon.Deadline.Model.PriorityBalancedSchedulingConfiguration requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced = null;
+            
+             // populate PriorityBalanced
+            var requestSchedulingConfiguration_schedulingConfiguration_PriorityBalancedIsNull = true;
+            requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced = new Amazon.Deadline.Model.PriorityBalancedSchedulingConfiguration();
+            System.Int32? requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced_schedulingConfiguration_PriorityBalanced_RenderingTaskBuffer = null;
+            if (cmdletContext.SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced_schedulingConfiguration_PriorityBalanced_RenderingTaskBuffer = cmdletContext.SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer.Value;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced_schedulingConfiguration_PriorityBalanced_RenderingTaskBuffer != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced.RenderingTaskBuffer = requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced_schedulingConfiguration_PriorityBalanced_RenderingTaskBuffer.Value;
+                requestSchedulingConfiguration_schedulingConfiguration_PriorityBalancedIsNull = false;
+            }
+             // determine if requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced should be set to null
+            if (requestSchedulingConfiguration_schedulingConfiguration_PriorityBalancedIsNull)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced = null;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced != null)
+            {
+                request.SchedulingConfiguration.PriorityBalanced = requestSchedulingConfiguration_schedulingConfiguration_PriorityBalanced;
+                requestSchedulingConfigurationIsNull = false;
+            }
+            Amazon.Deadline.Model.WeightedBalancedSchedulingConfiguration requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced = null;
+            
+             // populate WeightedBalanced
+            var requestSchedulingConfiguration_schedulingConfiguration_WeightedBalancedIsNull = true;
+            requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced = new Amazon.Deadline.Model.WeightedBalancedSchedulingConfiguration();
+            System.Double? requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_ErrorWeight = null;
+            if (cmdletContext.SchedulingConfiguration_WeightedBalanced_ErrorWeight != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_ErrorWeight = cmdletContext.SchedulingConfiguration_WeightedBalanced_ErrorWeight.Value;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_ErrorWeight != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced.ErrorWeight = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_ErrorWeight.Value;
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalancedIsNull = false;
+            }
+            System.Double? requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_PriorityWeight = null;
+            if (cmdletContext.SchedulingConfiguration_WeightedBalanced_PriorityWeight != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_PriorityWeight = cmdletContext.SchedulingConfiguration_WeightedBalanced_PriorityWeight.Value;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_PriorityWeight != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced.PriorityWeight = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_PriorityWeight.Value;
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalancedIsNull = false;
+            }
+            System.Int32? requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_RenderingTaskBuffer = null;
+            if (cmdletContext.SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_RenderingTaskBuffer = cmdletContext.SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer.Value;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_RenderingTaskBuffer != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced.RenderingTaskBuffer = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_RenderingTaskBuffer.Value;
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalancedIsNull = false;
+            }
+            System.Double? requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_RenderingTaskWeight = null;
+            if (cmdletContext.SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_RenderingTaskWeight = cmdletContext.SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight.Value;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_RenderingTaskWeight != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced.RenderingTaskWeight = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_RenderingTaskWeight.Value;
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalancedIsNull = false;
+            }
+            System.Double? requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_SubmissionTimeWeight = null;
+            if (cmdletContext.SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_SubmissionTimeWeight = cmdletContext.SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight.Value;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_SubmissionTimeWeight != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced.SubmissionTimeWeight = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_SubmissionTimeWeight.Value;
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalancedIsNull = false;
+            }
+            Amazon.Deadline.Model.SchedulingMaxPriorityOverride requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride = null;
+            
+             // populate MaxPriorityOverride
+            var requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverrideIsNull = true;
+            requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride = new Amazon.Deadline.Model.SchedulingMaxPriorityOverride();
+            Amazon.Deadline.Model.SchedulingMaxPriorityOverrideAlwaysScheduleFirst requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst = null;
+            if (cmdletContext.SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst = cmdletContext.SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride.AlwaysScheduleFirst = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst;
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverrideIsNull = false;
+            }
+             // determine if requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride should be set to null
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverrideIsNull)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride = null;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced.MaxPriorityOverride = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MaxPriorityOverride;
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalancedIsNull = false;
+            }
+            Amazon.Deadline.Model.SchedulingMinPriorityOverride requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride = null;
+            
+             // populate MinPriorityOverride
+            var requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverrideIsNull = true;
+            requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride = new Amazon.Deadline.Model.SchedulingMinPriorityOverride();
+            Amazon.Deadline.Model.SchedulingMinPriorityOverrideAlwaysScheduleLast requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride_schedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast = null;
+            if (cmdletContext.SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride_schedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast = cmdletContext.SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride_schedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride.AlwaysScheduleLast = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride_schedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast;
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverrideIsNull = false;
+            }
+             // determine if requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride should be set to null
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverrideIsNull)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride = null;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride != null)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced.MinPriorityOverride = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced_schedulingConfiguration_WeightedBalanced_MinPriorityOverride;
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalancedIsNull = false;
+            }
+             // determine if requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced should be set to null
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalancedIsNull)
+            {
+                requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced = null;
+            }
+            if (requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced != null)
+            {
+                request.SchedulingConfiguration.WeightedBalanced = requestSchedulingConfiguration_schedulingConfiguration_WeightedBalanced;
+                requestSchedulingConfigurationIsNull = false;
+            }
+             // determine if request.SchedulingConfiguration should be set to null
+            if (requestSchedulingConfigurationIsNull)
+            {
+                request.SchedulingConfiguration = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -572,6 +851,15 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String Windows_User { get; set; }
             public List<System.String> RequiredFileSystemLocationName { get; set; }
             public System.String RoleArn { get; set; }
+            public System.Int32? SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer { get; set; }
+            public Amazon.Deadline.Model.PriorityFifoSchedulingConfiguration SchedulingConfiguration_PriorityFifo { get; set; }
+            public System.Double? SchedulingConfiguration_WeightedBalanced_ErrorWeight { get; set; }
+            public Amazon.Deadline.Model.SchedulingMaxPriorityOverrideAlwaysScheduleFirst SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst { get; set; }
+            public Amazon.Deadline.Model.SchedulingMinPriorityOverrideAlwaysScheduleLast SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast { get; set; }
+            public System.Double? SchedulingConfiguration_WeightedBalanced_PriorityWeight { get; set; }
+            public System.Int32? SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer { get; set; }
+            public System.Double? SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight { get; set; }
+            public System.Double? SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Deadline.Model.CreateQueueResponse, NewADCQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.QueueId;

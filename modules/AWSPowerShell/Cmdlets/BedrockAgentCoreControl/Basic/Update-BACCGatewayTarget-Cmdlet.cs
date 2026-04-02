@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
     /// Updates an existing gateway target.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot update a target that is in a pending authorization state (<c>CREATE_PENDING_AUTH</c>,
+    /// <c>UPDATE_PENDING_AUTH</c>, or <c>SYNCHRONIZE_PENDING_AUTH</c>). Wait for the authorization
+    /// to complete or fail before updating the target.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "BACCGatewayTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdateGatewayTargetResponse")]
@@ -102,6 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TargetConfiguration_Mcp_Lambda_ToolSchema_S3_BucketOwnerAccountId")]
         public System.String Lambda_ToolSchema_S3_BucketOwnerAccountId { get; set; }
+        #endregion
+        
+        #region Parameter TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access
+        /// to the bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId { get; set; }
         #endregion
         
         #region Parameter OpenApiSchema_S3_BucketOwnerAccountId
@@ -206,6 +224,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TargetConfiguration_Mcp_Lambda_ToolSchema_InlinePayload")]
         public Amazon.BedrockAgentCoreControl.Model.ToolDefinition[] ToolSchema_InlinePayload { get; set; }
+        #endregion
+        
+        #region Parameter TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload
+        /// <summary>
+        /// <para>
+        /// <para>The inline payload containing the MCP tool schema definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload { get; set; }
         #endregion
         
         #region Parameter OpenApiSchema_InlinePayload
@@ -408,6 +436,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Lambda_ToolSchema_S3_Uri { get; set; }
         #endregion
         
+        #region Parameter TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri
+        /// <summary>
+        /// <para>
+        /// <para>The URI of the Amazon S3 object. This URI specifies the location of the object in
+        /// Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri { get; set; }
+        #endregion
+        
         #region Parameter OpenApiSchema_S3_Uri
         /// <summary>
         /// <para>
@@ -557,6 +596,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.Lambda_ToolSchema_S3_BucketOwnerAccountId = this.Lambda_ToolSchema_S3_BucketOwnerAccountId;
             context.Lambda_ToolSchema_S3_Uri = this.Lambda_ToolSchema_S3_Uri;
             context.McpServer_Endpoint = this.McpServer_Endpoint;
+            context.TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload = this.TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload;
+            context.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId = this.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId;
+            context.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri = this.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri;
             context.OpenApiSchema_InlinePayload = this.OpenApiSchema_InlinePayload;
             context.OpenApiSchema_S3_BucketOwnerAccountId = this.OpenApiSchema_S3_BucketOwnerAccountId;
             context.OpenApiSchema_S3_Uri = this.OpenApiSchema_S3_Uri;
@@ -759,31 +801,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate Mcp
             var requestTargetConfiguration_targetConfiguration_McpIsNull = true;
             requestTargetConfiguration_targetConfiguration_Mcp = new Amazon.BedrockAgentCoreControl.Model.McpTargetConfiguration();
-            Amazon.BedrockAgentCoreControl.Model.McpServerTargetConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer = null;
-            
-             // populate McpServer
-            var requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull = true;
-            requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer = new Amazon.BedrockAgentCoreControl.Model.McpServerTargetConfiguration();
-            System.String requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint = null;
-            if (cmdletContext.McpServer_Endpoint != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint = cmdletContext.McpServer_Endpoint;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer.Endpoint = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint;
-                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull = false;
-            }
-             // determine if requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer should be set to null
-            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull)
-            {
-                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer = null;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Mcp.McpServer = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer;
-                requestTargetConfiguration_targetConfiguration_McpIsNull = false;
-            }
             Amazon.BedrockAgentCoreControl.Model.McpLambdaTargetConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda = null;
             
              // populate Lambda
@@ -867,6 +884,91 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda != null)
             {
                 requestTargetConfiguration_targetConfiguration_Mcp.Lambda = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda;
+                requestTargetConfiguration_targetConfiguration_McpIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.McpServerTargetConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer = null;
+            
+             // populate McpServer
+            var requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer = new Amazon.BedrockAgentCoreControl.Model.McpServerTargetConfiguration();
+            System.String requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint = null;
+            if (cmdletContext.McpServer_Endpoint != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint = cmdletContext.McpServer_Endpoint;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer.Endpoint = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.McpToolSchemaConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema = null;
+            
+             // populate McpToolSchema
+            var requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchemaIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema = new Amazon.BedrockAgentCoreControl.Model.McpToolSchemaConfiguration();
+            System.String requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload = null;
+            if (cmdletContext.TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload = cmdletContext.TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema.InlinePayload = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchemaIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.S3Configuration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3 = null;
+            
+             // populate S3
+            var requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3IsNull = true;
+            requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3 = new Amazon.BedrockAgentCoreControl.Model.S3Configuration();
+            System.String requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId = null;
+            if (cmdletContext.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId = cmdletContext.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3.BucketOwnerAccountId = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3IsNull = false;
+            }
+            System.String requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri = null;
+            if (cmdletContext.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri = cmdletContext.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3.Uri = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_targetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3IsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3 should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3IsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3 = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3 != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema.S3 = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema_targetConfiguration_Mcp_McpServer_McpToolSchema_S3;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchemaIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchemaIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer.McpToolSchema = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp.McpServer = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer;
                 requestTargetConfiguration_targetConfiguration_McpIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.ApiSchemaConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_OpenApiSchema = null;
@@ -1156,6 +1258,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Lambda_ToolSchema_S3_BucketOwnerAccountId { get; set; }
             public System.String Lambda_ToolSchema_S3_Uri { get; set; }
             public System.String McpServer_Endpoint { get; set; }
+            public System.String TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload { get; set; }
+            public System.String TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId { get; set; }
+            public System.String TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri { get; set; }
             public System.String OpenApiSchema_InlinePayload { get; set; }
             public System.String OpenApiSchema_S3_BucketOwnerAccountId { get; set; }
             public System.String OpenApiSchema_S3_Uri { get; set; }

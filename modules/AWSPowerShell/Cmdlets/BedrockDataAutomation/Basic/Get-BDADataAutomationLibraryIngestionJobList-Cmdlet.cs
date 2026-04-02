@@ -23,35 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Pricing;
-using Amazon.Pricing.Model;
+using Amazon.BedrockDataAutomation;
+using Amazon.BedrockDataAutomation.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.PLS
+namespace Amazon.PowerShell.Cmdlets.BDA
 {
     /// <summary>
-    /// Returns a list of attribute values. Attributes are similar to the details in a Price
-    /// List API offer file. For a list of available attributes, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer
-    /// File Definitions</a> in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">Billing
-    /// and Cost Management User Guide</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all data automation library ingestion jobs<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "PLSAttributeValue")]
-    [OutputType("Amazon.Pricing.Model.AttributeValue")]
-    [AWSCmdlet("Calls the AWS Price List Service GetAttributeValues API operation.", Operation = new[] {"GetAttributeValues"}, SelectReturnType = typeof(Amazon.Pricing.Model.GetAttributeValuesResponse))]
-    [AWSCmdletOutput("Amazon.Pricing.Model.AttributeValue or Amazon.Pricing.Model.GetAttributeValuesResponse",
-        "This cmdlet returns a collection of Amazon.Pricing.Model.AttributeValue objects.",
-        "The service call response (type Amazon.Pricing.Model.GetAttributeValuesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BDADataAutomationLibraryIngestionJobList")]
+    [OutputType("Amazon.BedrockDataAutomation.Model.DataAutomationLibraryIngestionJobSummary")]
+    [AWSCmdlet("Calls the Data Automation for Amazon Bedrock ListDataAutomationLibraryIngestionJobs API operation.", Operation = new[] {"ListDataAutomationLibraryIngestionJobs"}, SelectReturnType = typeof(Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsResponse))]
+    [AWSCmdletOutput("Amazon.BedrockDataAutomation.Model.DataAutomationLibraryIngestionJobSummary or Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsResponse",
+        "This cmdlet returns a collection of Amazon.BedrockDataAutomation.Model.DataAutomationLibraryIngestionJobSummary objects.",
+        "The service call response (type Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetPLSAttributeValueCmdlet : AmazonPricingClientCmdlet, IExecutor
+    public partial class GetBDADataAutomationLibraryIngestionJobListCmdlet : AmazonBedrockDataAutomationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AttributeName
+        #region Parameter LibraryArn
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute that you want to retrieve the values for, such as <c>volumeType</c>.</para>
+        /// <para>ARN generated at the server side when a DataAutomationLibrary is created</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,31 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AttributeName { get; set; }
-        #endregion
-        
-        #region Parameter ServiceCode
-        /// <summary>
-        /// <para>
-        /// <para>The service code for the service whose attributes you want to retrieve. For example,
-        /// if you want the retrieve an EC2 attribute, use <c>AmazonEC2</c>.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServiceCode { get; set; }
+        public System.String LibraryArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in response.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -102,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token that indicates the next set of results that you want to retrieve.</para>
+        /// <para>Pagination token for retrieving the next set of results</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -115,13 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AttributeValues'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Pricing.Model.GetAttributeValuesResponse).
-        /// Specifying the name of a property of type Amazon.Pricing.Model.GetAttributeValuesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Jobs'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsResponse).
+        /// Specifying the name of a property of type Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AttributeValues";
+        public string Select { get; set; } = "Jobs";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -150,14 +129,14 @@ namespace Amazon.PowerShell.Cmdlets.PLS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Pricing.Model.GetAttributeValuesResponse, GetPLSAttributeValueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsResponse, GetBDADataAutomationLibraryIngestionJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AttributeName = this.AttributeName;
+            context.LibraryArn = this.LibraryArn;
             #if MODULAR
-            if (this.AttributeName == null && ParameterWasBound(nameof(this.AttributeName)))
+            if (this.LibraryArn == null && ParameterWasBound(nameof(this.LibraryArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter AttributeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LibraryArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
@@ -171,13 +150,6 @@ namespace Amazon.PowerShell.Cmdlets.PLS
             }
             #endif
             context.NextToken = this.NextToken;
-            context.ServiceCode = this.ServiceCode;
-            #if MODULAR
-            if (this.ServiceCode == null && ParameterWasBound(nameof(this.ServiceCode)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ServiceCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -188,26 +160,21 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         
         #region IExecutor Members
         
-        #if MODULAR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Pricing.Model.GetAttributeValuesRequest();
+            var request = new Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsRequest();
             
-            if (cmdletContext.AttributeName != null)
+            if (cmdletContext.LibraryArn != null)
             {
-                request.AttributeName = cmdletContext.AttributeName;
+                request.LibraryArn = cmdletContext.LibraryArn;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
-            }
-            if (cmdletContext.ServiceCode != null)
-            {
-                request.ServiceCode = cmdletContext.ServiceCode;
             }
             
             // Initialize loop variant and commence piping
@@ -256,103 +223,6 @@ namespace Amazon.PowerShell.Cmdlets.PLS
             
             return null;
         }
-        #else
-        public object Execute(ExecutorContext context)
-        {
-            var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
-            
-            // create request and set iteration invariants
-            var request = new Amazon.Pricing.Model.GetAttributeValuesRequest();
-            if (cmdletContext.AttributeName != null)
-            {
-                request.AttributeName = cmdletContext.AttributeName;
-            }
-            if (cmdletContext.ServiceCode != null)
-            {
-                request.ServiceCode = cmdletContext.ServiceCode;
-            }
-            
-            // Initialize loop variants and commence piping
-            System.String _nextToken = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
-            {
-                _nextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.MaxResult.HasValue)
-            {
-                // The service has a maximum page size of 10000. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 10000 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxResult;
-            }
-            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            do
-            {
-                request.NextToken = _nextToken;
-                if (_emitLimit.HasValue)
-                {
-                    int correctPageSize = Math.Min(10000, _emitLimit.Value);
-                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                }
-                
-                CmdletOutput output;
-                
-                try
-                {
-                    
-                    var response = CallAWSServiceOperation(client, request);
-                    object pipelineOutput = null;
-                    if (!useParameterSelect)
-                    {
-                        pipelineOutput = cmdletContext.Select(response, this);
-                    }
-                    output = new CmdletOutput
-                    {
-                        PipelineOutput = pipelineOutput,
-                        ServiceResponse = response
-                    };
-                    int _receivedThisCall = response.AttributeValues?.Count ?? 0;
-                    
-                    _nextToken = response.NextToken;
-                    _retrievedSoFar += _receivedThisCall;
-                    if (_emitLimit.HasValue)
-                    {
-                        _emitLimit -= _receivedThisCall;
-                    }
-                }
-                catch (Exception e)
-                {
-                    if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                
-                ProcessOutput(output);
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
-            
-            
-            if (useParameterSelect)
-            {
-                WriteObject(cmdletContext.Select(null, this));
-            }
-            
-            
-            return null;
-        }
-        #endif
         
         public ExecutorContext CreateContext()
         {
@@ -363,12 +233,12 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         
         #region AWS Service Operation Call
         
-        private Amazon.Pricing.Model.GetAttributeValuesResponse CallAWSServiceOperation(IAmazonPricing client, Amazon.Pricing.Model.GetAttributeValuesRequest request)
+        private Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsResponse CallAWSServiceOperation(IAmazonBedrockDataAutomation client, Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Price List Service", "GetAttributeValues");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Data Automation for Amazon Bedrock", "ListDataAutomationLibraryIngestionJobs");
             try
             {
-                return client.GetAttributeValuesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListDataAutomationLibraryIngestionJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -385,12 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AttributeName { get; set; }
+            public System.String LibraryArn { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ServiceCode { get; set; }
-            public System.Func<Amazon.Pricing.Model.GetAttributeValuesResponse, GetPLSAttributeValueCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AttributeValues;
+            public System.Func<Amazon.BedrockDataAutomation.Model.ListDataAutomationLibraryIngestionJobsResponse, GetBDADataAutomationLibraryIngestionJobListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Jobs;
         }
         
     }

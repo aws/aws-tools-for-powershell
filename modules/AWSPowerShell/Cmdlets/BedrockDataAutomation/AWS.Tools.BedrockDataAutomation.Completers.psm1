@@ -115,6 +115,7 @@ $BDA_Completers = {
         # Amazon.BedrockDataAutomation.DataAutomationProjectStage
         {
             ($_ -eq "Get-BDABlueprintList/ProjectFilter_ProjectStage") -Or
+            ($_ -eq "Get-BDADataAutomationLibraryList/ProjectFilter_ProjectStage") -Or
             ($_ -eq "Get-BDADataAutomationProject/ProjectStage") -Or
             ($_ -eq "New-BDADataAutomationProject/ProjectStage") -Or
             ($_ -eq "Update-BDADataAutomationProject/ProjectStage")
@@ -151,6 +152,24 @@ $BDA_Completers = {
         }
         {
             $v = "AUDIO","DOCUMENT","IMAGE","VIDEO"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.EntityType
+        {
+            ($_ -eq "Get-BDADataAutomationLibraryEntity/EntityType") -Or
+            ($_ -eq "Get-BDADataAutomationLibraryEntityList/EntityType") -Or
+            ($_ -eq "Invoke-BDADataAutomationLibraryIngestionJob/EntityType")
+        }
+        {
+            $v = "VOCABULARY"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.LibraryIngestionJobOperationType
+        "Invoke-BDADataAutomationLibraryIngestionJob/OperationType"
+        {
+            $v = "DELETE","UPSERT"
             break
         }
 
@@ -262,11 +281,13 @@ $BDA_map = @{
     "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
     "BlueprintStageFilter"=@("Get-BDABlueprintList")
     "ChannelLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "EntityType"=@("Get-BDADataAutomationLibraryEntity","Get-BDADataAutomationLibraryEntityList","Invoke-BDADataAutomationLibraryIngestionJob")
     "LanguageConfiguration_GenerativeOutputLanguage"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Jpeg"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mov"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mp4"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Png"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OperationType"=@("Invoke-BDADataAutomationLibraryIngestionJob")
     "OverrideConfiguration_Audio_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
@@ -279,7 +300,7 @@ $BDA_map = @{
     "OverrideConfiguration_Video_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
-    "ProjectFilter_ProjectStage"=@("Get-BDABlueprintList")
+    "ProjectFilter_ProjectStage"=@("Get-BDABlueprintList","Get-BDADataAutomationLibraryList")
     "ProjectStage"=@("Get-BDADataAutomationProject","New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")
     "ProjectType"=@("New-BDADataAutomationProject")
@@ -354,19 +375,29 @@ $BDA_SelectMap = @{
     "Select"=@("Copy-BDABlueprintStage",
                "New-BDABlueprint",
                "New-BDABlueprintVersion",
+               "New-BDADataAutomationLibrary",
                "New-BDADataAutomationProject",
                "Remove-BDABlueprint",
+               "Remove-BDADataAutomationLibrary",
                "Remove-BDADataAutomationProject",
                "Get-BDABlueprint",
                "Get-BDABlueprintOptimizationStatus",
+               "Get-BDADataAutomationLibrary",
+               "Get-BDADataAutomationLibraryEntity",
+               "Get-BDADataAutomationLibraryIngestionJob",
                "Get-BDADataAutomationProject",
                "Invoke-BDABlueprintOptimizationAsync",
+               "Invoke-BDADataAutomationLibraryIngestionJob",
                "Get-BDABlueprintList",
+               "Get-BDADataAutomationLibraryList",
+               "Get-BDADataAutomationLibraryEntityList",
+               "Get-BDADataAutomationLibraryIngestionJobList",
                "Get-BDADataAutomationProjectList",
                "Get-BDAResourceTag",
                "Add-BDAResourceTag",
                "Remove-BDAResourceTag",
                "Update-BDABlueprint",
+               "Update-BDADataAutomationLibrary",
                "Update-BDADataAutomationProject")
 }
 

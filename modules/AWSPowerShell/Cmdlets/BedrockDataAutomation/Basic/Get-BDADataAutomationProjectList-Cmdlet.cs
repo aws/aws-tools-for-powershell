@@ -76,6 +76,16 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public System.String BlueprintFilter_BlueprintVersion { get; set; }
         #endregion
         
+        #region Parameter LibraryFilter_LibraryArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LibraryFilter_LibraryArn { get; set; }
+        #endregion
+        
         #region Parameter ProjectStageFilter
         /// <summary>
         /// <para>
@@ -166,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             context.BlueprintFilter_BlueprintArn = this.BlueprintFilter_BlueprintArn;
             context.BlueprintFilter_BlueprintStage = this.BlueprintFilter_BlueprintStage;
             context.BlueprintFilter_BlueprintVersion = this.BlueprintFilter_BlueprintVersion;
+            context.LibraryFilter_LibraryArn = this.LibraryFilter_LibraryArn;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ProjectStageFilter = this.ProjectStageFilter;
@@ -226,6 +237,25 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestBlueprintFilterIsNull)
             {
                 request.BlueprintFilter = null;
+            }
+            
+             // populate LibraryFilter
+            var requestLibraryFilterIsNull = true;
+            request.LibraryFilter = new Amazon.BedrockDataAutomation.Model.DataAutomationLibraryFilter();
+            System.String requestLibraryFilter_libraryFilter_LibraryArn = null;
+            if (cmdletContext.LibraryFilter_LibraryArn != null)
+            {
+                requestLibraryFilter_libraryFilter_LibraryArn = cmdletContext.LibraryFilter_LibraryArn;
+            }
+            if (requestLibraryFilter_libraryFilter_LibraryArn != null)
+            {
+                request.LibraryFilter.LibraryArn = requestLibraryFilter_libraryFilter_LibraryArn;
+                requestLibraryFilterIsNull = false;
+            }
+             // determine if request.LibraryFilter should be set to null
+            if (requestLibraryFilterIsNull)
+            {
+                request.LibraryFilter = null;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -321,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             public System.String BlueprintFilter_BlueprintArn { get; set; }
             public Amazon.BedrockDataAutomation.BlueprintStage BlueprintFilter_BlueprintStage { get; set; }
             public System.String BlueprintFilter_BlueprintVersion { get; set; }
+            public System.String LibraryFilter_LibraryArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.BedrockDataAutomation.DataAutomationProjectStageFilter ProjectStageFilter { get; set; }

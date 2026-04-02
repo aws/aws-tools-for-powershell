@@ -241,6 +241,7 @@ $CW_SelectMap = @{
                "Get-CWMetricStatistic",
                "Get-CWMetricStream",
                "Get-CWMetricWidgetImage",
+               "Get-CWOTelEnrichment",
                "Get-CWAlarmMuteRuleList",
                "Get-CWDashboardList",
                "Get-CWManagedInsightRule",
@@ -258,7 +259,9 @@ $CW_SelectMap = @{
                "Write-CWMetricStream",
                "Set-CWAlarmState",
                "Start-CWMetricStream",
+               "Start-CWOTelEnrichment",
                "Stop-CWMetricStream",
+               "Stop-CWOTelEnrichment",
                "Add-CWResourceTag",
                "Remove-CWResourceTag")
 }

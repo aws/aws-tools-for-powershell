@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-APSResourceTag', 
         'Add-APSSoftwareToImageBuilder', 
         'Copy-APSImage', 
+        'Disable-APSSessionInstance', 
         'Disable-APSUser', 
         'Enable-APSUser', 
         'Get-APSAppBlock', 

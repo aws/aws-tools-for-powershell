@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.223.0",
+    "ProductVersion"    : "4.0.224.0",
     "CoreVersion"       : "4.0.3.26",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -80,7 +80,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "4.0.8.7",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -88,7 +88,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "4.0.17.2",
+            "Version" : "4.0.18.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -508,7 +508,7 @@
             "InPreview"               : false
         },
         "GameLift"                        : {
-            "Version" : "4.0.7.9",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "4.0.7.2",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -812,7 +812,7 @@
             "InPreview"               : false
         },
         "Pricing"                         : {
-            "Version" : "4.0.3.23",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.37.5",
+            "Version" : "4.0.38.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -2660,7 +2660,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "4.0.16.8",
+            "Version" : "4.0.17.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -2884,7 +2884,7 @@
             "InPreview"               : false
         },
         "Deadline"                            : {
-            "Version" : "4.0.15.2",
+            "Version" : "4.0.16.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -2996,7 +2996,7 @@
             "InPreview"               : false
         },
         "GeoPlaces"                           : {
-            "Version" : "4.0.4.13",
+            "Version" : "4.0.4.14",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -3124,7 +3124,7 @@
             "InPreview"               : false
         },
         "BedrockDataAutomation"               : {
-            "Version" : "4.0.7.13",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"
@@ -3228,7 +3228,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.25.0",
+            "Version" : "4.0.26.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.26"

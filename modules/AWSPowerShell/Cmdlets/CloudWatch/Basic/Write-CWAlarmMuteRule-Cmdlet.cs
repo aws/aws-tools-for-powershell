@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// For example, If you want to allow a user to create mute rules that target only specific
     /// alarms named "WebServerCPUAlarm" and "DatabaseConnectionAlarm", you would create an
     /// IAM policy with one statement granting <c>cloudwatch:PutAlarmMuteRule</c> on the alarm
-    /// mute rule resource (<c>arn:aws:cloudwatch:[REGION]:123456789012:alarm-mute:*</c>),
+    /// mute rule resource (<c>arn:aws:cloudwatch:[REGION]:123456789012:alarm-mute-rule:*</c>),
     /// and another statement granting <c>cloudwatch:PutAlarmMuteRule</c> on the targeted
     /// alarm resources (<c>arn:aws:cloudwatch:[REGION]:123456789012:alarm:WebServerCPUAlarm</c>
     /// and <c>arn:aws:cloudwatch:[REGION]:123456789012:alarm:DatabaseConnectionAlarm</c>).

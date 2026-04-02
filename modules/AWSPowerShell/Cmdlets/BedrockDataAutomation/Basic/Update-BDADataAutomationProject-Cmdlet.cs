@@ -233,6 +233,21 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public System.String EncryptionConfiguration_KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter DataAutomationLibraryConfiguration_Library
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataAutomationLibraryConfiguration_Libraries")]
+        public Amazon.BedrockDataAutomation.Model.DataAutomationLibraryItem[] DataAutomationLibraryConfiguration_Library { get; set; }
+        #endregion
+        
         #region Parameter ModalityRouting_Mov
         /// <summary>
         /// <para>
@@ -773,6 +788,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             {
                 context.CustomOutputConfiguration_Blueprint = new List<Amazon.BedrockDataAutomation.Model.BlueprintItem>(this.CustomOutputConfiguration_Blueprint);
             }
+            if (this.DataAutomationLibraryConfiguration_Library != null)
+            {
+                context.DataAutomationLibraryConfiguration_Library = new List<Amazon.BedrockDataAutomation.Model.DataAutomationLibraryItem>(this.DataAutomationLibraryConfiguration_Library);
+            }
             if (this.EncryptionConfiguration_KmsEncryptionContext != null)
             {
                 context.EncryptionConfiguration_KmsEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -925,6 +944,25 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestCustomOutputConfigurationIsNull)
             {
                 request.CustomOutputConfiguration = null;
+            }
+            
+             // populate DataAutomationLibraryConfiguration
+            var requestDataAutomationLibraryConfigurationIsNull = true;
+            request.DataAutomationLibraryConfiguration = new Amazon.BedrockDataAutomation.Model.DataAutomationLibraryConfiguration();
+            List<Amazon.BedrockDataAutomation.Model.DataAutomationLibraryItem> requestDataAutomationLibraryConfiguration_dataAutomationLibraryConfiguration_Library = null;
+            if (cmdletContext.DataAutomationLibraryConfiguration_Library != null)
+            {
+                requestDataAutomationLibraryConfiguration_dataAutomationLibraryConfiguration_Library = cmdletContext.DataAutomationLibraryConfiguration_Library;
+            }
+            if (requestDataAutomationLibraryConfiguration_dataAutomationLibraryConfiguration_Library != null)
+            {
+                request.DataAutomationLibraryConfiguration.Libraries = requestDataAutomationLibraryConfiguration_dataAutomationLibraryConfiguration_Library;
+                requestDataAutomationLibraryConfigurationIsNull = false;
+            }
+             // determine if request.DataAutomationLibraryConfiguration should be set to null
+            if (requestDataAutomationLibraryConfigurationIsNull)
+            {
+                request.DataAutomationLibraryConfiguration = null;
             }
             
              // populate EncryptionConfiguration
@@ -2206,6 +2244,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.BedrockDataAutomation.Model.BlueprintItem> CustomOutputConfiguration_Blueprint { get; set; }
+            public List<Amazon.BedrockDataAutomation.Model.DataAutomationLibraryItem> DataAutomationLibraryConfiguration_Library { get; set; }
             public Dictionary<System.String, System.String> EncryptionConfiguration_KmsEncryptionContext { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public Amazon.BedrockDataAutomation.AudioGenerativeOutputLanguage LanguageConfiguration_GenerativeOutputLanguage { get; set; }

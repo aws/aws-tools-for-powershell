@@ -194,7 +194,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNEvaluationForm/TargetConfiguration_ContactInteractionType")
         }
         {
-            $v = "AGENT","AUTOMATED"
+            $v = "AGENT","AUTOMATED","CUSTOMER"
             break
         }
 
@@ -322,7 +322,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNEvaluationForm/LanguageConfiguration_FormLanguage")
         }
         {
-            $v = "de-DE","en-US","es-ES","fr-FR","it-IT","pt-BR"
+            $v = "de-DE","en-US","es-ES","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
             break
         }
 

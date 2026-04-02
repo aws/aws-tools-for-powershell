@@ -152,7 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter IntendedUse
         /// <summary>
         /// <para>
-        /// <para>Indicates if the results will be stored. Defaults to <c>SingleUse</c>, if left empty.</para>
+        /// <para> Indicates if the query results will be persisted in customer infrastructure. Defaults
+        /// to <c>SingleUse</c> (not stored). Currently, <c>Autocomplete</c> does not support
+        /// storage of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Circle_Radius
         /// <summary>
         /// <para>
-        /// <para>The radius, in meters, of the <c>FilterCircle</c>.</para>
+        /// <para> The radius, in meters, of the <c>FilterCircle</c>. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers,<c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only up
+        /// to a maximum value of 300,000. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

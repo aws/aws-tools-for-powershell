@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
     /// Creates or updates an alarm and associates it with the specified metric, metric math
-    /// expression, anomaly detection model, or Metrics Insights query. For more information
-    /// about using a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create
+    /// expression, anomaly detection model, Metrics Insights query, or PromQL query. For
+    /// more information about using a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create
     /// alarms on Metrics Insights queries</a>.
     /// 
     ///  
@@ -40,8 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// Alarms based on anomaly detection models cannot have Auto Scaling actions.
     /// </para><para>
     /// When this operation creates an alarm, the alarm state is immediately set to <c>INSUFFICIENT_DATA</c>.
-    /// The alarm is then evaluated and its state is set appropriately. Any actions associated
-    /// with the new state are then executed.
+    /// For PromQL alarms, the alarm state is instead immediately set to <c>OK</c>. The alarm
+    /// is then evaluated and its state is set appropriately. Any actions associated with
+    /// the new state are then executed.
     /// </para><para>
     /// When you update an existing alarm, its state is left unchanged, but the update completely
     /// overwrites the previous configuration of the alarm.
@@ -158,13 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// models.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CloudWatch.ComparisonOperator")]
         public Amazon.CloudWatch.ComparisonOperator ComparisonOperator { get; set; }
         #endregion
@@ -212,6 +207,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String EvaluateLowSampleCountPercentile { get; set; }
         #endregion
         
+        #region Parameter EvaluationInterval
+        /// <summary>
+        /// <para>
+        /// <para>The frequency, in seconds, at which the alarm is evaluated. Valid values are 10, 20,
+        /// 30, and any multiple of 60.</para><para>This parameter is required for alarms that use <c>EvaluationCriteria</c>, and cannot
+        /// be specified for alarms configured with <c>MetricName</c> or <c>Metrics</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EvaluationInterval { get; set; }
+        #endregion
+        
         #region Parameter EvaluationPeriod
         /// <summary>
         /// <para>
@@ -221,13 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// of N" alarm, this value is the N.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("EvaluationPeriods")]
         public System.Int32? EvaluationPeriod { get; set; }
         #endregion
@@ -266,7 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The name for the metric associated with the alarm. For each <c>PutMetricAlarm</c>
-        /// operation, you must specify either <c>MetricName</c> or a <c>Metrics</c> array.</para><para>If you are creating an alarm based on a math expression, you cannot specify this parameter,
+        /// operation, you must specify either <c>MetricName</c>, a <c>Metrics</c> array, or an
+        /// <c>EvaluationCriteria</c>.</para><para>If you are creating an alarm based on a math expression, you cannot specify this parameter,
         /// or any of the <c>Namespace</c>, <c>Dimensions</c>, <c>Period</c>, <c>Unit</c>, <c>Statistic</c>,
         /// or <c>ExtendedStatistic</c> parameters. Instead, you specify all this information
         /// in the <c>Metrics</c> array.</para>
@@ -281,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>An array of <c>MetricDataQuery</c> structures that enable you to create an alarm based
         /// on the result of a metric math expression. For each <c>PutMetricAlarm</c> operation,
-        /// you must specify either <c>MetricName</c> or a <c>Metrics</c> array.</para><para>Each item in the <c>Metrics</c> array either retrieves a metric or performs a math
+        /// you must specify either <c>MetricName</c>, a <c>Metrics</c> array, or an <c>EvaluationCriteria</c>.</para><para>Each item in the <c>Metrics</c> array either retrieves a metric or performs a math
         /// expression.</para><para>One item in the <c>Metrics</c> array is the expression that the alarm watches. You
         /// designate this expression by setting <c>ReturnData</c> to true for this object in
         /// the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</para><para>If you use the <c>Metrics</c> parameter, you cannot include the <c>Namespace</c>,
@@ -326,6 +328,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String[] OKAction { get; set; }
         #endregion
         
+        #region Parameter EvaluationCriteria_PromQLCriteria_PendingPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The duration, in seconds, that a contributor must be continuously breaching before
+        /// it transitions to the <c>ALARM</c> state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EvaluationCriteria_PromQLCriteria_PendingPeriod { get; set; }
+        #endregion
+        
         #region Parameter Period
         /// <summary>
         /// <para>
@@ -348,6 +361,28 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Period { get; set; }
+        #endregion
+        
+        #region Parameter EvaluationCriteria_PromQLCriteria_Query
+        /// <summary>
+        /// <para>
+        /// <para>The PromQL query that the alarm evaluates. The query must return a result of vector
+        /// type. Each entry in the vector result represents an alarm contributor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EvaluationCriteria_PromQLCriteria_Query { get; set; }
+        #endregion
+        
+        #region Parameter EvaluationCriteria_PromQLCriteria_RecoveryPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The duration, in seconds, that a contributor must continuously not be breaching before
+        /// it transitions back to the <c>OK</c> state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EvaluationCriteria_PromQLCriteria_RecoveryPeriod { get; set; }
         #endregion
         
         #region Parameter Statistic
@@ -419,7 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// How CloudWatch Alarms Treats Missing Data</a>.</para><para>Valid Values: <c>breaching | notBreaching | ignore | missing</c></para><note><para>Alarms that evaluate metrics in the <c>AWS/DynamoDB</c> namespace always <c>ignore</c>
         /// missing data even if you choose a different option for <c>TreatMissingData</c>. When
         /// an <c>AWS/DynamoDB</c> metric has missing data, alarms that evaluate that metric remain
-        /// in their current state.</para></note>
+        /// in their current state.</para></note><note><para>This parameter is not applicable to PromQL alarms.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -507,25 +542,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #endif
             context.ComparisonOperator = this.ComparisonOperator;
-            #if MODULAR
-            if (this.ComparisonOperator == null && ParameterWasBound(nameof(this.ComparisonOperator)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ComparisonOperator which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DatapointsToAlarm = this.DatapointsToAlarm;
             if (this.Dimension != null)
             {
                 context.Dimension = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
             context.EvaluateLowSampleCountPercentile = this.EvaluateLowSampleCountPercentile;
+            context.EvaluationCriteria_PromQLCriteria_PendingPeriod = this.EvaluationCriteria_PromQLCriteria_PendingPeriod;
+            context.EvaluationCriteria_PromQLCriteria_Query = this.EvaluationCriteria_PromQLCriteria_Query;
+            context.EvaluationCriteria_PromQLCriteria_RecoveryPeriod = this.EvaluationCriteria_PromQLCriteria_RecoveryPeriod;
+            context.EvaluationInterval = this.EvaluationInterval;
             context.EvaluationPeriod = this.EvaluationPeriod;
-            #if MODULAR
-            if (this.EvaluationPeriod == null && ParameterWasBound(nameof(this.EvaluationPeriod)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EvaluationPeriod which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ExtendedStatistic = this.ExtendedStatistic;
             if (this.InsufficientDataAction != null)
             {
@@ -598,6 +625,64 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.EvaluateLowSampleCountPercentile != null)
             {
                 request.EvaluateLowSampleCountPercentile = cmdletContext.EvaluateLowSampleCountPercentile;
+            }
+            
+             // populate EvaluationCriteria
+            var requestEvaluationCriteriaIsNull = true;
+            request.EvaluationCriteria = new Amazon.CloudWatch.Model.EvaluationCriteria();
+            Amazon.CloudWatch.Model.AlarmPromQLCriteria requestEvaluationCriteria_evaluationCriteria_PromQLCriteria = null;
+            
+             // populate PromQLCriteria
+            var requestEvaluationCriteria_evaluationCriteria_PromQLCriteriaIsNull = true;
+            requestEvaluationCriteria_evaluationCriteria_PromQLCriteria = new Amazon.CloudWatch.Model.AlarmPromQLCriteria();
+            System.Int32? requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_PendingPeriod = null;
+            if (cmdletContext.EvaluationCriteria_PromQLCriteria_PendingPeriod != null)
+            {
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_PendingPeriod = cmdletContext.EvaluationCriteria_PromQLCriteria_PendingPeriod.Value;
+            }
+            if (requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_PendingPeriod != null)
+            {
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteria.PendingPeriod = requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_PendingPeriod.Value;
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteriaIsNull = false;
+            }
+            System.String requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_Query = null;
+            if (cmdletContext.EvaluationCriteria_PromQLCriteria_Query != null)
+            {
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_Query = cmdletContext.EvaluationCriteria_PromQLCriteria_Query;
+            }
+            if (requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_Query != null)
+            {
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteria.Query = requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_Query;
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteriaIsNull = false;
+            }
+            System.Int32? requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_RecoveryPeriod = null;
+            if (cmdletContext.EvaluationCriteria_PromQLCriteria_RecoveryPeriod != null)
+            {
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_RecoveryPeriod = cmdletContext.EvaluationCriteria_PromQLCriteria_RecoveryPeriod.Value;
+            }
+            if (requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_RecoveryPeriod != null)
+            {
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteria.RecoveryPeriod = requestEvaluationCriteria_evaluationCriteria_PromQLCriteria_evaluationCriteria_PromQLCriteria_RecoveryPeriod.Value;
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteriaIsNull = false;
+            }
+             // determine if requestEvaluationCriteria_evaluationCriteria_PromQLCriteria should be set to null
+            if (requestEvaluationCriteria_evaluationCriteria_PromQLCriteriaIsNull)
+            {
+                requestEvaluationCriteria_evaluationCriteria_PromQLCriteria = null;
+            }
+            if (requestEvaluationCriteria_evaluationCriteria_PromQLCriteria != null)
+            {
+                request.EvaluationCriteria.PromQLCriteria = requestEvaluationCriteria_evaluationCriteria_PromQLCriteria;
+                requestEvaluationCriteriaIsNull = false;
+            }
+             // determine if request.EvaluationCriteria should be set to null
+            if (requestEvaluationCriteriaIsNull)
+            {
+                request.EvaluationCriteria = null;
+            }
+            if (cmdletContext.EvaluationInterval != null)
+            {
+                request.EvaluationInterval = cmdletContext.EvaluationInterval.Value;
             }
             if (cmdletContext.EvaluationPeriod != null)
             {
@@ -718,6 +803,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.Int32? DatapointsToAlarm { get; set; }
             public List<Amazon.CloudWatch.Model.Dimension> Dimension { get; set; }
             public System.String EvaluateLowSampleCountPercentile { get; set; }
+            public System.Int32? EvaluationCriteria_PromQLCriteria_PendingPeriod { get; set; }
+            public System.String EvaluationCriteria_PromQLCriteria_Query { get; set; }
+            public System.Int32? EvaluationCriteria_PromQLCriteria_RecoveryPeriod { get; set; }
+            public System.Int32? EvaluationInterval { get; set; }
             public System.Int32? EvaluationPeriod { get; set; }
             public System.String ExtendedStatistic { get; set; }
             public List<System.String> InsufficientDataAction { get; set; }

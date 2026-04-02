@@ -32,6 +32,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataAutomationLibrary" OutputProperty="*" Verb="New" Noun="DataAutomationLibrary" ShouldProcessTarget="LibraryName" PipelineParameter="LibraryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDataAutomationProject" OutputProperty="*" Verb="New" Noun="DataAutomationProject" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_State" NewName="StandardOutputConfiguration_Audio_Extraction_Category_State" />
@@ -90,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataAutomationLibrary" OutputProperty="*" Verb="Remove" Noun="DataAutomationLibrary" ShouldProcessTarget="LibraryArn" PipelineParameter="LibraryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataAutomationProject" OutputProperty="*" Verb="Remove" Noun="DataAutomationProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -102,6 +110,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataAutomationLibrary" OutputProperty="Library" Verb="Get" Noun="DataAutomationLibrary" PipelineParameter="LibraryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataAutomationLibraryEntity" OutputProperty="Entity" Verb="Get" Noun="DataAutomationLibraryEntity" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataAutomationLibraryIngestionJob" OutputProperty="Job" Verb="Get" Noun="DataAutomationLibraryIngestionJob" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataAutomationProject" OutputProperty="Project" Verb="Get" Noun="DataAutomationProject" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -110,7 +130,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="InvokeDataAutomationLibraryIngestionJob" OutputProperty="JobArn" Verb="Invoke" Noun="DataAutomationLibraryIngestionJob" ShouldProcessTarget="LibraryArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="BlueprintList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataAutomationLibraries" OutputProperty="Libraries" Verb="Get" Noun="DataAutomationLibraryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataAutomationLibraryEntities" OutputProperty="Entities" Verb="Get" Noun="DataAutomationLibraryEntityList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataAutomationLibraryIngestionJobs" OutputProperty="Jobs" Verb="Get" Noun="DataAutomationLibraryIngestionJobList" PipelineParameter="LibraryArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,6 +167,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBlueprint" OutputProperty="Blueprint" Verb="Update" Noun="Blueprint" ShouldProcessTarget="BlueprintArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataAutomationLibrary" OutputProperty="*" Verb="Update" Noun="DataAutomationLibrary" ShouldProcessTarget="LibraryArn" PipelineParameter="LibraryArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

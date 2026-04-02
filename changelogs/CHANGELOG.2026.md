@@ -1,4 +1,34 @@
-﻿### 5.0.187 (2026-04-01 20:15Z)
+﻿### 5.0.188 (2026-04-02 20:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.224.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Added cmdlet Disable-APSSessionInstance leveraging the DrainSessionInstance service API.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCQueue: added parameters SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer, SchedulingConfiguration_PriorityFifo, SchedulingConfiguration_WeightedBalanced_ErrorWeight, SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst, SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast, SchedulingConfiguration_WeightedBalanced_PriorityWeight, SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer, SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight and SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight.
+    * Modified cmdlet Update-ADCQueue: added parameters SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer, SchedulingConfiguration_PriorityFifo, SchedulingConfiguration_WeightedBalanced_ErrorWeight, SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst, SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast, SchedulingConfiguration_WeightedBalanced_PriorityWeight, SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer, SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight and SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGatewayTarget: added parameters TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload, TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId and TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameters TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload, TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId and TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri.
+  * Amazon CloudWatch
+    * Added cmdlet Get-CWOTelEnrichment leveraging the GetOTelEnrichment service API.
+    * Added cmdlet Start-CWOTelEnrichment leveraging the StartOTelEnrichment service API.
+    * Added cmdlet Stop-CWOTelEnrichment leveraging the StopOTelEnrichment service API.
+    * Modified cmdlet Write-CWMetricAlarm: added parameters EvaluationCriteria_PromQLCriteria_PendingPeriod, EvaluationCriteria_PromQLCriteria_Query, EvaluationCriteria_PromQLCriteria_RecoveryPeriod and EvaluationInterval.
+  * Amazon Data Automation for Amazon Bedrock
+    * Added cmdlet Get-BDADataAutomationLibrary leveraging the GetDataAutomationLibrary service API.
+    * Added cmdlet Get-BDADataAutomationLibraryEntity leveraging the GetDataAutomationLibraryEntity service API.
+    * Added cmdlet Get-BDADataAutomationLibraryEntityList leveraging the ListDataAutomationLibraryEntities service API.
+    * Added cmdlet Get-BDADataAutomationLibraryIngestionJob leveraging the GetDataAutomationLibraryIngestionJob service API.
+    * Added cmdlet Get-BDADataAutomationLibraryIngestionJobList leveraging the ListDataAutomationLibraryIngestionJobs service API.
+    * Added cmdlet Get-BDADataAutomationLibraryList leveraging the ListDataAutomationLibraries service API.
+    * Added cmdlet Invoke-BDADataAutomationLibraryIngestionJob leveraging the InvokeDataAutomationLibraryIngestionJob service API.
+    * Added cmdlet New-BDADataAutomationLibrary leveraging the CreateDataAutomationLibrary service API.
+    * Added cmdlet Remove-BDADataAutomationLibrary leveraging the DeleteDataAutomationLibrary service API.
+    * Added cmdlet Update-BDADataAutomationLibrary leveraging the UpdateDataAutomationLibrary service API.
+    * Modified cmdlet Get-BDADataAutomationProjectList: added parameter LibraryFilter_LibraryArn.
+    * Modified cmdlet New-BDADataAutomationProject: added parameter DataAutomationLibraryConfiguration_Library.
+    * Modified cmdlet Update-BDADataAutomationProject: added parameter DataAutomationLibraryConfiguration_Library.
+
+### 5.0.187 (2026-04-01 20:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.223.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCGatewayTarget: added parameters PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType, PrivateEndpoint_ManagedLatticeResource_RoutingDomain, PrivateEndpoint_ManagedLatticeResource_SecurityGroupId, PrivateEndpoint_ManagedLatticeResource_SubnetId, PrivateEndpoint_ManagedLatticeResource_Tag, PrivateEndpoint_ManagedLatticeResource_VpcIdentifier and PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier.

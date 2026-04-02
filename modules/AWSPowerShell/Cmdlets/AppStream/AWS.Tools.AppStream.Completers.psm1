@@ -342,6 +342,7 @@ $APS_SelectMap = @{
                "Remove-APSApplicationFromEntitlement",
                "Unregister-APSFleet",
                "Remove-APSSoftwareFromImageBuilder",
+               "Disable-APSSessionInstance",
                "Enable-APSUser",
                "Revoke-APSSession",
                "Get-APSExportImageTask",
