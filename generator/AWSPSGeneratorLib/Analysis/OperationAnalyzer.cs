@@ -1321,10 +1321,7 @@ namespace AWSPowerShellGenerator.Analysis
             else
             {
                 // Existing operation with no ShouldProcessTarget configured (with or without parameters).
-                // Set AnonymousShouldProcessTarget=true to preserve identical generated code
-                // (resourceIdentifiersText = string.Empty). Changing ShouldProcessTarget on an
-                // existing operation would alter the confirmation message text, which is a
-                // behavioral change to a released cmdlet.
+                // Set AnonymousShouldProcessTarget=true to preserve identical generated code.
                 CurrentOperation.AnonymousShouldProcessTarget = true;
                 CurrentOperation.ShouldProcessTarget = string.Empty;
             }
