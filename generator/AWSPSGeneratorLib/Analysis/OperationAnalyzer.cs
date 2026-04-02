@@ -2473,9 +2473,17 @@ namespace AWSPowerShellGenerator.Analysis
                         string namePrefix;
                         string finalFragment;
                         SplitName(alternateName, out namePrefix, out finalFragment);
-                        alternateName = finalFragment != null
+                        var singularizedName = finalFragment != null
                             ? string.Concat(namePrefix, SingularizeTerm(finalFragment))
                             : SingularizeTerm(alternateName);
+
+                        // Don't singularize if the result would be a reserved parameter name.
+                        // The singular rule can be relaxed in this case as this prevents cascading into
+                        // reserved name resolution which results in a less than ideal name than the plural name.
+                        if (!ReservedParameterNames.Contains(singularizedName))
+                        {
+                            alternateName = singularizedName;
+                        }
                     }
 
                     if (alternateName.Length != property.AnalyzedName.Length)
@@ -2515,7 +2523,7 @@ namespace AWSPowerShellGenerator.Analysis
                 // We want to use reserved parameter name from existing list for proper casing.
                 if (AllModels.ReservedParameterNameMappings.TryGetValue(reservedParameterName, out var newResolvedName))
                 {
-                    newResolvedName = newResolvedName.Replace("{Noun}", CurrentOperation.SelectedNoun).Replace("{Verb}", CurrentOperation.SelectedVerb);
+                    newResolvedName = newResolvedName.Replace("{Noun}", CurrentOperation.RequestedNoun).Replace("{Verb}", CurrentOperation.RequestedVerb);
 
                     var customization = property.Customization;
                     if (customization == null)
@@ -2606,7 +2614,7 @@ namespace AWSPowerShellGenerator.Analysis
                     // We want to use reserved parameter name from existing list for proper casing.
                     if (AllModels.ReservedParameterNameMappings.TryGetValue(reservedParameterName, out var newResolvedName))
                     {
-                        newAlias = newResolvedName.Replace("{Noun}", CurrentOperation.SelectedNoun).Replace("{Verb}", CurrentOperation.SelectedVerb);
+                        newAlias = newResolvedName.Replace("{Noun}", CurrentOperation.RequestedNoun).Replace("{Verb}", CurrentOperation.RequestedVerb);
                     }
                 }
             }
