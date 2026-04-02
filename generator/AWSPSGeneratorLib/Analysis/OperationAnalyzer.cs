@@ -1318,15 +1318,15 @@ namespace AWSPowerShellGenerator.Analysis
                 // new operations
                 DetermineSupportsShouldProcessParameter();
             }
-            else if (NonIterationParameters.Any())
+            else
             {
-                // if this is reached, this would be an error and the existing config was changed and is invalid.
-                var suggestedParameters = SelectShouldProcessTargetCandidateParameters(NonIterationParameters, isRequiredParameter: false, isRootLevelParameter: false, excludeCollections: false);
-
-                var targetParameterName = suggestedParameters.Count == 1
-                    ? suggestedParameters.First().AnalyzedName
-                    : string.Join(",", suggestedParameters.Select(p => p.AnalyzedName));
-                AnalysisError.OutdatedShouldProcessTargetConfiguration(CurrentModel, CurrentOperation, targetParameterName);
+                // Existing operation with no ShouldProcessTarget configured (with or without parameters).
+                // Set AnonymousShouldProcessTarget=true to preserve identical generated code
+                // (resourceIdentifiersText = string.Empty). Changing ShouldProcessTarget on an
+                // existing operation would alter the confirmation message text, which is a
+                // behavioral change to a released cmdlet.
+                CurrentOperation.AnonymousShouldProcessTarget = true;
+                CurrentOperation.ShouldProcessTarget = string.Empty;
             }
         }
 
