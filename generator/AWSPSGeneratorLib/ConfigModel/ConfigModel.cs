@@ -934,9 +934,19 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [XmlAttribute]
         public string OutputWrapper;
 
-        [XmlAttribute("Verb")] 
+        /// <summary>
+        /// The cmdlet verb after verb mapping/transformation. Persisted as "Verb" XML attribute.
+        /// Affected by: VerbMappings, VerbNounTransformationPatterns, AssignVerb().
+        /// Example: S3 ListObjects -> RequestedVerb = "Get".
+        /// </summary>
+        [XmlAttribute("Verb")]
         public string RequestedVerb = string.Empty;
 
+        /// <summary>
+        /// The cmdlet noun after singularization/mapping, without ServiceNounPrefix. Persisted as "Noun" XML attribute.
+        /// Affected by: NounMappings, singularization, PluralNounRules, MethodPrefixModifiers, VerbNounTransformationPatterns, AssignNoun().
+        /// Example: S3 ListObjects -> RequestedNoun = "Object" (not "S3Object").
+        /// </summary>
         [XmlAttribute("Noun")]
         public string RequestedNoun = string.Empty;
 
@@ -1193,30 +1203,34 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public OperationAnalyzer Analyzer;
 
         /// <summary>
-        /// The verb we decided, or were directed, to use for the cmdlet
+        /// The final verb for the cmdlet (same as RequestedVerb; verbs have no prefix).
+        /// Runtime-only, not persisted to XML.
+        /// Example: For S3 ListObjects (Get-S3Object), SelectedVerb = "Get".
         /// </summary>
         [XmlIgnore]
         public string SelectedVerb;
 
         /// <summary>
-        /// The noun we decided, or were directed, to use for the cmdlet
+        /// The final noun for the cmdlet, including ServiceNounPrefix. This is the noun used
+        /// in the actual Verb-Noun cmdlet name. Runtime-only, not persisted to XML.
+        /// SelectedNoun = ServiceNounPrefix + RequestedNoun.
+        /// Example: For S3 ListObjects (Get-S3Object), SelectedNoun = "S3Object" (prefix "S3" + noun "Object").
         /// </summary>
         [XmlIgnore]
         public string SelectedNoun;
 
         /// <summary>
-        /// The noun from the split-apart service method name; for use as 
-        /// the noun in confirmation messages if the cmdlet needs to implement
-        /// the ShouldSupportProcess pattern
+        /// The raw noun extracted from the SDK method name by ParseVerbAndNoun(), before any
+        /// verb mapping, singularization, or noun transformation is applied. Runtime-only.
+        /// Example: For S3 ListObjects, OriginalNoun = "Objects" (before singularization to "Object").
         /// </summary>
         [XmlIgnore]
         public string OriginalNoun;
 
-
         /// <summary>
-        /// The noun from the split-apart service method name; for use as 
-        /// the noun in confirmation messages if the cmdlet needs to implement
-        /// the ShouldSupportProcess pattern
+        /// The raw verb extracted from the SDK method name by ParseVerbAndNoun(), before any
+        /// verb mapping is applied. Runtime-only.
+        /// Example: For S3 ListObjects, OriginalVerb = "List" (before mapping to "Get").
         /// </summary>
         [XmlIgnore]
         public string OriginalVerb;
