@@ -9530,13 +9530,6 @@ $BDR_Completers = {
             break
         }
 
-        # Amazon.Bedrock.InputTags
-        "Write-BDREnforcedGuardrailConfiguration/GuardrailInferenceConfig_InputTag"
-        {
-            $v = "HONOR","IGNORE"
-            break
-        }
-
         # Amazon.Bedrock.ModelCopyJobStatus
         "Get-BDRModelCopyJobList/StatusEqual"
         {
@@ -9621,6 +9614,16 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.SelectiveGuardingMode
+        {
+            ($_ -eq "Write-BDREnforcedGuardrailConfiguration/GuardrailInferenceConfig_SelectiveContentGuarding_Message") -Or
+            ($_ -eq "Write-BDREnforcedGuardrailConfiguration/GuardrailInferenceConfig_SelectiveContentGuarding_System")
+        }
+        {
+            $v = "COMPREHENSIVE","SELECTIVE"
+            break
+        }
+
         # Amazon.Bedrock.SortByProvisionedModels
         "Get-BDRProvisionedModelThroughputList/SortBy"
         {
@@ -9689,7 +9692,8 @@ $BDR_map = @{
     "ContentPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
-    "GuardrailInferenceConfig_InputTag"=@("Write-BDREnforcedGuardrailConfiguration")
+    "GuardrailInferenceConfig_SelectiveContentGuarding_Message"=@("Write-BDREnforcedGuardrailConfiguration")
+    "GuardrailInferenceConfig_SelectiveContentGuarding_System"=@("Write-BDREnforcedGuardrailConfiguration")
     "HyperParameters_ReasoningEffort"=@("New-BDRModelCustomizationJob")
     "ModelInvocationType"=@("New-BDRModelInvocationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
@@ -9786,6 +9790,7 @@ $BDR_SelectMap = @{
                "Remove-BDRModelInvocationLoggingConfiguration",
                "Remove-BDRPromptRouter",
                "Remove-BDRProvisionedModelThroughput",
+               "Remove-BDRResourcePolicy",
                "Unregister-BDRMarketplaceModelEndpoint",
                "Export-BDRAutomatedReasoningPolicyVersion",
                "Get-BDRAutomatedReasoningPolicy",
@@ -9811,6 +9816,7 @@ $BDR_SelectMap = @{
                "Get-BDRModelInvocationLoggingConfiguration",
                "Get-BDRPromptRouter",
                "Get-BDRProvisionedModelThroughput",
+               "Get-BDRResourcePolicy",
                "Get-BDRUseCaseForModelAccess",
                "Get-BDRAutomatedReasoningPolicyList",
                "Get-BDRAutomatedReasoningPolicyBuildWorkflowList",
@@ -9835,6 +9841,7 @@ $BDR_SelectMap = @{
                "Get-BDRResourceTag",
                "Write-BDREnforcedGuardrailConfiguration",
                "Write-BDRModelInvocationLoggingConfiguration",
+               "Write-BDRResourcePolicy",
                "Write-BDRUseCaseForModelAccess",
                "Register-BDRMarketplaceModelEndpoint",
                "Start-BDRAutomatedReasoningPolicyBuildWorkflow",

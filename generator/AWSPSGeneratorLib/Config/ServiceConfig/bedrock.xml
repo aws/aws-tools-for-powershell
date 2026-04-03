@@ -202,6 +202,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeregisterMarketplaceModelEndpoint" Verb="Unregister" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -299,6 +303,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetProvisionedModelThroughput" OutputProperty="*" Verb="Get" Noun="ProvisionedModelThroughput" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -403,6 +411,10 @@
                 <Param Name="LoggingConfig_S3Config_BucketName" NewName="S3Config_BucketName" />
                 <Param Name="LoggingConfig_S3Config_KeyPrefix" NewName="S3Config_KeyPrefix" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourceArn" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourcePolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutUseCaseForModelAccess" Verb="Write" Noun="UseCaseForModelAccess" ShouldProcessTarget="FormData" PipelineParameter="FormData" NoPipelineParameter="false">

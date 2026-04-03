@@ -118,22 +118,27 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String[] GuardrailInferenceConfig_ModelEnforcement_IncludedModel { get; set; }
         #endregion
         
-        #region Parameter GuardrailInferenceConfig_InputTag
+        #region Parameter GuardrailInferenceConfig_SelectiveContentGuarding_Message
         /// <summary>
         /// <para>
-        /// <para>Whether to honor or ignore input tags at runtime.</para>
+        /// <para>Selective guarding mode for user messages.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("GuardrailInferenceConfig_InputTags")]
-        [AWSConstantClassSource("Amazon.Bedrock.InputTags")]
-        public Amazon.Bedrock.InputTags GuardrailInferenceConfig_InputTag { get; set; }
+        [Alias("GuardrailInferenceConfig_SelectiveContentGuarding_Messages")]
+        [AWSConstantClassSource("Amazon.Bedrock.SelectiveGuardingMode")]
+        public Amazon.Bedrock.SelectiveGuardingMode GuardrailInferenceConfig_SelectiveContentGuarding_Message { get; set; }
+        #endregion
+        
+        #region Parameter GuardrailInferenceConfig_SelectiveContentGuarding_System
+        /// <summary>
+        /// <para>
+        /// <para>Selective guarding mode for system prompts."</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Bedrock.SelectiveGuardingMode")]
+        public Amazon.Bedrock.SelectiveGuardingMode GuardrailInferenceConfig_SelectiveContentGuarding_System { get; set; }
         #endregion
         
         #region Parameter Select
@@ -197,13 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 WriteWarning("You are passing $null as a value for parameter GuardrailInferenceConfig_GuardrailVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.GuardrailInferenceConfig_InputTag = this.GuardrailInferenceConfig_InputTag;
-            #if MODULAR
-            if (this.GuardrailInferenceConfig_InputTag == null && ParameterWasBound(nameof(this.GuardrailInferenceConfig_InputTag)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GuardrailInferenceConfig_InputTag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.GuardrailInferenceConfig_ModelEnforcement_ExcludedModel != null)
             {
                 context.GuardrailInferenceConfig_ModelEnforcement_ExcludedModel = new List<System.String>(this.GuardrailInferenceConfig_ModelEnforcement_ExcludedModel);
@@ -212,6 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.GuardrailInferenceConfig_ModelEnforcement_IncludedModel = new List<System.String>(this.GuardrailInferenceConfig_ModelEnforcement_IncludedModel);
             }
+            context.GuardrailInferenceConfig_SelectiveContentGuarding_Message = this.GuardrailInferenceConfig_SelectiveContentGuarding_Message;
+            context.GuardrailInferenceConfig_SelectiveContentGuarding_System = this.GuardrailInferenceConfig_SelectiveContentGuarding_System;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -256,16 +256,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 request.GuardrailInferenceConfig.GuardrailVersion = requestGuardrailInferenceConfig_guardrailInferenceConfig_GuardrailVersion;
                 requestGuardrailInferenceConfigIsNull = false;
             }
-            Amazon.Bedrock.InputTags requestGuardrailInferenceConfig_guardrailInferenceConfig_InputTag = null;
-            if (cmdletContext.GuardrailInferenceConfig_InputTag != null)
-            {
-                requestGuardrailInferenceConfig_guardrailInferenceConfig_InputTag = cmdletContext.GuardrailInferenceConfig_InputTag;
-            }
-            if (requestGuardrailInferenceConfig_guardrailInferenceConfig_InputTag != null)
-            {
-                request.GuardrailInferenceConfig.InputTags = requestGuardrailInferenceConfig_guardrailInferenceConfig_InputTag;
-                requestGuardrailInferenceConfigIsNull = false;
-            }
             Amazon.Bedrock.Model.ModelEnforcement requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement = null;
             
              // populate ModelEnforcement
@@ -299,6 +289,41 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement != null)
             {
                 request.GuardrailInferenceConfig.ModelEnforcement = requestGuardrailInferenceConfig_guardrailInferenceConfig_ModelEnforcement;
+                requestGuardrailInferenceConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.SelectiveContentGuarding requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding = null;
+            
+             // populate SelectiveContentGuarding
+            var requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuardingIsNull = true;
+            requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding = new Amazon.Bedrock.Model.SelectiveContentGuarding();
+            Amazon.Bedrock.SelectiveGuardingMode requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding_guardrailInferenceConfig_SelectiveContentGuarding_Message = null;
+            if (cmdletContext.GuardrailInferenceConfig_SelectiveContentGuarding_Message != null)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding_guardrailInferenceConfig_SelectiveContentGuarding_Message = cmdletContext.GuardrailInferenceConfig_SelectiveContentGuarding_Message;
+            }
+            if (requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding_guardrailInferenceConfig_SelectiveContentGuarding_Message != null)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding.Messages = requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding_guardrailInferenceConfig_SelectiveContentGuarding_Message;
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuardingIsNull = false;
+            }
+            Amazon.Bedrock.SelectiveGuardingMode requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding_guardrailInferenceConfig_SelectiveContentGuarding_System = null;
+            if (cmdletContext.GuardrailInferenceConfig_SelectiveContentGuarding_System != null)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding_guardrailInferenceConfig_SelectiveContentGuarding_System = cmdletContext.GuardrailInferenceConfig_SelectiveContentGuarding_System;
+            }
+            if (requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding_guardrailInferenceConfig_SelectiveContentGuarding_System != null)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding.System = requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding_guardrailInferenceConfig_SelectiveContentGuarding_System;
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuardingIsNull = false;
+            }
+             // determine if requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding should be set to null
+            if (requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuardingIsNull)
+            {
+                requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding = null;
+            }
+            if (requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding != null)
+            {
+                request.GuardrailInferenceConfig.SelectiveContentGuarding = requestGuardrailInferenceConfig_guardrailInferenceConfig_SelectiveContentGuarding;
                 requestGuardrailInferenceConfigIsNull = false;
             }
              // determine if request.GuardrailInferenceConfig should be set to null
@@ -364,9 +389,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String ConfigId { get; set; }
             public System.String GuardrailInferenceConfig_GuardrailIdentifier { get; set; }
             public System.String GuardrailInferenceConfig_GuardrailVersion { get; set; }
-            public Amazon.Bedrock.InputTags GuardrailInferenceConfig_InputTag { get; set; }
             public List<System.String> GuardrailInferenceConfig_ModelEnforcement_ExcludedModel { get; set; }
             public List<System.String> GuardrailInferenceConfig_ModelEnforcement_IncludedModel { get; set; }
+            public Amazon.Bedrock.SelectiveGuardingMode GuardrailInferenceConfig_SelectiveContentGuarding_Message { get; set; }
+            public Amazon.Bedrock.SelectiveGuardingMode GuardrailInferenceConfig_SelectiveContentGuarding_System { get; set; }
             public System.Func<Amazon.Bedrock.Model.PutEnforcedGuardrailConfigurationResponse, WriteBDREnforcedGuardrailConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

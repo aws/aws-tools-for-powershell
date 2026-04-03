@@ -3242,6 +3242,8 @@ Set-Alias -Name Delete-BDRPromptRouter -Value Remove-BDRPromptRouter
 Set-Alias -Name BDR-DeletePromptRouter -Value Remove-BDRPromptRouter
 Set-Alias -Name Delete-BDRProvisionedModelThroughput -Value Remove-BDRProvisionedModelThroughput
 Set-Alias -Name BDR-DeleteProvisionedModelThroughput -Value Remove-BDRProvisionedModelThroughput
+Set-Alias -Name Delete-BDRResourcePolicy -Value Remove-BDRResourcePolicy
+Set-Alias -Name BDR-DeleteResourcePolicy -Value Remove-BDRResourcePolicy
 Set-Alias -Name Deregister-BDRMarketplaceModelEndpoint -Value Unregister-BDRMarketplaceModelEndpoint
 Set-Alias -Name BDR-DeregisterMarketplaceModelEndpoint -Value Unregister-BDRMarketplaceModelEndpoint
 Set-Alias -Name BDR-ExportAutomatedReasoningPolicyVersion -Value Export-BDRAutomatedReasoningPolicyVersion
@@ -3270,6 +3272,7 @@ Set-Alias -Name BDR-GetModelInvocationJob -Value Get-BDRModelInvocationJob
 Set-Alias -Name BDR-GetModelInvocationLoggingConfiguration -Value Get-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-GetPromptRouter -Value Get-BDRPromptRouter
 Set-Alias -Name BDR-GetProvisionedModelThroughput -Value Get-BDRProvisionedModelThroughput
+Set-Alias -Name BDR-GetResourcePolicy -Value Get-BDRResourcePolicy
 Set-Alias -Name BDR-GetUseCaseForModelAccess -Value Get-BDRUseCaseForModelAccess
 Set-Alias -Name List-BDRAutomatedReasoningPolicies -Value Get-BDRAutomatedReasoningPolicyList
 Set-Alias -Name List-BDRAutomatedReasoningPolicyList -Value Get-BDRAutomatedReasoningPolicyList
@@ -3336,6 +3339,8 @@ Set-Alias -Name Put-BDREnforcedGuardrailConfiguration -Value Write-BDREnforcedGu
 Set-Alias -Name BDR-PutEnforcedGuardrailConfiguration -Value Write-BDREnforcedGuardrailConfiguration
 Set-Alias -Name Put-BDRModelInvocationLoggingConfiguration -Value Write-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-PutModelInvocationLoggingConfiguration -Value Write-BDRModelInvocationLoggingConfiguration
+Set-Alias -Name Put-BDRResourcePolicy -Value Write-BDRResourcePolicy
+Set-Alias -Name BDR-PutResourcePolicy -Value Write-BDRResourcePolicy
 Set-Alias -Name Put-BDRUseCaseForModelAccess -Value Write-BDRUseCaseForModelAccess
 Set-Alias -Name BDR-PutUseCaseForModelAccess -Value Write-BDRUseCaseForModelAccess
 Set-Alias -Name BDR-RegisterMarketplaceModelEndpoint -Value Register-BDRMarketplaceModelEndpoint

@@ -132,6 +132,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BDRPromptRouterList', 
         'Get-BDRProvisionedModelThroughput', 
         'Get-BDRProvisionedModelThroughputList', 
+        'Get-BDRResourcePolicy', 
         'Get-BDRResourceTag', 
         'Get-BDRUseCaseForModelAccess', 
         'New-BDRAutomatedReasoningPolicy', 
@@ -166,6 +167,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BDRModelInvocationLoggingConfiguration', 
         'Remove-BDRPromptRouter', 
         'Remove-BDRProvisionedModelThroughput', 
+        'Remove-BDRResourcePolicy', 
         'Remove-BDRResourceTag', 
         'Set-BDRBatchDeleteEvaluationJob', 
         'Start-BDRAutomatedReasoningPolicyBuildWorkflow', 
@@ -184,6 +186,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-BDRProvisionedModelThroughput', 
         'Write-BDREnforcedGuardrailConfiguration', 
         'Write-BDRModelInvocationLoggingConfiguration', 
+        'Write-BDRResourcePolicy', 
         'Write-BDRUseCaseForModelAccess')
 
     # Variables to export from this module

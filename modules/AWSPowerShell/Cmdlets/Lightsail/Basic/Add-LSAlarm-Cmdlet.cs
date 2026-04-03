@@ -46,6 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// When you update an existing alarm, its state is left unchanged, but the update completely
     /// overwrites the previous configuration of the alarm. The alarm is then evaluated with
     /// the updated configuration.
+    /// </para><para>
+    /// The <c>put alarm</c> operation supports tag-based access control via request tags.
+    /// For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Developer Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "LSAlarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -227,6 +231,21 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String[] NotificationTrigger { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys and optional values to add to the alarm during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Threshold
         /// <summary>
         /// <para>
@@ -348,6 +367,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 context.NotificationTrigger = new List<System.String>(this.NotificationTrigger);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
+            }
             context.Threshold = this.Threshold;
             #if MODULAR
             if (this.Threshold == null && ParameterWasBound(nameof(this.Threshold)))
@@ -407,6 +430,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.NotificationTrigger != null)
             {
                 request.NotificationTriggers = cmdletContext.NotificationTrigger;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.Threshold != null)
             {
@@ -480,6 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String MonitoredResourceName { get; set; }
             public System.Boolean? NotificationEnabled { get; set; }
             public List<System.String> NotificationTrigger { get; set; }
+            public List<Amazon.Lightsail.Model.Tag> Tag { get; set; }
             public System.Double? Threshold { get; set; }
             public Amazon.Lightsail.TreatMissingData TreatMissingData { get; set; }
             public System.Func<Amazon.Lightsail.Model.PutAlarmResponse, AddLSAlarmCmdlet, object> Select { get; set; } =

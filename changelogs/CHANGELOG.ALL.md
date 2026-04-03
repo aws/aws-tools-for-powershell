@@ -1,4 +1,17 @@
-﻿### 5.0.188 (2026-04-02 20:06Z)
+﻿### 5.0.189 (2026-04-03 20:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.225.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-BDRResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-BDRResourcePolicy leveraging the PutResourcePolicy service API.
+    * [Breaking Change] Modified cmdlet Write-BDREnforcedGuardrailConfiguration: removed parameter GuardrailInferenceConfig_InputTag; added parameters GuardrailInferenceConfig_SelectiveContentGuarding_Message and GuardrailInferenceConfig_SelectiveContentGuarding_System.
+  * Amazon Lightsail
+    * Modified cmdlet Add-LSAlarm: added parameter Tag.
+  * Amazon Payment Cryptography Control Plane
+    * Modified cmdlet Get-PAYCCParametersForExport: added parameter ReuseLastGeneratedToken.
+    * Modified cmdlet Get-PAYCCParametersForImport: added parameter ReuseLastGeneratedToken.
+
+### 5.0.188 (2026-04-02 20:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.224.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Added cmdlet Disable-APSSessionInstance leveraging the DrainSessionInstance service API.

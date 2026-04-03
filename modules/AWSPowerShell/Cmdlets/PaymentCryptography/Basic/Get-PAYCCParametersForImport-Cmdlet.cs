@@ -40,6 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// key certificate must be in place and operational before calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>.
     /// The import token expires in 30 days. You can use the same import token to import multiple
     /// keys into your service account.
+    /// </para><para>
+    /// To return a previously generated import token and wrapping key certificate instead
+    /// of generating new ones, set <c>ReuseLastGeneratedToken</c> to <c>true</c>.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a></para></li></ul>
@@ -73,6 +76,21 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.PaymentCryptography.KeyMaterialType")]
         public Amazon.PaymentCryptography.KeyMaterialType KeyMaterialType { get; set; }
+        #endregion
+        
+        #region Parameter ReuseLastGeneratedToken
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to reuse the existing import token and wrapping key certificate.
+        /// If set to <c>true</c> and a valid import token exists for the same key material type
+        /// and wrapping key algorithm with at least 7 days of remaining validity, the existing
+        /// token and wrapping key certificate are returned. Otherwise, a new import token and
+        /// wrapping key certificate are generated. The default value is <c>false</c>, which generates
+        /// a new import token and wrapping key certificate on every call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ReuseLastGeneratedToken { get; set; }
         #endregion
         
         #region Parameter WrappingKeyAlgorithm
@@ -132,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 WriteWarning("You are passing $null as a value for parameter KeyMaterialType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ReuseLastGeneratedToken = this.ReuseLastGeneratedToken;
             context.WrappingKeyAlgorithm = this.WrappingKeyAlgorithm;
             #if MODULAR
             if (this.WrappingKeyAlgorithm == null && ParameterWasBound(nameof(this.WrappingKeyAlgorithm)))
@@ -158,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (cmdletContext.KeyMaterialType != null)
             {
                 request.KeyMaterialType = cmdletContext.KeyMaterialType;
+            }
+            if (cmdletContext.ReuseLastGeneratedToken != null)
+            {
+                request.ReuseLastGeneratedToken = cmdletContext.ReuseLastGeneratedToken.Value;
             }
             if (cmdletContext.WrappingKeyAlgorithm != null)
             {
@@ -219,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.PaymentCryptography.KeyMaterialType KeyMaterialType { get; set; }
+            public System.Boolean? ReuseLastGeneratedToken { get; set; }
             public Amazon.PaymentCryptography.KeyAlgorithm WrappingKeyAlgorithm { get; set; }
             public System.Func<Amazon.PaymentCryptography.Model.GetParametersForImportResponse, GetPAYCCParametersForImportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
