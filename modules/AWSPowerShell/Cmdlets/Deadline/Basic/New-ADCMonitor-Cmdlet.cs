@@ -82,6 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String IdentityCenterInstanceArn { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterRegion
+        /// <summary>
+        /// <para>
+        /// <para>The AWS region where IAM Identity Center is enabled. Required when Identity Center
+        /// is in a different region than the monitor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterRegion { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -206,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 WriteWarning("You are passing $null as a value for parameter IdentityCenterInstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdentityCenterRegion = this.IdentityCenterRegion;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -255,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (cmdletContext.IdentityCenterInstanceArn != null)
             {
                 request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
+            }
+            if (cmdletContext.IdentityCenterRegion != null)
+            {
+                request.IdentityCenterRegion = cmdletContext.IdentityCenterRegion;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -326,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String ClientToken { get; set; }
             public System.String DisplayName { get; set; }
             public System.String IdentityCenterInstanceArn { get; set; }
+            public System.String IdentityCenterRegion { get; set; }
             public System.String RoleArn { get; set; }
             public System.String Subdomain { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

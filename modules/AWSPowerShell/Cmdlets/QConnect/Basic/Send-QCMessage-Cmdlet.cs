@@ -152,6 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String OrchestratorUseCase { get; set; }
         #endregion
         
+        #region Parameter OriginRequestId
+        /// <summary>
+        /// <para>
+        /// <para>Request identifier from the origin system, used for end-to-end tracing across spans.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OriginRequestId { get; set; }
+        #endregion
+        
         #region Parameter ConversationContext_SelfServiceConversationHistory
         /// <summary>
         /// <para>
@@ -336,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 }
             }
             context.OrchestratorUseCase = this.OrchestratorUseCase;
+            context.OriginRequestId = this.OriginRequestId;
             context.SessionId = this.SessionId;
             #if MODULAR
             if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
@@ -573,6 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             {
                 request.OrchestratorUseCase = cmdletContext.OrchestratorUseCase;
             }
+            if (cmdletContext.OriginRequestId != null)
+            {
+                request.OriginRequestId = cmdletContext.OriginRequestId;
+            }
             if (cmdletContext.SessionId != null)
             {
                 request.SessionId = cmdletContext.SessionId;
@@ -651,6 +666,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String ToolUseResult_ToolUseId { get; set; }
             public Dictionary<System.String, System.String> Metadata { get; set; }
             public System.String OrchestratorUseCase { get; set; }
+            public System.String OriginRequestId { get; set; }
             public System.String SessionId { get; set; }
             public Amazon.QConnect.MessageType Type { get; set; }
             public System.Func<Amazon.QConnect.Model.SendMessageResponse, SendQCMessageCmdlet, object> Select { get; set; } =

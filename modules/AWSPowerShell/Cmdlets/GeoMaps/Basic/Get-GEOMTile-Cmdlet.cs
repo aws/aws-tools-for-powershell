@@ -30,7 +30,7 @@ using Amazon.GeoMaps.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
-    /// <c>GetTile</c> returns a tile. Map tiles are used by clients to render a map. they're
+    /// <c>GetTile</c> returns a tile. Map tiles are used by clients to render a map. They're
     /// addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom)
     /// level.
     /// 
@@ -56,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <summary>
         /// <para>
         /// <para>A list of optional additional parameters such as map styles that can be requested
-        /// for each result.</para><para />
+        /// for each result. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c>
+        /// regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -82,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         #region Parameter Tileset
         /// <summary>
         /// <para>
-        /// <para>Specifies the desired tile set.</para><para>Valid Values: <c>raster.satellite | vector.basemap | vector.traffic | raster.dem</c></para>
+        /// <para>Specifies the desired tile set. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only the
+        /// <c>vector.basemap</c> value.</para><para>Valid Values: <c>raster.satellite | vector.basemap | vector.traffic | raster.dem</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         #region Parameter X
         /// <summary>
         /// <para>
-        /// <para>The X axis value for the map tile. Must be between 0 and 19.</para>
+        /// <para>The X axis value for the map tile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

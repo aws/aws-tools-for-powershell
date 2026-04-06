@@ -211,6 +211,24 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Int64? ClipRange_StartOffsetMilli { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the program. Tags are key-value pairs that you can associate
+        /// with Amazon resources to help with organization, access control, and cost tracking.
+        /// For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
+        /// AWS Elemental MediaTailor Resources</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Transition_Type
         /// <summary>
         /// <para>
@@ -339,6 +357,14 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 WriteWarning("You are passing $null as a value for parameter SourceLocationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.VodSourceName = this.VodSourceName;
             
             // allow further manipulation of loaded context prior to processing
@@ -489,6 +515,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             {
                 request.SourceLocationName = cmdletContext.SourceLocationName;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.VodSourceName != null)
             {
                 request.VodSourceName = cmdletContext.VodSourceName;
@@ -561,6 +591,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.Int64? Transition_ScheduledStartTimeMilli { get; set; }
             public System.String Transition_Type { get; set; }
             public System.String SourceLocationName { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String VodSourceName { get; set; }
             public System.Func<Amazon.MediaTailor.Model.CreateProgramResponse, NewEMTProgramCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

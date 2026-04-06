@@ -134,6 +134,19 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.EncryptionAlg As2Config_EncryptionAlgorithm { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the IP address type for the connector's network connections. When set to
+        /// <c>IPV4</c>, the connector uses IPv4 addresses only. When set to <c>DUALSTACK</c>,
+        /// the connector supports both IPv4 and IPv6 addresses, with IPv6 preferred when available.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.ConnectorsIpAddressType")]
+        public Amazon.Transfer.ConnectorsIpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter As2Config_LocalProfileId
         /// <summary>
         /// <para>
@@ -444,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.As2Config_SigningAlgorithm = this.As2Config_SigningAlgorithm;
             context.VpcLattice_PortNumber = this.VpcLattice_PortNumber;
             context.VpcLattice_ResourceConfigurationArn = this.VpcLattice_ResourceConfigurationArn;
+            context.IpAddressType = this.IpAddressType;
             context.LoggingRole = this.LoggingRole;
             context.SecurityPolicyName = this.SecurityPolicyName;
             context.SftpConfig_MaxConcurrentConnection = this.SftpConfig_MaxConcurrentConnection;
@@ -665,6 +679,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.EgressConfig = null;
             }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
+            }
             if (cmdletContext.LoggingRole != null)
             {
                 request.LoggingRole = cmdletContext.LoggingRole;
@@ -790,6 +808,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.SigningAlg As2Config_SigningAlgorithm { get; set; }
             public System.Int32? VpcLattice_PortNumber { get; set; }
             public System.String VpcLattice_ResourceConfigurationArn { get; set; }
+            public Amazon.Transfer.ConnectorsIpAddressType IpAddressType { get; set; }
             public System.String LoggingRole { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public System.Int32? SftpConfig_MaxConcurrentConnection { get; set; }

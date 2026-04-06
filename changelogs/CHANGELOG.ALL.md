@@ -1,4 +1,33 @@
-﻿### 5.0.189 (2026-04-03 20:04Z)
+﻿### 5.0.190 (2026-04-06 20:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.226.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Added cmdlet Get-ADCJobBatch leveraging the BatchGetJob service API.
+    * Added cmdlet Get-ADCSessionActionBatch leveraging the BatchGetSessionAction service API.
+    * Added cmdlet Get-ADCSessionBatch leveraging the BatchGetSession service API.
+    * Added cmdlet Get-ADCStepBatch leveraging the BatchGetStep service API.
+    * Added cmdlet Get-ADCTaskBatch leveraging the BatchGetTask service API.
+    * Added cmdlet Get-ADCWorkerBatch leveraging the BatchGetWorker service API.
+    * Added cmdlet Update-ADCJobBatch leveraging the BatchUpdateJob service API.
+    * Added cmdlet Update-ADCTaskBatch leveraging the BatchUpdateTask service API.
+    * Modified cmdlet New-ADCMonitor: added parameter IdentityCenterRegion.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet New-EMTPrefetchSchedule: added parameter Tag.
+    * Modified cmdlet New-EMTProgram: added parameter Tag.
+  * Amazon IAM Access Analyzer
+    * Added cmdlet Get-IAMAAPolicyPreviewConfiguration leveraging the GetPolicyPreviewConfiguration service API.
+    * Added cmdlet Get-IAMAAPolicyPreviewJob leveraging the GetPolicyPreviewJob service API.
+    * Added cmdlet Get-IAMAAPolicyPreviewJobList leveraging the ListPolicyPreviewJobs service API.
+    * Added cmdlet New-IAMAAPolicyPreviewConfiguration leveraging the CreatePolicyPreviewConfiguration service API.
+    * Added cmdlet Remove-IAMAAPolicyPreviewConfiguration leveraging the DeletePolicyPreviewConfiguration service API.
+    * Added cmdlet Start-IAMAAPolicyPreviewJob leveraging the StartPolicyPreviewJob service API.
+    * Added cmdlet Stop-IAMAAPolicyPreviewJob leveraging the CancelPolicyPreviewJob service API.
+  * Amazon Q Connect
+    * Modified cmdlet Send-QCMessage: added parameter OriginRequestId.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRConnector: added parameter IpAddressType.
+    * Modified cmdlet Update-TFRConnector: added parameter IpAddressType.
+
+### 5.0.189 (2026-04-03 20:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.225.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Get-BDRResourcePolicy leveraging the GetResourcePolicy service API.

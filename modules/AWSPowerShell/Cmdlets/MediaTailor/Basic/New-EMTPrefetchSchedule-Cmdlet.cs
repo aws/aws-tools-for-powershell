@@ -341,6 +341,24 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String StreamId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the prefetch schedule. Tags are key-value pairs that you can
+        /// associate with Amazon resources to help with organization, access control, and cost
+        /// tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
+        /// AWS Elemental MediaTailor Resources</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter RecurringRetrieval_TrafficShapingType
         /// <summary>
         /// <para>
@@ -468,6 +486,14 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.Retrieval_TrafficShapingType = this.Retrieval_TrafficShapingType;
             context.ScheduleType = this.ScheduleType;
             context.StreamId = this.StreamId;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -817,6 +843,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             {
                 request.StreamId = cmdletContext.StreamId;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -896,6 +926,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Amazon.MediaTailor.TrafficShapingType Retrieval_TrafficShapingType { get; set; }
             public Amazon.MediaTailor.PrefetchScheduleType ScheduleType { get; set; }
             public System.String StreamId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MediaTailor.Model.CreatePrefetchScheduleResponse, NewEMTPrefetchScheduleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

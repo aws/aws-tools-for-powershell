@@ -107,6 +107,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.ConnectorsIpAddressType
+        {
+            ($_ -eq "New-TFRConnector/IpAddressType") -Or
+            ($_ -eq "Update-TFRConnector/IpAddressType")
+        }
+        {
+            $v = "DUALSTACK","IPV4"
+            break
+        }
+
         # Amazon.Transfer.CustomStepStatus
         "Send-TFRWorkflowStepState/Status"
         {
@@ -318,7 +328,7 @@ $TFR_map = @{
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderDetails_SftpAuthenticationMethod"=@("New-TFRServer","Update-TFRServer")
     "IdentityProviderType"=@("New-TFRServer","Update-TFRServer")
-    "IpAddressType"=@("New-TFRServer","Update-TFRServer")
+    "IpAddressType"=@("New-TFRConnector","New-TFRServer","Update-TFRConnector","Update-TFRServer")
     "PreserveFilename"=@("New-TFRAgreement","Update-TFRAgreement")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")

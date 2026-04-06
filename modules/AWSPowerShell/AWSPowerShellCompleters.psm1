@@ -121,6 +121,13 @@ $IAMAA_Completers = {
             break
         }
 
+        # Amazon.AccessAnalyzer.PolicyPreviewScope
+        "New-IAMAAPolicyPreviewConfiguration/Scope"
+        {
+            $v = "GLOBAL"
+            break
+        }
+
         # Amazon.AccessAnalyzer.PolicyType
         "Use-IAMAAPolicyValidation/PolicyType"
         {
@@ -164,6 +171,7 @@ $IAMAA_map = @{
     "Locale"=@("Use-IAMAAPolicyValidation")
     "PolicyType"=@("Test-IAMAAAccessNotGranted","Test-IAMAANoNewAccess","Use-IAMAAPolicyValidation")
     "ResourceType"=@("Get-IAMAAAnalyzedResourceList","Test-IAMAANoPublicAccess")
+    "Scope"=@("New-IAMAAPolicyPreviewConfiguration")
     "Sort_OrderBy"=@("Get-IAMAAFindingList","Get-IAMAAFindingsV2List")
     "Status"=@("Update-IAMAAFinding")
     "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer")
@@ -222,14 +230,17 @@ $IAMAA_SelectCompleters = {
 $IAMAA_SelectMap = @{
     "Select"=@("Start-IAMAAArchiveRule",
                "Stop-IAMAAPolicyGeneration",
+               "Stop-IAMAAPolicyPreviewJob",
                "Test-IAMAAAccessNotGranted",
                "Test-IAMAANoNewAccess",
                "Test-IAMAANoPublicAccess",
                "New-IAMAAAccessPreview",
                "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
+               "New-IAMAAPolicyPreviewConfiguration",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",
+               "Remove-IAMAAPolicyPreviewConfiguration",
                "Start-IAMAAFindingRecommendation",
                "Get-IAMAAAccessPreview",
                "Get-IAMAAAnalyzedResource",
@@ -240,6 +251,8 @@ $IAMAA_SelectMap = @{
                "Get-IAMAAFindingsStatistic",
                "Get-IAMAAFindingV2",
                "Get-IAMAAGeneratedPolicy",
+               "Get-IAMAAPolicyPreviewConfiguration",
+               "Get-IAMAAPolicyPreviewJob",
                "Get-IAMAAAccessPreviewFindingList",
                "Get-IAMAAAccessPreviewList",
                "Get-IAMAAAnalyzedResourceList",
@@ -248,8 +261,10 @@ $IAMAA_SelectMap = @{
                "Get-IAMAAFindingList",
                "Get-IAMAAFindingsV2List",
                "Get-IAMAAPolicyGenerationList",
+               "Get-IAMAAPolicyPreviewJobList",
                "Get-IAMAAResourceTag",
                "Start-IAMAAPolicyGeneration",
+               "Start-IAMAAPolicyPreviewJob",
                "Start-IAMAAResourceScan",
                "Add-IAMAAResourceTag",
                "Remove-IAMAAResourceTag",
@@ -24593,7 +24608,15 @@ $ADC_SelectMap = @{
                "Get-ADCQueueRoleForRead",
                "Get-ADCQueueRoleForUser",
                "Get-ADCQueueRoleForWorker",
+               "Get-ADCJobBatch",
                "Get-ADCBatchJobEntity",
+               "Get-ADCSessionBatch",
+               "Get-ADCSessionActionBatch",
+               "Get-ADCStepBatch",
+               "Get-ADCTaskBatch",
+               "Get-ADCWorkerBatch",
+               "Update-ADCJobBatch",
+               "Update-ADCTaskBatch",
                "Copy-ADCJobTemplate",
                "New-ADCBudget",
                "New-ADCFarm",
@@ -49438,7 +49461,7 @@ $LS_Completers = {
             ($_ -eq "Copy-LSSnapshot/SourceRegion")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","eu-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-5","ca-central-1","eu-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
 
@@ -84010,6 +84033,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.ConnectorsIpAddressType
+        {
+            ($_ -eq "New-TFRConnector/IpAddressType") -Or
+            ($_ -eq "Update-TFRConnector/IpAddressType")
+        }
+        {
+            $v = "DUALSTACK","IPV4"
+            break
+        }
+
         # Amazon.Transfer.CustomStepStatus
         "Send-TFRWorkflowStepState/Status"
         {
@@ -84221,7 +84254,7 @@ $TFR_map = @{
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderDetails_SftpAuthenticationMethod"=@("New-TFRServer","Update-TFRServer")
     "IdentityProviderType"=@("New-TFRServer","Update-TFRServer")
-    "IpAddressType"=@("New-TFRServer","Update-TFRServer")
+    "IpAddressType"=@("New-TFRConnector","New-TFRServer","Update-TFRConnector","Update-TFRServer")
     "PreserveFilename"=@("New-TFRAgreement","Update-TFRAgreement")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")

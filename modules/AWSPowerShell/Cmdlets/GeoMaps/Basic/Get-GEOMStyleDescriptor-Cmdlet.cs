@@ -79,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <para>
         /// <para>Displays the shape and steepness of terrain features using elevation lines. The density
         /// value controls how densely the available contour line information is rendered on the
-        /// map.</para><para>This parameter is valid for all map styles except <c>Satellite</c>.</para>
+        /// map. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for
+        /// <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers.</para><para>This parameter is valid for all map styles except <c>Satellite</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         #region Parameter PoliticalView
         /// <summary>
         /// <para>
-        /// <para>Specifies the political view using ISO 3166-2 or ISO 3166-3 country code format.</para><para>The following political views are currently supported:</para><ul><li><para><c>ARG</c>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del
+        /// <para>Specifies the political view using ISO 3166-2 or ISO 3166-3 country code format. Not
+        /// supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers.</para><para>The following political views are currently supported:</para><ul><li><para><c>ARG</c>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del
         /// Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</para></li><li><para><c>EGY</c>: Egypt's view on Bir Tawil</para></li><li><para><c>IND</c>: India's view on Gilgit-Baltistan</para></li><li><para><c>KEN</c>: Kenya's view on the Ilemi Triangle</para></li><li><para><c>MAR</c>: Morocco's view on Western Sahara</para></li><li><para><c>RUS</c>: Russia's view on Crimea</para></li><li><para><c>SDN</c>: Sudan's view on the Halaib Triangle</para></li><li><para><c>SRB</c>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</para></li><li><para><c>SUR</c>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</para></li><li><para><c>SYR</c>: Syria's view on the Golan Heights</para></li><li><para><c>TUR</c>: Turkey's view on Cyprus and Northern Cyprus</para></li><li><para><c>TZA</c>: Tanzania's view on Lake Malawi</para></li><li><para><c>URY</c>: Uruguay's view on Rincon de Artigas</para></li><li><para><c>VNM</c>: Vietnam's view on the Paracel Islands and Spratly Islands</para></li></ul>
         /// </para>
         /// </summary>
@@ -112,7 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         #region Parameter Style
         /// <summary>
         /// <para>
-        /// <para>Style specifies the desired map style.</para>
+        /// <para>Style specifies the desired map style. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only the
+        /// <c>Standard</c> and <c>Monochrome</c> values.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         #region Parameter Terrain
         /// <summary>
         /// <para>
-        /// <para>Adjusts how physical terrain details are rendered on the map.</para><para>The following terrain styles are currently supported:</para><ul><li><para><c>Hillshade</c>: Displays the physical terrain details through shading and highlighting
+        /// <para>Adjusts how physical terrain details are rendered on the map. Not supported in <c>ap-southeast-1</c>
+        /// and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers.</para><para>The following terrain styles are currently supported:</para><ul><li><para><c>Hillshade</c>: Displays the physical terrain details through shading and highlighting
         /// of elevation change and geographic features.</para></li><li><para><c>Terrain3D</c>: Displays physical terrain details and elevations as a three-dimensional
         /// model.</para></li></ul><para><c>Hillshade</c> is valid only for the <c>Standard</c> and <c>Monochrome</c> map
         /// styles.</para>
@@ -144,7 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <summary>
         /// <para>
         /// <para>Displays real-time traffic information overlay on map, such as incident events and
-        /// flow events.</para><para>This parameter is valid for all map styles except <c>Satellite</c>.</para>
+        /// flow events. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions
+        /// for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers.</para><para>This parameter is valid for all map styles except <c>Satellite</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <para>
         /// <para>Renders additional map information relevant to selected travel modes. Information
         /// for multiple travel modes can be displayed simultaneously, although this increases
-        /// the overall information density rendered on the map.</para><para>This parameter is valid for all map styles except <c>Satellite</c>.</para><para />
+        /// the overall information density rendered on the map. Not supported in <c>ap-southeast-1</c>
+        /// and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers.</para><para>This parameter is valid for all map styles except <c>Satellite</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
