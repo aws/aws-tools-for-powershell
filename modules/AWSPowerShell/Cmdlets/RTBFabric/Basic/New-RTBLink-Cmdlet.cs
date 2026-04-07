@@ -167,6 +167,17 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter TimeoutInMilli
+        /// <summary>
+        /// <para>
+        /// <para>The timeout value in milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TimeoutInMillis")]
+        public System.Int64? TimeoutInMilli { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -260,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.TimeoutInMilli = this.TimeoutInMilli;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -380,6 +392,10 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TimeoutInMilli != null)
+            {
+                request.TimeoutInMillis = cmdletContext.TimeoutInMilli.Value;
+            }
             
             CmdletOutput output;
             
@@ -443,6 +459,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             public System.Double? Sampling_FilterLog { get; set; }
             public System.String PeerGatewayId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Int64? TimeoutInMilli { get; set; }
             public System.Func<Amazon.RTBFabric.Model.CreateLinkResponse, NewRTBLinkCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

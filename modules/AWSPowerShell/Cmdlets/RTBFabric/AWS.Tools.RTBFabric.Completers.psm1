@@ -80,6 +80,13 @@ $RTB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RTBFabric.GatewayType
+        "New-RTBResponderGateway/GatewayType"
+        {
+            $v = "EXTERNAL","INTERNAL"
+            break
+        }
+
         # Amazon.RTBFabric.Protocol
         {
             ($_ -eq "New-RTBResponderGateway/Protocol") -Or
@@ -99,6 +106,7 @@ $RTB_Completers = {
 }
 
 $RTB_map = @{
+    "GatewayType"=@("New-RTBResponderGateway")
     "Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
 }
 

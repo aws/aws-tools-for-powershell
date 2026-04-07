@@ -23,61 +23,55 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.AccessAnalyzer;
-using Amazon.AccessAnalyzer.Model;
+using Amazon.S3Files;
+using Amazon.S3Files.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IAMAA
+namespace Amazon.PowerShell.Cmdlets.S3F
 {
     /// <summary>
-    /// Deletes the policy preview configuration for your account. After deletion, IAM Access
-    /// Analyzer will stop collecting CloudTrail authorization events for policy preview analysis.
+    /// Returns the synchronization configuration for the specified S3 File System, including
+    /// import data rules and expiration data rules.
     /// </summary>
-    [Cmdlet("Remove", "IAMAAPolicyPreviewConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS IAM Access Analyzer DeletePolicyPreviewConfiguration API operation.", Operation = new[] {"DeletePolicyPreviewConfiguration"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.DeletePolicyPreviewConfigurationResponse))]
-    [AWSCmdletOutput("None or Amazon.AccessAnalyzer.Model.DeletePolicyPreviewConfigurationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AccessAnalyzer.Model.DeletePolicyPreviewConfigurationResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "S3FSynchronizationConfiguration")]
+    [OutputType("Amazon.S3Files.Model.GetSynchronizationConfigurationResponse")]
+    [AWSCmdlet("Calls the Amazon S3 Files GetSynchronizationConfiguration API operation.", Operation = new[] {"GetSynchronizationConfiguration"}, SelectReturnType = typeof(Amazon.S3Files.Model.GetSynchronizationConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.S3Files.Model.GetSynchronizationConfigurationResponse",
+        "This cmdlet returns an Amazon.S3Files.Model.GetSynchronizationConfigurationResponse object containing multiple properties."
     )]
-    public partial class RemoveIAMAAPolicyPreviewConfigurationCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
+    public partial class GetS3FSynchronizationConfigurationCmdlet : AmazonS3FilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ClientToken
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. Idempotency ensures that an API request completes only once. With an
-        /// idempotent request, if the original request completes successfully, subsequent retries
-        /// with the same client token return the result from the original successful request
-        /// and have no additional effect.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the S3 File System to retrieve the synchronization
+        /// configuration for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String FileSystemId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.DeletePolicyPreviewConfigurationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Files.Model.GetSynchronizationConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.S3Files.Model.GetSynchronizationConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -89,12 +83,6 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IAMAAPolicyPreviewConfiguration (DeletePolicyPreviewConfiguration)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -102,10 +90,16 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.DeletePolicyPreviewConfigurationResponse, RemoveIAMAAPolicyPreviewConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Files.Model.GetSynchronizationConfigurationResponse, GetS3FSynchronizationConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ClientToken = this.ClientToken;
+            context.FileSystemId = this.FileSystemId;
+            #if MODULAR
+            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -120,11 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AccessAnalyzer.Model.DeletePolicyPreviewConfigurationRequest();
+            var request = new Amazon.S3Files.Model.GetSynchronizationConfigurationRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.FileSystemId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.FileSystemId = cmdletContext.FileSystemId;
             }
             
             CmdletOutput output;
@@ -159,12 +153,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         #region AWS Service Operation Call
         
-        private Amazon.AccessAnalyzer.Model.DeletePolicyPreviewConfigurationResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.DeletePolicyPreviewConfigurationRequest request)
+        private Amazon.S3Files.Model.GetSynchronizationConfigurationResponse CallAWSServiceOperation(IAmazonS3Files client, Amazon.S3Files.Model.GetSynchronizationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "DeletePolicyPreviewConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Files", "GetSynchronizationConfiguration");
             try
             {
-                return client.DeletePolicyPreviewConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetSynchronizationConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -181,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.Func<Amazon.AccessAnalyzer.Model.DeletePolicyPreviewConfigurationResponse, RemoveIAMAAPolicyPreviewConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String FileSystemId { get; set; }
+            public System.Func<Amazon.S3Files.Model.GetSynchronizationConfigurationResponse, GetS3FSynchronizationConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

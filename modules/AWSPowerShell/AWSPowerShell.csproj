@@ -1087,6 +1087,9 @@
     <Reference Include="AWSSDK.S3Control">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.S3Control.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.S3Files">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.S3Files.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.S3Outposts">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.S3Outposts.dll</HintPath>
     </Reference>
@@ -2349,6 +2352,9 @@
     </Reference>
     <Reference Include="AWSSDK.S3Control">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3Control.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3Files">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3Files.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3Outposts">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3Outposts.dll</HintPath>

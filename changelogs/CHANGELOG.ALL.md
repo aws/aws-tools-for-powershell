@@ -1,4 +1,29 @@
-﻿### 5.0.190 (2026-04-06 20:22Z)
+﻿### 5.0.191 (2026-04-07 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.227.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Invoke-BACBrowser leveraging the InvokeBrowser service API.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameters Configuration, Props_S3Properties_RegisterS3AccessGrantLocation and SparkGlueProperties_GlueConnectionNames.
+    * Modified cmdlet Update-DZConnection: added parameters Configuration and Props_S3Properties_RegisterS3AccessGrantLocation.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Get-EC2CapacityManagerMonitoredTagKey leveraging the GetCapacityManagerMonitoredTagKeys service API.
+    * Added cmdlet Update-EC2CapacityManagerMonitoredTagKey leveraging the UpdateCapacityManagerMonitoredTagKeys service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSNodegroup: added parameters WarmPoolConfig_Enabled, WarmPoolConfig_MaxGroupPreparedCapacity, WarmPoolConfig_MinSize, WarmPoolConfig_PoolState and WarmPoolConfig_ReuseOnScaleIn.
+    * Modified cmdlet Update-EKSNodegroupConfig: added parameters WarmPoolConfig_Enabled, WarmPoolConfig_MaxGroupPreparedCapacity, WarmPoolConfig_MinSize, WarmPoolConfig_PoolState and WarmPoolConfig_ReuseOnScaleIn.
+  * IAMAA
+    * [Breaking Change] Removed cmdlets Get-IAMAAPolicyPreviewConfiguration, Get-IAMAAPolicyPreviewJob, Get-IAMAAPolicyPreviewJobList, New-IAMAAPolicyPreviewConfiguration, Remove-IAMAAPolicyPreviewConfiguration, Start-IAMAAPolicyPreviewJob and Stop-IAMAAPolicyPreviewJob.
+  * Amazon Outposts
+    * Modified cmdlet Get-OUTPAssetList: added parameter AssetTypeFilter.
+  * Amazon RTBFabric
+    * Modified cmdlet Approve-RTBLink: added parameter TimeoutInMilli.
+    * Modified cmdlet New-RTBLink: added parameter TimeoutInMilli.
+    * Modified cmdlet New-RTBResponderGateway: added parameters GatewayType and ListenerConfig_Protocol.
+    * Modified cmdlet Update-RTBLink: added parameter TimeoutInMilli.
+    * Modified cmdlet Update-RTBResponderGateway: added parameter ListenerConfig_Protocol.
+  * Amazon S3 Files. Added cmdlets to support the service. Cmdlets for the service have the noun prefix S3F and can be listed using the command 'Get-AWSCmdletName -Service S3F'.
+
+### 5.0.190 (2026-04-06 20:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.226.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Added cmdlet Get-ADCJobBatch leveraging the BatchGetJob service API.

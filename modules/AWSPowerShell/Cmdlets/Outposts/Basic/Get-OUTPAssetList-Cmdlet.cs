@@ -53,6 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AssetTypeFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results by asset type.</para><ul><li><para>COMPUTE - Server asset used for customer compute </para></li><li><para>STORAGE - Server asset used by storage services </para></li><li><para>POWERSHELF - Powershelf assets </para></li><li><para>SWITCH - Switch assets </para></li><li><para>NETWORKING - Asset managed by Amazon Web Services for networking purposes </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AssetTypeFilter { get; set; }
+        #endregion
+        
         #region Parameter HostIdFilter
         /// <summary>
         /// <para>
@@ -163,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 context.Select = CreateSelectDelegate<Amazon.Outposts.Model.ListAssetsResponse, GetOUTPAssetListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AssetTypeFilter != null)
+            {
+                context.AssetTypeFilter = new List<System.String>(this.AssetTypeFilter);
+            }
             if (this.HostIdFilter != null)
             {
                 context.HostIdFilter = new List<System.String>(this.HostIdFilter);
@@ -198,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             // create request and set iteration invariants
             var request = new Amazon.Outposts.Model.ListAssetsRequest();
             
+            if (cmdletContext.AssetTypeFilter != null)
+            {
+                request.AssetTypeFilter = cmdletContext.AssetTypeFilter;
+            }
             if (cmdletContext.HostIdFilter != null)
             {
                 request.HostIdFilter = cmdletContext.HostIdFilter;
@@ -293,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AssetTypeFilter { get; set; }
             public List<System.String> HostIdFilter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

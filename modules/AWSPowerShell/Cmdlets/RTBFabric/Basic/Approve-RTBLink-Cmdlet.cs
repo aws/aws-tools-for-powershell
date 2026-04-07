@@ -142,6 +142,17 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         public Amazon.RTBFabric.Model.ResponderErrorMaskingForHttpCode[] Attributes_ResponderErrorMasking { get; set; }
         #endregion
         
+        #region Parameter TimeoutInMilli
+        /// <summary>
+        /// <para>
+        /// <para>The timeout value in milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TimeoutInMillis")]
+        public System.Int64? TimeoutInMilli { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -221,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
                 WriteWarning("You are passing $null as a value for parameter Sampling_FilterLog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TimeoutInMilli = this.TimeoutInMilli;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -333,6 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             {
                 request.LogSettings = null;
             }
+            if (cmdletContext.TimeoutInMilli != null)
+            {
+                request.TimeoutInMillis = cmdletContext.TimeoutInMilli.Value;
+            }
             
             CmdletOutput output;
             
@@ -394,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             public System.String LinkId { get; set; }
             public System.Double? Sampling_ErrorLog { get; set; }
             public System.Double? Sampling_FilterLog { get; set; }
+            public System.Int64? TimeoutInMilli { get; set; }
             public System.Func<Amazon.RTBFabric.Model.AcceptLinkResponse, ApproveRTBLinkCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

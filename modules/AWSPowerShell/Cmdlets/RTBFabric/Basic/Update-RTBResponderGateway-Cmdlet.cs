@@ -199,6 +199,21 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         public Amazon.RTBFabric.Protocol Protocol { get; set; }
         #endregion
         
+        #region Parameter ListenerConfig_Protocol
+        /// <summary>
+        /// <para>
+        /// <para>The protocol for connections from clients to the gateway</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ListenerConfig_Protocols")]
+        public System.String[] ListenerConfig_Protocol { get; set; }
+        #endregion
+        
         #region Parameter AutoScalingGroups_RoleArn
         /// <summary>
         /// <para>
@@ -287,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.RTB
                 WriteWarning("You are passing $null as a value for parameter GatewayId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ListenerConfig_Protocol != null)
+            {
+                context.ListenerConfig_Protocol = new List<System.String>(this.ListenerConfig_Protocol);
+            }
             if (this.AutoScalingGroups_AutoScalingGroupName != null)
             {
                 context.AutoScalingGroups_AutoScalingGroupName = new List<System.String>(this.AutoScalingGroups_AutoScalingGroupName);
@@ -347,6 +366,25 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             if (cmdletContext.GatewayId != null)
             {
                 request.GatewayId = cmdletContext.GatewayId;
+            }
+            
+             // populate ListenerConfig
+            var requestListenerConfigIsNull = true;
+            request.ListenerConfig = new Amazon.RTBFabric.Model.ListenerConfig();
+            List<System.String> requestListenerConfig_listenerConfig_Protocol = null;
+            if (cmdletContext.ListenerConfig_Protocol != null)
+            {
+                requestListenerConfig_listenerConfig_Protocol = cmdletContext.ListenerConfig_Protocol;
+            }
+            if (requestListenerConfig_listenerConfig_Protocol != null)
+            {
+                request.ListenerConfig.Protocols = requestListenerConfig_listenerConfig_Protocol;
+                requestListenerConfigIsNull = false;
+            }
+             // determine if request.ListenerConfig should be set to null
+            if (requestListenerConfigIsNull)
+            {
+                request.ListenerConfig = null;
             }
             
              // populate ManagedEndpointConfiguration
@@ -553,6 +591,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             public System.String Description { get; set; }
             public System.String DomainName { get; set; }
             public System.String GatewayId { get; set; }
+            public List<System.String> ListenerConfig_Protocol { get; set; }
             public List<System.String> AutoScalingGroups_AutoScalingGroupName { get; set; }
             public System.String AutoScalingGroups_RoleArn { get; set; }
             public System.String EksEndpoints_ClusterApiServerCaCertificateChain { get; set; }

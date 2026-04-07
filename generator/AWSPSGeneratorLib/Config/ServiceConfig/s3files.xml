@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>s3files</C2jFilename>
+    <AssemblyName>S3Files</AssemblyName>
+    <ServiceNounPrefix>S3F</ServiceNounPrefix>
+    <ServiceName>Amazon S3 Files</ServiceName>
+    <ServiceId>S3Files</ServiceId>
+    <ServiceClientInterface>IAmazonS3Files</ServiceClientInterface>
+    <ServiceClient>AmazonS3FilesClient</ServiceClient>
+    <ServiceModuleGuid>fbfff3d3-e4ee-48c9-aa90-3617a23fea26</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAccessPoint" OutputProperty="*" Verb="New" Noun="AccessPoint" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFileSystem" OutputProperty="*" Verb="New" Noun="FileSystem" ShouldProcessTarget="RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMountTarget" OutputProperty="*" Verb="New" Noun="MountTarget" ShouldProcessTarget="FileSystemId,SubnetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessPoint" Verb="Remove" Noun="AccessPoint" ShouldProcessTarget="AccessPointId" PipelineParameter="AccessPointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFileSystem" Verb="Remove" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFileSystemPolicy" Verb="Remove" Noun="FileSystemPolicy" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMountTarget" Verb="Remove" Noun="MountTarget" ShouldProcessTarget="MountTargetId" PipelineParameter="MountTargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessPoint" OutputProperty="*" Verb="Get" Noun="AccessPoint" PipelineParameter="AccessPointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFileSystem" OutputProperty="*" Verb="Get" Noun="FileSystem" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFileSystemPolicy" OutputProperty="*" Verb="Get" Noun="FileSystemPolicy" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMountTarget" OutputProperty="*" Verb="Get" Noun="MountTarget" PipelineParameter="MountTargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSynchronizationConfiguration" OutputProperty="*" Verb="Get" Noun="SynchronizationConfiguration" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessPoints" OutputProperty="AccessPoints" Verb="Get" Noun="AccessPointList" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFileSystems" OutputProperty="FileSystems" Verb="Get" Noun="FileSystemList" PipelineParameter="Bucket" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMountTargets" OutputProperty="MountTargets" Verb="Get" Noun="MountTargetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutFileSystemPolicy" Verb="Write" Noun="FileSystemPolicy" ShouldProcessTarget="FileSystemId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSynchronizationConfiguration" Verb="Write" Noun="SynchronizationConfiguration" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMountTarget" OutputProperty="*" Verb="Update" Noun="MountTarget" ShouldProcessTarget="MountTargetId" PipelineParameter="MountTargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

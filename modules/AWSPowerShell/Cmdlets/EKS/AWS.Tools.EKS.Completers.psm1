@@ -213,6 +213,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.WarmPoolState
+        {
+            ($_ -eq "New-EKSNodegroup/WarmPoolConfig_PoolState") -Or
+            ($_ -eq "Update-EKSNodegroupConfig/WarmPoolConfig_PoolState")
+        }
+        {
+            $v = "HIBERNATED","RUNNING","STOPPED"
+            break
+        }
+
 
     }
 
@@ -238,6 +248,7 @@ $EKS_map = @{
     "UpdateConfig_UpdateStrategy"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
     "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
     "VersionStatus"=@("Get-EKSClusterVersion")
+    "WarmPoolConfig_PoolState"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
 }
 
 _awsArgumentCompleterRegistration $EKS_Completers $EKS_map

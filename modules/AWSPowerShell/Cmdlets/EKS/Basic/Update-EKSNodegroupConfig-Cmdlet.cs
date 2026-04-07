@@ -139,6 +139,30 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Boolean? NodeRepairConfig_Enabled { get; set; }
         #endregion
         
+        #region Parameter WarmPoolConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to attach warm pools on the managed node group. Set to <c>true</c>
+        /// to enable the warm pool, or <c>false</c> to disable and remove it. If not specified
+        /// during an update, the current value is preserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WarmPoolConfig_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter WarmPoolConfig_MaxGroupPreparedCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The maximum total number of instances across the warm pool and Auto Scaling group
+        /// combined. This value controls the total prepared capacity available for your node
+        /// group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? WarmPoolConfig_MaxGroupPreparedCapacity { get; set; }
+        #endregion
+        
         #region Parameter NodeRepairConfig_MaxParallelNodesRepairedCount
         /// <summary>
         /// <para>
@@ -235,6 +259,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Int32? ScalingConfig_MinSize { get; set; }
         #endregion
         
+        #region Parameter WarmPoolConfig_MinSize
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of instances to maintain in the warm pool. Default: <c>0</c>. Size
+        /// your warm pool based on scaling patterns to balance cost and availability. Start with
+        /// 10-20% of expected peak capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? WarmPoolConfig_MinSize { get; set; }
+        #endregion
+        
         #region Parameter NodegroupName
         /// <summary>
         /// <para>
@@ -269,6 +305,21 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.Model.NodeRepairConfigOverrides[] NodeRepairConfig_NodeRepairConfigOverride { get; set; }
         #endregion
         
+        #region Parameter WarmPoolConfig_PoolState
+        /// <summary>
+        /// <para>
+        /// <para>The desired state for warm pool instances. Default: <c>Stopped</c>. Valid values are
+        /// <c>Stopped</c> (most cost-effective with EBS storage costs only), <c>Running</c> (fastest
+        /// transition time with full EC2 costs), and <c>Hibernated</c> (balance between cost
+        /// and speed, only supported on specific instance types). Warm pool instances in the
+        /// <c>Hibernated</c> state are not supported with Bottlerocket AMIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.WarmPoolState")]
+        public Amazon.EKS.WarmPoolState WarmPoolConfig_PoolState { get; set; }
+        #endregion
+        
         #region Parameter Labels_RemoveLabel
         /// <summary>
         /// <para>
@@ -297,6 +348,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Taints_RemoveTaints")]
         public Amazon.EKS.Model.Taint[] Taints_RemoveTaint { get; set; }
+        #endregion
+        
+        #region Parameter WarmPoolConfig_ReuseOnScaleIn
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether instances should return to the warm pool during scale-in events
+        /// instead of being terminated. Default: <c>false</c>. Enable this to reduce costs by
+        /// reusing instances. This feature is not supported for Bottlerocket AMIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WarmPoolConfig_ReuseOnScaleIn { get; set; }
         #endregion
         
         #region Parameter UpdateConfig_UpdateStrategy
@@ -415,6 +478,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             context.UpdateConfig_MaxUnavailable = this.UpdateConfig_MaxUnavailable;
             context.UpdateConfig_MaxUnavailablePercentage = this.UpdateConfig_MaxUnavailablePercentage;
             context.UpdateConfig_UpdateStrategy = this.UpdateConfig_UpdateStrategy;
+            context.WarmPoolConfig_Enabled = this.WarmPoolConfig_Enabled;
+            context.WarmPoolConfig_MaxGroupPreparedCapacity = this.WarmPoolConfig_MaxGroupPreparedCapacity;
+            context.WarmPoolConfig_MinSize = this.WarmPoolConfig_MinSize;
+            context.WarmPoolConfig_PoolState = this.WarmPoolConfig_PoolState;
+            context.WarmPoolConfig_ReuseOnScaleIn = this.WarmPoolConfig_ReuseOnScaleIn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -649,6 +717,65 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.UpdateConfig = null;
             }
             
+             // populate WarmPoolConfig
+            var requestWarmPoolConfigIsNull = true;
+            request.WarmPoolConfig = new Amazon.EKS.Model.WarmPoolConfig();
+            System.Boolean? requestWarmPoolConfig_warmPoolConfig_Enabled = null;
+            if (cmdletContext.WarmPoolConfig_Enabled != null)
+            {
+                requestWarmPoolConfig_warmPoolConfig_Enabled = cmdletContext.WarmPoolConfig_Enabled.Value;
+            }
+            if (requestWarmPoolConfig_warmPoolConfig_Enabled != null)
+            {
+                request.WarmPoolConfig.Enabled = requestWarmPoolConfig_warmPoolConfig_Enabled.Value;
+                requestWarmPoolConfigIsNull = false;
+            }
+            System.Int32? requestWarmPoolConfig_warmPoolConfig_MaxGroupPreparedCapacity = null;
+            if (cmdletContext.WarmPoolConfig_MaxGroupPreparedCapacity != null)
+            {
+                requestWarmPoolConfig_warmPoolConfig_MaxGroupPreparedCapacity = cmdletContext.WarmPoolConfig_MaxGroupPreparedCapacity.Value;
+            }
+            if (requestWarmPoolConfig_warmPoolConfig_MaxGroupPreparedCapacity != null)
+            {
+                request.WarmPoolConfig.MaxGroupPreparedCapacity = requestWarmPoolConfig_warmPoolConfig_MaxGroupPreparedCapacity.Value;
+                requestWarmPoolConfigIsNull = false;
+            }
+            System.Int32? requestWarmPoolConfig_warmPoolConfig_MinSize = null;
+            if (cmdletContext.WarmPoolConfig_MinSize != null)
+            {
+                requestWarmPoolConfig_warmPoolConfig_MinSize = cmdletContext.WarmPoolConfig_MinSize.Value;
+            }
+            if (requestWarmPoolConfig_warmPoolConfig_MinSize != null)
+            {
+                request.WarmPoolConfig.MinSize = requestWarmPoolConfig_warmPoolConfig_MinSize.Value;
+                requestWarmPoolConfigIsNull = false;
+            }
+            Amazon.EKS.WarmPoolState requestWarmPoolConfig_warmPoolConfig_PoolState = null;
+            if (cmdletContext.WarmPoolConfig_PoolState != null)
+            {
+                requestWarmPoolConfig_warmPoolConfig_PoolState = cmdletContext.WarmPoolConfig_PoolState;
+            }
+            if (requestWarmPoolConfig_warmPoolConfig_PoolState != null)
+            {
+                request.WarmPoolConfig.PoolState = requestWarmPoolConfig_warmPoolConfig_PoolState;
+                requestWarmPoolConfigIsNull = false;
+            }
+            System.Boolean? requestWarmPoolConfig_warmPoolConfig_ReuseOnScaleIn = null;
+            if (cmdletContext.WarmPoolConfig_ReuseOnScaleIn != null)
+            {
+                requestWarmPoolConfig_warmPoolConfig_ReuseOnScaleIn = cmdletContext.WarmPoolConfig_ReuseOnScaleIn.Value;
+            }
+            if (requestWarmPoolConfig_warmPoolConfig_ReuseOnScaleIn != null)
+            {
+                request.WarmPoolConfig.ReuseOnScaleIn = requestWarmPoolConfig_warmPoolConfig_ReuseOnScaleIn.Value;
+                requestWarmPoolConfigIsNull = false;
+            }
+             // determine if request.WarmPoolConfig should be set to null
+            if (requestWarmPoolConfigIsNull)
+            {
+                request.WarmPoolConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -722,6 +849,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Int32? UpdateConfig_MaxUnavailable { get; set; }
             public System.Int32? UpdateConfig_MaxUnavailablePercentage { get; set; }
             public Amazon.EKS.NodegroupUpdateStrategies UpdateConfig_UpdateStrategy { get; set; }
+            public System.Boolean? WarmPoolConfig_Enabled { get; set; }
+            public System.Int32? WarmPoolConfig_MaxGroupPreparedCapacity { get; set; }
+            public System.Int32? WarmPoolConfig_MinSize { get; set; }
+            public Amazon.EKS.WarmPoolState WarmPoolConfig_PoolState { get; set; }
+            public System.Boolean? WarmPoolConfig_ReuseOnScaleIn { get; set; }
             public System.Func<Amazon.EKS.Model.UpdateNodegroupConfigResponse, UpdateEKSNodegroupConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Update;
         }

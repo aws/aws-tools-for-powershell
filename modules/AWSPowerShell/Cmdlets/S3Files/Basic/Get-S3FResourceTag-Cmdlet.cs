@@ -23,49 +23,49 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.AccessAnalyzer;
-using Amazon.AccessAnalyzer.Model;
+using Amazon.S3Files;
+using Amazon.S3Files.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IAMAA
+namespace Amazon.PowerShell.Cmdlets.S3F
 {
     /// <summary>
-    /// Lists all policy preview jobs with optional filtering by job status or target ID.
-    /// Results are paginated for efficient retrieval of large result sets.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all tags for S3 Files resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IAMAAPolicyPreviewJobList")]
-    [OutputType("Amazon.AccessAnalyzer.Model.PolicyPreviewAnalysisReport")]
-    [AWSCmdlet("Calls the AWS IAM Access Analyzer ListPolicyPreviewJobs API operation.", Operation = new[] {"ListPolicyPreviewJobs"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsResponse))]
-    [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.PolicyPreviewAnalysisReport or Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsResponse",
-        "This cmdlet returns a collection of Amazon.AccessAnalyzer.Model.PolicyPreviewAnalysisReport objects.",
-        "The service call response (type Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "S3FResourceTag")]
+    [OutputType("Amazon.S3Files.Model.Tag")]
+    [AWSCmdlet("Calls the Amazon S3 Files ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.S3Files.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("Amazon.S3Files.Model.Tag or Amazon.S3Files.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of Amazon.S3Files.Model.Tag objects.",
+        "The service call response (type Amazon.S3Files.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetIAMAAPolicyPreviewJobListCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
+    public partial class GetS3FResourceTagCmdlet : AmazonS3FilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Filter
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>Optional filter criteria to narrow the list of returned jobs. You can filter by job
-        /// status or target ID. Maximum of one filter can be specified.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The ID or Amazon Resource Name (ARN) of the resource to list tags for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public System.Collections.Hashtable Filter { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single page. Minimum value is 1.</para>
+        /// <para>The maximum number of tags to return in a single response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -81,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token used for pagination of results. Use the token returned in the previous response
-        /// to retrieve the next page of results.</para>
+        /// <para>A pagination token returned from a previous call to continue listing tags.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -95,13 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnalysisReports'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsResponse).
-        /// Specifying the name of a property of type Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Files.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.S3Files.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AnalysisReports";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -130,16 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsResponse, GetIAMAAPolicyPreviewJobListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Files.Model.ListTagsForResourceResponse, GetS3FResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-            }
-            if (this.Filter != null)
-            {
-                context.Filter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Filter.Keys)
-                {
-                    context.Filter.Add((String)hashKey, (System.String)(this.Filter[hashKey]));
-                }
             }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -152,6 +143,13 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ResourceId = this.ResourceId;
+            #if MODULAR
+            if (this.ResourceId == null && ParameterWasBound(nameof(this.ResourceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsRequest();
+            var request = new Amazon.S3Files.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.Filter != null)
-            {
-                request.Filters = cmdletContext.Filter;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ResourceId != null)
+            {
+                request.ResourceId = cmdletContext.ResourceId;
             }
             
             // Initialize loop variant and commence piping
@@ -235,12 +233,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         #region AWS Service Operation Call
         
-        private Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsRequest request)
+        private Amazon.S3Files.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonS3Files client, Amazon.S3Files.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "ListPolicyPreviewJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Files", "ListTagsForResource");
             try
             {
-                return client.ListPolicyPreviewJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -257,11 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, System.String> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.AccessAnalyzer.Model.ListPolicyPreviewJobsResponse, GetIAMAAPolicyPreviewJobListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AnalysisReports;
+            public System.String ResourceId { get; set; }
+            public System.Func<Amazon.S3Files.Model.ListTagsForResourceResponse, GetS3FResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

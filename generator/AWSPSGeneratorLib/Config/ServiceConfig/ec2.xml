@@ -2254,6 +2254,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityManagerMonitoredTagKeys" OutputProperty="CapacityManagerTagKeys" Verb="Get" Noun="CapacityManagerMonitoredTagKey" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCapacityReservationUsage" OutputProperty="*" Verb="Get" Noun="CapacityReservationUsage" PipelineParameter="CapacityReservationId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
@@ -3271,6 +3275,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UnmonitorInstances" OutputProperty="InstanceMonitorings" Verb="Stop" Noun="InstanceMonitoring" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCapacityManagerMonitoredTagKeys" OutputProperty="CapacityManagerTagKeys" Verb="Update" Noun="CapacityManagerMonitoredTagKey" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

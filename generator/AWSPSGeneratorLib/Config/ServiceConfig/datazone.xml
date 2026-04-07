@@ -208,6 +208,7 @@
                 <Param Name="Props_SparkGlueProperties_NumberOfWorkers" NewName="SparkGlueProperties_NumberOfWorker" />
                 <Param Name="Props_SparkGlueProperties_PythonVirtualEnv" NewName="SparkGlueProperties_PythonVirtualEnv" />
                 <Param Name="Props_SparkGlueProperties_WorkerType" NewName="SparkGlueProperties_WorkerType" />
+                <Param Name="Props_SparkGlueProperties_GlueConnectionNames" NewName="SparkGlueProperties_GlueConnectionNames" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -23,64 +23,53 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.AccessAnalyzer;
-using Amazon.AccessAnalyzer.Model;
+using Amazon.S3Files;
+using Amazon.S3Files.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IAMAA
+namespace Amazon.PowerShell.Cmdlets.S3F
 {
     /// <summary>
-    /// Creates a policy preview configuration for your account. The configuration enables
-    /// IAM Access Analyzer to collect and store CloudTrail authorization events needed for
-    /// policy preview analysis.
+    /// Deletes the specified mount target. This operation is irreversible.
     /// </summary>
-    [Cmdlet("New", "IAMAAPolicyPreviewConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AccessAnalyzer.PolicyPreviewStatus")]
-    [AWSCmdlet("Calls the AWS IAM Access Analyzer CreatePolicyPreviewConfiguration API operation.", Operation = new[] {"CreatePolicyPreviewConfiguration"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.AccessAnalyzer.PolicyPreviewStatus or Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationResponse",
-        "This cmdlet returns an Amazon.AccessAnalyzer.PolicyPreviewStatus object.",
-        "The service call response (type Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "S3FMountTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon S3 Files DeleteMountTarget API operation.", Operation = new[] {"DeleteMountTarget"}, SelectReturnType = typeof(Amazon.S3Files.Model.DeleteMountTargetResponse))]
+    [AWSCmdletOutput("None or Amazon.S3Files.Model.DeleteMountTargetResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.S3Files.Model.DeleteMountTargetResponse) be returned by specifying '-Select *'."
     )]
-    public partial class NewIAMAAPolicyPreviewConfigurationCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
+    public partial class RemoveS3FMountTargetCmdlet : AmazonS3FilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Scope
+        #region Parameter MountTargetId
         /// <summary>
         /// <para>
-        /// <para>The scope of the policy preview configuration. Currently only <c>GLOBAL</c> is supported.</para>
+        /// <para>The ID of the mount target to delete.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.AccessAnalyzer.PolicyPreviewScope")]
-        public Amazon.AccessAnalyzer.PolicyPreviewScope Scope { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. Idempotency ensures that an API request completes only once. With an
-        /// idempotent request, if the original request completes successfully, subsequent retries
-        /// with the same client token return the result from the original successful request
-        /// and have no additional effect.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MountTargetId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Files.Model.DeleteMountTargetResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Status";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -102,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Scope), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IAMAAPolicyPreviewConfiguration (CreatePolicyPreviewConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MountTargetId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-S3FMountTarget (DeleteMountTarget)"))
             {
                 return;
             }
@@ -115,11 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationResponse, NewIAMAAPolicyPreviewConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Files.Model.DeleteMountTargetResponse, RemoveS3FMountTargetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ClientToken = this.ClientToken;
-            context.Scope = this.Scope;
+            context.MountTargetId = this.MountTargetId;
+            #if MODULAR
+            if (this.MountTargetId == null && ParameterWasBound(nameof(this.MountTargetId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MountTargetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,15 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationRequest();
+            var request = new Amazon.S3Files.Model.DeleteMountTargetRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.MountTargetId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.Scope != null)
-            {
-                request.Scope = cmdletContext.Scope;
+                request.MountTargetId = cmdletContext.MountTargetId;
             }
             
             CmdletOutput output;
@@ -177,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         #region AWS Service Operation Call
         
-        private Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationRequest request)
+        private Amazon.S3Files.Model.DeleteMountTargetResponse CallAWSServiceOperation(IAmazonS3Files client, Amazon.S3Files.Model.DeleteMountTargetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "CreatePolicyPreviewConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Files", "DeleteMountTarget");
             try
             {
-                return client.CreatePolicyPreviewConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteMountTargetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -199,10 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public Amazon.AccessAnalyzer.PolicyPreviewScope Scope { get; set; }
-            public System.Func<Amazon.AccessAnalyzer.Model.CreatePolicyPreviewConfigurationResponse, NewIAMAAPolicyPreviewConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Status;
+            public System.String MountTargetId { get; set; }
+            public System.Func<Amazon.S3Files.Model.DeleteMountTargetResponse, RemoveS3FMountTargetCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

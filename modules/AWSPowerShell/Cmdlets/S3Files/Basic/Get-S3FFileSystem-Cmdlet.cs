@@ -23,33 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.AccessAnalyzer;
-using Amazon.AccessAnalyzer.Model;
+using Amazon.S3Files;
+using Amazon.S3Files.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IAMAA
+namespace Amazon.PowerShell.Cmdlets.S3F
 {
     /// <summary>
-    /// Cancels an in-progress policy preview job. Jobs that are already completed, failed,
-    /// or canceled cannot be canceled.
+    /// Returns resource information for the specified S3 File System including status, configuration,
+    /// and metadata.
     /// </summary>
-    [Cmdlet("Stop", "IAMAAPolicyPreviewJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS IAM Access Analyzer CancelPolicyPreviewJob API operation.", Operation = new[] {"CancelPolicyPreviewJob"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.CancelPolicyPreviewJobResponse))]
-    [AWSCmdletOutput("None or Amazon.AccessAnalyzer.Model.CancelPolicyPreviewJobResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AccessAnalyzer.Model.CancelPolicyPreviewJobResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "S3FFileSystem")]
+    [OutputType("Amazon.S3Files.Model.GetFileSystemResponse")]
+    [AWSCmdlet("Calls the Amazon S3 Files GetFileSystem API operation.", Operation = new[] {"GetFileSystem"}, SelectReturnType = typeof(Amazon.S3Files.Model.GetFileSystemResponse))]
+    [AWSCmdletOutput("Amazon.S3Files.Model.GetFileSystemResponse",
+        "This cmdlet returns an Amazon.S3Files.Model.GetFileSystemResponse object containing multiple properties."
     )]
-    public partial class StopIAMAAPolicyPreviewJobCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
+    public partial class GetS3FFileSystemCmdlet : AmazonS3FilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter JobId
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the policy preview job to cancel.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the S3 File System to retrieve information
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,27 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobId { get; set; }
+        public System.String FileSystemId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.CancelPolicyPreviewJobResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Files.Model.GetFileSystemResponse).
+        /// Specifying the name of a property of type Amazon.S3Files.Model.GetFileSystemResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -92,12 +83,6 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-IAMAAPolicyPreviewJob (CancelPolicyPreviewJob)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -105,14 +90,14 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.CancelPolicyPreviewJobResponse, StopIAMAAPolicyPreviewJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Files.Model.GetFileSystemResponse, GetS3FFileSystemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.JobId = this.JobId;
+            context.FileSystemId = this.FileSystemId;
             #if MODULAR
-            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
+            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -129,11 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AccessAnalyzer.Model.CancelPolicyPreviewJobRequest();
+            var request = new Amazon.S3Files.Model.GetFileSystemRequest();
             
-            if (cmdletContext.JobId != null)
+            if (cmdletContext.FileSystemId != null)
             {
-                request.JobId = cmdletContext.JobId;
+                request.FileSystemId = cmdletContext.FileSystemId;
             }
             
             CmdletOutput output;
@@ -168,12 +153,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         #region AWS Service Operation Call
         
-        private Amazon.AccessAnalyzer.Model.CancelPolicyPreviewJobResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.CancelPolicyPreviewJobRequest request)
+        private Amazon.S3Files.Model.GetFileSystemResponse CallAWSServiceOperation(IAmazonS3Files client, Amazon.S3Files.Model.GetFileSystemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "CancelPolicyPreviewJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Files", "GetFileSystem");
             try
             {
-                return client.CancelPolicyPreviewJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetFileSystemAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -190,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobId { get; set; }
-            public System.Func<Amazon.AccessAnalyzer.Model.CancelPolicyPreviewJobResponse, StopIAMAAPolicyPreviewJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String FileSystemId { get; set; }
+            public System.Func<Amazon.S3Files.Model.GetFileSystemResponse, GetS3FFileSystemCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

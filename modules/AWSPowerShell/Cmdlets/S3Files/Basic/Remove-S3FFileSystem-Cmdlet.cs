@@ -23,38 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.AccessAnalyzer;
-using Amazon.AccessAnalyzer.Model;
+using Amazon.S3Files;
+using Amazon.S3Files.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IAMAA
+namespace Amazon.PowerShell.Cmdlets.S3F
 {
     /// <summary>
-    /// Retrieves the metadata, parameters, and status for a policy preview job. Use this
-    /// operation to monitor job progress and retrieve the Amazon S3 location of the completed
-    /// analysis report.
-    /// 
-    ///  <note><para>
-    /// Job data has a time-to-live (TTL) of 14 days and will be deleted after expiration.
-    /// </para></note>
+    /// Deletes an S3 File System. You can optionally force deletion of a file system that
+    /// has pending export data.
     /// </summary>
-    [Cmdlet("Get", "IAMAAPolicyPreviewJob")]
-    [OutputType("Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobResponse")]
-    [AWSCmdlet("Calls the AWS IAM Access Analyzer GetPolicyPreviewJob API operation.", Operation = new[] {"GetPolicyPreviewJob"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobResponse))]
-    [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobResponse",
-        "This cmdlet returns an Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobResponse object containing multiple properties."
+    [Cmdlet("Remove", "S3FFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon S3 Files DeleteFileSystem API operation.", Operation = new[] {"DeleteFileSystem"}, SelectReturnType = typeof(Amazon.S3Files.Model.DeleteFileSystemResponse))]
+    [AWSCmdletOutput("None or Amazon.S3Files.Model.DeleteFileSystemResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.S3Files.Model.DeleteFileSystemResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetIAMAAPolicyPreviewJobCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
+    public partial class RemoveS3FFileSystemCmdlet : AmazonS3FilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter JobId
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the policy preview job to retrieve. This is the job ID returned
-        /// by <c>StartPolicyPreviewJob</c>.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the S3 File System to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,18 +60,40 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobId { get; set; }
+        public System.String FileSystemId { get; set; }
+        #endregion
+        
+        #region Parameter ForceDelete
+        /// <summary>
+        /// <para>
+        /// <para>If true, allows deletion of a file system that contains data pending export to S3.
+        /// If false (the default), the deletion will fail if there is data that has not yet been
+        /// exported to the S3 bucket. Use this parameter with caution as it may result in data
+        /// loss.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceDelete { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobResponse).
-        /// Specifying the name of a property of type Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Files.Model.DeleteFileSystemResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -88,6 +105,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileSystemId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-S3FFileSystem (DeleteFileSystem)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -95,16 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobResponse, GetIAMAAPolicyPreviewJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Files.Model.DeleteFileSystemResponse, RemoveS3FFileSystemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.JobId = this.JobId;
+            context.FileSystemId = this.FileSystemId;
             #if MODULAR
-            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
+            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ForceDelete = this.ForceDelete;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,11 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobRequest();
+            var request = new Amazon.S3Files.Model.DeleteFileSystemRequest();
             
-            if (cmdletContext.JobId != null)
+            if (cmdletContext.FileSystemId != null)
             {
-                request.JobId = cmdletContext.JobId;
+                request.FileSystemId = cmdletContext.FileSystemId;
+            }
+            if (cmdletContext.ForceDelete != null)
+            {
+                request.ForceDelete = cmdletContext.ForceDelete.Value;
             }
             
             CmdletOutput output;
@@ -158,12 +186,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         #region AWS Service Operation Call
         
-        private Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobRequest request)
+        private Amazon.S3Files.Model.DeleteFileSystemResponse CallAWSServiceOperation(IAmazonS3Files client, Amazon.S3Files.Model.DeleteFileSystemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "GetPolicyPreviewJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Files", "DeleteFileSystem");
             try
             {
-                return client.GetPolicyPreviewJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteFileSystemAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -180,9 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobId { get; set; }
-            public System.Func<Amazon.AccessAnalyzer.Model.GetPolicyPreviewJobResponse, GetIAMAAPolicyPreviewJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String FileSystemId { get; set; }
+            public System.Boolean? ForceDelete { get; set; }
+            public System.Func<Amazon.S3Files.Model.DeleteFileSystemResponse, RemoveS3FFileSystemCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

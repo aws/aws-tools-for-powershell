@@ -121,13 +121,6 @@ $IAMAA_Completers = {
             break
         }
 
-        # Amazon.AccessAnalyzer.PolicyPreviewScope
-        "New-IAMAAPolicyPreviewConfiguration/Scope"
-        {
-            $v = "GLOBAL"
-            break
-        }
-
         # Amazon.AccessAnalyzer.PolicyType
         "Use-IAMAAPolicyValidation/PolicyType"
         {
@@ -171,7 +164,6 @@ $IAMAA_map = @{
     "Locale"=@("Use-IAMAAPolicyValidation")
     "PolicyType"=@("Test-IAMAAAccessNotGranted","Test-IAMAANoNewAccess","Use-IAMAAPolicyValidation")
     "ResourceType"=@("Get-IAMAAAnalyzedResourceList","Test-IAMAANoPublicAccess")
-    "Scope"=@("New-IAMAAPolicyPreviewConfiguration")
     "Sort_OrderBy"=@("Get-IAMAAFindingList","Get-IAMAAFindingsV2List")
     "Status"=@("Update-IAMAAFinding")
     "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer")
@@ -230,17 +222,14 @@ $IAMAA_SelectCompleters = {
 $IAMAA_SelectMap = @{
     "Select"=@("Start-IAMAAArchiveRule",
                "Stop-IAMAAPolicyGeneration",
-               "Stop-IAMAAPolicyPreviewJob",
                "Test-IAMAAAccessNotGranted",
                "Test-IAMAANoNewAccess",
                "Test-IAMAANoPublicAccess",
                "New-IAMAAAccessPreview",
                "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
-               "New-IAMAAPolicyPreviewConfiguration",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",
-               "Remove-IAMAAPolicyPreviewConfiguration",
                "Start-IAMAAFindingRecommendation",
                "Get-IAMAAAccessPreview",
                "Get-IAMAAAnalyzedResource",
@@ -251,8 +240,6 @@ $IAMAA_SelectMap = @{
                "Get-IAMAAFindingsStatistic",
                "Get-IAMAAFindingV2",
                "Get-IAMAAGeneratedPolicy",
-               "Get-IAMAAPolicyPreviewConfiguration",
-               "Get-IAMAAPolicyPreviewJob",
                "Get-IAMAAAccessPreviewFindingList",
                "Get-IAMAAAccessPreviewList",
                "Get-IAMAAAnalyzedResourceList",
@@ -261,10 +248,8 @@ $IAMAA_SelectMap = @{
                "Get-IAMAAFindingList",
                "Get-IAMAAFindingsV2List",
                "Get-IAMAAPolicyGenerationList",
-               "Get-IAMAAPolicyPreviewJobList",
                "Get-IAMAAResourceTag",
                "Start-IAMAAPolicyGeneration",
-               "Start-IAMAAPolicyPreviewJob",
                "Start-IAMAAResourceScan",
                "Add-IAMAAResourceTag",
                "Remove-IAMAAResourceTag",

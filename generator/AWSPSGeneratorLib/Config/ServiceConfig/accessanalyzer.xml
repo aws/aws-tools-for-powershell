@@ -28,10 +28,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelPolicyPreviewJob" Verb="Stop" Noun="PolicyPreviewJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="CheckAccessNotGranted" OutputProperty="*" Verb="Test" Noun="AccessNotGranted" IgnoreSupportsShouldProcess="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -60,19 +56,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePolicyPreviewConfiguration" OutputProperty="Status" Verb="New" Noun="PolicyPreviewConfiguration" ShouldProcessTarget="Scope" PipelineParameter="Scope" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAnalyzer" Verb="Remove" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteArchiveRule" Verb="Remove" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DeletePolicyPreviewConfiguration" Verb="Remove" Noun="PolicyPreviewConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -116,14 +104,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPolicyPreviewConfiguration" OutputProperty="PolicyPreviewConfigurations" Verb="Get" Noun="PolicyPreviewConfiguration" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="GetPolicyPreviewJob" OutputProperty="*" Verb="Get" Noun="PolicyPreviewJob" PipelineParameter="JobId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessPreviewFindings" OutputProperty="Findings" Verb="Get" Noun="AccessPreviewFindingList" PipelineParameter="AccessPreviewId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -156,19 +136,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicyPreviewJobs" OutputProperty="AnalysisReports" Verb="Get" Noun="PolicyPreviewJobList" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartPolicyGeneration" OutputProperty="JobId" Verb="Start" Noun="PolicyGeneration" ShouldProcessTarget="PolicyGenerationDetails_PrincipalArn" PipelineParameter="PolicyGenerationDetails_PrincipalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="StartPolicyPreviewJob" OutputProperty="JobId" Verb="Start" Noun="PolicyPreviewJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

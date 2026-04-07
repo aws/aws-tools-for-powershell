@@ -23,37 +23,54 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.AccessAnalyzer;
-using Amazon.AccessAnalyzer.Model;
+using Amazon.S3Files;
+using Amazon.S3Files.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IAMAA
+namespace Amazon.PowerShell.Cmdlets.S3F
 {
     /// <summary>
-    /// Retrieves the policy preview configuration for your account.
+    /// Returns the IAM resource policy of an S3 File System.
     /// </summary>
-    [Cmdlet("Get", "IAMAAPolicyPreviewConfiguration")]
-    [OutputType("Amazon.AccessAnalyzer.Model.PolicyPreviewConfiguration")]
-    [AWSCmdlet("Calls the AWS IAM Access Analyzer GetPolicyPreviewConfiguration API operation.", Operation = new[] {"GetPolicyPreviewConfiguration"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.PolicyPreviewConfiguration or Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationResponse",
-        "This cmdlet returns a collection of Amazon.AccessAnalyzer.Model.PolicyPreviewConfiguration objects.",
-        "The service call response (type Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "S3FFileSystemPolicy")]
+    [OutputType("Amazon.S3Files.Model.GetFileSystemPolicyResponse")]
+    [AWSCmdlet("Calls the Amazon S3 Files GetFileSystemPolicy API operation.", Operation = new[] {"GetFileSystemPolicy"}, SelectReturnType = typeof(Amazon.S3Files.Model.GetFileSystemPolicyResponse))]
+    [AWSCmdletOutput("Amazon.S3Files.Model.GetFileSystemPolicyResponse",
+        "This cmdlet returns an Amazon.S3Files.Model.GetFileSystemPolicyResponse object containing multiple properties."
     )]
-    public partial class GetIAMAAPolicyPreviewConfigurationCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
+    public partial class GetS3FFileSystemPolicyCmdlet : AmazonS3FilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter FileSystemId
+        /// <summary>
+        /// <para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the S3 File System whose resource policy to
+        /// retrieve.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String FileSystemId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PolicyPreviewConfigurations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Files.Model.GetFileSystemPolicyResponse).
+        /// Specifying the name of a property of type Amazon.S3Files.Model.GetFileSystemPolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PolicyPreviewConfigurations";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -72,9 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationResponse, GetIAMAAPolicyPreviewConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Files.Model.GetFileSystemPolicyResponse, GetS3FFileSystemPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.FileSystemId = this.FileSystemId;
+            #if MODULAR
+            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -89,8 +113,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationRequest();
+            var request = new Amazon.S3Files.Model.GetFileSystemPolicyRequest();
             
+            if (cmdletContext.FileSystemId != null)
+            {
+                request.FileSystemId = cmdletContext.FileSystemId;
+            }
             
             CmdletOutput output;
             
@@ -124,12 +152,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         #region AWS Service Operation Call
         
-        private Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationRequest request)
+        private Amazon.S3Files.Model.GetFileSystemPolicyResponse CallAWSServiceOperation(IAmazonS3Files client, Amazon.S3Files.Model.GetFileSystemPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "GetPolicyPreviewConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Files", "GetFileSystemPolicy");
             try
             {
-                return client.GetPolicyPreviewConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetFileSystemPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -146,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.AccessAnalyzer.Model.GetPolicyPreviewConfigurationResponse, GetIAMAAPolicyPreviewConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PolicyPreviewConfigurations;
+            public System.String FileSystemId { get; set; }
+            public System.Func<Amazon.S3Files.Model.GetFileSystemPolicyResponse, GetS3FFileSystemPolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

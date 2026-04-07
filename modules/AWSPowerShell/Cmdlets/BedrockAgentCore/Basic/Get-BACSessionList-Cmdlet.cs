@@ -35,6 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// 
     ///  
     /// <para>
+    /// Empty sessions are automatically deleted after one day.
+    /// </para><para>
     /// To use this operation, you must have the <c>bedrock-agentcore:ListSessions</c> permission.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

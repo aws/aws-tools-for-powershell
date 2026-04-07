@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FileSystemConfig
         /// <summary>
         /// <para>
-        /// <para>Connection settings for an Amazon EFS file system.</para><para />
+        /// <para>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

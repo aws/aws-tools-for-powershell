@@ -122,6 +122,16 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.MouseButton
+        {
+            ($_ -eq "Invoke-BACBrowser/Action_MouseClick_Button") -Or
+            ($_ -eq "Invoke-BACBrowser/Action_MouseDrag_Button")
+        }
+        {
+            $v = "LEFT","MIDDLE","RIGHT"
+            break
+        }
+
         # Amazon.BedrockAgentCore.Oauth2FlowType
         "Get-BACResourceOauth2Token/Oauth2Flow"
         {
@@ -133,6 +143,13 @@ $BAC_Completers = {
         "Invoke-BACCodeInterpreter/Arguments_Language"
         {
             $v = "javascript","python","typescript"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.ScreenshotFormat
+        "Invoke-BACBrowser/Action_Screenshot_Format"
+        {
+            $v = "PNG"
             break
         }
 
@@ -152,6 +169,9 @@ $BAC_Completers = {
 }
 
 $BAC_map = @{
+    "Action_MouseClick_Button"=@("Invoke-BACBrowser")
+    "Action_MouseDrag_Button"=@("Invoke-BACBrowser")
+    "Action_Screenshot_Format"=@("Invoke-BACBrowser")
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
@@ -232,6 +252,7 @@ $BAC_SelectMap = @{
                "Get-BACWorkloadAccessTokenForUserId",
                "Invoke-BACAgentRuntime",
                "Invoke-BACAgentRuntimeCommand",
+               "Invoke-BACBrowser",
                "Invoke-BACCodeInterpreter",
                "Get-BACActorList",
                "Get-BACBrowserSessionList",

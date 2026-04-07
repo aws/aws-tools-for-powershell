@@ -121,13 +121,6 @@ $IAMAA_Completers = {
             break
         }
 
-        # Amazon.AccessAnalyzer.PolicyPreviewScope
-        "New-IAMAAPolicyPreviewConfiguration/Scope"
-        {
-            $v = "GLOBAL"
-            break
-        }
-
         # Amazon.AccessAnalyzer.PolicyType
         "Use-IAMAAPolicyValidation/PolicyType"
         {
@@ -171,7 +164,6 @@ $IAMAA_map = @{
     "Locale"=@("Use-IAMAAPolicyValidation")
     "PolicyType"=@("Test-IAMAAAccessNotGranted","Test-IAMAANoNewAccess","Use-IAMAAPolicyValidation")
     "ResourceType"=@("Get-IAMAAAnalyzedResourceList","Test-IAMAANoPublicAccess")
-    "Scope"=@("New-IAMAAPolicyPreviewConfiguration")
     "Sort_OrderBy"=@("Get-IAMAAFindingList","Get-IAMAAFindingsV2List")
     "Status"=@("Update-IAMAAFinding")
     "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer")
@@ -230,17 +222,14 @@ $IAMAA_SelectCompleters = {
 $IAMAA_SelectMap = @{
     "Select"=@("Start-IAMAAArchiveRule",
                "Stop-IAMAAPolicyGeneration",
-               "Stop-IAMAAPolicyPreviewJob",
                "Test-IAMAAAccessNotGranted",
                "Test-IAMAANoNewAccess",
                "Test-IAMAANoPublicAccess",
                "New-IAMAAAccessPreview",
                "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
-               "New-IAMAAPolicyPreviewConfiguration",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",
-               "Remove-IAMAAPolicyPreviewConfiguration",
                "Start-IAMAAFindingRecommendation",
                "Get-IAMAAAccessPreview",
                "Get-IAMAAAnalyzedResource",
@@ -251,8 +240,6 @@ $IAMAA_SelectMap = @{
                "Get-IAMAAFindingsStatistic",
                "Get-IAMAAFindingV2",
                "Get-IAMAAGeneratedPolicy",
-               "Get-IAMAAPolicyPreviewConfiguration",
-               "Get-IAMAAPolicyPreviewJob",
                "Get-IAMAAAccessPreviewFindingList",
                "Get-IAMAAAccessPreviewList",
                "Get-IAMAAAnalyzedResourceList",
@@ -261,10 +248,8 @@ $IAMAA_SelectMap = @{
                "Get-IAMAAFindingList",
                "Get-IAMAAFindingsV2List",
                "Get-IAMAAPolicyGenerationList",
-               "Get-IAMAAPolicyPreviewJobList",
                "Get-IAMAAResourceTag",
                "Start-IAMAAPolicyGeneration",
-               "Start-IAMAAPolicyPreviewJob",
                "Start-IAMAAResourceScan",
                "Add-IAMAAResourceTag",
                "Remove-IAMAAResourceTag",
@@ -8695,6 +8680,16 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.MouseButton
+        {
+            ($_ -eq "Invoke-BACBrowser/Action_MouseClick_Button") -Or
+            ($_ -eq "Invoke-BACBrowser/Action_MouseDrag_Button")
+        }
+        {
+            $v = "LEFT","MIDDLE","RIGHT"
+            break
+        }
+
         # Amazon.BedrockAgentCore.Oauth2FlowType
         "Get-BACResourceOauth2Token/Oauth2Flow"
         {
@@ -8706,6 +8701,13 @@ $BAC_Completers = {
         "Invoke-BACCodeInterpreter/Arguments_Language"
         {
             $v = "javascript","python","typescript"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.ScreenshotFormat
+        "Invoke-BACBrowser/Action_Screenshot_Format"
+        {
+            $v = "PNG"
             break
         }
 
@@ -8725,6 +8727,9 @@ $BAC_Completers = {
 }
 
 $BAC_map = @{
+    "Action_MouseClick_Button"=@("Invoke-BACBrowser")
+    "Action_MouseDrag_Button"=@("Invoke-BACBrowser")
+    "Action_Screenshot_Format"=@("Invoke-BACBrowser")
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
@@ -8805,6 +8810,7 @@ $BAC_SelectMap = @{
                "Get-BACWorkloadAccessTokenForUserId",
                "Invoke-BACAgentRuntime",
                "Invoke-BACAgentRuntimeCommand",
+               "Invoke-BACBrowser",
                "Invoke-BACCodeInterpreter",
                "Get-BACActorList",
                "Get-BACBrowserSessionList",
@@ -10151,7 +10157,7 @@ $BRKT_Completers = {
         # Amazon.Braket.InstanceType
         "New-BRKTJob/InstanceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.xlarge"
             break
         }
 
@@ -30461,6 +30467,7 @@ $EC2_SelectMap = @{
                "Get-EC2CapacityManagerAttribute",
                "Get-EC2CapacityManagerMetricData",
                "Get-EC2CapacityManagerMetricDimension",
+               "Get-EC2CapacityManagerMonitoredTagKey",
                "Get-EC2CapacityReservationUsage",
                "Get-EC2CoipPoolUsage",
                "Get-EC2ConsoleOutput",
@@ -30678,6 +30685,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2PrivateNatGatewayAddress",
                "Unlock-EC2Snapshot",
                "Stop-EC2InstanceMonitoring",
+               "Update-EC2CapacityManagerMonitoredTagKey",
                "Update-EC2CapacityManagerOrganizationsAccess",
                "Update-EC2InterruptibleCapacityReservationAllocation",
                "Update-EC2SecurityGroupRuleEgressDescription",
@@ -31728,6 +31736,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.WarmPoolState
+        {
+            ($_ -eq "New-EKSNodegroup/WarmPoolConfig_PoolState") -Or
+            ($_ -eq "Update-EKSNodegroupConfig/WarmPoolConfig_PoolState")
+        }
+        {
+            $v = "HIBERNATED","RUNNING","STOPPED"
+            break
+        }
+
 
     }
 
@@ -31753,6 +31771,7 @@ $EKS_map = @{
     "UpdateConfig_UpdateStrategy"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
     "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
     "VersionStatus"=@("Get-EKSClusterVersion")
+    "WarmPoolConfig_PoolState"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
 }
 
 _awsArgumentCompleterRegistration $EKS_Completers $EKS_map
@@ -71688,6 +71707,13 @@ $RTB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RTBFabric.GatewayType
+        "New-RTBResponderGateway/GatewayType"
+        {
+            $v = "EXTERNAL","INTERNAL"
+            break
+        }
+
         # Amazon.RTBFabric.Protocol
         {
             ($_ -eq "New-RTBResponderGateway/Protocol") -Or
@@ -71707,6 +71733,7 @@ $RTB_Completers = {
 }
 
 $RTB_map = @{
+    "GatewayType"=@("New-RTBResponderGateway")
     "Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
 }
 
@@ -73162,6 +73189,107 @@ $S3C_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $S3C_SelectCompleters $S3C_SelectMap
+# Argument completions for service Amazon S3 Files
+
+
+$S3F_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.S3Files.IpAddressType
+        "New-S3FMountTarget/IpAddressType"
+        {
+            $v = "DUAL_STACK","IPV4_ONLY","IPV6_ONLY"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$S3F_map = @{
+    "IpAddressType"=@("New-S3FMountTarget")
+}
+
+_awsArgumentCompleterRegistration $S3F_Completers $S3F_map
+
+$S3F_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.S3F.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$S3F_SelectMap = @{
+    "Select"=@("New-S3FAccessPoint",
+               "New-S3FFileSystem",
+               "New-S3FMountTarget",
+               "Remove-S3FAccessPoint",
+               "Remove-S3FFileSystem",
+               "Remove-S3FFileSystemPolicy",
+               "Remove-S3FMountTarget",
+               "Get-S3FAccessPoint",
+               "Get-S3FFileSystem",
+               "Get-S3FFileSystemPolicy",
+               "Get-S3FMountTarget",
+               "Get-S3FSynchronizationConfiguration",
+               "Get-S3FAccessPointList",
+               "Get-S3FFileSystemList",
+               "Get-S3FMountTargetList",
+               "Get-S3FResourceTag",
+               "Write-S3FFileSystemPolicy",
+               "Write-S3FSynchronizationConfiguration",
+               "Add-S3FResourceTag",
+               "Remove-S3FResourceTag",
+               "Update-S3FMountTarget")
+}
+
+_awsArgumentCompleterRegistration $S3F_SelectCompleters $S3F_SelectMap
 # Argument completions for service Amazon S3 Outposts
 
 

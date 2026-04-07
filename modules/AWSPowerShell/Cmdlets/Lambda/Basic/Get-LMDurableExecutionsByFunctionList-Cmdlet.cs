@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter DurableExecutionName
         /// <summary>
         /// <para>
-        /// <para>Filter executions by name. Only executions with names that contain this string are
+        /// <para>Filter executions by name. Only executions with names that matches this string are
         /// returned.</para>
         /// </para>
         /// </summary>

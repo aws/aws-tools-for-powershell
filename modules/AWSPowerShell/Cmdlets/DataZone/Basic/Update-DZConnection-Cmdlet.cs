@@ -108,6 +108,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String SparkEmrProperties_ComputeArn { get; set; }
         #endregion
         
+        #region Parameter Configuration
+        /// <summary>
+        /// <para>
+        /// <para>The configurations of the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configurations")]
+        public Amazon.DataZone.Model.Configuration[] Configuration { get; set; }
+        #endregion
+        
         #region Parameter GlueConnectionInput_ConnectionProperty
         /// <summary>
         /// <para>
@@ -342,6 +357,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String SparkEmrProperties_PythonVirtualEnv { get; set; }
         #endregion
         
+        #region Parameter Props_S3Properties_RegisterS3AccessGrantLocation
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to register the Amazon S3 Access Grant location.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Props_S3Properties_RegisterS3AccessGrantLocation { get; set; }
+        #endregion
+        
         #region Parameter SparkEmrProperties_RuntimeRole
         /// <summary>
         /// <para>
@@ -525,6 +550,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.AwsLocation_AwsAccountId = this.AwsLocation_AwsAccountId;
             context.AwsLocation_AwsRegion = this.AwsLocation_AwsRegion;
             context.AwsLocation_IamConnectionId = this.AwsLocation_IamConnectionId;
+            if (this.Configuration != null)
+            {
+                context.Configuration = new List<Amazon.DataZone.Model.Configuration>(this.Configuration);
+            }
             context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
@@ -568,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.RedshiftProperties_Port = this.RedshiftProperties_Port;
             context.Storage_ClusterName = this.Storage_ClusterName;
             context.Storage_WorkgroupName = this.Storage_WorkgroupName;
+            context.Props_S3Properties_RegisterS3AccessGrantLocation = this.Props_S3Properties_RegisterS3AccessGrantLocation;
             context.S3Properties_S3AccessGrantLocationId = this.S3Properties_S3AccessGrantLocationId;
             context.S3Properties_S3Uri = this.S3Properties_S3Uri;
             context.SparkEmrProperties_ComputeArn = this.SparkEmrProperties_ComputeArn;
@@ -642,6 +672,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestAwsLocationIsNull)
             {
                 request.AwsLocation = null;
+            }
+            if (cmdletContext.Configuration != null)
+            {
+                request.Configurations = cmdletContext.Configuration;
             }
             if (cmdletContext.Description != null)
             {
@@ -844,41 +878,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 request.Props.MlflowProperties = requestProps_props_MlflowProperties;
                 requestPropsIsNull = false;
             }
-            Amazon.DataZone.Model.S3PropertiesPatch requestProps_props_S3Properties = null;
-            
-             // populate S3Properties
-            var requestProps_props_S3PropertiesIsNull = true;
-            requestProps_props_S3Properties = new Amazon.DataZone.Model.S3PropertiesPatch();
-            System.String requestProps_props_S3Properties_s3Properties_S3AccessGrantLocationId = null;
-            if (cmdletContext.S3Properties_S3AccessGrantLocationId != null)
-            {
-                requestProps_props_S3Properties_s3Properties_S3AccessGrantLocationId = cmdletContext.S3Properties_S3AccessGrantLocationId;
-            }
-            if (requestProps_props_S3Properties_s3Properties_S3AccessGrantLocationId != null)
-            {
-                requestProps_props_S3Properties.S3AccessGrantLocationId = requestProps_props_S3Properties_s3Properties_S3AccessGrantLocationId;
-                requestProps_props_S3PropertiesIsNull = false;
-            }
-            System.String requestProps_props_S3Properties_s3Properties_S3Uri = null;
-            if (cmdletContext.S3Properties_S3Uri != null)
-            {
-                requestProps_props_S3Properties_s3Properties_S3Uri = cmdletContext.S3Properties_S3Uri;
-            }
-            if (requestProps_props_S3Properties_s3Properties_S3Uri != null)
-            {
-                requestProps_props_S3Properties.S3Uri = requestProps_props_S3Properties_s3Properties_S3Uri;
-                requestProps_props_S3PropertiesIsNull = false;
-            }
-             // determine if requestProps_props_S3Properties should be set to null
-            if (requestProps_props_S3PropertiesIsNull)
-            {
-                requestProps_props_S3Properties = null;
-            }
-            if (requestProps_props_S3Properties != null)
-            {
-                request.Props.S3Properties = requestProps_props_S3Properties;
-                requestPropsIsNull = false;
-            }
             Amazon.DataZone.Model.AmazonQPropertiesPatch requestProps_props_AmazonQProperties = null;
             
              // populate AmazonQProperties
@@ -922,6 +921,51 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_AmazonQProperties != null)
             {
                 request.Props.AmazonQProperties = requestProps_props_AmazonQProperties;
+                requestPropsIsNull = false;
+            }
+            Amazon.DataZone.Model.S3PropertiesPatch requestProps_props_S3Properties = null;
+            
+             // populate S3Properties
+            var requestProps_props_S3PropertiesIsNull = true;
+            requestProps_props_S3Properties = new Amazon.DataZone.Model.S3PropertiesPatch();
+            System.Boolean? requestProps_props_S3Properties_props_S3Properties_RegisterS3AccessGrantLocation = null;
+            if (cmdletContext.Props_S3Properties_RegisterS3AccessGrantLocation != null)
+            {
+                requestProps_props_S3Properties_props_S3Properties_RegisterS3AccessGrantLocation = cmdletContext.Props_S3Properties_RegisterS3AccessGrantLocation.Value;
+            }
+            if (requestProps_props_S3Properties_props_S3Properties_RegisterS3AccessGrantLocation != null)
+            {
+                requestProps_props_S3Properties.RegisterS3AccessGrantLocation = requestProps_props_S3Properties_props_S3Properties_RegisterS3AccessGrantLocation.Value;
+                requestProps_props_S3PropertiesIsNull = false;
+            }
+            System.String requestProps_props_S3Properties_s3Properties_S3AccessGrantLocationId = null;
+            if (cmdletContext.S3Properties_S3AccessGrantLocationId != null)
+            {
+                requestProps_props_S3Properties_s3Properties_S3AccessGrantLocationId = cmdletContext.S3Properties_S3AccessGrantLocationId;
+            }
+            if (requestProps_props_S3Properties_s3Properties_S3AccessGrantLocationId != null)
+            {
+                requestProps_props_S3Properties.S3AccessGrantLocationId = requestProps_props_S3Properties_s3Properties_S3AccessGrantLocationId;
+                requestProps_props_S3PropertiesIsNull = false;
+            }
+            System.String requestProps_props_S3Properties_s3Properties_S3Uri = null;
+            if (cmdletContext.S3Properties_S3Uri != null)
+            {
+                requestProps_props_S3Properties_s3Properties_S3Uri = cmdletContext.S3Properties_S3Uri;
+            }
+            if (requestProps_props_S3Properties_s3Properties_S3Uri != null)
+            {
+                requestProps_props_S3Properties.S3Uri = requestProps_props_S3Properties_s3Properties_S3Uri;
+                requestProps_props_S3PropertiesIsNull = false;
+            }
+             // determine if requestProps_props_S3Properties should be set to null
+            if (requestProps_props_S3PropertiesIsNull)
+            {
+                requestProps_props_S3Properties = null;
+            }
+            if (requestProps_props_S3Properties != null)
+            {
+                request.Props.S3Properties = requestProps_props_S3Properties;
                 requestPropsIsNull = false;
             }
             Amazon.DataZone.Model.RedshiftPropertiesPatch requestProps_props_RedshiftProperties = null;
@@ -1273,6 +1317,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String AwsLocation_AwsAccountId { get; set; }
             public System.String AwsLocation_AwsRegion { get; set; }
             public System.String AwsLocation_IamConnectionId { get; set; }
+            public List<Amazon.DataZone.Model.Configuration> Configuration { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }
@@ -1297,6 +1342,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.Int32? RedshiftProperties_Port { get; set; }
             public System.String Storage_ClusterName { get; set; }
             public System.String Storage_WorkgroupName { get; set; }
+            public System.Boolean? Props_S3Properties_RegisterS3AccessGrantLocation { get; set; }
             public System.String S3Properties_S3AccessGrantLocationId { get; set; }
             public System.String S3Properties_S3Uri { get; set; }
             public System.String SparkEmrProperties_ComputeArn { get; set; }
