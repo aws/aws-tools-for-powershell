@@ -808,6 +808,9 @@
     <Reference Include="AWSSDK.MarketplaceDeployment">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MarketplaceDeployment.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MarketplaceDiscovery">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MarketplaceDiscovery.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MarketplaceEntitlementService.dll</HintPath>
     </Reference>
@@ -2073,6 +2076,9 @@
     </Reference>
     <Reference Include="AWSSDK.MarketplaceDeployment">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceDeployment.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MarketplaceDiscovery">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceDiscovery.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceEntitlementService.dll</HintPath>

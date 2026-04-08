@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.227.0",
+    "ProductVersion"    : "4.0.228.0",
     "CoreVersion"       : "4.0.3.28",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -484,7 +484,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "4.0.12.7",
+            "Version" : "4.0.13.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.28"
@@ -836,7 +836,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "4.0.18.1",
+            "Version" : "4.0.19.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.28"
@@ -1284,7 +1284,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "4.0.10.20",
+            "Version" : "4.0.11.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.28"
@@ -1604,7 +1604,7 @@
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "4.0.5.0",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.28"
@@ -2164,7 +2164,7 @@
             "InPreview"               : false
         },
         "Drs"                                 : {
-            "Version" : "4.0.2.24",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.28"
@@ -2548,7 +2548,7 @@
             "InPreview"               : false
         },
         "IVSRealTime"                         : {
-            "Version" : "4.0.6.7",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.28"
@@ -3404,6 +3404,14 @@
             "InPreview"               : false
         },
         "S3Files"                             : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.3.28"
+            },
+            "InPreview"               : false
+        },
+        "MarketplaceDiscovery"                : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {

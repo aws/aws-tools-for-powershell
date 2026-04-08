@@ -141,6 +141,17 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.String EbsEncryptionKeyArn { get; set; }
         #endregion
         
+        #region Parameter InternetProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Drs.InternetProtocol")]
+        public Amazon.Drs.InternetProtocol InternetProtocol { get; set; }
+        #endregion
+        
         #region Parameter PitPolicy
         /// <summary>
         /// <para>
@@ -287,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             context.DefaultLargeStagingDiskType = this.DefaultLargeStagingDiskType;
             context.EbsEncryption = this.EbsEncryption;
             context.EbsEncryptionKeyArn = this.EbsEncryptionKeyArn;
+            context.InternetProtocol = this.InternetProtocol;
             if (this.PitPolicy != null)
             {
                 context.PitPolicy = new List<Amazon.Drs.Model.PITPolicyRule>(this.PitPolicy);
@@ -364,6 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.EbsEncryptionKeyArn != null)
             {
                 request.EbsEncryptionKeyArn = cmdletContext.EbsEncryptionKeyArn;
+            }
+            if (cmdletContext.InternetProtocol != null)
+            {
+                request.InternetProtocol = cmdletContext.InternetProtocol;
             }
             if (cmdletContext.PitPolicy != null)
             {
@@ -457,6 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             public Amazon.Drs.ReplicationConfigurationDefaultLargeStagingDiskType DefaultLargeStagingDiskType { get; set; }
             public Amazon.Drs.ReplicationConfigurationEbsEncryption EbsEncryption { get; set; }
             public System.String EbsEncryptionKeyArn { get; set; }
+            public Amazon.Drs.InternetProtocol InternetProtocol { get; set; }
             public List<Amazon.Drs.Model.PITPolicyRule> PitPolicy { get; set; }
             public System.String ReplicationConfigurationTemplateID { get; set; }
             public System.String ReplicationServerInstanceType { get; set; }

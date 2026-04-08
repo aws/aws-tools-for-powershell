@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.Int64? BandwidthThrottling { get; set; }
         #endregion
         
+        #region Parameter InternetProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Drs.InternetProtocol")]
+        public Amazon.Drs.InternetProtocol InternetProtocol { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -140,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BandwidthThrottling = this.BandwidthThrottling;
+            context.InternetProtocol = this.InternetProtocol;
             context.Name = this.Name;
             context.RecoveryInstanceID = this.RecoveryInstanceID;
             #if MODULAR
@@ -168,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.BandwidthThrottling != null)
             {
                 request.BandwidthThrottling = cmdletContext.BandwidthThrottling.Value;
+            }
+            if (cmdletContext.InternetProtocol != null)
+            {
+                request.InternetProtocol = cmdletContext.InternetProtocol;
             }
             if (cmdletContext.Name != null)
             {
@@ -237,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int64? BandwidthThrottling { get; set; }
+            public Amazon.Drs.InternetProtocol InternetProtocol { get; set; }
             public System.String Name { get; set; }
             public System.String RecoveryInstanceID { get; set; }
             public System.Boolean? UsePrivateIP { get; set; }

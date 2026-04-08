@@ -80,6 +80,18 @@ $EDRS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Drs.InternetProtocol
+        {
+            ($_ -eq "New-EDRSReplicationConfigurationTemplate/InternetProtocol") -Or
+            ($_ -eq "Update-EDRSFailbackReplicationConfiguration/InternetProtocol") -Or
+            ($_ -eq "Update-EDRSReplicationConfiguration/InternetProtocol") -Or
+            ($_ -eq "Update-EDRSReplicationConfigurationTemplate/InternetProtocol")
+        }
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
         # Amazon.Drs.LaunchActionCategory
         "Write-EDRSLaunchAction/Category"
         {
@@ -162,6 +174,7 @@ $EDRS_map = @{
     "DataPlaneRouting"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
+    "InternetProtocol"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSFailbackReplicationConfiguration","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "LaunchDisposition"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
     "Order"=@("Get-EDRSRecoverySnapshot")
     "TargetInstanceTypeRightSizingMethod"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")

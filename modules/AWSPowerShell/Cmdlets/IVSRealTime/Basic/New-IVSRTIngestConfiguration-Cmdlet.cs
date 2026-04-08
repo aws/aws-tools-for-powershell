@@ -103,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RedundantIngest
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether redundant ingest is enabled for the ingest configuration. Default:
+        /// <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RedundantIngest { get; set; }
+        #endregion
+        
         #region Parameter StageArn
         /// <summary>
         /// <para>
@@ -208,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             #endif
             context.InsecureIngest = this.InsecureIngest;
             context.Name = this.Name;
+            context.RedundantIngest = this.RedundantIngest;
             context.StageArn = this.StageArn;
             if (this.Tag != null)
             {
@@ -249,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RedundantIngest != null)
+            {
+                request.RedundantIngest = cmdletContext.RedundantIngest.Value;
             }
             if (cmdletContext.StageArn != null)
             {
@@ -321,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             public Amazon.IVSRealTime.IngestProtocol IngestProtocol { get; set; }
             public System.Boolean? InsecureIngest { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? RedundantIngest { get; set; }
             public System.String StageArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String UserId { get; set; }

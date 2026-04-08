@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The image status with which to filter your <a>ListImages</a> results. Valid values
-        /// are <c>ACTIVE</c>, <c>ARCHIVED</c>, and <c>ACTIVATING</c>.</para>
+        /// are <c>ACTIVE</c>, <c>ARCHIVED</c>, and <c>ACTIVATING</c>. If not specified, only
+        /// images with <c>ACTIVE</c> status are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

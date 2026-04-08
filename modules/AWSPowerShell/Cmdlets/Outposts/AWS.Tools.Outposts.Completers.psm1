@@ -121,14 +121,20 @@ $OUTP_Completers = {
         }
 
         # Amazon.Outposts.PaymentOption
-        "New-OUTPOrder/PaymentOption"
+        {
+            ($_ -eq "New-OUTPOrder/PaymentOption") -Or
+            ($_ -eq "New-OUTPRenewal/PaymentOption")
+        }
         {
             $v = "ALL_UPFRONT","NO_UPFRONT","PARTIAL_UPFRONT"
             break
         }
 
         # Amazon.Outposts.PaymentTerm
-        "New-OUTPOrder/PaymentTerm"
+        {
+            ($_ -eq "New-OUTPOrder/PaymentTerm") -Or
+            ($_ -eq "New-OUTPRenewal/PaymentTerm")
+        }
         {
             $v = "FIVE_YEARS","ONE_YEAR","THREE_YEARS"
             break
@@ -224,8 +230,8 @@ $OUTP_map = @{
     "FiberOpticCableType"=@("Update-OUTPSiteRackPhysicalProperty")
     "MaximumSupportedWeightLb"=@("Update-OUTPSiteRackPhysicalProperty")
     "OpticalStandard"=@("Update-OUTPSiteRackPhysicalProperty")
-    "PaymentOption"=@("New-OUTPOrder")
-    "PaymentTerm"=@("New-OUTPOrder")
+    "PaymentOption"=@("New-OUTPOrder","New-OUTPRenewal")
+    "PaymentTerm"=@("New-OUTPOrder","New-OUTPRenewal")
     "PowerConnector"=@("Update-OUTPSiteRackPhysicalProperty")
     "PowerDrawKva"=@("Update-OUTPSiteRackPhysicalProperty")
     "PowerFeedDrop"=@("Update-OUTPSiteRackPhysicalProperty")
@@ -299,6 +305,7 @@ $OUTP_SelectMap = @{
                "Stop-OUTPOrder",
                "New-OUTPOrder",
                "New-OUTPOutpost",
+               "New-OUTPRenewal",
                "New-OUTPSite",
                "Remove-OUTPOutpost",
                "Remove-OUTPSite",
@@ -310,6 +317,7 @@ $OUTP_SelectMap = @{
                "Get-OUTPOutpostBillingInformation",
                "Get-OUTPOutpostInstanceType",
                "Get-OUTPOutpostSupportedInstanceType",
+               "Get-OUTPRenewalPricing",
                "Get-OUTPSite",
                "Get-OUTPSiteAddress",
                "Get-OUTPAssetInstanceList",

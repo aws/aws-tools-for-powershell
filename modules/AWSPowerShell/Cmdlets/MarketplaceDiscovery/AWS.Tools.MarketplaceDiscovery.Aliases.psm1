@@ -1,0 +1,3 @@
+﻿# MarketplaceDiscovery
+
+Export-ModuleMember -Alias *

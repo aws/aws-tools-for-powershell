@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>marketplace-discovery</C2jFilename>
+    <AssemblyName>MarketplaceDiscovery</AssemblyName>
+    <ServiceNounPrefix>MKTD</ServiceNounPrefix>
+    <ServiceName>AWS Marketplace Discovery</ServiceName>
+    <ServiceId>Marketplace Discovery</ServiceId>
+    <ServiceClientInterface>IAmazonMarketplaceDiscovery</ServiceClientInterface>
+    <ServiceClient>AmazonMarketplaceDiscoveryClient</ServiceClient>
+    <ServiceModuleGuid>6ab4ea25-3624-43fd-a2ba-d436ea4bbace</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetListing" OutputProperty="*" Verb="Get" Noun="Listing" PipelineParameter="ListingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOffer" OutputProperty="*" Verb="Get" Noun="Offer" PipelineParameter="OfferId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOfferSet" OutputProperty="*" Verb="Get" Noun="OfferSet" PipelineParameter="OfferSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOfferTerms" OutputProperty="OfferTerms" Verb="Get" Noun="OfferTerm" PipelineParameter="OfferId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProduct" OutputProperty="*" Verb="Get" Noun="Product" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFulfillmentOptions" OutputProperty="FulfillmentOptions" Verb="Get" Noun="FulfillmentOptionList" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPurchaseOptions" OutputProperty="PurchaseOptions" Verb="Get" Noun="PurchaseOptionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchFacets" OutputProperty="*" Verb="Search" Noun="Facet" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="SearchText" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchListings" OutputProperty="*" Verb="Search" Noun="Listing" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -306,6 +306,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter SpecialRouterSettings_RouterArn
+        /// <summary>
+        /// <para>
+        /// This is the arn of the MediaConnect Router resource
+        /// being associated with the MediaLive Input.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SpecialRouterSettings_RouterArn { get; set; }
+        #endregion
+        
         #region Parameter ChannelEngineVersion_Version
         /// <summary>
         /// <para>
@@ -401,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.Maintenance_MaintenanceStartTime = this.Maintenance_MaintenanceStartTime;
             context.Name = this.Name;
             context.RoleArn = this.RoleArn;
+            context.SpecialRouterSettings_RouterArn = this.SpecialRouterSettings_RouterArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -687,6 +699,25 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 request.RoleArn = cmdletContext.RoleArn;
             }
             
+             // populate SpecialRouterSettings
+            var requestSpecialRouterSettingsIsNull = true;
+            request.SpecialRouterSettings = new Amazon.MediaLive.Model.SpecialRouterSettings();
+            System.String requestSpecialRouterSettings_specialRouterSettings_RouterArn = null;
+            if (cmdletContext.SpecialRouterSettings_RouterArn != null)
+            {
+                requestSpecialRouterSettings_specialRouterSettings_RouterArn = cmdletContext.SpecialRouterSettings_RouterArn;
+            }
+            if (requestSpecialRouterSettings_specialRouterSettings_RouterArn != null)
+            {
+                request.SpecialRouterSettings.RouterArn = requestSpecialRouterSettings_specialRouterSettings_RouterArn;
+                requestSpecialRouterSettingsIsNull = false;
+            }
+             // determine if request.SpecialRouterSettings should be set to null
+            if (requestSpecialRouterSettingsIsNull)
+            {
+                request.SpecialRouterSettings = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -764,6 +795,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String Maintenance_MaintenanceStartTime { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
+            public System.String SpecialRouterSettings_RouterArn { get; set; }
             public System.Func<Amazon.MediaLive.Model.UpdateChannelResponse, UpdateEMLChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Channel;
         }

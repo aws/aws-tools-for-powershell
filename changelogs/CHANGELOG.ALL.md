@@ -1,4 +1,21 @@
-﻿### 5.0.191 (2026-04-07 21:14Z)
+﻿### 5.0.192 (2026-04-08 22:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.228.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Disaster Recovery Service
+    * Modified cmdlet New-EDRSReplicationConfigurationTemplate: added parameter InternetProtocol.
+    * Modified cmdlet Update-EDRSFailbackReplicationConfiguration: added parameter InternetProtocol.
+    * Modified cmdlet Update-EDRSReplicationConfiguration: added parameter InternetProtocol.
+    * Modified cmdlet Update-EDRSReplicationConfigurationTemplate: added parameter InternetProtocol.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet Update-EMLChannel: added parameter SpecialRouterSettings_RouterArn.
+  * Amazon Interactive Video Service RealTime
+    * Modified cmdlet New-IVSRTIngestConfiguration: added parameter RedundantIngest.
+    * Modified cmdlet Update-IVSRTIngestConfiguration: added parameter RedundantIngest.
+  * Amazon Marketplace Discovery. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MKTD and can be listed using the command 'Get-AWSCmdletName -Service MKTD'.
+  * Amazon Outposts
+    * Added cmdlet Get-OUTPRenewalPricing leveraging the GetRenewalPricing service API.
+    * Added cmdlet New-OUTPRenewal leveraging the CreateRenewal service API.
+
+### 5.0.191 (2026-04-07 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.227.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock AgentCore Data Plane Fronting Layer
     * Added cmdlet Invoke-BACBrowser leveraging the InvokeBrowser service API.

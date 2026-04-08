@@ -36,6 +36,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRenewal" OutputProperty="*" Verb="New" Noun="Renewal" ShouldProcessTarget="OutpostIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSite" OutputProperty="Site" Verb="New" Noun="Site" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -77,6 +81,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetOutpostSupportedInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="OutpostSupportedInstanceType" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRenewalPricing" OutputProperty="*" Verb="Get" Noun="RenewalPricing" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

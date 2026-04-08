@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter RedundantIngest
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether redundant ingest is enabled for the ingest configuration. Default:
+        /// <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RedundantIngest { get; set; }
+        #endregion
+        
         #region Parameter StageArn
         /// <summary>
         /// <para>
@@ -126,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RedundantIngest = this.RedundantIngest;
             context.StageArn = this.StageArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -146,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.RedundantIngest != null)
+            {
+                request.RedundantIngest = cmdletContext.RedundantIngest.Value;
             }
             if (cmdletContext.StageArn != null)
             {
@@ -207,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.Boolean? RedundantIngest { get; set; }
             public System.String StageArn { get; set; }
             public System.Func<Amazon.IVSRealTime.Model.UpdateIngestConfigurationResponse, UpdateIVSRTIngestConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IngestConfiguration;

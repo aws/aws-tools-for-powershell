@@ -51,13 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         /// Replication Configuration Template.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? AssociateDefaultSecurityGroup { get; set; }
         #endregion
         
@@ -96,13 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         /// <para>Whether to create a Public IP for the Recovery Instance by default.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? CreatePublicIP { get; set; }
         #endregion
         
@@ -112,13 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         /// <para>The data plane routing mechanism that will be used for replication.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Drs.ReplicationConfigurationDataPlaneRouting")]
         public Amazon.Drs.ReplicationConfigurationDataPlaneRouting DataPlaneRouting { get; set; }
         #endregion
@@ -129,13 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         /// <para>The Staging Disk EBS volume type to be used during replication.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Drs.ReplicationConfigurationDefaultLargeStagingDiskType")]
         public Amazon.Drs.ReplicationConfigurationDefaultLargeStagingDiskType DefaultLargeStagingDiskType { get; set; }
         #endregion
@@ -167,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.String EbsEncryptionKeyArn { get; set; }
         #endregion
         
+        #region Parameter InternetProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Drs.InternetProtocol")]
+        public Amazon.Drs.InternetProtocol InternetProtocol { get; set; }
+        #endregion
+        
         #region Parameter PitPolicy
         /// <summary>
         /// <para>
@@ -194,14 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         /// <para>The instance type to be used for the replication server.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ReplicationServerInstanceType { get; set; }
         #endregion
         
@@ -287,13 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         /// <para>Whether to use a dedicated Replication Server in the replication staging area.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? UseDedicatedReplicationServer { get; set; }
         #endregion
         
@@ -344,12 +318,6 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AssociateDefaultSecurityGroup = this.AssociateDefaultSecurityGroup;
-            #if MODULAR
-            if (this.AssociateDefaultSecurityGroup == null && ParameterWasBound(nameof(this.AssociateDefaultSecurityGroup)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AssociateDefaultSecurityGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.AutoReplicateNewDisk = this.AutoReplicateNewDisk;
             context.BandwidthThrottling = this.BandwidthThrottling;
             #if MODULAR
@@ -359,26 +327,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             }
             #endif
             context.CreatePublicIP = this.CreatePublicIP;
-            #if MODULAR
-            if (this.CreatePublicIP == null && ParameterWasBound(nameof(this.CreatePublicIP)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CreatePublicIP which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DataPlaneRouting = this.DataPlaneRouting;
-            #if MODULAR
-            if (this.DataPlaneRouting == null && ParameterWasBound(nameof(this.DataPlaneRouting)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DataPlaneRouting which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DefaultLargeStagingDiskType = this.DefaultLargeStagingDiskType;
-            #if MODULAR
-            if (this.DefaultLargeStagingDiskType == null && ParameterWasBound(nameof(this.DefaultLargeStagingDiskType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DefaultLargeStagingDiskType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.EbsEncryption = this.EbsEncryption;
             #if MODULAR
             if (this.EbsEncryption == null && ParameterWasBound(nameof(this.EbsEncryption)))
@@ -387,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             }
             #endif
             context.EbsEncryptionKeyArn = this.EbsEncryptionKeyArn;
+            context.InternetProtocol = this.InternetProtocol;
             if (this.PitPolicy != null)
             {
                 context.PitPolicy = new List<Amazon.Drs.Model.PITPolicyRule>(this.PitPolicy);
@@ -398,12 +349,6 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             }
             #endif
             context.ReplicationServerInstanceType = this.ReplicationServerInstanceType;
-            #if MODULAR
-            if (this.ReplicationServerInstanceType == null && ParameterWasBound(nameof(this.ReplicationServerInstanceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ReplicationServerInstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.ReplicationServersSecurityGroupsIDs != null)
             {
                 context.ReplicationServersSecurityGroupsIDs = new List<System.String>(this.ReplicationServersSecurityGroupsIDs);
@@ -444,12 +389,6 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
                 }
             }
             context.UseDedicatedReplicationServer = this.UseDedicatedReplicationServer;
-            #if MODULAR
-            if (this.UseDedicatedReplicationServer == null && ParameterWasBound(nameof(this.UseDedicatedReplicationServer)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UseDedicatedReplicationServer which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -497,6 +436,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.EbsEncryptionKeyArn != null)
             {
                 request.EbsEncryptionKeyArn = cmdletContext.EbsEncryptionKeyArn;
+            }
+            if (cmdletContext.InternetProtocol != null)
+            {
+                request.InternetProtocol = cmdletContext.InternetProtocol;
             }
             if (cmdletContext.PitPolicy != null)
             {
@@ -589,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             public Amazon.Drs.ReplicationConfigurationDefaultLargeStagingDiskType DefaultLargeStagingDiskType { get; set; }
             public Amazon.Drs.ReplicationConfigurationEbsEncryption EbsEncryption { get; set; }
             public System.String EbsEncryptionKeyArn { get; set; }
+            public Amazon.Drs.InternetProtocol InternetProtocol { get; set; }
             public List<Amazon.Drs.Model.PITPolicyRule> PitPolicy { get; set; }
             public System.String ReplicationServerInstanceType { get; set; }
             public List<System.String> ReplicationServersSecurityGroupsIDs { get; set; }

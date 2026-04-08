@@ -27100,6 +27100,18 @@ $EDRS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Drs.InternetProtocol
+        {
+            ($_ -eq "New-EDRSReplicationConfigurationTemplate/InternetProtocol") -Or
+            ($_ -eq "Update-EDRSFailbackReplicationConfiguration/InternetProtocol") -Or
+            ($_ -eq "Update-EDRSReplicationConfiguration/InternetProtocol") -Or
+            ($_ -eq "Update-EDRSReplicationConfigurationTemplate/InternetProtocol")
+        }
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
         # Amazon.Drs.LaunchActionCategory
         "Write-EDRSLaunchAction/Category"
         {
@@ -27182,6 +27194,7 @@ $EDRS_map = @{
     "DataPlaneRouting"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
+    "InternetProtocol"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSFailbackReplicationConfiguration","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "LaunchDisposition"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
     "Order"=@("Get-EDRSRecoverySnapshot")
     "TargetInstanceTypeRightSizingMethod"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
@@ -52149,6 +52162,103 @@ $MD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $MD_SelectCompleters $MD_SelectMap
+# Argument completions for service AWS Marketplace Discovery
+
+
+$MKTD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MarketplaceDiscovery.SearchListingsSortBy
+        "Search-MKTDListing/SortBy"
+        {
+            $v = "AVERAGE_CUSTOMER_RATING","RELEVANCE"
+            break
+        }
+
+        # Amazon.MarketplaceDiscovery.SearchListingsSortOrder
+        "Search-MKTDListing/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MKTD_map = @{
+    "SortBy"=@("Search-MKTDListing")
+    "SortOrder"=@("Search-MKTDListing")
+}
+
+_awsArgumentCompleterRegistration $MKTD_Completers $MKTD_map
+
+$MKTD_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MKTD.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MKTD_SelectMap = @{
+    "Select"=@("Get-MKTDListing",
+               "Get-MKTDOffer",
+               "Get-MKTDOfferSet",
+               "Get-MKTDOfferTerm",
+               "Get-MKTDProduct",
+               "Get-MKTDFulfillmentOptionList",
+               "Get-MKTDPurchaseOptionList",
+               "Search-MKTDFacet",
+               "Search-MKTDListing")
+}
+
+_awsArgumentCompleterRegistration $MKTD_SelectCompleters $MKTD_SelectMap
 # Argument completions for service AWS Marketplace Reporting Service
 
 
@@ -60832,14 +60942,20 @@ $OUTP_Completers = {
         }
 
         # Amazon.Outposts.PaymentOption
-        "New-OUTPOrder/PaymentOption"
+        {
+            ($_ -eq "New-OUTPOrder/PaymentOption") -Or
+            ($_ -eq "New-OUTPRenewal/PaymentOption")
+        }
         {
             $v = "ALL_UPFRONT","NO_UPFRONT","PARTIAL_UPFRONT"
             break
         }
 
         # Amazon.Outposts.PaymentTerm
-        "New-OUTPOrder/PaymentTerm"
+        {
+            ($_ -eq "New-OUTPOrder/PaymentTerm") -Or
+            ($_ -eq "New-OUTPRenewal/PaymentTerm")
+        }
         {
             $v = "FIVE_YEARS","ONE_YEAR","THREE_YEARS"
             break
@@ -60935,8 +61051,8 @@ $OUTP_map = @{
     "FiberOpticCableType"=@("Update-OUTPSiteRackPhysicalProperty")
     "MaximumSupportedWeightLb"=@("Update-OUTPSiteRackPhysicalProperty")
     "OpticalStandard"=@("Update-OUTPSiteRackPhysicalProperty")
-    "PaymentOption"=@("New-OUTPOrder")
-    "PaymentTerm"=@("New-OUTPOrder")
+    "PaymentOption"=@("New-OUTPOrder","New-OUTPRenewal")
+    "PaymentTerm"=@("New-OUTPOrder","New-OUTPRenewal")
     "PowerConnector"=@("Update-OUTPSiteRackPhysicalProperty")
     "PowerDrawKva"=@("Update-OUTPSiteRackPhysicalProperty")
     "PowerFeedDrop"=@("Update-OUTPSiteRackPhysicalProperty")
@@ -61010,6 +61126,7 @@ $OUTP_SelectMap = @{
                "Stop-OUTPOrder",
                "New-OUTPOrder",
                "New-OUTPOutpost",
+               "New-OUTPRenewal",
                "New-OUTPSite",
                "Remove-OUTPOutpost",
                "Remove-OUTPSite",
@@ -61021,6 +61138,7 @@ $OUTP_SelectMap = @{
                "Get-OUTPOutpostBillingInformation",
                "Get-OUTPOutpostInstanceType",
                "Get-OUTPOutpostSupportedInstanceType",
+               "Get-OUTPRenewalPricing",
                "Get-OUTPSite",
                "Get-OUTPSiteAddress",
                "Get-OUTPAssetInstanceList",
