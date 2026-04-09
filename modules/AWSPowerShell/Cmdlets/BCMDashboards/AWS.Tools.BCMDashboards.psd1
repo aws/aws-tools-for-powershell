@@ -92,10 +92,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BCMDDashboardList', 
         'Get-BCMDResourcePolicy', 
         'Get-BCMDResourceTag', 
+        'Get-BCMDScheduledReport', 
+        'Get-BCMDScheduledReportList', 
+        'Invoke-BCMDScheduledReport', 
         'New-BCMDDashboard', 
+        'New-BCMDScheduledReport', 
         'Remove-BCMDDashboard', 
         'Remove-BCMDResourceTag', 
-        'Update-BCMDDashboard')
+        'Remove-BCMDScheduledReport', 
+        'Update-BCMDDashboard', 
+        'Update-BCMDScheduledReport')
 
     # Variables to export from this module
     VariablesToExport = '*'

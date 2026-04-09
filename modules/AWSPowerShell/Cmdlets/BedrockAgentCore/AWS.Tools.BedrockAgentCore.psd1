@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BACEvent', 
         'Remove-BACMemoryRecord', 
         'Save-BACBrowserSessionProfile', 
+        'Search-BACRegistryRecord', 
         'Start-BACBrowserSession', 
         'Start-BACCodeInterpreterSession', 
         'Start-BACMemoryExtractionJob', 

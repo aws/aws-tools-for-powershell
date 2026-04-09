@@ -110,6 +110,22 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.String DbUser { get; set; }
         #endregion
         
+        #region Parameter Parameter
+        /// <summary>
+        /// <para>
+        /// <para>The parameters for the SQL statements. The parameters are shared across all SQL statements
+        /// in the batch.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Parameters")]
+        public Amazon.RedshiftDataAPIService.Model.SqlParameter[] Parameter { get; set; }
+        #endregion
+        
         #region Parameter ResultFormat
         /// <summary>
         /// <para>
@@ -276,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.Database = this.Database;
             context.DbUser = this.DbUser;
+            if (this.Parameter != null)
+            {
+                context.Parameter = new List<Amazon.RedshiftDataAPIService.Model.SqlParameter>(this.Parameter);
+            }
             context.ResultFormat = this.ResultFormat;
             context.SecretArn = this.SecretArn;
             context.SessionId = this.SessionId;
@@ -324,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.DbUser != null)
             {
                 request.DbUser = cmdletContext.DbUser;
+            }
+            if (cmdletContext.Parameter != null)
+            {
+                request.Parameters = cmdletContext.Parameter;
             }
             if (cmdletContext.ResultFormat != null)
             {
@@ -416,6 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             public System.String ClusterIdentifier { get; set; }
             public System.String Database { get; set; }
             public System.String DbUser { get; set; }
+            public List<Amazon.RedshiftDataAPIService.Model.SqlParameter> Parameter { get; set; }
             public Amazon.RedshiftDataAPIService.ResultFormatString ResultFormat { get; set; }
             public System.String SecretArn { get; set; }
             public System.String SessionId { get; set; }

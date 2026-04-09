@@ -149,6 +149,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchRegistryRecords" OutputProperty="RegistryRecords" Verb="Search" Noun="RegistryRecord" ShouldProcessTarget="RegistryIds" PipelineParameter="SearchQuery" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartBrowserSession" OutputProperty="*" Verb="Start" Noun="BrowserSession" ShouldProcessTarget="BrowserIdentifier" PipelineParameter="BrowserIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

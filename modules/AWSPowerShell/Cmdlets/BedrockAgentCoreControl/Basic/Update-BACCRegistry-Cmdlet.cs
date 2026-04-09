@@ -1,0 +1,480 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.BACC
+{
+    /// <summary>
+    /// Updates an existing registry. This operation uses PATCH semantics, so you only need
+    /// to specify the fields you want to change.
+    /// </summary>
+    [Cmdlet("Update", "BACCRegistry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdateRegistryResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UpdateRegistry API operation.", Operation = new[] {"UpdateRegistry"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdateRegistryResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.UpdateRegistryResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.UpdateRegistryResponse object containing multiple properties."
+    )]
+    public partial class UpdateBACCRegistryCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience
+        /// <summary>
+        /// <para>
+        /// <para>Represents individual audience values that are validated in the incoming JWT token
+        /// validation process.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient
+        /// <summary>
+        /// <para>
+        /// <para>Represents individual client IDs that are validated in the incoming JWT token validation
+        /// process.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClients")]
+        public System.String[] AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope
+        /// <summary>
+        /// <para>
+        /// <para>An array of scopes that are allowed to access the token.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScopes")]
+        public System.String[] AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope { get; set; }
+        #endregion
+        
+        #region Parameter ApprovalConfiguration_OptionalValue_AutoApproval
+        /// <summary>
+        /// <para>
+        /// <para>Whether registry records are auto-approved. When set to <c>true</c>, records are automatically
+        /// approved upon creation. When set to <c>false</c> (the default), records require explicit
+        /// approval for security purposes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ApprovalConfiguration_OptionalValue_AutoApproval { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects that define a custom claim validation name, value, and operation
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaims")]
+        public Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType[] AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl
+        /// <summary>
+        /// <para>
+        /// <para>This URL is used to fetch OpenID Connect configuration or authorization server metadata
+        /// for validating incoming tokens.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The updated name of the registry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Description_OptionalValue
+        /// <summary>
+        /// <para>
+        /// <para>Represents an optional value that is used to update the human-readable description
+        /// of the resource. If not specified, it will clear the current description of the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description_OptionalValue { get; set; }
+        #endregion
+        
+        #region Parameter RegistryId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the registry to update. You can specify either the Amazon Resource
+        /// Name (ARN) or the ID of the registry.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RegistryId { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.UpdateRegistryResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.UpdateRegistryResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RegistryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BACCRegistry (UpdateRegistry)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.UpdateRegistryResponse, UpdateBACCRegistryCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.ApprovalConfiguration_OptionalValue_AutoApproval = this.ApprovalConfiguration_OptionalValue_AutoApproval;
+            if (this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience != null)
+            {
+                context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience = new List<System.String>(this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience);
+            }
+            if (this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient != null)
+            {
+                context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient = new List<System.String>(this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient);
+            }
+            if (this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope != null)
+            {
+                context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope = new List<System.String>(this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope);
+            }
+            if (this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim != null)
+            {
+                context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim = new List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType>(this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim);
+            }
+            context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl = this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl;
+            context.Description_OptionalValue = this.Description_OptionalValue;
+            context.Name = this.Name;
+            context.RegistryId = this.RegistryId;
+            #if MODULAR
+            if (this.RegistryId == null && ParameterWasBound(nameof(this.RegistryId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RegistryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.BedrockAgentCoreControl.Model.UpdateRegistryRequest();
+            
+            
+             // populate ApprovalConfiguration
+            var requestApprovalConfigurationIsNull = true;
+            request.ApprovalConfiguration = new Amazon.BedrockAgentCoreControl.Model.UpdatedApprovalConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.ApprovalConfiguration requestApprovalConfiguration_approvalConfiguration_OptionalValue = null;
+            
+             // populate OptionalValue
+            var requestApprovalConfiguration_approvalConfiguration_OptionalValueIsNull = true;
+            requestApprovalConfiguration_approvalConfiguration_OptionalValue = new Amazon.BedrockAgentCoreControl.Model.ApprovalConfiguration();
+            System.Boolean? requestApprovalConfiguration_approvalConfiguration_OptionalValue_approvalConfiguration_OptionalValue_AutoApproval = null;
+            if (cmdletContext.ApprovalConfiguration_OptionalValue_AutoApproval != null)
+            {
+                requestApprovalConfiguration_approvalConfiguration_OptionalValue_approvalConfiguration_OptionalValue_AutoApproval = cmdletContext.ApprovalConfiguration_OptionalValue_AutoApproval.Value;
+            }
+            if (requestApprovalConfiguration_approvalConfiguration_OptionalValue_approvalConfiguration_OptionalValue_AutoApproval != null)
+            {
+                requestApprovalConfiguration_approvalConfiguration_OptionalValue.AutoApproval = requestApprovalConfiguration_approvalConfiguration_OptionalValue_approvalConfiguration_OptionalValue_AutoApproval.Value;
+                requestApprovalConfiguration_approvalConfiguration_OptionalValueIsNull = false;
+            }
+             // determine if requestApprovalConfiguration_approvalConfiguration_OptionalValue should be set to null
+            if (requestApprovalConfiguration_approvalConfiguration_OptionalValueIsNull)
+            {
+                requestApprovalConfiguration_approvalConfiguration_OptionalValue = null;
+            }
+            if (requestApprovalConfiguration_approvalConfiguration_OptionalValue != null)
+            {
+                request.ApprovalConfiguration.OptionalValue = requestApprovalConfiguration_approvalConfiguration_OptionalValue;
+                requestApprovalConfigurationIsNull = false;
+            }
+             // determine if request.ApprovalConfiguration should be set to null
+            if (requestApprovalConfigurationIsNull)
+            {
+                request.ApprovalConfiguration = null;
+            }
+            
+             // populate AuthorizerConfiguration
+            var requestAuthorizerConfigurationIsNull = true;
+            request.AuthorizerConfiguration = new Amazon.BedrockAgentCoreControl.Model.UpdatedAuthorizerConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.AuthorizerConfiguration requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue = null;
+            
+             // populate OptionalValue
+            var requestAuthorizerConfiguration_authorizerConfiguration_OptionalValueIsNull = true;
+            requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue = new Amazon.BedrockAgentCoreControl.Model.AuthorizerConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.CustomJWTAuthorizerConfiguration requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer = null;
+            
+             // populate CustomJWTAuthorizer
+            var requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull = true;
+            requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer = new Amazon.BedrockAgentCoreControl.Model.CustomJWTAuthorizerConfiguration();
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer.AllowedAudience = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull = false;
+            }
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer.AllowedClients = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull = false;
+            }
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer.AllowedScopes = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull = false;
+            }
+            List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer.CustomClaims = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull = false;
+            }
+            System.String requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer.DiscoveryUrl = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull = false;
+            }
+             // determine if requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer should be set to null
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer = null;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue.CustomJWTAuthorizer = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValueIsNull = false;
+            }
+             // determine if requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue should be set to null
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValueIsNull)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue = null;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue != null)
+            {
+                request.AuthorizerConfiguration.OptionalValue = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue;
+                requestAuthorizerConfigurationIsNull = false;
+            }
+             // determine if request.AuthorizerConfiguration should be set to null
+            if (requestAuthorizerConfigurationIsNull)
+            {
+                request.AuthorizerConfiguration = null;
+            }
+            
+             // populate Description
+            var requestDescriptionIsNull = true;
+            request.Description = new Amazon.BedrockAgentCoreControl.Model.UpdatedDescription();
+            System.String requestDescription_description_OptionalValue = null;
+            if (cmdletContext.Description_OptionalValue != null)
+            {
+                requestDescription_description_OptionalValue = cmdletContext.Description_OptionalValue;
+            }
+            if (requestDescription_description_OptionalValue != null)
+            {
+                request.Description.OptionalValue = requestDescription_description_OptionalValue;
+                requestDescriptionIsNull = false;
+            }
+             // determine if request.Description should be set to null
+            if (requestDescriptionIsNull)
+            {
+                request.Description = null;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RegistryId != null)
+            {
+                request.RegistryId = cmdletContext.RegistryId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.BedrockAgentCoreControl.Model.UpdateRegistryResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UpdateRegistryRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UpdateRegistry");
+            try
+            {
+                return client.UpdateRegistryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.Boolean? ApprovalConfiguration_OptionalValue_AutoApproval { get; set; }
+            public List<System.String> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience { get; set; }
+            public List<System.String> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient { get; set; }
+            public List<System.String> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim { get; set; }
+            public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
+            public System.String Description_OptionalValue { get; set; }
+            public System.String Name { get; set; }
+            public System.String RegistryId { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdateRegistryResponse, UpdateBACCRegistryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

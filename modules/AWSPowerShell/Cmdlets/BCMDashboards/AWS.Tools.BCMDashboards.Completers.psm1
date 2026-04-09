@@ -75,6 +75,52 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Billing and Cost Management Dashboards
 
 
+$BCMD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BCMDashboards.DateTimeType
+        {
+            ($_ -eq "New-BCMDScheduledReport/ScheduledReport_WidgetDateRangeOverride_EndTime_Type") -Or
+            ($_ -eq "New-BCMDScheduledReport/ScheduledReport_WidgetDateRangeOverride_StartTime_Type") -Or
+            ($_ -eq "Update-BCMDScheduledReport/WidgetDateRangeOverride_EndTime_Type") -Or
+            ($_ -eq "Update-BCMDScheduledReport/WidgetDateRangeOverride_StartTime_Type")
+        }
+        {
+            $v = "ABSOLUTE","RELATIVE"
+            break
+        }
+
+        # Amazon.BCMDashboards.ScheduleState
+        {
+            ($_ -eq "Update-BCMDScheduledReport/ScheduleConfig_State") -Or
+            ($_ -eq "New-BCMDScheduledReport/ScheduledReport_ScheduleConfig_State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BCMD_map = @{
+    "ScheduleConfig_State"=@("Update-BCMDScheduledReport")
+    "ScheduledReport_ScheduleConfig_State"=@("New-BCMDScheduledReport")
+    "ScheduledReport_WidgetDateRangeOverride_EndTime_Type"=@("New-BCMDScheduledReport")
+    "ScheduledReport_WidgetDateRangeOverride_StartTime_Type"=@("New-BCMDScheduledReport")
+    "WidgetDateRangeOverride_EndTime_Type"=@("Update-BCMDScheduledReport")
+    "WidgetDateRangeOverride_StartTime_Type"=@("Update-BCMDScheduledReport")
+}
+
+_awsArgumentCompleterRegistration $BCMD_Completers $BCMD_map
+
 $BCMD_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -124,14 +170,20 @@ $BCMD_SelectCompleters = {
 
 $BCMD_SelectMap = @{
     "Select"=@("New-BCMDDashboard",
+               "New-BCMDScheduledReport",
                "Remove-BCMDDashboard",
+               "Remove-BCMDScheduledReport",
+               "Invoke-BCMDScheduledReport",
                "Get-BCMDDashboard",
                "Get-BCMDResourcePolicy",
+               "Get-BCMDScheduledReport",
                "Get-BCMDDashboardList",
+               "Get-BCMDScheduledReportList",
                "Get-BCMDResourceTag",
                "Add-BCMDResourceTag",
                "Remove-BCMDResourceTag",
-               "Update-BCMDDashboard")
+               "Update-BCMDDashboard",
+               "Update-BCMDScheduledReport")
 }
 
 _awsArgumentCompleterRegistration $BCMD_SelectCompleters $BCMD_SelectMap

@@ -30,17 +30,16 @@ using Amazon.BCMDashboards.Model;
 namespace Amazon.PowerShell.Cmdlets.BCMD
 {
     /// <summary>
-    /// Updates an existing dashboard's properties, including its name, description, and widget
-    /// configurations.
+    /// Deletes a specified scheduled report. This is an irreversible operation.
     /// </summary>
-    [Cmdlet("Update", "BCMDDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "BCMDScheduledReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Billing and Cost Management Dashboards UpdateDashboard API operation.", Operation = new[] {"UpdateDashboard"}, SelectReturnType = typeof(Amazon.BCMDashboards.Model.UpdateDashboardResponse))]
-    [AWSCmdletOutput("System.String or Amazon.BCMDashboards.Model.UpdateDashboardResponse",
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Dashboards DeleteScheduledReport API operation.", Operation = new[] {"DeleteScheduledReport"}, SelectReturnType = typeof(Amazon.BCMDashboards.Model.DeleteScheduledReportResponse))]
+    [AWSCmdletOutput("System.String or Amazon.BCMDashboards.Model.DeleteScheduledReportResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BCMDashboards.Model.UpdateDashboardResponse) can be returned by specifying '-Select *'."
+        "The service call response (type Amazon.BCMDashboards.Model.DeleteScheduledReportResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class UpdateBCMDDashboardCmdlet : AmazonBCMDashboardsClientCmdlet, IExecutor
+    public partial class RemoveBCMDScheduledReportCmdlet : AmazonBCMDashboardsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -49,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the dashboard to update.</para>
+        /// <para>The ARN of the scheduled report to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,54 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
         public System.String Arn { get; set; }
         #endregion
         
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>The new description for the dashboard.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The new name for the dashboard.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Widget
-        /// <summary>
-        /// <para>
-        /// <para>The updated array of widget configurations for the dashboard. Replaces all existing
-        /// widgets.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Widgets")]
-        public Amazon.BCMDashboards.Model.Widget[] Widget { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Arn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BCMDashboards.Model.UpdateDashboardResponse).
-        /// Specifying the name of a property of type Amazon.BCMDashboards.Model.UpdateDashboardResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BCMDashboards.Model.DeleteScheduledReportResponse).
+        /// Specifying the name of a property of type Amazon.BCMDashboards.Model.DeleteScheduledReportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BCMDDashboard (UpdateDashboard)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BCMDScheduledReport (DeleteScheduledReport)"))
             {
                 return;
             }
@@ -149,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BCMDashboards.Model.UpdateDashboardResponse, UpdateBCMDDashboardCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BCMDashboards.Model.DeleteScheduledReportResponse, RemoveBCMDScheduledReportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Arn = this.Arn;
@@ -159,18 +115,6 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Widget != null)
-            {
-                context.Widget = new List<Amazon.BCMDashboards.Model.Widget>(this.Widget);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,23 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BCMDashboards.Model.UpdateDashboardRequest();
+            var request = new Amazon.BCMDashboards.Model.DeleteScheduledReportRequest();
             
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Widget != null)
-            {
-                request.Widgets = cmdletContext.Widget;
             }
             
             CmdletOutput output;
@@ -236,12 +168,12 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
         
         #region AWS Service Operation Call
         
-        private Amazon.BCMDashboards.Model.UpdateDashboardResponse CallAWSServiceOperation(IAmazonBCMDashboards client, Amazon.BCMDashboards.Model.UpdateDashboardRequest request)
+        private Amazon.BCMDashboards.Model.DeleteScheduledReportResponse CallAWSServiceOperation(IAmazonBCMDashboards client, Amazon.BCMDashboards.Model.DeleteScheduledReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Dashboards", "UpdateDashboard");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Dashboards", "DeleteScheduledReport");
             try
             {
-                return client.UpdateDashboardAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteScheduledReportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -259,10 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
-            public System.String Description { get; set; }
-            public System.String Name { get; set; }
-            public List<Amazon.BCMDashboards.Model.Widget> Widget { get; set; }
-            public System.Func<Amazon.BCMDashboards.Model.UpdateDashboardResponse, UpdateBCMDDashboardCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.BCMDashboards.Model.DeleteScheduledReportResponse, RemoveBCMDScheduledReportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;
         }
         

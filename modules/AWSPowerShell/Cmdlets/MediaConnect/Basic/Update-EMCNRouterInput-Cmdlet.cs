@@ -73,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.Model.AutomaticEncryptionKeyConfiguration SourceTransitDecryption_EncryptionKeyConfiguration_Automatic { get; set; }
         #endregion
         
+        #region Parameter Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.AutomaticEncryptionKeyConfiguration Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic { get; set; }
+        #endregion
+        
         #region Parameter TransitEncryption_EncryptionKeyConfiguration_Automatic
         /// <summary>
         /// <para>
@@ -115,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [Alias("Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyType")]
         [AWSConstantClassSource("Amazon.MediaConnect.FlowTransitEncryptionKeyType")]
         public Amazon.MediaConnect.FlowTransitEncryptionKeyType SourceTransitDecryption_EncryptionKeyType { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType
+        /// <summary>
+        /// <para>
+        /// <para>The type of encryption key to use for MediaLive transit encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.MediaLiveTransitEncryptionKeyType")]
+        public Amazon.MediaConnect.MediaLiveTransitEncryptionKeyType Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType { get; set; }
         #endregion
         
         #region Parameter TransitEncryption_EncryptionKeyType
@@ -170,6 +191,37 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? MaximumBitrate { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_MediaLiveChannel_MediaLiveChannelArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the MediaLive channel to connect to this router input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_MediaLiveChannel_MediaLiveChannelArn { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_MediaLiveChannel_MediaLiveChannelOutputName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the MediaLive channel output to connect to this router input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_MediaLiveChannel_MediaLiveChannelOutputName { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_MediaLiveChannel_MediaLivePipelineId
+        /// <summary>
+        /// <para>
+        /// <para>The index of the MediaLive pipeline to connect to this router input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.MediaLiveChannelPipelineId")]
+        public Amazon.MediaConnect.MediaLiveChannelPipelineId Configuration_MediaLiveChannel_MediaLivePipelineId { get; set; }
         #endregion
         
         #region Parameter Merge_MergeRecoveryWindowMillisecond
@@ -361,6 +413,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn { get; set; }
         #endregion
         
+        #region Parameter Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter SrtCaller_DecryptionConfiguration_EncryptionKey_RoleArn
         /// <summary>
         /// <para>
@@ -415,6 +477,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn")]
         public System.String SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Secrets Manager secret used for transit encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn { get; set; }
         #endregion
         
         #region Parameter SrtCaller_DecryptionConfiguration_EncryptionKey_SecretArn
@@ -582,6 +654,13 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn = this.SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn;
             context.SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn = this.SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn;
             context.SourceTransitDecryption_EncryptionKeyType = this.SourceTransitDecryption_EncryptionKeyType;
+            context.Configuration_MediaLiveChannel_MediaLiveChannelArn = this.Configuration_MediaLiveChannel_MediaLiveChannelArn;
+            context.Configuration_MediaLiveChannel_MediaLiveChannelOutputName = this.Configuration_MediaLiveChannel_MediaLiveChannelOutputName;
+            context.Configuration_MediaLiveChannel_MediaLivePipelineId = this.Configuration_MediaLiveChannel_MediaLivePipelineId;
+            context.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic = this.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic;
+            context.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn = this.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn;
+            context.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn = this.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn;
+            context.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType = this.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType;
             context.Merge_MergeRecoveryWindowMillisecond = this.Merge_MergeRecoveryWindowMillisecond;
             context.Merge_NetworkInterfaceArn = this.Merge_NetworkInterfaceArn;
             if (this.Merge_ProtocolConfiguration != null)
@@ -1169,6 +1248,136 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 request.Configuration.Failover = requestConfiguration_configuration_Failover;
                 requestConfigurationIsNull = false;
             }
+            Amazon.MediaConnect.Model.MediaLiveChannelRouterInputConfiguration requestConfiguration_configuration_MediaLiveChannel = null;
+            
+             // populate MediaLiveChannel
+            var requestConfiguration_configuration_MediaLiveChannelIsNull = true;
+            requestConfiguration_configuration_MediaLiveChannel = new Amazon.MediaConnect.Model.MediaLiveChannelRouterInputConfiguration();
+            System.String requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLiveChannelArn = null;
+            if (cmdletContext.Configuration_MediaLiveChannel_MediaLiveChannelArn != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLiveChannelArn = cmdletContext.Configuration_MediaLiveChannel_MediaLiveChannelArn;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLiveChannelArn != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel.MediaLiveChannelArn = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLiveChannelArn;
+                requestConfiguration_configuration_MediaLiveChannelIsNull = false;
+            }
+            System.String requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLiveChannelOutputName = null;
+            if (cmdletContext.Configuration_MediaLiveChannel_MediaLiveChannelOutputName != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLiveChannelOutputName = cmdletContext.Configuration_MediaLiveChannel_MediaLiveChannelOutputName;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLiveChannelOutputName != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel.MediaLiveChannelOutputName = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLiveChannelOutputName;
+                requestConfiguration_configuration_MediaLiveChannelIsNull = false;
+            }
+            Amazon.MediaConnect.MediaLiveChannelPipelineId requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLivePipelineId = null;
+            if (cmdletContext.Configuration_MediaLiveChannel_MediaLivePipelineId != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLivePipelineId = cmdletContext.Configuration_MediaLiveChannel_MediaLivePipelineId;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLivePipelineId != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel.MediaLivePipelineId = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_MediaLivePipelineId;
+                requestConfiguration_configuration_MediaLiveChannelIsNull = false;
+            }
+            Amazon.MediaConnect.Model.MediaLiveTransitEncryption requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption = null;
+            
+             // populate SourceTransitDecryption
+            var requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryptionIsNull = true;
+            requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption = new Amazon.MediaConnect.Model.MediaLiveTransitEncryption();
+            Amazon.MediaConnect.MediaLiveTransitEncryptionKeyType requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType = null;
+            if (cmdletContext.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType = cmdletContext.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption.EncryptionKeyType = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType;
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryptionIsNull = false;
+            }
+            Amazon.MediaConnect.Model.MediaLiveTransitEncryptionKeyConfiguration requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration = null;
+            
+             // populate EncryptionKeyConfiguration
+            var requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfigurationIsNull = true;
+            requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration = new Amazon.MediaConnect.Model.MediaLiveTransitEncryptionKeyConfiguration();
+            Amazon.MediaConnect.Model.AutomaticEncryptionKeyConfiguration requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic = null;
+            if (cmdletContext.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic = cmdletContext.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration.Automatic = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic;
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfigurationIsNull = false;
+            }
+            Amazon.MediaConnect.Model.SecretsManagerEncryptionKeyConfiguration requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager = null;
+            
+             // populate SecretsManager
+            var requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManagerIsNull = true;
+            requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager = new Amazon.MediaConnect.Model.SecretsManagerEncryptionKeyConfiguration();
+            System.String requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn = null;
+            if (cmdletContext.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn = cmdletContext.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager.RoleArn = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn;
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManagerIsNull = false;
+            }
+            System.String requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn = null;
+            if (cmdletContext.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn = cmdletContext.Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager.SecretArn = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn;
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManagerIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager should be set to null
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManagerIsNull)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager = null;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration.SecretsManager = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager;
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration should be set to null
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfigurationIsNull)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration = null;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption.EncryptionKeyConfiguration = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption_configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration;
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryptionIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption should be set to null
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryptionIsNull)
+            {
+                requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption = null;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption != null)
+            {
+                requestConfiguration_configuration_MediaLiveChannel.SourceTransitDecryption = requestConfiguration_configuration_MediaLiveChannel_configuration_MediaLiveChannel_SourceTransitDecryption;
+                requestConfiguration_configuration_MediaLiveChannelIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_MediaLiveChannel should be set to null
+            if (requestConfiguration_configuration_MediaLiveChannelIsNull)
+            {
+                requestConfiguration_configuration_MediaLiveChannel = null;
+            }
+            if (requestConfiguration_configuration_MediaLiveChannel != null)
+            {
+                request.Configuration.MediaLiveChannel = requestConfiguration_configuration_MediaLiveChannel;
+                requestConfigurationIsNull = false;
+            }
              // determine if request.Configuration should be set to null
             if (requestConfigurationIsNull)
             {
@@ -1389,6 +1598,13 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn { get; set; }
             public System.String SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn { get; set; }
             public Amazon.MediaConnect.FlowTransitEncryptionKeyType SourceTransitDecryption_EncryptionKeyType { get; set; }
+            public System.String Configuration_MediaLiveChannel_MediaLiveChannelArn { get; set; }
+            public System.String Configuration_MediaLiveChannel_MediaLiveChannelOutputName { get; set; }
+            public Amazon.MediaConnect.MediaLiveChannelPipelineId Configuration_MediaLiveChannel_MediaLivePipelineId { get; set; }
+            public Amazon.MediaConnect.Model.AutomaticEncryptionKeyConfiguration Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic { get; set; }
+            public System.String Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn { get; set; }
+            public System.String Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn { get; set; }
+            public Amazon.MediaConnect.MediaLiveTransitEncryptionKeyType Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType { get; set; }
             public System.Int64? Merge_MergeRecoveryWindowMillisecond { get; set; }
             public System.String Merge_NetworkInterfaceArn { get; set; }
             public List<Amazon.MediaConnect.Model.MergeRouterInputProtocolConfiguration> Merge_ProtocolConfiguration { get; set; }

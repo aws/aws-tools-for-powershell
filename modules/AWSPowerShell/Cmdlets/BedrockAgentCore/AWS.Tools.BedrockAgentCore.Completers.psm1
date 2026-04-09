@@ -263,6 +263,7 @@ $BAC_SelectMap = @{
                "Get-BACSessionList",
                "Invoke-BACMemoryRecord",
                "Save-BACBrowserSessionProfile",
+               "Search-BACRegistryRecord",
                "Start-BACBrowserSession",
                "Start-BACCodeInterpreterSession",
                "Start-BACMemoryExtractionJob",

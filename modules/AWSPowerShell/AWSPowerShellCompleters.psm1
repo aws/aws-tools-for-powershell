@@ -7470,6 +7470,52 @@ _awsArgumentCompleterRegistration $BCMRA_SelectCompleters $BCMRA_SelectMap
 # Argument completions for service AWS Billing and Cost Management Dashboards
 
 
+$BCMD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BCMDashboards.DateTimeType
+        {
+            ($_ -eq "New-BCMDScheduledReport/ScheduledReport_WidgetDateRangeOverride_EndTime_Type") -Or
+            ($_ -eq "New-BCMDScheduledReport/ScheduledReport_WidgetDateRangeOverride_StartTime_Type") -Or
+            ($_ -eq "Update-BCMDScheduledReport/WidgetDateRangeOverride_EndTime_Type") -Or
+            ($_ -eq "Update-BCMDScheduledReport/WidgetDateRangeOverride_StartTime_Type")
+        }
+        {
+            $v = "ABSOLUTE","RELATIVE"
+            break
+        }
+
+        # Amazon.BCMDashboards.ScheduleState
+        {
+            ($_ -eq "Update-BCMDScheduledReport/ScheduleConfig_State") -Or
+            ($_ -eq "New-BCMDScheduledReport/ScheduledReport_ScheduleConfig_State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BCMD_map = @{
+    "ScheduleConfig_State"=@("Update-BCMDScheduledReport")
+    "ScheduledReport_ScheduleConfig_State"=@("New-BCMDScheduledReport")
+    "ScheduledReport_WidgetDateRangeOverride_EndTime_Type"=@("New-BCMDScheduledReport")
+    "ScheduledReport_WidgetDateRangeOverride_StartTime_Type"=@("New-BCMDScheduledReport")
+    "WidgetDateRangeOverride_EndTime_Type"=@("Update-BCMDScheduledReport")
+    "WidgetDateRangeOverride_StartTime_Type"=@("Update-BCMDScheduledReport")
+}
+
+_awsArgumentCompleterRegistration $BCMD_Completers $BCMD_map
+
 $BCMD_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -7519,14 +7565,20 @@ $BCMD_SelectCompleters = {
 
 $BCMD_SelectMap = @{
     "Select"=@("New-BCMDDashboard",
+               "New-BCMDScheduledReport",
                "Remove-BCMDDashboard",
+               "Remove-BCMDScheduledReport",
+               "Invoke-BCMDScheduledReport",
                "Get-BCMDDashboard",
                "Get-BCMDResourcePolicy",
+               "Get-BCMDScheduledReport",
                "Get-BCMDDashboardList",
+               "Get-BCMDScheduledReportList",
                "Get-BCMDResourceTag",
                "Add-BCMDResourceTag",
                "Remove-BCMDResourceTag",
-               "Update-BCMDDashboard")
+               "Update-BCMDDashboard",
+               "Update-BCMDScheduledReport")
 }
 
 _awsArgumentCompleterRegistration $BCMD_SelectCompleters $BCMD_SelectMap
@@ -8343,6 +8395,17 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.DescriptorType
+        {
+            ($_ -eq "Get-BACCRegistryRecordList/DescriptorType") -Or
+            ($_ -eq "New-BACCRegistryRecord/DescriptorType") -Or
+            ($_ -eq "Update-BACCRegistryRecord/DescriptorType")
+        }
+        {
+            $v = "A2A","AGENT_SKILLS","CUSTOM","MCP"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.EndpointIpAddressType
         {
             ($_ -eq "New-BACCGatewayTarget/PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType") -Or
@@ -8434,6 +8497,30 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.RegistryAuthorizerType
+        "New-BACCRegistry/AuthorizerType"
+        {
+            $v = "AWS_IAM","CUSTOM_JWT"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.RegistryRecordStatus
+        {
+            ($_ -eq "Get-BACCRegistryRecordList/Status") -Or
+            ($_ -eq "Update-BACCRegistryRecordStatus/Status")
+        }
+        {
+            $v = "APPROVED","CREATE_FAILED","CREATING","DEPRECATED","DRAFT","PENDING_APPROVAL","REJECTED","UPDATE_FAILED","UPDATING"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.RegistryStatus
+        "Get-BACCRegistryList/Status"
+        {
+            $v = "CREATE_FAILED","CREATING","DELETE_FAILED","DELETING","READY","UPDATE_FAILED","UPDATING"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.ResourceType
         {
             ($_ -eq "Get-BACCBrowserList/Type") -Or
@@ -8464,6 +8551,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.SynchronizationType
+        {
+            ($_ -eq "New-BACCRegistryRecord/SynchronizationType") -Or
+            ($_ -eq "Update-BACCRegistryRecord/SynchronizationType_OptionalValue")
+        }
+        {
+            $v = "URL"
+            break
+        }
+
 
     }
 
@@ -8473,9 +8570,10 @@ $BACC_Completers = {
 }
 
 $BACC_map = @{
-    "AuthorizerType"=@("New-BACCGateway","Update-BACCGateway")
+    "AuthorizerType"=@("New-BACCGateway","New-BACCRegistry","Update-BACCGateway")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
     "ExecutionStatus"=@("Update-BACCOnlineEvaluationConfig")
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
@@ -8486,6 +8584,9 @@ $BACC_map = @{
     "PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
+    "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
+    "SynchronizationType"=@("New-BACCRegistryRecord")
+    "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "View"=@("Get-BACCMemory")
@@ -8555,6 +8656,8 @@ $BACC_SelectMap = @{
                "New-BACCOnlineEvaluationConfig",
                "New-BACCPolicy",
                "New-BACCPolicyEngine",
+               "New-BACCRegistry",
+               "New-BACCRegistryRecord",
                "New-BACCWorkloadIdentity",
                "Remove-BACCAgentRuntime",
                "Remove-BACCAgentRuntimeEndpoint",
@@ -8570,6 +8673,8 @@ $BACC_SelectMap = @{
                "Remove-BACCOnlineEvaluationConfig",
                "Remove-BACCPolicy",
                "Remove-BACCPolicyEngine",
+               "Remove-BACCRegistry",
+               "Remove-BACCRegistryRecord",
                "Remove-BACCResourcePolicy",
                "Remove-BACCWorkloadIdentity",
                "Get-BACCAgentRuntime",
@@ -8587,6 +8692,8 @@ $BACC_SelectMap = @{
                "Get-BACCPolicy",
                "Get-BACCPolicyEngine",
                "Get-BACCPolicyGeneration",
+               "Get-BACCRegistry",
+               "Get-BACCRegistryRecord",
                "Get-BACCResourcePolicy",
                "Get-BACCTokenVault",
                "Get-BACCWorkloadIdentity",
@@ -8607,11 +8714,14 @@ $BACC_SelectMap = @{
                "Get-BACCPolicyEngineList",
                "Get-BACCPolicyGenerationAssetList",
                "Get-BACCPolicyGenerationList",
+               "Get-BACCRegistryList",
+               "Get-BACCRegistryRecordList",
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
                "Write-BACCResourcePolicy",
                "Set-BACCTokenVaultCMK",
                "Start-BACCPolicyGeneration",
+               "Submit-BACCRegistryRecordForApproval",
                "Sync-BACCGatewayTarget",
                "Add-BACCResourceTag",
                "Remove-BACCResourceTag",
@@ -8626,6 +8736,9 @@ $BACC_SelectMap = @{
                "Update-BACCOnlineEvaluationConfig",
                "Update-BACCPolicy",
                "Update-BACCPolicyEngine",
+               "Update-BACCRegistry",
+               "Update-BACCRegistryRecord",
+               "Update-BACCRegistryRecordStatus",
                "Update-BACCWorkloadIdentity")
 }
 
@@ -8821,6 +8934,7 @@ $BAC_SelectMap = @{
                "Get-BACSessionList",
                "Invoke-BACMemoryRecord",
                "Save-BACBrowserSessionProfile",
+               "Search-BACRegistryRecord",
                "Start-BACBrowserSession",
                "Start-BACCodeInterpreterSession",
                "Start-BACMemoryExtractionJob",
@@ -52539,6 +52653,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.MediaLiveChannelPipelineId
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_MediaLiveChannel_MediaLivePipelineId") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_MediaLiveChannel_MediaLivePipelineId")
+        }
+        {
+            $v = "PIPELINE_0","PIPELINE_1"
+            break
+        }
+
         # Amazon.MediaConnect.MediaLiveInputPipelineId
         {
             ($_ -eq "New-EMCNRouterOutput/MediaLiveInput_MediaLivePipelineId") -Or
@@ -52551,6 +52675,8 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.MediaLiveTransitEncryptionKeyType
         {
+            ($_ -eq "New-EMCNRouterInput/Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType") -Or
             ($_ -eq "New-EMCNRouterOutput/MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType") -Or
             ($_ -eq "Update-EMCNRouterOutput/MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType")
         }
@@ -52712,6 +52838,8 @@ $EMCN_Completers = {
 
 $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
+    "Configuration_MediaLiveChannel_MediaLivePipelineId"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "DesiredState"=@("Update-EMCNBridgeState")
     "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")

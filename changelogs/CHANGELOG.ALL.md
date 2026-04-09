@@ -1,4 +1,34 @@
-﻿### 5.0.192 (2026-04-08 22:10Z)
+﻿### 5.0.193 (2026-04-09 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.229.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Get-BACCRegistry leveraging the GetRegistry service API.
+    * Added cmdlet Get-BACCRegistryList leveraging the ListRegistries service API.
+    * Added cmdlet Get-BACCRegistryRecord leveraging the GetRegistryRecord service API.
+    * Added cmdlet Get-BACCRegistryRecordList leveraging the ListRegistryRecords service API.
+    * Added cmdlet New-BACCRegistry leveraging the CreateRegistry service API.
+    * Added cmdlet New-BACCRegistryRecord leveraging the CreateRegistryRecord service API.
+    * Added cmdlet Remove-BACCRegistry leveraging the DeleteRegistry service API.
+    * Added cmdlet Remove-BACCRegistryRecord leveraging the DeleteRegistryRecord service API.
+    * Added cmdlet Submit-BACCRegistryRecordForApproval leveraging the SubmitRegistryRecordForApproval service API.
+    * Added cmdlet Update-BACCRegistry leveraging the UpdateRegistry service API.
+    * Added cmdlet Update-BACCRegistryRecord leveraging the UpdateRegistryRecord service API.
+    * Added cmdlet Update-BACCRegistryRecordStatus leveraging the UpdateRegistryRecordStatus service API.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Search-BACRegistryRecord leveraging the SearchRegistryRecords service API.
+  * Amazon Billing and Cost Management Dashboards
+    * Added cmdlet Get-BCMDScheduledReport leveraging the GetScheduledReport service API.
+    * Added cmdlet Get-BCMDScheduledReportList leveraging the ListScheduledReports service API.
+    * Added cmdlet Invoke-BCMDScheduledReport leveraging the ExecuteScheduledReport service API.
+    * Added cmdlet New-BCMDScheduledReport leveraging the CreateScheduledReport service API.
+    * Added cmdlet Remove-BCMDScheduledReport leveraging the DeleteScheduledReport service API.
+    * Added cmdlet Update-BCMDScheduledReport leveraging the UpdateScheduledReport service API.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNRouterInput: added parameters Configuration_MediaLiveChannel_MediaLiveChannelArn, Configuration_MediaLiveChannel_MediaLiveChannelOutputName, Configuration_MediaLiveChannel_MediaLivePipelineId, Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic, Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn, Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn and Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType.
+    * Modified cmdlet Update-EMCNRouterInput: added parameters Configuration_MediaLiveChannel_MediaLiveChannelArn, Configuration_MediaLiveChannel_MediaLiveChannelOutputName, Configuration_MediaLiveChannel_MediaLivePipelineId, Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic, Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn, Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn and Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType.
+  * Amazon Redshift Data API Service
+    * Modified cmdlet Push-RSDBatchStatement: added parameter Parameter.
+
+### 5.0.192 (2026-04-08 22:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.228.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Disaster Recovery Service
     * Modified cmdlet New-EDRSReplicationConfigurationTemplate: added parameter InternetProtocol.

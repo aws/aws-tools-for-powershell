@@ -169,6 +169,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistry" OutputProperty="RegistryArn" Verb="New" Noun="Registry" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistryRecord" OutputProperty="*" Verb="New" Noun="RegistryRecord" ShouldProcessTarget="RegistryId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkloadIdentity" OutputProperty="*" Verb="New" Noun="WorkloadIdentity" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -226,6 +234,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePolicyEngine" OutputProperty="*" Verb="Remove" Noun="PolicyEngine" ShouldProcessTarget="PolicyEngineId" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistry" OutputProperty="Status" Verb="Remove" Noun="Registry" ShouldProcessTarget="RegistryId" PipelineParameter="RegistryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistryRecord" Verb="Remove" Noun="RegistryRecord" ShouldProcessTarget="RecordId,RegistryId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -294,6 +310,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPolicyGeneration" OutputProperty="*" Verb="Get" Noun="PolicyGeneration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegistry" OutputProperty="*" Verb="Get" Noun="Registry" PipelineParameter="RegistryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegistryRecord" OutputProperty="*" Verb="Get" Noun="RegistryRecord" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -377,6 +401,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRegistries" OutputProperty="Registries" Verb="Get" Noun="RegistryList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegistryRecords" OutputProperty="RegistryRecords" Verb="Get" Noun="RegistryRecordList" PipelineParameter="RegistryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -394,6 +426,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartPolicyGeneration" OutputProperty="*" Verb="Start" Noun="PolicyGeneration" ShouldProcessTarget="PolicyEngineId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubmitRegistryRecordForApproval" OutputProperty="*" Verb="Submit" Noun="RegistryRecordForApproval" ShouldProcessTarget="RecordId,RegistryId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -535,6 +571,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePolicyEngine" OutputProperty="*" Verb="Update" Noun="PolicyEngine" ShouldProcessTarget="PolicyEngineId" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegistry" OutputProperty="*" Verb="Update" Noun="Registry" ShouldProcessTarget="RegistryId" PipelineParameter="RegistryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegistryRecord" OutputProperty="*" Verb="Update" Noun="RegistryRecord" ShouldProcessTarget="RecordId,RegistryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegistryRecordStatus" OutputProperty="*" Verb="Update" Noun="RegistryRecordStatus" ShouldProcessTarget="RecordId,RegistryId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

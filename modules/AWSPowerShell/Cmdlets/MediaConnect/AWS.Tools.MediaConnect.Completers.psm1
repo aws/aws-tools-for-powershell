@@ -208,6 +208,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.MediaLiveChannelPipelineId
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_MediaLiveChannel_MediaLivePipelineId") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_MediaLiveChannel_MediaLivePipelineId")
+        }
+        {
+            $v = "PIPELINE_0","PIPELINE_1"
+            break
+        }
+
         # Amazon.MediaConnect.MediaLiveInputPipelineId
         {
             ($_ -eq "New-EMCNRouterOutput/MediaLiveInput_MediaLivePipelineId") -Or
@@ -220,6 +230,8 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.MediaLiveTransitEncryptionKeyType
         {
+            ($_ -eq "New-EMCNRouterInput/Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType") -Or
             ($_ -eq "New-EMCNRouterOutput/MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType") -Or
             ($_ -eq "Update-EMCNRouterOutput/MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType")
         }
@@ -381,6 +393,8 @@ $EMCN_Completers = {
 
 $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
+    "Configuration_MediaLiveChannel_MediaLivePipelineId"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "DesiredState"=@("Update-EMCNBridgeState")
     "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")

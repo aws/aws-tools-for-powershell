@@ -124,6 +124,17 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.DescriptorType
+        {
+            ($_ -eq "Get-BACCRegistryRecordList/DescriptorType") -Or
+            ($_ -eq "New-BACCRegistryRecord/DescriptorType") -Or
+            ($_ -eq "Update-BACCRegistryRecord/DescriptorType")
+        }
+        {
+            $v = "A2A","AGENT_SKILLS","CUSTOM","MCP"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.EndpointIpAddressType
         {
             ($_ -eq "New-BACCGatewayTarget/PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType") -Or
@@ -215,6 +226,30 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.RegistryAuthorizerType
+        "New-BACCRegistry/AuthorizerType"
+        {
+            $v = "AWS_IAM","CUSTOM_JWT"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.RegistryRecordStatus
+        {
+            ($_ -eq "Get-BACCRegistryRecordList/Status") -Or
+            ($_ -eq "Update-BACCRegistryRecordStatus/Status")
+        }
+        {
+            $v = "APPROVED","CREATE_FAILED","CREATING","DEPRECATED","DRAFT","PENDING_APPROVAL","REJECTED","UPDATE_FAILED","UPDATING"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.RegistryStatus
+        "Get-BACCRegistryList/Status"
+        {
+            $v = "CREATE_FAILED","CREATING","DELETE_FAILED","DELETING","READY","UPDATE_FAILED","UPDATING"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.ResourceType
         {
             ($_ -eq "Get-BACCBrowserList/Type") -Or
@@ -245,6 +280,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.SynchronizationType
+        {
+            ($_ -eq "New-BACCRegistryRecord/SynchronizationType") -Or
+            ($_ -eq "Update-BACCRegistryRecord/SynchronizationType_OptionalValue")
+        }
+        {
+            $v = "URL"
+            break
+        }
+
 
     }
 
@@ -254,9 +299,10 @@ $BACC_Completers = {
 }
 
 $BACC_map = @{
-    "AuthorizerType"=@("New-BACCGateway","Update-BACCGateway")
+    "AuthorizerType"=@("New-BACCGateway","New-BACCRegistry","Update-BACCGateway")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
     "ExecutionStatus"=@("Update-BACCOnlineEvaluationConfig")
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
@@ -267,6 +313,9 @@ $BACC_map = @{
     "PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
+    "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
+    "SynchronizationType"=@("New-BACCRegistryRecord")
+    "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "View"=@("Get-BACCMemory")
@@ -336,6 +385,8 @@ $BACC_SelectMap = @{
                "New-BACCOnlineEvaluationConfig",
                "New-BACCPolicy",
                "New-BACCPolicyEngine",
+               "New-BACCRegistry",
+               "New-BACCRegistryRecord",
                "New-BACCWorkloadIdentity",
                "Remove-BACCAgentRuntime",
                "Remove-BACCAgentRuntimeEndpoint",
@@ -351,6 +402,8 @@ $BACC_SelectMap = @{
                "Remove-BACCOnlineEvaluationConfig",
                "Remove-BACCPolicy",
                "Remove-BACCPolicyEngine",
+               "Remove-BACCRegistry",
+               "Remove-BACCRegistryRecord",
                "Remove-BACCResourcePolicy",
                "Remove-BACCWorkloadIdentity",
                "Get-BACCAgentRuntime",
@@ -368,6 +421,8 @@ $BACC_SelectMap = @{
                "Get-BACCPolicy",
                "Get-BACCPolicyEngine",
                "Get-BACCPolicyGeneration",
+               "Get-BACCRegistry",
+               "Get-BACCRegistryRecord",
                "Get-BACCResourcePolicy",
                "Get-BACCTokenVault",
                "Get-BACCWorkloadIdentity",
@@ -388,11 +443,14 @@ $BACC_SelectMap = @{
                "Get-BACCPolicyEngineList",
                "Get-BACCPolicyGenerationAssetList",
                "Get-BACCPolicyGenerationList",
+               "Get-BACCRegistryList",
+               "Get-BACCRegistryRecordList",
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
                "Write-BACCResourcePolicy",
                "Set-BACCTokenVaultCMK",
                "Start-BACCPolicyGeneration",
+               "Submit-BACCRegistryRecordForApproval",
                "Sync-BACCGatewayTarget",
                "Add-BACCResourceTag",
                "Remove-BACCResourceTag",
@@ -407,6 +465,9 @@ $BACC_SelectMap = @{
                "Update-BACCOnlineEvaluationConfig",
                "Update-BACCPolicy",
                "Update-BACCPolicyEngine",
+               "Update-BACCRegistry",
+               "Update-BACCRegistryRecord",
+               "Update-BACCRegistryRecordStatus",
                "Update-BACCWorkloadIdentity")
 }
 
