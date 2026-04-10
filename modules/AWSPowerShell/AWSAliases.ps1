@@ -29950,6 +29950,7 @@ Set-Alias -Name Search-SMTrainingPlanOfferings -Value Search-SMTrainingPlanOffer
 Set-Alias -Name SM-SearchTrainingPlanOfferings -Value Search-SMTrainingPlanOffering
 Set-Alias -Name SM-SendPipelineExecutionStepFailure -Value Send-SMPipelineExecutionStepFailure
 Set-Alias -Name SM-SendPipelineExecutionStepSuccess -Value Send-SMPipelineExecutionStepSuccess
+Set-Alias -Name SM-StartClusterHealthCheck -Value Start-SMClusterHealthCheck
 Set-Alias -Name SM-StartEdgeDeploymentStage -Value Start-SMEdgeDeploymentStage
 Set-Alias -Name SM-StartInferenceExperiment -Value Start-SMInferenceExperiment
 Set-Alias -Name SM-StartMlflowTrackingServer -Value Start-SMMlflowTrackingServer

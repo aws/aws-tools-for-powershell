@@ -63,6 +63,20 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public Amazon.ObservabilityAdmin.Model.AdvancedEventSelector[] CloudtrailParameters_AdvancedEventSelector { get; set; }
         #endregion
         
+        #region Parameter Rule_AllRegion
+        /// <summary>
+        /// <para>
+        /// <para> If set to <c>true</c>, the telemetry rule is replicated to all Amazon Web Services
+        /// Regions where Amazon CloudWatch Observability Admin is available in the current partition.
+        /// When new regions become available, the rule automatically replicates to them. Mutually
+        /// exclusive with <c>Regions</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_AllRegions")]
+        public System.Boolean? Rule_AllRegion { get; set; }
+        #endregion
+        
         #region Parameter LoggingFilter_DefaultBehavior
         /// <summary>
         /// <para>
@@ -202,6 +216,23 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Rule_DestinationConfiguration_WAFLoggingParameters_RedactedFields")]
         public Amazon.ObservabilityAdmin.Model.FieldToMatch[] WAFLoggingParameters_RedactedField { get; set; }
+        #endregion
+        
+        #region Parameter Rule_Region
+        /// <summary>
+        /// <para>
+        /// <para> An optional list of Amazon Web Services Regions where this telemetry rule should
+        /// be replicated. When specified, the rule is created in the home region and automatically
+        /// replicated to all listed regions. Mutually exclusive with <c>AllRegions</c>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_Regions")]
+        public System.String[] Rule_Region { get; set; }
         #endregion
         
         #region Parameter Rule_ResourceType
@@ -374,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 context.Select = CreateSelectDelegate<Amazon.ObservabilityAdmin.Model.CreateTelemetryRuleForOrganizationResponse, NewCWOADMNTelemetryRuleForOrganizationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Rule_AllRegion = this.Rule_AllRegion;
             if (this.CloudtrailParameters_AdvancedEventSelector != null)
             {
                 context.CloudtrailParameters_AdvancedEventSelector = new List<Amazon.ObservabilityAdmin.Model.AdvancedEventSelector>(this.CloudtrailParameters_AdvancedEventSelector);
@@ -399,6 +431,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             if (this.WAFLoggingParameters_RedactedField != null)
             {
                 context.WAFLoggingParameters_RedactedField = new List<Amazon.ObservabilityAdmin.Model.FieldToMatch>(this.WAFLoggingParameters_RedactedField);
+            }
+            if (this.Rule_Region != null)
+            {
+                context.Rule_Region = new List<System.String>(this.Rule_Region);
             }
             context.Rule_ResourceType = this.Rule_ResourceType;
             context.Rule_Scope = this.Rule_Scope;
@@ -449,6 +485,26 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
              // populate Rule
             var requestRuleIsNull = true;
             request.Rule = new Amazon.ObservabilityAdmin.Model.TelemetryRule();
+            System.Boolean? requestRule_rule_AllRegion = null;
+            if (cmdletContext.Rule_AllRegion != null)
+            {
+                requestRule_rule_AllRegion = cmdletContext.Rule_AllRegion.Value;
+            }
+            if (requestRule_rule_AllRegion != null)
+            {
+                request.Rule.AllRegions = requestRule_rule_AllRegion.Value;
+                requestRuleIsNull = false;
+            }
+            List<System.String> requestRule_rule_Region = null;
+            if (cmdletContext.Rule_Region != null)
+            {
+                requestRule_rule_Region = cmdletContext.Rule_Region;
+            }
+            if (requestRule_rule_Region != null)
+            {
+                request.Rule.Regions = requestRule_rule_Region;
+                requestRuleIsNull = false;
+            }
             Amazon.ObservabilityAdmin.ResourceType requestRule_rule_ResourceType = null;
             if (cmdletContext.Rule_ResourceType != null)
             {
@@ -812,6 +868,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Rule_AllRegion { get; set; }
             public List<Amazon.ObservabilityAdmin.Model.AdvancedEventSelector> CloudtrailParameters_AdvancedEventSelector { get; set; }
             public System.String DestinationConfiguration_DestinationPattern { get; set; }
             public Amazon.ObservabilityAdmin.DestinationType DestinationConfiguration_DestinationType { get; set; }
@@ -826,6 +883,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public List<Amazon.ObservabilityAdmin.Model.Filter> LoggingFilter_Filter { get; set; }
             public Amazon.ObservabilityAdmin.WAFLogType WAFLoggingParameters_LogType { get; set; }
             public List<Amazon.ObservabilityAdmin.Model.FieldToMatch> WAFLoggingParameters_RedactedField { get; set; }
+            public List<System.String> Rule_Region { get; set; }
             public Amazon.ObservabilityAdmin.ResourceType Rule_ResourceType { get; set; }
             public System.String Rule_Scope { get; set; }
             public System.String Rule_SelectionCriterion { get; set; }

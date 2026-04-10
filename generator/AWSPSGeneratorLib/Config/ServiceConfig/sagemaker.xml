@@ -1797,6 +1797,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartClusterHealthCheck" OutputProperty="ClusterArn" Verb="Start" Noun="ClusterHealthCheck" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartEdgeDeploymentStage" Verb="Start" Noun="EdgeDeploymentStage" ShouldProcessTarget="StageName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

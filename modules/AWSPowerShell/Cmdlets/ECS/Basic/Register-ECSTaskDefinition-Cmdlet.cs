@@ -171,21 +171,6 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Family { get; set; }
         #endregion
         
-        #region Parameter InferenceAccelerator
-        /// <summary>
-        /// <para>
-        /// <para>The Elastic Inference accelerators to use for the containers in the task.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InferenceAccelerators")]
-        public Amazon.ECS.Model.InferenceAccelerator[] InferenceAccelerator { get; set; }
-        #endregion
-        
         #region Parameter IpcMode
         /// <summary>
         /// <para>
@@ -429,6 +414,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.Volume[] Volume { get; set; }
         #endregion
         
+        #region Parameter InferenceAccelerator
+        /// <summary>
+        /// <para>
+        /// <para>The Elastic Inference accelerators to use for the containers in the task.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This feature is no longer available.")]
+        [Alias("InferenceAccelerators")]
+        public Amazon.ECS.Model.InferenceAccelerator[] InferenceAccelerator { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -496,10 +498,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter Family which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.InferenceAccelerator != null)
             {
                 context.InferenceAccelerator = new List<Amazon.ECS.Model.InferenceAccelerator>(this.InferenceAccelerator);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.IpcMode = this.IpcMode;
             context.Memory = this.Memory;
             context.NetworkMode = this.NetworkMode;
@@ -584,10 +588,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.Family = cmdletContext.Family;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.InferenceAccelerator != null)
             {
                 request.InferenceAccelerators = cmdletContext.InferenceAccelerator;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.IpcMode != null)
             {
                 request.IpcMode = cmdletContext.IpcMode;
@@ -753,6 +759,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String Family { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.ECS.Model.InferenceAccelerator> InferenceAccelerator { get; set; }
             public Amazon.ECS.IpcMode IpcMode { get; set; }
             public System.String Memory { get; set; }

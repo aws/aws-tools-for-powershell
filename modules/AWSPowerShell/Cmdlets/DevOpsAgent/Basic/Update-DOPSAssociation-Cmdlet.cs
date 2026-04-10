@@ -298,6 +298,26 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Gitlab_InstanceIdentifier { get; set; }
         #endregion
         
+        #region Parameter Configuration_Mcpserverdatadog
+        /// <summary>
+        /// <para>
+        /// <para>Datadog MCP server integration configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DevOpsAgent.Model.MCPServerDatadogConfiguration Configuration_Mcpserverdatadog { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Mcpserversplunk
+        /// <summary>
+        /// <para>
+        /// <para>Splunk MCP server integration configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration Configuration_Mcpserversplunk { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Mcpservergrafana_OrganizationId
         /// <summary>
         /// <para>
@@ -439,6 +459,21 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Azure_SubscriptionId { get; set; }
         #endregion
         
+        #region Parameter Configuration_Mcpserver_Tool
+        /// <summary>
+        /// <para>
+        /// <para>List of MCP tools can be used with the association.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Mcpserver_Tools")]
+        public System.String[] Configuration_Mcpserver_Tool { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Mcpservergrafana_Tool
         /// <summary>
         /// <para>
@@ -555,6 +590,11 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Configuration_Gitlab_InstanceIdentifier = this.Configuration_Gitlab_InstanceIdentifier;
             context.Configuration_Gitlab_ProjectId = this.Configuration_Gitlab_ProjectId;
             context.Configuration_Gitlab_ProjectPath = this.Configuration_Gitlab_ProjectPath;
+            if (this.Configuration_Mcpserver_Tool != null)
+            {
+                context.Configuration_Mcpserver_Tool = new List<System.String>(this.Configuration_Mcpserver_Tool);
+            }
+            context.Configuration_Mcpserverdatadog = this.Configuration_Mcpserverdatadog;
             context.Configuration_Mcpservergrafana_Endpoint = this.Configuration_Mcpservergrafana_Endpoint;
             context.Configuration_Mcpservergrafana_OrganizationId = this.Configuration_Mcpservergrafana_OrganizationId;
             if (this.Configuration_Mcpservergrafana_Tool != null)
@@ -563,6 +603,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             }
             context.Configuration_Mcpservernewrelic_AccountId = this.Configuration_Mcpservernewrelic_AccountId;
             context.Configuration_Mcpservernewrelic_Endpoint = this.Configuration_Mcpservernewrelic_Endpoint;
+            context.Configuration_Mcpserversplunk = this.Configuration_Mcpserversplunk;
             context.Configuration_Pagerduty_CustomerEmail = this.Configuration_Pagerduty_CustomerEmail;
             if (this.Configuration_Pagerduty_Service != null)
             {
@@ -621,6 +662,26 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.EventChannel = requestConfiguration_configuration_EventChannel;
                 requestConfigurationIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.MCPServerDatadogConfiguration requestConfiguration_configuration_Mcpserverdatadog = null;
+            if (cmdletContext.Configuration_Mcpserverdatadog != null)
+            {
+                requestConfiguration_configuration_Mcpserverdatadog = cmdletContext.Configuration_Mcpserverdatadog;
+            }
+            if (requestConfiguration_configuration_Mcpserverdatadog != null)
+            {
+                request.Configuration.Mcpserverdatadog = requestConfiguration_configuration_Mcpserverdatadog;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration requestConfiguration_configuration_Mcpserversplunk = null;
+            if (cmdletContext.Configuration_Mcpserversplunk != null)
+            {
+                requestConfiguration_configuration_Mcpserversplunk = cmdletContext.Configuration_Mcpserversplunk;
+            }
+            if (requestConfiguration_configuration_Mcpserversplunk != null)
+            {
+                request.Configuration.Mcpserversplunk = requestConfiguration_configuration_Mcpserversplunk;
+                requestConfigurationIsNull = false;
+            }
             Amazon.DevOpsAgent.Model.AzureConfiguration requestConfiguration_configuration_Azure = null;
             
              // populate Azure
@@ -644,6 +705,31 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Azure != null)
             {
                 request.Configuration.Azure = requestConfiguration_configuration_Azure;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.MCPServerConfiguration requestConfiguration_configuration_Mcpserver = null;
+            
+             // populate Mcpserver
+            var requestConfiguration_configuration_McpserverIsNull = true;
+            requestConfiguration_configuration_Mcpserver = new Amazon.DevOpsAgent.Model.MCPServerConfiguration();
+            List<System.String> requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool = null;
+            if (cmdletContext.Configuration_Mcpserver_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool = cmdletContext.Configuration_Mcpserver_Tool;
+            }
+            if (requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpserver.Tools = requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool;
+                requestConfiguration_configuration_McpserverIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Mcpserver should be set to null
+            if (requestConfiguration_configuration_McpserverIsNull)
+            {
+                requestConfiguration_configuration_Mcpserver = null;
+            }
+            if (requestConfiguration_configuration_Mcpserver != null)
+            {
+                request.Configuration.Mcpserver = requestConfiguration_configuration_Mcpserver;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.DynatraceConfiguration requestConfiguration_configuration_Dynatrace = null;
@@ -1286,11 +1372,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String Configuration_Gitlab_InstanceIdentifier { get; set; }
             public System.String Configuration_Gitlab_ProjectId { get; set; }
             public System.String Configuration_Gitlab_ProjectPath { get; set; }
+            public List<System.String> Configuration_Mcpserver_Tool { get; set; }
+            public Amazon.DevOpsAgent.Model.MCPServerDatadogConfiguration Configuration_Mcpserverdatadog { get; set; }
             public System.String Configuration_Mcpservergrafana_Endpoint { get; set; }
             public System.String Configuration_Mcpservergrafana_OrganizationId { get; set; }
             public List<System.String> Configuration_Mcpservergrafana_Tool { get; set; }
             public System.String Configuration_Mcpservernewrelic_AccountId { get; set; }
             public System.String Configuration_Mcpservernewrelic_Endpoint { get; set; }
+            public Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration Configuration_Mcpserversplunk { get; set; }
             public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
             public List<System.String> Configuration_Pagerduty_Service { get; set; }
             public List<System.String> Configuration_Servicenow_AuthScope { get; set; }

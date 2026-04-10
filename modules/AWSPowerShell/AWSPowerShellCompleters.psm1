@@ -20089,7 +20089,7 @@ $CONN_Completers = {
         # Amazon.Connect.FileUseCaseType
         "Start-CONNAttachedFileUpload/FileUseCaseType"
         {
-            $v = "ATTACHMENT","EMAIL_MESSAGE"
+            $v = "ATTACHMENT","CONTACT_ANALYSIS","EMAIL_MESSAGE","EMAIL_MESSAGE_PLAIN_TEXT","EMAIL_MESSAGE_PLAIN_TEXT_REDACTED","EMAIL_MESSAGE_REDACTED"
             break
         }
 
@@ -71962,6 +71962,8 @@ $RTB_Completers = {
 
         # Amazon.RTBFabric.Protocol
         {
+            ($_ -eq "New-RTBResponderGateway/ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol") -Or
+            ($_ -eq "Update-RTBResponderGateway/ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol") -Or
             ($_ -eq "New-RTBResponderGateway/Protocol") -Or
             ($_ -eq "Update-RTBResponderGateway/Protocol")
         }
@@ -71980,6 +71982,7 @@ $RTB_Completers = {
 
 $RTB_map = @{
     "GatewayType"=@("New-RTBResponderGateway")
+    "ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
     "Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
 }
 
@@ -76787,6 +76790,7 @@ $SM_SelectMap = @{
                "Search-SMTrainingPlanOffering",
                "Send-SMPipelineExecutionStepFailure",
                "Send-SMPipelineExecutionStepSuccess",
+               "Start-SMClusterHealthCheck",
                "Start-SMEdgeDeploymentStage",
                "Start-SMInferenceExperiment",
                "Start-SMMlflowTrackingServer",

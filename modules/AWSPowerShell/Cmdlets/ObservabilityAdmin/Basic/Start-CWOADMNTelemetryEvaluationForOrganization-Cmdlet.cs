@@ -46,6 +46,40 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AllRegion
+        /// <summary>
+        /// <para>
+        /// <para> If set to <c>true</c>, telemetry evaluation for the organization starts in all Amazon
+        /// Web Services Regions where Amazon CloudWatch Observability Admin is available in the
+        /// current partition. The current region becomes the home region for managing multi-region
+        /// evaluation for the organization. When new regions become available, evaluation automatically
+        /// expands to include them. Mutually exclusive with <c>Regions</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllRegions")]
+        public System.Boolean? AllRegion { get; set; }
+        #endregion
+        
+        #region Parameter Regions
+        /// <summary>
+        /// <para>
+        /// <para> An optional list of Amazon Web Services Regions to include in multi-region telemetry
+        /// evaluation for the organization. The current region is always implicitly included
+        /// and must not be specified in this list. When provided, telemetry evaluation starts
+        /// in the current region and propagates to all specified regions for the organization.
+        /// Mutually exclusive with <c>AllRegions</c>. If neither <c>Regions</c> nor <c>AllRegions</c>
+        /// is provided, the operation applies only to the current region. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Regions { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -91,6 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 context.Select = CreateSelectDelegate<Amazon.ObservabilityAdmin.Model.StartTelemetryEvaluationForOrganizationResponse, StartCWOADMNTelemetryEvaluationForOrganizationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AllRegion = this.AllRegion;
+            if (this.Regions != null)
+            {
+                context.Regions = new List<System.String>(this.Regions);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -107,6 +146,14 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             // create request
             var request = new Amazon.ObservabilityAdmin.Model.StartTelemetryEvaluationForOrganizationRequest();
             
+            if (cmdletContext.AllRegion != null)
+            {
+                request.AllRegions = cmdletContext.AllRegion.Value;
+            }
+            if (cmdletContext.Regions != null)
+            {
+                request.Regions = cmdletContext.Regions;
+            }
             
             CmdletOutput output;
             
@@ -162,6 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllRegion { get; set; }
+            public List<System.String> Regions { get; set; }
             public System.Func<Amazon.ObservabilityAdmin.Model.StartTelemetryEvaluationForOrganizationResponse, StartCWOADMNTelemetryEvaluationForOrganizationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

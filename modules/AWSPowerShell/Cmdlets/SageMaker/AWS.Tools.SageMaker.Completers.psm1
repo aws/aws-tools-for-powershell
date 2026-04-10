@@ -2413,6 +2413,7 @@ $SM_SelectMap = @{
                "Search-SMTrainingPlanOffering",
                "Send-SMPipelineExecutionStepFailure",
                "Send-SMPipelineExecutionStepSuccess",
+               "Start-SMClusterHealthCheck",
                "Start-SMEdgeDeploymentStage",
                "Start-SMInferenceExperiment",
                "Start-SMMlflowTrackingServer",

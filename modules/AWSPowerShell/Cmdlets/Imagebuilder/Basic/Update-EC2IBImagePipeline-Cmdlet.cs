@@ -186,6 +186,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.Boolean? ImageScanningConfiguration_ImageScanningEnabled { get; set; }
         #endregion
         
+        #region Parameter ImageTag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be applied to the images produced by this pipeline.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImageTags")]
+        public System.Collections.Hashtable ImageTag { get; set; }
+        #endregion
+        
         #region Parameter ImageTestsConfiguration_ImageTestsEnabled
         /// <summary>
         /// <para>
@@ -395,6 +410,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             context.EcrConfiguration_RepositoryName = this.EcrConfiguration_RepositoryName;
             context.ImageScanningConfiguration_ImageScanningEnabled = this.ImageScanningConfiguration_ImageScanningEnabled;
+            if (this.ImageTag != null)
+            {
+                context.ImageTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ImageTag.Keys)
+                {
+                    context.ImageTag.Add((String)hashKey, (System.String)(this.ImageTag[hashKey]));
+                }
+            }
             context.ImageTestsConfiguration_ImageTestsEnabled = this.ImageTestsConfiguration_ImageTestsEnabled;
             context.ImageTestsConfiguration_TimeoutMinute = this.ImageTestsConfiguration_TimeoutMinute;
             context.InfrastructureConfigurationArn = this.InfrastructureConfigurationArn;
@@ -516,6 +539,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (requestImageScanningConfigurationIsNull)
             {
                 request.ImageScanningConfiguration = null;
+            }
+            if (cmdletContext.ImageTag != null)
+            {
+                request.ImageTags = cmdletContext.ImageTag;
             }
             
              // populate ImageTestsConfiguration
@@ -717,6 +744,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public List<System.String> EcrConfiguration_ContainerTag { get; set; }
             public System.String EcrConfiguration_RepositoryName { get; set; }
             public System.Boolean? ImageScanningConfiguration_ImageScanningEnabled { get; set; }
+            public Dictionary<System.String, System.String> ImageTag { get; set; }
             public System.Boolean? ImageTestsConfiguration_ImageTestsEnabled { get; set; }
             public System.Int32? ImageTestsConfiguration_TimeoutMinute { get; set; }
             public System.String InfrastructureConfigurationArn { get; set; }

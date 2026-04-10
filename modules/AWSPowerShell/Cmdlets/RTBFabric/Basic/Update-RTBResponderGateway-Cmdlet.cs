@@ -166,6 +166,48 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         public System.String GatewayId { get; set; }
         #endregion
         
+        #region Parameter ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of consecutive successful health checks required before an instance is
+        /// considered healthy. Valid range is 2 to 10.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount { get; set; }
+        #endregion
+        
+        #region Parameter ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond
+        /// <summary>
+        /// <para>
+        /// <para>The interval between health check probes, in seconds. Valid range is 5 to 60.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSeconds")]
+        public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond { get; set; }
+        #endregion
+        
+        #region Parameter ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path
+        /// <summary>
+        /// <para>
+        /// <para>The destination path for the health check request. Must start with <c>/</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path { get; set; }
+        #endregion
+        
+        #region Parameter ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port to use for health check probes. Valid range is 80 to 65535.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port { get; set; }
+        #endregion
+        
         #region Parameter Port
         /// <summary>
         /// <para>
@@ -180,6 +222,17 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? Port { get; set; }
+        #endregion
+        
+        #region Parameter ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol
+        /// <summary>
+        /// <para>
+        /// <para>The protocol to use for health check probes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RTBFabric.Protocol")]
+        public Amazon.RTBFabric.Protocol ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol { get; set; }
         #endregion
         
         #region Parameter Protocol
@@ -234,6 +287,39 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ManagedEndpointConfiguration_EksEndpoints_RoleArn")]
         public System.String EksEndpoints_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher
+        /// <summary>
+        /// <para>
+        /// <para>The expected HTTP status code or status code pattern from healthy instances. Supports
+        /// a single code (for example, <c>200</c>), a range (for example, <c>200-299</c>), or
+        /// a comma-separated list (for example, <c>200,204</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher { get; set; }
+        #endregion
+        
+        #region Parameter ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs
+        /// <summary>
+        /// <para>
+        /// <para>The timeout for each health check probe, in milliseconds. Valid range is 100 to 5000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs { get; set; }
+        #endregion
+        
+        #region Parameter ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of consecutive failed health checks required before an instance is considered
+        /// unhealthy. Valid range is 2 to 10.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -310,6 +396,14 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             {
                 context.AutoScalingGroups_AutoScalingGroupName = new List<System.String>(this.AutoScalingGroups_AutoScalingGroupName);
             }
+            context.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount = this.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount;
+            context.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond = this.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond;
+            context.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path = this.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path;
+            context.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port = this.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port;
+            context.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol = this.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol;
+            context.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher = this.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher;
+            context.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs = this.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs;
+            context.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount = this.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount;
             context.AutoScalingGroups_RoleArn = this.AutoScalingGroups_RoleArn;
             context.EksEndpoints_ClusterApiServerCaCertificateChain = this.EksEndpoints_ClusterApiServerCaCertificateChain;
             context.EksEndpoints_ClusterApiServerEndpointUri = this.EksEndpoints_ClusterApiServerEndpointUri;
@@ -413,6 +507,101 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_autoScalingGroups_RoleArn != null)
             {
                 requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups.RoleArn = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_autoScalingGroups_RoleArn;
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroupsIsNull = false;
+            }
+            Amazon.RTBFabric.Model.HealthCheckConfig requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig = null;
+            
+             // populate HealthCheckConfig
+            var requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull = true;
+            requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig = new Amazon.RTBFabric.Model.HealthCheckConfig();
+            System.Int32? requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount = null;
+            if (cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount = cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount.Value;
+            }
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig.HealthyThresholdCount = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount.Value;
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull = false;
+            }
+            System.Int32? requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond = null;
+            if (cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond = cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond.Value;
+            }
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig.IntervalSeconds = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond.Value;
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull = false;
+            }
+            System.String requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path = null;
+            if (cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path = cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path;
+            }
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig.Path = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path;
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull = false;
+            }
+            System.Int32? requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port = null;
+            if (cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port = cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port.Value;
+            }
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig.Port = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port.Value;
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull = false;
+            }
+            Amazon.RTBFabric.Protocol requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol = null;
+            if (cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol = cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol;
+            }
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig.Protocol = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol;
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull = false;
+            }
+            System.String requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher = null;
+            if (cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher = cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher;
+            }
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig.StatusCodeMatcher = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher;
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull = false;
+            }
+            System.Int32? requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs = null;
+            if (cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs = cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs.Value;
+            }
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig.TimeoutMs = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs.Value;
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull = false;
+            }
+            System.Int32? requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount = null;
+            if (cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount = cmdletContext.ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount.Value;
+            }
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig.UnhealthyThresholdCount = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount.Value;
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull = false;
+            }
+             // determine if requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig should be set to null
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfigIsNull)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig = null;
+            }
+            if (requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig != null)
+            {
+                requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups.HealthCheckConfig = requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups_managedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig;
                 requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroupsIsNull = false;
             }
              // determine if requestManagedEndpointConfiguration_managedEndpointConfiguration_AutoScalingGroups should be set to null
@@ -593,6 +782,14 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             public System.String GatewayId { get; set; }
             public List<System.String> ListenerConfig_Protocol { get; set; }
             public List<System.String> AutoScalingGroups_AutoScalingGroupName { get; set; }
+            public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount { get; set; }
+            public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond { get; set; }
+            public System.String ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path { get; set; }
+            public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port { get; set; }
+            public Amazon.RTBFabric.Protocol ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol { get; set; }
+            public System.String ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher { get; set; }
+            public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs { get; set; }
+            public System.Int32? ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount { get; set; }
             public System.String AutoScalingGroups_RoleArn { get; set; }
             public System.String EksEndpoints_ClusterApiServerCaCertificateChain { get; set; }
             public System.String EksEndpoints_ClusterApiServerEndpointUri { get; set; }

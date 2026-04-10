@@ -359,7 +359,7 @@ $CONN_Completers = {
         # Amazon.Connect.FileUseCaseType
         "Start-CONNAttachedFileUpload/FileUseCaseType"
         {
-            $v = "ATTACHMENT","EMAIL_MESSAGE"
+            $v = "ATTACHMENT","CONTACT_ANALYSIS","EMAIL_MESSAGE","EMAIL_MESSAGE_PLAIN_TEXT","EMAIL_MESSAGE_PLAIN_TEXT_REDACTED","EMAIL_MESSAGE_REDACTED"
             break
         }
 

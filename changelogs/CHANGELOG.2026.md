@@ -1,4 +1,25 @@
-﻿### 5.0.193 (2026-04-09 20:11Z)
+﻿### 5.0.194 (2026-04-10 20:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.230.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNTelemetryRule: added parameters Rule_AllRegion and Rule_Region.
+    * Modified cmdlet New-CWOADMNTelemetryRuleForOrganization: added parameters Rule_AllRegion and Rule_Region.
+    * Modified cmdlet Start-CWOADMNTelemetryEvaluation: added parameters AllRegion and Regions.
+    * Modified cmdlet Start-CWOADMNTelemetryEvaluationForOrganization: added parameters AllRegion and Regions.
+    * Modified cmdlet Update-CWOADMNTelemetryRule: added parameters Rule_AllRegion and Rule_Region.
+    * Modified cmdlet Update-CWOADMNTelemetryRuleForOrganization: added parameters Rule_AllRegion and Rule_Region.
+  * Amazon DevOps Agent Service
+    * Modified cmdlet Add-DOPSService: added parameters Configuration_Mcpserver_Tool, Configuration_Mcpserverdatadog and Configuration_Mcpserversplunk.
+    * Modified cmdlet Update-DOPSAssociation: added parameters Configuration_Mcpserver_Tool, Configuration_Mcpserverdatadog and Configuration_Mcpserversplunk.
+  * Amazon EC2 Image Builder
+    * Modified cmdlet New-EC2IBImagePipeline: added parameter ImageTag.
+    * Modified cmdlet Update-EC2IBImagePipeline: added parameter ImageTag.
+  * Amazon RTBFabric
+    * Modified cmdlet New-RTBResponderGateway: added parameters ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs and ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount.
+    * Modified cmdlet Update-RTBResponderGateway: added parameters ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_HealthyThresholdCount, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_IntervalSecond, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Path, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Port, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_StatusCodeMatcher, ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_TimeoutMs and ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_UnhealthyThresholdCount.
+  * Amazon SageMaker Service
+    * Added cmdlet Start-SMClusterHealthCheck leveraging the StartClusterHealthCheck service API.
+
+### 5.0.193 (2026-04-09 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.229.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Get-BACCRegistry leveraging the GetRegistry service API.

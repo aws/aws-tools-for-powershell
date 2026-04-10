@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         #region Parameter Mode_SelfManaged_ResourceConfigurationId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Resource Configuration.</para>
+        /// <para>The ID or ARN of the resource configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
