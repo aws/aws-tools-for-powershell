@@ -40,14 +40,11 @@ namespace AWSPowerShellGenerator.Generators
                     Console.SetOut(consoleWriter);
                     var outputFile = Path.Combine(this.OutputFolder, Name + PsHelpFilenameTail);
 
-                    var settings = new XmlWriterSettings
-                    {
-                        Indent = true
-                    };
-
                     using (var psHelpWriter = new XmlTextWriter(outputFile, Encoding.UTF8))
                     {
-                        psHelpWriter.Formatting = Formatting.Indented;
+                        // Use no indentation to reduce file size. PowerShell's XML parser
+                        // ignores whitespace, so Get-Help output is identical.
+                        psHelpWriter.Formatting = Formatting.None;
 
                         psHelpWriter.WriteStartElement("helpItems");
                         psHelpWriter.WriteAttributeString("schema", "maml");
@@ -145,8 +142,6 @@ namespace AWSPowerShellGenerator.Generators
                     {
                         var returnType = attributeType.GetProperty("ReturnType").GetValue(outputAttribute, null) as string;
                         writer.WriteElementString("name", returnType);
-                        writer.WriteElementString("uri", string.Empty);
-                        writer.WriteElementString("description", string.Empty);
                     }
                     writer.WriteEndElement();
 
@@ -246,11 +241,9 @@ namespace AWSPowerShellGenerator.Generators
                         writer.WriteAttributeString("position", position);
 
                         writer.WriteElementString("name", parameter.CmdletParameterName);
-                        writer.WriteStartElement("description");
-                        {
-                            writer.WriteRawElementString("para", parameter.PowershellDocumentation);
-                        }
-                        writer.WriteEndElement();
+                        // Omit description element in syntax section to reduce file size.
+                        // PowerShell's Get-Help never renders descriptions from the syntax node;
+                        // it only uses descriptions from the parameters section.
 
                         writer.WriteStartElement("parameterValue");
                         {
@@ -299,11 +292,9 @@ namespace AWSPowerShellGenerator.Generators
                             writer.WriteString(property.PropertyTypeName);
                         }
                         writer.WriteEndElement();
-
                         writer.WriteStartElement("type");
                         {
                             writer.WriteElementString("name", property.PropertyTypeName);
-                            writer.WriteElementString("uri", string.Empty);
                         }
                         writer.WriteEndElement();
 
