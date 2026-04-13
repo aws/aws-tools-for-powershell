@@ -30,9 +30,18 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns aggregated statistical data about findings. <c>GetFindingStatisticsV2</c>
-    /// use <c>securityhub:GetAdhocInsightResults</c> in the <c>Action</c> element of an IAM
-    /// policy statement. You must have permission to perform the <c>s</c> action.
+    /// Returns aggregated statistical data about findings.
+    /// 
+    ///  
+    /// <para>
+    /// You can use the <c>Scopes</c> parameter to define the data boundary for the query.
+    /// Currently, <c>Scopes</c> supports <c>AwsOrganizations</c>, which lets you aggregate
+    /// findings from your entire organization or from specific organizational units. Only
+    /// the delegated administrator account can use <c>Scopes</c>.
+    /// </para><para><c>GetFindingStatisticsV2</c> uses <c>securityhub:GetAdhocInsightResults</c> in the
+    /// <c>Action</c> element of an IAM policy statement. You must have permission to perform
+    /// the <c>securityhub:GetAdhocInsightResults</c> action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SHUBFindingStatisticsV2")]
     [OutputType("Amazon.SecurityHub.Model.GroupByResult")]
@@ -46,6 +55,24 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter Scopes_AwsOrganization
+        /// <summary>
+        /// <para>
+        /// <para>A list of Organizations scopes to include in the query results. Each entry in the
+        /// list specifies an organization or organizational unit to include for the delegated
+        /// administrator's account. If the list specifies multiple entries, the entries are combined
+        /// using OR logic.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Scopes_AwsOrganizations")]
+        public Amazon.SecurityHub.Model.AwsOrganizationScope[] Scopes_AwsOrganization { get; set; }
+        #endregion
         
         #region Parameter GroupByRule
         /// <summary>
@@ -134,6 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             #endif
             context.MaxStatisticResult = this.MaxStatisticResult;
+            if (this.Scopes_AwsOrganization != null)
+            {
+                context.Scopes_AwsOrganization = new List<Amazon.SecurityHub.Model.AwsOrganizationScope>(this.Scopes_AwsOrganization);
+            }
             context.SortOrder = this.SortOrder;
             
             // allow further manipulation of loaded context prior to processing
@@ -158,6 +189,25 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.MaxStatisticResult != null)
             {
                 request.MaxStatisticResults = cmdletContext.MaxStatisticResult.Value;
+            }
+            
+             // populate Scopes
+            var requestScopesIsNull = true;
+            request.Scopes = new Amazon.SecurityHub.Model.FindingScopes();
+            List<Amazon.SecurityHub.Model.AwsOrganizationScope> requestScopes_scopes_AwsOrganization = null;
+            if (cmdletContext.Scopes_AwsOrganization != null)
+            {
+                requestScopes_scopes_AwsOrganization = cmdletContext.Scopes_AwsOrganization;
+            }
+            if (requestScopes_scopes_AwsOrganization != null)
+            {
+                request.Scopes.AwsOrganizations = requestScopes_scopes_AwsOrganization;
+                requestScopesIsNull = false;
+            }
+             // determine if request.Scopes should be set to null
+            if (requestScopesIsNull)
+            {
+                request.Scopes = null;
             }
             if (cmdletContext.SortOrder != null)
             {
@@ -220,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             public List<Amazon.SecurityHub.Model.GroupByRule> GroupByRule { get; set; }
             public System.Int32? MaxStatisticResult { get; set; }
+            public List<Amazon.SecurityHub.Model.AwsOrganizationScope> Scopes_AwsOrganization { get; set; }
             public Amazon.SecurityHub.SortOrder SortOrder { get; set; }
             public System.Func<Amazon.SecurityHub.Model.GetFindingStatisticsV2Response, GetSHUBFindingStatisticsV2Cmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GroupByResults;

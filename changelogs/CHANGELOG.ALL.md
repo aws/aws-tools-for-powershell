@@ -1,4 +1,20 @@
-﻿### 5.0.194 (2026-04-10 20:26Z)
+﻿### 5.0.195 (2026-04-13 19:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.231.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Added cmdlet Get-ADCMonitorSetting leveraging the GetMonitorSettings service API.
+    * Added cmdlet Update-ADCMonitorSetting leveraging the UpdateMonitorSettings service API.
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet New-CPFSegmentDefinition: added parameter SegmentSort_Attribute.
+  * Amazon Interconnect. Added cmdlets to support the service. Cmdlets for the service have the noun prefix INTC and can be listed using the command 'Get-AWSCmdletName -Service INTC'.
+  * Amazon Macie 2
+    * Modified cmdlet Write-MAC2ClassificationExportConfiguration: added parameter Configuration_S3Destination_ExpectedBucketOwner.
+  * Amazon Security Hub
+    * Modified cmdlet Get-SHUBFindingStatisticsV2: added parameter Scopes_AwsOrganization.
+    * Modified cmdlet Get-SHUBFindingsV2: added parameter Scopes_AwsOrganization.
+    * Modified cmdlet Get-SHUBResourcesStatisticsV2: added parameter Scopes_AwsOrganization.
+    * Modified cmdlet Get-SHUBResourcesV2: added parameter Scopes_AwsOrganization.
+
+### 5.0.194 (2026-04-10 20:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.230.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Observability Admin Service
     * Modified cmdlet New-CWOADMNTelemetryRule: added parameters Rule_AllRegion and Rule_Region.

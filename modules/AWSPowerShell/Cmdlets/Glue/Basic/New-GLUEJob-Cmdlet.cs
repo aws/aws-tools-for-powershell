@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// of Ray, Python and additional libraries available in your Ray job are determined by
         /// the <c>Runtime</c> parameter of the Job command.</para><para>For more information about the available Glue versions and corresponding Spark and
         /// Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue
-        /// version</a> in the developer guide.</para><para>Jobs that are created without specifying a Glue version default to Glue 0.9.</para>
+        /// version</a> in the developer guide.</para><para>Jobs that are created without specifying a Glue version default to Glue 5.1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,20 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns a list of resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of resources.
+    /// 
+    ///  
+    /// <para>
+    /// You can use the <c>Scopes</c> parameter to define the data boundary for the query.
+    /// Currently, <c>Scopes</c> supports <c>AwsOrganizations</c>, which lets you retrieve
+    /// resources from your entire organization or from specific organizational units. Only
+    /// the delegated administrator account can use <c>Scopes</c>.
+    /// </para><para>
+    /// You can use the <c>Filters</c> parameter to refine results based on resource attributes.
+    /// You can use <c>Scopes</c> and <c>Filters</c> independently or together. When both
+    /// are provided, <c>Scopes</c> narrows the data set first, and then <c>Filters</c> refines
+    /// results within that scoped data set.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBResourcesV2")]
     [OutputType("Amazon.SecurityHub.Model.ResourceResult")]
@@ -44,6 +57,24 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter Scopes_AwsOrganization
+        /// <summary>
+        /// <para>
+        /// <para>A list of Organizations scopes to include in the query results. Each entry in the
+        /// list specifies an organization or organizational unit to include for the delegated
+        /// administrator's account. If the list specifies multiple entries, the entries are combined
+        /// using OR logic.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Scopes_AwsOrganizations")]
+        public Amazon.SecurityHub.Model.AwsOrganizationScope[] Scopes_AwsOrganization { get; set; }
+        #endregion
         
         #region Parameter Filters_CompositeFilter
         /// <summary>
@@ -75,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter SortCriterion
         /// <summary>
         /// <para>
-        /// <para>The finding attributes used to sort the list of returned findings.</para><para />
+        /// <para>The resource attributes used to sort the list of returned resources.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -175,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             #endif
             context.NextToken = this.NextToken;
+            if (this.Scopes_AwsOrganization != null)
+            {
+                context.Scopes_AwsOrganization = new List<Amazon.SecurityHub.Model.AwsOrganizationScope>(this.Scopes_AwsOrganization);
+            }
             if (this.SortCriterion != null)
             {
                 context.SortCriterion = new List<Amazon.SecurityHub.Model.SortCriterion>(this.SortCriterion);
@@ -229,6 +264,25 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            
+             // populate Scopes
+            var requestScopesIsNull = true;
+            request.Scopes = new Amazon.SecurityHub.Model.ResourceScopes();
+            List<Amazon.SecurityHub.Model.AwsOrganizationScope> requestScopes_scopes_AwsOrganization = null;
+            if (cmdletContext.Scopes_AwsOrganization != null)
+            {
+                requestScopes_scopes_AwsOrganization = cmdletContext.Scopes_AwsOrganization;
+            }
+            if (requestScopes_scopes_AwsOrganization != null)
+            {
+                request.Scopes.AwsOrganizations = requestScopes_scopes_AwsOrganization;
+                requestScopesIsNull = false;
+            }
+             // determine if request.Scopes should be set to null
+            if (requestScopesIsNull)
+            {
+                request.Scopes = null;
             }
             if (cmdletContext.SortCriterion != null)
             {
@@ -317,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             public Amazon.SecurityHub.AllowedOperators Filters_CompositeOperator { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<Amazon.SecurityHub.Model.AwsOrganizationScope> Scopes_AwsOrganization { get; set; }
             public List<Amazon.SecurityHub.Model.SortCriterion> SortCriterion { get; set; }
             public System.Func<Amazon.SecurityHub.Model.GetResourcesV2Response, GetSHUBResourcesV2Cmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Resources;

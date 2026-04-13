@@ -56,6 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         public System.String S3Destination_BucketName { get; set; }
         #endregion
         
+        #region Parameter Configuration_S3Destination_ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier (ID) for the Amazon Web Services account that owns the bucket.
+        /// This must be the ID for the account that owns the specified bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_S3Destination_ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter S3Destination_KeyPrefix
         /// <summary>
         /// <para>
@@ -128,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.S3Destination_BucketName = this.S3Destination_BucketName;
+            context.Configuration_S3Destination_ExpectedBucketOwner = this.Configuration_S3Destination_ExpectedBucketOwner;
             context.S3Destination_KeyPrefix = this.S3Destination_KeyPrefix;
             context.S3Destination_KmsKeyArn = this.S3Destination_KmsKeyArn;
             
@@ -163,6 +175,16 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestConfiguration_configuration_S3Destination_s3Destination_BucketName != null)
             {
                 requestConfiguration_configuration_S3Destination.BucketName = requestConfiguration_configuration_S3Destination_s3Destination_BucketName;
+                requestConfiguration_configuration_S3DestinationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_S3Destination_configuration_S3Destination_ExpectedBucketOwner = null;
+            if (cmdletContext.Configuration_S3Destination_ExpectedBucketOwner != null)
+            {
+                requestConfiguration_configuration_S3Destination_configuration_S3Destination_ExpectedBucketOwner = cmdletContext.Configuration_S3Destination_ExpectedBucketOwner;
+            }
+            if (requestConfiguration_configuration_S3Destination_configuration_S3Destination_ExpectedBucketOwner != null)
+            {
+                requestConfiguration_configuration_S3Destination.ExpectedBucketOwner = requestConfiguration_configuration_S3Destination_configuration_S3Destination_ExpectedBucketOwner;
                 requestConfiguration_configuration_S3DestinationIsNull = false;
             }
             System.String requestConfiguration_configuration_S3Destination_s3Destination_KeyPrefix = null;
@@ -256,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String S3Destination_BucketName { get; set; }
+            public System.String Configuration_S3Destination_ExpectedBucketOwner { get; set; }
             public System.String S3Destination_KeyPrefix { get; set; }
             public System.String S3Destination_KmsKeyArn { get; set; }
             public System.Func<Amazon.Macie2.Model.PutClassificationExportConfigurationResponse, WriteMAC2ClassificationExportConfigurationCmdlet, object> Select { get; set; } =

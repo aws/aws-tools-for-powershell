@@ -24775,6 +24775,7 @@ $ADC_SelectMap = @{
                "Get-ADCLicenseEndpoint",
                "Get-ADCLimit",
                "Get-ADCMonitor",
+               "Get-ADCMonitorSetting",
                "Get-ADCQueue",
                "Get-ADCQueueEnvironment",
                "Get-ADCQueueFleetAssociation",
@@ -24830,6 +24831,7 @@ $ADC_SelectMap = @{
                "Update-ADCJob",
                "Update-ADCLimit",
                "Update-ADCMonitor",
+               "Update-ADCMonitorSetting",
                "Update-ADCQueue",
                "Update-ADCQueueEnvironment",
                "Update-ADCQueueFleetAssociation",
@@ -41994,6 +41996,99 @@ $INS2_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $INS2_SelectCompleters $INS2_SelectMap
+# Argument completions for service Interconnect
+
+
+$INTC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Interconnect.ConnectionState
+        "Get-INTCConnectionList/State"
+        {
+            $v = "available","deleted","deleting","down","failed","pending","requested","updating"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$INTC_map = @{
+    "State"=@("Get-INTCConnectionList")
+}
+
+_awsArgumentCompleterRegistration $INTC_Completers $INTC_map
+
+$INTC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.INTC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$INTC_SelectMap = @{
+    "Select"=@("Approve-INTCConnectionProposal",
+               "New-INTCConnection",
+               "Remove-INTCConnection",
+               "Get-INTCConnectionProposalDetail",
+               "Get-INTCConnection",
+               "Get-INTCEnvironment",
+               "Get-INTCAttachPointList",
+               "Get-INTCConnectionList",
+               "Get-INTCEnvironmentList",
+               "Get-INTCResourceTag",
+               "Add-INTCResourceTag",
+               "Remove-INTCResourceTag",
+               "Update-INTCConnection")
+}
+
+_awsArgumentCompleterRegistration $INTC_SelectCompleters $INTC_SelectMap
 # Argument completions for service Amazon CloudWatch Internet Monitor
 
 

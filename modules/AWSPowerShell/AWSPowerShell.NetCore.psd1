@@ -247,6 +247,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Inspector.dll',
         'AWSSDK.Inspector2.dll',
         'AWSSDK.InspectorScan.dll',
+        'AWSSDK.Interconnect.dll',
         'AWSSDK.InternetMonitor.dll',
         'AWSSDK.Invoicing.dll',
         'AWSSDK.IoT.dll',

@@ -643,6 +643,9 @@
     <Reference Include="AWSSDK.InspectorScan">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.InspectorScan.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Interconnect">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Interconnect.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.InternetMonitor">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.InternetMonitor.dll</HintPath>
     </Reference>
@@ -1911,6 +1914,9 @@
     </Reference>
     <Reference Include="AWSSDK.InspectorScan">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.InspectorScan.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Interconnect">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Interconnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.InternetMonitor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.InternetMonitor.dll</HintPath>

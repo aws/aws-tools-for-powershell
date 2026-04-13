@@ -23,107 +23,102 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.SecurityHub;
-using Amazon.SecurityHub.Model;
+using Amazon.Interconnect;
+using Amazon.Interconnect.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SHUB
+namespace Amazon.PowerShell.Cmdlets.INTC
 {
     /// <summary>
-    /// Returns a list of findings that match the specified criteria.
+    /// Lists all connection objects to which the caller has access.
     /// 
     ///  
     /// <para>
-    /// You can use the <c>Scopes</c> parameter to define the data boundary for the query.
-    /// Currently, <c>Scopes</c> supports <c>AwsOrganizations</c>, which lets you retrieve
-    /// findings from your entire organization or from specific organizational units. Only
-    /// the delegated administrator account can use <c>Scopes</c>.
-    /// </para><para>
-    /// You can use the <c>Filters</c> parameter to refine results based on finding attributes.
-    /// You can use <c>Scopes</c> and <c>Filters</c> independently or together. When both
-    /// are provided, <c>Scopes</c> narrows the data set first, and then <c>Filters</c> refines
-    /// results within that scoped data set.
-    /// </para><para><c>GetFindings</c> and <c>GetFindingsV2</c> both use <c>securityhub:GetFindings</c>
-    /// in the <c>Action</c> element of an IAM policy statement. You must have permission
-    /// to perform the <c>securityhub:GetFindings</c> action.
+    /// Allows for optional filtering by the following properties:
+    /// </para><ul><li><para><c>state</c></para></li><li><para><c>environmentId</c></para></li><li><para><c>provider</c></para></li><li><para><c>attach point</c></para></li></ul><para>
+    /// Only <a>Connection</a> objects matching all filters will be returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SHUBFindingsV2")]
-    [OutputType("Amazon.Runtime.Documents.Document")]
-    [AWSCmdlet("Calls the AWS Security Hub GetFindingsV2 API operation.", Operation = new[] {"GetFindingsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingsV2Response))]
-    [AWSCmdletOutput("Amazon.Runtime.Documents.Document or Amazon.SecurityHub.Model.GetFindingsV2Response",
-        "This cmdlet returns a collection of Amazon.Runtime.Documents.Document objects.",
-        "The service call response (type Amazon.SecurityHub.Model.GetFindingsV2Response) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "INTCConnectionList")]
+    [OutputType("Amazon.Interconnect.Model.ConnectionSummary")]
+    [AWSCmdlet("Calls the Interconnect ListConnections API operation.", Operation = new[] {"ListConnections"}, SelectReturnType = typeof(Amazon.Interconnect.Model.ListConnectionsResponse))]
+    [AWSCmdletOutput("Amazon.Interconnect.Model.ConnectionSummary or Amazon.Interconnect.Model.ListConnectionsResponse",
+        "This cmdlet returns a collection of Amazon.Interconnect.Model.ConnectionSummary objects.",
+        "The service call response (type Amazon.Interconnect.Model.ListConnectionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSHUBFindingsV2Cmdlet : AmazonSecurityHubClientCmdlet, IExecutor
+    public partial class GetINTCConnectionListCmdlet : AmazonInterconnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Scopes_AwsOrganization
+        #region Parameter AttachPoint_Arn
         /// <summary>
         /// <para>
-        /// <para>A list of Organizations scopes to include in the query results. Each entry in the
-        /// list specifies an organization or organizational unit to include for the delegated
-        /// administrator's account. If the list specifies multiple entries, the entries are combined
-        /// using OR logic.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>Identifies an attach point by full ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Scopes_AwsOrganizations")]
-        public Amazon.SecurityHub.Model.AwsOrganizationScope[] Scopes_AwsOrganization { get; set; }
+        public System.String AttachPoint_Arn { get; set; }
         #endregion
         
-        #region Parameter Filters_CompositeFilter
+        #region Parameter Provider_CloudServiceProvider
         /// <summary>
         /// <para>
-        /// <para>Enables the creation of complex filtering conditions by combining filter criteria.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The provider's name. Specifically, connections to/from this Cloud Service Provider
+        /// will be considered Multicloud connections.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters_CompositeFilters")]
-        public Amazon.SecurityHub.Model.CompositeFilter[] Filters_CompositeFilter { get; set; }
+        public System.String Provider_CloudServiceProvider { get; set; }
         #endregion
         
-        #region Parameter Filters_CompositeOperator
+        #region Parameter AttachPoint_DirectConnectGateway
         /// <summary>
         /// <para>
-        /// <para>The logical operators used to combine the filtering on multiple <c>CompositeFilters</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.SecurityHub.AllowedOperators")]
-        public Amazon.SecurityHub.AllowedOperators Filters_CompositeOperator { get; set; }
-        #endregion
-        
-        #region Parameter SortCriterion
-        /// <summary>
-        /// <para>
-        /// <para>The finding attributes used to sort the list of returned findings.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>Identifies an DirectConnect Gateway attach point by DirectConnectGatewayID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SortCriteria")]
-        public Amazon.SecurityHub.Model.SortCriterion[] SortCriterion { get; set; }
+        public System.String AttachPoint_DirectConnectGateway { get; set; }
+        #endregion
+        
+        #region Parameter EnvironmentId
+        /// <summary>
+        /// <para>
+        /// <para>Filter the results to only include <a>Connection</a> objects on the given <a>Environment</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnvironmentId { get; set; }
+        #endregion
+        
+        #region Parameter Provider_LastMileProvider
+        /// <summary>
+        /// <para>
+        /// <para>The provider's name. Specifically, connections to/from this Last Mile Provider will
+        /// be considered LastMile connections.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Provider_LastMileProvider { get; set; }
+        #endregion
+        
+        #region Parameter State
+        /// <summary>
+        /// <para>
+        /// <para>Filter the results to only include <a>Connection</a> objects in the given <a>Connection$state</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Interconnect.ConnectionState")]
+        public Amazon.Interconnect.ConnectionState State { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return.</para>
+        /// <para>The max number of list results in a single paginated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -139,9 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The token required for pagination. On your first call, set the value of this parameter
-        /// to <c>NULL</c>. For subsequent calls, to continue listing data, set the value of this
-        /// parameter to the value returned in the previous response.</para>
+        /// <para>A pagination token from a previous paginated response indicating you wish to get the
+        /// next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -154,13 +148,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Findings'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.GetFindingsV2Response).
-        /// Specifying the name of a property of type Amazon.SecurityHub.Model.GetFindingsV2Response will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Connections'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Interconnect.Model.ListConnectionsResponse).
+        /// Specifying the name of a property of type Amazon.Interconnect.Model.ListConnectionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Findings";
+        public string Select { get; set; } = "Connections";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -189,14 +183,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.GetFindingsV2Response, GetSHUBFindingsV2Cmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Interconnect.Model.ListConnectionsResponse, GetINTCConnectionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Filters_CompositeFilter != null)
-            {
-                context.Filters_CompositeFilter = new List<Amazon.SecurityHub.Model.CompositeFilter>(this.Filters_CompositeFilter);
-            }
-            context.Filters_CompositeOperator = this.Filters_CompositeOperator;
+            context.AttachPoint_Arn = this.AttachPoint_Arn;
+            context.AttachPoint_DirectConnectGateway = this.AttachPoint_DirectConnectGateway;
+            context.EnvironmentId = this.EnvironmentId;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -208,14 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             #endif
             context.NextToken = this.NextToken;
-            if (this.Scopes_AwsOrganization != null)
-            {
-                context.Scopes_AwsOrganization = new List<Amazon.SecurityHub.Model.AwsOrganizationScope>(this.Scopes_AwsOrganization);
-            }
-            if (this.SortCriterion != null)
-            {
-                context.SortCriterion = new List<Amazon.SecurityHub.Model.SortCriterion>(this.SortCriterion);
-            }
+            context.Provider_CloudServiceProvider = this.Provider_CloudServiceProvider;
+            context.Provider_LastMileProvider = this.Provider_LastMileProvider;
+            context.State = this.State;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -232,63 +219,77 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.SecurityHub.Model.GetFindingsV2Request();
+            var request = new Amazon.Interconnect.Model.ListConnectionsRequest();
             
             
-             // populate Filters
-            var requestFiltersIsNull = true;
-            request.Filters = new Amazon.SecurityHub.Model.OcsfFindingFilters();
-            List<Amazon.SecurityHub.Model.CompositeFilter> requestFilters_filters_CompositeFilter = null;
-            if (cmdletContext.Filters_CompositeFilter != null)
+             // populate AttachPoint
+            var requestAttachPointIsNull = true;
+            request.AttachPoint = new Amazon.Interconnect.Model.AttachPoint();
+            System.String requestAttachPoint_attachPoint_Arn = null;
+            if (cmdletContext.AttachPoint_Arn != null)
             {
-                requestFilters_filters_CompositeFilter = cmdletContext.Filters_CompositeFilter;
+                requestAttachPoint_attachPoint_Arn = cmdletContext.AttachPoint_Arn;
             }
-            if (requestFilters_filters_CompositeFilter != null)
+            if (requestAttachPoint_attachPoint_Arn != null)
             {
-                request.Filters.CompositeFilters = requestFilters_filters_CompositeFilter;
-                requestFiltersIsNull = false;
+                request.AttachPoint.Arn = requestAttachPoint_attachPoint_Arn;
+                requestAttachPointIsNull = false;
             }
-            Amazon.SecurityHub.AllowedOperators requestFilters_filters_CompositeOperator = null;
-            if (cmdletContext.Filters_CompositeOperator != null)
+            System.String requestAttachPoint_attachPoint_DirectConnectGateway = null;
+            if (cmdletContext.AttachPoint_DirectConnectGateway != null)
             {
-                requestFilters_filters_CompositeOperator = cmdletContext.Filters_CompositeOperator;
+                requestAttachPoint_attachPoint_DirectConnectGateway = cmdletContext.AttachPoint_DirectConnectGateway;
             }
-            if (requestFilters_filters_CompositeOperator != null)
+            if (requestAttachPoint_attachPoint_DirectConnectGateway != null)
             {
-                request.Filters.CompositeOperator = requestFilters_filters_CompositeOperator;
-                requestFiltersIsNull = false;
+                request.AttachPoint.DirectConnectGateway = requestAttachPoint_attachPoint_DirectConnectGateway;
+                requestAttachPointIsNull = false;
             }
-             // determine if request.Filters should be set to null
-            if (requestFiltersIsNull)
+             // determine if request.AttachPoint should be set to null
+            if (requestAttachPointIsNull)
             {
-                request.Filters = null;
+                request.AttachPoint = null;
+            }
+            if (cmdletContext.EnvironmentId != null)
+            {
+                request.EnvironmentId = cmdletContext.EnvironmentId;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
-             // populate Scopes
-            var requestScopesIsNull = true;
-            request.Scopes = new Amazon.SecurityHub.Model.FindingScopes();
-            List<Amazon.SecurityHub.Model.AwsOrganizationScope> requestScopes_scopes_AwsOrganization = null;
-            if (cmdletContext.Scopes_AwsOrganization != null)
+             // populate Provider
+            var requestProviderIsNull = true;
+            request.Provider = new Amazon.Interconnect.Model.Provider();
+            System.String requestProvider_provider_CloudServiceProvider = null;
+            if (cmdletContext.Provider_CloudServiceProvider != null)
             {
-                requestScopes_scopes_AwsOrganization = cmdletContext.Scopes_AwsOrganization;
+                requestProvider_provider_CloudServiceProvider = cmdletContext.Provider_CloudServiceProvider;
             }
-            if (requestScopes_scopes_AwsOrganization != null)
+            if (requestProvider_provider_CloudServiceProvider != null)
             {
-                request.Scopes.AwsOrganizations = requestScopes_scopes_AwsOrganization;
-                requestScopesIsNull = false;
+                request.Provider.CloudServiceProvider = requestProvider_provider_CloudServiceProvider;
+                requestProviderIsNull = false;
             }
-             // determine if request.Scopes should be set to null
-            if (requestScopesIsNull)
+            System.String requestProvider_provider_LastMileProvider = null;
+            if (cmdletContext.Provider_LastMileProvider != null)
             {
-                request.Scopes = null;
+                requestProvider_provider_LastMileProvider = cmdletContext.Provider_LastMileProvider;
             }
-            if (cmdletContext.SortCriterion != null)
+            if (requestProvider_provider_LastMileProvider != null)
             {
-                request.SortCriteria = cmdletContext.SortCriterion;
+                request.Provider.LastMileProvider = requestProvider_provider_LastMileProvider;
+                requestProviderIsNull = false;
+            }
+             // determine if request.Provider should be set to null
+            if (requestProviderIsNull)
+            {
+                request.Provider = null;
+            }
+            if (cmdletContext.State != null)
+            {
+                request.State = cmdletContext.State;
             }
             
             // Initialize loop variant and commence piping
@@ -347,12 +348,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityHub.Model.GetFindingsV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetFindingsV2Request request)
+        private Amazon.Interconnect.Model.ListConnectionsResponse CallAWSServiceOperation(IAmazonInterconnect client, Amazon.Interconnect.Model.ListConnectionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetFindingsV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Interconnect", "ListConnections");
             try
             {
-                return client.GetFindingsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListConnectionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -369,14 +370,16 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SecurityHub.Model.CompositeFilter> Filters_CompositeFilter { get; set; }
-            public Amazon.SecurityHub.AllowedOperators Filters_CompositeOperator { get; set; }
+            public System.String AttachPoint_Arn { get; set; }
+            public System.String AttachPoint_DirectConnectGateway { get; set; }
+            public System.String EnvironmentId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<Amazon.SecurityHub.Model.AwsOrganizationScope> Scopes_AwsOrganization { get; set; }
-            public List<Amazon.SecurityHub.Model.SortCriterion> SortCriterion { get; set; }
-            public System.Func<Amazon.SecurityHub.Model.GetFindingsV2Response, GetSHUBFindingsV2Cmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Findings;
+            public System.String Provider_CloudServiceProvider { get; set; }
+            public System.String Provider_LastMileProvider { get; set; }
+            public Amazon.Interconnect.ConnectionState State { get; set; }
+            public System.Func<Amazon.Interconnect.Model.ListConnectionsResponse, GetINTCConnectionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Connections;
         }
         
     }

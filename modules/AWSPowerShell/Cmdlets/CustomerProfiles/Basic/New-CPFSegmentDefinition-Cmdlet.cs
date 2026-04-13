@@ -44,6 +44,21 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter SegmentSort_Attribute
+        /// <summary>
+        /// <para>
+        /// <para>A list of attributes used to sort the segments and their ordering preferences.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SegmentSort_Attributes")]
+        public Amazon.CustomerProfiles.Model.SortAttribute[] SegmentSort_Attribute { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -229,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.SegmentGroups_Group = new List<Amazon.CustomerProfiles.Model.Group>(this.SegmentGroups_Group);
             }
             context.SegmentGroups_Include = this.SegmentGroups_Include;
+            if (this.SegmentSort_Attribute != null)
+            {
+                context.SegmentSort_Attribute = new List<Amazon.CustomerProfiles.Model.SortAttribute>(this.SegmentSort_Attribute);
+            }
             context.SegmentSqlQuery = this.SegmentSqlQuery;
             if (this.Tag != null)
             {
@@ -299,6 +318,25 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.SegmentGroups = null;
             }
+            
+             // populate SegmentSort
+            var requestSegmentSortIsNull = true;
+            request.SegmentSort = new Amazon.CustomerProfiles.Model.SegmentSort();
+            List<Amazon.CustomerProfiles.Model.SortAttribute> requestSegmentSort_segmentSort_Attribute = null;
+            if (cmdletContext.SegmentSort_Attribute != null)
+            {
+                requestSegmentSort_segmentSort_Attribute = cmdletContext.SegmentSort_Attribute;
+            }
+            if (requestSegmentSort_segmentSort_Attribute != null)
+            {
+                request.SegmentSort.Attributes = requestSegmentSort_segmentSort_Attribute;
+                requestSegmentSortIsNull = false;
+            }
+             // determine if request.SegmentSort should be set to null
+            if (requestSegmentSortIsNull)
+            {
+                request.SegmentSort = null;
+            }
             if (cmdletContext.SegmentSqlQuery != null)
             {
                 request.SegmentSqlQuery = cmdletContext.SegmentSqlQuery;
@@ -368,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String SegmentDefinitionName { get; set; }
             public List<Amazon.CustomerProfiles.Model.Group> SegmentGroups_Group { get; set; }
             public Amazon.CustomerProfiles.IncludeOptions SegmentGroups_Include { get; set; }
+            public List<Amazon.CustomerProfiles.Model.SortAttribute> SegmentSort_Attribute { get; set; }
             public System.String SegmentSqlQuery { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.CreateSegmentDefinitionResponse, NewCPFSegmentDefinitionCmdlet, object> Select { get; set; } =
