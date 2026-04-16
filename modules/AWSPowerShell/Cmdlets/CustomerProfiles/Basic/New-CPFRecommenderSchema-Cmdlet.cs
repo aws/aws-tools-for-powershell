@@ -30,30 +30,20 @@ using Amazon.CustomerProfiles.Model;
 namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Creates a recommender filter. A recommender filter specifies which items to include
-    /// or exclude from recommendations.
+    /// Creates a recommender schema. A recommender schema defines the set of data columns
+    /// available for training recommenders and filters under a domain.
     /// </summary>
-    [Cmdlet("New", "CPFRecommenderFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CustomerProfiles.Model.CreateRecommenderFilterResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Customer Profiles CreateRecommenderFilter API operation.", Operation = new[] {"CreateRecommenderFilter"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.CreateRecommenderFilterResponse))]
-    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.CreateRecommenderFilterResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.CreateRecommenderFilterResponse object containing multiple properties."
+    [Cmdlet("New", "CPFRecommenderSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CustomerProfiles.Model.CreateRecommenderSchemaResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles CreateRecommenderSchema API operation.", Operation = new[] {"CreateRecommenderSchema"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.CreateRecommenderSchemaResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.CreateRecommenderSchemaResponse",
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.CreateRecommenderSchemaResponse object containing multiple properties."
     )]
-    public partial class NewCPFRecommenderFilterCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
+    public partial class NewCPFRecommenderSchemaCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>A description of the recommender filter.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
         
         #region Parameter DomainName
         /// <summary>
@@ -72,48 +62,43 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter RecommenderFilterExpression
+        #region Parameter Field
         /// <summary>
         /// <para>
-        /// <para>The filter expression that defines which items to include or exclude from recommendations.</para>
+        /// <para>A map of dataset type to column definitions that specifies which data columns to include
+        /// in the schema. Currently only the <c>_webAnalytics</c> key is supported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RecommenderFilterExpression { get; set; }
-        #endregion
-        
-        #region Parameter RecommenderFilterName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the recommender filter. The name must be unique within the domain.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RecommenderFilterName { get; set; }
+        [Alias("Fields")]
+        public System.Collections.Hashtable Field { get; set; }
         #endregion
         
         #region Parameter RecommenderSchemaName
         /// <summary>
         /// <para>
-        /// <para>The name of the recommender schema to use for this recommender filter. If not specified,
-        /// the default schema is used.</para>
+        /// <para>The name of the recommender schema. The name must be unique within the domain.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RecommenderSchemaName { get; set; }
         #endregion
         
@@ -135,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.CreateRecommenderFilterResponse).
-        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.CreateRecommenderFilterResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.CreateRecommenderSchemaResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.CreateRecommenderSchemaResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RecommenderFilterName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CPFRecommenderFilter (CreateRecommenderFilter)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RecommenderSchemaName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CPFRecommenderSchema (CreateRecommenderSchema)"))
             {
                 return;
             }
@@ -175,10 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.CreateRecommenderFilterResponse, NewCPFRecommenderFilterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.CreateRecommenderSchemaResponse, NewCPFRecommenderSchemaCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Description = this.Description;
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -186,21 +170,39 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RecommenderFilterExpression = this.RecommenderFilterExpression;
-            #if MODULAR
-            if (this.RecommenderFilterExpression == null && ParameterWasBound(nameof(this.RecommenderFilterExpression)))
+            if (this.Field != null)
             {
-                WriteWarning("You are passing $null as a value for parameter RecommenderFilterExpression which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Field = new Dictionary<System.String, List<Amazon.CustomerProfiles.Model.RecommenderSchemaField>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Field.Keys)
+                {
+                    object hashValue = this.Field[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.Field.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.CustomerProfiles.Model.RecommenderSchemaField>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.CustomerProfiles.Model.RecommenderSchemaField)s);
+                    }
+                    context.Field.Add((String)hashKey, valueSet);
+                }
             }
-            #endif
-            context.RecommenderFilterName = this.RecommenderFilterName;
             #if MODULAR
-            if (this.RecommenderFilterName == null && ParameterWasBound(nameof(this.RecommenderFilterName)))
+            if (this.Field == null && ParameterWasBound(nameof(this.Field)))
             {
-                WriteWarning("You are passing $null as a value for parameter RecommenderFilterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Field which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.RecommenderSchemaName = this.RecommenderSchemaName;
+            #if MODULAR
+            if (this.RecommenderSchemaName == null && ParameterWasBound(nameof(this.RecommenderSchemaName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RecommenderSchemaName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -223,23 +225,15 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CustomerProfiles.Model.CreateRecommenderFilterRequest();
+            var request = new Amazon.CustomerProfiles.Model.CreateRecommenderSchemaRequest();
             
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.RecommenderFilterExpression != null)
+            if (cmdletContext.Field != null)
             {
-                request.RecommenderFilterExpression = cmdletContext.RecommenderFilterExpression;
-            }
-            if (cmdletContext.RecommenderFilterName != null)
-            {
-                request.RecommenderFilterName = cmdletContext.RecommenderFilterName;
+                request.Fields = cmdletContext.Field;
             }
             if (cmdletContext.RecommenderSchemaName != null)
             {
@@ -282,12 +276,12 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         #region AWS Service Operation Call
         
-        private Amazon.CustomerProfiles.Model.CreateRecommenderFilterResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.CreateRecommenderFilterRequest request)
+        private Amazon.CustomerProfiles.Model.CreateRecommenderSchemaResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.CreateRecommenderSchemaRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "CreateRecommenderFilter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "CreateRecommenderSchema");
             try
             {
-                return client.CreateRecommenderFilterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CreateRecommenderSchemaAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -304,13 +298,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
             public System.String DomainName { get; set; }
-            public System.String RecommenderFilterExpression { get; set; }
-            public System.String RecommenderFilterName { get; set; }
+            public Dictionary<System.String, List<Amazon.CustomerProfiles.Model.RecommenderSchemaField>> Field { get; set; }
             public System.String RecommenderSchemaName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.CustomerProfiles.Model.CreateRecommenderFilterResponse, NewCPFRecommenderFilterCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.CustomerProfiles.Model.CreateRecommenderSchemaResponse, NewCPFRecommenderSchemaCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

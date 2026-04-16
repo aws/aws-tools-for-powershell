@@ -127,10 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ExpireDate
         /// <summary>
         /// <para>
-        /// <para>The date and time when the mute rule expires and is no longer evaluated. After this
-        /// time, the rule status becomes EXPIRED and will no longer mute the targeted alarms.
-        /// This date and time is interpreted according to the schedule timezone, or UTC if no
-        /// timezone is specified.</para>
+        /// <para>The date and time when the mute rule expires and is no longer evaluated, specified
+        /// as a timestamp in ISO 8601 format (for example, <c>2026-12-31T23:59:59Z</c>). After
+        /// this time, the rule status becomes EXPIRED and will no longer mute the targeted alarms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,10 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StartDate
         /// <summary>
         /// <para>
-        /// <para>The date and time after which the mute rule takes effect. If not specified, the mute
-        /// rule takes effect immediately upon creation and the mutes are applied as per the schedule
-        /// expression. This date and time is interpreted according to the schedule timezone,
-        /// or UTC if no timezone is specified.</para>
+        /// <para>The date and time after which the mute rule takes effect, specified as a timestamp
+        /// in ISO 8601 format (for example, <c>2026-04-15T08:00:00Z</c>). If not specified, the
+        /// mute rule takes effect immediately upon creation and the mutes are applied as per
+        /// the schedule expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

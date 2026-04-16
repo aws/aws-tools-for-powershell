@@ -125,6 +125,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRecommenderSchema" OutputProperty="*" Verb="New" Noun="RecommenderSchema" ShouldProcessTarget="RecommenderSchemaName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSegmentDefinition" OutputProperty="*" Verb="New" Noun="SegmentDefinition" ShouldProcessTarget="SegmentDefinitionName" PipelineParameter="SegmentDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -190,6 +194,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRecommenderFilter" OutputProperty="Message" Verb="Remove" Noun="RecommenderFilter" ShouldProcessTarget="RecommenderFilterName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecommenderSchema" Verb="Remove" Noun="RecommenderSchema" ShouldProcessTarget="RecommenderSchemaName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -274,6 +282,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetRecommenderFilter" OutputProperty="*" Verb="Get" Noun="RecommenderFilter" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommenderSchema" OutputProperty="*" Verb="Get" Noun="RecommenderSchema" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -390,6 +402,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRecommenders" OutputProperty="Recommenders" Verb="Get" Noun="RecommenderList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommenderSchemas" OutputProperty="RecommenderSchemas" Verb="Get" Noun="RecommenderSchemaList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

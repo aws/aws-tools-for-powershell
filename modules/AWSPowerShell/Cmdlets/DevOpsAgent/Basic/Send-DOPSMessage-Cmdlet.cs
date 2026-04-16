@@ -129,17 +129,13 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>Required user identifier</para>
+        /// <para>User identifier. This field is deprecated and will be ignored — the service resolves
+        /// user identity from the authenticated session.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [System.ObsoleteAttribute("userId is managed by the service and should not be provided by the caller")]
         public System.String UserId { get; set; }
         #endregion
         
@@ -219,13 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter ExecutionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.UserId = this.UserId;
-            #if MODULAR
-            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -293,10 +285,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             {
                 request.ExecutionId = cmdletContext.ExecutionId;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.UserId != null)
             {
                 request.UserId = cmdletContext.UserId;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -358,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String Context_LastMessage { get; set; }
             public System.String Context_UserActionResponse { get; set; }
             public System.String ExecutionId { get; set; }
+            [System.ObsoleteAttribute]
             public System.String UserId { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.SendMessageResponse, SendDOPSMessageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Events;

@@ -297,7 +297,7 @@ $DZ_Completers = {
         # Amazon.DataZone.GroupSearchType
         "Search-DZGroupProfile/GroupType"
         {
-            $v = "DATAZONE_SSO_GROUP","SSO_GROUP"
+            $v = "DATAZONE_SSO_GROUP","IAM_ROLE_SESSION_GROUP","SSO_GROUP"
             break
         }
 
@@ -620,7 +620,7 @@ $DZ_Completers = {
         # Amazon.DataZone.UserType
         "New-DZUserProfile/UserType"
         {
-            $v = "IAM_ROLE","IAM_USER","SSO_USER"
+            $v = "IAM_ROLE","IAM_ROLE_SESSION","IAM_USER","SSO_USER"
             break
         }
 

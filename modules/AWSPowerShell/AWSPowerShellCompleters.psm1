@@ -18239,6 +18239,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.WebAuthnFactorConfigurationType
+        "Set-CGIPUserPoolMfaConfig/WebAuthnConfiguration_FactorConfiguration"
+        {
+            $v = "MULTI_FACTOR_WITH_USER_VERIFICATION","SINGLE_FACTOR"
+            break
+        }
+
 
     }
 
@@ -18276,6 +18283,7 @@ $CGIP_map = @{
     "UserPoolAddOns_AdvancedSecurityMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "UserPoolTier"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "VerificationMessageTemplate_DefaultEmailOption"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "WebAuthnConfiguration_FactorConfiguration"=@("Set-CGIPUserPoolMfaConfig")
     "WebAuthnConfiguration_UserVerification"=@("Set-CGIPUserPoolMfaConfig")
 }
 
@@ -20082,7 +20090,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnEmailAnalysisAvailable","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
             break
         }
 
@@ -22521,6 +22529,7 @@ $CPF_SelectMap = @{
                "New-CPFProfile",
                "New-CPFRecommender",
                "New-CPFRecommenderFilter",
+               "New-CPFRecommenderSchema",
                "New-CPFSegmentDefinition",
                "New-CPFSegmentEstimate",
                "New-CPFSegmentSnapshot",
@@ -22538,6 +22547,7 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileObjectType",
                "Remove-CPFRecommender",
                "Remove-CPFRecommenderFilter",
+               "Remove-CPFRecommenderSchema",
                "Remove-CPFSegmentDefinition",
                "Remove-CPFWorkflow",
                "Find-CPFProfileObjectType",
@@ -22559,6 +22569,7 @@ $CPF_SelectMap = @{
                "Get-CPFProfileRecommendation",
                "Get-CPFRecommender",
                "Get-CPFRecommenderFilter",
+               "Get-CPFRecommenderSchema",
                "Get-CPFSegmentDefinition",
                "Get-CPFSegmentEstimate",
                "Get-CPFSegmentMembership",
@@ -22588,6 +22599,7 @@ $CPF_SelectMap = @{
                "Get-CPFRecommenderFilterList",
                "Get-CPFRecommenderRecipeList",
                "Get-CPFRecommenderList",
+               "Get-CPFRecommenderSchemaList",
                "Get-CPFRuleBasedMatchList",
                "Get-CPFSegmentDefinitionList",
                "Get-CPFResourceTag",
@@ -23664,7 +23676,7 @@ $DZ_Completers = {
         # Amazon.DataZone.GroupSearchType
         "Search-DZGroupProfile/GroupType"
         {
-            $v = "DATAZONE_SSO_GROUP","SSO_GROUP"
+            $v = "DATAZONE_SSO_GROUP","IAM_ROLE_SESSION_GROUP","SSO_GROUP"
             break
         }
 
@@ -23987,7 +23999,7 @@ $DZ_Completers = {
         # Amazon.DataZone.UserType
         "New-DZUserProfile/UserType"
         {
-            $v = "IAM_ROLE","IAM_USER","SSO_USER"
+            $v = "IAM_ROLE","IAM_ROLE_SESSION","IAM_USER","SSO_USER"
             break
         }
 
@@ -25468,8 +25480,7 @@ $DOPS_SelectCompleters = {
 }
 
 $DOPS_SelectMap = @{
-    "Select"=@("Enable-DOPSVendedLogDeliveryForResource",
-               "Add-DOPSService",
+    "Select"=@("Add-DOPSService",
                "New-DOPSAgentSpace",
                "New-DOPSBacklogTask",
                "New-DOPSChat",
@@ -69076,8 +69087,8 @@ $RDS_SelectMap = @{
                "Get-RDSDBSubnetGroup",
                "Get-RDSEngineDefaultClusterParameter",
                "Get-RDSEngineDefaultParameter",
-               "Get-RDSEvent",
                "Get-RDSEventCategory",
+               "Get-RDSEvent",
                "Get-RDSEventSubscription",
                "Get-RDSExportTask",
                "Get-RDSGlobalCluster",
@@ -69088,6 +69099,7 @@ $RDS_SelectMap = @{
                "Get-RDSPendingMaintenanceAction",
                "Get-RDSReservedDBInstance",
                "Get-RDSReservedDBInstancesOfferingList",
+               "Get-RDSServerlessV2PlatformVersion",
                "Get-RDSSourceRegion",
                "Get-RDSTenantDatabasis",
                "Get-RDSValidDBInstanceModification",

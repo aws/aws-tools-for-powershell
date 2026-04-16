@@ -1,4 +1,41 @@
-﻿### 5.0.195 (2026-04-13 19:53Z)
+﻿### 5.0.196 (2026-04-16 20:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.232.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Modified cmdlet Update-APSStack: added parameters ContentRedirection_HostToClient_AllowedUrl, ContentRedirection_HostToClient_DeniedUrl and ContentRedirection_HostToClient_Enabled.
+  * Amazon Auto Scaling
+    * Modified cmdlet New-ASAutoScalingGroup: added parameter AvailabilityZoneId.
+    * Modified cmdlet Update-ASAutoScalingGroup: added parameter AvailabilityZoneId.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Get-BACMemoryRecordList: added parameter NamespacePath.
+    * Modified cmdlet Invoke-BACMemoryRecord: added parameter NamespacePath.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet Set-CGIPUserMFAPreference: added parameter WebAuthnMfaSettings_Enabled.
+    * Modified cmdlet Set-CGIPUserMFAPreferenceAdmin: added parameter WebAuthnMfaSettings_Enabled.
+    * Modified cmdlet Set-CGIPUserPoolMfaConfig: added parameter WebAuthnConfiguration_FactorConfiguration.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFRecommenderSchema leveraging the GetRecommenderSchema service API.
+    * Added cmdlet Get-CPFRecommenderSchemaList leveraging the ListRecommenderSchemas service API.
+    * Added cmdlet New-CPFRecommenderSchema leveraging the CreateRecommenderSchema service API.
+    * Added cmdlet Remove-CPFRecommenderSchema leveraging the DeleteRecommenderSchema service API.
+    * Modified cmdlet New-CPFRecommender: added parameters RecommenderConfig_IncludedColumn and RecommenderSchemaName.
+    * Modified cmdlet New-CPFRecommenderFilter: added parameter RecommenderSchemaName.
+    * Modified cmdlet Update-CPFRecommender: added parameter RecommenderConfig_IncludedColumn.
+  * Amazon DataZone
+    * Modified cmdlet Get-DZProjectList: added parameter ProjectCategory.
+    * Modified cmdlet Get-DZUserProfile: added parameter SessionName.
+    * Modified cmdlet New-DZGroupProfile: added parameter RolePrincipalArn.
+    * Modified cmdlet New-DZProject: added parameters MembershipAssignment, ProjectCategory and ProjectExecutionRole.
+    * Modified cmdlet New-DZUserProfile: added parameter SessionName.
+    * Modified cmdlet Update-DZUserProfile: added parameter SessionName.
+  * DOPS
+    * [Breaking Change] Removed cmdlet Enable-DOPSVendedLogDeliveryForResource.
+  * Amazon Elemental MediaConvert
+    * Modified cmdlet New-EMCQueue: added parameter MaximumConcurrentFeed.
+    * Modified cmdlet Update-EMCQueue: added parameter MaximumConcurrentFeed.
+  * Amazon Relational Database Service
+    * Added cmdlet Get-RDSServerlessV2PlatformVersion leveraging the DescribeServerlessV2PlatformVersions service API.
+
+### 5.0.195 (2026-04-13 19:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.231.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Added cmdlet Get-ADCMonitorSetting leveraging the GetMonitorSettings service API.

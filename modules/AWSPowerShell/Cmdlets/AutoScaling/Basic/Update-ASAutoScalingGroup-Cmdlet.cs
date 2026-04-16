@@ -101,6 +101,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String AutoScalingGroupName { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para> A list of Availability Zone IDs for the Auto Scaling group. You cannot specify both
+        /// AvailabilityZones and AvailabilityZoneIds in the same request. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AvailabilityZoneIds")]
+        public System.String[] AvailabilityZoneId { get; set; }
+        #endregion
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
@@ -621,6 +637,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             #endif
             context.AvailabilityZoneDistribution_CapacityDistributionStrategy = this.AvailabilityZoneDistribution_CapacityDistributionStrategy;
+            if (this.AvailabilityZoneId != null)
+            {
+                context.AvailabilityZoneId = new List<System.String>(this.AvailabilityZoneId);
+            }
             context.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior = this.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior;
             context.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled = this.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled;
             if (this.AvailabilityZone != null)
@@ -703,6 +723,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (requestAvailabilityZoneDistributionIsNull)
             {
                 request.AvailabilityZoneDistribution = null;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneIds = cmdletContext.AvailabilityZoneId;
             }
             
              // populate AvailabilityZoneImpairmentPolicy
@@ -1030,6 +1054,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             public System.String AutoScalingGroupName { get; set; }
             public Amazon.AutoScaling.CapacityDistributionStrategy AvailabilityZoneDistribution_CapacityDistributionStrategy { get; set; }
+            public List<System.String> AvailabilityZoneId { get; set; }
             public Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior { get; set; }
             public System.Boolean? AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled { get; set; }
             public List<System.String> AvailabilityZone { get; set; }

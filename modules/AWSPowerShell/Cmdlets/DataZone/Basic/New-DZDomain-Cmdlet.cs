@@ -62,14 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// the Amazon DataZone domain.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DomainExecutionRole { get; set; }
         #endregion
         
@@ -229,12 +222,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.DomainExecutionRole = this.DomainExecutionRole;
-            #if MODULAR
-            if (this.DomainExecutionRole == null && ParameterWasBound(nameof(this.DomainExecutionRole)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DomainExecutionRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DomainVersion = this.DomainVersion;
             context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.Name = this.Name;

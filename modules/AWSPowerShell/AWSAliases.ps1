@@ -8182,6 +8182,8 @@ Set-Alias -Name Create-CPFRecommender -Value New-CPFRecommender
 Set-Alias -Name CPF-CreateRecommender -Value New-CPFRecommender
 Set-Alias -Name Create-CPFRecommenderFilter -Value New-CPFRecommenderFilter
 Set-Alias -Name CPF-CreateRecommenderFilter -Value New-CPFRecommenderFilter
+Set-Alias -Name Create-CPFRecommenderSchema -Value New-CPFRecommenderSchema
+Set-Alias -Name CPF-CreateRecommenderSchema -Value New-CPFRecommenderSchema
 Set-Alias -Name Create-CPFSegmentDefinition -Value New-CPFSegmentDefinition
 Set-Alias -Name CPF-CreateSegmentDefinition -Value New-CPFSegmentDefinition
 Set-Alias -Name Create-CPFSegmentEstimate -Value New-CPFSegmentEstimate
@@ -8216,6 +8218,8 @@ Set-Alias -Name Delete-CPFRecommender -Value Remove-CPFRecommender
 Set-Alias -Name CPF-DeleteRecommender -Value Remove-CPFRecommender
 Set-Alias -Name Delete-CPFRecommenderFilter -Value Remove-CPFRecommenderFilter
 Set-Alias -Name CPF-DeleteRecommenderFilter -Value Remove-CPFRecommenderFilter
+Set-Alias -Name Delete-CPFRecommenderSchema -Value Remove-CPFRecommenderSchema
+Set-Alias -Name CPF-DeleteRecommenderSchema -Value Remove-CPFRecommenderSchema
 Set-Alias -Name Delete-CPFSegmentDefinition -Value Remove-CPFSegmentDefinition
 Set-Alias -Name CPF-DeleteSegmentDefinition -Value Remove-CPFSegmentDefinition
 Set-Alias -Name Delete-CPFWorkflow -Value Remove-CPFWorkflow
@@ -8243,6 +8247,7 @@ Set-Alias -Name Get-CPFProfileRecommendations -Value Get-CPFProfileRecommendatio
 Set-Alias -Name CPF-GetProfileRecommendations -Value Get-CPFProfileRecommendation
 Set-Alias -Name CPF-GetRecommender -Value Get-CPFRecommender
 Set-Alias -Name CPF-GetRecommenderFilter -Value Get-CPFRecommenderFilter
+Set-Alias -Name CPF-GetRecommenderSchema -Value Get-CPFRecommenderSchema
 Set-Alias -Name CPF-GetSegmentDefinition -Value Get-CPFSegmentDefinition
 Set-Alias -Name CPF-GetSegmentEstimate -Value Get-CPFSegmentEstimate
 Set-Alias -Name CPF-GetSegmentMembership -Value Get-CPFSegmentMembership
@@ -8314,6 +8319,9 @@ Set-Alias -Name CPF-ListRecommenderRecipes -Value Get-CPFRecommenderRecipeList
 Set-Alias -Name List-CPFRecommenders -Value Get-CPFRecommenderList
 Set-Alias -Name List-CPFRecommenderList -Value Get-CPFRecommenderList
 Set-Alias -Name CPF-ListRecommenders -Value Get-CPFRecommenderList
+Set-Alias -Name List-CPFRecommenderSchemas -Value Get-CPFRecommenderSchemaList
+Set-Alias -Name List-CPFRecommenderSchemaList -Value Get-CPFRecommenderSchemaList
+Set-Alias -Name CPF-ListRecommenderSchemas -Value Get-CPFRecommenderSchemaList
 Set-Alias -Name List-CPFRuleBasedMatches -Value Get-CPFRuleBasedMatchList
 Set-Alias -Name List-CPFRuleBasedMatchList -Value Get-CPFRuleBasedMatchList
 Set-Alias -Name CPF-ListRuleBasedMatches -Value Get-CPFRuleBasedMatchList
@@ -9448,8 +9456,6 @@ Set-Alias -Name DF-UpdateProject -Value Update-DFProject
 Set-Alias -Name DF-UpdateTestGridProject -Value Update-DFTestGridProject
 Set-Alias -Name DF-UpdateUpload -Value Update-DFUpload
 Set-Alias -Name DF-UpdateVPCEConfiguration -Value Update-DFVPCEConfiguration
-Set-Alias -Name Allow-DOPSVendedLogDeliveryForResource -Value Enable-DOPSVendedLogDeliveryForResource
-Set-Alias -Name DOPS-AllowVendedLogDeliveryForResource -Value Enable-DOPSVendedLogDeliveryForResource
 Set-Alias -Name Associate-DOPSService -Value Add-DOPSService
 Set-Alias -Name DOPS-AssociateService -Value Add-DOPSService
 Set-Alias -Name Create-DOPSAgentSpace -Value New-DOPSAgentSpace
@@ -27058,6 +27064,9 @@ Set-Alias -Name RDS-DescribeReservedDBInstances -Value Get-RDSReservedDBInstance
 Set-Alias -Name Describe-RDSReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferingList
 Set-Alias -Name Describe-RDSReservedDBInstancesOfferingList -Value Get-RDSReservedDBInstancesOfferingList
 Set-Alias -Name RDS-DescribeReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferingList
+Set-Alias -Name Describe-RDSServerlessV2PlatformVersions -Value Get-RDSServerlessV2PlatformVersion
+Set-Alias -Name Describe-RDSServerlessV2PlatformVersion -Value Get-RDSServerlessV2PlatformVersion
+Set-Alias -Name RDS-DescribeServerlessV2PlatformVersions -Value Get-RDSServerlessV2PlatformVersion
 Set-Alias -Name Describe-RDSSourceRegions -Value Get-RDSSourceRegion
 Set-Alias -Name Describe-RDSSourceRegion -Value Get-RDSSourceRegion
 Set-Alias -Name RDS-DescribeSourceRegions -Value Get-RDSSourceRegion

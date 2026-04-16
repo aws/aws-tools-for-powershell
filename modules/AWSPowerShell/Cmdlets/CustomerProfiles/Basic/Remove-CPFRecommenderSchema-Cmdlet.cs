@@ -23,32 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DevOpsAgent;
-using Amazon.DevOpsAgent.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DOPS
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Authorize Ingestion Hub subscription operation.
+    /// Deletes a recommender schema from a domain.
     /// </summary>
-    [Cmdlet("Enable", "DOPSVendedLogDeliveryForResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS DevOps Agent Service AllowVendedLogDeliveryForResource API operation.", Operation = new[] {"AllowVendedLogDeliveryForResource"}, SelectReturnType = typeof(Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "CPFRecommenderSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles DeleteRecommenderSchema API operation.", Operation = new[] {"DeleteRecommenderSchema"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.DeleteRecommenderSchemaResponse))]
+    [AWSCmdletOutput("None or Amazon.CustomerProfiles.Model.DeleteRecommenderSchemaResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.CustomerProfiles.Model.DeleteRecommenderSchemaResponse) be returned by specifying '-Select *'."
     )]
-    public partial class EnableDOPSVendedLogDeliveryForResourceCmdlet : AmazonDevOpsAgentClientCmdlet, IExecutor
+    public partial class RemoveCPFRecommenderSchemaCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DeliverySourceArn
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The ARN of the delivery source for vended log delivery.</para>
+        /// <para>The unique name of the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,23 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DeliverySourceArn { get; set; }
+        public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter LogType
+        #region Parameter RecommenderSchemaName
         /// <summary>
         /// <para>
-        /// <para>The type of log to be delivered.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String LogType { get; set; }
-        #endregion
-        
-        #region Parameter ResourceArnBeingAuthorized
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the resource being authorized for vended log delivery.</para>
+        /// <para>The name of the recommender schema to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,18 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArnBeingAuthorized { get; set; }
+        public System.String RecommenderSchemaName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Message'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceResponse).
-        /// Specifying the name of a property of type Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.DeleteRecommenderSchemaResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Message";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -119,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DeliverySourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-DOPSVendedLogDeliveryForResource (AllowVendedLogDeliveryForResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RecommenderSchemaName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CPFRecommenderSchema (DeleteRecommenderSchema)"))
             {
                 return;
             }
@@ -132,22 +121,21 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceResponse, EnableDOPSVendedLogDeliveryForResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.DeleteRecommenderSchemaResponse, RemoveCPFRecommenderSchemaCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DeliverySourceArn = this.DeliverySourceArn;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.DeliverySourceArn == null && ParameterWasBound(nameof(this.DeliverySourceArn)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter DeliverySourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LogType = this.LogType;
-            context.ResourceArnBeingAuthorized = this.ResourceArnBeingAuthorized;
+            context.RecommenderSchemaName = this.RecommenderSchemaName;
             #if MODULAR
-            if (this.ResourceArnBeingAuthorized == null && ParameterWasBound(nameof(this.ResourceArnBeingAuthorized)))
+            if (this.RecommenderSchemaName == null && ParameterWasBound(nameof(this.RecommenderSchemaName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArnBeingAuthorized which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RecommenderSchemaName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -164,19 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceRequest();
+            var request = new Amazon.CustomerProfiles.Model.DeleteRecommenderSchemaRequest();
             
-            if (cmdletContext.DeliverySourceArn != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.DeliverySourceArn = cmdletContext.DeliverySourceArn;
+                request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.LogType != null)
+            if (cmdletContext.RecommenderSchemaName != null)
             {
-                request.LogType = cmdletContext.LogType;
-            }
-            if (cmdletContext.ResourceArnBeingAuthorized != null)
-            {
-                request.ResourceArnBeingAuthorized = cmdletContext.ResourceArnBeingAuthorized;
+                request.RecommenderSchemaName = cmdletContext.RecommenderSchemaName;
             }
             
             CmdletOutput output;
@@ -211,12 +195,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         #region AWS Service Operation Call
         
-        private Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceResponse CallAWSServiceOperation(IAmazonDevOpsAgent client, Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceRequest request)
+        private Amazon.CustomerProfiles.Model.DeleteRecommenderSchemaResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.DeleteRecommenderSchemaRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DevOps Agent Service", "AllowVendedLogDeliveryForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "DeleteRecommenderSchema");
             try
             {
-                return client.AllowVendedLogDeliveryForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteRecommenderSchemaAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -233,11 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DeliverySourceArn { get; set; }
-            public System.String LogType { get; set; }
-            public System.String ResourceArnBeingAuthorized { get; set; }
-            public System.Func<Amazon.DevOpsAgent.Model.AllowVendedLogDeliveryForResourceResponse, EnableDOPSVendedLogDeliveryForResourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Message;
+            public System.String DomainName { get; set; }
+            public System.String RecommenderSchemaName { get; set; }
+            public System.Func<Amazon.CustomerProfiles.Model.DeleteRecommenderSchemaResponse, RemoveCPFRecommenderSchemaCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

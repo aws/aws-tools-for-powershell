@@ -324,6 +324,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.WebAuthnFactorConfigurationType
+        "Set-CGIPUserPoolMfaConfig/WebAuthnConfiguration_FactorConfiguration"
+        {
+            $v = "MULTI_FACTOR_WITH_USER_VERIFICATION","SINGLE_FACTOR"
+            break
+        }
+
 
     }
 
@@ -361,6 +368,7 @@ $CGIP_map = @{
     "UserPoolAddOns_AdvancedSecurityMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "UserPoolTier"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "VerificationMessageTemplate_DefaultEmailOption"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "WebAuthnConfiguration_FactorConfiguration"=@("Set-CGIPUserPoolMfaConfig")
     "WebAuthnConfiguration_UserVerification"=@("Set-CGIPUserPoolMfaConfig")
 }
 

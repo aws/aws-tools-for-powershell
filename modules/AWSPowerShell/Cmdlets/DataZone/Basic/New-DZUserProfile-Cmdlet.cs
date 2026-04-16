@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter SessionName
+        /// <summary>
+        /// <para>
+        /// <para>The session name for IAM role sessions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionName { get; set; }
+        #endregion
+        
         #region Parameter UserIdentifier
         /// <summary>
         /// <para>
@@ -154,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SessionName = this.SessionName;
             context.UserIdentifier = this.UserIdentifier;
             #if MODULAR
             if (this.UserIdentifier == null && ParameterWasBound(nameof(this.UserIdentifier)))
@@ -185,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.SessionName != null)
+            {
+                request.SessionName = cmdletContext.SessionName;
             }
             if (cmdletContext.UserIdentifier != null)
             {
@@ -251,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String ClientToken { get; set; }
             public System.String DomainIdentifier { get; set; }
+            public System.String SessionName { get; set; }
             public System.String UserIdentifier { get; set; }
             public Amazon.DataZone.UserType UserType { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateUserProfileResponse, NewDZUserProfileCmdlet, object> Select { get; set; } =

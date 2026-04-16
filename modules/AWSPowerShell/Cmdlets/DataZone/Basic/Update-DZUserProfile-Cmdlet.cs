@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter SessionName
+        /// <summary>
+        /// <para>
+        /// <para>The session name for IAM role sessions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionName { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -159,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SessionName = this.SessionName;
             context.Status = this.Status;
             #if MODULAR
             if (this.Status == null && ParameterWasBound(nameof(this.Status)))
@@ -193,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.SessionName != null)
+            {
+                request.SessionName = cmdletContext.SessionName;
             }
             if (cmdletContext.Status != null)
             {
@@ -262,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainIdentifier { get; set; }
+            public System.String SessionName { get; set; }
             public Amazon.DataZone.UserProfileStatus Status { get; set; }
             public Amazon.DataZone.UserProfileType Type { get; set; }
             public System.String UserIdentifier { get; set; }

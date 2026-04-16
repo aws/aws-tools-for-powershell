@@ -84,6 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter MaximumConcurrentFeed
+        /// <summary>
+        /// <para>
+        /// Specify the maximum number of Elemental
+        /// Inference feeds MediaConvert can process concurrently.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaximumConcurrentFeeds")]
+        public System.Int32? MaximumConcurrentFeed { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -224,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             }
             context.ConcurrentJob = this.ConcurrentJob;
             context.Description = this.Description;
+            context.MaximumConcurrentFeed = this.MaximumConcurrentFeed;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -267,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.MaximumConcurrentFeed != null)
+            {
+                request.MaximumConcurrentFeeds = cmdletContext.MaximumConcurrentFeed.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -380,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         {
             public System.Int32? ConcurrentJob { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? MaximumConcurrentFeed { get; set; }
             public System.String Name { get; set; }
             public Amazon.MediaConvert.PricingPlan PricingPlan { get; set; }
             public Amazon.MediaConvert.Commitment ReservationPlanSettings_Commitment { get; set; }

@@ -329,8 +329,7 @@ $DOPS_SelectCompleters = {
 }
 
 $DOPS_SelectMap = @{
-    "Select"=@("Enable-DOPSVendedLogDeliveryForResource",
-               "Add-DOPSService",
+    "Select"=@("Add-DOPSService",
                "New-DOPSAgentSpace",
                "New-DOPSBacklogTask",
                "New-DOPSChat",

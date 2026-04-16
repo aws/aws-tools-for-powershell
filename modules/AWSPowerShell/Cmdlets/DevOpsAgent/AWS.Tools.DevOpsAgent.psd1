@@ -91,7 +91,6 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-DOPSService', 
         'Disable-DOPSOperatorApp', 
         'Enable-DOPSOperatorApp', 
-        'Enable-DOPSVendedLogDeliveryForResource', 
         'Get-DOPSAccountUsage', 
         'Get-DOPSAgentSpace', 
         'Get-DOPSAgentSpaceList', 

@@ -23,31 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Lists Amazon DataZone projects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of recommender schemas in the specified domain.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "DZProjectList")]
-    [OutputType("Amazon.DataZone.Model.ListProjectsResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone ListProjects API operation.", Operation = new[] {"ListProjects"}, SelectReturnType = typeof(Amazon.DataZone.Model.ListProjectsResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.ListProjectsResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.ListProjectsResponse object containing multiple properties."
+    [Cmdlet("Get", "CPFRecommenderSchemaList")]
+    [OutputType("Amazon.CustomerProfiles.Model.RecommenderSchemaSummary")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles ListRecommenderSchemas API operation.", Operation = new[] {"ListRecommenderSchemas"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.ListRecommenderSchemasResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.RecommenderSchemaSummary or Amazon.CustomerProfiles.Model.ListRecommenderSchemasResponse",
+        "This cmdlet returns a collection of Amazon.CustomerProfiles.Model.RecommenderSchemaSummary objects.",
+        "The service call response (type Amazon.CustomerProfiles.Model.ListRecommenderSchemasResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetDZProjectListCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class GetCPFRecommenderSchemaListCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainIdentifier
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon DataZone domain.</para>
+        /// <para>The unique name of the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,71 +59,31 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter GroupIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of a group.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String GroupIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the project.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter ProjectCategory
-        /// <summary>
-        /// <para>
-        /// <para>A parameter to filter projects by their category.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProjectCategory { get; set; }
-        #endregion
-        
-        #region Parameter UserIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon DataZone user.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String UserIdentifier { get; set; }
+        public System.String DomainName { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of projects to return in a single call to <c>ListProjects</c>.
-        /// When the number of projects to be listed is greater than the value of <c>MaxResults</c>,
-        /// the response contains a <c>NextToken</c> value that you can use in a subsequent call
-        /// to <c>ListProjects</c> to list the next set of projects.</para>
+        /// <para>The maximum number of recommender schemas to return in the response. The default value
+        /// is 100.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When the number of projects is greater than the default value for the <c>MaxResults</c>
-        /// parameter, or if you explicitly specify a value for <c>MaxResults</c> that is less
-        /// than the number of projects, the response includes a pagination token named <c>NextToken</c>.
-        /// You can specify this <c>NextToken</c> value in a subsequent call to <c>ListProjects</c>
-        /// to list the next set of projects.</para>
+        /// <para>A token received from a previous ListRecommenderSchemas call to retrieve the next
+        /// page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -135,13 +96,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.ListProjectsResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.ListProjectsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RecommenderSchemas'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.ListRecommenderSchemasResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.ListRecommenderSchemasResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "RecommenderSchemas";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -170,22 +131,27 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.ListProjectsResponse, GetDZProjectListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.ListRecommenderSchemasResponse, GetCPFRecommenderSchemaListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainIdentifier = this.DomainIdentifier;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.GroupIdentifier = this.GroupIdentifier;
             context.MaxResult = this.MaxResult;
-            context.Name = this.Name;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
-            context.ProjectCategory = this.ProjectCategory;
-            context.UserIdentifier = this.UserIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,31 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.DataZone.Model.ListProjectsRequest();
+            var request = new Amazon.CustomerProfiles.Model.ListRecommenderSchemasRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
-            }
-            if (cmdletContext.GroupIdentifier != null)
-            {
-                request.GroupIdentifier = cmdletContext.GroupIdentifier;
+                request.DomainName = cmdletContext.DomainName;
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.ProjectCategory != null)
-            {
-                request.ProjectCategory = cmdletContext.ProjectCategory;
-            }
-            if (cmdletContext.UserIdentifier != null)
-            {
-                request.UserIdentifier = cmdletContext.UserIdentifier;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -285,12 +235,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.ListProjectsResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.ListProjectsRequest request)
+        private Amazon.CustomerProfiles.Model.ListRecommenderSchemasResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.ListRecommenderSchemasRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "ListProjects");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "ListRecommenderSchemas");
             try
             {
-                return client.ListProjectsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListRecommenderSchemasAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -307,15 +257,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
-            public System.String GroupIdentifier { get; set; }
-            public System.Int32? MaxResult { get; set; }
-            public System.String Name { get; set; }
+            public System.String DomainName { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ProjectCategory { get; set; }
-            public System.String UserIdentifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.ListProjectsResponse, GetDZProjectListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.CustomerProfiles.Model.ListRecommenderSchemasResponse, GetCPFRecommenderSchemaListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RecommenderSchemas;
         }
         
     }

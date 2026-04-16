@@ -19,10 +19,6 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AllowVendedLogDeliveryForResource" OutputProperty="Message" Verb="Enable" Noun="VendedLogDeliveryForResource" ShouldProcessTarget="DeliverySourceArn" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="AssociateService" OutputProperty="*" Verb="Add" Noun="Service" ShouldProcessTarget="ServiceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

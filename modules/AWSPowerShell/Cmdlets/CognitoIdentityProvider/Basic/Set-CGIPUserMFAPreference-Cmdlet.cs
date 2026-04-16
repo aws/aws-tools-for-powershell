@@ -95,6 +95,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Boolean? EmailMfaSettings_Enabled { get; set; }
         #endregion
         
+        #region Parameter WebAuthnMfaSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether passkey MFA is activated for a user. When activated, the user's
+        /// passkey authentication requires user verification, and passkey sign-in is available
+        /// when MFA is required. The user must also have at least one other MFA method such as
+        /// SMS, TOTP, or email activated to prevent account lockout.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WebAuthnMfaSettings_Enabled { get; set; }
+        #endregion
+        
         #region Parameter EmailMfaSettings_PreferredMfa
         /// <summary>
         /// <para>
@@ -187,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.EmailMfaSettings_PreferredMfa = this.EmailMfaSettings_PreferredMfa;
             context.SMSMfaSetting = this.SMSMfaSetting;
             context.SoftwareTokenMfaSetting = this.SoftwareTokenMfaSetting;
+            context.WebAuthnMfaSettings_Enabled = this.WebAuthnMfaSettings_Enabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -243,6 +257,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.SoftwareTokenMfaSetting != null)
             {
                 request.SoftwareTokenMfaSettings = cmdletContext.SoftwareTokenMfaSetting;
+            }
+            
+             // populate WebAuthnMfaSettings
+            var requestWebAuthnMfaSettingsIsNull = true;
+            request.WebAuthnMfaSettings = new Amazon.CognitoIdentityProvider.Model.WebAuthnMfaSettingsType();
+            System.Boolean? requestWebAuthnMfaSettings_webAuthnMfaSettings_Enabled = null;
+            if (cmdletContext.WebAuthnMfaSettings_Enabled != null)
+            {
+                requestWebAuthnMfaSettings_webAuthnMfaSettings_Enabled = cmdletContext.WebAuthnMfaSettings_Enabled.Value;
+            }
+            if (requestWebAuthnMfaSettings_webAuthnMfaSettings_Enabled != null)
+            {
+                request.WebAuthnMfaSettings.Enabled = requestWebAuthnMfaSettings_webAuthnMfaSettings_Enabled.Value;
+                requestWebAuthnMfaSettingsIsNull = false;
+            }
+             // determine if request.WebAuthnMfaSettings should be set to null
+            if (requestWebAuthnMfaSettingsIsNull)
+            {
+                request.WebAuthnMfaSettings = null;
             }
             
             CmdletOutput output;
@@ -304,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.Boolean? EmailMfaSettings_PreferredMfa { get; set; }
             public Amazon.CognitoIdentityProvider.Model.SMSMfaSettingsType SMSMfaSetting { get; set; }
             public Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaSettingsType SoftwareTokenMfaSetting { get; set; }
+            public System.Boolean? WebAuthnMfaSettings_Enabled { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.SetUserMFAPreferenceResponse, SetCGIPUserMFAPreferenceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

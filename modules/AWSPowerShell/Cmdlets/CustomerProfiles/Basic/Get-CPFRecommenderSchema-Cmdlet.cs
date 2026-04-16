@@ -23,31 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Gets a user profile in Amazon DataZone.
+    /// Retrieves information about a specific recommender schema in a domain.
     /// </summary>
-    [Cmdlet("Get", "DZUserProfile")]
-    [OutputType("Amazon.DataZone.Model.GetUserProfileResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone GetUserProfile API operation.", Operation = new[] {"GetUserProfile"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetUserProfileResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.GetUserProfileResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetUserProfileResponse object containing multiple properties."
+    [Cmdlet("Get", "CPFRecommenderSchema")]
+    [OutputType("Amazon.CustomerProfiles.Model.GetRecommenderSchemaResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetRecommenderSchema API operation.", Operation = new[] {"GetRecommenderSchema"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetRecommenderSchemaResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetRecommenderSchemaResponse",
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetRecommenderSchemaResponse object containing multiple properties."
     )]
-    public partial class GetDZUserProfileCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class GetCPFRecommenderSchemaCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainIdentifier
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>the ID of the Amazon DataZone domain the data portal of which you want to get.</para>
+        /// <para>The unique name of the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,52 +58,31 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
+        public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter SessionName
+        #region Parameter RecommenderSchemaName
         /// <summary>
         /// <para>
-        /// <para>The session name for IAM role sessions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SessionName { get; set; }
-        #endregion
-        
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>The type of the user profile.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.UserProfileType")]
-        public Amazon.DataZone.UserProfileType Type { get; set; }
-        #endregion
-        
-        #region Parameter UserIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the user for which you want to get the user profile.</para>
+        /// <para>The name of the recommender schema to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserIdentifier { get; set; }
+        public System.String RecommenderSchemaName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetUserProfileResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.GetUserProfileResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.GetRecommenderSchemaResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.GetRecommenderSchemaResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,23 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetUserProfileResponse, GetDZUserProfileCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.GetRecommenderSchemaResponse, GetCPFRecommenderSchemaCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainIdentifier = this.DomainIdentifier;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SessionName = this.SessionName;
-            context.Type = this.Type;
-            context.UserIdentifier = this.UserIdentifier;
+            context.RecommenderSchemaName = this.RecommenderSchemaName;
             #if MODULAR
-            if (this.UserIdentifier == null && ParameterWasBound(nameof(this.UserIdentifier)))
+            if (this.RecommenderSchemaName == null && ParameterWasBound(nameof(this.RecommenderSchemaName)))
             {
-                WriteWarning("You are passing $null as a value for parameter UserIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RecommenderSchemaName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -159,23 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.GetUserProfileRequest();
+            var request = new Amazon.CustomerProfiles.Model.GetRecommenderSchemaRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+                request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.SessionName != null)
+            if (cmdletContext.RecommenderSchemaName != null)
             {
-                request.SessionName = cmdletContext.SessionName;
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
-            }
-            if (cmdletContext.UserIdentifier != null)
-            {
-                request.UserIdentifier = cmdletContext.UserIdentifier;
+                request.RecommenderSchemaName = cmdletContext.RecommenderSchemaName;
             }
             
             CmdletOutput output;
@@ -210,12 +179,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.GetUserProfileResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetUserProfileRequest request)
+        private Amazon.CustomerProfiles.Model.GetRecommenderSchemaResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.GetRecommenderSchemaRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetUserProfile");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "GetRecommenderSchema");
             try
             {
-                return client.GetUserProfileAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetRecommenderSchemaAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -232,11 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
-            public System.String SessionName { get; set; }
-            public Amazon.DataZone.UserProfileType Type { get; set; }
-            public System.String UserIdentifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.GetUserProfileResponse, GetDZUserProfileCmdlet, object> Select { get; set; } =
+            public System.String DomainName { get; set; }
+            public System.String RecommenderSchemaName { get; set; }
+            public System.Func<Amazon.CustomerProfiles.Model.GetRecommenderSchemaResponse, GetCPFRecommenderSchemaCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -61,23 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String AgentSpaceId { get; set; }
         #endregion
         
-        #region Parameter UserId
-        /// <summary>
-        /// <para>
-        /// <para>The user identifier for the chat</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserId { get; set; }
-        #endregion
-        
         #region Parameter UserType
         /// <summary>
         /// <para>
@@ -87,6 +70,19 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DevOpsAgent.UserType")]
         public Amazon.DevOpsAgent.UserType UserType { get; set; }
+        #endregion
+        
+        #region Parameter UserId
+        /// <summary>
+        /// <para>
+        /// <para>The user identifier for the chat. This field is deprecated and will be ignored — the
+        /// service resolves user identity from the authenticated session.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("userId is managed by the service and should not be provided by the caller")]
+        public System.String UserId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -147,13 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.UserId = this.UserId;
-            #if MODULAR
-            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.UserType = this.UserType;
             
             // allow further manipulation of loaded context prior to processing
@@ -175,10 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             {
                 request.AgentSpaceId = cmdletContext.AgentSpaceId;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.UserId != null)
             {
                 request.UserId = cmdletContext.UserId;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.UserType != null)
             {
                 request.UserType = cmdletContext.UserType;
@@ -239,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentSpaceId { get; set; }
+            [System.ObsoleteAttribute]
             public System.String UserId { get; set; }
             public Amazon.DevOpsAgent.UserType UserType { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.CreateChatResponse, NewDOPSChatCmdlet, object> Select { get; set; } =

@@ -87,15 +87,19 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// that start with the provided prefix.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Namespace { get; set; }
+        #endregion
+        
+        #region Parameter NamespacePath
+        /// <summary>
+        /// <para>
+        /// <para>Use namespacePath for hierarchical retrievals. Return all memory records where namespace
+        /// falls under the same parent hierarchy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NamespacePath { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -188,12 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             #endif
             context.MemoryStrategyId = this.MemoryStrategyId;
             context.Namespace = this.Namespace;
-            #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.NamespacePath = this.NamespacePath;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -228,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.Namespace != null)
             {
                 request.Namespace = cmdletContext.Namespace;
+            }
+            if (cmdletContext.NamespacePath != null)
+            {
+                request.NamespacePath = cmdletContext.NamespacePath;
             }
             
             // Initialize loop variant and commence piping
@@ -312,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String MemoryId { get; set; }
             public System.String MemoryStrategyId { get; set; }
             public System.String Namespace { get; set; }
+            public System.String NamespacePath { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.ListMemoryRecordsResponse, GetBACMemoryRecordListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MemoryRecordSummaries;

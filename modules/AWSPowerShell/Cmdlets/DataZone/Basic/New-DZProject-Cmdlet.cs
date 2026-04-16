@@ -98,6 +98,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String[] GlossaryTerm { get; set; }
         #endregion
         
+        #region Parameter MembershipAssignment
+        /// <summary>
+        /// <para>
+        /// <para>The members to be assigned to the project.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MembershipAssignments")]
+        public Amazon.DataZone.Model.ProjectMembershipAssignment[] MembershipAssignment { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -113,6 +128,28 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ProjectCategory
+        /// <summary>
+        /// <para>
+        /// <para>The category of the project. Set to 'ADMIN' designates this as an administrative project
+        /// for the Amazon DataZone domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectCategory { get; set; }
+        #endregion
+        
+        #region Parameter ProjectExecutionRole
+        /// <summary>
+        /// <para>
+        /// <para>The default project IAM role that is used to access project resources and run computes
+        /// such as Glue and Sagemaker.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectExecutionRole { get; set; }
         #endregion
         
         #region Parameter ProjectProfileId
@@ -214,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 context.GlossaryTerm = new List<System.String>(this.GlossaryTerm);
             }
+            if (this.MembershipAssignment != null)
+            {
+                context.MembershipAssignment = new List<Amazon.DataZone.Model.ProjectMembershipAssignment>(this.MembershipAssignment);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -221,6 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ProjectCategory = this.ProjectCategory;
+            context.ProjectExecutionRole = this.ProjectExecutionRole;
             context.ProjectProfileId = this.ProjectProfileId;
             if (this.ResourceTag != null)
             {
@@ -266,9 +309,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.GlossaryTerms = cmdletContext.GlossaryTerm;
             }
+            if (cmdletContext.MembershipAssignment != null)
+            {
+                request.MembershipAssignments = cmdletContext.MembershipAssignment;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ProjectCategory != null)
+            {
+                request.ProjectCategory = cmdletContext.ProjectCategory;
+            }
+            if (cmdletContext.ProjectExecutionRole != null)
+            {
+                request.ProjectExecutionRole = cmdletContext.ProjectExecutionRole;
             }
             if (cmdletContext.ProjectProfileId != null)
             {
@@ -341,7 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainIdentifier { get; set; }
             public System.String DomainUnitId { get; set; }
             public List<System.String> GlossaryTerm { get; set; }
+            public List<Amazon.DataZone.Model.ProjectMembershipAssignment> MembershipAssignment { get; set; }
             public System.String Name { get; set; }
+            public System.String ProjectCategory { get; set; }
+            public System.String ProjectExecutionRole { get; set; }
             public System.String ProjectProfileId { get; set; }
             public Dictionary<System.String, System.String> ResourceTag { get; set; }
             public List<Amazon.DataZone.Model.EnvironmentConfigurationUserParameter> UserParameter { get; set; }

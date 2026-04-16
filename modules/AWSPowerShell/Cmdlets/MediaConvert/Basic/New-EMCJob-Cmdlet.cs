@@ -228,8 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         /// <summary>
         /// <para>
         /// Optional. The tags that you want to add to the resource.
-        /// You can tag resources with a key-value pair or with only a key.  Use standard AWS
-        /// tags on your job for automatic integration with AWS services and for custom integrations
+        /// You can tag resources with a key-value pair or with only a key. Use standard AWS tags
+        /// on your job for automatic integration with AWS services and for custom integrations
         /// and workflows.
         /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         /// <para>
         /// Optional. User-defined metadata that you
         /// want to associate with an MediaConvert job. You specify metadata in key/value pairs.
-        ///  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise,
+        /// Use only for existing integrations or workflows that rely on job metadata tags. Otherwise,
         /// we recommend that you use standard AWS tags.
         /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

@@ -67,15 +67,20 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <para>The identifier of the group for which the group profile is created.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GroupIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter RolePrincipalArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role that will be associated with the group profile. This role
+        /// defines the permissions that group members will assume when accessing Amazon DataZone
+        /// resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RolePrincipalArn { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -144,12 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.GroupIdentifier = this.GroupIdentifier;
-            #if MODULAR
-            if (this.GroupIdentifier == null && ParameterWasBound(nameof(this.GroupIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GroupIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.RolePrincipalArn = this.RolePrincipalArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.GroupIdentifier != null)
             {
                 request.GroupIdentifier = cmdletContext.GroupIdentifier;
+            }
+            if (cmdletContext.RolePrincipalArn != null)
+            {
+                request.RolePrincipalArn = cmdletContext.RolePrincipalArn;
             }
             
             CmdletOutput output;
@@ -236,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String ClientToken { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String GroupIdentifier { get; set; }
+            public System.String RolePrincipalArn { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateGroupProfileResponse, NewDZGroupProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
