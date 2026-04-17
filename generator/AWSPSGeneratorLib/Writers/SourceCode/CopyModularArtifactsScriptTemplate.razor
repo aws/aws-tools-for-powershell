@@ -21,11 +21,7 @@ $assembliesFolder = "$rootFolder/Include/sdk/assemblies"
 $moduleFilesSuffixes = @@('.Completers.psm1', '.Aliases.psm1', '.psd1')
 $binFilesSuffixes = @@('.dll', '.XML', '.dll-Help.xml', '.Format.ps1xml')
 
-$transitiveDependencies = @@('BouncyCastle.Cryptography.dll','Microsoft.Bcl.AsyncInterfaces.dll','Microsoft.Bcl.HashCode.dll','System.Buffers.dll','System.Memory.dll','System.Numerics.Vectors.dll','System.Runtime.CompilerServices.Unsafe.dll','System.Text.Json.dll','System.Threading.Tasks.Extensions.dll','System.Text.Encodings.Web.dll','System.Formats.Cbor.dll','AWSSDK.Extensions.CborProtocol.dll')
-
-$serviceTransitiveDependencies = @@{
-    Signin = @@('BouncyCastle.Cryptography.dll')
-}
+$transitiveDependencies = @@('Microsoft.Bcl.AsyncInterfaces.dll','System.Buffers.dll','System.Memory.dll','System.Numerics.Vectors.dll','System.Runtime.CompilerServices.Unsafe.dll','System.Text.Json.dll','System.Threading.Tasks.Extensions.dll','System.Text.Encodings.Web.dll')
 
 If (Test-Path $modularDeploymentFolder)
 {
@@ -54,11 +50,15 @@ Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.SSOOIDC.dll" -Destin
 Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.SSO.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.SSO.dll"
 Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.Signin.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.Signin.dll"
 Copy-Item -Path "$monolithicModuleFolder/ImportGuard.ps1" -Destination "$modularDeploymentFolder/AWS.Tools.Common/ImportGuard.ps1"
-Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt.dll"
-Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt-auth.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-auth.dll"
-Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt-http.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-http.dll"
-Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt-checksums.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-checksums.dll"
-Copy-Item -Path "$assembliesFolder/netstandard2.0/AWSSDK.Extensions.CrtIntegration.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.Extensions.CrtIntegration.dll"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/CloudFrontSigners/BouncyCastle.Cryptography.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/CborProtocol/Microsoft.Bcl.HashCode.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/CborProtocol/System.Formats.Cbor.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/CborProtocol/AWSSDK.Extensions.CborProtocol.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/CrtIntegration/aws-crt.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt.dll"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/CrtIntegration/aws-crt-auth.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-auth.dll"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/CrtIntegration/aws-crt-http.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-http.dll"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/CrtIntegration/aws-crt-checksums.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-checksums.dll"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/CrtIntegration/AWSSDK.Extensions.CrtIntegration.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.Extensions.CrtIntegration.dll"
 Copy-Item -Path "$rootFolder/LICENSE" -Destination "$modularDeploymentFolder/AWS.Tools.Common/LICENSE"
 Copy-Item -Path "$rootFolder/NOTICE" -Destination "$modularDeploymentFolder/AWS.Tools.Common/NOTICE"
 
@@ -82,20 +82,6 @@ foreach ($project in $projectNameList)
         Copy-Item -Path "$projectFolder/$releaseBitPath/AWSSDK.$project.dll" -Destination "$projectDeploymentFolder/AWSSDK.$project.dll"
     }
 
-    if ($serviceTransitiveDependencies -ne $null -and $serviceTransitiveDependencies.ContainsKey($project))
-    {
-        if ($serviceTransitiveDependencies[$project] -ne $null)
-        {
-            foreach ($transitiveDependency in $serviceTransitiveDependencies[$project])
-            {
-                if (Test-Path -Path "$assembliesFolder/netstandard2.0/$transitiveDependency" -PathType Leaf)
-                {
-                    Copy-Item -Path "$assembliesFolder/netstandard2.0/$transitiveDependency" -Destination "$projectDeploymentFolder/"
-                }
-            }
-        }
-    }
-
     Copy-Item -Path "$rootFolder/LICENSE" -Destination "$projectDeploymentFolder/LICENSE"
     Copy-Item -Path "$rootFolder/NOTICE" -Destination "$projectDeploymentFolder/NOTICE"
 }
@@ -105,7 +91,10 @@ foreach ($project in $projectNameList)
     var assemblyName = service.AssemblyName;
     foreach (var serviceAssembly in service.AdditionalServiceAssemblies)
     {
-@:Copy-Item -Path "$assembliesFolder/netstandard2.0/@(serviceAssembly).dll" -Destination "$modularDeploymentFolder/AWS.Tools.@(assemblyName)/@(serviceAssembly).dll"
+        var folder = serviceAssembly                    // "AWSSDK.Extensions.EC2.DecryptPassword"
+            .Replace("AWSSDK.Extensions", string.Empty) // "EC2.DecryptPassword"
+            .Replace(".", string.Empty);                // "EC2DecryptPassword"
+@:Copy-Item -Path "$assembliesFolder/netstandard2.0/extensions/@(folder)/@(serviceAssembly).dll" -Destination "$modularDeploymentFolder/AWS.Tools.@(assemblyName)/@(serviceAssembly).dll"
     }
 }
 

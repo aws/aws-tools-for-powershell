@@ -71,9 +71,19 @@
     <Reference Include="System.Xml" />
 @foreach (var assembly in Assemblies)
 {
+    if (assembly.StartsWith("AWSSDK.Extensions."))
+    {
+        var folder = assembly.Replace("AWSSDK.Extensions.", string.Empty).Replace(".", string.Empty);
+@:    <Reference Include="@assembly">
+@:      <HintPath>../../Include/sdk/assemblies/net472/extensions/@(folder)/@(assembly).dll</HintPath>
+@:    </Reference>
+    }
+    else
+    {
 @:    <Reference Include="@assembly">
 @:      <HintPath>../../Include/sdk/assemblies/net472/@(assembly).dll</HintPath>
 @:    </Reference>
+    }
 }
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
@@ -83,9 +93,19 @@
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
 @foreach (var assembly in Assemblies)
 {
+    if (assembly.StartsWith("AWSSDK.Extensions."))
+    {
+        var folder = assembly.Replace("AWSSDK.Extensions.", string.Empty).Replace(".", string.Empty);
+@:    <Reference Include="@assembly">
+@:      <HintPath>../../Include/sdk/assemblies/netstandard2.0/extensions/@(folder)/@(assembly).dll</HintPath>
+@:    </Reference>
+    }
+    else
+    {
 @:    <Reference Include="@assembly">
 @:      <HintPath>../../Include/sdk/assemblies/netstandard2.0/@(assembly).dll</HintPath>
 @:    </Reference>
+    }
 }
   </ItemGroup>
   <ItemGroup>

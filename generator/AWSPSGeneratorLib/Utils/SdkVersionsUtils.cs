@@ -128,10 +128,26 @@ namespace AWSPowerShellGenerator.Utils
 
                         using (var archive = ZipFile.OpenRead(tempFile))
                         {
+                            // Ensure that extracted files remain within the intended platformPath folder
+                            var fullPlatformPath = Path.GetFullPath(platformPath + Path.DirectorySeparatorChar);
                             foreach (var entry in archive.Entries)
                             {
-                                var filePath = Path.Combine(platformPath, entry.Name);
-                                //Existing files in the folder are not overwritten!
+                                // Skip directory entries (they have an empty Name)
+                                if (string.IsNullOrEmpty(entry.Name))
+                                {
+                                    continue;
+                                }
+
+                                var combinedPath = Path.Combine(platformPath, entry.FullName);
+                                var filePath = Path.GetFullPath(combinedPath);
+                                if (!filePath.StartsWith(fullPlatformPath, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    throw new InvalidOperationException($"Entry is outside the target directory: {entry.FullName}");
+                                }
+
+                                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+                                // Existing files in the folder are not overwritten!
                                 if (!File.Exists(filePath))
                                 {
                                     entry.ExtractToFile(filePath, false);
