@@ -118,6 +118,24 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.Collections.Hashtable JobParameters_Parameter { get; set; }
         #endregion
         
+        #region Parameter ComputeConfiguration_Worker_Properties_Spark
+        /// <summary>
+        /// <para>
+        /// <para>The Spark configuration properties for SQL and PySpark workloads. This map contains
+        /// key-value pairs that configure Apache Spark settings to optimize performance for your
+        /// data processing jobs. You can specify up to 50 Spark properties, with each key being
+        /// 1-200 characters and each value being 0-500 characters. These properties allow you
+        /// to adjust compute capacity for large datasets and complex workloads.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable ComputeConfiguration_Worker_Properties_Spark { get; set; }
+        #endregion
+        
         #region Parameter Worker_Type
         /// <summary>
         /// <para>
@@ -194,6 +212,14 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Worker_Number = this.Worker_Number;
+            if (this.ComputeConfiguration_Worker_Properties_Spark != null)
+            {
+                context.ComputeConfiguration_Worker_Properties_Spark = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ComputeConfiguration_Worker_Properties_Spark.Keys)
+                {
+                    context.ComputeConfiguration_Worker_Properties_Spark.Add((String)hashKey, (System.String)(this.ComputeConfiguration_Worker_Properties_Spark[hashKey]));
+                }
+            }
             context.Worker_Type = this.Worker_Type;
             context.JobParameters_AnalysisTemplateArn = this.JobParameters_AnalysisTemplateArn;
             #if MODULAR
@@ -268,6 +294,31 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestComputeConfiguration_computeConfiguration_Worker_worker_Type != null)
             {
                 requestComputeConfiguration_computeConfiguration_Worker.Type = requestComputeConfiguration_computeConfiguration_Worker_worker_Type;
+                requestComputeConfiguration_computeConfiguration_WorkerIsNull = false;
+            }
+            Amazon.CleanRooms.Model.WorkerComputeConfigurationProperties requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties = null;
+            
+             // populate Properties
+            var requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_PropertiesIsNull = true;
+            requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties = new Amazon.CleanRooms.Model.WorkerComputeConfigurationProperties();
+            Dictionary<System.String, System.String> requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties_computeConfiguration_Worker_Properties_Spark = null;
+            if (cmdletContext.ComputeConfiguration_Worker_Properties_Spark != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties_computeConfiguration_Worker_Properties_Spark = cmdletContext.ComputeConfiguration_Worker_Properties_Spark;
+            }
+            if (requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties_computeConfiguration_Worker_Properties_Spark != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties.Spark = requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties_computeConfiguration_Worker_Properties_Spark;
+                requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_PropertiesIsNull = false;
+            }
+             // determine if requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties should be set to null
+            if (requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_PropertiesIsNull)
+            {
+                requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties = null;
+            }
+            if (requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Worker.Properties = requestComputeConfiguration_computeConfiguration_Worker_computeConfiguration_Worker_Properties;
                 requestComputeConfiguration_computeConfiguration_WorkerIsNull = false;
             }
              // determine if requestComputeConfiguration_computeConfiguration_Worker should be set to null
@@ -427,6 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Worker_Number { get; set; }
+            public Dictionary<System.String, System.String> ComputeConfiguration_Worker_Properties_Spark { get; set; }
             public Amazon.CleanRooms.ProtectedJobWorkerComputeType Worker_Type { get; set; }
             public System.String JobParameters_AnalysisTemplateArn { get; set; }
             public Dictionary<System.String, System.String> JobParameters_Parameter { get; set; }

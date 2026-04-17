@@ -83,6 +83,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContactVersion" OutputProperty="*" Verb="Get" Noun="ContactVersionDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEphemeris" OutputProperty="*" Verb="Get" Noun="Ephemeris" PipelineParameter="EphemerisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -115,6 +119,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAntennas" OutputProperty="AntennaList" Verb="Get" Noun="AntennaList" PipelineParameter="GroundStationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListConfigs" OutputProperty="ConfigList" Verb="Get" Noun="ConfigList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -125,11 +133,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListContactVersions" OutputProperty="ContactVersionsList" Verb="Get" Noun="ContactVersionList" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDataflowEndpointGroups" OutputProperty="DataflowEndpointGroupList" Verb="Get" Noun="DataflowEndpointGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEphemerides" OutputProperty="Ephemerides" Verb="Get" Noun="EphemerideList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroundStationReservations" OutputProperty="ReservationList" Verb="Get" Noun="GroundStationReservationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,6 +193,10 @@
                 <Param Name="ConfigData_S3RecordingConfig_Prefix" NewName="S3RecordingConfig_Prefix" />
                 <Param Name="ConfigData_S3RecordingConfig_RoleArn" NewName="S3RecordingConfig_RoleArn" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContact" OutputProperty="*" Verb="Update" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEphemeris" OutputProperty="EphemerisId" Verb="Update" Noun="Ephemeris" ShouldProcessTarget="EphemerisId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

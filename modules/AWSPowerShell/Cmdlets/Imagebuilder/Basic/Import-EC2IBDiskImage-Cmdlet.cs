@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String ExecutionRole { get; set; }
         #endregion
         
+        #region Parameter WindowsConfiguration_ImageIndex
+        /// <summary>
+        /// <para>
+        /// <para>The 1-based index that specifies which Windows edition to install from a multi-edition
+        /// Windows ISO file. A Windows ISO can contain a <c>.wim</c> file with multiple image
+        /// indexes, each representing a different edition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? WindowsConfiguration_ImageIndex { get; set; }
+        #endregion
+        
         #region Parameter InfrastructureConfigurationArn
         /// <summary>
         /// <para>
@@ -154,6 +166,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Platform { get; set; }
         #endregion
         
+        #region Parameter RegisterImageOptions_SecureBootEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Secure Boot is enabled for the output AMI. The default value is
+        /// <c>true</c>. To disable Secure Boot for custom unsigned drivers, set this value to
+        /// <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RegisterImageOptions_SecureBootEnabled { get; set; }
+        #endregion
+        
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
@@ -185,6 +209,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter RegisterImageOptions_UefiData
+        /// <summary>
+        /// <para>
+        /// <para>A Base64-encoded representation of the non-volatile UEFI variable store. You can specify
+        /// this parameter only when <c>secureBootEnabled</c> is <c>true</c> or unspecified. You
+        /// can inspect and modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars
+        /// tool on GitHub</a>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-variables.html">UEFI
+        /// variables for Amazon EC2 instances</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RegisterImageOptions_UefiData { get; set; }
         #endregion
         
         #region Parameter Uri
@@ -294,6 +332,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter Platform which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RegisterImageOptions_SecureBootEnabled = this.RegisterImageOptions_SecureBootEnabled;
+            context.RegisterImageOptions_UefiData = this.RegisterImageOptions_UefiData;
             context.SemanticVersion = this.SemanticVersion;
             #if MODULAR
             if (this.SemanticVersion == null && ParameterWasBound(nameof(this.SemanticVersion)))
@@ -316,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WindowsConfiguration_ImageIndex = this.WindowsConfiguration_ImageIndex;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -379,6 +420,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.Platform = cmdletContext.Platform;
             }
+            
+             // populate RegisterImageOptions
+            var requestRegisterImageOptionsIsNull = true;
+            request.RegisterImageOptions = new Amazon.Imagebuilder.Model.RegisterImageOptions();
+            System.Boolean? requestRegisterImageOptions_registerImageOptions_SecureBootEnabled = null;
+            if (cmdletContext.RegisterImageOptions_SecureBootEnabled != null)
+            {
+                requestRegisterImageOptions_registerImageOptions_SecureBootEnabled = cmdletContext.RegisterImageOptions_SecureBootEnabled.Value;
+            }
+            if (requestRegisterImageOptions_registerImageOptions_SecureBootEnabled != null)
+            {
+                request.RegisterImageOptions.SecureBootEnabled = requestRegisterImageOptions_registerImageOptions_SecureBootEnabled.Value;
+                requestRegisterImageOptionsIsNull = false;
+            }
+            System.String requestRegisterImageOptions_registerImageOptions_UefiData = null;
+            if (cmdletContext.RegisterImageOptions_UefiData != null)
+            {
+                requestRegisterImageOptions_registerImageOptions_UefiData = cmdletContext.RegisterImageOptions_UefiData;
+            }
+            if (requestRegisterImageOptions_registerImageOptions_UefiData != null)
+            {
+                request.RegisterImageOptions.UefiData = requestRegisterImageOptions_registerImageOptions_UefiData;
+                requestRegisterImageOptionsIsNull = false;
+            }
+             // determine if request.RegisterImageOptions should be set to null
+            if (requestRegisterImageOptionsIsNull)
+            {
+                request.RegisterImageOptions = null;
+            }
             if (cmdletContext.SemanticVersion != null)
             {
                 request.SemanticVersion = cmdletContext.SemanticVersion;
@@ -390,6 +460,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.Uri != null)
             {
                 request.Uri = cmdletContext.Uri;
+            }
+            
+             // populate WindowsConfiguration
+            var requestWindowsConfigurationIsNull = true;
+            request.WindowsConfiguration = new Amazon.Imagebuilder.Model.WindowsConfiguration();
+            System.Int64? requestWindowsConfiguration_windowsConfiguration_ImageIndex = null;
+            if (cmdletContext.WindowsConfiguration_ImageIndex != null)
+            {
+                requestWindowsConfiguration_windowsConfiguration_ImageIndex = cmdletContext.WindowsConfiguration_ImageIndex.Value;
+            }
+            if (requestWindowsConfiguration_windowsConfiguration_ImageIndex != null)
+            {
+                request.WindowsConfiguration.ImageIndex = requestWindowsConfiguration_windowsConfiguration_ImageIndex.Value;
+                requestWindowsConfigurationIsNull = false;
+            }
+             // determine if request.WindowsConfiguration should be set to null
+            if (requestWindowsConfigurationIsNull)
+            {
+                request.WindowsConfiguration = null;
             }
             
             CmdletOutput output;
@@ -454,9 +543,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String Name { get; set; }
             public System.String OsVersion { get; set; }
             public System.String Platform { get; set; }
+            public System.Boolean? RegisterImageOptions_SecureBootEnabled { get; set; }
+            public System.String RegisterImageOptions_UefiData { get; set; }
             public System.String SemanticVersion { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Uri { get; set; }
+            public System.Int64? WindowsConfiguration_ImageIndex { get; set; }
             public System.Func<Amazon.Imagebuilder.Model.ImportDiskImageResponse, ImportEC2IBDiskImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImageBuildVersionArn;
         }

@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
-        /// set to <c>false</c>.</para><note><para>Specifying this parameter and also setting the SkipFinalShapshot parameter to true
+        /// set to <c>false</c>.</para><note><para>Specifying this parameter and also setting the SkipFinalSnapshot parameter to true
         /// results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li><li><para>Cannot be specified when deleting a Read Replica.</para></li></ul>
         /// </para>
         /// </summary>

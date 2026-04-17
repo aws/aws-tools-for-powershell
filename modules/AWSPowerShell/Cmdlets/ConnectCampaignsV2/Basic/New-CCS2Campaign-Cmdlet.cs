@@ -442,6 +442,27 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.String[] LocalTimeZoneConfig_LocalTimeZoneDetection { get; set; }
         #endregion
         
+        #region Parameter EntryLimitsConfig_MaxEntryCount
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of times a participant can enter the campaign. A value of 0 indicates
+        /// unlimited entries. Values of 1 or greater specify the exact number of entries allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EntryLimitsConfig_MaxEntryCount { get; set; }
+        #endregion
+        
+        #region Parameter EntryLimitsConfig_MinEntryInterval
+        /// <summary>
+        /// <para>
+        /// <para>Minimum time interval that must pass before a participant can enter the campaign again.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EntryLimitsConfig_MinEntryInterval { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -804,6 +825,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
                 WriteWarning("You are passing $null as a value for parameter ConnectInstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EntryLimitsConfig_MaxEntryCount = this.EntryLimitsConfig_MaxEntryCount;
+            context.EntryLimitsConfig_MinEntryInterval = this.EntryLimitsConfig_MinEntryInterval;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -1721,6 +1744,35 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             {
                 request.ConnectInstanceId = cmdletContext.ConnectInstanceId;
             }
+            
+             // populate EntryLimitsConfig
+            var requestEntryLimitsConfigIsNull = true;
+            request.EntryLimitsConfig = new Amazon.ConnectCampaignsV2.Model.EntryLimitsConfig();
+            System.Int32? requestEntryLimitsConfig_entryLimitsConfig_MaxEntryCount = null;
+            if (cmdletContext.EntryLimitsConfig_MaxEntryCount != null)
+            {
+                requestEntryLimitsConfig_entryLimitsConfig_MaxEntryCount = cmdletContext.EntryLimitsConfig_MaxEntryCount.Value;
+            }
+            if (requestEntryLimitsConfig_entryLimitsConfig_MaxEntryCount != null)
+            {
+                request.EntryLimitsConfig.MaxEntryCount = requestEntryLimitsConfig_entryLimitsConfig_MaxEntryCount.Value;
+                requestEntryLimitsConfigIsNull = false;
+            }
+            System.String requestEntryLimitsConfig_entryLimitsConfig_MinEntryInterval = null;
+            if (cmdletContext.EntryLimitsConfig_MinEntryInterval != null)
+            {
+                requestEntryLimitsConfig_entryLimitsConfig_MinEntryInterval = cmdletContext.EntryLimitsConfig_MinEntryInterval;
+            }
+            if (requestEntryLimitsConfig_entryLimitsConfig_MinEntryInterval != null)
+            {
+                request.EntryLimitsConfig.MinEntryInterval = requestEntryLimitsConfig_entryLimitsConfig_MinEntryInterval;
+                requestEntryLimitsConfigIsNull = false;
+            }
+             // determine if request.EntryLimitsConfig should be set to null
+            if (requestEntryLimitsConfigIsNull)
+            {
+                request.EntryLimitsConfig = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -1911,6 +1963,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod> RestrictedPeriods_RestrictedPeriodList { get; set; }
             public System.String ConnectCampaignFlowArn { get; set; }
             public System.String ConnectInstanceId { get; set; }
+            public System.Int32? EntryLimitsConfig_MaxEntryCount { get; set; }
+            public System.String EntryLimitsConfig_MinEntryInterval { get; set; }
             public System.String Name { get; set; }
             public System.DateTime? Schedule_EndTime { get; set; }
             public System.String Schedule_RefreshFrequency { get; set; }

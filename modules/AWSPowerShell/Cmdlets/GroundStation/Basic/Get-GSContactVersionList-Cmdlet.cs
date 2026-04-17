@@ -23,43 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.GroundStation;
+using Amazon.GroundStation.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Lists all test case executions and allows filtering by test case id, test case name,
-    /// start time, end time or status of the execution for the specified Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of versions for a specified contact.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CONNTestCaseExecutionList")]
-    [OutputType("Amazon.Connect.Model.TestCaseExecution")]
-    [AWSCmdlet("Calls the Amazon Connect Service ListTestCaseExecutions API operation.", Operation = new[] {"ListTestCaseExecutions"}, SelectReturnType = typeof(Amazon.Connect.Model.ListTestCaseExecutionsResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.TestCaseExecution or Amazon.Connect.Model.ListTestCaseExecutionsResponse",
-        "This cmdlet returns a collection of Amazon.Connect.Model.TestCaseExecution objects.",
-        "The service call response (type Amazon.Connect.Model.ListTestCaseExecutionsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "GSContactVersionList")]
+    [OutputType("Amazon.GroundStation.Model.ContactVersion")]
+    [AWSCmdlet("Calls the AWS Ground Station ListContactVersions API operation.", Operation = new[] {"ListContactVersions"}, SelectReturnType = typeof(Amazon.GroundStation.Model.ListContactVersionsResponse))]
+    [AWSCmdletOutput("Amazon.GroundStation.Model.ContactVersion or Amazon.GroundStation.Model.ListContactVersionsResponse",
+        "This cmdlet returns a collection of Amazon.GroundStation.Model.ContactVersion objects.",
+        "The service call response (type Amazon.GroundStation.Model.ListContactVersionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCONNTestCaseExecutionListCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetGSContactVersionListCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EndTime
+        #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>Filter executions that started before this time.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int64? EndTime { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
+        /// <para>UUID of a contact.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,66 +59,30 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter StartTime
-        /// <summary>
-        /// <para>
-        /// <para>Filter executions that started after this time.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int64? StartTime { get; set; }
-        #endregion
-        
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>Filter executions by status.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Connect.TestCaseExecutionStatus")]
-        public Amazon.Connect.TestCaseExecutionStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter TestCaseId
-        /// <summary>
-        /// <para>
-        /// <para>Filter executions by test case identifier.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TestCaseId { get; set; }
-        #endregion
-        
-        #region Parameter TestCaseName
-        /// <summary>
-        /// <para>
-        /// <para>Filter executions by test case name.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TestCaseName { get; set; }
+        public System.String ContactId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page.</para>
+        /// <para>Maximum number of contact versions returned.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
+        /// <para>Next token returned in the request of a previous <c>ListContactVersions</c> call.
+        /// Used to get the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -142,13 +95,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'TestCaseExecutions'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListTestCaseExecutionsResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.ListTestCaseExecutionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactVersionsList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GroundStation.Model.ListContactVersionsResponse).
+        /// Specifying the name of a property of type Amazon.GroundStation.Model.ListContactVersionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "TestCaseExecutions";
+        public string Select { get; set; } = "ContactVersionsList";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -177,23 +130,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListTestCaseExecutionsResponse, GetCONNTestCaseExecutionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.ListContactVersionsResponse, GetGSContactVersionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EndTime = this.EndTime;
-            context.InstanceId = this.InstanceId;
+            context.ContactId = this.ContactId;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
-            context.StartTime = this.StartTime;
-            context.Status = this.Status;
-            context.TestCaseId = this.TestCaseId;
-            context.TestCaseName = this.TestCaseName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -210,35 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Connect.Model.ListTestCaseExecutionsRequest();
+            var request = new Amazon.GroundStation.Model.ListContactVersionsRequest();
             
-            if (cmdletContext.EndTime != null)
+            if (cmdletContext.ContactId != null)
             {
-                request.EndTime = cmdletContext.EndTime.Value;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.ContactId = cmdletContext.ContactId;
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.StartTime != null)
-            {
-                request.StartTime = cmdletContext.StartTime.Value;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
-            }
-            if (cmdletContext.TestCaseId != null)
-            {
-                request.TestCaseId = cmdletContext.TestCaseId;
-            }
-            if (cmdletContext.TestCaseName != null)
-            {
-                request.TestCaseName = cmdletContext.TestCaseName;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -297,12 +234,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.ListTestCaseExecutionsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListTestCaseExecutionsRequest request)
+        private Amazon.GroundStation.Model.ListContactVersionsResponse CallAWSServiceOperation(IAmazonGroundStation client, Amazon.GroundStation.Model.ListContactVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListTestCaseExecutions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Ground Station", "ListContactVersions");
             try
             {
-                return client.ListTestCaseExecutionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListContactVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -319,16 +256,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int64? EndTime { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public System.String ContactId { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Int64? StartTime { get; set; }
-            public Amazon.Connect.TestCaseExecutionStatus Status { get; set; }
-            public System.String TestCaseId { get; set; }
-            public System.String TestCaseName { get; set; }
-            public System.Func<Amazon.Connect.Model.ListTestCaseExecutionsResponse, GetCONNTestCaseExecutionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.TestCaseExecutions;
+            public System.Func<Amazon.GroundStation.Model.ListContactVersionsResponse, GetGSContactVersionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ContactVersionsList;
         }
         
     }

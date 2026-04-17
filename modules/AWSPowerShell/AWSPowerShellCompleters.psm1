@@ -21364,6 +21364,7 @@ $CCS2_SelectMap = @{
                "Remove-CCS2CampaignChannelSubtypeConfig",
                "Remove-CCS2CampaignCommunicationLimit",
                "Remove-CCS2CampaignCommunicationTime",
+               "Remove-CCS2CampaignEntryLimit",
                "Remove-CCS2ConnectInstanceConfig",
                "Remove-CCS2ConnectInstanceIntegration",
                "Remove-CCS2InstanceOnboardingJob",
@@ -21390,6 +21391,7 @@ $CCS2_SelectMap = @{
                "Update-CCS2CampaignChannelSubtypeConfig",
                "Update-CCS2CampaignCommunicationLimit",
                "Update-CCS2CampaignCommunicationTime",
+               "Update-CCS2CampaignEntryLimit",
                "Update-CCS2CampaignFlowAssociation",
                "Update-CCS2CampaignName",
                "Update-CCS2CampaignSchedule",
@@ -39863,6 +39865,7 @@ $GS_SelectMap = @{
                "Remove-GSEphemeris",
                "Remove-GSMissionProfile",
                "Get-GSContact",
+               "Get-GSContactVersionDetail",
                "Get-GSEphemeris",
                "Get-GSAgentConfiguration",
                "Get-GSAgentTaskResponseUrl",
@@ -39871,10 +39874,13 @@ $GS_SelectMap = @{
                "Get-GSMinuteUsage",
                "Get-GSMissionProfile",
                "Get-GSSatellite",
+               "Get-GSAntennaList",
                "Get-GSConfigList",
                "Get-GSContactList",
+               "Get-GSContactVersionList",
                "Get-GSDataflowEndpointGroupList",
                "Get-GSEphemerideList",
+               "Get-GSGroundStationReservationList",
                "Get-GSGroundStationList",
                "Get-GSMissionProfileList",
                "Get-GSSatelliteList",
@@ -39885,6 +39891,7 @@ $GS_SelectMap = @{
                "Remove-GSResourceTag",
                "Update-GSAgentStatus",
                "Update-GSConfig",
+               "Update-GSContact",
                "Update-GSEphemeris",
                "Update-GSMissionProfile")
 }
@@ -66882,6 +66889,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_FactSetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Flow") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Flow") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_GenerateAnalyses") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_GenerateAnalyses") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_GenericHTTPAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_GenericHTTPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_GithubAction") -Or
@@ -67257,7 +67266,7 @@ $QS_Completers = {
         # Amazon.QuickSight.DataSourceType
         "New-QSDataSource/Type"
         {
-            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","BIGQUERY","CONFLUENCE","DATABRICKS","EXASOL","GITHUB","GOOGLESHEETS","GOOGLE_DRIVE","JIRA","MARIADB","MYSQL","ONE_DRIVE","ORACLE","POSTGRESQL","PRESTO","QBUSINESS","REDSHIFT","S3","S3_KNOWLEDGE_BASE","SALESFORCE","SERVICENOW","SHAREPOINT","SNOWFLAKE","SPARK","SQLSERVER","STARBURST","TERADATA","TIMESTREAM","TRINO","TWITTER","WEB_CRAWLER"
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","BIGQUERY","CONFLUENCE","DATABRICKS","EXASOL","GITHUB","GOOGLESHEETS","GOOGLE_DRIVE","JIRA","MARIADB","MYSQL","ONE_DRIVE","ORACLE","POSTGRESQL","PRESTO","QBUSINESS","REDSHIFT","S3","S3_KNOWLEDGE_BASE","S3_TABLES","SALESFORCE","SERVICENOW","SHAREPOINT","SNOWFLAKE","SPARK","SQLSERVER","STARBURST","TERADATA","TIMESTREAM","TRINO","TWITTER","WEB_CRAWLER"
             break
         }
 
@@ -67864,6 +67873,7 @@ $QS_map = @{
     "Capabilities_Extension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_FactSetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Flow"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_GenerateAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GenericHTTPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GithubAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GoogleCalendarAction"=@("New-QSCustomPermission","Update-QSCustomPermission")

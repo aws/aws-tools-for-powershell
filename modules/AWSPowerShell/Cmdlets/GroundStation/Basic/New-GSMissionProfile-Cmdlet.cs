@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ContactPostPassDurationSecond
         /// <summary>
         /// <para>
-        /// <para>Amount of time after a contact ends that you’d like to receive a Ground Station Contact
+        /// <para>Amount of time after a contact ends that you'd like to receive a Ground Station Contact
         /// State Change event indicating the pass has finished.</para>
         /// </para>
         /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ContactPrePassDurationSecond
         /// <summary>
         /// <para>
-        /// <para>Amount of time prior to contact start you’d like to receive a Ground Station Contact
+        /// <para>Amount of time prior to contact start you'd like to receive a Ground Station Contact
         /// State Change event indicating an upcoming pass.</para>
         /// </para>
         /// </summary>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter MinimumViableContactDurationSecond
         /// <summary>
         /// <para>
-        /// <para>Smallest amount of time in seconds that you’d like to see for an available contact.
+        /// <para>Smallest amount of time in seconds that you'd like to see for an available contact.
         /// AWS Ground Station will not present you with contacts shorter than this duration.</para>
         /// </para>
         /// </summary>

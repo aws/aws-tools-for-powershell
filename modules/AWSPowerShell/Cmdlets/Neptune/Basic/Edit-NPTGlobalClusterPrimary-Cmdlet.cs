@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>Specifies whether to allow data loss for this global database cluster operation. Allowing
         /// data loss triggers a global failover operation.</para><para>If you don't specify <c>AllowDataLoss</c>, the global database cluster operation defaults
-        /// to a switchover.</para><para>Constraints:Can't be specified together with the <c>Switchover</c> parameter.</para>
+        /// to a switchover.</para><para>Constraints: Can't be specified together with the <c>Switchover</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Switchover
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to switch over this global database cluster.</para><para>Constraints:Can't be specified together with the <c>AllowDataLoss</c> parameter.</para>
+        /// <para>Specifies whether to switch over this global database cluster.</para><para>Constraints: Can't be specified together with the <c>AllowDataLoss</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

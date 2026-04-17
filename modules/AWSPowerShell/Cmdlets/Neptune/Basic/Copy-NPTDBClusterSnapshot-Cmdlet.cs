@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Amazon KMS key ID for an encrypted DB cluster snapshot. The KMS key ID
-        /// is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the
-        /// KMS encryption key.</para><para>If you copy an encrypted DB cluster snapshot from your Amazon account, you can specify
+        /// <para>The Amazon KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the
+        /// Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption
+        /// key.</para><para>If you copy an encrypted DB cluster snapshot from your Amazon account, you can specify
         /// a value for <c>KmsKeyId</c> to encrypt the copy with a new KMS encryption key. If
         /// you don't specify a value for <c>KmsKeyId</c>, then the copy of the DB cluster snapshot
         /// is encrypted with the same KMS key as the source DB cluster snapshot.</para><para>If you copy an encrypted DB cluster snapshot that is shared from another Amazon account,

@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para> The DB cluster snapshot identifier of the new DB cluster snapshot created when <c>SkipFinalSnapshot</c>
-        /// is set to <c>false</c>.</para><note><para> Specifying this parameter and also setting the <c>SkipFinalShapshot</c> parameter
+        /// is set to <c>false</c>.</para><note><para> Specifying this parameter and also setting the <c>SkipFinalSnapshot</c> parameter
         /// to true results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>

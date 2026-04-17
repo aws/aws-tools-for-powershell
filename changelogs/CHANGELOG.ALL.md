@@ -1,4 +1,31 @@
-﻿### 5.0.196 (2026-04-16 20:00Z)
+﻿### 5.0.197 (2026-04-17 19:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.233.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonConnectCampaignServiceV2
+    * Added cmdlet Remove-CCS2CampaignEntryLimit leveraging the DeleteCampaignEntryLimits service API.
+    * Added cmdlet Update-CCS2CampaignEntryLimit leveraging the UpdateCampaignEntryLimits service API.
+    * Modified cmdlet New-CCS2Campaign: added parameters EntryLimitsConfig_MaxEntryCount and EntryLimitsConfig_MinEntryInterval.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Start-CRSProtectedJob: added parameter ComputeConfiguration_Worker_Properties_Spark.
+  * Amazon Connect Service
+    * [Breaking Change] Modified cmdlet Get-CONNTestCaseExecutionList: the type of parameter EndTime changed from System.DateTime to System.Int64; the type of parameter StartTime changed from System.DateTime to System.Int64.
+  * Amazon EC2 Image Builder
+    * Modified cmdlet Import-EC2IBDiskImage: added parameters RegisterImageOptions_SecureBootEnabled, RegisterImageOptions_UefiData and WindowsConfiguration_ImageIndex.
+  * Amazon Ground Station
+    * Added cmdlet Get-GSAntennaList leveraging the ListAntennas service API.
+    * Added cmdlet Get-GSContactVersionDetail leveraging the DescribeContactVersion service API.
+    * Added cmdlet Get-GSContactVersionList leveraging the ListContactVersions service API.
+    * Added cmdlet Get-GSGroundStationReservationList leveraging the ListGroundStationReservations service API.
+    * Added cmdlet Update-GSContact leveraging the UpdateContact service API.
+    * Modified cmdlet Add-GSReservedContact: added parameters TrackingOverrides_ProgramTrackSettings_Oem_EphemerisId and TrackingOverrides_ProgramTrackSettings_Tle_EphemerisId.
+  * Amazon QuickSight
+    * Modified cmdlet Initialize-QSEmbedUrlForRegisteredUserWithIdentity: added parameters ExperienceConfiguration_Dashboard_FeatureConfigurations_DashboardCustomizationSummary_Enabled and ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_DashboardCustomizationSummary_Enabled.
+    * Modified cmdlet New-QSCustomPermission: added parameter Capabilities_GenerateAnalyses.
+    * Modified cmdlet New-QSDataSource: added parameters DataSourceParameters_AthenaParameters_ConsumerAccountRoleArn and DataSourceParameters_S3TablesParameters_TableBucketArn.
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameters ExperienceConfiguration_Dashboard_FeatureConfigurations_DashboardCustomizationSummary_Enabled and ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_DashboardCustomizationSummary_Enabled.
+    * Modified cmdlet Update-QSCustomPermission: added parameter Capabilities_GenerateAnalyses.
+    * Modified cmdlet Update-QSDataSource: added parameters DataSourceParameters_AthenaParameters_ConsumerAccountRoleArn and DataSourceParameters_S3TablesParameters_TableBucketArn.
+
+### 5.0.196 (2026-04-16 20:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.232.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Modified cmdlet Update-APSStack: added parameters ContentRedirection_HostToClient_AllowedUrl, ContentRedirection_HostToClient_DeniedUrl and ContentRedirection_HostToClient_Enabled.

@@ -30,46 +30,45 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Reserves a contact using specified parameters.
+    /// Updates a specific contact.
     /// </summary>
-    [Cmdlet("Add", "GSReservedContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Ground Station ReserveContact API operation.", Operation = new[] {"ReserveContact"}, SelectReturnType = typeof(Amazon.GroundStation.Model.ReserveContactResponse))]
-    [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.ReserveContactResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.ReserveContactResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "GSContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.GroundStation.Model.UpdateContactResponse")]
+    [AWSCmdlet("Calls the AWS Ground Station UpdateContact API operation.", Operation = new[] {"UpdateContact"}, SelectReturnType = typeof(Amazon.GroundStation.Model.UpdateContactResponse))]
+    [AWSCmdletOutput("Amazon.GroundStation.Model.UpdateContactResponse",
+        "This cmdlet returns an Amazon.GroundStation.Model.UpdateContactResponse object containing multiple properties."
     )]
-    public partial class AddGSReservedContactCmdlet : AmazonGroundStationClientCmdlet, IExecutor
+    public partial class UpdateGSContactCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EndTime
+        #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>End time of a contact in UTC.</para>
+        /// <para>UUID of a contact.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? EndTime { get; set; }
+        public System.String ContactId { get; set; }
         #endregion
         
-        #region Parameter AzEl_EphemerisId
+        #region Parameter TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId
         /// <summary>
         /// <para>
         /// <para>Unique identifier of the azimuth elevation ephemeris.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId")]
-        public System.String AzEl_EphemerisId { get; set; }
+        public System.String TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId { get; set; }
         #endregion
         
         #region Parameter TrackingOverrides_ProgramTrackSettings_Oem_EphemerisId
@@ -92,90 +91,37 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public System.String TrackingOverrides_ProgramTrackSettings_Tle_EphemerisId { get; set; }
         #endregion
         
-        #region Parameter GroundStation
-        /// <summary>
-        /// <para>
-        /// <para>Name of a ground station.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GroundStation { get; set; }
-        #endregion
-        
-        #region Parameter MissionProfileArn
-        /// <summary>
-        /// <para>
-        /// <para>ARN of a mission profile.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MissionProfileArn { get; set; }
-        #endregion
-        
         #region Parameter SatelliteArn
         /// <summary>
         /// <para>
-        /// <para>ARN of a satellite</para>
+        /// <para>ARN of a satellite.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SatelliteArn { get; set; }
         #endregion
         
-        #region Parameter StartTime
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Start time of a contact in UTC.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? StartTime { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Tags assigned to a contact.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>A client token is a unique, case-sensitive string of up to 64 ASCII characters. It
+        /// is generated by the client to ensure idempotent operations, allowing safe retries
+        /// without unintended side effects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GroundStation.Model.ReserveContactResponse).
-        /// Specifying the name of a property of type Amazon.GroundStation.Model.ReserveContactResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GroundStation.Model.UpdateContactResponse).
+        /// Specifying the name of a property of type Amazon.GroundStation.Model.UpdateContactResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ContactId";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -197,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MissionProfileArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-GSReservedContact (ReserveContact)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-GSContact (UpdateContact)"))
             {
                 return;
             }
@@ -210,47 +156,19 @@ namespace Amazon.PowerShell.Cmdlets.GS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.ReserveContactResponse, AddGSReservedContactCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.UpdateContactResponse, UpdateGSContactCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EndTime = this.EndTime;
+            context.ClientToken = this.ClientToken;
+            context.ContactId = this.ContactId;
             #if MODULAR
-            if (this.EndTime == null && ParameterWasBound(nameof(this.EndTime)))
+            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
             {
-                WriteWarning("You are passing $null as a value for parameter EndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.GroundStation = this.GroundStation;
-            #if MODULAR
-            if (this.GroundStation == null && ParameterWasBound(nameof(this.GroundStation)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GroundStation which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.MissionProfileArn = this.MissionProfileArn;
-            #if MODULAR
-            if (this.MissionProfileArn == null && ParameterWasBound(nameof(this.MissionProfileArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MissionProfileArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.SatelliteArn = this.SatelliteArn;
-            context.StartTime = this.StartTime;
-            #if MODULAR
-            if (this.StartTime == null && ParameterWasBound(nameof(this.StartTime)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StartTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
-            context.AzEl_EphemerisId = this.AzEl_EphemerisId;
+            context.TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId = this.TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId;
             context.TrackingOverrides_ProgramTrackSettings_Oem_EphemerisId = this.TrackingOverrides_ProgramTrackSettings_Oem_EphemerisId;
             context.TrackingOverrides_ProgramTrackSettings_Tle_EphemerisId = this.TrackingOverrides_ProgramTrackSettings_Tle_EphemerisId;
             
@@ -267,31 +185,19 @@ namespace Amazon.PowerShell.Cmdlets.GS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GroundStation.Model.ReserveContactRequest();
+            var request = new Amazon.GroundStation.Model.UpdateContactRequest();
             
-            if (cmdletContext.EndTime != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.EndTime = cmdletContext.EndTime.Value;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.GroundStation != null)
+            if (cmdletContext.ContactId != null)
             {
-                request.GroundStation = cmdletContext.GroundStation;
-            }
-            if (cmdletContext.MissionProfileArn != null)
-            {
-                request.MissionProfileArn = cmdletContext.MissionProfileArn;
+                request.ContactId = cmdletContext.ContactId;
             }
             if (cmdletContext.SatelliteArn != null)
             {
                 request.SatelliteArn = cmdletContext.SatelliteArn;
-            }
-            if (cmdletContext.StartTime != null)
-            {
-                request.StartTime = cmdletContext.StartTime.Value;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
              // populate TrackingOverrides
@@ -307,14 +213,14 @@ namespace Amazon.PowerShell.Cmdlets.GS
              // populate AzEl
             var requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzElIsNull = true;
             requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl = new Amazon.GroundStation.Model.AzElProgramTrackSettings();
-            System.String requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_azEl_EphemerisId = null;
-            if (cmdletContext.AzEl_EphemerisId != null)
+            System.String requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_trackingOverrides_ProgramTrackSettings_AzEl_EphemerisId = null;
+            if (cmdletContext.TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId != null)
             {
-                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_azEl_EphemerisId = cmdletContext.AzEl_EphemerisId;
+                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_trackingOverrides_ProgramTrackSettings_AzEl_EphemerisId = cmdletContext.TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId;
             }
-            if (requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_azEl_EphemerisId != null)
+            if (requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_trackingOverrides_ProgramTrackSettings_AzEl_EphemerisId != null)
             {
-                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl.EphemerisId = requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_azEl_EphemerisId;
+                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl.EphemerisId = requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_trackingOverrides_ProgramTrackSettings_AzEl_EphemerisId;
                 requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzElIsNull = false;
             }
              // determine if requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl should be set to null
@@ -425,12 +331,12 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         #region AWS Service Operation Call
         
-        private Amazon.GroundStation.Model.ReserveContactResponse CallAWSServiceOperation(IAmazonGroundStation client, Amazon.GroundStation.Model.ReserveContactRequest request)
+        private Amazon.GroundStation.Model.UpdateContactResponse CallAWSServiceOperation(IAmazonGroundStation client, Amazon.GroundStation.Model.UpdateContactRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Ground Station", "ReserveContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Ground Station", "UpdateContact");
             try
             {
-                return client.ReserveContactAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateContactAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -447,17 +353,14 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? EndTime { get; set; }
-            public System.String GroundStation { get; set; }
-            public System.String MissionProfileArn { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String ContactId { get; set; }
             public System.String SatelliteArn { get; set; }
-            public System.DateTime? StartTime { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.String AzEl_EphemerisId { get; set; }
+            public System.String TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId { get; set; }
             public System.String TrackingOverrides_ProgramTrackSettings_Oem_EphemerisId { get; set; }
             public System.String TrackingOverrides_ProgramTrackSettings_Tle_EphemerisId { get; set; }
-            public System.Func<Amazon.GroundStation.Model.ReserveContactResponse, AddGSReservedContactCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ContactId;
+            public System.Func<Amazon.GroundStation.Model.UpdateContactResponse, UpdateGSContactCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

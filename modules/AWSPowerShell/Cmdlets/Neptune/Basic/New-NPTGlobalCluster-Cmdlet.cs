@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name for the new global database (up to 64 alpha-numeric characters.</para>
+        /// <para>The name for the new global database (up to 64 alpha-numeric characters).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -995,6 +995,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_Flow { get; set; }
         #endregion
         
+        #region Parameter Capabilities_GenerateAnalyses
+        /// <summary>
+        /// <para>
+        /// <para>The ability to generate analysis using AI</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_GenerateAnalyses { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_GenericHTTPAction
         /// <summary>
         /// <para>
@@ -2662,6 +2673,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_Extension = this.Capabilities_Extension;
             context.Capabilities_FactSetAction = this.Capabilities_FactSetAction;
             context.Capabilities_Flow = this.Capabilities_Flow;
+            context.Capabilities_GenerateAnalyses = this.Capabilities_GenerateAnalyses;
             context.Capabilities_GenericHTTPAction = this.Capabilities_GenericHTTPAction;
             context.Capabilities_GithubAction = this.Capabilities_GithubAction;
             context.Capabilities_GoogleCalendarAction = this.Capabilities_GoogleCalendarAction;
@@ -3649,6 +3661,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_Flow != null)
             {
                 request.Capabilities.Flow = requestCapabilities_capabilities_Flow;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GenerateAnalyses = null;
+            if (cmdletContext.Capabilities_GenerateAnalyses != null)
+            {
+                requestCapabilities_capabilities_GenerateAnalyses = cmdletContext.Capabilities_GenerateAnalyses;
+            }
+            if (requestCapabilities_capabilities_GenerateAnalyses != null)
+            {
+                request.Capabilities.GenerateAnalyses = requestCapabilities_capabilities_GenerateAnalyses;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GenericHTTPAction = null;
@@ -5178,6 +5200,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_Extension { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_FactSetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Flow { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_GenerateAnalyses { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GenericHTTPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GithubAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GoogleCalendarAction { get; set; }

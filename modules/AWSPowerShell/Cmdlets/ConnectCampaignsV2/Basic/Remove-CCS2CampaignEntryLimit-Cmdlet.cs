@@ -23,35 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Neptune;
-using Amazon.Neptune.Model;
+using Amazon.ConnectCampaignsV2;
+using Amazon.ConnectCampaignsV2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.NPT
+namespace Amazon.PowerShell.Cmdlets.CCS2
 {
     /// <summary>
-    /// Detaches a Neptune DB cluster from a Neptune global database. A secondary cluster
-    /// becomes a normal standalone cluster with read-write capability instead of being read-only,
-    /// and no longer receives data from the primary cluster.
+    /// Deletes the entry limits config for a campaign. This API is idempotent.
     /// </summary>
-    [Cmdlet("Remove", "NPTFromGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Neptune.Model.GlobalCluster")]
-    [AWSCmdlet("Calls the Amazon Neptune RemoveFromGlobalCluster API operation.", Operation = new[] {"RemoveFromGlobalCluster"}, SelectReturnType = typeof(Amazon.Neptune.Model.RemoveFromGlobalClusterResponse))]
-    [AWSCmdletOutput("Amazon.Neptune.Model.GlobalCluster or Amazon.Neptune.Model.RemoveFromGlobalClusterResponse",
-        "This cmdlet returns an Amazon.Neptune.Model.GlobalCluster object.",
-        "The service call response (type Amazon.Neptune.Model.RemoveFromGlobalClusterResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "CCS2CampaignEntryLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AmazonConnectCampaignServiceV2 DeleteCampaignEntryLimits API operation.", Operation = new[] {"DeleteCampaignEntryLimits"}, SelectReturnType = typeof(Amazon.ConnectCampaignsV2.Model.DeleteCampaignEntryLimitsResponse))]
+    [AWSCmdletOutput("None or Amazon.ConnectCampaignsV2.Model.DeleteCampaignEntryLimitsResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ConnectCampaignsV2.Model.DeleteCampaignEntryLimitsResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveNPTFromGlobalClusterCmdlet : AmazonNeptuneClientCmdlet, IExecutor
+    public partial class RemoveCCS2CampaignEntryLimitCmdlet : AmazonConnectCampaignsV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DbClusterIdentifier
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) identifying the cluster to be detached from the Neptune
-        /// global database cluster.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,36 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DbClusterIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter GlobalClusterIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Neptune global database from which to detach the specified Neptune
-        /// DB cluster.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GlobalClusterIdentifier { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'GlobalCluster'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Neptune.Model.RemoveFromGlobalClusterResponse).
-        /// Specifying the name of a property of type Amazon.Neptune.Model.RemoveFromGlobalClusterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCampaignsV2.Model.DeleteCampaignEntryLimitsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "GlobalCluster";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -113,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DbClusterIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-NPTFromGlobalCluster (RemoveFromGlobalCluster)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CCS2CampaignEntryLimit (DeleteCampaignEntryLimits)"))
             {
                 return;
             }
@@ -126,21 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Neptune.Model.RemoveFromGlobalClusterResponse, RemoveNPTFromGlobalClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCampaignsV2.Model.DeleteCampaignEntryLimitsResponse, RemoveCCS2CampaignEntryLimitCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DbClusterIdentifier = this.DbClusterIdentifier;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.DbClusterIdentifier == null && ParameterWasBound(nameof(this.DbClusterIdentifier)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter DbClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
-            #if MODULAR
-            if (this.GlobalClusterIdentifier == null && ParameterWasBound(nameof(this.GlobalClusterIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GlobalClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -157,15 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Neptune.Model.RemoveFromGlobalClusterRequest();
+            var request = new Amazon.ConnectCampaignsV2.Model.DeleteCampaignEntryLimitsRequest();
             
-            if (cmdletContext.DbClusterIdentifier != null)
+            if (cmdletContext.Id != null)
             {
-                request.DbClusterIdentifier = cmdletContext.DbClusterIdentifier;
-            }
-            if (cmdletContext.GlobalClusterIdentifier != null)
-            {
-                request.GlobalClusterIdentifier = cmdletContext.GlobalClusterIdentifier;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -200,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         
         #region AWS Service Operation Call
         
-        private Amazon.Neptune.Model.RemoveFromGlobalClusterResponse CallAWSServiceOperation(IAmazonNeptune client, Amazon.Neptune.Model.RemoveFromGlobalClusterRequest request)
+        private Amazon.ConnectCampaignsV2.Model.DeleteCampaignEntryLimitsResponse CallAWSServiceOperation(IAmazonConnectCampaignsV2 client, Amazon.ConnectCampaignsV2.Model.DeleteCampaignEntryLimitsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune", "RemoveFromGlobalCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AmazonConnectCampaignServiceV2", "DeleteCampaignEntryLimits");
             try
             {
-                return client.RemoveFromGlobalClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteCampaignEntryLimitsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -222,10 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DbClusterIdentifier { get; set; }
-            public System.String GlobalClusterIdentifier { get; set; }
-            public System.Func<Amazon.Neptune.Model.RemoveFromGlobalClusterResponse, RemoveNPTFromGlobalClusterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.GlobalCluster;
+            public System.String Id { get; set; }
+            public System.Func<Amazon.ConnectCampaignsV2.Model.DeleteCampaignEntryLimitsResponse, RemoveCCS2CampaignEntryLimitCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

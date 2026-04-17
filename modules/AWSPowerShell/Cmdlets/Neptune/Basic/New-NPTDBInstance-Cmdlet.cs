@@ -324,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>The Amazon KMS key identifier for an encrypted DB instance.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are creating a DB instance with the same Amazon account that owns the KMS encryption
         /// key used to encrypt the new DB instance, then you can use the KMS key alias instead
-        /// of the ARN for the KM encryption key.</para><para>Not applicable. The KMS key identifier is managed by the DB cluster. For more information,
+        /// of the ARN for the KMS encryption key.</para><para>Not applicable. The KMS key identifier is managed by the DB cluster. For more information,
         /// see <a>CreateDBCluster</a>.</para><para>If the <c>StorageEncrypted</c> parameter is true, and you do not specify a value for
         /// the <c>KmsKeyId</c> parameter, then Amazon Neptune will use your default encryption
         /// key. Amazon KMS creates the default encryption key for your Amazon account. Your Amazon

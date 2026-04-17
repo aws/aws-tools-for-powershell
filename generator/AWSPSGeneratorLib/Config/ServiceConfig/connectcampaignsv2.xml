@@ -79,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCampaignEntryLimits" Verb="Remove" Noun="CampaignEntryLimit" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConnectInstanceConfig" Verb="Remove" Noun="ConnectInstanceConfig" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -235,6 +239,10 @@
                 <Param Name="CommunicationTimeConfig_WhatsApp_OpenHours_DailyHours" NewName="OpenHours_DailyHour" />
                 <Param Name="CommunicationTimeConfig_WhatsApp_RestrictedPeriods_RestrictedPeriodList" NewName="RestrictedPeriods_RestrictedPeriodList" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaignEntryLimits" Verb="Update" Noun="CampaignEntryLimit" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCampaignFlowAssociation" Verb="Update" Noun="CampaignFlowAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
