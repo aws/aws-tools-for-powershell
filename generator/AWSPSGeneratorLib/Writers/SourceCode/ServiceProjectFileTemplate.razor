@@ -59,9 +59,8 @@
 }
 @foreach (var dependency in ServiceConfig.AdditionalServiceAssemblies)
 {
-    var folder = dependency.Replace("AWSSDK.Extensions.", string.Empty).Replace(".", string.Empty);
-    @:    <Reference Include="@dependency">
-    @:      <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/extensions/@(folder)/@(dependency).dll</HintPath>
+    @:    <Reference Include="AWSSDK.@dependency">
+    @:      <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/@(dependency).dll</HintPath>
     @:    </Reference>
 }
   </ItemGroup>

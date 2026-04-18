@@ -198,7 +198,7 @@
         <Copy SourceFiles="@(SDKAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <CRTAssemblies Include="$(SDKAssembliesFolder)/net472/extensions/CrtIntegration/aws-crt*.dll" />
+            <CRTAssemblies Include="$(SDKAssembliesFolder)/net472/aws-crt*.dll" />
         </ItemGroup>
         <Copy SourceFiles="@(CRTAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
@@ -219,12 +219,8 @@
         <Copy SourceFiles="$(RootPath)/LICENSE" DestinationFiles="$(DesktopDeploymentArtifacts)/LICENSE"/>
         <Copy SourceFiles="$(RootPath)/NOTICE" DestinationFiles="$(DesktopDeploymentArtifacts)/NOTICE"/>
 
-        <!-- Copy transitive dependencies -->
-        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/extensions/CborProtocol/AWSSDK.Extensions.CborProtocol.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/extensions/CborProtocol/System.Formats.Cbor.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/extensions/CborProtocol/Microsoft.Bcl.HashCode.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/extensions/CrtIntegration/AWSSDK.Extensions.CrtIntegration.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/extensions/CloudFrontSigners/BouncyCastle.Cryptography.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+       <!-- Copy transitive dependencies -->
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/BouncyCastle.Cryptography.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/Microsoft.Bcl.AsyncInterfaces.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Buffers.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Memory.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
@@ -234,6 +230,8 @@
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Threading.Tasks.Extensions.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Text.Encodings.Web.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.ValueTuple.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Formats.Cbor.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/Microsoft.Bcl.HashCode.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
     </Target>
 
     <Target Name="copy-coreclr-artifacts" DependsOnTargets="build-netcore-module">
@@ -245,7 +243,7 @@
         <Copy SourceFiles="@(NetCoreSDKAssemblies)" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <CRTAssemblies Include="$(SDKAssembliesFolder)/netstandard2.0/extensions/CrtIntegration/aws-crt*.dll" />
+            <CRTAssemblies Include="$(SDKAssembliesFolder)/netstandard2.0/aws-crt*.dll" />
         </ItemGroup>
         <Copy SourceFiles="@(CRTAssemblies)" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 
@@ -265,18 +263,7 @@
         <Copy SourceFiles="$(RootPath)/NOTICE" DestinationFiles="$(NetCoreDeploymentArtifacts)/NOTICE"/>
 
         <!-- Copy transitive dependencies -->
-        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/extensions/CborProtocol/AWSSDK.Extensions.CborProtocol.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/extensions/CborProtocol/System.Formats.Cbor.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/extensions/CborProtocol/Microsoft.Bcl.HashCode.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/extensions/CrtIntegration/AWSSDK.Extensions.CrtIntegration.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-        
-        <!-- BouncyCastle: prefer extensions/CloudFrontSigners layout (release), fall back to flat (preview) -->
-        <Copy Condition="Exists('$(SDKAssembliesFolder)/netstandard2.0/extensions/CloudFrontSigners/BouncyCastle.Cryptography.dll')"
-              SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/extensions/CloudFrontSigners/BouncyCastle.Cryptography.dll"
-              DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-        <Copy Condition="!Exists('$(SDKAssembliesFolder)/netstandard2.0/extensions/CloudFrontSigners/BouncyCastle.Cryptography.dll')"
-              SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/BouncyCastle.Cryptography.dll"
-              DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/BouncyCastle.Cryptography.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Buffers.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Memory.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
@@ -285,6 +272,8 @@
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Text.Json.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Threading.Tasks.Extensions.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Text.Encodings.Web.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Formats.Cbor.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/Microsoft.Bcl.HashCode.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
     </Target>
 
     <Target Name="generate-modular-help" DependsOnTargets="build-modular-modules">
