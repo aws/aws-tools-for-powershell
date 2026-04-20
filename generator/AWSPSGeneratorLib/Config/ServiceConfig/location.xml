@@ -69,6 +69,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelJob" OutputProperty="*" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGeofenceCollection" OutputProperty="*" Verb="New" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -161,6 +165,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMapGlyphs" OutputProperty="*" Verb="Get" Noun="MapGlyph" PipelineParameter="MapName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -190,6 +198,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGeofences" OutputProperty="Entries" Verb="Get" Noun="GeofenceList" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Entries" Verb="Get" Noun="JobList" PipelineParameter="Filter_JobStatus" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -237,6 +249,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchPlaceIndexForText" OutputProperty="*" Verb="Search" Noun="PlaceIndexForText" IgnoreSupportsShouldProcess="true" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartJob" OutputProperty="*" Verb="Start" Noun="Job" ShouldProcessTarget="ExecutionRoleArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

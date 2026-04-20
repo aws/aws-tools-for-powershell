@@ -8463,6 +8463,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.ListingMode
+        {
+            ($_ -eq "New-BACCGatewayTarget/TargetConfiguration_Mcp_McpServer_ListingMode") -Or
+            ($_ -eq "Update-BACCGatewayTarget/TargetConfiguration_Mcp_McpServer_ListingMode")
+        }
+        {
+            $v = "DEFAULT","DYNAMIC"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.MemoryView
         "Get-BACCMemory/View"
         {
@@ -8587,6 +8597,7 @@ $BACC_map = @{
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
+    "TargetConfiguration_Mcp_McpServer_ListingMode"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "View"=@("Get-BACCMemory")
@@ -29658,7 +29669,7 @@ $EC2_Completers = {
             ($_ -eq "New-EC2TransitGatewayMeteringPolicyEntry/SourceTransitGatewayAttachmentType")
         }
         {
-            $v = "connect","direct-connect-gateway","network-function","peering","tgw-peering","vpc","vpn","vpn-concentrator"
+            $v = "client-vpn","connect","direct-connect-gateway","network-function","peering","tgw-peering","vpc","vpn","vpn-concentrator"
             break
         }
 
@@ -30083,6 +30094,7 @@ $EC2_SelectMap = @{
     "Select"=@("Approve-EC2AddressTransfer",
                "Approve-EC2CapacityReservationBillingOwnership",
                "Approve-EC2ReservedInstancesExchangeQuote",
+               "Approve-EC2TransitGatewayClientVpnAttachment",
                "Approve-EC2TransitGatewayMulticastDomainAssociation",
                "Approve-EC2TransitGatewayPeeringAttachment",
                "Approve-EC2TransitGatewayVpcAttachment",
@@ -30308,6 +30320,7 @@ $EC2_SelectMap = @{
                "Remove-EC2TrafficMirrorSession",
                "Remove-EC2TrafficMirrorTarget",
                "Remove-EC2TransitGateway",
+               "Remove-EC2TransitGatewayClientVpnAttachment",
                "Remove-EC2TransitGatewayConnect",
                "Remove-EC2TransitGatewayConnectPeer",
                "Remove-EC2TransitGatewayMeteringPolicy",
@@ -30773,6 +30786,7 @@ $EC2_SelectMap = @{
                "Register-EC2TransitGatewayMulticastGroupMember",
                "Register-EC2TransitGatewayMulticastGroupSource",
                "Deny-EC2CapacityReservationBillingOwnership",
+               "Deny-EC2TransitGatewayClientVpnAttachment",
                "Deny-EC2TransitGatewayMulticastDomainAssociation",
                "Deny-EC2TransitGatewayPeeringAttachment",
                "Deny-EC2TransitGatewayVpcAttachment",
@@ -34682,6 +34696,24 @@ $EVS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Evs.ConnectorType
+        "New-EVSEnvironmentConnector/Type"
+        {
+            $v = "VCENTER"
+            break
+        }
+
+        # Amazon.Evs.EntitlementType
+        {
+            ($_ -eq "Get-EVSVmEntitlementList/EntitlementType") -Or
+            ($_ -eq "New-EVSEntitlement/EntitlementType") -Or
+            ($_ -eq "Remove-EVSEntitlement/EntitlementType")
+        }
+        {
+            $v = "WINDOWS_SERVER"
+            break
+        }
+
         # Amazon.Evs.InstanceType
         "New-EVSEnvironmentHost/Host_InstanceType"
         {
@@ -34705,7 +34737,9 @@ $EVS_Completers = {
 }
 
 $EVS_map = @{
+    "EntitlementType"=@("Get-EVSVmEntitlementList","New-EVSEntitlement","Remove-EVSEntitlement")
     "Host_InstanceType"=@("New-EVSEnvironmentHost")
+    "Type"=@("New-EVSEnvironmentConnector")
     "VcfVersion"=@("New-EVSEnvironment")
 }
 
@@ -34760,19 +34794,26 @@ $EVS_SelectCompleters = {
 
 $EVS_SelectMap = @{
     "Select"=@("Register-EVSEipToVlan",
+               "New-EVSEntitlement",
                "New-EVSEnvironment",
+               "New-EVSEnvironmentConnector",
                "New-EVSEnvironmentHost",
+               "Remove-EVSEntitlement",
                "Remove-EVSEnvironment",
+               "Remove-EVSEnvironmentConnector",
                "Remove-EVSEnvironmentHost",
                "Unregister-EVSEipFromVlan",
                "Get-EVSEnvironment",
                "Get-EVSVersion",
+               "Get-EVSEnvironmentConnectorList",
                "Get-EVSEnvironmentHostList",
                "Get-EVSEnvironmentList",
                "Get-EVSEnvironmentVlanList",
                "Get-EVSResourceTag",
+               "Get-EVSVmEntitlementList",
                "Add-EVSResourceTag",
-               "Remove-EVSResourceTag")
+               "Remove-EVSResourceTag",
+               "Update-EVSEnvironmentConnector")
 }
 
 _awsArgumentCompleterRegistration $EVS_SelectCompleters $EVS_SelectMap
@@ -50062,6 +50103,34 @@ $LOC_Completers = {
             break
         }
 
+        # Amazon.LocationService.JobAction
+        "Start-LOCJob/Action"
+        {
+            $v = "ValidateAddress"
+            break
+        }
+
+        # Amazon.LocationService.JobInputFormat
+        "Start-LOCJob/InputOptions_Format"
+        {
+            $v = "Parquet"
+            break
+        }
+
+        # Amazon.LocationService.JobOutputFormat
+        "Start-LOCJob/OutputOptions_Format"
+        {
+            $v = "Parquet"
+            break
+        }
+
+        # Amazon.LocationService.JobStatus
+        "Get-LOCJobList/Filter_JobStatus"
+        {
+            $v = "Cancelled","Cancelling","Completed","Failed","Pending","Running"
+            break
+        }
+
         # Amazon.LocationService.OptimizationMode
         "Get-LOCRoute/OptimizeFor"
         {
@@ -50140,11 +50209,15 @@ $LOC_Completers = {
 }
 
 $LOC_map = @{
+    "Action"=@("Start-LOCJob")
     "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
     "Dimensions_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
     "DistanceUnit"=@("Get-LOCRoute","Get-LOCRouteMatrix","Invoke-LOCForecastGeofenceEventsOperation","Invoke-LOCVerifyDevicePositionOperation")
+    "Filter_JobStatus"=@("Get-LOCJobList")
     "Filter_KeyStatus"=@("Get-LOCKeyList")
+    "InputOptions_Format"=@("Start-LOCJob")
     "OptimizeFor"=@("Get-LOCRoute")
+    "OutputOptions_Format"=@("Start-LOCJob")
     "PositionFiltering"=@("Edit-LOCTracker","New-LOCTracker")
     "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
     "SpeedUnit"=@("Invoke-LOCForecastGeofenceEventsOperation")
@@ -50211,6 +50284,7 @@ $LOC_SelectMap = @{
                "Set-LOCDevicePositionBatch",
                "Get-LOCRoute",
                "Get-LOCRouteMatrix",
+               "Stop-LOCJob",
                "New-LOCGeofenceCollection",
                "New-LOCKey",
                "New-LOCMap",
@@ -50234,6 +50308,7 @@ $LOC_SelectMap = @{
                "Get-LOCDevicePosition",
                "Get-LOCDevicePositionHistory",
                "Get-LOCGeofence",
+               "Get-LOCJob",
                "Get-LOCMapGlyph",
                "Get-LOCMapSprite",
                "Get-LOCMapStyleDescriptor",
@@ -50242,6 +50317,7 @@ $LOC_SelectMap = @{
                "Get-LOCDevicePositionList",
                "Get-LOCGeofenceCollectionList",
                "Get-LOCGeofenceList",
+               "Get-LOCJobList",
                "Get-LOCKeyList",
                "Get-LOCMapList",
                "Get-LOCPlaceIndexList",
@@ -50253,6 +50329,7 @@ $LOC_SelectMap = @{
                "Search-LOCPlaceIndexForPosition",
                "Search-LOCPlaceIndexForSuggestion",
                "Search-LOCPlaceIndexForText",
+               "Start-LOCJob",
                "Add-LOCResourceTagSet",
                "Remove-LOCResourceTagSet",
                "Edit-LOCGeofenceCollection",
@@ -59343,7 +59420,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::Route53Resolver::ResolverEndpoint","AWS::SecurityHub::Hub","AWS::WAFv2::WebACL"
+            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::Route53Resolver::ResolverEndpoint","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
             break
         }
 

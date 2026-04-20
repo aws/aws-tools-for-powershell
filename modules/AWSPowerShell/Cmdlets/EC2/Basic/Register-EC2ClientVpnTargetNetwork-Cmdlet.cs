@@ -55,6 +55,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone name for the Transit Gateway association. Required if when associating
+        /// an Availability Zone with a Client VPN endpoint that uses a Transit Gateway. You cannot
+        /// specify both <c>SubnetId</c> and <c>AvailabilityZone</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone ID for the Transit Gateway association. Required if when associating
+        /// an Availability Zone with a Client VPN endpoint that uses a Transit Gateway. You cannot
+        /// specify both <c>AvailabilityZone</c> and <c>AvailabilityZoneId</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZoneId { get; set; }
+        #endregion
+        
         #region Parameter ClientVpnEndpointId
         /// <summary>
         /// <para>
@@ -87,17 +111,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the subnet to associate with the Client VPN endpoint.</para>
+        /// <para>The ID of the subnet to associate with the Client VPN endpoint. Required for VPC-based
+        /// endpoints. For Transit Gateway-based endpoints, use <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c>
+        /// instead.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SubnetId { get; set; }
         #endregion
         
@@ -159,6 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse, RegisterEC2ClientVpnTargetNetworkCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AvailabilityZone = this.AvailabilityZone;
+            context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.ClientToken = this.ClientToken;
             context.ClientVpnEndpointId = this.ClientVpnEndpointId;
             #if MODULAR
@@ -169,12 +190,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.DryRun = this.DryRun;
             context.SubnetId = this.SubnetId;
-            #if MODULAR
-            if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,6 +206,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.AssociateClientVpnTargetNetworkRequest();
             
+            if (cmdletContext.AvailabilityZone != null)
+            {
+                request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneId = cmdletContext.AvailabilityZoneId;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -262,6 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AvailabilityZone { get; set; }
+            public System.String AvailabilityZoneId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ClientVpnEndpointId { get; set; }
             public System.Boolean? DryRun { get; set; }

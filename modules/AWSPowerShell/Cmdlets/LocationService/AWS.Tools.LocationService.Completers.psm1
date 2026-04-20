@@ -112,6 +112,34 @@ $LOC_Completers = {
             break
         }
 
+        # Amazon.LocationService.JobAction
+        "Start-LOCJob/Action"
+        {
+            $v = "ValidateAddress"
+            break
+        }
+
+        # Amazon.LocationService.JobInputFormat
+        "Start-LOCJob/InputOptions_Format"
+        {
+            $v = "Parquet"
+            break
+        }
+
+        # Amazon.LocationService.JobOutputFormat
+        "Start-LOCJob/OutputOptions_Format"
+        {
+            $v = "Parquet"
+            break
+        }
+
+        # Amazon.LocationService.JobStatus
+        "Get-LOCJobList/Filter_JobStatus"
+        {
+            $v = "Cancelled","Cancelling","Completed","Failed","Pending","Running"
+            break
+        }
+
         # Amazon.LocationService.OptimizationMode
         "Get-LOCRoute/OptimizeFor"
         {
@@ -190,11 +218,15 @@ $LOC_Completers = {
 }
 
 $LOC_map = @{
+    "Action"=@("Start-LOCJob")
     "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
     "Dimensions_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
     "DistanceUnit"=@("Get-LOCRoute","Get-LOCRouteMatrix","Invoke-LOCForecastGeofenceEventsOperation","Invoke-LOCVerifyDevicePositionOperation")
+    "Filter_JobStatus"=@("Get-LOCJobList")
     "Filter_KeyStatus"=@("Get-LOCKeyList")
+    "InputOptions_Format"=@("Start-LOCJob")
     "OptimizeFor"=@("Get-LOCRoute")
+    "OutputOptions_Format"=@("Start-LOCJob")
     "PositionFiltering"=@("Edit-LOCTracker","New-LOCTracker")
     "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
     "SpeedUnit"=@("Invoke-LOCForecastGeofenceEventsOperation")
@@ -261,6 +293,7 @@ $LOC_SelectMap = @{
                "Set-LOCDevicePositionBatch",
                "Get-LOCRoute",
                "Get-LOCRouteMatrix",
+               "Stop-LOCJob",
                "New-LOCGeofenceCollection",
                "New-LOCKey",
                "New-LOCMap",
@@ -284,6 +317,7 @@ $LOC_SelectMap = @{
                "Get-LOCDevicePosition",
                "Get-LOCDevicePositionHistory",
                "Get-LOCGeofence",
+               "Get-LOCJob",
                "Get-LOCMapGlyph",
                "Get-LOCMapSprite",
                "Get-LOCMapStyleDescriptor",
@@ -292,6 +326,7 @@ $LOC_SelectMap = @{
                "Get-LOCDevicePositionList",
                "Get-LOCGeofenceCollectionList",
                "Get-LOCGeofenceList",
+               "Get-LOCJobList",
                "Get-LOCKeyList",
                "Get-LOCMapList",
                "Get-LOCPlaceIndexList",
@@ -303,6 +338,7 @@ $LOC_SelectMap = @{
                "Search-LOCPlaceIndexForPosition",
                "Search-LOCPlaceIndexForSuggestion",
                "Search-LOCPlaceIndexForText",
+               "Start-LOCJob",
                "Add-LOCResourceTagSet",
                "Remove-LOCResourceTagSet",
                "Edit-LOCGeofenceCollection",

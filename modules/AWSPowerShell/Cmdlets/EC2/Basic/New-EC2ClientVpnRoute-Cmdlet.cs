@@ -108,17 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the subnet through which you want to route traffic. The specified subnet
-        /// must be an existing target network of the Client VPN endpoint.</para><para>Alternatively, if you're adding a route for the local network, specify <c>local</c>.</para>
+        /// must be an existing target network of the Client VPN endpoint.</para><para>Alternatively, if you're adding a route for the local network, specify <c>local</c>.</para><para>This parameter is required for VPC-based Client VPN endpoints. For Transit Gateway-based
+        /// endpoints, this parameter is not required.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetVpcSubnetId { get; set; }
         #endregion
         
@@ -198,12 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.DryRun = this.DryRun;
             context.TargetVpcSubnetId = this.TargetVpcSubnetId;
-            #if MODULAR
-            if (this.TargetVpcSubnetId == null && ParameterWasBound(nameof(this.TargetVpcSubnetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetVpcSubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

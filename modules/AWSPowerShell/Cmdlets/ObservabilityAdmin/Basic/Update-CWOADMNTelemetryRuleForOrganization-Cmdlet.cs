@@ -63,6 +63,22 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public Amazon.ObservabilityAdmin.Model.AdvancedEventSelector[] CloudtrailParameters_AdvancedEventSelector { get; set; }
         #endregion
         
+        #region Parameter Rule_AllowFieldUpdate
+        /// <summary>
+        /// <para>
+        /// <para> If set to <c>true</c>, Amazon CloudWatch Observability Admin detects and remediates
+        /// configuration drift in telemetry resources that it manages. For example, if a VPC
+        /// flow log's format, traffic type, or aggregation interval no longer matches the rule's
+        /// destination configuration, the flow log is replaced with one that matches. Only Observability
+        /// Admin-managed resources are updated; customer-created resources are never modified.
+        /// Currently supported for <c>AWS::EC2::VPC</c> resources (VPC flow logs). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_AllowFieldUpdates")]
+        public System.Boolean? Rule_AllowFieldUpdate { get; set; }
+        #endregion
+        
         #region Parameter Rule_AllRegion
         /// <summary>
         /// <para>
@@ -389,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 context.Select = CreateSelectDelegate<Amazon.ObservabilityAdmin.Model.UpdateTelemetryRuleForOrganizationResponse, UpdateCWOADMNTelemetryRuleForOrganizationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Rule_AllowFieldUpdate = this.Rule_AllowFieldUpdate;
             context.Rule_AllRegion = this.Rule_AllRegion;
             if (this.CloudtrailParameters_AdvancedEventSelector != null)
             {
@@ -461,6 +478,16 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
              // populate Rule
             var requestRuleIsNull = true;
             request.Rule = new Amazon.ObservabilityAdmin.Model.TelemetryRule();
+            System.Boolean? requestRule_rule_AllowFieldUpdate = null;
+            if (cmdletContext.Rule_AllowFieldUpdate != null)
+            {
+                requestRule_rule_AllowFieldUpdate = cmdletContext.Rule_AllowFieldUpdate.Value;
+            }
+            if (requestRule_rule_AllowFieldUpdate != null)
+            {
+                request.Rule.AllowFieldUpdates = requestRule_rule_AllowFieldUpdate.Value;
+                requestRuleIsNull = false;
+            }
             System.Boolean? requestRule_rule_AllRegion = null;
             if (cmdletContext.Rule_AllRegion != null)
             {
@@ -840,6 +867,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Rule_AllowFieldUpdate { get; set; }
             public System.Boolean? Rule_AllRegion { get; set; }
             public List<Amazon.ObservabilityAdmin.Model.AdvancedEventSelector> CloudtrailParameters_AdvancedEventSelector { get; set; }
             public System.String DestinationConfiguration_DestinationPattern { get; set; }

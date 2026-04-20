@@ -80,6 +80,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AcceptTransitGatewayClientVpnAttachment" OutputProperty="TransitGatewayClientVpnAttachment" Verb="Approve" Noun="TransitGatewayClientVpnAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AcceptTransitGatewayMulticastDomainAssociations" OutputProperty="Associations" Verb="Approve" Noun="TransitGatewayMulticastDomainAssociation" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1017,6 +1021,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGateway" OutputProperty="TransitGateway" Verb="Remove" Noun="TransitGateway" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayClientVpnAttachment" OutputProperty="TransitGatewayClientVpnAttachment" Verb="Remove" Noun="TransitGatewayClientVpnAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -3010,6 +3018,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RejectCapacityReservationBillingOwnership" OutputProperty="Return" Verb="Deny" Noun="CapacityReservationBillingOwnership" ShouldProcessTarget="CapacityReservationId" PipelineParameter="CapacityReservationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectTransitGatewayClientVpnAttachment" OutputProperty="TransitGatewayClientVpnAttachment" Verb="Deny" Noun="TransitGatewayClientVpnAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter SliConfig_ComparisonOperator
         /// <summary>
         /// <para>
-        /// <para>The arithmetic operation to use when comparing the specified metric to the threshold.</para>
+        /// <para>The arithmetic operation to use when comparing the specified metric to the threshold.</para><para>This is not required if <c>CreateRecommendedSlo</c> is set to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -427,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <para>
         /// <para>This parameter is used only when a request-based SLO tracks the <c>Latency</c> metric.
         /// Specify the threshold value that the observed <c>Latency</c> metric values are to
-        /// be compared to.</para>
+        /// be compared to.</para><para>This is not required if <c>CreateRecommendedSlo</c> is set to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

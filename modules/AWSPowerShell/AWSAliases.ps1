@@ -10650,6 +10650,8 @@ Set-Alias -Name Accept-EC2CapacityReservationBillingOwnership -Value Approve-EC2
 Set-Alias -Name EC2-AcceptCapacityReservationBillingOwnership -Value Approve-EC2CapacityReservationBillingOwnership
 Set-Alias -Name Accept-EC2ReservedInstancesExchangeQuote -Value Approve-EC2ReservedInstancesExchangeQuote
 Set-Alias -Name EC2-AcceptReservedInstancesExchangeQuote -Value Approve-EC2ReservedInstancesExchangeQuote
+Set-Alias -Name Accept-EC2TransitGatewayClientVpnAttachment -Value Approve-EC2TransitGatewayClientVpnAttachment
+Set-Alias -Name EC2-AcceptTransitGatewayClientVpnAttachment -Value Approve-EC2TransitGatewayClientVpnAttachment
 Set-Alias -Name Accept-EC2TransitGatewayMulticastDomainAssociations -Value Approve-EC2TransitGatewayMulticastDomainAssociation
 Set-Alias -Name Accept-EC2TransitGatewayMulticastDomainAssociation -Value Approve-EC2TransitGatewayMulticastDomainAssociation
 Set-Alias -Name EC2-AcceptTransitGatewayMulticastDomainAssociations -Value Approve-EC2TransitGatewayMulticastDomainAssociation
@@ -11118,6 +11120,8 @@ Set-Alias -Name Delete-EC2TrafficMirrorTarget -Value Remove-EC2TrafficMirrorTarg
 Set-Alias -Name EC2-DeleteTrafficMirrorTarget -Value Remove-EC2TrafficMirrorTarget
 Set-Alias -Name Delete-EC2TransitGateway -Value Remove-EC2TransitGateway
 Set-Alias -Name EC2-DeleteTransitGateway -Value Remove-EC2TransitGateway
+Set-Alias -Name Delete-EC2TransitGatewayClientVpnAttachment -Value Remove-EC2TransitGatewayClientVpnAttachment
+Set-Alias -Name EC2-DeleteTransitGatewayClientVpnAttachment -Value Remove-EC2TransitGatewayClientVpnAttachment
 Set-Alias -Name Delete-EC2TransitGatewayConnect -Value Remove-EC2TransitGatewayConnect
 Set-Alias -Name EC2-DeleteTransitGatewayConnect -Value Remove-EC2TransitGatewayConnect
 Set-Alias -Name Delete-EC2TransitGatewayConnectPeer -Value Remove-EC2TransitGatewayConnectPeer
@@ -12154,6 +12158,8 @@ Set-Alias -Name Register-EC2TransitGatewayMulticastGroupSources -Value Register-
 Set-Alias -Name EC2-RegisterTransitGatewayMulticastGroupSources -Value Register-EC2TransitGatewayMulticastGroupSource
 Set-Alias -Name Reject-EC2CapacityReservationBillingOwnership -Value Deny-EC2CapacityReservationBillingOwnership
 Set-Alias -Name EC2-RejectCapacityReservationBillingOwnership -Value Deny-EC2CapacityReservationBillingOwnership
+Set-Alias -Name Reject-EC2TransitGatewayClientVpnAttachment -Value Deny-EC2TransitGatewayClientVpnAttachment
+Set-Alias -Name EC2-RejectTransitGatewayClientVpnAttachment -Value Deny-EC2TransitGatewayClientVpnAttachment
 Set-Alias -Name Reject-EC2TransitGatewayMulticastDomainAssociations -Value Deny-EC2TransitGatewayMulticastDomainAssociation
 Set-Alias -Name Reject-EC2TransitGatewayMulticastDomainAssociation -Value Deny-EC2TransitGatewayMulticastDomainAssociation
 Set-Alias -Name EC2-RejectTransitGatewayMulticastDomainAssociations -Value Deny-EC2TransitGatewayMulticastDomainAssociation
@@ -13971,12 +13977,20 @@ Set-Alias -Name CWE-UpdateArchive -Value Update-CWEArchive
 Set-Alias -Name CWE-UpdateConnection -Value Update-CWEConnection
 Set-Alias -Name Associate-EVSEipToVlan -Value Register-EVSEipToVlan
 Set-Alias -Name EVS-AssociateEipToVlan -Value Register-EVSEipToVlan
+Set-Alias -Name Create-EVSEntitlement -Value New-EVSEntitlement
+Set-Alias -Name EVS-CreateEntitlement -Value New-EVSEntitlement
 Set-Alias -Name Create-EVSEnvironment -Value New-EVSEnvironment
 Set-Alias -Name EVS-CreateEnvironment -Value New-EVSEnvironment
+Set-Alias -Name Create-EVSEnvironmentConnector -Value New-EVSEnvironmentConnector
+Set-Alias -Name EVS-CreateEnvironmentConnector -Value New-EVSEnvironmentConnector
 Set-Alias -Name Create-EVSEnvironmentHost -Value New-EVSEnvironmentHost
 Set-Alias -Name EVS-CreateEnvironmentHost -Value New-EVSEnvironmentHost
+Set-Alias -Name Delete-EVSEntitlement -Value Remove-EVSEntitlement
+Set-Alias -Name EVS-DeleteEntitlement -Value Remove-EVSEntitlement
 Set-Alias -Name Delete-EVSEnvironment -Value Remove-EVSEnvironment
 Set-Alias -Name EVS-DeleteEnvironment -Value Remove-EVSEnvironment
+Set-Alias -Name Delete-EVSEnvironmentConnector -Value Remove-EVSEnvironmentConnector
+Set-Alias -Name EVS-DeleteEnvironmentConnector -Value Remove-EVSEnvironmentConnector
 Set-Alias -Name Delete-EVSEnvironmentHost -Value Remove-EVSEnvironmentHost
 Set-Alias -Name EVS-DeleteEnvironmentHost -Value Remove-EVSEnvironmentHost
 Set-Alias -Name Disassociate-EVSEipFromVlan -Value Unregister-EVSEipFromVlan
@@ -13984,6 +13998,9 @@ Set-Alias -Name EVS-DisassociateEipFromVlan -Value Unregister-EVSEipFromVlan
 Set-Alias -Name EVS-GetEnvironment -Value Get-EVSEnvironment
 Set-Alias -Name Get-EVSVersions -Value Get-EVSVersion
 Set-Alias -Name EVS-GetVersions -Value Get-EVSVersion
+Set-Alias -Name List-EVSEnvironmentConnectors -Value Get-EVSEnvironmentConnectorList
+Set-Alias -Name List-EVSEnvironmentConnectorList -Value Get-EVSEnvironmentConnectorList
+Set-Alias -Name EVS-ListEnvironmentConnectors -Value Get-EVSEnvironmentConnectorList
 Set-Alias -Name List-EVSEnvironmentHosts -Value Get-EVSEnvironmentHostList
 Set-Alias -Name List-EVSEnvironmentHostList -Value Get-EVSEnvironmentHostList
 Set-Alias -Name EVS-ListEnvironmentHosts -Value Get-EVSEnvironmentHostList
@@ -13994,8 +14011,12 @@ Set-Alias -Name List-EVSEnvironmentVlans -Value Get-EVSEnvironmentVlanList
 Set-Alias -Name List-EVSEnvironmentVlanList -Value Get-EVSEnvironmentVlanList
 Set-Alias -Name EVS-ListEnvironmentVlans -Value Get-EVSEnvironmentVlanList
 Set-Alias -Name EVS-ListTagsForResource -Value Get-EVSResourceTag
+Set-Alias -Name List-EVSVmEntitlements -Value Get-EVSVmEntitlementList
+Set-Alias -Name List-EVSVmEntitlementList -Value Get-EVSVmEntitlementList
+Set-Alias -Name EVS-ListVmEntitlements -Value Get-EVSVmEntitlementList
 Set-Alias -Name EVS-TagResource -Value Add-EVSResourceTag
 Set-Alias -Name EVS-UntagResource -Value Remove-EVSResourceTag
+Set-Alias -Name EVS-UpdateEnvironmentConnector -Value Update-EVSEnvironmentConnector
 Set-Alias -Name Associate-FNSPUserToPermissionGroup -Value Add-FNSPUserToPermissionGroup
 Set-Alias -Name FNSP-AssociateUserToPermissionGroup -Value Add-FNSPUserToPermissionGroup
 Set-Alias -Name Create-FNSPChangeset -Value New-FNSPChangeset
@@ -20182,6 +20203,8 @@ Set-Alias -Name Calculate-LOCRoute -Value Get-LOCRoute
 Set-Alias -Name LOC-CalculateRoute -Value Get-LOCRoute
 Set-Alias -Name Calculate-LOCRouteMatrix -Value Get-LOCRouteMatrix
 Set-Alias -Name LOC-CalculateRouteMatrix -Value Get-LOCRouteMatrix
+Set-Alias -Name Cancel-LOCJob -Value Stop-LOCJob
+Set-Alias -Name LOC-CancelJob -Value Stop-LOCJob
 Set-Alias -Name Create-LOCGeofenceCollection -Value New-LOCGeofenceCollection
 Set-Alias -Name LOC-CreateGeofenceCollection -Value New-LOCGeofenceCollection
 Set-Alias -Name Create-LOCKey -Value New-LOCKey
@@ -20226,6 +20249,7 @@ Set-Alias -Name LOC-ForecastGeofenceEvents -Value Invoke-LOCForecastGeofenceEven
 Set-Alias -Name LOC-GetDevicePosition -Value Get-LOCDevicePosition
 Set-Alias -Name LOC-GetDevicePositionHistory -Value Get-LOCDevicePositionHistory
 Set-Alias -Name LOC-GetGeofence -Value Get-LOCGeofence
+Set-Alias -Name LOC-GetJob -Value Get-LOCJob
 Set-Alias -Name Get-LOCMapGlyphs -Value Get-LOCMapGlyph
 Set-Alias -Name LOC-GetMapGlyphs -Value Get-LOCMapGlyph
 Set-Alias -Name Get-LOCMapSprites -Value Get-LOCMapSprite
@@ -20242,6 +20266,9 @@ Set-Alias -Name LOC-ListGeofenceCollections -Value Get-LOCGeofenceCollectionList
 Set-Alias -Name List-LOCGeofences -Value Get-LOCGeofenceList
 Set-Alias -Name List-LOCGeofenceList -Value Get-LOCGeofenceList
 Set-Alias -Name LOC-ListGeofences -Value Get-LOCGeofenceList
+Set-Alias -Name List-LOCJobs -Value Get-LOCJobList
+Set-Alias -Name List-LOCJobList -Value Get-LOCJobList
+Set-Alias -Name LOC-ListJobs -Value Get-LOCJobList
 Set-Alias -Name List-LOCKeys -Value Get-LOCKeyList
 Set-Alias -Name List-LOCKeyList -Value Get-LOCKeyList
 Set-Alias -Name LOC-ListKeys -Value Get-LOCKeyList
@@ -20268,6 +20295,7 @@ Set-Alias -Name LOC-SearchPlaceIndexForPosition -Value Search-LOCPlaceIndexForPo
 Set-Alias -Name Search-LOCPlaceIndexForSuggestions -Value Search-LOCPlaceIndexForSuggestion
 Set-Alias -Name LOC-SearchPlaceIndexForSuggestions -Value Search-LOCPlaceIndexForSuggestion
 Set-Alias -Name LOC-SearchPlaceIndexForText -Value Search-LOCPlaceIndexForText
+Set-Alias -Name LOC-StartJob -Value Start-LOCJob
 Set-Alias -Name Add-LOCResourceTag -Value Add-LOCResourceTagSet
 Set-Alias -Name LOC-TagResource -Value Add-LOCResourceTagSet
 Set-Alias -Name Remove-LOCResourceTag -Value Remove-LOCResourceTagSet

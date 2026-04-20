@@ -1,4 +1,40 @@
-﻿### 5.0.197 (2026-04-17 19:54Z)
+﻿### 5.0.198 (2026-04-20 19:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.234.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGatewayTarget: added parameter TargetConfiguration_Mcp_McpServer_ListingMode.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameter TargetConfiguration_Mcp_McpServer_ListingMode.
+  * Amazon CloudWatch Application Signals
+    * Modified cmdlet New-CWASServiceLevelObjective: added parameter CreateRecommendedSlo.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNTelemetryRule: added parameter Rule_AllowFieldUpdate.
+    * Modified cmdlet New-CWOADMNTelemetryRuleForOrganization: added parameter Rule_AllowFieldUpdate.
+    * Modified cmdlet Update-CWOADMNTelemetryRule: added parameter Rule_AllowFieldUpdate.
+    * Modified cmdlet Update-CWOADMNTelemetryRuleForOrganization: added parameter Rule_AllowFieldUpdate.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Approve-EC2TransitGatewayClientVpnAttachment leveraging the AcceptTransitGatewayClientVpnAttachment service API.
+    * Added cmdlet Deny-EC2TransitGatewayClientVpnAttachment leveraging the RejectTransitGatewayClientVpnAttachment service API.
+    * Added cmdlet Remove-EC2TransitGatewayClientVpnAttachment leveraging the DeleteTransitGatewayClientVpnAttachment service API.
+    * Modified cmdlet Edit-EC2ClientVpnEndpoint: added parameters TransitGatewayConfiguration_AvailabilityZone, TransitGatewayConfiguration_AvailabilityZoneId and TransitGatewayConfiguration_TransitGatewayId.
+    * Modified cmdlet New-EC2ClientVpnEndpoint: added parameters TransitGatewayConfiguration_AvailabilityZone, TransitGatewayConfiguration_AvailabilityZoneId and TransitGatewayConfiguration_TransitGatewayId.
+    * Modified cmdlet Register-EC2ClientVpnTargetNetwork: added parameters AvailabilityZone and AvailabilityZoneId.
+  * Amazon Elastic VMware Service
+    * Added cmdlet Get-EVSEnvironmentConnectorList leveraging the ListEnvironmentConnectors service API.
+    * Added cmdlet Get-EVSVmEntitlementList leveraging the ListVmEntitlements service API.
+    * Added cmdlet New-EVSEntitlement leveraging the CreateEntitlement service API.
+    * Added cmdlet New-EVSEnvironmentConnector leveraging the CreateEnvironmentConnector service API.
+    * Added cmdlet Remove-EVSEntitlement leveraging the DeleteEntitlement service API.
+    * Added cmdlet Remove-EVSEnvironmentConnector leveraging the DeleteEnvironmentConnector service API.
+    * Added cmdlet Update-EVSEnvironmentConnector leveraging the UpdateEnvironmentConnector service API.
+  * Amazon Location Service
+    * Added cmdlet Get-LOCJob leveraging the GetJob service API.
+    * Added cmdlet Get-LOCJobList leveraging the ListJobs service API.
+    * Added cmdlet Start-LOCJob leveraging the StartJob service API.
+    * Added cmdlet Stop-LOCJob leveraging the CancelJob service API.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Modified cmdlet New-MSKReplicator: added parameters LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled, LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup, LogDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream, LogDelivery_ReplicatorLogDelivery_Firehose_Enabled, LogDelivery_ReplicatorLogDelivery_S3_Bucket, LogDelivery_ReplicatorLogDelivery_S3_Enabled and LogDelivery_ReplicatorLogDelivery_S3_Prefix.
+    * Modified cmdlet Update-MSKReplicationInfo: added parameters LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled, LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup, LogDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream, LogDelivery_ReplicatorLogDelivery_Firehose_Enabled, LogDelivery_ReplicatorLogDelivery_S3_Bucket, LogDelivery_ReplicatorLogDelivery_S3_Enabled, LogDelivery_ReplicatorLogDelivery_S3_Prefix, SourceKafkaClusterId and TargetKafkaClusterId.
+
+### 5.0.197 (2026-04-17 19:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.233.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonConnectCampaignServiceV2
     * Added cmdlet Remove-CCS2CampaignEntryLimit leveraging the DeleteCampaignEntryLimits service API.

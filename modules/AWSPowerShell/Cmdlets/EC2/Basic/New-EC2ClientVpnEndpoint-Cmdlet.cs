@@ -68,6 +68,40 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.ClientVpnAuthenticationRequest[] AuthenticationOption { get; set; }
         #endregion
         
+        #region Parameter TransitGatewayConfiguration_AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone IDs for the Transit Gateway association. You can specify up
+        /// to the maximum number of Availability Zones supported by the Transit Gateway. You
+        /// cannot specify both <c>AvailabilityZones</c> and <c>AvailabilityZoneIds</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TransitGatewayConfiguration_AvailabilityZoneIds")]
+        public System.String[] TransitGatewayConfiguration_AvailabilityZoneId { get; set; }
+        #endregion
+        
+        #region Parameter TransitGatewayConfiguration_AvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone names for the Transit Gateway association. You can specify up
+        /// to the maximum number of Availability Zones supported by the Transit Gateway. You
+        /// cannot specify both <c>AvailabilityZones</c> and <c>AvailabilityZoneIds</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TransitGatewayConfiguration_AvailabilityZones")]
+        public System.String[] TransitGatewayConfiguration_AvailabilityZone { get; set; }
+        #endregion
+        
         #region Parameter ClientLoginBannerOptions_BannerText
         /// <summary>
         /// <para>
@@ -329,6 +363,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.TrafficIpAddressType TrafficIpAddressType { get; set; }
         #endregion
         
+        #region Parameter TransitGatewayConfiguration_TransitGatewayId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Transit Gateway to associate with the Client VPN endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransitGatewayConfiguration_TransitGatewayId { get; set; }
+        #endregion
+        
         #region Parameter TransportProtocol
         /// <summary>
         /// <para>
@@ -466,6 +510,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
             context.TrafficIpAddressType = this.TrafficIpAddressType;
+            if (this.TransitGatewayConfiguration_AvailabilityZoneId != null)
+            {
+                context.TransitGatewayConfiguration_AvailabilityZoneId = new List<System.String>(this.TransitGatewayConfiguration_AvailabilityZoneId);
+            }
+            if (this.TransitGatewayConfiguration_AvailabilityZone != null)
+            {
+                context.TransitGatewayConfiguration_AvailabilityZone = new List<System.String>(this.TransitGatewayConfiguration_AvailabilityZone);
+            }
+            context.TransitGatewayConfiguration_TransitGatewayId = this.TransitGatewayConfiguration_TransitGatewayId;
             context.TransportProtocol = this.TransportProtocol;
             context.VpcId = this.VpcId;
             context.VpnPort = this.VpnPort;
@@ -661,6 +714,45 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.TrafficIpAddressType = cmdletContext.TrafficIpAddressType;
             }
+            
+             // populate TransitGatewayConfiguration
+            var requestTransitGatewayConfigurationIsNull = true;
+            request.TransitGatewayConfiguration = new Amazon.EC2.Model.TransitGatewayConfigurationInputStructure();
+            List<System.String> requestTransitGatewayConfiguration_transitGatewayConfiguration_AvailabilityZoneId = null;
+            if (cmdletContext.TransitGatewayConfiguration_AvailabilityZoneId != null)
+            {
+                requestTransitGatewayConfiguration_transitGatewayConfiguration_AvailabilityZoneId = cmdletContext.TransitGatewayConfiguration_AvailabilityZoneId;
+            }
+            if (requestTransitGatewayConfiguration_transitGatewayConfiguration_AvailabilityZoneId != null)
+            {
+                request.TransitGatewayConfiguration.AvailabilityZoneIds = requestTransitGatewayConfiguration_transitGatewayConfiguration_AvailabilityZoneId;
+                requestTransitGatewayConfigurationIsNull = false;
+            }
+            List<System.String> requestTransitGatewayConfiguration_transitGatewayConfiguration_AvailabilityZone = null;
+            if (cmdletContext.TransitGatewayConfiguration_AvailabilityZone != null)
+            {
+                requestTransitGatewayConfiguration_transitGatewayConfiguration_AvailabilityZone = cmdletContext.TransitGatewayConfiguration_AvailabilityZone;
+            }
+            if (requestTransitGatewayConfiguration_transitGatewayConfiguration_AvailabilityZone != null)
+            {
+                request.TransitGatewayConfiguration.AvailabilityZones = requestTransitGatewayConfiguration_transitGatewayConfiguration_AvailabilityZone;
+                requestTransitGatewayConfigurationIsNull = false;
+            }
+            System.String requestTransitGatewayConfiguration_transitGatewayConfiguration_TransitGatewayId = null;
+            if (cmdletContext.TransitGatewayConfiguration_TransitGatewayId != null)
+            {
+                requestTransitGatewayConfiguration_transitGatewayConfiguration_TransitGatewayId = cmdletContext.TransitGatewayConfiguration_TransitGatewayId;
+            }
+            if (requestTransitGatewayConfiguration_transitGatewayConfiguration_TransitGatewayId != null)
+            {
+                request.TransitGatewayConfiguration.TransitGatewayId = requestTransitGatewayConfiguration_transitGatewayConfiguration_TransitGatewayId;
+                requestTransitGatewayConfigurationIsNull = false;
+            }
+             // determine if request.TransitGatewayConfiguration should be set to null
+            if (requestTransitGatewayConfigurationIsNull)
+            {
+                request.TransitGatewayConfiguration = null;
+            }
             if (cmdletContext.TransportProtocol != null)
             {
                 request.TransportProtocol = cmdletContext.TransportProtocol;
@@ -751,6 +843,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? SplitTunnel { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.TrafficIpAddressType TrafficIpAddressType { get; set; }
+            public List<System.String> TransitGatewayConfiguration_AvailabilityZoneId { get; set; }
+            public List<System.String> TransitGatewayConfiguration_AvailabilityZone { get; set; }
+            public System.String TransitGatewayConfiguration_TransitGatewayId { get; set; }
             public Amazon.EC2.TransportProtocol TransportProtocol { get; set; }
             public System.String VpcId { get; set; }
             public System.Int32? VpnPort { get; set; }

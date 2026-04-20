@@ -1289,7 +1289,7 @@ $EC2_Completers = {
             ($_ -eq "New-EC2TransitGatewayMeteringPolicyEntry/SourceTransitGatewayAttachmentType")
         }
         {
-            $v = "connect","direct-connect-gateway","network-function","peering","tgw-peering","vpc","vpn","vpn-concentrator"
+            $v = "client-vpn","connect","direct-connect-gateway","network-function","peering","tgw-peering","vpc","vpn","vpn-concentrator"
             break
         }
 
@@ -1714,6 +1714,7 @@ $EC2_SelectMap = @{
     "Select"=@("Approve-EC2AddressTransfer",
                "Approve-EC2CapacityReservationBillingOwnership",
                "Approve-EC2ReservedInstancesExchangeQuote",
+               "Approve-EC2TransitGatewayClientVpnAttachment",
                "Approve-EC2TransitGatewayMulticastDomainAssociation",
                "Approve-EC2TransitGatewayPeeringAttachment",
                "Approve-EC2TransitGatewayVpcAttachment",
@@ -1939,6 +1940,7 @@ $EC2_SelectMap = @{
                "Remove-EC2TrafficMirrorSession",
                "Remove-EC2TrafficMirrorTarget",
                "Remove-EC2TransitGateway",
+               "Remove-EC2TransitGatewayClientVpnAttachment",
                "Remove-EC2TransitGatewayConnect",
                "Remove-EC2TransitGatewayConnectPeer",
                "Remove-EC2TransitGatewayMeteringPolicy",
@@ -2404,6 +2406,7 @@ $EC2_SelectMap = @{
                "Register-EC2TransitGatewayMulticastGroupMember",
                "Register-EC2TransitGatewayMulticastGroupSource",
                "Deny-EC2CapacityReservationBillingOwnership",
+               "Deny-EC2TransitGatewayClientVpnAttachment",
                "Deny-EC2TransitGatewayMulticastDomainAssociation",
                "Deny-EC2TransitGatewayPeeringAttachment",
                "Deny-EC2TransitGatewayVpcAttachment",

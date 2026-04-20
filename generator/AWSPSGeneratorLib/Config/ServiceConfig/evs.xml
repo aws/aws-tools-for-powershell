@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEntitlement" OutputProperty="Entitlements" Verb="New" Noun="Entitlement" ShouldProcessTarget="ConnectorId,EnvironmentId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEnvironment" OutputProperty="Environment" Verb="New" Noun="Environment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
             <Params>
                 <Param Name="Hosts" NewName="Hosts" />
@@ -39,11 +43,23 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironmentConnector" OutputProperty="Connector" Verb="New" Noun="EnvironmentConnector" ShouldProcessTarget="EnvironmentId,SecretIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEnvironmentHost" OutputProperty="*" Verb="New" Noun="EnvironmentHost" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEntitlement" OutputProperty="Entitlements" Verb="Remove" Noun="Entitlement" ShouldProcessTarget="ConnectorId,EnvironmentId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEnvironment" OutputProperty="Environment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentConnector" OutputProperty="*" Verb="Remove" Noun="EnvironmentConnector" ShouldProcessTarget="ConnectorId,EnvironmentId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironmentConnectors" OutputProperty="Connectors" Verb="Get" Noun="EnvironmentConnectorList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEnvironmentHosts" OutputProperty="EnvironmentHosts" Verb="Get" Noun="EnvironmentHostList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,11 +99,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListVmEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="VmEntitlementList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironmentConnector" OutputProperty="Connector" Verb="Update" Noun="EnvironmentConnector" ShouldProcessTarget="ConnectorId,EnvironmentId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

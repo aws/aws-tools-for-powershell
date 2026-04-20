@@ -23,59 +23,36 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.Evs;
+using Amazon.Evs.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Enables an IPAM policy.
+    /// Deletes a connector from an Amazon EVS environment.
     /// 
-    ///  
-    /// <para>
-    /// An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools
-    /// are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services
-    /// service to IPAM pools that the service will use to get IP addresses. A single policy
-    /// can have multiple rules and be applied to multiple Amazon Web Services Regions. If
-    /// the IPAM pool run out of addresses then the services fallback to Amazon-provided IP
-    /// addresses. A policy can be applied to an individual Amazon Web Services account or
-    /// an entity within Amazon Web Services Organizations.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html">Define
-    /// public IPv4 allocation strategy with IPAM policies</a> in the <i>Amazon VPC IPAM User
-    /// Guide</i>.
-    /// </para>
+    ///  <note><para>
+    /// Before deleting a connector, you must remove all entitlements that are associated
+    /// with the same vCenter.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Enable", "EC2IpamPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableIpamPolicy API operation.", Operation = new[] {"EnableIpamPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableIpamPolicyResponse))]
-    [AWSCmdletOutput("System.String or Amazon.EC2.Model.EnableIpamPolicyResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.EnableIpamPolicyResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "EVSEnvironmentConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Evs.Model.DeleteEnvironmentConnectorResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic VMware Service DeleteEnvironmentConnector API operation.", Operation = new[] {"DeleteEnvironmentConnector"}, SelectReturnType = typeof(Amazon.Evs.Model.DeleteEnvironmentConnectorResponse))]
+    [AWSCmdletOutput("Amazon.Evs.Model.DeleteEnvironmentConnectorResponse",
+        "This cmdlet returns an Amazon.Evs.Model.DeleteEnvironmentConnectorResponse object containing multiple properties."
     )]
-    public partial class EnableEC2IpamPolicyCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RemoveEVSEnvironmentConnectorCmdlet : AmazonEvsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DryRun
+        #region Parameter ConnectorId
         /// <summary>
         /// <para>
-        /// <para>A check for whether you have the required permissions for the action without actually
-        /// making the request and provides an error response. If you have the required permissions,
-        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DryRun { get; set; }
-        #endregion
-        
-        #region Parameter IpamPolicyId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the IPAM policy to enable.</para>
+        /// <para>A unique ID for the connector to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,32 +63,48 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IpamPolicyId { get; set; }
+        public System.String ConnectorId { get; set; }
         #endregion
         
-        #region Parameter OrganizationTargetId
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>A target can be an individual Amazon Web Services account or an entity within an Amazon
-        /// Web Services Organization to which an IPAM policy can be applied.</para><para>The ID of the Amazon Web Services Organizations target for which to enable the IPAM
-        /// policy. This parameter is required only when IPAM is integrated with Amazon Web Services
-        /// Organizations. When IPAM is not integrated with Amazon Web Services Organizations,
-        /// omit this parameter and the policy will apply to the current account.</para>
+        /// <para>A unique ID for the environment that the connector belongs to.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EnvironmentId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para><note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
+        /// it will have no effect.</para></note><para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the connector deletion request. If you do not specify a client token, a randomly generated
+        /// token is used for the request to ensure idempotency.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String OrganizationTargetId { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamPolicyId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.EnableIpamPolicyResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.EnableIpamPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Evs.Model.DeleteEnvironmentConnectorResponse).
+        /// Specifying the name of a property of type Amazon.Evs.Model.DeleteEnvironmentConnectorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "IpamPolicyId";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -133,8 +126,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-EC2IpamPolicy (EnableIpamPolicy)"))
+            var targetParameterNames = new string[]
+            {
+                nameof(this.ConnectorId),
+                nameof(this.EnvironmentId)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EVSEnvironmentConnector (DeleteEnvironmentConnector)"))
             {
                 return;
             }
@@ -146,18 +144,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.EnableIpamPolicyResponse, EnableEC2IpamPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Evs.Model.DeleteEnvironmentConnectorResponse, RemoveEVSEnvironmentConnectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DryRun = this.DryRun;
-            context.IpamPolicyId = this.IpamPolicyId;
+            context.ClientToken = this.ClientToken;
+            context.ConnectorId = this.ConnectorId;
             #if MODULAR
-            if (this.IpamPolicyId == null && ParameterWasBound(nameof(this.IpamPolicyId)))
+            if (this.ConnectorId == null && ParameterWasBound(nameof(this.ConnectorId)))
             {
-                WriteWarning("You are passing $null as a value for parameter IpamPolicyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConnectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.OrganizationTargetId = this.OrganizationTargetId;
+            context.EnvironmentId = this.EnvironmentId;
+            #if MODULAR
+            if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,19 +176,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.EnableIpamPolicyRequest();
+            var request = new Amazon.Evs.Model.DeleteEnvironmentConnectorRequest();
             
-            if (cmdletContext.DryRun != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.DryRun = cmdletContext.DryRun.Value;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.IpamPolicyId != null)
+            if (cmdletContext.ConnectorId != null)
             {
-                request.IpamPolicyId = cmdletContext.IpamPolicyId;
+                request.ConnectorId = cmdletContext.ConnectorId;
             }
-            if (cmdletContext.OrganizationTargetId != null)
+            if (cmdletContext.EnvironmentId != null)
             {
-                request.OrganizationTargetId = cmdletContext.OrganizationTargetId;
+                request.EnvironmentId = cmdletContext.EnvironmentId;
             }
             
             CmdletOutput output;
@@ -219,12 +223,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.EnableIpamPolicyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableIpamPolicyRequest request)
+        private Amazon.Evs.Model.DeleteEnvironmentConnectorResponse CallAWSServiceOperation(IAmazonEvs client, Amazon.Evs.Model.DeleteEnvironmentConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableIpamPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic VMware Service", "DeleteEnvironmentConnector");
             try
             {
-                return client.EnableIpamPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteEnvironmentConnectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -241,11 +245,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DryRun { get; set; }
-            public System.String IpamPolicyId { get; set; }
-            public System.String OrganizationTargetId { get; set; }
-            public System.Func<Amazon.EC2.Model.EnableIpamPolicyResponse, EnableEC2IpamPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.IpamPolicyId;
+            public System.String ClientToken { get; set; }
+            public System.String ConnectorId { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.Func<Amazon.Evs.Model.DeleteEnvironmentConnectorResponse, RemoveEVSEnvironmentConnectorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

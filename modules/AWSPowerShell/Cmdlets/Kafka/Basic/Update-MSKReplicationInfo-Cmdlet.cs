@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter LogDelivery_ReplicatorLogDelivery_S3_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The S3 bucket that is the destination for log delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogDelivery_ReplicatorLogDelivery_S3_Bucket { get; set; }
+        #endregion
+        
         #region Parameter ConsumerGroupReplication_ConsumerGroupsToExclude
         /// <summary>
         /// <para>
@@ -114,6 +124,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.String CurrentVersion { get; set; }
         #endregion
         
+        #region Parameter LogDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream
+        /// <summary>
+        /// <para>
+        /// <para>The Firehose delivery stream that is the destination for log delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream { get; set; }
+        #endregion
+        
         #region Parameter ConsumerGroupReplication_DetectAndCopyNewConsumerGroup
         /// <summary>
         /// <para>
@@ -134,6 +154,56 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicReplication_DetectAndCopyNewTopics")]
         public System.Boolean? TopicReplication_DetectAndCopyNewTopic { get; set; }
+        #endregion
+        
+        #region Parameter LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether log delivery to CloudWatch Logs is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter LogDelivery_ReplicatorLogDelivery_Firehose_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether log delivery to Firehose is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LogDelivery_ReplicatorLogDelivery_Firehose_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter LogDelivery_ReplicatorLogDelivery_S3_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether log delivery to S3 is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LogDelivery_ReplicatorLogDelivery_S3_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch log group that is the destination for log delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup { get; set; }
+        #endregion
+        
+        #region Parameter LogDelivery_ReplicatorLogDelivery_S3_Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The S3 prefix that is the destination for log delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogDelivery_ReplicatorLogDelivery_S3_Prefix { get; set; }
         #endregion
         
         #region Parameter ReplicatorArn
@@ -159,15 +229,18 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <para>The ARN of the source Kafka cluster.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceKafkaClusterArn { get; set; }
+        #endregion
+        
+        #region Parameter SourceKafkaClusterId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the source Kafka cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceKafkaClusterId { get; set; }
         #endregion
         
         #region Parameter ConsumerGroupReplication_SynchroniseConsumerGroupOffset
@@ -188,15 +261,18 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <para>The ARN of the target Kafka cluster.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetKafkaClusterArn { get; set; }
+        #endregion
+        
+        #region Parameter TargetKafkaClusterId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the target Kafka cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetKafkaClusterId { get; set; }
         #endregion
         
         #region Parameter TopicReplication_TopicsToExclude
@@ -290,6 +366,13 @@ namespace Amazon.PowerShell.Cmdlets.MSK
                 WriteWarning("You are passing $null as a value for parameter CurrentVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled = this.LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled;
+            context.LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup = this.LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup;
+            context.LogDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream = this.LogDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream;
+            context.LogDelivery_ReplicatorLogDelivery_Firehose_Enabled = this.LogDelivery_ReplicatorLogDelivery_Firehose_Enabled;
+            context.LogDelivery_ReplicatorLogDelivery_S3_Bucket = this.LogDelivery_ReplicatorLogDelivery_S3_Bucket;
+            context.LogDelivery_ReplicatorLogDelivery_S3_Enabled = this.LogDelivery_ReplicatorLogDelivery_S3_Enabled;
+            context.LogDelivery_ReplicatorLogDelivery_S3_Prefix = this.LogDelivery_ReplicatorLogDelivery_S3_Prefix;
             context.ReplicatorArn = this.ReplicatorArn;
             #if MODULAR
             if (this.ReplicatorArn == null && ParameterWasBound(nameof(this.ReplicatorArn)))
@@ -298,19 +381,9 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             }
             #endif
             context.SourceKafkaClusterArn = this.SourceKafkaClusterArn;
-            #if MODULAR
-            if (this.SourceKafkaClusterArn == null && ParameterWasBound(nameof(this.SourceKafkaClusterArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceKafkaClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.SourceKafkaClusterId = this.SourceKafkaClusterId;
             context.TargetKafkaClusterArn = this.TargetKafkaClusterArn;
-            #if MODULAR
-            if (this.TargetKafkaClusterArn == null && ParameterWasBound(nameof(this.TargetKafkaClusterArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetKafkaClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TargetKafkaClusterId = this.TargetKafkaClusterId;
             context.TopicReplication_CopyAccessControlListsForTopic = this.TopicReplication_CopyAccessControlListsForTopic;
             context.TopicReplication_CopyTopicConfiguration = this.TopicReplication_CopyTopicConfiguration;
             context.TopicReplication_DetectAndCopyNewTopic = this.TopicReplication_DetectAndCopyNewTopic;
@@ -391,6 +464,145 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             {
                 request.CurrentVersion = cmdletContext.CurrentVersion;
             }
+            
+             // populate LogDelivery
+            var requestLogDeliveryIsNull = true;
+            request.LogDelivery = new Amazon.Kafka.Model.LogDelivery();
+            Amazon.Kafka.Model.ReplicatorLogDelivery requestLogDelivery_logDelivery_ReplicatorLogDelivery = null;
+            
+             // populate ReplicatorLogDelivery
+            var requestLogDelivery_logDelivery_ReplicatorLogDeliveryIsNull = true;
+            requestLogDelivery_logDelivery_ReplicatorLogDelivery = new Amazon.Kafka.Model.ReplicatorLogDelivery();
+            Amazon.Kafka.Model.ReplicatorCloudWatchLogs requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs = null;
+            
+             // populate CloudWatchLogs
+            var requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogsIsNull = true;
+            requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs = new Amazon.Kafka.Model.ReplicatorCloudWatchLogs();
+            System.Boolean? requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled = null;
+            if (cmdletContext.LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled = cmdletContext.LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled.Value;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs.Enabled = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled.Value;
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogsIsNull = false;
+            }
+            System.String requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup = null;
+            if (cmdletContext.LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup = cmdletContext.LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs.LogGroup = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_logDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup;
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogsIsNull = false;
+            }
+             // determine if requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs should be set to null
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogsIsNull)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs = null;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery.CloudWatchLogs = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_CloudWatchLogs;
+                requestLogDelivery_logDelivery_ReplicatorLogDeliveryIsNull = false;
+            }
+            Amazon.Kafka.Model.ReplicatorFirehose requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose = null;
+            
+             // populate Firehose
+            var requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_FirehoseIsNull = true;
+            requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose = new Amazon.Kafka.Model.ReplicatorFirehose();
+            System.String requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose_logDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream = null;
+            if (cmdletContext.LogDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose_logDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream = cmdletContext.LogDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose_logDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose.DeliveryStream = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose_logDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream;
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_FirehoseIsNull = false;
+            }
+            System.Boolean? requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose_logDelivery_ReplicatorLogDelivery_Firehose_Enabled = null;
+            if (cmdletContext.LogDelivery_ReplicatorLogDelivery_Firehose_Enabled != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose_logDelivery_ReplicatorLogDelivery_Firehose_Enabled = cmdletContext.LogDelivery_ReplicatorLogDelivery_Firehose_Enabled.Value;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose_logDelivery_ReplicatorLogDelivery_Firehose_Enabled != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose.Enabled = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose_logDelivery_ReplicatorLogDelivery_Firehose_Enabled.Value;
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_FirehoseIsNull = false;
+            }
+             // determine if requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose should be set to null
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_FirehoseIsNull)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose = null;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery.Firehose = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_Firehose;
+                requestLogDelivery_logDelivery_ReplicatorLogDeliveryIsNull = false;
+            }
+            Amazon.Kafka.Model.ReplicatorS3 requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3 = null;
+            
+             // populate S3
+            var requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3IsNull = true;
+            requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3 = new Amazon.Kafka.Model.ReplicatorS3();
+            System.String requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Bucket = null;
+            if (cmdletContext.LogDelivery_ReplicatorLogDelivery_S3_Bucket != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Bucket = cmdletContext.LogDelivery_ReplicatorLogDelivery_S3_Bucket;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Bucket != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3.Bucket = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Bucket;
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3IsNull = false;
+            }
+            System.Boolean? requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Enabled = null;
+            if (cmdletContext.LogDelivery_ReplicatorLogDelivery_S3_Enabled != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Enabled = cmdletContext.LogDelivery_ReplicatorLogDelivery_S3_Enabled.Value;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Enabled != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3.Enabled = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Enabled.Value;
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3IsNull = false;
+            }
+            System.String requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Prefix = null;
+            if (cmdletContext.LogDelivery_ReplicatorLogDelivery_S3_Prefix != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Prefix = cmdletContext.LogDelivery_ReplicatorLogDelivery_S3_Prefix;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Prefix != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3.Prefix = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3_logDelivery_ReplicatorLogDelivery_S3_Prefix;
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3IsNull = false;
+            }
+             // determine if requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3 should be set to null
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3IsNull)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3 = null;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3 != null)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery.S3 = requestLogDelivery_logDelivery_ReplicatorLogDelivery_logDelivery_ReplicatorLogDelivery_S3;
+                requestLogDelivery_logDelivery_ReplicatorLogDeliveryIsNull = false;
+            }
+             // determine if requestLogDelivery_logDelivery_ReplicatorLogDelivery should be set to null
+            if (requestLogDelivery_logDelivery_ReplicatorLogDeliveryIsNull)
+            {
+                requestLogDelivery_logDelivery_ReplicatorLogDelivery = null;
+            }
+            if (requestLogDelivery_logDelivery_ReplicatorLogDelivery != null)
+            {
+                request.LogDelivery.ReplicatorLogDelivery = requestLogDelivery_logDelivery_ReplicatorLogDelivery;
+                requestLogDeliveryIsNull = false;
+            }
+             // determine if request.LogDelivery should be set to null
+            if (requestLogDeliveryIsNull)
+            {
+                request.LogDelivery = null;
+            }
             if (cmdletContext.ReplicatorArn != null)
             {
                 request.ReplicatorArn = cmdletContext.ReplicatorArn;
@@ -399,9 +611,17 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             {
                 request.SourceKafkaClusterArn = cmdletContext.SourceKafkaClusterArn;
             }
+            if (cmdletContext.SourceKafkaClusterId != null)
+            {
+                request.SourceKafkaClusterId = cmdletContext.SourceKafkaClusterId;
+            }
             if (cmdletContext.TargetKafkaClusterArn != null)
             {
                 request.TargetKafkaClusterArn = cmdletContext.TargetKafkaClusterArn;
+            }
+            if (cmdletContext.TargetKafkaClusterId != null)
+            {
+                request.TargetKafkaClusterId = cmdletContext.TargetKafkaClusterId;
             }
             
              // populate TopicReplication
@@ -522,9 +742,18 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.Boolean? ConsumerGroupReplication_DetectAndCopyNewConsumerGroup { get; set; }
             public System.Boolean? ConsumerGroupReplication_SynchroniseConsumerGroupOffset { get; set; }
             public System.String CurrentVersion { get; set; }
+            public System.Boolean? LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_Enabled { get; set; }
+            public System.String LogDelivery_ReplicatorLogDelivery_CloudWatchLogs_LogGroup { get; set; }
+            public System.String LogDelivery_ReplicatorLogDelivery_Firehose_DeliveryStream { get; set; }
+            public System.Boolean? LogDelivery_ReplicatorLogDelivery_Firehose_Enabled { get; set; }
+            public System.String LogDelivery_ReplicatorLogDelivery_S3_Bucket { get; set; }
+            public System.Boolean? LogDelivery_ReplicatorLogDelivery_S3_Enabled { get; set; }
+            public System.String LogDelivery_ReplicatorLogDelivery_S3_Prefix { get; set; }
             public System.String ReplicatorArn { get; set; }
             public System.String SourceKafkaClusterArn { get; set; }
+            public System.String SourceKafkaClusterId { get; set; }
             public System.String TargetKafkaClusterArn { get; set; }
+            public System.String TargetKafkaClusterId { get; set; }
             public System.Boolean? TopicReplication_CopyAccessControlListsForTopic { get; set; }
             public System.Boolean? TopicReplication_CopyTopicConfiguration { get; set; }
             public System.Boolean? TopicReplication_DetectAndCopyNewTopic { get; set; }

@@ -63,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// Analysis phase</para></li><li><para><c>top_contributor</c> - TopContributorAuditor: Identifies infrastructure-level contributors
         /// to issues by analyzing EMF logs of Application Signals RED metrics during the Analysis
         /// phase</para></li><li><para><c>log</c> - LogAuditor: Extracts insights from application logs, categorizing error
-        /// types and ranking severity by frequency during the Analysis phase</para></li></ul><note><para><c>InitAuditor</c> and <c>Summarizer</c> auditors are not configurable as they are
+        /// types and ranking severity by frequency during the Analysis phase</para></li><li><para><c>change_indicator</c> - ChangeIndicatorAuditor: Detects change events (deployments,
+        /// configuration changes) that occurred within 10 minutes before and during a detected
+        /// anomaly, and surfaces them as findings with deployment timestamps in the Analysis
+        /// phase. When changes are detected, the <c>top_contributor</c> auditor skips its analysis
+        /// to avoid redundancy.</para></li></ul><note><para><c>InitAuditor</c> and <c>Summarizer</c> auditors are not configurable as they are
         /// automatically triggered during the audit process.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

@@ -30,31 +30,18 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Enables an IPAM policy.
-    /// 
-    ///  
-    /// <para>
-    /// An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools
-    /// are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services
-    /// service to IPAM pools that the service will use to get IP addresses. A single policy
-    /// can have multiple rules and be applied to multiple Amazon Web Services Regions. If
-    /// the IPAM pool run out of addresses then the services fallback to Amazon-provided IP
-    /// addresses. A policy can be applied to an individual Amazon Web Services account or
-    /// an entity within Amazon Web Services Organizations.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html">Define
-    /// public IPv4 allocation strategy with IPAM policies</a> in the <i>Amazon VPC IPAM User
-    /// Guide</i>.
-    /// </para>
+    /// Deletes a Transit Gateway attachment for a Client VPN endpoint. The Transit Gateway
+    /// owner can delete the attachment to remove the association between the Client VPN endpoint
+    /// and the Transit Gateway.
     /// </summary>
-    [Cmdlet("Enable", "EC2IpamPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableIpamPolicy API operation.", Operation = new[] {"EnableIpamPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableIpamPolicyResponse))]
-    [AWSCmdletOutput("System.String or Amazon.EC2.Model.EnableIpamPolicyResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.EnableIpamPolicyResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "EC2TransitGatewayClientVpnAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.EC2.Model.TransitGatewayClientVpnAttachment")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTransitGatewayClientVpnAttachment API operation.", Operation = new[] {"DeleteTransitGatewayClientVpnAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayClientVpnAttachment or Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentResponse",
+        "This cmdlet returns an Amazon.EC2.Model.TransitGatewayClientVpnAttachment object.",
+        "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class EnableEC2IpamPolicyCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RemoveEC2TransitGatewayClientVpnAttachmentCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -63,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>A check for whether you have the required permissions for the action without actually
-        /// making the request and provides an error response. If you have the required permissions,
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
         /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
         /// </summary>
@@ -72,10 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DryRun { get; set; }
         #endregion
         
-        #region Parameter IpamPolicyId
+        #region Parameter TransitGatewayAttachmentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the IPAM policy to enable.</para>
+        /// <para>The ID of the Transit Gateway attachment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,32 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IpamPolicyId { get; set; }
-        #endregion
-        
-        #region Parameter OrganizationTargetId
-        /// <summary>
-        /// <para>
-        /// <para>A target can be an individual Amazon Web Services account or an entity within an Amazon
-        /// Web Services Organization to which an IPAM policy can be applied.</para><para>The ID of the Amazon Web Services Organizations target for which to enable the IPAM
-        /// policy. This parameter is required only when IPAM is integrated with Amazon Web Services
-        /// Organizations. When IPAM is not integrated with Amazon Web Services Organizations,
-        /// omit this parameter and the policy will apply to the current account.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String OrganizationTargetId { get; set; }
+        public System.String TransitGatewayAttachmentId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamPolicyId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.EnableIpamPolicyResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.EnableIpamPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TransitGatewayClientVpnAttachment'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "IpamPolicyId";
+        public string Select { get; set; } = "TransitGatewayClientVpnAttachment";
         #endregion
         
         #region Parameter Force
@@ -134,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-EC2IpamPolicy (EnableIpamPolicy)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2TransitGatewayClientVpnAttachment (DeleteTransitGatewayClientVpnAttachment)"))
             {
                 return;
             }
@@ -146,18 +119,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.EnableIpamPolicyResponse, EnableEC2IpamPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentResponse, RemoveEC2TransitGatewayClientVpnAttachmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DryRun = this.DryRun;
-            context.IpamPolicyId = this.IpamPolicyId;
+            context.TransitGatewayAttachmentId = this.TransitGatewayAttachmentId;
             #if MODULAR
-            if (this.IpamPolicyId == null && ParameterWasBound(nameof(this.IpamPolicyId)))
+            if (this.TransitGatewayAttachmentId == null && ParameterWasBound(nameof(this.TransitGatewayAttachmentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter IpamPolicyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TransitGatewayAttachmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.OrganizationTargetId = this.OrganizationTargetId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,19 +144,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.EnableIpamPolicyRequest();
+            var request = new Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentRequest();
             
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.IpamPolicyId != null)
+            if (cmdletContext.TransitGatewayAttachmentId != null)
             {
-                request.IpamPolicyId = cmdletContext.IpamPolicyId;
-            }
-            if (cmdletContext.OrganizationTargetId != null)
-            {
-                request.OrganizationTargetId = cmdletContext.OrganizationTargetId;
+                request.TransitGatewayAttachmentId = cmdletContext.TransitGatewayAttachmentId;
             }
             
             CmdletOutput output;
@@ -219,12 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.EnableIpamPolicyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableIpamPolicyRequest request)
+        private Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableIpamPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteTransitGatewayClientVpnAttachment");
             try
             {
-                return client.EnableIpamPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteTransitGatewayClientVpnAttachmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -242,10 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DryRun { get; set; }
-            public System.String IpamPolicyId { get; set; }
-            public System.String OrganizationTargetId { get; set; }
-            public System.Func<Amazon.EC2.Model.EnableIpamPolicyResponse, EnableEC2IpamPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.IpamPolicyId;
+            public System.String TransitGatewayAttachmentId { get; set; }
+            public System.Func<Amazon.EC2.Model.DeleteTransitGatewayClientVpnAttachmentResponse, RemoveEC2TransitGatewayClientVpnAttachmentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TransitGatewayClientVpnAttachment;
         }
         
     }

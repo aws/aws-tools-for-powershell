@@ -80,6 +80,24 @@ $EVS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Evs.ConnectorType
+        "New-EVSEnvironmentConnector/Type"
+        {
+            $v = "VCENTER"
+            break
+        }
+
+        # Amazon.Evs.EntitlementType
+        {
+            ($_ -eq "Get-EVSVmEntitlementList/EntitlementType") -Or
+            ($_ -eq "New-EVSEntitlement/EntitlementType") -Or
+            ($_ -eq "Remove-EVSEntitlement/EntitlementType")
+        }
+        {
+            $v = "WINDOWS_SERVER"
+            break
+        }
+
         # Amazon.Evs.InstanceType
         "New-EVSEnvironmentHost/Host_InstanceType"
         {
@@ -103,7 +121,9 @@ $EVS_Completers = {
 }
 
 $EVS_map = @{
+    "EntitlementType"=@("Get-EVSVmEntitlementList","New-EVSEntitlement","Remove-EVSEntitlement")
     "Host_InstanceType"=@("New-EVSEnvironmentHost")
+    "Type"=@("New-EVSEnvironmentConnector")
     "VcfVersion"=@("New-EVSEnvironment")
 }
 
@@ -158,19 +178,26 @@ $EVS_SelectCompleters = {
 
 $EVS_SelectMap = @{
     "Select"=@("Register-EVSEipToVlan",
+               "New-EVSEntitlement",
                "New-EVSEnvironment",
+               "New-EVSEnvironmentConnector",
                "New-EVSEnvironmentHost",
+               "Remove-EVSEntitlement",
                "Remove-EVSEnvironment",
+               "Remove-EVSEnvironmentConnector",
                "Remove-EVSEnvironmentHost",
                "Unregister-EVSEipFromVlan",
                "Get-EVSEnvironment",
                "Get-EVSVersion",
+               "Get-EVSEnvironmentConnectorList",
                "Get-EVSEnvironmentHostList",
                "Get-EVSEnvironmentList",
                "Get-EVSEnvironmentVlanList",
                "Get-EVSResourceTag",
+               "Get-EVSVmEntitlementList",
                "Add-EVSResourceTag",
-               "Remove-EVSResourceTag")
+               "Remove-EVSResourceTag",
+               "Update-EVSEnvironmentConnector")
 }
 
 _awsArgumentCompleterRegistration $EVS_SelectCompleters $EVS_SelectMap

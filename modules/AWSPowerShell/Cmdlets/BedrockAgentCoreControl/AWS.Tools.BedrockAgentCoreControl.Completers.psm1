@@ -192,6 +192,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.ListingMode
+        {
+            ($_ -eq "New-BACCGatewayTarget/TargetConfiguration_Mcp_McpServer_ListingMode") -Or
+            ($_ -eq "Update-BACCGatewayTarget/TargetConfiguration_Mcp_McpServer_ListingMode")
+        }
+        {
+            $v = "DEFAULT","DYNAMIC"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.MemoryView
         "Get-BACCMemory/View"
         {
@@ -316,6 +326,7 @@ $BACC_map = @{
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
+    "TargetConfiguration_Mcp_McpServer_ListingMode"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "View"=@("Get-BACCMemory")

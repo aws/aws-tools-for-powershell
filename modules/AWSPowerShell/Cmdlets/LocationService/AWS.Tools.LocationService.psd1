@@ -101,6 +101,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LOCGeofenceCollection', 
         'Get-LOCGeofenceCollectionList', 
         'Get-LOCGeofenceList', 
+        'Get-LOCJob', 
+        'Get-LOCJobList', 
         'Get-LOCKey', 
         'Get-LOCKeyList', 
         'Get-LOCMap', 
@@ -144,6 +146,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Set-LOCDevicePositionBatch', 
         'Set-LOCGeofence', 
         'Set-LOCGeofenceBatch', 
+        'Start-LOCJob', 
+        'Stop-LOCJob', 
         'Submit-LOCGeofenceEvaluationBatch', 
         'Unregister-LOCTrackerConsumer', 
         'Update-LOCKey')
