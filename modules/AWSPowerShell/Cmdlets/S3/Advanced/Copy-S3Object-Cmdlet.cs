@@ -1419,6 +1419,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 public string ChecksumSHA256 { get; set; }
                 public string ChecksumCRC32 { get; set; }
                 public string ChecksumCRC32C { get; set; }
+                public string ChecksumSHA512 { get; set; }
+                public string ChecksumXXHASH3 { get; set; }
+                public string ChecksumXXHASH64 { get; set; }
+                public string ChecksumXXHASH128 { get; set; }
+                public string ChecksumMD5 { get; set; }
 
                 public PartETag ToPartETag()
                 {
@@ -1427,7 +1432,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     partETag.ChecksumSHA256 = ChecksumSHA256;
                     partETag.ChecksumCRC32 = ChecksumCRC32;
                     partETag.ChecksumCRC32C = ChecksumCRC32C;
-
+                    partETag.ChecksumMD5 = ChecksumMD5;
+                    partETag.ChecksumSHA512 = ChecksumSHA512;
+                    partETag.ChecksumXXHASH64 = ChecksumXXHASH64;
+                    partETag.ChecksumXXHASH3 = ChecksumXXHASH3;
+                    partETag.ChecksumXXHASH128 = ChecksumXXHASH128;
                     return partETag;
                 }
             }
@@ -1568,6 +1577,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         part.ChecksumSHA256 = response.ChecksumSHA256;
                         part.ChecksumCRC32 = response.ChecksumCRC32;
                         part.ChecksumCRC32C = response.ChecksumCRC32C;
+                        part.ChecksumSHA512 = response.ChecksumSHA512;
+                        part.ChecksumMD5 = response.ChecksumMD5;
+                        part.ChecksumXXHASH3 = response.ChecksumXXHASH3;
+                        part.ChecksumXXHASH64 = response.ChecksumXXHASH64;
+                        part.ChecksumXXHASH128 = response.ChecksumXXHASH128;
                         lock (_this._lock)
                         {
                             _this._bytesUploaded += part.Size;
