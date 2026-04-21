@@ -1,4 +1,22 @@
-﻿### 5.0.198 (2026-04-20 19:54Z)
+﻿### 5.0.199 (2026-04-21 21:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.235.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMAIBenchmarkJobDetail leveraging the DescribeAIBenchmarkJob service API.
+    * Added cmdlet Get-SMAIBenchmarkJobList leveraging the ListAIBenchmarkJobs service API.
+    * Added cmdlet Get-SMAIRecommendationJobDetail leveraging the DescribeAIRecommendationJob service API.
+    * Added cmdlet Get-SMAIRecommendationJobList leveraging the ListAIRecommendationJobs service API.
+    * Added cmdlet Get-SMAIWorkloadConfigDetail leveraging the DescribeAIWorkloadConfig service API.
+    * Added cmdlet Get-SMAIWorkloadConfigList leveraging the ListAIWorkloadConfigs service API.
+    * Added cmdlet New-SMAIBenchmarkJob leveraging the CreateAIBenchmarkJob service API.
+    * Added cmdlet New-SMAIRecommendationJob leveraging the CreateAIRecommendationJob service API.
+    * Added cmdlet New-SMAIWorkloadConfig leveraging the CreateAIWorkloadConfig service API.
+    * Added cmdlet Remove-SMAIBenchmarkJob leveraging the DeleteAIBenchmarkJob service API.
+    * Added cmdlet Remove-SMAIRecommendationJob leveraging the DeleteAIRecommendationJob service API.
+    * Added cmdlet Remove-SMAIWorkloadConfig leveraging the DeleteAIWorkloadConfig service API.
+    * Added cmdlet Stop-SMAIBenchmarkJob leveraging the StopAIBenchmarkJob service API.
+    * Added cmdlet Stop-SMAIRecommendationJob leveraging the StopAIRecommendationJob service API.
+
+### 5.0.198 (2026-04-20 19:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.234.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCGatewayTarget: added parameter TargetConfiguration_Mcp_McpServer_ListingMode.

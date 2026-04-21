@@ -1,0 +1,313 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.SM
+{
+    /// <summary>
+    /// Creates a reusable AI workload configuration that defines datasets, data sources,
+    /// and benchmark tool settings for consistent performance testing of generative AI inference
+    /// deployments on Amazon SageMaker AI.
+    /// </summary>
+    [Cmdlet("New", "SMAIWorkloadConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service CreateAIWorkloadConfig API operation.", Operation = new[] {"CreateAIWorkloadConfig"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateAIWorkloadConfigResponse))]
+    [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateAIWorkloadConfigResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.SageMaker.Model.CreateAIWorkloadConfigResponse) can be returned by specifying '-Select *'."
+    )]
+    public partial class NewSMAIWorkloadConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AIWorkloadConfigName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the AI workload configuration. The name must be unique within your Amazon
+        /// Web Services account in the current Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AIWorkloadConfigName { get; set; }
+        #endregion
+        
+        #region Parameter AIWorkloadConfigs_WorkloadSpec_Inline
+        /// <summary>
+        /// <para>
+        /// <para>An inline YAML or JSON string that defines benchmark parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AIWorkloadConfigs_WorkloadSpec_Inline { get; set; }
+        #endregion
+        
+        #region Parameter DatasetConfig_InputDataConfig
+        /// <summary>
+        /// <para>
+        /// <para>An array of input data channel configurations for the workload.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SageMaker.Model.AIWorkloadInputDataConfig[] DatasetConfig_InputDataConfig { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The metadata that you apply to Amazon Web Services resources to help you categorize
+        /// and organize them. Each tag consists of a key and a value, both of which you define.
+        /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a> in the Amazon Web Services General Reference.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AIWorkloadConfigArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.CreateAIWorkloadConfigResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.CreateAIWorkloadConfigResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "AIWorkloadConfigArn";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AIWorkloadConfigName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SMAIWorkloadConfig (CreateAIWorkloadConfig)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.CreateAIWorkloadConfigResponse, NewSMAIWorkloadConfigCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.AIWorkloadConfigName = this.AIWorkloadConfigName;
+            #if MODULAR
+            if (this.AIWorkloadConfigName == null && ParameterWasBound(nameof(this.AIWorkloadConfigName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AIWorkloadConfigName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.AIWorkloadConfigs_WorkloadSpec_Inline = this.AIWorkloadConfigs_WorkloadSpec_Inline;
+            if (this.DatasetConfig_InputDataConfig != null)
+            {
+                context.DatasetConfig_InputDataConfig = new List<Amazon.SageMaker.Model.AIWorkloadInputDataConfig>(this.DatasetConfig_InputDataConfig);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.SageMaker.Model.CreateAIWorkloadConfigRequest();
+            
+            if (cmdletContext.AIWorkloadConfigName != null)
+            {
+                request.AIWorkloadConfigName = cmdletContext.AIWorkloadConfigName;
+            }
+            
+             // populate AIWorkloadConfigs
+            var requestAIWorkloadConfigsIsNull = true;
+            request.AIWorkloadConfigs = new Amazon.SageMaker.Model.AIWorkloadConfigs();
+            Amazon.SageMaker.Model.WorkloadSpec requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec = null;
+            
+             // populate WorkloadSpec
+            var requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpecIsNull = true;
+            requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec = new Amazon.SageMaker.Model.WorkloadSpec();
+            System.String requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec_aIWorkloadConfigs_WorkloadSpec_Inline = null;
+            if (cmdletContext.AIWorkloadConfigs_WorkloadSpec_Inline != null)
+            {
+                requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec_aIWorkloadConfigs_WorkloadSpec_Inline = cmdletContext.AIWorkloadConfigs_WorkloadSpec_Inline;
+            }
+            if (requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec_aIWorkloadConfigs_WorkloadSpec_Inline != null)
+            {
+                requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec.Inline = requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec_aIWorkloadConfigs_WorkloadSpec_Inline;
+                requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpecIsNull = false;
+            }
+             // determine if requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec should be set to null
+            if (requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpecIsNull)
+            {
+                requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec = null;
+            }
+            if (requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec != null)
+            {
+                request.AIWorkloadConfigs.WorkloadSpec = requestAIWorkloadConfigs_aIWorkloadConfigs_WorkloadSpec;
+                requestAIWorkloadConfigsIsNull = false;
+            }
+             // determine if request.AIWorkloadConfigs should be set to null
+            if (requestAIWorkloadConfigsIsNull)
+            {
+                request.AIWorkloadConfigs = null;
+            }
+            
+             // populate DatasetConfig
+            var requestDatasetConfigIsNull = true;
+            request.DatasetConfig = new Amazon.SageMaker.Model.AIDatasetConfig();
+            List<Amazon.SageMaker.Model.AIWorkloadInputDataConfig> requestDatasetConfig_datasetConfig_InputDataConfig = null;
+            if (cmdletContext.DatasetConfig_InputDataConfig != null)
+            {
+                requestDatasetConfig_datasetConfig_InputDataConfig = cmdletContext.DatasetConfig_InputDataConfig;
+            }
+            if (requestDatasetConfig_datasetConfig_InputDataConfig != null)
+            {
+                request.DatasetConfig.InputDataConfig = requestDatasetConfig_datasetConfig_InputDataConfig;
+                requestDatasetConfigIsNull = false;
+            }
+             // determine if request.DatasetConfig should be set to null
+            if (requestDatasetConfigIsNull)
+            {
+                request.DatasetConfig = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.SageMaker.Model.CreateAIWorkloadConfigResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.CreateAIWorkloadConfigRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "CreateAIWorkloadConfig");
+            try
+            {
+                return client.CreateAIWorkloadConfigAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String AIWorkloadConfigName { get; set; }
+            public System.String AIWorkloadConfigs_WorkloadSpec_Inline { get; set; }
+            public List<Amazon.SageMaker.Model.AIWorkloadInputDataConfig> DatasetConfig_InputDataConfig { get; set; }
+            public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.SageMaker.Model.CreateAIWorkloadConfigResponse, NewSMAIWorkloadConfigCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AIWorkloadConfigArn;
+        }
+        
+    }
+}

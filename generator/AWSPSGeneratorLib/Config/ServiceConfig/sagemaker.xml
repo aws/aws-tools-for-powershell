@@ -60,6 +60,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIBenchmarkJob" OutputProperty="AIBenchmarkJobArn" Verb="New" Noun="AIBenchmarkJob" ShouldProcessTarget="AIBenchmarkJobName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIRecommendationJob" OutputProperty="AIRecommendationJobArn" Verb="New" Noun="AIRecommendationJob" ShouldProcessTarget="AIRecommendationJobName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIWorkloadConfig" OutputProperty="AIWorkloadConfigArn" Verb="New" Noun="AIWorkloadConfig" ShouldProcessTarget="AIWorkloadConfigName" PipelineParameter="AIWorkloadConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAlgorithm" OutputProperty="AlgorithmArn" Verb="New" Noun="Algorithm" ShouldProcessTarget="AlgorithmName" PipelineParameter="AlgorithmName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="TrainingSpecification_AdditionalS3DataSource_CompressionType" NewName="AdditionalS3DataSource_CompressionType" />
@@ -855,6 +867,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIBenchmarkJob" OutputProperty="AIBenchmarkJobArn" Verb="Remove" Noun="AIBenchmarkJob" ShouldProcessTarget="AIBenchmarkJobName" PipelineParameter="AIBenchmarkJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIRecommendationJob" OutputProperty="AIRecommendationJobArn" Verb="Remove" Noun="AIRecommendationJob" ShouldProcessTarget="AIRecommendationJobName" PipelineParameter="AIRecommendationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIWorkloadConfig" OutputProperty="AIWorkloadConfigArn" Verb="Remove" Noun="AIWorkloadConfig" ShouldProcessTarget="AIWorkloadConfigName" PipelineParameter="AIWorkloadConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlgorithm" Verb="Remove" Noun="Algorithm" ShouldProcessTarget="AlgorithmName" PipelineParameter="AlgorithmName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1088,6 +1112,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAction" OutputProperty="*" Verb="Get" Noun="Action" PipelineParameter="ActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAIBenchmarkJob" OutputProperty="*" Verb="Get" Noun="AIBenchmarkJobDetail" PipelineParameter="AIBenchmarkJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAIRecommendationJob" OutputProperty="*" Verb="Get" Noun="AIRecommendationJobDetail" PipelineParameter="AIRecommendationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAIWorkloadConfig" OutputProperty="*" Verb="Get" Noun="AIWorkloadConfigDetail" PipelineParameter="AIWorkloadConfigName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1422,6 +1458,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListActions" OutputProperty="ActionSummaries" Verb="Get" Noun="ActionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIBenchmarkJobs" OutputProperty="AIBenchmarkJobs" Verb="Get" Noun="AIBenchmarkJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIRecommendationJobs" OutputProperty="AIRecommendationJobs" Verb="Get" Noun="AIRecommendationJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIWorkloadConfigs" OutputProperty="AIWorkloadConfigs" Verb="Get" Noun="AIWorkloadConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1826,6 +1874,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartSession" OutputProperty="*" Verb="Start" Noun="Session" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAIBenchmarkJob" OutputProperty="AIBenchmarkJobArn" Verb="Stop" Noun="AIBenchmarkJob" ShouldProcessTarget="AIBenchmarkJobName" PipelineParameter="AIBenchmarkJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAIRecommendationJob" OutputProperty="AIRecommendationJobArn" Verb="Stop" Noun="AIRecommendationJob" ShouldProcessTarget="AIRecommendationJobName" PipelineParameter="AIRecommendationJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

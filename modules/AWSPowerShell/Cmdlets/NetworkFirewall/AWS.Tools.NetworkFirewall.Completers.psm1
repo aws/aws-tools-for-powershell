@@ -174,7 +174,7 @@ $NWFW_Completers = {
             ($_ -eq "Update-NWFWRuleGroup/Type")
         }
         {
-            $v = "STATEFUL","STATELESS"
+            $v = "STATEFUL","STATEFUL_DOMAIN","STATELESS"
             break
         }
 

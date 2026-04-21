@@ -97,9 +97,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Set to <c>True</c> to disable the automatic creation of an Amazon Web Services Glue
-        /// table when configuring an <c>OfflineStore</c>. If set to <c>False</c>, Feature Store
-        /// will name the <c>OfflineStore</c> Glue table following <a href="https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html">Athena's
-        /// naming recommendations</a>.</para><para>The default value is <c>False</c>.</para>
+        /// table when configuring an <c>OfflineStore</c>. If set to <c>True</c> and <c>DataCatalogConfig</c>
+        /// is provided, Feature Store associates the provided catalog configuration with the
+        /// feature group without creating a table. In this case, you are responsible for creating
+        /// and managing the Glue table. If set to <c>True</c> without <c>DataCatalogConfig</c>,
+        /// no Glue table is created or associated with the feature group. The <c>Iceberg</c>
+        /// table format is only supported when this is set to <c>False</c>.</para><para>If set to <c>False</c> and <c>DataCatalogConfig</c> is provided, Feature Store creates
+        /// the table using the specified names. If set to <c>False</c> without <c>DataCatalogConfig</c>,
+        /// Feature Store auto-generates the table name following <a href="https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html">Athena's
+        /// naming recommendations</a>. This applies to both Glue and Apache Iceberg table formats.</para><para>The default value is <c>False</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -23,42 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.ComputeOptimizer;
-using Amazon.ComputeOptimizer.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CO
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns the recommendation preferences that are in effect for a given resource, such
-    /// as enhanced infrastructure metrics. Considers all applicable preferences that you
-    /// might have set at the resource, account, and organization level.
-    /// 
-    ///  
-    /// <para>
-    /// When you create a recommendation preference, you can set its status to <c>Active</c>
-    /// or <c>Inactive</c>. Use this action to view the recommendation preferences that are
-    /// in effect, or <c>Active</c>.
-    /// </para>
+    /// Returns details of an AI recommendation job, including its status, model source, performance
+    /// targets, optimization recommendations, and deployment configurations.
     /// </summary>
-    [Cmdlet("Get", "COEffectiveRecommendationPreference")]
-    [OutputType("Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics")]
-    [AWSCmdlet("Calls the AWS Compute Optimizer GetEffectiveRecommendationPreferences API operation.", Operation = new[] {"GetEffectiveRecommendationPreferences"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse))]
-    [AWSCmdletOutput("Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics or Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse",
-        "This cmdlet returns an Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics object.",
-        "The service call response (type Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SMAIRecommendationJobDetail")]
+    [OutputType("Amazon.SageMaker.Model.DescribeAIRecommendationJobResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeAIRecommendationJob API operation.", Operation = new[] {"DescribeAIRecommendationJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeAIRecommendationJobResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeAIRecommendationJobResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeAIRecommendationJobResponse object containing multiple properties."
     )]
-    public partial class GetCOEffectiveRecommendationPreferenceCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
+    public partial class GetSMAIRecommendationJobDetailCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceArn
+        #region Parameter AIRecommendationJobName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource for which to confirm effective recommendation
-        /// preferences. Only EC2 instance and Auto Scaling group ARNs are currently supported.</para>
+        /// <para>The name of the AI recommendation job to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,18 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.CO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String AIRecommendationJobName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'EnhancedInfrastructureMetrics'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse).
-        /// Specifying the name of a property of type Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeAIRecommendationJobResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeAIRecommendationJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "EnhancedInfrastructureMetrics";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -99,14 +89,14 @@ namespace Amazon.PowerShell.Cmdlets.CO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse, GetCOEffectiveRecommendationPreferenceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeAIRecommendationJobResponse, GetSMAIRecommendationJobDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ResourceArn = this.ResourceArn;
+            context.AIRecommendationJobName = this.AIRecommendationJobName;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.AIRecommendationJobName == null && ParameterWasBound(nameof(this.AIRecommendationJobName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AIRecommendationJobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -123,11 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesRequest();
+            var request = new Amazon.SageMaker.Model.DescribeAIRecommendationJobRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.AIRecommendationJobName != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.AIRecommendationJobName = cmdletContext.AIRecommendationJobName;
             }
             
             CmdletOutput output;
@@ -162,12 +152,12 @@ namespace Amazon.PowerShell.Cmdlets.CO
         
         #region AWS Service Operation Call
         
-        private Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse CallAWSServiceOperation(IAmazonComputeOptimizer client, Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesRequest request)
+        private Amazon.SageMaker.Model.DescribeAIRecommendationJobResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeAIRecommendationJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Compute Optimizer", "GetEffectiveRecommendationPreferences");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeAIRecommendationJob");
             try
             {
-                return client.GetEffectiveRecommendationPreferencesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeAIRecommendationJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -184,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse, GetCOEffectiveRecommendationPreferenceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EnhancedInfrastructureMetrics;
+            public System.String AIRecommendationJobName { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DescribeAIRecommendationJobResponse, GetSMAIRecommendationJobDetailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
