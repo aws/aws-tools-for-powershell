@@ -94,7 +94,7 @@ Resources:
         ComputeType: BUILD_GENERAL1_LARGE
         Type: WINDOWS_SERVER_2019_CONTAINER
         ImagePullCredentialsType: CODEBUILD
-        Image: aws/codebuild/windows-base:2019-1.0
+        Image: aws/codebuild/windows-base:2019-3.0
         EnvironmentVariables:
         - Name: TEST_RUNNER_ROLE_ARN
           Type: PLAINTEXT
