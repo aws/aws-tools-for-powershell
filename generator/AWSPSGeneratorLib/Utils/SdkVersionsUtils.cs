@@ -16,6 +16,14 @@ namespace AWSPowerShellGenerator.Utils
     class SdkVersionsUtils
     {
         private const string SdkLibraryPrefix = "AWSSDK.";
+        private static readonly string[] PowerShellExtensionPathPrefixes =
+        {
+            "extensions/CborProtocol/",
+            "extensions/CloudFrontSigners/",
+            "extensions/CrtIntegration/",
+            "extensions/EC2DecryptPassword/"
+        };
+
         private static HashSet<string> DownloadedSdkPlatforms = new HashSet<string>();
 
         internal static IEnumerable<string> GetDependencies(string sdkAssembliesFolder, string packageName)
@@ -128,10 +136,34 @@ namespace AWSPowerShellGenerator.Utils
 
                         using (var archive = ZipFile.OpenRead(tempFile))
                         {
+                            var fullPlatformPath = Path.GetFullPath(platformPath + Path.DirectorySeparatorChar);
                             foreach (var entry in archive.Entries)
                             {
-                                var filePath = Path.Combine(platformPath, entry.Name);
-                                //Existing files in the folder are not overwritten!
+                                // Skip directory entries (they have an empty Name)
+                                if (string.IsNullOrEmpty(entry.Name))
+                                {
+                                    continue;
+                                }
+
+                                // Only extract extensions artifacts if PowerShell actually needs them.
+                                var isExtensionEntry = entry.FullName.StartsWith("extensions/", StringComparison.OrdinalIgnoreCase);
+                                var shouldExtractEntry = !isExtensionEntry || PowerShellExtensionPathPrefixes.Any(prefix => entry.FullName.StartsWith(prefix, StringComparison.OrdinalIgnoreCase));
+
+                                if (!shouldExtractEntry)
+                                {
+                                    continue;
+                                }
+
+                                // Flatten: extract all files directly into the platform root using just the filename
+                                var filePath = Path.GetFullPath(Path.Combine(platformPath, entry.Name));
+                                
+                                // Zip-slip protection: ensure the resolved path stays within platformPath
+                                if (!filePath.StartsWith(fullPlatformPath, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    throw new InvalidOperationException($"Entry is outside the target directory: {entry.FullName}");
+                                }
+
+                                // Existing files in the folder are not overwritten!
                                 if (!File.Exists(filePath))
                                 {
                                     entry.ExtractToFile(filePath, false);

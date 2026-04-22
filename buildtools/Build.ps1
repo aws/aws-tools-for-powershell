@@ -89,6 +89,51 @@ function DownloadSdkArtifacts {
     }
     Move-Item ./Include/sdktmp/assemblies ./Include/sdk/assemblies
     Remove-Item ./Include/sdktmp -Recurse
+
+    # Flatten extension subfolders into each TFM root so the rest of the build only sees a flat assemblies/<tfm>/ layout. 
+    # For TFMs PowerShell doesn't consume, the extensions folder is simply removed without copying anything. 
+    # No-op for TFMs that don't ship an extensions folder (backwards compatible with older SDK artifacts).
+    Write-Host "Flattening SDK extension subfolders"
+
+    # TFMs and extensions PowerShell actually consumes (see CopyModularAWSPowerShell.ps1).
+    $powerShellTfms = @('net472', 'netstandard2.0')
+    $requiredExtensions = @('CborProtocol', 'CloudFrontSigners', 'CrtIntegration', 'EC2DecryptPassword')
+    $assembliesRoot = './Include/sdk/assemblies'
+
+    Get-ChildItem -Path $assembliesRoot -Directory | ForEach-Object {
+      $tfm            = $_.Name
+      $tfmDir         = $_.FullName
+      $extensionsRoot = Join-Path $tfmDir 'extensions'
+
+      if (-not (Test-Path $extensionsRoot)) { return }
+
+      if ($powerShellTfms -contains $tfm) {
+        foreach ($extension in $requiredExtensions) {
+          $extensionDir = Join-Path $extensionsRoot $extension
+          if (-not (Test-Path $extensionDir)) {
+            Write-Host "  [$tfm] skipping '$extension' (not present in SDK artifact)"
+            continue
+          }
+
+          Get-ChildItem -Path $extensionDir -File | ForEach-Object {
+            $source = $_.FullName
+            $dest   = Join-Path $tfmDir $_.Name
+            if (Test-Path $dest) {
+              Write-Host "  [$tfm] skipping '$($_.Name)' from '$extension' (already present at TFM root)"
+            } else {
+              Write-Host "  [$tfm] copying '$($_.Name)' from '$extension' to '$tfmDir'"
+              Copy-Item -Path $source -Destination $dest
+            }
+          }
+        }
+        Write-Host "  [$tfm] removing folder '$extensionsRoot'"
+      }
+      else {
+        Write-Host "  [$tfm] removing folder '$extensionsRoot' (TFM not consumed by PowerShell)"
+      }
+
+      Remove-Item -Recurse -Force $extensionsRoot
+    }
   }
   else {
     throw "ERROR: $SdkArtifactsUri is expected to end with _sdk-versions.json or .zip"
