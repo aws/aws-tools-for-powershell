@@ -100,6 +100,13 @@ $EMRServerless_Completers = {
             break
         }
 
+        # Amazon.EMRServerless.ResourceType
+        "Get-EMRServerlessResourceDashboard/ResourceType"
+        {
+            $v = "SESSION"
+            break
+        }
+
 
     }
 
@@ -111,6 +118,7 @@ $EMRServerless_Completers = {
 $EMRServerless_map = @{
     "Architecture"=@("New-EMRServerlessApplication","Update-EMRServerlessApplication")
     "Mode"=@("Get-EMRServerlessJobRunList","Start-EMRServerlessJobRun")
+    "ResourceType"=@("Get-EMRServerlessResourceDashboard")
 }
 
 _awsArgumentCompleterRegistration $EMRServerless_Completers $EMRServerless_map
@@ -169,14 +177,20 @@ $EMRServerless_SelectMap = @{
                "Get-EMRServerlessApplication",
                "Get-EMRServerlessDashboardForJobRun",
                "Get-EMRServerlessJobRun",
+               "Get-EMRServerlessResourceDashboard",
+               "Get-EMRServerlessSession",
+               "Get-EMRServerlessSessionEndpoint",
                "Get-EMRServerlessApplicationList",
                "Get-EMRServerlessJobRunAttemptList",
                "Get-EMRServerlessJobRunList",
+               "Get-EMRServerlessSessionList",
                "Get-EMRServerlessResourceTagList",
                "Start-EMRServerlessApplication",
                "Start-EMRServerlessJobRun",
+               "Start-EMRServerlessSession",
                "Stop-EMRServerlessApplication",
                "Add-EMRServerlessResourceTag",
+               "Stop-EMRServerlessSession",
                "Remove-EMRServerlessResourceTag",
                "Update-EMRServerlessApplication")
 }

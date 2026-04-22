@@ -76,6 +76,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter IncludeManagedResource
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to include managed resources in the output. If this parameter is
+        /// set to <c>true</c>, the output includes resources that are managed by Amazon Web Services
+        /// services, even if managed resource visibility is set to hidden.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeManagedResources")]
+        public System.Boolean? IncludeManagedResource { get; set; }
+        #endregion
+        
         #region Parameter LaunchTemplateId
         /// <summary>
         /// <para>
@@ -183,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            context.IncludeManagedResource = this.IncludeManagedResource;
             if (this.LaunchTemplateId != null)
             {
                 context.LaunchTemplateId = new List<System.String>(this.LaunchTemplateId);
@@ -228,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeManagedResource != null)
+            {
+                request.IncludeManagedResources = cmdletContext.IncludeManagedResource.Value;
             }
             if (cmdletContext.LaunchTemplateId != null)
             {
@@ -303,6 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeManagedResource != null)
+            {
+                request.IncludeManagedResources = cmdletContext.IncludeManagedResource.Value;
             }
             if (cmdletContext.LaunchTemplateId != null)
             {
@@ -427,6 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public System.Boolean? IncludeManagedResource { get; set; }
             public List<System.String> LaunchTemplateId { get; set; }
             public List<System.String> LaunchTemplateName { get; set; }
             public int? MaxResult { get; set; }

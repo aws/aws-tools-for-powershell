@@ -310,6 +310,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
         #endregion
         
+        #region Parameter TargetConfiguration_Mcp_McpServer_ResourcePriority
+        /// <summary>
+        /// <para>
+        /// <para>Priority for resolving MCP server targets with shared resource URIs. Lower values
+        /// take precedence. Defaults to 1000 when not set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TargetConfiguration_Mcp_McpServer_ResourcePriority { get; set; }
+        #endregion
+        
         #region Parameter ApiGateway_RestApiId
         /// <summary>
         /// <para>
@@ -613,6 +624,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload = this.TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload;
             context.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId = this.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId;
             context.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri = this.TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri;
+            context.TargetConfiguration_Mcp_McpServer_ResourcePriority = this.TargetConfiguration_Mcp_McpServer_ResourcePriority;
             context.OpenApiSchema_InlinePayload = this.OpenApiSchema_InlinePayload;
             context.OpenApiSchema_S3_BucketOwnerAccountId = this.OpenApiSchema_S3_BucketOwnerAccountId;
             context.OpenApiSchema_S3_Uri = this.OpenApiSchema_S3_Uri;
@@ -1115,6 +1127,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer.ListingMode = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_ListingMode;
                 requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull = false;
             }
+            System.Int32? requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_ResourcePriority = null;
+            if (cmdletContext.TargetConfiguration_Mcp_McpServer_ResourcePriority != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_ResourcePriority = cmdletContext.TargetConfiguration_Mcp_McpServer_ResourcePriority.Value;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_ResourcePriority != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer.ResourcePriority = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_ResourcePriority.Value;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.McpToolSchemaConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_targetConfiguration_Mcp_McpServer_McpToolSchema = null;
             
              // populate McpToolSchema
@@ -1286,6 +1308,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String TargetConfiguration_Mcp_McpServer_McpToolSchema_InlinePayload { get; set; }
             public System.String TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_BucketOwnerAccountId { get; set; }
             public System.String TargetConfiguration_Mcp_McpServer_McpToolSchema_S3_Uri { get; set; }
+            public System.Int32? TargetConfiguration_Mcp_McpServer_ResourcePriority { get; set; }
             public System.String OpenApiSchema_InlinePayload { get; set; }
             public System.String OpenApiSchema_S3_BucketOwnerAccountId { get; set; }
             public System.String OpenApiSchema_S3_Uri { get; set; }

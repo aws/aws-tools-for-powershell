@@ -1,4 +1,56 @@
-﻿### 5.0.199 (2026-04-21 21:48Z)
+﻿### 5.0.200 (2026-04-22 20:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.236.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Get-BACCHarness leveraging the GetHarness service API.
+    * Added cmdlet Get-BACCHarnessList leveraging the ListHarnesses service API.
+    * Added cmdlet New-BACCHarness leveraging the CreateHarness service API.
+    * Added cmdlet Remove-BACCHarness leveraging the DeleteHarness service API.
+    * Added cmdlet Update-BACCHarness leveraging the UpdateHarness service API.
+    * Modified cmdlet New-BACCGatewayTarget: added parameter TargetConfiguration_Mcp_McpServer_ResourcePriority.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameter TargetConfiguration_Mcp_McpServer_ResourcePriority.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Invoke-BACHarness leveraging the InvokeHarness service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSCapacityProvider: added parameter ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus.
+    * Modified cmdlet Update-ECSCapacityProvider: added parameter ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2ManagedResourceVisibility leveraging the ModifyManagedResourceVisibility service API.
+    * Added cmdlet Get-EC2ManagedResourceVisibility leveraging the GetManagedResourceVisibility service API.
+    * Modified cmdlet Get-EC2Instance: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-EC2InstanceStatus: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-EC2NetworkInterface: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-EC2Template: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-EC2TemplateVersion: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-EC2Volume: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-EC2VolumeStatus: added parameter IncludeManagedResource.
+  * Amazon EMR Serverless
+    * Added cmdlet Get-EMRServerlessResourceDashboard leveraging the GetResourceDashboard service API.
+    * Added cmdlet Get-EMRServerlessSession leveraging the GetSession service API.
+    * Added cmdlet Get-EMRServerlessSessionEndpoint leveraging the GetSessionEndpoint service API.
+    * Added cmdlet Get-EMRServerlessSessionList leveraging the ListSessions service API.
+    * Added cmdlet Start-EMRServerlessSession leveraging the StartSession service API.
+    * Added cmdlet Stop-EMRServerlessSession leveraging the TerminateSession service API.
+    * Modified cmdlet New-EMRServerlessApplication: added parameter InteractiveConfiguration_SessionEnabled.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameter InteractiveConfiguration_SessionEnabled.
+  * Amazon Interactive Video Service
+    * Added cmdlet Add-IVSAdBreak leveraging the InsertAdBreak service API.
+    * Added cmdlet Get-IVSAdConfiguration leveraging the GetAdConfiguration service API.
+    * Added cmdlet Get-IVSAdConfigurationList leveraging the ListAdConfigurations service API.
+    * Added cmdlet New-IVSAdConfiguration leveraging the CreateAdConfiguration service API.
+    * Added cmdlet Remove-IVSAdConfiguration leveraging the DeleteAdConfiguration service API.
+    * Modified cmdlet Get-IVSChannelList: added parameter FilterByAdConfigurationArn.
+    * Modified cmdlet New-IVSChannel: added parameter AdConfigurationArn.
+    * Modified cmdlet Update-IVSChannel: added parameter AdConfigurationArn.
+  * Amazon IoT Wireless
+    * Modified cmdlet Get-IOTWPositionEstimate: added parameter AdvancedConfiguration_WiFiCellular_ConfidencePercent.
+  * Amazon OpenSearch Service
+    * Added cmdlet Undo-OSServiceSoftwareUpdate leveraging the RollbackServiceSoftwareUpdate service API.
+    * Modified cmdlet New-OSDomain: added parameter SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen.
+    * Modified cmdlet Update-OSDomainConfig: added parameter SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3GetObjectResponse: added parameters ChecksumMD5, ChecksumSHA512, ChecksumXXHASH128, ChecksumXXHASH3 and ChecksumXXHASH64.
+
+### 5.0.199 (2026-04-21 21:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.235.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Added cmdlet Get-SMAIBenchmarkJobDetail leveraging the DescribeAIBenchmarkJob service API.

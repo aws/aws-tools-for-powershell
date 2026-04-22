@@ -48,6 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter FilterByAdConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>Filters the channel list to match the specified ad configuration ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterByAdConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter FilterByName
         /// <summary>
         /// <para>
@@ -150,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                 context.Select = CreateSelectDelegate<Amazon.IVS.Model.ListChannelsResponse, GetIVSChannelListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.FilterByAdConfigurationArn = this.FilterByAdConfigurationArn;
             context.FilterByName = this.FilterByName;
             context.FilterByPlaybackRestrictionPolicyArn = this.FilterByPlaybackRestrictionPolicyArn;
             context.FilterByRecordingConfigurationArn = this.FilterByRecordingConfigurationArn;
@@ -182,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             // create request and set iteration invariants
             var request = new Amazon.IVS.Model.ListChannelsRequest();
             
+            if (cmdletContext.FilterByAdConfigurationArn != null)
+            {
+                request.FilterByAdConfigurationArn = cmdletContext.FilterByAdConfigurationArn;
+            }
             if (cmdletContext.FilterByName != null)
             {
                 request.FilterByName = cmdletContext.FilterByName;
@@ -278,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String FilterByAdConfigurationArn { get; set; }
             public System.String FilterByName { get; set; }
             public System.String FilterByPlaybackRestrictionPolicyArn { get; set; }
             public System.String FilterByRecordingConfigurationArn { get; set; }

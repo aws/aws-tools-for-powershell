@@ -2418,6 +2418,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedResourceVisibility" OutputProperty="Visibility" Verb="Get" Noun="ManagedResourceVisibility" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetNetworkInsightsAccessScopeAnalysisFindings" OutputProperty="*" Verb="Get" Noun="NetworkInsightsAccessScopeAnalysisFinding" PipelineParameter="NetworkInsightsAccessScopeAnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2753,6 +2757,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyManagedPrefixList" OutputProperty="PrefixList" Verb="Edit" Noun="ManagedPrefixList" ShouldProcessTarget="PrefixListId" PipelineParameter="PrefixListId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyManagedResourceVisibility" OutputProperty="Visibility" Verb="Edit" Noun="ManagedResourceVisibility" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

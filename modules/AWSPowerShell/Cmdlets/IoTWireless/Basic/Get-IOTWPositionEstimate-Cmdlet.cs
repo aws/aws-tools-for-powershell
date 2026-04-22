@@ -109,6 +109,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public Amazon.IoTWireless.Model.CdmaObj[] CellTowers_Cdma { get; set; }
         #endregion
         
+        #region Parameter AdvancedConfiguration_WiFiCellular_ConfidencePercent
+        /// <summary>
+        /// <para>
+        /// Confidence level for WiFi and cellular
+        /// position estimates, expressed as a percentage. Valid range: 50–99 inclusive. Defaults
+        /// to 68 if not specified.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AdvancedConfiguration_WiFiCellular_ConfidencePercent { get; set; }
+        #endregion
+        
         #region Parameter CellTowers_Gsm
         /// <summary>
         /// <para>
@@ -255,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 context.Select = CreateSelectDelegate<Amazon.IoTWireless.Model.GetPositionEstimateResponse, GetIOTWPositionEstimateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AdvancedConfiguration_WiFiCellular_ConfidencePercent = this.AdvancedConfiguration_WiFiCellular_ConfidencePercent;
             if (this.CellTowers_Cdma != null)
             {
                 context.CellTowers_Cdma = new List<Amazon.IoTWireless.Model.CdmaObj>(this.CellTowers_Cdma);
@@ -306,6 +319,40 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             // create request
             var request = new Amazon.IoTWireless.Model.GetPositionEstimateRequest();
             
+            
+             // populate AdvancedConfiguration
+            var requestAdvancedConfigurationIsNull = true;
+            request.AdvancedConfiguration = new Amazon.IoTWireless.Model.AdvancedConfiguration();
+            Amazon.IoTWireless.Model.WiFiCellular requestAdvancedConfiguration_advancedConfiguration_WiFiCellular = null;
+            
+             // populate WiFiCellular
+            var requestAdvancedConfiguration_advancedConfiguration_WiFiCellularIsNull = true;
+            requestAdvancedConfiguration_advancedConfiguration_WiFiCellular = new Amazon.IoTWireless.Model.WiFiCellular();
+            System.Int32? requestAdvancedConfiguration_advancedConfiguration_WiFiCellular_advancedConfiguration_WiFiCellular_ConfidencePercent = null;
+            if (cmdletContext.AdvancedConfiguration_WiFiCellular_ConfidencePercent != null)
+            {
+                requestAdvancedConfiguration_advancedConfiguration_WiFiCellular_advancedConfiguration_WiFiCellular_ConfidencePercent = cmdletContext.AdvancedConfiguration_WiFiCellular_ConfidencePercent.Value;
+            }
+            if (requestAdvancedConfiguration_advancedConfiguration_WiFiCellular_advancedConfiguration_WiFiCellular_ConfidencePercent != null)
+            {
+                requestAdvancedConfiguration_advancedConfiguration_WiFiCellular.ConfidencePercent = requestAdvancedConfiguration_advancedConfiguration_WiFiCellular_advancedConfiguration_WiFiCellular_ConfidencePercent.Value;
+                requestAdvancedConfiguration_advancedConfiguration_WiFiCellularIsNull = false;
+            }
+             // determine if requestAdvancedConfiguration_advancedConfiguration_WiFiCellular should be set to null
+            if (requestAdvancedConfiguration_advancedConfiguration_WiFiCellularIsNull)
+            {
+                requestAdvancedConfiguration_advancedConfiguration_WiFiCellular = null;
+            }
+            if (requestAdvancedConfiguration_advancedConfiguration_WiFiCellular != null)
+            {
+                request.AdvancedConfiguration.WiFiCellular = requestAdvancedConfiguration_advancedConfiguration_WiFiCellular;
+                requestAdvancedConfigurationIsNull = false;
+            }
+             // determine if request.AdvancedConfiguration should be set to null
+            if (requestAdvancedConfigurationIsNull)
+            {
+                request.AdvancedConfiguration = null;
+            }
             
              // populate CellTowers
             var requestCellTowersIsNull = true;
@@ -516,6 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? AdvancedConfiguration_WiFiCellular_ConfidencePercent { get; set; }
             public List<Amazon.IoTWireless.Model.CdmaObj> CellTowers_Cdma { get; set; }
             public List<Amazon.IoTWireless.Model.GsmObj> CellTowers_Gsm { get; set; }
             public List<Amazon.IoTWireless.Model.LteObj> CellTowers_Lte { get; set; }

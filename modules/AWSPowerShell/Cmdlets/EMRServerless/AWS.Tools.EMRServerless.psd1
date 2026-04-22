@@ -94,14 +94,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMRServerlessJobRun', 
         'Get-EMRServerlessJobRunAttemptList', 
         'Get-EMRServerlessJobRunList', 
+        'Get-EMRServerlessResourceDashboard', 
         'Get-EMRServerlessResourceTagList', 
+        'Get-EMRServerlessSession', 
+        'Get-EMRServerlessSessionEndpoint', 
+        'Get-EMRServerlessSessionList', 
         'New-EMRServerlessApplication', 
         'Remove-EMRServerlessApplication', 
         'Remove-EMRServerlessResourceTag', 
         'Start-EMRServerlessApplication', 
         'Start-EMRServerlessJobRun', 
+        'Start-EMRServerlessSession', 
         'Stop-EMRServerlessApplication', 
         'Stop-EMRServerlessJobRun', 
+        'Stop-EMRServerlessSession', 
         'Update-EMRServerlessApplication')
 
     # Variables to export from this module

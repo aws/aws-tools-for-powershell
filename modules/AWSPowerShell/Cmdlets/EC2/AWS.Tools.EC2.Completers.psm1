@@ -893,6 +893,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ManagedResourceDefaultVisibility
+        "Edit-EC2ManagedResourceVisibility/DefaultVisibility"
+        {
+            $v = "hidden","visible"
+            break
+        }
+
         # Amazon.EC2.MetadataDefaultHttpTokensState
         "Edit-EC2InstanceMetadataDefault/HttpToken"
         {
@@ -1499,6 +1506,7 @@ $EC2_map = @{
     "ConnectivityType"=@("New-EC2NatGateway")
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
     "CurrencyCode"=@("New-EC2HostReservation")
+    "DefaultVisibility"=@("Edit-EC2ManagedResourceVisibility")
     "DeliveryPreference"=@("Add-EC2CapacityReservation")
     "DestinationOptions_FileFormat"=@("New-EC2FlowLog")
     "DestinationTransitGatewayAttachmentType"=@("New-EC2TransitGatewayMeteringPolicyEntry")
@@ -2276,6 +2284,7 @@ $EC2_SelectMap = @{
                "Get-EC2LaunchTemplateData",
                "Get-EC2ManagedPrefixListAssociation",
                "Get-EC2ManagedPrefixListEntry",
+               "Get-EC2ManagedResourceVisibility",
                "Get-EC2NetworkInsightsAccessScopeAnalysisFinding",
                "Get-EC2NetworkInsightsAccessScopeContent",
                "Get-EC2ReservedInstancesExchangeQuote",
@@ -2346,6 +2355,7 @@ $EC2_SelectMap = @{
                "Edit-EC2LaunchTemplate",
                "Edit-EC2LocalGatewayRoute",
                "Edit-EC2ManagedPrefixList",
+               "Edit-EC2ManagedResourceVisibility",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",
                "Edit-EC2PublicIpDnsNameOption",

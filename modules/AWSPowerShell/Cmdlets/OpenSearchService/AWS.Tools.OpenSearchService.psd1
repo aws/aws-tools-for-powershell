@@ -162,6 +162,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-OSServiceSoftwareUpdate', 
         'Stop-OSDomainConfigChange', 
         'Stop-OSServiceSoftwareUpdate', 
+        'Undo-OSServiceSoftwareUpdate', 
         'Unregister-OSCapability', 
         'Update-OSApplication', 
         'Update-OSDataSource', 

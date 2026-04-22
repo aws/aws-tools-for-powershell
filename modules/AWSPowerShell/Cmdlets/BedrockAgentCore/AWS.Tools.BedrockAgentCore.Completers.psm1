@@ -254,6 +254,7 @@ $BAC_SelectMap = @{
                "Invoke-BACAgentRuntimeCommand",
                "Invoke-BACBrowser",
                "Invoke-BACCodeInterpreter",
+               "Invoke-BACHarness",
                "Get-BACActorList",
                "Get-BACBrowserSessionList",
                "Get-BACCodeInterpreterSessionList",

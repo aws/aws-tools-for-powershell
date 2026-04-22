@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>Array of tags to be removed. Array of maps, each of the form <c>string:string (key:value)</c>.
-        /// See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best
+        /// <para>Array of tag keys (strings) for the tags to be removed. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best
         /// practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i>
         /// for details, including restrictions that apply to tags and "Tag naming limits and
         /// requirements"; Amazon IVS has no service-specific constraints beyond what is documented

@@ -476,6 +476,7 @@ $OS_SelectMap = @{
                "Deny-OSInboundConnection",
                "Remove-OSResourceTag",
                "Revoke-OSVpcEndpointAccess",
+               "Undo-OSServiceSoftwareUpdate",
                "Start-OSDomainMaintenance",
                "Start-OSServiceSoftwareUpdate",
                "Update-OSApplication",

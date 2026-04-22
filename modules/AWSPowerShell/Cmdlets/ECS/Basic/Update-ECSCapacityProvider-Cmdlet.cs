@@ -100,6 +100,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String[] InstanceRequirements_AcceleratorType { get; set; }
         #endregion
         
+        #region Parameter ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of auto repair actions for the capacity provider. When set to <c>ENABLED</c>,
+        /// Amazon ECS automatically replaces container instances with an <c>IMPAIRED</c> health
+        /// status. When set to <c>DISABLED</c>, Amazon ECS still monitors container instance
+        /// health but does not automatically replace impaired instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.AutoRepairActionsStatus")]
+        public Amazon.ECS.AutoRepairActionsStatus ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus { get; set; }
+        #endregion
+        
         #region Parameter InstanceRequirements_AllowedInstanceType
         /// <summary>
         /// <para>
@@ -845,6 +859,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.ManagedScaling_TargetCapacity = this.ManagedScaling_TargetCapacity;
             context.AutoScalingGroupProvider_ManagedTerminationProtection = this.AutoScalingGroupProvider_ManagedTerminationProtection;
             context.Cluster = this.Cluster;
+            context.ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus = this.ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus;
             context.InfrastructureOptimization_ScaleInAfter = this.InfrastructureOptimization_ScaleInAfter;
             context.ManagedInstancesProvider_InfrastructureRoleArn = this.ManagedInstancesProvider_InfrastructureRoleArn;
             context.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn = this.ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn;
@@ -1063,6 +1078,31 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestManagedInstancesProvider_managedInstancesProvider_PropagateTag != null)
             {
                 request.ManagedInstancesProvider.PropagateTags = requestManagedInstancesProvider_managedInstancesProvider_PropagateTag;
+                requestManagedInstancesProviderIsNull = false;
+            }
+            Amazon.ECS.Model.AutoRepairConfiguration requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration = null;
+            
+             // populate AutoRepairConfiguration
+            var requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfigurationIsNull = true;
+            requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration = new Amazon.ECS.Model.AutoRepairConfiguration();
+            Amazon.ECS.AutoRepairActionsStatus requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration_managedInstancesProvider_AutoRepairConfiguration_ActionsStatus = null;
+            if (cmdletContext.ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration_managedInstancesProvider_AutoRepairConfiguration_ActionsStatus = cmdletContext.ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration_managedInstancesProvider_AutoRepairConfiguration_ActionsStatus != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration.ActionsStatus = requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration_managedInstancesProvider_AutoRepairConfiguration_ActionsStatus;
+                requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfigurationIsNull = false;
+            }
+             // determine if requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration should be set to null
+            if (requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfigurationIsNull)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration = null;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration != null)
+            {
+                request.ManagedInstancesProvider.AutoRepairConfiguration = requestManagedInstancesProvider_managedInstancesProvider_AutoRepairConfiguration;
                 requestManagedInstancesProviderIsNull = false;
             }
             Amazon.ECS.Model.InfrastructureOptimization requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization = null;
@@ -1807,6 +1847,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? ManagedScaling_TargetCapacity { get; set; }
             public Amazon.ECS.ManagedTerminationProtection AutoScalingGroupProvider_ManagedTerminationProtection { get; set; }
             public System.String Cluster { get; set; }
+            public Amazon.ECS.AutoRepairActionsStatus ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus { get; set; }
             public System.Int32? InfrastructureOptimization_ScaleInAfter { get; set; }
             public System.String ManagedInstancesProvider_InfrastructureRoleArn { get; set; }
             public System.String ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn { get; set; }

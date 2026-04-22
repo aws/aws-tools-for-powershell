@@ -8456,6 +8456,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.HarnessTruncationStrategy
+        {
+            ($_ -eq "New-BACCHarness/Truncation_Strategy") -Or
+            ($_ -eq "Update-BACCHarness/Truncation_Strategy")
+        }
+        {
+            $v = "none","sliding_window","summarization"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.KeyType
         "Set-BACCTokenVaultCMK/KmsConfiguration_KeyType"
         {
@@ -8482,6 +8492,8 @@ $BACC_Completers = {
 
         # Amazon.BedrockAgentCoreControl.NetworkMode
         {
+            ($_ -eq "New-BACCHarness/Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode") -Or
+            ($_ -eq "Update-BACCHarness/Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode") -Or
             ($_ -eq "New-BACCAgentRuntime/NetworkConfiguration_NetworkMode") -Or
             ($_ -eq "Update-BACCAgentRuntime/NetworkConfiguration_NetworkMode")
         }
@@ -8584,6 +8596,7 @@ $BACC_map = @{
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
+    "Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode"=@("New-BACCHarness","Update-BACCHarness")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
     "ExecutionStatus"=@("Update-BACCOnlineEvaluationConfig")
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
@@ -8598,6 +8611,7 @@ $BACC_map = @{
     "SynchronizationType"=@("New-BACCRegistryRecord")
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
     "TargetConfiguration_Mcp_McpServer_ListingMode"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
+    "Truncation_Strategy"=@("New-BACCHarness","Update-BACCHarness")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "View"=@("Get-BACCMemory")
@@ -8662,6 +8676,7 @@ $BACC_SelectMap = @{
                "New-BACCEvaluator",
                "New-BACCGateway",
                "New-BACCGatewayTarget",
+               "New-BACCHarness",
                "New-BACCMemory",
                "New-BACCOauth2CredentialProvider",
                "New-BACCOnlineEvaluationConfig",
@@ -8679,6 +8694,7 @@ $BACC_SelectMap = @{
                "Remove-BACCEvaluator",
                "Remove-BACCGateway",
                "Remove-BACCGatewayTarget",
+               "Remove-BACCHarness",
                "Remove-BACCMemory",
                "Remove-BACCOauth2CredentialProvider",
                "Remove-BACCOnlineEvaluationConfig",
@@ -8697,6 +8713,7 @@ $BACC_SelectMap = @{
                "Get-BACCEvaluator",
                "Get-BACCGateway",
                "Get-BACCGatewayTarget",
+               "Get-BACCHarness",
                "Get-BACCMemory",
                "Get-BACCOauth2CredentialProvider",
                "Get-BACCOnlineEvaluationConfig",
@@ -8718,6 +8735,7 @@ $BACC_SelectMap = @{
                "Get-BACCEvaluatorList",
                "Get-BACCGatewayList",
                "Get-BACCGatewayTargetList",
+               "Get-BACCHarnessList",
                "Get-BACCMemoryList",
                "Get-BACCOauth2CredentialProviderList",
                "Get-BACCOnlineEvaluationConfigList",
@@ -8742,6 +8760,7 @@ $BACC_SelectMap = @{
                "Update-BACCEvaluator",
                "Update-BACCGateway",
                "Update-BACCGatewayTarget",
+               "Update-BACCHarness",
                "Update-BACCMemory",
                "Update-BACCOauth2CredentialProvider",
                "Update-BACCOnlineEvaluationConfig",
@@ -8936,6 +8955,7 @@ $BAC_SelectMap = @{
                "Invoke-BACAgentRuntimeCommand",
                "Invoke-BACBrowser",
                "Invoke-BACCodeInterpreter",
+               "Invoke-BACHarness",
                "Get-BACActorList",
                "Get-BACBrowserSessionList",
                "Get-BACCodeInterpreterSessionList",
@@ -29273,6 +29293,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ManagedResourceDefaultVisibility
+        "Edit-EC2ManagedResourceVisibility/DefaultVisibility"
+        {
+            $v = "hidden","visible"
+            break
+        }
+
         # Amazon.EC2.MetadataDefaultHttpTokensState
         "Edit-EC2InstanceMetadataDefault/HttpToken"
         {
@@ -29879,6 +29906,7 @@ $EC2_map = @{
     "ConnectivityType"=@("New-EC2NatGateway")
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
     "CurrencyCode"=@("New-EC2HostReservation")
+    "DefaultVisibility"=@("Edit-EC2ManagedResourceVisibility")
     "DeliveryPreference"=@("Add-EC2CapacityReservation")
     "DestinationOptions_FileFormat"=@("New-EC2FlowLog")
     "DestinationTransitGatewayAttachmentType"=@("New-EC2TransitGatewayMeteringPolicyEntry")
@@ -30656,6 +30684,7 @@ $EC2_SelectMap = @{
                "Get-EC2LaunchTemplateData",
                "Get-EC2ManagedPrefixListAssociation",
                "Get-EC2ManagedPrefixListEntry",
+               "Get-EC2ManagedResourceVisibility",
                "Get-EC2NetworkInsightsAccessScopeAnalysisFinding",
                "Get-EC2NetworkInsightsAccessScopeContent",
                "Get-EC2ReservedInstancesExchangeQuote",
@@ -30726,6 +30755,7 @@ $EC2_SelectMap = @{
                "Edit-EC2LaunchTemplate",
                "Edit-EC2LocalGatewayRoute",
                "Edit-EC2ManagedPrefixList",
+               "Edit-EC2ManagedResourceVisibility",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",
                "Edit-EC2PublicIpDnsNameOption",
@@ -31161,6 +31191,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.AutoRepairActionsStatus
+        {
+            ($_ -eq "New-ECSCapacityProvider/ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus") -Or
+            ($_ -eq "Update-ECSCapacityProvider/ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ECS.AvailabilityZoneRebalancing
         {
             ($_ -eq "New-ECSService/AvailabilityZoneRebalancing") -Or
@@ -31549,6 +31589,7 @@ $ECS_map = @{
     "IpcMode"=@("Register-ECSTaskDefinition")
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask","New-ECSTaskSet")
     "LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
+    "ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType"=@("New-ECSCapacityProvider")
     "ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "ManagedInstancesProvider_PropagateTag"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
@@ -33691,6 +33732,13 @@ $EMRServerless_Completers = {
             break
         }
 
+        # Amazon.EMRServerless.ResourceType
+        "Get-EMRServerlessResourceDashboard/ResourceType"
+        {
+            $v = "SESSION"
+            break
+        }
+
 
     }
 
@@ -33702,6 +33750,7 @@ $EMRServerless_Completers = {
 $EMRServerless_map = @{
     "Architecture"=@("New-EMRServerlessApplication","Update-EMRServerlessApplication")
     "Mode"=@("Get-EMRServerlessJobRunList","Start-EMRServerlessJobRun")
+    "ResourceType"=@("Get-EMRServerlessResourceDashboard")
 }
 
 _awsArgumentCompleterRegistration $EMRServerless_Completers $EMRServerless_map
@@ -33760,14 +33809,20 @@ $EMRServerless_SelectMap = @{
                "Get-EMRServerlessApplication",
                "Get-EMRServerlessDashboardForJobRun",
                "Get-EMRServerlessJobRun",
+               "Get-EMRServerlessResourceDashboard",
+               "Get-EMRServerlessSession",
+               "Get-EMRServerlessSessionEndpoint",
                "Get-EMRServerlessApplicationList",
                "Get-EMRServerlessJobRunAttemptList",
                "Get-EMRServerlessJobRunList",
+               "Get-EMRServerlessSessionList",
                "Get-EMRServerlessResourceTagList",
                "Start-EMRServerlessApplication",
                "Start-EMRServerlessJobRun",
+               "Start-EMRServerlessSession",
                "Stop-EMRServerlessApplication",
                "Add-EMRServerlessResourceTag",
+               "Stop-EMRServerlessSession",
                "Remove-EMRServerlessResourceTag",
                "Update-EMRServerlessApplication")
 }
@@ -45970,15 +46025,18 @@ $IVS_SelectMap = @{
     "Select"=@("Get-IVSChannelBatch",
                "Get-IVSStreamKeyBatch",
                "Start-IVSStartViewerSessionRevocation",
+               "New-IVSAdConfiguration",
                "New-IVSChannel",
                "New-IVSPlaybackRestrictionPolicy",
                "New-IVSRecordingConfiguration",
                "New-IVSStreamKey",
+               "Remove-IVSAdConfiguration",
                "Remove-IVSChannel",
                "Remove-IVSPlaybackKeyPair",
                "Remove-IVSPlaybackRestrictionPolicy",
                "Remove-IVSRecordingConfiguration",
                "Remove-IVSStreamKey",
+               "Get-IVSAdConfiguration",
                "Get-IVSChannel",
                "Get-IVSPlaybackKeyPair",
                "Get-IVSPlaybackRestrictionPolicy",
@@ -45987,6 +46045,8 @@ $IVS_SelectMap = @{
                "Get-IVSStreamKey",
                "Get-IVSStreamSession",
                "Import-IVSPlaybackKeyPair",
+               "Add-IVSAdBreak",
+               "Get-IVSAdConfigurationList",
                "Get-IVSChannelList",
                "Get-IVSPlaybackKeyPairList",
                "Get-IVSPlaybackRestrictionPolicyList",
@@ -48562,7 +48622,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet10","dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java25","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4"
+            $v = "dotnet10","dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java25","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4","ruby4.0"
             break
         }
 
@@ -60636,6 +60696,7 @@ $OS_SelectMap = @{
                "Deny-OSInboundConnection",
                "Remove-OSResourceTag",
                "Revoke-OSVpcEndpointAccess",
+               "Undo-OSServiceSoftwareUpdate",
                "Start-OSDomainMaintenance",
                "Start-OSServiceSoftwareUpdate",
                "Update-OSApplication",
@@ -72733,7 +72794,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3ObjectTagSet/ChecksumAlgorithm")
         }
         {
-            $v = "CRC32","CRC32C","CRC64NVME","SHA1","SHA256"
+            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256","SHA512","XXHASH128","XXHASH3","XXHASH64"
             break
         }
 
@@ -73259,7 +73320,7 @@ $S3C_Completers = {
         # Amazon.S3Control.ComputeObjectChecksumAlgorithm
         "New-S3CJob/S3ComputeObjectChecksum_ChecksumAlgorithm"
         {
-            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256"
+            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256","SHA512","XXHASH128","XXHASH3","XXHASH64"
             break
         }
 
@@ -73373,7 +73434,7 @@ $S3C_Completers = {
         # Amazon.S3Control.S3ChecksumAlgorithm
         "New-S3CJob/S3PutObjectCopy_ChecksumAlgorithm"
         {
-            $v = "CRC32","CRC32C","CRC64NVME","SHA1","SHA256"
+            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256","SHA512","XXHASH128","XXHASH3","XXHASH64"
             break
         }
 

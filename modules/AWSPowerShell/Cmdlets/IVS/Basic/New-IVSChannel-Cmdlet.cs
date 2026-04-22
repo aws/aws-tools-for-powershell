@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AdConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>ARN of the ad configuration associated with the channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter Authorized
         /// <summary>
         /// <para>
@@ -253,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                 context.Select = CreateSelectDelegate<Amazon.IVS.Model.CreateChannelResponse, NewIVSChannelCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AdConfigurationArn = this.AdConfigurationArn;
             context.Authorized = this.Authorized;
             context.ContainerFormat = this.ContainerFormat;
             context.InsecureIngest = this.InsecureIngest;
@@ -289,6 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             // create request
             var request = new Amazon.IVS.Model.CreateChannelRequest();
             
+            if (cmdletContext.AdConfigurationArn != null)
+            {
+                request.AdConfigurationArn = cmdletContext.AdConfigurationArn;
+            }
             if (cmdletContext.Authorized != null)
             {
                 request.Authorized = cmdletContext.Authorized.Value;
@@ -423,6 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AdConfigurationArn { get; set; }
             public System.Boolean? Authorized { get; set; }
             public Amazon.IVS.ContainerFormat ContainerFormat { get; set; }
             public System.Boolean? InsecureIngest { get; set; }

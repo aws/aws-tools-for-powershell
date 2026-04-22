@@ -104,7 +104,7 @@ $S3C_Completers = {
         # Amazon.S3Control.ComputeObjectChecksumAlgorithm
         "New-S3CJob/S3ComputeObjectChecksum_ChecksumAlgorithm"
         {
-            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256"
+            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256","SHA512","XXHASH128","XXHASH3","XXHASH64"
             break
         }
 
@@ -218,7 +218,7 @@ $S3C_Completers = {
         # Amazon.S3Control.S3ChecksumAlgorithm
         "New-S3CJob/S3PutObjectCopy_ChecksumAlgorithm"
         {
-            $v = "CRC32","CRC32C","CRC64NVME","SHA1","SHA256"
+            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256","SHA512","XXHASH128","XXHASH3","XXHASH64"
             break
         }
 

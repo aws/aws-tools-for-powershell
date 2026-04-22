@@ -93,6 +93,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.AutoRepairActionsStatus
+        {
+            ($_ -eq "New-ECSCapacityProvider/ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus") -Or
+            ($_ -eq "Update-ECSCapacityProvider/ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ECS.AvailabilityZoneRebalancing
         {
             ($_ -eq "New-ECSService/AvailabilityZoneRebalancing") -Or
@@ -481,6 +491,7 @@ $ECS_map = @{
     "IpcMode"=@("Register-ECSTaskDefinition")
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask","New-ECSTaskSet")
     "LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
+    "ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType"=@("New-ECSCapacityProvider")
     "ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "ManagedInstancesProvider_PropagateTag"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")

@@ -866,6 +866,18 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public Amazon.OpenSearchService.TLSSecurityPolicy DomainEndpointOptions_TLSSecurityPolicy { get; set; }
         #endregion
         
+        #region Parameter SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen
+        /// <summary>
+        /// <para>
+        /// <para>Whether the domain should use the latest service software version during a blue/green
+        /// deployment. If enabled, the domain will automatically use the latest available service
+        /// software when a blue/green deployment is triggered.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen { get; set; }
+        #endregion
+        
         #region Parameter AutoTuneOptions_UseOffPeakWindow
         /// <summary>
         /// <para>
@@ -1097,6 +1109,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.WindowStartTime_Minute = this.WindowStartTime_Minute;
             context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
             context.SoftwareUpdateOptions_AutoSoftwareUpdateEnabled = this.SoftwareUpdateOptions_AutoSoftwareUpdateEnabled;
+            context.SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen = this.SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen;
             if (this.TagList != null)
             {
                 context.TagList = new List<Amazon.OpenSearchService.Model.Tag>(this.TagList);
@@ -2120,6 +2133,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 request.SoftwareUpdateOptions.AutoSoftwareUpdateEnabled = requestSoftwareUpdateOptions_softwareUpdateOptions_AutoSoftwareUpdateEnabled.Value;
                 requestSoftwareUpdateOptionsIsNull = false;
             }
+            System.Boolean? requestSoftwareUpdateOptions_softwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen = null;
+            if (cmdletContext.SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen != null)
+            {
+                requestSoftwareUpdateOptions_softwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen = cmdletContext.SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen.Value;
+            }
+            if (requestSoftwareUpdateOptions_softwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen != null)
+            {
+                request.SoftwareUpdateOptions.UseLatestServiceSoftwareForBlueGreen = requestSoftwareUpdateOptions_softwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen.Value;
+                requestSoftwareUpdateOptionsIsNull = false;
+            }
              // determine if request.SoftwareUpdateOptions should be set to null
             if (requestSoftwareUpdateOptionsIsNull)
             {
@@ -2286,6 +2309,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.Int64? WindowStartTime_Minute { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
             public System.Boolean? SoftwareUpdateOptions_AutoSoftwareUpdateEnabled { get; set; }
+            public System.Boolean? SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen { get; set; }
             public List<Amazon.OpenSearchService.Model.Tag> TagList { get; set; }
             public List<System.String> VPCOptions_SecurityGroupId { get; set; }
             public List<System.String> VPCOptions_SubnetId { get; set; }

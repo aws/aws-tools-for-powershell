@@ -182,6 +182,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ChecksumCRC64NVME { get; set; }
         #endregion
         
+        #region Parameter ChecksumMD5
+        /// <summary>
+        /// <para>
+        /// <para>This header can be used as a data integrity check to verify that the data received
+        /// is the same data that was originally sent. This header specifies the Base64 encoded,
+        /// 128-bit <c>MD5</c> digest of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumMD5 { get; set; }
+        #endregion
+        
         #region Parameter ChecksumSHA1
         /// <summary>
         /// <para>
@@ -214,6 +227,58 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ChecksumSHA256 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumSHA512
+        /// <summary>
+        /// <para>
+        /// <para>This header can be used as a data integrity check to verify that the data received
+        /// is the same data that was originally sent. This header specifies the Base64 encoded,
+        /// 512-bit <c>SHA512</c> digest of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumSHA512 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumXXHASH128
+        /// <summary>
+        /// <para>
+        /// <para>This header can be used as a data integrity check to verify that the data received
+        /// is the same data that was originally sent. This header specifies the Base64 encoded,
+        /// 128-bit <c>XXHASH128</c> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumXXHASH128 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumXXHASH3
+        /// <summary>
+        /// <para>
+        /// <para>This header can be used as a data integrity check to verify that the data received
+        /// is the same data that was originally sent. This header specifies the Base64 encoded,
+        /// 64-bit <c>XXHASH3</c> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumXXHASH3 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumXXHASH64
+        /// <summary>
+        /// <para>
+        /// <para>This header can be used as a data integrity check to verify that the data received
+        /// is the same data that was originally sent. This header specifies the Base64 encoded,
+        /// 64-bit <c>XXHASH64</c> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumXXHASH64 { get; set; }
         #endregion
         
         #region Parameter ContentDisposition
@@ -633,8 +698,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ChecksumCRC32 = this.ChecksumCRC32;
             context.ChecksumCRC32C = this.ChecksumCRC32C;
             context.ChecksumCRC64NVME = this.ChecksumCRC64NVME;
+            context.ChecksumMD5 = this.ChecksumMD5;
             context.ChecksumSHA1 = this.ChecksumSHA1;
             context.ChecksumSHA256 = this.ChecksumSHA256;
+            context.ChecksumSHA512 = this.ChecksumSHA512;
+            context.ChecksumXXHASH128 = this.ChecksumXXHASH128;
+            context.ChecksumXXHASH3 = this.ChecksumXXHASH3;
+            context.ChecksumXXHASH64 = this.ChecksumXXHASH64;
             context.ContentDisposition = this.ContentDisposition;
             context.ContentEncoding = this.ContentEncoding;
             context.ContentLanguage = this.ContentLanguage;
@@ -727,6 +797,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     request.ChecksumCRC64NVME = cmdletContext.ChecksumCRC64NVME;
                 }
+                if (cmdletContext.ChecksumMD5 != null)
+                {
+                    request.ChecksumMD5 = cmdletContext.ChecksumMD5;
+                }
                 if (cmdletContext.ChecksumSHA1 != null)
                 {
                     request.ChecksumSHA1 = cmdletContext.ChecksumSHA1;
@@ -734,6 +808,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (cmdletContext.ChecksumSHA256 != null)
                 {
                     request.ChecksumSHA256 = cmdletContext.ChecksumSHA256;
+                }
+                if (cmdletContext.ChecksumSHA512 != null)
+                {
+                    request.ChecksumSHA512 = cmdletContext.ChecksumSHA512;
+                }
+                if (cmdletContext.ChecksumXXHASH128 != null)
+                {
+                    request.ChecksumXXHASH128 = cmdletContext.ChecksumXXHASH128;
+                }
+                if (cmdletContext.ChecksumXXHASH3 != null)
+                {
+                    request.ChecksumXXHASH3 = cmdletContext.ChecksumXXHASH3;
+                }
+                if (cmdletContext.ChecksumXXHASH64 != null)
+                {
+                    request.ChecksumXXHASH64 = cmdletContext.ChecksumXXHASH64;
                 }
                 if (cmdletContext.ContentDisposition != null)
                 {
@@ -929,8 +1019,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ChecksumCRC32 { get; set; }
             public System.String ChecksumCRC32C { get; set; }
             public System.String ChecksumCRC64NVME { get; set; }
+            public System.String ChecksumMD5 { get; set; }
             public System.String ChecksumSHA1 { get; set; }
             public System.String ChecksumSHA256 { get; set; }
+            public System.String ChecksumSHA512 { get; set; }
+            public System.String ChecksumXXHASH128 { get; set; }
+            public System.String ChecksumXXHASH3 { get; set; }
+            public System.String ChecksumXXHASH64 { get; set; }
             public System.String ContentDisposition { get; set; }
             public System.String ContentEncoding { get; set; }
             public System.String ContentLanguage { get; set; }

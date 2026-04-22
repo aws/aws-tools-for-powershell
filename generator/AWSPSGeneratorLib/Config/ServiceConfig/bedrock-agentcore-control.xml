@@ -113,6 +113,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateHarness" OutputProperty="Harness" Verb="New" Noun="Harness" ShouldProcessTarget="HarnessName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMemory" OutputProperty="Memory" Verb="New" Noun="Memory" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -217,6 +221,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHarness" OutputProperty="Harness" Verb="Remove" Noun="Harness" ShouldProcessTarget="HarnessId" PipelineParameter="HarnessId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMemory" OutputProperty="*" Verb="Remove" Noun="Memory" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -286,6 +294,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetGatewayTarget" OutputProperty="*" Verb="Get" Noun="GatewayTarget" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHarness" OutputProperty="Harness" Verb="Get" Noun="Harness" PipelineParameter="HarnessId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -370,6 +382,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGatewayTargets" OutputProperty="Items" Verb="Get" Noun="GatewayTargetList" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHarnesses" OutputProperty="Harnesses" Verb="Get" Noun="HarnessList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -516,6 +532,10 @@
                 <Param Name="TargetConfiguration_Mcp_OpenApiSchema_InlinePayload" NewName="OpenApiSchema_InlinePayload" />
                 <Param Name="TargetConfiguration_Mcp_SmithyModel_InlinePayload" NewName="SmithyModel_InlinePayload" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHarness" OutputProperty="Harness" Verb="Update" Noun="Harness" ShouldProcessTarget="HarnessId" PipelineParameter="HarnessId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMemory" OutputProperty="Memory" Verb="Update" Noun="Memory" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">

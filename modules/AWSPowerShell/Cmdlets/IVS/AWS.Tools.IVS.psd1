@@ -87,7 +87,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-IVSAdBreak', 
         'Add-IVSResourceTag', 
+        'Get-IVSAdConfiguration', 
+        'Get-IVSAdConfigurationList', 
         'Get-IVSChannel', 
         'Get-IVSChannelBatch', 
         'Get-IVSChannelList', 
@@ -106,10 +109,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IVSStreamSession', 
         'Get-IVSStreamSessionList', 
         'Import-IVSPlaybackKeyPair', 
+        'New-IVSAdConfiguration', 
         'New-IVSChannel', 
         'New-IVSPlaybackRestrictionPolicy', 
         'New-IVSRecordingConfiguration', 
         'New-IVSStreamKey', 
+        'Remove-IVSAdConfiguration', 
         'Remove-IVSChannel', 
         'Remove-IVSPlaybackKeyPair', 
         'Remove-IVSPlaybackRestrictionPolicy', 

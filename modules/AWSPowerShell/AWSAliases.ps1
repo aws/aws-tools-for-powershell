@@ -2917,6 +2917,8 @@ Set-Alias -Name Create-BACCGateway -Value New-BACCGateway
 Set-Alias -Name BACC-CreateGateway -Value New-BACCGateway
 Set-Alias -Name Create-BACCGatewayTarget -Value New-BACCGatewayTarget
 Set-Alias -Name BACC-CreateGatewayTarget -Value New-BACCGatewayTarget
+Set-Alias -Name Create-BACCHarness -Value New-BACCHarness
+Set-Alias -Name BACC-CreateHarness -Value New-BACCHarness
 Set-Alias -Name Create-BACCMemory -Value New-BACCMemory
 Set-Alias -Name BACC-CreateMemory -Value New-BACCMemory
 Set-Alias -Name Create-BACCOauth2CredentialProvider -Value New-BACCOauth2CredentialProvider
@@ -2951,6 +2953,8 @@ Set-Alias -Name Delete-BACCGateway -Value Remove-BACCGateway
 Set-Alias -Name BACC-DeleteGateway -Value Remove-BACCGateway
 Set-Alias -Name Delete-BACCGatewayTarget -Value Remove-BACCGatewayTarget
 Set-Alias -Name BACC-DeleteGatewayTarget -Value Remove-BACCGatewayTarget
+Set-Alias -Name Delete-BACCHarness -Value Remove-BACCHarness
+Set-Alias -Name BACC-DeleteHarness -Value Remove-BACCHarness
 Set-Alias -Name Delete-BACCMemory -Value Remove-BACCMemory
 Set-Alias -Name BACC-DeleteMemory -Value Remove-BACCMemory
 Set-Alias -Name Delete-BACCOauth2CredentialProvider -Value Remove-BACCOauth2CredentialProvider
@@ -2978,6 +2982,7 @@ Set-Alias -Name BACC-GetCodeInterpreter -Value Get-BACCCodeInterpreter
 Set-Alias -Name BACC-GetEvaluator -Value Get-BACCEvaluator
 Set-Alias -Name BACC-GetGateway -Value Get-BACCGateway
 Set-Alias -Name BACC-GetGatewayTarget -Value Get-BACCGatewayTarget
+Set-Alias -Name BACC-GetHarness -Value Get-BACCHarness
 Set-Alias -Name BACC-GetMemory -Value Get-BACCMemory
 Set-Alias -Name BACC-GetOauth2CredentialProvider -Value Get-BACCOauth2CredentialProvider
 Set-Alias -Name BACC-GetOnlineEvaluationConfig -Value Get-BACCOnlineEvaluationConfig
@@ -3019,6 +3024,9 @@ Set-Alias -Name BACC-ListGateways -Value Get-BACCGatewayList
 Set-Alias -Name List-BACCGatewayTargets -Value Get-BACCGatewayTargetList
 Set-Alias -Name List-BACCGatewayTargetList -Value Get-BACCGatewayTargetList
 Set-Alias -Name BACC-ListGatewayTargets -Value Get-BACCGatewayTargetList
+Set-Alias -Name List-BACCHarnesses -Value Get-BACCHarnessList
+Set-Alias -Name List-BACCHarnessList -Value Get-BACCHarnessList
+Set-Alias -Name BACC-ListHarnesses -Value Get-BACCHarnessList
 Set-Alias -Name List-BACCMemories -Value Get-BACCMemoryList
 Set-Alias -Name List-BACCMemoryList -Value Get-BACCMemoryList
 Set-Alias -Name BACC-ListMemories -Value Get-BACCMemoryList
@@ -3066,6 +3074,7 @@ Set-Alias -Name BACC-UpdateApiKeyCredentialProvider -Value Update-BACCApiKeyCred
 Set-Alias -Name BACC-UpdateEvaluator -Value Update-BACCEvaluator
 Set-Alias -Name BACC-UpdateGateway -Value Update-BACCGateway
 Set-Alias -Name BACC-UpdateGatewayTarget -Value Update-BACCGatewayTarget
+Set-Alias -Name BACC-UpdateHarness -Value Update-BACCHarness
 Set-Alias -Name BACC-UpdateMemory -Value Update-BACCMemory
 Set-Alias -Name BACC-UpdateOauth2CredentialProvider -Value Update-BACCOauth2CredentialProvider
 Set-Alias -Name BACC-UpdateOnlineEvaluationConfig -Value Update-BACCOnlineEvaluationConfig
@@ -3107,6 +3116,7 @@ Set-Alias -Name BAC-InvokeAgentRuntime -Value Invoke-BACAgentRuntime
 Set-Alias -Name BAC-InvokeAgentRuntimeCommand -Value Invoke-BACAgentRuntimeCommand
 Set-Alias -Name BAC-InvokeBrowser -Value Invoke-BACBrowser
 Set-Alias -Name BAC-InvokeCodeInterpreter -Value Invoke-BACCodeInterpreter
+Set-Alias -Name BAC-InvokeHarness -Value Invoke-BACHarness
 Set-Alias -Name List-BACActors -Value Get-BACActorList
 Set-Alias -Name List-BACActorList -Value Get-BACActorList
 Set-Alias -Name BAC-ListActors -Value Get-BACActorList
@@ -11891,6 +11901,7 @@ Set-Alias -Name Get-EC2ManagedPrefixListAssociations -Value Get-EC2ManagedPrefix
 Set-Alias -Name EC2-GetManagedPrefixListAssociations -Value Get-EC2ManagedPrefixListAssociation
 Set-Alias -Name Get-EC2ManagedPrefixListEntries -Value Get-EC2ManagedPrefixListEntry
 Set-Alias -Name EC2-GetManagedPrefixListEntries -Value Get-EC2ManagedPrefixListEntry
+Set-Alias -Name EC2-GetManagedResourceVisibility -Value Get-EC2ManagedResourceVisibility
 Set-Alias -Name Get-EC2NetworkInsightsAccessScopeAnalysisFindings -Value Get-EC2NetworkInsightsAccessScopeAnalysisFinding
 Set-Alias -Name EC2-GetNetworkInsightsAccessScopeAnalysisFindings -Value Get-EC2NetworkInsightsAccessScopeAnalysisFinding
 Set-Alias -Name EC2-GetNetworkInsightsAccessScopeContent -Value Get-EC2NetworkInsightsAccessScopeContent
@@ -12026,6 +12037,8 @@ Set-Alias -Name Modify-EC2LocalGatewayRoute -Value Edit-EC2LocalGatewayRoute
 Set-Alias -Name EC2-ModifyLocalGatewayRoute -Value Edit-EC2LocalGatewayRoute
 Set-Alias -Name Modify-EC2ManagedPrefixList -Value Edit-EC2ManagedPrefixList
 Set-Alias -Name EC2-ModifyManagedPrefixList -Value Edit-EC2ManagedPrefixList
+Set-Alias -Name Modify-EC2ManagedResourceVisibility -Value Edit-EC2ManagedResourceVisibility
+Set-Alias -Name EC2-ModifyManagedResourceVisibility -Value Edit-EC2ManagedResourceVisibility
 Set-Alias -Name Modify-EC2NetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
 Set-Alias -Name EC2-ModifyNetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
 Set-Alias -Name Modify-EC2PrivateDnsNameOptions -Value Edit-EC2PrivateDnsNameOption
@@ -13554,6 +13567,9 @@ Set-Alias -Name EMRServerless-DeleteApplication -Value Remove-EMRServerlessAppli
 Set-Alias -Name EMRServerless-GetApplication -Value Get-EMRServerlessApplication
 Set-Alias -Name EMRServerless-GetDashboardForJobRun -Value Get-EMRServerlessDashboardForJobRun
 Set-Alias -Name EMRServerless-GetJobRun -Value Get-EMRServerlessJobRun
+Set-Alias -Name EMRServerless-GetResourceDashboard -Value Get-EMRServerlessResourceDashboard
+Set-Alias -Name EMRServerless-GetSession -Value Get-EMRServerlessSession
+Set-Alias -Name EMRServerless-GetSessionEndpoint -Value Get-EMRServerlessSessionEndpoint
 Set-Alias -Name List-EMRServerlessApplications -Value Get-EMRServerlessApplicationList
 Set-Alias -Name List-EMRServerlessApplicationList -Value Get-EMRServerlessApplicationList
 Set-Alias -Name EMRServerless-ListApplications -Value Get-EMRServerlessApplicationList
@@ -13563,12 +13579,18 @@ Set-Alias -Name EMRServerless-ListJobRunAttempts -Value Get-EMRServerlessJobRunA
 Set-Alias -Name List-EMRServerlessJobRuns -Value Get-EMRServerlessJobRunList
 Set-Alias -Name List-EMRServerlessJobRunList -Value Get-EMRServerlessJobRunList
 Set-Alias -Name EMRServerless-ListJobRuns -Value Get-EMRServerlessJobRunList
+Set-Alias -Name List-EMRServerlessSessions -Value Get-EMRServerlessSessionList
+Set-Alias -Name List-EMRServerlessSessionList -Value Get-EMRServerlessSessionList
+Set-Alias -Name EMRServerless-ListSessions -Value Get-EMRServerlessSessionList
 Set-Alias -Name Get-EMRServerlessResourceTag -Value Get-EMRServerlessResourceTagList
 Set-Alias -Name EMRServerless-ListTagsForResource -Value Get-EMRServerlessResourceTagList
 Set-Alias -Name EMRServerless-StartApplication -Value Start-EMRServerlessApplication
 Set-Alias -Name EMRServerless-StartJobRun -Value Start-EMRServerlessJobRun
+Set-Alias -Name EMRServerless-StartSession -Value Start-EMRServerlessSession
 Set-Alias -Name EMRServerless-StopApplication -Value Stop-EMRServerlessApplication
 Set-Alias -Name EMRServerless-TagResource -Value Add-EMRServerlessResourceTag
+Set-Alias -Name Terminate-EMRServerlessSession -Value Stop-EMRServerlessSession
+Set-Alias -Name EMRServerless-TerminateSession -Value Stop-EMRServerlessSession
 Set-Alias -Name EMRServerless-UntagResource -Value Remove-EMRServerlessResourceTag
 Set-Alias -Name EMRServerless-UpdateApplication -Value Update-EMRServerlessApplication
 Set-Alias -Name Get-MESEntitlements -Value Get-MESEntitlementList
@@ -18623,6 +18645,8 @@ Set-Alias -Name Get-IVSStreamKey -Value Get-IVSStreamKeyBatch
 Set-Alias -Name IVS-BatchGetStreamKey -Value Get-IVSStreamKeyBatch
 Set-Alias -Name Start-IVSViewerSessionRevocation -Value Start-IVSStartViewerSessionRevocation
 Set-Alias -Name IVS-BatchStartViewerSessionRevocation -Value Start-IVSStartViewerSessionRevocation
+Set-Alias -Name Create-IVSAdConfiguration -Value New-IVSAdConfiguration
+Set-Alias -Name IVS-CreateAdConfiguration -Value New-IVSAdConfiguration
 Set-Alias -Name Create-IVSChannel -Value New-IVSChannel
 Set-Alias -Name IVS-CreateChannel -Value New-IVSChannel
 Set-Alias -Name Create-IVSPlaybackRestrictionPolicy -Value New-IVSPlaybackRestrictionPolicy
@@ -18631,6 +18655,8 @@ Set-Alias -Name Create-IVSRecordingConfiguration -Value New-IVSRecordingConfigur
 Set-Alias -Name IVS-CreateRecordingConfiguration -Value New-IVSRecordingConfiguration
 Set-Alias -Name Create-IVSStreamKey -Value New-IVSStreamKey
 Set-Alias -Name IVS-CreateStreamKey -Value New-IVSStreamKey
+Set-Alias -Name Delete-IVSAdConfiguration -Value Remove-IVSAdConfiguration
+Set-Alias -Name IVS-DeleteAdConfiguration -Value Remove-IVSAdConfiguration
 Set-Alias -Name Delete-IVSChannel -Value Remove-IVSChannel
 Set-Alias -Name IVS-DeleteChannel -Value Remove-IVSChannel
 Set-Alias -Name Delete-IVSPlaybackKeyPair -Value Remove-IVSPlaybackKeyPair
@@ -18641,6 +18667,7 @@ Set-Alias -Name Delete-IVSRecordingConfiguration -Value Remove-IVSRecordingConfi
 Set-Alias -Name IVS-DeleteRecordingConfiguration -Value Remove-IVSRecordingConfiguration
 Set-Alias -Name Delete-IVSStreamKey -Value Remove-IVSStreamKey
 Set-Alias -Name IVS-DeleteStreamKey -Value Remove-IVSStreamKey
+Set-Alias -Name IVS-GetAdConfiguration -Value Get-IVSAdConfiguration
 Set-Alias -Name IVS-GetChannel -Value Get-IVSChannel
 Set-Alias -Name IVS-GetPlaybackKeyPair -Value Get-IVSPlaybackKeyPair
 Set-Alias -Name IVS-GetPlaybackRestrictionPolicy -Value Get-IVSPlaybackRestrictionPolicy
@@ -18649,6 +18676,11 @@ Set-Alias -Name IVS-GetStream -Value Get-IVSStream
 Set-Alias -Name IVS-GetStreamKey -Value Get-IVSStreamKey
 Set-Alias -Name IVS-GetStreamSession -Value Get-IVSStreamSession
 Set-Alias -Name IVS-ImportPlaybackKeyPair -Value Import-IVSPlaybackKeyPair
+Set-Alias -Name Insert-IVSAdBreak -Value Add-IVSAdBreak
+Set-Alias -Name IVS-InsertAdBreak -Value Add-IVSAdBreak
+Set-Alias -Name List-IVSAdConfigurations -Value Get-IVSAdConfigurationList
+Set-Alias -Name List-IVSAdConfigurationList -Value Get-IVSAdConfigurationList
+Set-Alias -Name IVS-ListAdConfigurations -Value Get-IVSAdConfigurationList
 Set-Alias -Name List-IVSChannels -Value Get-IVSChannelList
 Set-Alias -Name List-IVSChannelList -Value Get-IVSChannelList
 Set-Alias -Name IVS-ListChannels -Value Get-IVSChannelList
@@ -24196,6 +24228,8 @@ Set-Alias -Name OS-RejectInboundConnection -Value Deny-OSInboundConnection
 Set-Alias -Name Remove-OSTags -Value Remove-OSResourceTag
 Set-Alias -Name OS-RemoveTags -Value Remove-OSResourceTag
 Set-Alias -Name OS-RevokeVpcEndpointAccess -Value Revoke-OSVpcEndpointAccess
+Set-Alias -Name Rollback-OSServiceSoftwareUpdate -Value Undo-OSServiceSoftwareUpdate
+Set-Alias -Name OS-RollbackServiceSoftwareUpdate -Value Undo-OSServiceSoftwareUpdate
 Set-Alias -Name OS-StartDomainMaintenance -Value Start-OSDomainMaintenance
 Set-Alias -Name OS-StartServiceSoftwareUpdate -Value Start-OSServiceSoftwareUpdate
 Set-Alias -Name OS-UpdateApplication -Value Update-OSApplication

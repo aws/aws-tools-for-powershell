@@ -411,6 +411,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String[] NetworkConfiguration_SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter InteractiveConfiguration_SessionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables interactive sessions on the application. When set to <c>true</c>, you can
+        /// start interactive sessions using the <c>StartSession</c> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InteractiveConfiguration_SessionEnabled { get; set; }
+        #endregion
+        
         #region Parameter InteractiveConfiguration_StudioEnabled
         /// <summary>
         /// <para>
@@ -559,6 +570,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 }
             }
             context.InteractiveConfiguration_LivyEndpointEnabled = this.InteractiveConfiguration_LivyEndpointEnabled;
+            context.InteractiveConfiguration_SessionEnabled = this.InteractiveConfiguration_SessionEnabled;
             context.InteractiveConfiguration_StudioEnabled = this.InteractiveConfiguration_StudioEnabled;
             context.JobLevelCostAllocationConfiguration_Enabled = this.JobLevelCostAllocationConfiguration_Enabled;
             context.MaximumCapacity_Cpu = this.MaximumCapacity_Cpu;
@@ -785,6 +797,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (requestInteractiveConfiguration_interactiveConfiguration_LivyEndpointEnabled != null)
             {
                 request.InteractiveConfiguration.LivyEndpointEnabled = requestInteractiveConfiguration_interactiveConfiguration_LivyEndpointEnabled.Value;
+                requestInteractiveConfigurationIsNull = false;
+            }
+            System.Boolean? requestInteractiveConfiguration_interactiveConfiguration_SessionEnabled = null;
+            if (cmdletContext.InteractiveConfiguration_SessionEnabled != null)
+            {
+                requestInteractiveConfiguration_interactiveConfiguration_SessionEnabled = cmdletContext.InteractiveConfiguration_SessionEnabled.Value;
+            }
+            if (requestInteractiveConfiguration_interactiveConfiguration_SessionEnabled != null)
+            {
+                request.InteractiveConfiguration.SessionEnabled = requestInteractiveConfiguration_interactiveConfiguration_SessionEnabled.Value;
                 requestInteractiveConfigurationIsNull = false;
             }
             System.Boolean? requestInteractiveConfiguration_interactiveConfiguration_StudioEnabled = null;
@@ -1167,6 +1189,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.String ImageConfiguration_ImageUri { get; set; }
             public Dictionary<System.String, Amazon.EMRServerless.Model.InitialCapacityConfig> InitialCapacity { get; set; }
             public System.Boolean? InteractiveConfiguration_LivyEndpointEnabled { get; set; }
+            public System.Boolean? InteractiveConfiguration_SessionEnabled { get; set; }
             public System.Boolean? InteractiveConfiguration_StudioEnabled { get; set; }
             public System.Boolean? JobLevelCostAllocationConfiguration_Enabled { get; set; }
             public System.String MaximumCapacity_Cpu { get; set; }
