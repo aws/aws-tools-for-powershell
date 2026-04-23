@@ -450,6 +450,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String IdentityCenterOptions_IdentityCenterInstanceARN { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterOptions_IdentityCenterInstanceRegion
+        /// <summary>
+        /// <para>
+        /// <para>The Region of the IAM Identity Center instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterOptions_IdentityCenterInstanceRegion { get; set; }
+        #endregion
+        
         #region Parameter CognitoOptions_IdentityPoolId
         /// <summary>
         /// <para>
@@ -1092,6 +1102,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.EngineVersion = this.EngineVersion;
             context.IdentityCenterOptions_EnabledAPIAccess = this.IdentityCenterOptions_EnabledAPIAccess;
             context.IdentityCenterOptions_IdentityCenterInstanceARN = this.IdentityCenterOptions_IdentityCenterInstanceARN;
+            context.IdentityCenterOptions_IdentityCenterInstanceRegion = this.IdentityCenterOptions_IdentityCenterInstanceRegion;
             context.IdentityCenterOptions_RolesKey = this.IdentityCenterOptions_RolesKey;
             context.IdentityCenterOptions_SubjectKey = this.IdentityCenterOptions_SubjectKey;
             context.IPAddressType = this.IPAddressType;
@@ -1979,6 +1990,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 request.IdentityCenterOptions.IdentityCenterInstanceARN = requestIdentityCenterOptions_identityCenterOptions_IdentityCenterInstanceARN;
                 requestIdentityCenterOptionsIsNull = false;
             }
+            System.String requestIdentityCenterOptions_identityCenterOptions_IdentityCenterInstanceRegion = null;
+            if (cmdletContext.IdentityCenterOptions_IdentityCenterInstanceRegion != null)
+            {
+                requestIdentityCenterOptions_identityCenterOptions_IdentityCenterInstanceRegion = cmdletContext.IdentityCenterOptions_IdentityCenterInstanceRegion;
+            }
+            if (requestIdentityCenterOptions_identityCenterOptions_IdentityCenterInstanceRegion != null)
+            {
+                request.IdentityCenterOptions.IdentityCenterInstanceRegion = requestIdentityCenterOptions_identityCenterOptions_IdentityCenterInstanceRegion;
+                requestIdentityCenterOptionsIsNull = false;
+            }
             Amazon.OpenSearchService.RolesKeyIdCOption requestIdentityCenterOptions_identityCenterOptions_RolesKey = null;
             if (cmdletContext.IdentityCenterOptions_RolesKey != null)
             {
@@ -2299,6 +2320,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String EngineVersion { get; set; }
             public System.Boolean? IdentityCenterOptions_EnabledAPIAccess { get; set; }
             public System.String IdentityCenterOptions_IdentityCenterInstanceARN { get; set; }
+            public System.String IdentityCenterOptions_IdentityCenterInstanceRegion { get; set; }
             public Amazon.OpenSearchService.RolesKeyIdCOption IdentityCenterOptions_RolesKey { get; set; }
             public Amazon.OpenSearchService.SubjectKeyIdCOption IdentityCenterOptions_SubjectKey { get; set; }
             public Amazon.OpenSearchService.IPAddressType IPAddressType { get; set; }

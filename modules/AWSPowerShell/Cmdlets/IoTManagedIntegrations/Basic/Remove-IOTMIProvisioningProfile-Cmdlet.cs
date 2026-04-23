@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The name of the provisioning template.</para>
+        /// <para>The id of the provisioning profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

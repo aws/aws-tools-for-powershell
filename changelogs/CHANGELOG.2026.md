@@ -1,4 +1,15 @@
-﻿### 5.0.200 (2026-04-22 20:16Z)
+﻿### 5.0.201 (2026-04-23 20:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.237.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameter Props_LakehouseProperties_GlueLineageSyncEnabled.
+    * Modified cmdlet Update-DZConnection: added parameter Props_LakehouseProperties_GlueLineageSyncEnabled.
+  * Amazon OpenSearch Service
+    * Modified cmdlet Approve-OSVpcEndpointAccess: added parameter ServiceOptions_SupportedRegion.
+    * Modified cmdlet New-OSDomain: added parameter IdentityCenterOptions_IdentityCenterInstanceRegion.
+    * Modified cmdlet Revoke-OSVpcEndpointAccess: added parameter ServiceOptions_SupportedRegion.
+    * Modified cmdlet Update-OSDomainConfig: added parameter IdentityCenterOptions_IdentityCenterInstanceRegion.
+
+### 5.0.200 (2026-04-22 20:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.236.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Get-BACCHarness leveraging the GetHarness service API.

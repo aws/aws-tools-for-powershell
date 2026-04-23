@@ -209,6 +209,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.Boolean? IamProperties_GlueLineageSyncEnabled { get; set; }
         #endregion
         
+        #region Parameter Props_LakehouseProperties_GlueLineageSyncEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable Glue lineage sync for tables managed by Glue crawlers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Props_LakehouseProperties_GlueLineageSyncEnabled { get; set; }
+        #endregion
+        
         #region Parameter RedshiftProperties_Host
         /// <summary>
         /// <para>
@@ -586,6 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             context.GlueConnectionInput_Description = this.GlueConnectionInput_Description;
             context.IamProperties_GlueLineageSyncEnabled = this.IamProperties_GlueLineageSyncEnabled;
+            context.Props_LakehouseProperties_GlueLineageSyncEnabled = this.Props_LakehouseProperties_GlueLineageSyncEnabled;
             context.MlflowProperties_TrackingServerArn = this.MlflowProperties_TrackingServerArn;
             context.Credentials_SecretArn = this.Credentials_SecretArn;
             context.UsernamePassword_Password = this.UsernamePassword_Password;
@@ -851,6 +862,31 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_IamProperties != null)
             {
                 request.Props.IamProperties = requestProps_props_IamProperties;
+                requestPropsIsNull = false;
+            }
+            Amazon.DataZone.Model.LakehousePropertiesPatch requestProps_props_LakehouseProperties = null;
+            
+             // populate LakehouseProperties
+            var requestProps_props_LakehousePropertiesIsNull = true;
+            requestProps_props_LakehouseProperties = new Amazon.DataZone.Model.LakehousePropertiesPatch();
+            System.Boolean? requestProps_props_LakehouseProperties_props_LakehouseProperties_GlueLineageSyncEnabled = null;
+            if (cmdletContext.Props_LakehouseProperties_GlueLineageSyncEnabled != null)
+            {
+                requestProps_props_LakehouseProperties_props_LakehouseProperties_GlueLineageSyncEnabled = cmdletContext.Props_LakehouseProperties_GlueLineageSyncEnabled.Value;
+            }
+            if (requestProps_props_LakehouseProperties_props_LakehouseProperties_GlueLineageSyncEnabled != null)
+            {
+                requestProps_props_LakehouseProperties.GlueLineageSyncEnabled = requestProps_props_LakehouseProperties_props_LakehouseProperties_GlueLineageSyncEnabled.Value;
+                requestProps_props_LakehousePropertiesIsNull = false;
+            }
+             // determine if requestProps_props_LakehouseProperties should be set to null
+            if (requestProps_props_LakehousePropertiesIsNull)
+            {
+                requestProps_props_LakehouseProperties = null;
+            }
+            if (requestProps_props_LakehouseProperties != null)
+            {
+                request.Props.LakehouseProperties = requestProps_props_LakehouseProperties;
                 requestPropsIsNull = false;
             }
             Amazon.DataZone.Model.MlflowPropertiesPatch requestProps_props_MlflowProperties = null;
@@ -1331,6 +1367,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public Dictionary<System.String, System.String> GlueConnectionInput_ConnectionProperty { get; set; }
             public System.String GlueConnectionInput_Description { get; set; }
             public System.Boolean? IamProperties_GlueLineageSyncEnabled { get; set; }
+            public System.Boolean? Props_LakehouseProperties_GlueLineageSyncEnabled { get; set; }
             public System.String MlflowProperties_TrackingServerArn { get; set; }
             public System.String Credentials_SecretArn { get; set; }
             public System.String UsernamePassword_Password { get; set; }

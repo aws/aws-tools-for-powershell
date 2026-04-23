@@ -30,7 +30,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Get a provisioning profile by template name.
+    /// Get details of a provisioning profile.
     /// </summary>
     [Cmdlet("Get", "IOTMIProvisioningProfile")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.GetProvisioningProfileResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The provisioning template the device uses for the provisioning process.</para>
+        /// <para>The id of a provisioning profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

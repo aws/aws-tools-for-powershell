@@ -84,6 +84,21 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public Amazon.OpenSearchService.AWSServicePrincipal Service { get; set; }
         #endregion
         
+        #region Parameter ServiceOptions_SupportedRegion
+        /// <summary>
+        /// <para>
+        /// <para>The list of supported Regions for the service.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceOptions_SupportedRegions")]
+        public System.String[] ServiceOptions_SupportedRegion { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AuthorizedPrincipal'.
@@ -139,6 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             #endif
             context.Service = this.Service;
+            if (this.ServiceOptions_SupportedRegion != null)
+            {
+                context.ServiceOptions_SupportedRegion = new List<System.String>(this.ServiceOptions_SupportedRegion);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +185,25 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (cmdletContext.Service != null)
             {
                 request.Service = cmdletContext.Service;
+            }
+            
+             // populate ServiceOptions
+            var requestServiceOptionsIsNull = true;
+            request.ServiceOptions = new Amazon.OpenSearchService.Model.ServiceOptions();
+            List<System.String> requestServiceOptions_serviceOptions_SupportedRegion = null;
+            if (cmdletContext.ServiceOptions_SupportedRegion != null)
+            {
+                requestServiceOptions_serviceOptions_SupportedRegion = cmdletContext.ServiceOptions_SupportedRegion;
+            }
+            if (requestServiceOptions_serviceOptions_SupportedRegion != null)
+            {
+                request.ServiceOptions.SupportedRegions = requestServiceOptions_serviceOptions_SupportedRegion;
+                requestServiceOptionsIsNull = false;
+            }
+             // determine if request.ServiceOptions should be set to null
+            if (requestServiceOptionsIsNull)
+            {
+                request.ServiceOptions = null;
             }
             
             CmdletOutput output;
@@ -225,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String Account { get; set; }
             public System.String DomainName { get; set; }
             public Amazon.OpenSearchService.AWSServicePrincipal Service { get; set; }
+            public List<System.String> ServiceOptions_SupportedRegion { get; set; }
             public System.Func<Amazon.OpenSearchService.Model.AuthorizeVpcEndpointAccessResponse, ApproveOSVpcEndpointAccessCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AuthorizedPrincipal;
         }

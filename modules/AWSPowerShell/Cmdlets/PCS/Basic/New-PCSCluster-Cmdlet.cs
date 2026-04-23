@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <para>
         /// <para>The version of the specified scheduling software that PCS uses to manage cluster scaling
         /// and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm
-        /// versions in PCS</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>24.11 | 25.05</c></para>
+        /// versions in PCS</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>24.11 | 25.05 | 25.11</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

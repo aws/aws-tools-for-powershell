@@ -30,9 +30,9 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Create a provisioning profile for a device to execute the provisioning flows using
-    /// a provisioning template. The provisioning template is a document that defines the
-    /// set of resources and policies applied to a device during the provisioning process.
+    /// Create a provisioning profile for executing device provisioning flows. The provisioning
+    /// profile is a document that defines the set of resources and policies applied to a
+    /// device during the provisioning process.
     /// </summary>
     [Cmdlet("New", "IOTMIProvisioningProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTManagedIntegrations.Model.CreateProvisioningProfileResponse")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter CaCertificate
         /// <summary>
         /// <para>
-        /// <para>The id of the certificate authority (CA) certificate.</para>
+        /// <para>The body of the PEM-encoded certificate authority (CA) certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter ClaimCertificate
         /// <summary>
         /// <para>
-        /// <para>The claim certificate.</para>
+        /// <para>The body of the PEM-encoded claim certificate. If a claim certificate is provided,
+        /// it will be used for the provisioning profile. Otherwise, a claim certificate will
+        /// be generated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the provisioning template.</para>
+        /// <para>The name of the provisioning profile.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -55,17 +55,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String Brand { get; set; }
         #endregion
         
-        #region Parameter Capability
-        /// <summary>
-        /// <para>
-        /// <para>The capabilities of the device such as light bulb.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Capabilities")]
-        public System.String Capability { get; set; }
-        #endregion
-        
         #region Parameter CapabilitySchema
         /// <summary>
         /// <para>
@@ -242,6 +231,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String CapabilityReport_Version { get; set; }
         #endregion
         
+        #region Parameter Capability
+        /// <summary>
+        /// <para>
+        /// <para>The capabilities of the device such as light bulb.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Capabilities has been deprecated, use CapabilityReport instead")]
+        [Alias("Capabilities")]
+        public System.String Capability { get; set; }
+        #endregion
+        
         #region Parameter Owner
         /// <summary>
         /// <para>
@@ -299,7 +301,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Brand = this.Brand;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Capability = this.Capability;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.CapabilityReport_Endpoint != null)
             {
                 context.CapabilityReport_Endpoint = new List<Amazon.IoTManagedIntegrations.Model.CapabilityReportEndpoint>(this.CapabilityReport_Endpoint);
@@ -355,10 +359,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             {
                 request.Brand = cmdletContext.Brand;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Capability != null)
             {
                 request.Capabilities = cmdletContext.Capability;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
              // populate CapabilityReport
             var requestCapabilityReportIsNull = true;
@@ -533,6 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Brand { get; set; }
+            [System.ObsoleteAttribute]
             public System.String Capability { get; set; }
             public List<Amazon.IoTManagedIntegrations.Model.CapabilityReportEndpoint> CapabilityReport_Endpoint { get; set; }
             public System.String CapabilityReport_NodeId { get; set; }
