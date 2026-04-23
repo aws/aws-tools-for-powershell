@@ -1098,7 +1098,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var runner = new ProgressRunner(this);
                 var tracker = new ReadS3ObjectCmdlet.DownloadFileProgressTracker(runner, handler => request.WriteObjectProgressEvent += handler, cmdletContext.SourceKey);
 
-                output = runner.SafeRun(() => tu.Download(request), tracker);
+                output = runner.SafeRun(() => tu.DownloadAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult(), tracker);
                 if (output.ErrorResponse == null)
                     output.PipelineOutput = new FileInfo(cmdletContext.LocalFile);
             }
@@ -1141,7 +1141,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var runner = new ProgressRunner(this);
                 var tracker = new ReadS3ObjectCmdlet.DownloadFolderProgressTracker(runner, handler => request.DownloadedDirectoryProgressEvent += handler);
 
-                output = runner.SafeRun(() => tu.DownloadDirectory(request), tracker);
+                output = runner.SafeRun(() => tu.DownloadDirectoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult(), tracker);
                 if (output.ErrorResponse == null)
                     output.PipelineOutput = new DirectoryInfo(cmdletContext.LocalFolder);
 
