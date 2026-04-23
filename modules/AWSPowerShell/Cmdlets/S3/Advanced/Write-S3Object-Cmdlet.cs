@@ -808,6 +808,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         case "SHA256":
                             request.ChecksumSHA256 = cmdletContext.ChecksumValue;
                             break;
+                        case "SHA512":
+                            request.ChecksumSHA512 = cmdletContext.ChecksumValue;
+                            break;
+                        case "XXHASH3":
+                            request.ChecksumXXHASH3 = cmdletContext.ChecksumValue;
+                            break;
+                        case "XXHASH64":
+                            request.ChecksumXXHASH64 = cmdletContext.ChecksumValue;
+                            break;
+                        case "XXHASH128":
+                            request.ChecksumXXHASH128 = cmdletContext.ChecksumValue;
+                            break;
+                        case "MD5":
+                            request.ChecksumMD5 = cmdletContext.ChecksumValue;
+                            break;
                     }
                 }
 
