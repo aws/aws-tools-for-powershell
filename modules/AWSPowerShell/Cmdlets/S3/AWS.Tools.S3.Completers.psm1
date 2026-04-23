@@ -127,7 +127,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3ObjectTagSet/ChecksumAlgorithm")
         }
         {
-            $v = "CRC32","CRC32C","CRC64NVME","SHA1","SHA256"
+            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256","SHA512","XXHASH128","XXHASH3","XXHASH64"
             break
         }
 

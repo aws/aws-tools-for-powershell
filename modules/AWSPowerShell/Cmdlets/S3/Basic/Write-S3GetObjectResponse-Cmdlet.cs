@@ -171,6 +171,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ChecksumCRC64NVME { get; set; }
         #endregion
         
+        #region Parameter ChecksumMD5
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumMD5 { get; set; }
+        #endregion
+        
         #region Parameter ChecksumSHA1
         /// <summary>
         /// <para>
@@ -195,6 +205,46 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ChecksumSHA256 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumSHA512
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumSHA512 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumXXHASH128
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumXXHASH128 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumXXHASH3
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumXXHASH3 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumXXHASH64
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumXXHASH64 { get; set; }
         #endregion
         
         #region Parameter ContentDisposition
@@ -599,6 +649,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.VersionId = this.VersionId;
             context.BucketKeyEnabled = this.BucketKeyEnabled;
             context.Body = this.Body;
+            context.ChecksumMD5 = this.ChecksumMD5;
+            context.ChecksumSHA512 = this.ChecksumSHA512;
+            context.ChecksumXXHASH128 = this.ChecksumXXHASH128;
+            context.ChecksumXXHASH3 = this.ChecksumXXHASH3;
+            context.ChecksumXXHASH64 = this.ChecksumXXHASH64;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -780,6 +835,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     _BodyStream = Amazon.PowerShell.Common.StreamParameterConverter.TransformToStream(cmdletContext.Body);
                     request.Body = _BodyStream;
                 }
+                if (cmdletContext.ChecksumMD5 != null)
+                {
+                    request.ChecksumMD5 = cmdletContext.ChecksumMD5;
+                }
+                if (cmdletContext.ChecksumSHA512 != null)
+                {
+                    request.ChecksumSHA512 = cmdletContext.ChecksumSHA512;
+                }
+                if (cmdletContext.ChecksumXXHASH128 != null)
+                {
+                    request.ChecksumXXHASH128 = cmdletContext.ChecksumXXHASH128;
+                }
+                if (cmdletContext.ChecksumXXHASH3 != null)
+                {
+                    request.ChecksumXXHASH3 = cmdletContext.ChecksumXXHASH3;
+                }
+                if (cmdletContext.ChecksumXXHASH64 != null)
+                {
+                    request.ChecksumXXHASH64 = cmdletContext.ChecksumXXHASH64;
+                }
                 
                 CmdletOutput output;
                 
@@ -889,6 +964,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String VersionId { get; set; }
             public System.Boolean? BucketKeyEnabled { get; set; }
             public object Body { get; set; }
+            public System.String ChecksumMD5 { get; set; }
+            public System.String ChecksumSHA512 { get; set; }
+            public System.String ChecksumXXHASH128 { get; set; }
+            public System.String ChecksumXXHASH3 { get; set; }
+            public System.String ChecksumXXHASH64 { get; set; }
             public System.Func<Amazon.S3.Model.WriteGetObjectResponseResponse, WriteS3GetObjectResponseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

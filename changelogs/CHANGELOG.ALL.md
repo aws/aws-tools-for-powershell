@@ -1,4 +1,9 @@
-﻿### 4.1.1028 (2026-03-26 20:25Z)
+﻿### 4.1.1029 (2026-04-23 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1251.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3GetObjectResponse: added parameters ChecksumMD5, ChecksumSHA512, ChecksumXXHASH128, ChecksumXXHASH3 and ChecksumXXHASH64.
+
+### 4.1.1028 (2026-03-26 20:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1251.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSBillingAndCostManagementDataExports
     * Modified cmdlet New-BCMDEExport: added parameter Export_DestinationConfigurations_S3Destination_S3BucketOwner.
