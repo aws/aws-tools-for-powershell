@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String McpServer_Endpoint { get; set; }
         #endregion
         
-        #region Parameter PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType
+        #region Parameter PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType
         /// <summary>
         /// <para>
         /// <para>The IP address type for the resource configuration endpoint.</para>
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.EndpointIpAddressType")]
-        public Amazon.BedrockAgentCoreControl.EndpointIpAddressType PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType { get; set; }
+        public Amazon.BedrockAgentCoreControl.EndpointIpAddressType PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
         #endregion
         
         #region Parameter GatewayIdentifier
@@ -327,7 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String ApiGateway_RestApiId { get; set; }
         #endregion
         
-        #region Parameter PrivateEndpoint_ManagedLatticeResource_RoutingDomain
+        #region Parameter PrivateEndpoint_ManagedVpcResource_RoutingDomain
         /// <summary>
         /// <para>
         /// <para>An intermediate publicly resolvable domain used as the VPC Lattice resource configuration
@@ -335,10 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PrivateEndpoint_ManagedLatticeResource_RoutingDomain { get; set; }
+        public System.String PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
         #endregion
         
-        #region Parameter PrivateEndpoint_ManagedLatticeResource_SecurityGroupId
+        #region Parameter PrivateEndpoint_ManagedVpcResource_SecurityGroupId
         /// <summary>
         /// <para>
         /// <para>The security group IDs to associate with the VPC Lattice resource gateway. If not
@@ -350,8 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("PrivateEndpoint_ManagedLatticeResource_SecurityGroupIds")]
-        public System.String[] PrivateEndpoint_ManagedLatticeResource_SecurityGroupId { get; set; }
+        [Alias("PrivateEndpoint_ManagedVpcResource_SecurityGroupIds")]
+        public System.String[] PrivateEndpoint_ManagedVpcResource_SecurityGroupId { get; set; }
         #endregion
         
         #region Parameter ApiGateway_Stage
@@ -365,7 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String ApiGateway_Stage { get; set; }
         #endregion
         
-        #region Parameter PrivateEndpoint_ManagedLatticeResource_SubnetId
+        #region Parameter PrivateEndpoint_ManagedVpcResource_SubnetId
         /// <summary>
         /// <para>
         /// <para>The subnet IDs within the VPC where the VPC Lattice resource gateway is placed.</para><para />
@@ -376,11 +376,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("PrivateEndpoint_ManagedLatticeResource_SubnetIds")]
-        public System.String[] PrivateEndpoint_ManagedLatticeResource_SubnetId { get; set; }
+        [Alias("PrivateEndpoint_ManagedVpcResource_SubnetIds")]
+        public System.String[] PrivateEndpoint_ManagedVpcResource_SubnetId { get; set; }
         #endregion
         
-        #region Parameter PrivateEndpoint_ManagedLatticeResource_Tag
+        #region Parameter PrivateEndpoint_ManagedVpcResource_Tag
         /// <summary>
         /// <para>
         /// <para>Tags to apply to the managed VPC Lattice resource gateway.</para><para />
@@ -391,8 +391,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("PrivateEndpoint_ManagedLatticeResource_Tags")]
-        public System.Collections.Hashtable PrivateEndpoint_ManagedLatticeResource_Tag { get; set; }
+        [Alias("PrivateEndpoint_ManagedVpcResource_Tags")]
+        public System.Collections.Hashtable PrivateEndpoint_ManagedVpcResource_Tag { get; set; }
         #endregion
         
         #region Parameter ApiGatewayToolConfiguration_ToolFilter
@@ -473,14 +473,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String SmithyModel_S3_Uri { get; set; }
         #endregion
         
-        #region Parameter PrivateEndpoint_ManagedLatticeResource_VpcIdentifier
+        #region Parameter PrivateEndpoint_ManagedVpcResource_VpcIdentifier
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC that contains your private resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PrivateEndpoint_ManagedLatticeResource_VpcIdentifier { get; set; }
+        public System.String PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -575,25 +575,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType = this.PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType;
-            context.PrivateEndpoint_ManagedLatticeResource_RoutingDomain = this.PrivateEndpoint_ManagedLatticeResource_RoutingDomain;
-            if (this.PrivateEndpoint_ManagedLatticeResource_SecurityGroupId != null)
+            context.PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType = this.PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType;
+            context.PrivateEndpoint_ManagedVpcResource_RoutingDomain = this.PrivateEndpoint_ManagedVpcResource_RoutingDomain;
+            if (this.PrivateEndpoint_ManagedVpcResource_SecurityGroupId != null)
             {
-                context.PrivateEndpoint_ManagedLatticeResource_SecurityGroupId = new List<System.String>(this.PrivateEndpoint_ManagedLatticeResource_SecurityGroupId);
+                context.PrivateEndpoint_ManagedVpcResource_SecurityGroupId = new List<System.String>(this.PrivateEndpoint_ManagedVpcResource_SecurityGroupId);
             }
-            if (this.PrivateEndpoint_ManagedLatticeResource_SubnetId != null)
+            if (this.PrivateEndpoint_ManagedVpcResource_SubnetId != null)
             {
-                context.PrivateEndpoint_ManagedLatticeResource_SubnetId = new List<System.String>(this.PrivateEndpoint_ManagedLatticeResource_SubnetId);
+                context.PrivateEndpoint_ManagedVpcResource_SubnetId = new List<System.String>(this.PrivateEndpoint_ManagedVpcResource_SubnetId);
             }
-            if (this.PrivateEndpoint_ManagedLatticeResource_Tag != null)
+            if (this.PrivateEndpoint_ManagedVpcResource_Tag != null)
             {
-                context.PrivateEndpoint_ManagedLatticeResource_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.PrivateEndpoint_ManagedLatticeResource_Tag.Keys)
+                context.PrivateEndpoint_ManagedVpcResource_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PrivateEndpoint_ManagedVpcResource_Tag.Keys)
                 {
-                    context.PrivateEndpoint_ManagedLatticeResource_Tag.Add((String)hashKey, (System.String)(this.PrivateEndpoint_ManagedLatticeResource_Tag[hashKey]));
+                    context.PrivateEndpoint_ManagedVpcResource_Tag.Add((String)hashKey, (System.String)(this.PrivateEndpoint_ManagedVpcResource_Tag[hashKey]));
                 }
             }
-            context.PrivateEndpoint_ManagedLatticeResource_VpcIdentifier = this.PrivateEndpoint_ManagedLatticeResource_VpcIdentifier;
+            context.PrivateEndpoint_ManagedVpcResource_VpcIdentifier = this.PrivateEndpoint_ManagedVpcResource_VpcIdentifier;
             context.PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier = this.PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier;
             if (this.ApiGatewayToolConfiguration_ToolFilter != null)
             {
@@ -728,79 +728,79 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 request.PrivateEndpoint.SelfManagedLatticeResource = requestPrivateEndpoint_privateEndpoint_SelfManagedLatticeResource;
                 requestPrivateEndpointIsNull = false;
             }
-            Amazon.BedrockAgentCoreControl.Model.ManagedLatticeResource requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource = null;
+            Amazon.BedrockAgentCoreControl.Model.ManagedVpcResource requestPrivateEndpoint_privateEndpoint_ManagedVpcResource = null;
             
-             // populate ManagedLatticeResource
-            var requestPrivateEndpoint_privateEndpoint_ManagedLatticeResourceIsNull = true;
-            requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource = new Amazon.BedrockAgentCoreControl.Model.ManagedLatticeResource();
-            Amazon.BedrockAgentCoreControl.EndpointIpAddressType requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_EndpointIpAddressType = null;
-            if (cmdletContext.PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType != null)
+             // populate ManagedVpcResource
+            var requestPrivateEndpoint_privateEndpoint_ManagedVpcResourceIsNull = true;
+            requestPrivateEndpoint_privateEndpoint_ManagedVpcResource = new Amazon.BedrockAgentCoreControl.Model.ManagedVpcResource();
+            Amazon.BedrockAgentCoreControl.EndpointIpAddressType requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_EndpointIpAddressType = null;
+            if (cmdletContext.PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_EndpointIpAddressType = cmdletContext.PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_EndpointIpAddressType = cmdletContext.PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType;
             }
-            if (requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_EndpointIpAddressType != null)
+            if (requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_EndpointIpAddressType != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource.EndpointIpAddressType = requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_EndpointIpAddressType;
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResourceIsNull = false;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource.EndpointIpAddressType = requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_EndpointIpAddressType;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResourceIsNull = false;
             }
-            System.String requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_RoutingDomain = null;
-            if (cmdletContext.PrivateEndpoint_ManagedLatticeResource_RoutingDomain != null)
+            System.String requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_RoutingDomain = null;
+            if (cmdletContext.PrivateEndpoint_ManagedVpcResource_RoutingDomain != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_RoutingDomain = cmdletContext.PrivateEndpoint_ManagedLatticeResource_RoutingDomain;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_RoutingDomain = cmdletContext.PrivateEndpoint_ManagedVpcResource_RoutingDomain;
             }
-            if (requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_RoutingDomain != null)
+            if (requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_RoutingDomain != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource.RoutingDomain = requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_RoutingDomain;
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResourceIsNull = false;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource.RoutingDomain = requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_RoutingDomain;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResourceIsNull = false;
             }
-            List<System.String> requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_SecurityGroupId = null;
-            if (cmdletContext.PrivateEndpoint_ManagedLatticeResource_SecurityGroupId != null)
+            List<System.String> requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_SecurityGroupId = null;
+            if (cmdletContext.PrivateEndpoint_ManagedVpcResource_SecurityGroupId != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_SecurityGroupId = cmdletContext.PrivateEndpoint_ManagedLatticeResource_SecurityGroupId;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_SecurityGroupId = cmdletContext.PrivateEndpoint_ManagedVpcResource_SecurityGroupId;
             }
-            if (requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_SecurityGroupId != null)
+            if (requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_SecurityGroupId != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource.SecurityGroupIds = requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_SecurityGroupId;
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResourceIsNull = false;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource.SecurityGroupIds = requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_SecurityGroupId;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResourceIsNull = false;
             }
-            List<System.String> requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_SubnetId = null;
-            if (cmdletContext.PrivateEndpoint_ManagedLatticeResource_SubnetId != null)
+            List<System.String> requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_SubnetId = null;
+            if (cmdletContext.PrivateEndpoint_ManagedVpcResource_SubnetId != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_SubnetId = cmdletContext.PrivateEndpoint_ManagedLatticeResource_SubnetId;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_SubnetId = cmdletContext.PrivateEndpoint_ManagedVpcResource_SubnetId;
             }
-            if (requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_SubnetId != null)
+            if (requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_SubnetId != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource.SubnetIds = requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_SubnetId;
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResourceIsNull = false;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource.SubnetIds = requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_SubnetId;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResourceIsNull = false;
             }
-            Dictionary<System.String, System.String> requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_Tag = null;
-            if (cmdletContext.PrivateEndpoint_ManagedLatticeResource_Tag != null)
+            Dictionary<System.String, System.String> requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_Tag = null;
+            if (cmdletContext.PrivateEndpoint_ManagedVpcResource_Tag != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_Tag = cmdletContext.PrivateEndpoint_ManagedLatticeResource_Tag;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_Tag = cmdletContext.PrivateEndpoint_ManagedVpcResource_Tag;
             }
-            if (requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_Tag != null)
+            if (requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_Tag != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource.Tags = requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_Tag;
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResourceIsNull = false;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource.Tags = requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_Tag;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResourceIsNull = false;
             }
-            System.String requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_VpcIdentifier = null;
-            if (cmdletContext.PrivateEndpoint_ManagedLatticeResource_VpcIdentifier != null)
+            System.String requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_VpcIdentifier = null;
+            if (cmdletContext.PrivateEndpoint_ManagedVpcResource_VpcIdentifier != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_VpcIdentifier = cmdletContext.PrivateEndpoint_ManagedLatticeResource_VpcIdentifier;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_VpcIdentifier = cmdletContext.PrivateEndpoint_ManagedVpcResource_VpcIdentifier;
             }
-            if (requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_VpcIdentifier != null)
+            if (requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_VpcIdentifier != null)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource.VpcIdentifier = requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource_privateEndpoint_ManagedLatticeResource_VpcIdentifier;
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResourceIsNull = false;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource.VpcIdentifier = requestPrivateEndpoint_privateEndpoint_ManagedVpcResource_privateEndpoint_ManagedVpcResource_VpcIdentifier;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResourceIsNull = false;
             }
-             // determine if requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource should be set to null
-            if (requestPrivateEndpoint_privateEndpoint_ManagedLatticeResourceIsNull)
+             // determine if requestPrivateEndpoint_privateEndpoint_ManagedVpcResource should be set to null
+            if (requestPrivateEndpoint_privateEndpoint_ManagedVpcResourceIsNull)
             {
-                requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource = null;
+                requestPrivateEndpoint_privateEndpoint_ManagedVpcResource = null;
             }
-            if (requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource != null)
+            if (requestPrivateEndpoint_privateEndpoint_ManagedVpcResource != null)
             {
-                request.PrivateEndpoint.ManagedLatticeResource = requestPrivateEndpoint_privateEndpoint_ManagedLatticeResource;
+                request.PrivateEndpoint.ManagedVpcResource = requestPrivateEndpoint_privateEndpoint_ManagedVpcResource;
                 requestPrivateEndpointIsNull = false;
             }
              // determine if request.PrivateEndpoint should be set to null
@@ -1275,12 +1275,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<System.String> MetadataConfiguration_AllowedRequestHeader { get; set; }
             public List<System.String> MetadataConfiguration_AllowedResponseHeader { get; set; }
             public System.String Name { get; set; }
-            public Amazon.BedrockAgentCoreControl.EndpointIpAddressType PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType { get; set; }
-            public System.String PrivateEndpoint_ManagedLatticeResource_RoutingDomain { get; set; }
-            public List<System.String> PrivateEndpoint_ManagedLatticeResource_SecurityGroupId { get; set; }
-            public List<System.String> PrivateEndpoint_ManagedLatticeResource_SubnetId { get; set; }
-            public Dictionary<System.String, System.String> PrivateEndpoint_ManagedLatticeResource_Tag { get; set; }
-            public System.String PrivateEndpoint_ManagedLatticeResource_VpcIdentifier { get; set; }
+            public Amazon.BedrockAgentCoreControl.EndpointIpAddressType PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
+            public System.String PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
+            public List<System.String> PrivateEndpoint_ManagedVpcResource_SecurityGroupId { get; set; }
+            public List<System.String> PrivateEndpoint_ManagedVpcResource_SubnetId { get; set; }
+            public Dictionary<System.String, System.String> PrivateEndpoint_ManagedVpcResource_Tag { get; set; }
+            public System.String PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
             public System.String PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolFilter> ApiGatewayToolConfiguration_ToolFilter { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolOverride> ApiGatewayToolConfiguration_ToolOverride { get; set; }

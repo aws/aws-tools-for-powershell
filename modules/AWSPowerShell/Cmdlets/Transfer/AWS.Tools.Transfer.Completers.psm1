@@ -307,6 +307,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.WebAppVpcEndpointIpAddressType
+        {
+            ($_ -eq "New-TFRWebApp/EndpointDetails_Vpc_IpAddressType") -Or
+            ($_ -eq "Update-TFRWebApp/EndpointDetails_Vpc_IpAddressType")
+        }
+        {
+            $v = "DUALSTACK","IPV4"
+            break
+        }
+
 
     }
 
@@ -323,6 +333,7 @@ $TFR_map = @{
     "As2Config_PreserveContentType"=@("New-TFRConnector","Update-TFRConnector")
     "As2Config_SigningAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
     "Domain"=@("New-TFRServer")
+    "EndpointDetails_Vpc_IpAddressType"=@("New-TFRWebApp","Update-TFRWebApp")
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "EnforceMessageSigning"=@("New-TFRAgreement","Update-TFRAgreement")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")

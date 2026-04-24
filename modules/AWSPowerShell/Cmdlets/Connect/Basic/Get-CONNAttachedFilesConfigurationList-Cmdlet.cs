@@ -23,56 +23,41 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.CloudWatchLogs;
-using Amazon.CloudWatchLogs.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CWL
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Returns the results from the specified query.
+    /// Provides summary information about the attached files configurations for the specified
+    /// Amazon Connect instance.
     /// 
     ///  
     /// <para>
-    /// Only the fields requested in the query are returned, along with a <c>@ptr</c> field,
-    /// which is the identifier for the log record. You can use the value of <c>@ptr</c> in
-    /// a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a>
-    /// operation to get the full log record.
-    /// </para><para><c>GetQueryResults</c> does not start running a query. To run a query, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.
-    /// For more information about how long results of previous queries are available, see
-    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html">CloudWatch
-    /// Logs quotas</a>.
-    /// </para><para>
-    /// If the value of the <c>Status</c> field in the output is <c>Running</c>, this operation
-    /// returns only partial results. If you see a value of <c>Scheduled</c> or <c>Running</c>
-    /// for the status, you can retry the operation later to see the final results. 
-    /// </para><para>
-    /// This operation is used both for retrieving results from interactive queries and from
-    /// automated scheduled query executions. Scheduled queries use <c>GetQueryResults</c>
-    /// internally to retrieve query results for processing and delivery to configured destinations.
-    /// </para><para>
-    /// If you are using CloudWatch cross-account observability, you can use this operation
-    /// in a monitoring account to start queries in linked source accounts. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
-    /// cross-account observability</a>.
+    /// This API returns effective configurations (custom overrides or defaults) for each
+    /// attachment scope. If no custom configuration exists for a scope, the default configuration
+    /// values are returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CWLQueryResult")]
-    [OutputType("Amazon.CloudWatchLogs.Model.GetQueryResultsResponse")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs GetQueryResults API operation.", Operation = new[] {"GetQueryResults"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.GetQueryResultsResponse))]
-    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.GetQueryResultsResponse",
-        "This cmdlet returns an Amazon.CloudWatchLogs.Model.GetQueryResultsResponse object containing multiple properties."
+    [Cmdlet("Get", "CONNAttachedFilesConfigurationList")]
+    [OutputType("Amazon.Connect.Model.AttachedFilesConfigurationSummary")]
+    [AWSCmdlet("Calls the Amazon Connect Service ListAttachedFilesConfigurations API operation.", Operation = new[] {"ListAttachedFilesConfigurations"}, SelectReturnType = typeof(Amazon.Connect.Model.ListAttachedFilesConfigurationsResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.AttachedFilesConfigurationSummary or Amazon.Connect.Model.ListAttachedFilesConfigurationsResponse",
+        "This cmdlet returns a collection of Amazon.Connect.Model.AttachedFilesConfigurationSummary objects.",
+        "The service call response (type Amazon.Connect.Model.ListAttachedFilesConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCWLQueryResultCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class GetCONNAttachedFilesConfigurationListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter QueryId
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID number of the query.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,25 +68,30 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryId { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter MaxItem
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of log events to return in the response. The maximum is 10,000
-        /// log events.</para>
+        /// <para>The maximum number of results to return per page. The default MaxResult size is 100.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems")]
-        public System.Int32? MaxItem { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of items to return. The token expires after 1 hour.</para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -114,13 +104,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.GetQueryResultsResponse).
-        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.GetQueryResultsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AttachedFilesConfigurations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListAttachedFilesConfigurationsResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.ListAttachedFilesConfigurationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AttachedFilesConfigurations";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -149,18 +139,27 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.GetQueryResultsResponse, GetCWLQueryResultCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListAttachedFilesConfigurationsResponse, GetCONNAttachedFilesConfigurationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MaxItem = this.MaxItem;
-            context.NextToken = this.NextToken;
-            context.QueryId = this.QueryId;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter QueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,15 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudWatchLogs.Model.GetQueryResultsRequest();
+            var request = new Amazon.Connect.Model.ListAttachedFilesConfigurationsRequest();
             
-            if (cmdletContext.MaxItem != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.MaxItems = cmdletContext.MaxItem.Value;
+                request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.QueryId != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.QueryId = cmdletContext.QueryId;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -244,12 +243,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.GetQueryResultsResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.GetQueryResultsRequest request)
+        private Amazon.Connect.Model.ListAttachedFilesConfigurationsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListAttachedFilesConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "GetQueryResults");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListAttachedFilesConfigurations");
             try
             {
-                return client.GetQueryResultsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListAttachedFilesConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -266,11 +265,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxItem { get; set; }
+            public System.String InstanceId { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String QueryId { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.GetQueryResultsResponse, GetCWLQueryResultCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Connect.Model.ListAttachedFilesConfigurationsResponse, GetCONNAttachedFilesConfigurationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AttachedFilesConfigurations;
         }
         
     }

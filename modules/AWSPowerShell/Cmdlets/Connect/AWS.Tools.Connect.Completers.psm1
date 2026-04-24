@@ -100,6 +100,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.AttachmentScope
+        {
+            ($_ -eq "Get-CONNAttachedFilesConfigurationDetail/AttachmentScope") -Or
+            ($_ -eq "Update-CONNAttachedFilesConfiguration/AttachmentScope")
+        }
+        {
+            $v = "CASE","CHAT","EMAIL","TASK"
+            break
+        }
+
         # Amazon.Connect.BooleanComparisonType
         {
             ($_ -eq "Search-CONNContactEvaluation/BooleanCondition_ComparisonType") -Or
@@ -861,6 +871,7 @@ $CONN_map = @{
     "Agent_ScreenShare"=@("Start-CONNWebRTCContact")
     "Agent_Video"=@("Start-CONNWebRTCContact")
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
+    "AttachmentScope"=@("Get-CONNAttachedFilesConfigurationDetail","Update-CONNAttachedFilesConfiguration")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "BooleanCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
     "Channel"=@("New-CONNContact")
@@ -1113,6 +1124,7 @@ $CONN_SelectMap = @{
                "Remove-CONNWorkspaceMedia",
                "Remove-CONNWorkspacePage",
                "Get-CONNAgentStatus",
+               "Get-CONNAttachedFilesConfigurationDetail",
                "Get-CONNAuthenticationProfile",
                "Get-CONNContact",
                "Get-CONNContactEvaluation",
@@ -1186,6 +1198,7 @@ $CONN_SelectMap = @{
                "Get-CONNAnalyticsDataLakeDataSetList",
                "Get-CONNApprovedOriginList",
                "Get-CONNAssociatedContactList",
+               "Get-CONNAttachedFilesConfigurationList",
                "Get-CONNAuthenticationProfileList",
                "Get-CONNBotList",
                "Get-CONNChildHoursOfOperationList",
@@ -1311,6 +1324,7 @@ $CONN_SelectMap = @{
                "Remove-CONNContactTag",
                "Remove-CONNResourceTag",
                "Update-CONNAgentStatus",
+               "Update-CONNAttachedFilesConfiguration",
                "Update-CONNAuthenticationProfile",
                "Update-CONNContact",
                "Update-CONNContactAttribute",

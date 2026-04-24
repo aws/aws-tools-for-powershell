@@ -8357,7 +8357,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCAgentRuntime/CodeConfiguration_Runtime")
         }
         {
-            $v = "PYTHON_3_10","PYTHON_3_11","PYTHON_3_12","PYTHON_3_13","PYTHON_3_14"
+            $v = "NODE_22","PYTHON_3_10","PYTHON_3_11","PYTHON_3_12","PYTHON_3_13","PYTHON_3_14"
             break
         }
 
@@ -8408,8 +8408,18 @@ $BACC_Completers = {
 
         # Amazon.BedrockAgentCoreControl.EndpointIpAddressType
         {
-            ($_ -eq "New-BACCGatewayTarget/PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType") -Or
-            ($_ -eq "Update-BACCGatewayTarget/PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType")
+            ($_ -eq "New-BACCAgentRuntime/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "New-BACCGateway/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "New-BACCHarness/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "New-BACCRegistry/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-BACCAgentRuntime/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-BACCGateway/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-BACCHarness/AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-BACCRegistry/AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "New-BACCGatewayTarget/PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-BACCGatewayTarget/PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType")
         }
         {
             $v = "IPV4","IPV6"
@@ -8592,6 +8602,8 @@ $BACC_Completers = {
 }
 
 $BACC_map = @{
+    "AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCAgentRuntime","New-BACCGateway","New-BACCHarness","New-BACCRegistry","Update-BACCAgentRuntime","Update-BACCGateway")
+    "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
     "AuthorizerType"=@("New-BACCGateway","New-BACCRegistry","Update-BACCGateway")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
@@ -8603,8 +8615,9 @@ $BACC_map = @{
     "Level"=@("New-BACCEvaluator","Update-BACCEvaluator")
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
-    "PrivateEndpoint_ManagedLatticeResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
+    "PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
@@ -19869,6 +19882,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.AttachmentScope
+        {
+            ($_ -eq "Get-CONNAttachedFilesConfigurationDetail/AttachmentScope") -Or
+            ($_ -eq "Update-CONNAttachedFilesConfiguration/AttachmentScope")
+        }
+        {
+            $v = "CASE","CHAT","EMAIL","TASK"
+            break
+        }
+
         # Amazon.Connect.BooleanComparisonType
         {
             ($_ -eq "Search-CONNContactEvaluation/BooleanCondition_ComparisonType") -Or
@@ -20630,6 +20653,7 @@ $CONN_map = @{
     "Agent_ScreenShare"=@("Start-CONNWebRTCContact")
     "Agent_Video"=@("Start-CONNWebRTCContact")
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
+    "AttachmentScope"=@("Get-CONNAttachedFilesConfigurationDetail","Update-CONNAttachedFilesConfiguration")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "BooleanCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
     "Channel"=@("New-CONNContact")
@@ -20882,6 +20906,7 @@ $CONN_SelectMap = @{
                "Remove-CONNWorkspaceMedia",
                "Remove-CONNWorkspacePage",
                "Get-CONNAgentStatus",
+               "Get-CONNAttachedFilesConfigurationDetail",
                "Get-CONNAuthenticationProfile",
                "Get-CONNContact",
                "Get-CONNContactEvaluation",
@@ -20955,6 +20980,7 @@ $CONN_SelectMap = @{
                "Get-CONNAnalyticsDataLakeDataSetList",
                "Get-CONNApprovedOriginList",
                "Get-CONNAssociatedContactList",
+               "Get-CONNAttachedFilesConfigurationList",
                "Get-CONNAuthenticationProfileList",
                "Get-CONNBotList",
                "Get-CONNChildHoursOfOperationList",
@@ -21080,6 +21106,7 @@ $CONN_SelectMap = @{
                "Remove-CONNContactTag",
                "Remove-CONNResourceTag",
                "Update-CONNAgentStatus",
+               "Update-CONNAttachedFilesConfiguration",
                "Update-CONNAuthenticationProfile",
                "Update-CONNContact",
                "Update-CONNContactAttribute",
@@ -34772,7 +34799,7 @@ $EVS_Completers = {
         # Amazon.Evs.InstanceType
         "New-EVSEnvironmentHost/Host_InstanceType"
         {
-            $v = "i4i.metal"
+            $v = "i4i.metal","i7i.metal-24xl"
             break
         }
 
@@ -84934,6 +84961,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.WebAppVpcEndpointIpAddressType
+        {
+            ($_ -eq "New-TFRWebApp/EndpointDetails_Vpc_IpAddressType") -Or
+            ($_ -eq "Update-TFRWebApp/EndpointDetails_Vpc_IpAddressType")
+        }
+        {
+            $v = "DUALSTACK","IPV4"
+            break
+        }
+
 
     }
 
@@ -84950,6 +84987,7 @@ $TFR_map = @{
     "As2Config_PreserveContentType"=@("New-TFRConnector","Update-TFRConnector")
     "As2Config_SigningAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
     "Domain"=@("New-TFRServer")
+    "EndpointDetails_Vpc_IpAddressType"=@("New-TFRWebApp","Update-TFRWebApp")
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "EnforceMessageSigning"=@("New-TFRAgreement","Update-TFRAgreement")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")

@@ -101,7 +101,7 @@ $EVS_Completers = {
         # Amazon.Evs.InstanceType
         "New-EVSEnvironmentHost/Host_InstanceType"
         {
-            $v = "i4i.metal"
+            $v = "i4i.metal","i7i.metal-24xl"
             break
         }
 

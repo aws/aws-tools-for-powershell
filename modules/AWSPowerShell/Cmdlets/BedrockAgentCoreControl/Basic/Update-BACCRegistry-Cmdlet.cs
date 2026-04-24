@@ -130,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
         #endregion
         
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the resource configuration endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.EndpointIpAddressType")]
+        public Amazon.BedrockAgentCoreControl.EndpointIpAddressType AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -151,6 +162,23 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Description_OptionalValue { get; set; }
         #endregion
         
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride
+        /// <summary>
+        /// <para>
+        /// <para>A list of private endpoint overrides for the JWT authorizer. Each override maps a
+        /// specific domain to a private endpoint, enabling secure connectivity through VPC Lattice
+        /// resource configurations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverrides")]
+        public Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride[] AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
+        #endregion
+        
         #region Parameter RegistryId
         /// <summary>
         /// <para>
@@ -167,6 +195,83 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RegistryId { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ARN or ID of the VPC Lattice resource configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain
+        /// <summary>
+        /// <para>
+        /// <para>An intermediate publicly resolvable domain used as the VPC Lattice resource configuration
+        /// endpoint. Required when your private endpoint uses a domain that is not publicly resolvable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The security group IDs to associate with the VPC Lattice resource gateway. If not
+        /// specified, the default security group for the VPC is used.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupIds")]
+        public System.String[] AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The subnet IDs within the VPC where the VPC Lattice resource gateway is placed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetIds")]
+        public System.String[] AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to apply to the managed VPC Lattice resource gateway.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tags")]
+        public System.Collections.Hashtable AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC that contains your private resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
@@ -233,6 +338,30 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim = new List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType>(this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim);
             }
             context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl = this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl;
+            context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType = this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType;
+            context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain = this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain;
+            if (this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId != null)
+            {
+                context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId = new List<System.String>(this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId);
+            }
+            if (this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId != null)
+            {
+                context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId = new List<System.String>(this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId);
+            }
+            if (this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag != null)
+            {
+                context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag.Keys)
+                {
+                    context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag.Add((String)hashKey, (System.String)(this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag[hashKey]));
+                }
+            }
+            context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier = this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier;
+            context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier = this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier;
+            if (this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride != null)
+            {
+                context.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride = new List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride>(this.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride);
+            }
             context.Description_OptionalValue = this.Description_OptionalValue;
             context.Name = this.Name;
             context.RegistryId = this.RegistryId;
@@ -356,6 +485,131 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer.DiscoveryUrl = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl;
                 requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull = false;
             }
+            List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer.PrivateEndpointOverrides = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.PrivateEndpoint requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint = null;
+            
+             // populate PrivateEndpoint
+            var requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointIsNull = true;
+            requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint = new Amazon.BedrockAgentCoreControl.Model.PrivateEndpoint();
+            Amazon.BedrockAgentCoreControl.Model.SelfManagedLatticeResource requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource = null;
+            
+             // populate SelfManagedLatticeResource
+            var requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResourceIsNull = true;
+            requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource = new Amazon.BedrockAgentCoreControl.Model.SelfManagedLatticeResource();
+            System.String requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource.ResourceConfigurationIdentifier = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResourceIsNull = false;
+            }
+             // determine if requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource should be set to null
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResourceIsNull)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource = null;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint.SelfManagedLatticeResource = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.ManagedVpcResource requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource = null;
+            
+             // populate ManagedVpcResource
+            var requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResourceIsNull = true;
+            requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource = new Amazon.BedrockAgentCoreControl.Model.ManagedVpcResource();
+            Amazon.BedrockAgentCoreControl.EndpointIpAddressType requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource.EndpointIpAddressType = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            System.String requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource.RoutingDomain = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource.SecurityGroupIds = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource.SubnetIds = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource.Tags = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            System.String requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier = null;
+            if (cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier = cmdletContext.AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource.VpcIdentifier = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+             // determine if requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource should be set to null
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResourceIsNull)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource = null;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint.ManagedVpcResource = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointIsNull = false;
+            }
+             // determine if requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint should be set to null
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointIsNull)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint = null;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer.PrivateEndpoint = requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint;
+                requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull = false;
+            }
              // determine if requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizer should be set to null
             if (requestAuthorizerConfiguration_authorizerConfiguration_OptionalValue_authorizerConfiguration_OptionalValue_CustomJWTAuthorizerIsNull)
             {
@@ -469,6 +723,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<System.String> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedScope { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CustomClaim { get; set; }
             public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
+            public Amazon.BedrockAgentCoreControl.EndpointIpAddressType AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
+            public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
+            public List<System.String> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId { get; set; }
+            public List<System.String> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId { get; set; }
+            public Dictionary<System.String, System.String> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag { get; set; }
+            public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
+            public System.String AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
             public System.String Description_OptionalValue { get; set; }
             public System.String Name { get; set; }
             public System.String RegistryId { get; set; }

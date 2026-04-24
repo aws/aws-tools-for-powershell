@@ -515,6 +515,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAttachedFilesConfiguration" OutputProperty="AttachedFilesConfiguration" Verb="Get" Noun="AttachedFilesConfigurationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAuthenticationProfile" OutputProperty="AuthenticationProfile" Verb="Get" Noun="AuthenticationProfile" PipelineParameter="AuthenticationProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -806,6 +810,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAssociatedContacts" OutputProperty="ContactSummaryList" Verb="Get" Noun="AssociatedContactList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachedFilesConfigurations" OutputProperty="AttachedFilesConfigurations" Verb="Get" Noun="AttachedFilesConfigurationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1604,6 +1612,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentStatus" Verb="Update" Noun="AgentStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAttachedFilesConfiguration" OutputProperty="*" Verb="Update" Noun="AttachedFilesConfiguration" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

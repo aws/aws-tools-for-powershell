@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String AccessEndpoint { get; set; }
         #endregion
         
+        #region Parameter EndpointDetails_Vpc_IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the web app's VPC endpoint. This determines whether the endpoint
+        /// is accessible over IPv4 only, or over both IPv4 and IPv6.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.WebAppVpcEndpointIpAddressType")]
+        public Amazon.Transfer.WebAppVpcEndpointIpAddressType EndpointDetails_Vpc_IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter WebAppUnits_Provisioned
         /// <summary>
         /// <para>
@@ -168,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AccessEndpoint = this.AccessEndpoint;
+            context.EndpointDetails_Vpc_IpAddressType = this.EndpointDetails_Vpc_IpAddressType;
             if (this.Vpc_SubnetId != null)
             {
                 context.Vpc_SubnetId = new List<System.String>(this.Vpc_SubnetId);
@@ -210,6 +223,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
              // populate Vpc
             var requestEndpointDetails_endpointDetails_VpcIsNull = true;
             requestEndpointDetails_endpointDetails_Vpc = new Amazon.Transfer.Model.UpdateWebAppVpcConfig();
+            Amazon.Transfer.WebAppVpcEndpointIpAddressType requestEndpointDetails_endpointDetails_Vpc_endpointDetails_Vpc_IpAddressType = null;
+            if (cmdletContext.EndpointDetails_Vpc_IpAddressType != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc_endpointDetails_Vpc_IpAddressType = cmdletContext.EndpointDetails_Vpc_IpAddressType;
+            }
+            if (requestEndpointDetails_endpointDetails_Vpc_endpointDetails_Vpc_IpAddressType != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc.IpAddressType = requestEndpointDetails_endpointDetails_Vpc_endpointDetails_Vpc_IpAddressType;
+                requestEndpointDetails_endpointDetails_VpcIsNull = false;
+            }
             List<System.String> requestEndpointDetails_endpointDetails_Vpc_vpc_SubnetId = null;
             if (cmdletContext.Vpc_SubnetId != null)
             {
@@ -348,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccessEndpoint { get; set; }
+            public Amazon.Transfer.WebAppVpcEndpointIpAddressType EndpointDetails_Vpc_IpAddressType { get; set; }
             public List<System.String> Vpc_SubnetId { get; set; }
             public System.String IdentityCenterConfig_Role { get; set; }
             public System.String WebAppId { get; set; }

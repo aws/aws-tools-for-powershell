@@ -300,6 +300,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String OauthDiscovery_DiscoveryUrl { get; set; }
         #endregion
         
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the resource configuration endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.EndpointIpAddressType")]
+        public Amazon.BedrockAgentCoreControl.EndpointIpAddressType Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
+        #endregion
+        
         #region Parameter AuthorizationServerMetadata_Issuer
         /// <summary>
         /// <para>
@@ -340,6 +351,33 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride
+        /// <summary>
+        /// <para>
+        /// <para>The list of private endpoint overrides for the custom OAuth2 provider. Each override
+        /// maps a specific domain to a private endpoint, enabling secure connectivity through
+        /// VPC Lattice resource configurations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverrides")]
+        public Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride[] Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ARN or ID of the VPC Lattice resource configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
+        #endregion
+        
         #region Parameter AuthorizationServerMetadata_ResponseType
         /// <summary>
         /// <para>
@@ -353,6 +391,63 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_ResponseTypes")]
         public System.String[] AuthorizationServerMetadata_ResponseType { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain
+        /// <summary>
+        /// <para>
+        /// <para>An intermediate publicly resolvable domain used as the VPC Lattice resource configuration
+        /// endpoint. Required when your private endpoint uses a domain that is not publicly resolvable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The security group IDs to associate with the VPC Lattice resource gateway. If not
+        /// specified, the default security group for the VPC is used.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupIds")]
+        public System.String[] Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The subnet IDs within the VPC where the VPC Lattice resource gateway is placed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetIds")]
+        public System.String[] Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to apply to the managed VPC Lattice resource gateway.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tags")]
+        public System.Collections.Hashtable Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -422,6 +517,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata_TokenEndpointAuthMethods")]
         public System.String[] AuthorizationServerMetadata_TokenEndpointAuthMethod { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC that contains your private resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
@@ -500,6 +605,30 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.AuthorizationServerMetadata_TokenEndpointAuthMethod = new List<System.String>(this.AuthorizationServerMetadata_TokenEndpointAuthMethod);
             }
             context.OauthDiscovery_DiscoveryUrl = this.OauthDiscovery_DiscoveryUrl;
+            context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType = this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType;
+            context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain = this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain;
+            if (this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId != null)
+            {
+                context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId = new List<System.String>(this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId);
+            }
+            if (this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId != null)
+            {
+                context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId = new List<System.String>(this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId);
+            }
+            if (this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag != null)
+            {
+                context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag.Keys)
+                {
+                    context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag.Add((String)hashKey, (System.String)(this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag[hashKey]));
+                }
+            }
+            context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier = this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier;
+            context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier = this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier;
+            if (this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride != null)
+            {
+                context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride = new List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride>(this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride);
+            }
             context.GithubOauth2ProviderConfig_ClientId = this.GithubOauth2ProviderConfig_ClientId;
             context.GithubOauth2ProviderConfig_ClientSecret = this.GithubOauth2ProviderConfig_ClientSecret;
             context.GoogleOauth2ProviderConfig_ClientId = this.GoogleOauth2ProviderConfig_ClientId;
@@ -764,6 +893,51 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 request.Oauth2ProviderConfigInput.SlackOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig;
                 requestOauth2ProviderConfigInputIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.Model.MicrosoftOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig = null;
+            
+             // populate MicrosoftOauth2ProviderConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig = new Amazon.BedrockAgentCoreControl.Model.MicrosoftOauth2ProviderConfigInput();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientId = null;
+            if (cmdletContext.MicrosoftOauth2ProviderConfig_ClientId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientId = cmdletContext.MicrosoftOauth2ProviderConfig_ClientId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.ClientId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientSecret = null;
+            if (cmdletContext.MicrosoftOauth2ProviderConfig_ClientSecret != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientSecret = cmdletContext.MicrosoftOauth2ProviderConfig_ClientSecret;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientSecret != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientSecret;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId = null;
+            if (cmdletContext.MicrosoftOauth2ProviderConfig_TenantId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId = cmdletContext.MicrosoftOauth2ProviderConfig_TenantId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.TenantId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig != null)
+            {
+                request.Oauth2ProviderConfigInput.MicrosoftOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig;
+                requestOauth2ProviderConfigInputIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.CustomOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig = null;
             
              // populate CustomOauth2ProviderConfig
@@ -787,6 +961,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_customOauth2ProviderConfig_ClientSecret != null)
             {
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_customOauth2ProviderConfig_ClientSecret;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = false;
+            }
+            List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig.PrivateEndpointOverrides = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.Oauth2Discovery requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery = null;
@@ -879,6 +1063,121 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig.OauthDiscovery = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.Model.PrivateEndpoint requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint = null;
+            
+             // populate PrivateEndpoint
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint = new Amazon.BedrockAgentCoreControl.Model.PrivateEndpoint();
+            Amazon.BedrockAgentCoreControl.Model.SelfManagedLatticeResource requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource = null;
+            
+             // populate SelfManagedLatticeResource
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResourceIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource = new Amazon.BedrockAgentCoreControl.Model.SelfManagedLatticeResource();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource.ResourceConfigurationIdentifier = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResourceIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResourceIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint.SelfManagedLatticeResource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.ManagedVpcResource requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource = null;
+            
+             // populate ManagedVpcResource
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResourceIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource = new Amazon.BedrockAgentCoreControl.Model.ManagedVpcResource();
+            Amazon.BedrockAgentCoreControl.EndpointIpAddressType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource.EndpointIpAddressType = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource.RoutingDomain = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            List<System.String> requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource.SecurityGroupIds = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            List<System.String> requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource.SubnetIds = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource.Tags = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource.VpcIdentifier = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResourceIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResourceIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint.ManagedVpcResource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig.PrivateEndpoint = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = false;
+            }
              // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig should be set to null
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull)
             {
@@ -887,51 +1186,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig != null)
             {
                 request.Oauth2ProviderConfigInput.CustomOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig;
-                requestOauth2ProviderConfigInputIsNull = false;
-            }
-            Amazon.BedrockAgentCoreControl.Model.MicrosoftOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig = null;
-            
-             // populate MicrosoftOauth2ProviderConfig
-            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = true;
-            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig = new Amazon.BedrockAgentCoreControl.Model.MicrosoftOauth2ProviderConfigInput();
-            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientId = null;
-            if (cmdletContext.MicrosoftOauth2ProviderConfig_ClientId != null)
-            {
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientId = cmdletContext.MicrosoftOauth2ProviderConfig_ClientId;
-            }
-            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientId != null)
-            {
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.ClientId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientId;
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
-            }
-            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientSecret = null;
-            if (cmdletContext.MicrosoftOauth2ProviderConfig_ClientSecret != null)
-            {
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientSecret = cmdletContext.MicrosoftOauth2ProviderConfig_ClientSecret;
-            }
-            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientSecret != null)
-            {
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientSecret;
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
-            }
-            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId = null;
-            if (cmdletContext.MicrosoftOauth2ProviderConfig_TenantId != null)
-            {
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId = cmdletContext.MicrosoftOauth2ProviderConfig_TenantId;
-            }
-            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId != null)
-            {
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.TenantId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId;
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
-            }
-             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig should be set to null
-            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull)
-            {
-                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig = null;
-            }
-            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig != null)
-            {
-                request.Oauth2ProviderConfigInput.MicrosoftOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig;
                 requestOauth2ProviderConfigInputIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.IncludedOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig = null;
@@ -1075,6 +1329,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String AuthorizationServerMetadata_TokenEndpoint { get; set; }
             public List<System.String> AuthorizationServerMetadata_TokenEndpointAuthMethod { get; set; }
             public System.String OauthDiscovery_DiscoveryUrl { get; set; }
+            public Amazon.BedrockAgentCoreControl.EndpointIpAddressType Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
+            public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
+            public List<System.String> Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId { get; set; }
+            public List<System.String> Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SubnetId { get; set; }
+            public Dictionary<System.String, System.String> Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_Tag { get; set; }
+            public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
+            public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride { get; set; }
             public System.String GithubOauth2ProviderConfig_ClientId { get; set; }
             public System.String GithubOauth2ProviderConfig_ClientSecret { get; set; }
             public System.String GoogleOauth2ProviderConfig_ClientId { get; set; }
