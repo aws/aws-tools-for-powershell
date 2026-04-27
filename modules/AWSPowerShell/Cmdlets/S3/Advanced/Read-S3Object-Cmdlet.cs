@@ -38,12 +38,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Note that you can pipe an Amazon.S3.Model.S3Object instance to this cmdlet and its members will be used to
     /// satisfy the BucketName, Key and optionally VersionId (if an S3ObjectVersion instance is supplied), parameters.
     /// </para>
+    /// <para>
+    /// When -UseMultipartDownload is specified, the cmdlet uses the SDK's multipart parallel download APIs for
+    /// improved performance on large objects and returns TransferUtilityDownloadResponse or
+    /// TransferUtilityDownloadDirectoryResponse.
+    /// </para>
     /// </summary>
     [Cmdlet("Read", "S3Object", DefaultParameterSetName = ParamSet_ToLocalFile)]
-    [OutputType(new Type[] { typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) })]
+    [OutputType(typeof(System.IO.FileInfo))]
+    [OutputType(typeof(System.IO.DirectoryInfo))]
+    [OutputType(typeof(TransferUtilityDownloadResponse))]
+    [OutputType(typeof(TransferUtilityDownloadDirectoryResponse))]
     [AWSCmdlet("Downloads one or more objects from an S3 bucket to the local file system.", Operation = new[] { "GetObject" })]
-    [AWSCmdletOutput("System.IO.FileInfo instance if reading a single object or System.IO.DirectoryInfo instance for multi-object read.",
-        "Returns a System.IO.FileInfo instance representing the local file if reading a single object or a System.IO.DirectoryInfo instance to the root parent folder if reading multiple objects."
+    [AWSCmdletOutput("System.IO.FileInfo or System.IO.DirectoryInfo or Amazon.S3.Transfer.TransferUtilityDownloadResponse or Amazon.S3.Transfer.TransferUtilityDownloadDirectoryResponse",
+        "Returns FileInfo/DirectoryInfo by default, or TransferUtilityDownloadResponse/TransferUtilityDownloadDirectoryResponse when -UseMultipartDownload is specified."
     )]
     public class ReadS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -271,6 +279,155 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
+        #region Multipart Download Parameters
+
+        #region Parameter UseMultipartDownload
+        /// <summary>
+        /// <para>
+        /// Enables multipart parallel download for significantly improved performance on large S3 objects.
+        /// When specified, the cmdlet uses the AWS SDK for .NET's multipart download engine which downloads
+        /// multiple parts of the object simultaneously, utilizing available network bandwidth more effectively.
+        /// </para>
+        /// <para>
+        /// <b>Pipeline output changes when this switch is used:</b> Instead of returning
+        /// <c>System.IO.FileInfo</c> (single file) or <c>System.IO.DirectoryInfo</c> (folder), the cmdlet
+        /// returns <c>Amazon.S3.Transfer.TransferUtilityDownloadResponse</c> (single file) or
+        /// <c>Amazon.S3.Transfer.TransferUtilityDownloadDirectoryResponse</c> (folder). These response
+        /// objects provide access to download metadata including ETag, checksums, version ID, storage class,
+        /// encryption information, and other S3 object properties.
+        /// </para>
+        /// <para>
+        /// Without this switch, the cmdlet uses the legacy default single-stream download path and returns
+        /// <c>FileInfo</c>/<c>DirectoryInfo</c>.
+        /// </para>
+        /// <para>
+        /// The following parameters require this switch: <c>-MultipartDownloadType</c>, <c>-PartSize</c>,
+        /// and <c>-ConcurrentServiceRequest</c>. Using these parameters without this switch will result in an error.
+        /// </para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter UseMultipartDownload { get; set; }
+        #endregion
+
+        #region Parameter MultipartDownloadType
+        /// <summary>
+        /// <para>
+        /// Specifies the multipart download strategy. Requires <c>-UseMultipartDownload</c>.
+        /// </para>
+        /// <para>
+        /// <b>PART</b> (default): Downloads using the object's original multipart upload part boundaries.
+        /// This is optimal for objects that were uploaded using multipart upload, as it downloads each
+        /// original part in parallel. For objects uploaded via a single PUT operation, the SDK sees only
+        /// one part, so the download effectively uses a single stream with no parallelization benefit.
+        /// The <c>-PartSize</c> parameter is ignored in PART mode.
+        /// </para>
+        /// <para>
+        /// <b>RANGE</b>: Downloads using HTTP byte-range requests with a configurable part size (see
+        /// <c>-PartSize</c>). This works for <b>all objects</b> regardless of how they were uploaded and
+        /// provides parallel downloads even for objects uploaded via a single PUT operation.
+        /// </para>
+        /// <para>
+        /// <b>RECOMMENDATION:</b> Use <c>-MultipartDownloadType RANGE</c> if you do not know how the object
+        /// was uploaded or if you want guaranteed parallelism on any object. Use PART mode (the default) if
+        /// you know the object was uploaded via multipart upload and want to use its original part boundaries.
+        /// </para>
+        /// </summary>
+        [Parameter(ParameterSetName = ParamSet_ToLocalFile, ValueFromPipelineByPropertyName = true)]
+        [Parameter(ParameterSetName = ParamSet_FromS3Object, ValueFromPipelineByPropertyName = true)]
+        public Amazon.S3.Transfer.MultipartDownloadType? MultipartDownloadType { get; set; }
+        #endregion
+
+        #region Parameter PartSize
+        /// <summary>
+        /// <para>
+        /// Specifies the size of each part for multipart download when using RANGE mode. Requires
+        /// <c>-UseMultipartDownload</c>. This parameter is ignored when using the default PART mode.
+        /// </para>
+        /// <para>
+        /// When not specified, the SDK uses a default part size of 8 MB. Larger part sizes reduce the
+        /// number of parallel requests but increase the amount of data per request. Smaller part sizes
+        /// increase parallelism but add more request overhead.
+        /// </para>
+        /// <para>You can specify the part size in one of two ways:</para>
+        /// <ul>
+        /// <li><para>The part size in bytes. For example, <c>8388608</c>.</para></li>
+        /// <li><para>The part size with a size suffix. You can use bytes, KB, MB, GB. For example,
+        /// <c>8MB</c>, <c>"64 MB"</c>, <c>1GB</c>.</para></li>
+        /// </ul>
+        /// </summary>
+        [Parameter(ParameterSetName = ParamSet_ToLocalFile, ValueFromPipelineByPropertyName = true)]
+        [Parameter(ParameterSetName = ParamSet_FromS3Object, ValueFromPipelineByPropertyName = true)]
+        public FileSize PartSize { get; set; }
+        #endregion
+
+        #region Parameter ConcurrentServiceRequest
+        /// <summary>
+        /// <para>
+        /// Specifies the maximum number of parallel HTTP connections used to download parts simultaneously. 
+        /// The default value is 10.
+        /// Requires <c>-UseMultipartDownload</c>.
+        /// </para>
+        /// <para>
+        /// Higher values can improve download throughput on high-bandwidth connections by downloading more
+        /// parts in parallel. Lower values reduce resource usage and concurrent connections to S3. The SDK
+        /// handles S3 throttling (HTTP 503 SlowDown) internally with automatic retry and exponential backoff,
+        /// so high values are safe to use.
+        /// </para>
+        /// <para>
+        /// This property sets <c>TransferUtilityConfig.ConcurrentServiceRequests</c> on the underlying
+        /// SDK TransferUtility. The value must be a positive integer.
+        /// </para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConcurrentServiceRequests")]
+        public System.Int32? ConcurrentServiceRequest { get; set; }
+        #endregion
+
+        #region Parameter DownloadFilesConcurrently
+        /// <summary>
+        /// <para>
+        /// When specified, downloads multiple files in parallel within a directory download operation.
+        /// By default, files in a directory download are downloaded sequentially (one at a time).
+        /// </para>
+        /// <para>
+        /// This controls <b>file-level parallelism</b>, how many files download at the same time.
+        /// When combined with <c>-UseMultipartDownload</c>, each individual file also benefits from
+        /// <b>part-level parallelism</b> (multiple parts per file). This combination provides maximum
+        /// throughput for directory downloads containing many large files.
+        /// </para>
+        /// <para>
+        /// This parameter works with both the legacy single-stream download path and the multipart
+        /// download path.
+        /// </para>
+        /// </summary>
+        [Parameter(ParameterSetName = ParamSet_ToLocalFolder, ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter DownloadFilesConcurrently { get; set; }
+        #endregion
+
+        #region Parameter FailurePolicy
+        /// <summary>
+        /// <para>
+        /// Controls whether a directory download operation aborts on the first file failure or continues
+        /// downloading the remaining files. The default is <c>AbortOnFailure</c>.
+        /// </para>
+        /// <para>
+        /// <b>AbortOnFailure</b> (default): The directory download stops as soon as any individual file
+        /// download fails. Files that completed successfully before the failure remain on disk.
+        /// </para>
+        /// <para>
+        /// <b>ContinueOnFailure</b>: The directory download continues even when individual file downloads
+        /// fail. When used with <c>-UseMultipartDownload</c>, the returned
+        /// <c>TransferUtilityDownloadDirectoryResponse</c> includes <c>ObjectsFailed</c> count, a
+        /// <c>Result</c> property (<c>Success</c>, <c>PartialSuccess</c>, or <c>Failure</c>), and an
+        /// <c>Errors</c> collection with details about each failed download.
+        /// </para>
+        /// </summary>
+        [Parameter(ParameterSetName = ParamSet_ToLocalFolder, ValueFromPipelineByPropertyName = true)]
+        public Amazon.S3.Transfer.FailurePolicy? FailurePolicy { get; set; }
+        #endregion
+
+        #endregion
+
         #region Parameter EnableLegacyKeyCleaning
         /// <summary>
         /// Specifies whether to use legacy key cleaning behavior for S3 key names. When this switch is present,
@@ -357,7 +514,39 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (ParameterWasBound("ChecksumMode"))
                 context.ChecksumMode = this.ChecksumMode;
-            
+
+            // Multipart download parameters
+            context.UseMultipartDownload = this.UseMultipartDownload.IsPresent;
+
+            if (ParameterWasBound("MultipartDownloadType"))
+                context.MultipartDownloadType = this.MultipartDownloadType;
+            if (this.PartSize != null)
+                context.PartSize = this.PartSize.FileSizeInBytes;
+            if (this.ConcurrentServiceRequest.HasValue)
+                context.ConcurrentServiceRequests = this.ConcurrentServiceRequest.Value;
+            context.DownloadFilesConcurrently = this.DownloadFilesConcurrently.IsPresent;
+            if (ParameterWasBound("FailurePolicy"))
+                context.FailurePolicy = this.FailurePolicy;
+
+            // Validate multipart-only parameters require -UseMultipartDownload
+            if (!context.UseMultipartDownload)
+            {
+                if (context.MultipartDownloadType.HasValue)
+                    throw new ArgumentException("-MultipartDownloadType requires -UseMultipartDownload.");
+                if (context.PartSize.HasValue)
+                    throw new ArgumentException("-PartSize requires -UseMultipartDownload.");
+                if (context.ConcurrentServiceRequests.HasValue)
+                    throw new ArgumentException("-ConcurrentServiceRequest requires -UseMultipartDownload.");
+            }
+
+            // Range validation
+            if (context.ConcurrentServiceRequests.HasValue && context.ConcurrentServiceRequests.Value <= 0)
+                throw new ArgumentOutOfRangeException("ConcurrentServiceRequest",
+                    "ConcurrentServiceRequest should be set to a positive integer value.");
+            if (context.PartSize.HasValue && context.PartSize.Value <= 0)
+                throw new ArgumentOutOfRangeException("PartSize",
+                    "PartSize should be set to a positive value.");
+
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
         }
@@ -401,16 +590,38 @@ namespace Amazon.PowerShell.Cmdlets.S3
             request.ChecksumMode = cmdletContext.ChecksumMode;
 
             CmdletOutput output;
-            using (var tu = new TransferUtility(Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint)))
+
+            using (var tu = CreateTransferUtility(cmdletContext))
             {
                 Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object download APIs");
 
                 var runner = new ProgressRunner(this);
                 var tracker = new DownloadFileProgressTracker(runner, handler => request.WriteObjectProgressEvent += handler, cmdletContext.Key);
 
-                output = runner.SafeRun(() => tu.DownloadAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult(), tracker);
-                if (output.ErrorResponse == null)
-                    output.PipelineOutput = new FileInfo(cmdletContext.File);
+                if (cmdletContext.UseMultipartDownload)
+                {
+                    if (cmdletContext.MultipartDownloadType.HasValue)
+                        request.MultipartDownloadType = cmdletContext.MultipartDownloadType.Value;
+                    if (cmdletContext.PartSize.HasValue)
+                        request.PartSize = cmdletContext.PartSize.Value;
+
+                    TransferUtilityDownloadResponse response = null;
+                    output = runner.SafeRun(() =>
+                    {
+                        response = tu.DownloadWithResponseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                    }, tracker);
+                    if (output.ErrorResponse == null)
+                    {
+                        WriteVerboseDownloadResponse(response, cmdletContext.File);
+                        output.PipelineOutput = response;
+                    }
+                }
+                else
+                {
+                    output = runner.SafeRun(() => tu.DownloadAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult(), tracker);
+                    if (output.ErrorResponse == null)
+                        output.PipelineOutput = new FileInfo(cmdletContext.File);
+                }
             }
             return output;
         }
@@ -435,17 +646,40 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
             }
 
+            // DownloadFilesConcurrently and FailurePolicy apply to both legacy and multipart paths
+            if (cmdletContext.DownloadFilesConcurrently)
+                request.DownloadFilesConcurrently = true;
+            if (cmdletContext.FailurePolicy.HasValue)
+                request.FailurePolicy = cmdletContext.FailurePolicy.Value;
+
             CmdletOutput output;
-            using (var tu = new TransferUtility(Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint)))
+
+            using (var tu = CreateTransferUtility(cmdletContext))
             {
                 Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object download APIs");
 
                 var runner = new ProgressRunner(this);
                 var tracker = new DownloadFolderProgressTracker(runner, handler => request.DownloadedDirectoryProgressEvent += handler);
 
-                output = runner.SafeRun(() => tu.DownloadDirectoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult(), tracker);
-                if (output.ErrorResponse == null)
-                    output.PipelineOutput = new DirectoryInfo(cmdletContext.Folder);
+                if (cmdletContext.UseMultipartDownload)
+                {
+                    TransferUtilityDownloadDirectoryResponse dirResponse = null;
+                    output = runner.SafeRun(() =>
+                    {
+                        dirResponse = tu.DownloadDirectoryWithResponseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                    }, tracker);
+                    if (output.ErrorResponse == null)
+                    {
+                        WriteVerboseDirectoryDownloadResponse(dirResponse, cmdletContext.Folder);
+                        output.PipelineOutput = dirResponse;
+                    }
+                }
+                else
+                {
+                    output = runner.SafeRun(() => tu.DownloadDirectoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult(), tracker);
+                    if (output.ErrorResponse == null)
+                        output.PipelineOutput = new DirectoryInfo(cmdletContext.Folder);
+                }
 
                 WriteVerbose(string.Format("Downloaded {0} object(s) from bucket '{1}' with keyprefix '{2}' to '{3}'",
                                            tracker.DownloadedCount,
@@ -460,6 +694,82 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public ExecutorContext CreateContext()
         {
             return new CmdletContext();
+        }
+
+        #endregion
+
+        #region Helper Methods
+
+        private TransferUtility CreateTransferUtility(CmdletContext cmdletContext)
+        {
+            if (cmdletContext.UseMultipartDownload)
+            {
+                var config = new TransferUtilityConfig();
+                if (cmdletContext.ConcurrentServiceRequests.HasValue)
+                    config.ConcurrentServiceRequests = cmdletContext.ConcurrentServiceRequests.Value;
+                return new TransferUtility(Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint), config);
+            }
+            return new TransferUtility(Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint));
+        }
+
+        #endregion
+
+        #region Verbose Response Helpers
+
+        private void WriteVerboseDownloadResponse(TransferUtilityDownloadResponse response, string localFilePath)
+        {
+            if (response == null) return;
+            // File path and size
+            try
+            {
+                var fileInfo = new FileInfo(localFilePath);
+                if (fileInfo.Exists)
+                    WriteVerbose($"Downloaded file: {fileInfo.FullName} ({fileInfo.Length:N0} bytes)");
+                else
+                    WriteVerbose($"Downloaded file: {localFilePath}");
+            }
+            catch (IOException)
+            {
+                WriteVerbose($"Downloaded file: {localFilePath}");
+            }
+            catch (UnauthorizedAccessException)
+            {
+                WriteVerbose($"Downloaded file: {localFilePath}");
+            }
+            // S3 metadata
+            WriteVerbose($"ETag: {response.ETag}, VersionId: {response.VersionId}, LastModified: {response.LastModified}");
+            if (response.PartsCount.HasValue)
+                WriteVerbose($"PartsCount: {response.PartsCount}");
+            if (response.ChecksumType != null)
+                WriteVerbose($"ChecksumType: {response.ChecksumType}");
+            if (!string.IsNullOrEmpty(response.ChecksumCRC32))
+                WriteVerbose($"ChecksumCRC32: {response.ChecksumCRC32}");
+            if (!string.IsNullOrEmpty(response.ChecksumCRC32C))
+                WriteVerbose($"ChecksumCRC32C: {response.ChecksumCRC32C}");
+            if (!string.IsNullOrEmpty(response.ChecksumCRC64NVME))
+                WriteVerbose($"ChecksumCRC64NVME: {response.ChecksumCRC64NVME}");
+            if (!string.IsNullOrEmpty(response.ChecksumSHA1))
+                WriteVerbose($"ChecksumSHA1: {response.ChecksumSHA1}");
+            if (!string.IsNullOrEmpty(response.ChecksumSHA256))
+                WriteVerbose($"ChecksumSHA256: {response.ChecksumSHA256}");
+        }
+
+        private void WriteVerboseDirectoryDownloadResponse(TransferUtilityDownloadDirectoryResponse response, string localFolder)
+        {
+            if (response == null) return;
+            WriteVerbose($"Download folder: {localFolder}");
+            WriteVerbose($"ObjectsDownloaded: {response.ObjectsDownloaded}, ObjectsFailed: {response.ObjectsFailed}, Result: {response.Result}");
+            if (response.ObjectsFailed > 0)
+            {
+                WriteWarning($"{response.ObjectsFailed} object(s) failed to download.");
+                if (response.Errors != null)
+                {
+                    foreach (var error in response.Errors)
+                    {
+                        WriteWarning($"  Download error: {error.Message}");
+                    }
+                }
+            }
         }
 
         #endregion
@@ -485,6 +795,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public ChecksumMode ChecksumMode { get; set; }
 
             public bool DisableSlashCorrection { get; set; }
+
+            // Multipart download properties
+            public bool UseMultipartDownload { get; set; }
+            public MultipartDownloadType? MultipartDownloadType { get; set; }
+            public long? PartSize { get; set; }
+            public int? ConcurrentServiceRequests { get; set; }
+            public bool DownloadFilesConcurrently { get; set; }
+            public FailurePolicy? FailurePolicy { get; set; }
         }
 
         internal class DownloadFileProgressTracker : ProgressTracker<WriteObjectProgressArgs>
