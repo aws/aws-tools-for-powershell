@@ -103,7 +103,7 @@ $OMICS_Completers = {
         # Amazon.Omics.BatchStatus
         "Get-OMICSBatchList/Status"
         {
-            $v = "CANCELLED","FAILED","INPROGRESS","PENDING","PROCESSED","RUNS_DELETED","RUNS_DELETING","STOPPING","SUBMITTING"
+            $v = "CANCELLED","CREATING","FAILED","INPROGRESS","PENDING","PROCESSED","RUNS_DELETED","RUNS_DELETING","STOPPING","SUBMITTING"
             break
         }
 
@@ -163,7 +163,10 @@ $OMICS_Completers = {
         }
 
         # Amazon.Omics.NetworkingMode
-        "Start-OMICSRun/NetworkingMode"
+        {
+            ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_NetworkingMode") -Or
+            ($_ -eq "Start-OMICSRun/NetworkingMode")
+        }
         {
             $v = "RESTRICTED","VPC"
             break
@@ -368,6 +371,7 @@ $OMICS_map = @{
     "CacheBehavior"=@("New-OMICSRunCache","Start-OMICSRun","Update-OMICSRunCache")
     "DefaultRunSetting_CacheBehavior"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_LogLevel"=@("Start-OMICSRunBatch")
+    "DefaultRunSetting_NetworkingMode"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_RetentionMode"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_StorageType"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_WorkflowType"=@("Start-OMICSRunBatch")

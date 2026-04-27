@@ -66,8 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// friendly name (<c>NewCustomKeyStoreName</c>), to tell KMS about a change to the <c>kmsuser</c>
     /// crypto user password (<c>KeyStorePassword</c>), or to associate the custom key store
     /// with a different, but related, CloudHSM cluster (<c>CloudHsmClusterId</c>). To update
-    /// any property of an CloudHSM key store, the <c>ConnectionState</c> of the CloudHSM
-    /// key store must be <c>DISCONNECTED</c>. 
+    /// most properties of an CloudHSM key store, the <c>ConnectionState</c> of the CloudHSM
+    /// key store must be <c>DISCONNECTED</c>. However, you can update the <c>CustomKeyStoreName</c>
+    /// of an AWS CloudHSM key store when it is in the <c>CONNECTED</c> or <c>DISCONNECTED</c>
+    /// state.
     /// </para><para>
     /// For an external key store, you can use this operation to change the custom key store
     /// friendly name (<c>NewCustomKeyStoreName</c>), or to tell KMS about a change to the
@@ -179,8 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Changes the friendly name of the custom key store to the value that you specify. The
         /// custom key store name must be unique in the Amazon Web Services account.</para><important><para>Do not include confidential or sensitive information in this field. This field may
-        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>To change this value, an CloudHSM key store must be disconnected. An external key
-        /// store can be connected or disconnected.</para>
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>To change this value, the custom key store can be connected or disconnected.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

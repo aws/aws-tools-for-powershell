@@ -132,6 +132,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetKeyLastUsage" OutputProperty="*" Verb="Get" Noun="KeyLastUsage" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetKeyPolicy" OutputProperty="Policy" Verb="Get" Noun="KeyPolicy" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

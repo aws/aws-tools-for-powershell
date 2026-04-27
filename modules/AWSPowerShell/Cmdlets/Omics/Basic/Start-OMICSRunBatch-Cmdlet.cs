@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     /// 
     ///  
     /// <para><c>StartRunBatch</c> validates common fields synchronously and returns immediately
-    /// with a batch ID and status <c>PENDING</c>. Runs are submitted gradually and asynchronously
+    /// with a batch ID and status <c>CREATING</c>. The batch transitions to <c>PENDING</c>
+    /// once initial setup completes. Runs are then submitted gradually and asynchronously
     /// at a rate governed by your <c>StartRun</c> throughput quota.
     /// </para>
     /// </summary>
@@ -84,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String DefaultRunSetting_CacheId { get; set; }
         #endregion
         
+        #region Parameter DefaultRunSetting_ConfigurationName
+        /// <summary>
+        /// <para>
+        /// <para>Optional configuration name to use for the workflow run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultRunSetting_ConfigurationName { get; set; }
+        #endregion
+        
         #region Parameter BatchRunSettings_InlineSetting
         /// <summary>
         /// <para>
@@ -121,6 +132,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DefaultRunSetting_Name { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRunSetting_NetworkingMode
+        /// <summary>
+        /// <para>
+        /// <para>Optional configuration for run networking behavior. If not specified, this will default
+        /// to RESTRICTED.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.NetworkingMode")]
+        public Amazon.Omics.NetworkingMode DefaultRunSetting_NetworkingMode { get; set; }
         #endregion
         
         #region Parameter DefaultRunSetting_OutputBucketOwnerId
@@ -391,8 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.BatchRunSettings_S3UriSetting = this.BatchRunSettings_S3UriSetting;
             context.DefaultRunSetting_CacheBehavior = this.DefaultRunSetting_CacheBehavior;
             context.DefaultRunSetting_CacheId = this.DefaultRunSetting_CacheId;
+            context.DefaultRunSetting_ConfigurationName = this.DefaultRunSetting_ConfigurationName;
             context.DefaultRunSetting_LogLevel = this.DefaultRunSetting_LogLevel;
             context.DefaultRunSetting_Name = this.DefaultRunSetting_Name;
+            context.DefaultRunSetting_NetworkingMode = this.DefaultRunSetting_NetworkingMode;
             context.DefaultRunSetting_OutputBucketOwnerId = this.DefaultRunSetting_OutputBucketOwnerId;
             context.DefaultRunSetting_OutputUri = this.DefaultRunSetting_OutputUri;
             context.DefaultRunSetting_Parameter = this.DefaultRunSetting_Parameter;
@@ -508,6 +533,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 request.DefaultRunSetting.CacheId = requestDefaultRunSetting_defaultRunSetting_CacheId;
                 requestDefaultRunSettingIsNull = false;
             }
+            System.String requestDefaultRunSetting_defaultRunSetting_ConfigurationName = null;
+            if (cmdletContext.DefaultRunSetting_ConfigurationName != null)
+            {
+                requestDefaultRunSetting_defaultRunSetting_ConfigurationName = cmdletContext.DefaultRunSetting_ConfigurationName;
+            }
+            if (requestDefaultRunSetting_defaultRunSetting_ConfigurationName != null)
+            {
+                request.DefaultRunSetting.ConfigurationName = requestDefaultRunSetting_defaultRunSetting_ConfigurationName;
+                requestDefaultRunSettingIsNull = false;
+            }
             Amazon.Omics.RunLogLevel requestDefaultRunSetting_defaultRunSetting_LogLevel = null;
             if (cmdletContext.DefaultRunSetting_LogLevel != null)
             {
@@ -526,6 +561,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (requestDefaultRunSetting_defaultRunSetting_Name != null)
             {
                 request.DefaultRunSetting.Name = requestDefaultRunSetting_defaultRunSetting_Name;
+                requestDefaultRunSettingIsNull = false;
+            }
+            Amazon.Omics.NetworkingMode requestDefaultRunSetting_defaultRunSetting_NetworkingMode = null;
+            if (cmdletContext.DefaultRunSetting_NetworkingMode != null)
+            {
+                requestDefaultRunSetting_defaultRunSetting_NetworkingMode = cmdletContext.DefaultRunSetting_NetworkingMode;
+            }
+            if (requestDefaultRunSetting_defaultRunSetting_NetworkingMode != null)
+            {
+                request.DefaultRunSetting.NetworkingMode = requestDefaultRunSetting_defaultRunSetting_NetworkingMode;
                 requestDefaultRunSettingIsNull = false;
             }
             System.String requestDefaultRunSetting_defaultRunSetting_OutputBucketOwnerId = null;
@@ -741,8 +786,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String BatchRunSettings_S3UriSetting { get; set; }
             public Amazon.Omics.CacheBehavior DefaultRunSetting_CacheBehavior { get; set; }
             public System.String DefaultRunSetting_CacheId { get; set; }
+            public System.String DefaultRunSetting_ConfigurationName { get; set; }
             public Amazon.Omics.RunLogLevel DefaultRunSetting_LogLevel { get; set; }
             public System.String DefaultRunSetting_Name { get; set; }
+            public Amazon.Omics.NetworkingMode DefaultRunSetting_NetworkingMode { get; set; }
             public System.String DefaultRunSetting_OutputBucketOwnerId { get; set; }
             public System.String DefaultRunSetting_OutputUri { get; set; }
             public System.Management.Automation.PSObject DefaultRunSetting_Parameter { get; set; }

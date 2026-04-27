@@ -528,6 +528,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public Amazon.OpenSearchService.IPAddressType IPAddressType { get; set; }
         #endregion
         
+        #region Parameter AdvancedSecurityOptions_JWTOptions_JwksUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used
+        /// to verify JWT signatures.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdvancedSecurityOptions_JWTOptions_JwksUrl { get; set; }
+        #endregion
+        
         #region Parameter EncryptionAtRestOptions_KmsKeyId
         /// <summary>
         /// <para>
@@ -1036,6 +1047,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.IAMFederationOptions_SubjectKey = this.IAMFederationOptions_SubjectKey;
             context.AdvancedSecurityOptions_InternalUserDatabaseEnabled = this.AdvancedSecurityOptions_InternalUserDatabaseEnabled;
             context.JWTOptions_Enabled = this.JWTOptions_Enabled;
+            context.AdvancedSecurityOptions_JWTOptions_JwksUrl = this.AdvancedSecurityOptions_JWTOptions_JwksUrl;
             context.JWTOptions_PublicKey = this.JWTOptions_PublicKey;
             context.JWTOptions_RolesKey = this.JWTOptions_RolesKey;
             context.JWTOptions_SubjectKey = this.JWTOptions_SubjectKey;
@@ -1294,6 +1306,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_Enabled != null)
             {
                 requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions.Enabled = requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_Enabled.Value;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_advancedSecurityOptions_JWTOptions_JwksUrl = null;
+            if (cmdletContext.AdvancedSecurityOptions_JWTOptions_JwksUrl != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_advancedSecurityOptions_JWTOptions_JwksUrl = cmdletContext.AdvancedSecurityOptions_JWTOptions_JwksUrl;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_advancedSecurityOptions_JWTOptions_JwksUrl != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions.JwksUrl = requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_advancedSecurityOptions_JWTOptions_JwksUrl;
                 requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptionsIsNull = false;
             }
             System.String requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_PublicKey = null;
@@ -2266,6 +2288,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String IAMFederationOptions_SubjectKey { get; set; }
             public System.Boolean? AdvancedSecurityOptions_InternalUserDatabaseEnabled { get; set; }
             public System.Boolean? JWTOptions_Enabled { get; set; }
+            public System.String AdvancedSecurityOptions_JWTOptions_JwksUrl { get; set; }
             public System.String JWTOptions_PublicKey { get; set; }
             public System.String JWTOptions_RolesKey { get; set; }
             public System.String JWTOptions_SubjectKey { get; set; }

@@ -99,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-KMSCustomKeyStore', 
         'Get-KMSGrantList', 
         'Get-KMSKey', 
+        'Get-KMSKeyLastUsage', 
         'Get-KMSKeyList', 
         'Get-KMSKeyPolicy', 
         'Get-KMSKeyPolicyList', 

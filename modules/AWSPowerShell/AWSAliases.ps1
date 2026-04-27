@@ -19352,6 +19352,7 @@ Set-Alias -Name Generate-KMSMac -Value New-KMSMac
 Set-Alias -Name KMS-GenerateMac -Value New-KMSMac
 Set-Alias -Name Generate-KMSRandom -Value New-KMSRandom
 Set-Alias -Name KMS-GenerateRandom -Value New-KMSRandom
+Set-Alias -Name KMS-GetKeyLastUsage -Value Get-KMSKeyLastUsage
 Set-Alias -Name KMS-GetKeyPolicy -Value Get-KMSKeyPolicy
 Set-Alias -Name KMS-GetKeyRotationStatus -Value Get-KMSKeyRotationStatus
 Set-Alias -Name KMS-GetParametersForImport -Value Get-KMSParametersForImport

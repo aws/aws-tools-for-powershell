@@ -3142,6 +3142,18 @@ $CWAS_Completers = {
             break
         }
 
+        # Amazon.ApplicationSignals.SelectionType
+        {
+            ($_ -eq "New-CWASServiceLevelObjective/RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type") -Or
+            ($_ -eq "New-CWASServiceLevelObjective/SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type")
+        }
+        {
+            $v = "EXPLICIT","PREFIX","REGEX"
+            break
+        }
+
         # Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator
         {
             ($_ -eq "New-CWASServiceLevelObjective/RequestBasedSliConfig_ComparisonOperator") -Or
@@ -3178,9 +3190,11 @@ $CWAS_map = @{
     "CalendarInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "DetailLevel"=@("Get-CWASAuditFindingList")
     "RequestBasedSliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RequestBasedSliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RollingInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
 }
 
@@ -48224,6 +48238,7 @@ $KMS_SelectMap = @{
                "New-KMSDataKeyWithoutPlaintext",
                "New-KMSMac",
                "New-KMSRandom",
+               "Get-KMSKeyLastUsage",
                "Get-KMSKeyPolicy",
                "Get-KMSKeyRotationStatus",
                "Get-KMSParametersForImport",
@@ -59868,7 +59883,7 @@ $OMICS_Completers = {
         # Amazon.Omics.BatchStatus
         "Get-OMICSBatchList/Status"
         {
-            $v = "CANCELLED","FAILED","INPROGRESS","PENDING","PROCESSED","RUNS_DELETED","RUNS_DELETING","STOPPING","SUBMITTING"
+            $v = "CANCELLED","CREATING","FAILED","INPROGRESS","PENDING","PROCESSED","RUNS_DELETED","RUNS_DELETING","STOPPING","SUBMITTING"
             break
         }
 
@@ -59928,7 +59943,10 @@ $OMICS_Completers = {
         }
 
         # Amazon.Omics.NetworkingMode
-        "Start-OMICSRun/NetworkingMode"
+        {
+            ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_NetworkingMode") -Or
+            ($_ -eq "Start-OMICSRun/NetworkingMode")
+        }
         {
             $v = "RESTRICTED","VPC"
             break
@@ -60133,6 +60151,7 @@ $OMICS_map = @{
     "CacheBehavior"=@("New-OMICSRunCache","Start-OMICSRun","Update-OMICSRunCache")
     "DefaultRunSetting_CacheBehavior"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_LogLevel"=@("Start-OMICSRunBatch")
+    "DefaultRunSetting_NetworkingMode"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_RetentionMode"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_StorageType"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_WorkflowType"=@("Start-OMICSRunBatch")

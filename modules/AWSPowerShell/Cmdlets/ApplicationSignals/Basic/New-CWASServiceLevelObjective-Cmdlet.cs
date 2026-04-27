@@ -121,6 +121,17 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public System.Double? Goal_AttainmentGoal { get; set; }
         #endregion
         
+        #region Parameter AutoInvestigationEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether DevOps Agent will automatically investigate this SLO when it is
+        /// breached</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoInvestigationEnabled { get; set; }
+        #endregion
+        
         #region Parameter MonitoredRequestCountMetric_BadCountMetric
         /// <summary>
         /// <para>
@@ -175,6 +186,40 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator")]
         public Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator SliConfig_ComparisonOperator { get; set; }
+        #endregion
+        
+        #region Parameter RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component
+        /// <summary>
+        /// <para>
+        /// <para>The list of operations included in this composite SLI. You must specify between 2
+        /// and 20 components. Each component is a <c>CompositeSliComponent</c> that identifies
+        /// a single operation by its <c>OperationName</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Components")]
+        public Amazon.ApplicationSignals.Model.CompositeSliComponent[] RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component { get; set; }
+        #endregion
+        
+        #region Parameter SliConfig_SliMetricConfig_CompositeSliConfig_Component
+        /// <summary>
+        /// <para>
+        /// <para>The list of operations included in this composite SLI. You must specify between 2
+        /// and 20 components. Each component is a <c>CompositeSliComponent</c> that identifies
+        /// a single operation by its <c>OperationName</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SliConfig_SliMetricConfig_CompositeSliConfig_Components")]
+        public Amazon.ApplicationSignals.Model.CompositeSliComponent[] SliConfig_SliMetricConfig_CompositeSliConfig_Component { get; set; }
         #endregion
         
         #region Parameter CreateRecommendedSlo
@@ -552,6 +597,32 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public System.String SliMetricConfig_OperationName { get; set; }
         #endregion
         
+        #region Parameter RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern
+        /// <summary>
+        /// <para>
+        /// <para>A prefix string or regular expression that specifies which operations to include in
+        /// a service-level SLO. When <c>SelectionType</c> is <c>PREFIX</c>, this value is a prefix
+        /// string that matches the beginning of operation names. When <c>SelectionType</c> is
+        /// <c>REGEX</c>, this value is a regular expression that matches operation names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern { get; set; }
+        #endregion
+        
+        #region Parameter SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern
+        /// <summary>
+        /// <para>
+        /// <para>A prefix string or regular expression that specifies which operations to include in
+        /// a service-level SLO. When <c>SelectionType</c> is <c>PREFIX</c>, this value is a prefix
+        /// string that matches the beginning of operation names. When <c>SelectionType</c> is
+        /// <c>REGEX</c>, this value is a regular expression that matches operation names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern { get; set; }
+        #endregion
+        
         #region Parameter SliMetricConfig_PeriodSecond
         /// <summary>
         /// <para>
@@ -629,6 +700,28 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public Amazon.ApplicationSignals.Model.MetricDataQuery[] RequestBasedSliMetricConfig_TotalRequestCountMetric { get; set; }
         #endregion
         
+        #region Parameter RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApplicationSignals.SelectionType")]
+        public Amazon.ApplicationSignals.SelectionType RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type { get; set; }
+        #endregion
+        
+        #region Parameter SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApplicationSignals.SelectionType")]
+        public Amazon.ApplicationSignals.SelectionType SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type { get; set; }
+        #endregion
+        
         #region Parameter Goal_WarningThreshold
         /// <summary>
         /// <para>
@@ -686,6 +779,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.CreateServiceLevelObjectiveResponse, NewCWASServiceLevelObjectiveCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutoInvestigationEnabled = this.AutoInvestigationEnabled;
             if (this.BurnRateConfiguration != null)
             {
                 context.BurnRateConfiguration = new List<Amazon.ApplicationSignals.Model.BurnRateConfiguration>(this.BurnRateConfiguration);
@@ -708,6 +802,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             #endif
             context.RequestBasedSliConfig_ComparisonOperator = this.RequestBasedSliConfig_ComparisonOperator;
             context.RequestBasedSliConfig_MetricThreshold = this.RequestBasedSliConfig_MetricThreshold;
+            if (this.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component != null)
+            {
+                context.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component = new List<Amazon.ApplicationSignals.Model.CompositeSliComponent>(this.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component);
+            }
+            context.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern = this.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern;
+            context.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type = this.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type;
             if (this.RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes != null)
             {
                 context.RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -758,6 +858,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             }
             context.SliConfig_ComparisonOperator = this.SliConfig_ComparisonOperator;
             context.SliConfig_MetricThreshold = this.SliConfig_MetricThreshold;
+            if (this.SliConfig_SliMetricConfig_CompositeSliConfig_Component != null)
+            {
+                context.SliConfig_SliMetricConfig_CompositeSliConfig_Component = new List<Amazon.ApplicationSignals.Model.CompositeSliComponent>(this.SliConfig_SliMetricConfig_CompositeSliConfig_Component);
+            }
+            context.SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern = this.SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern;
+            context.SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type = this.SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type;
             if (this.SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes != null)
             {
                 context.SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -820,6 +926,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // create request
             var request = new Amazon.ApplicationSignals.Model.CreateServiceLevelObjectiveRequest();
             
+            if (cmdletContext.AutoInvestigationEnabled != null)
+            {
+                request.AutoInvestigationEnabled = cmdletContext.AutoInvestigationEnabled.Value;
+            }
             if (cmdletContext.BurnRateConfiguration != null)
             {
                 request.BurnRateConfigurations = cmdletContext.BurnRateConfiguration;
@@ -1037,6 +1147,66 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_TotalRequestCountMetric != null)
             {
                 requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig.TotalRequestCountMetric = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_TotalRequestCountMetric;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfigIsNull = false;
+            }
+            Amazon.ApplicationSignals.Model.CompositeSliConfig requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig = null;
+            
+             // populate CompositeSliConfig
+            var requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfigIsNull = true;
+            requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig = new Amazon.ApplicationSignals.Model.CompositeSliConfig();
+            List<Amazon.ApplicationSignals.Model.CompositeSliComponent> requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component = null;
+            if (cmdletContext.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component = cmdletContext.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig.Components = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfigIsNull = false;
+            }
+            Amazon.ApplicationSignals.Model.SelectionConfig requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig = null;
+            
+             // populate SelectionConfig
+            var requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfigIsNull = true;
+            requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig = new Amazon.ApplicationSignals.Model.SelectionConfig();
+            System.String requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern = null;
+            if (cmdletContext.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern = cmdletContext.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig.Pattern = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfigIsNull = false;
+            }
+            Amazon.ApplicationSignals.SelectionType requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type = null;
+            if (cmdletContext.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type = cmdletContext.RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig.Type = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfigIsNull = false;
+            }
+             // determine if requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig should be set to null
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfigIsNull)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig = null;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig.SelectionConfig = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfigIsNull = false;
+            }
+             // determine if requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig should be set to null
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfigIsNull)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig = null;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig.CompositeSliConfig = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig;
                 requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfigIsNull = false;
             }
             Amazon.ApplicationSignals.Model.DependencyConfig requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig = null;
@@ -1258,6 +1428,66 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 requestSliConfig_sliConfig_SliMetricConfig.Statistic = requestSliConfig_sliConfig_SliMetricConfig_sliMetricConfig_Statistic;
                 requestSliConfig_sliConfig_SliMetricConfigIsNull = false;
             }
+            Amazon.ApplicationSignals.Model.CompositeSliConfig requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig = null;
+            
+             // populate CompositeSliConfig
+            var requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfigIsNull = true;
+            requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig = new Amazon.ApplicationSignals.Model.CompositeSliConfig();
+            List<Amazon.ApplicationSignals.Model.CompositeSliComponent> requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_Component = null;
+            if (cmdletContext.SliConfig_SliMetricConfig_CompositeSliConfig_Component != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_Component = cmdletContext.SliConfig_SliMetricConfig_CompositeSliConfig_Component;
+            }
+            if (requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_Component != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig.Components = requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_Component;
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfigIsNull = false;
+            }
+            Amazon.ApplicationSignals.Model.SelectionConfig requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig = null;
+            
+             // populate SelectionConfig
+            var requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfigIsNull = true;
+            requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig = new Amazon.ApplicationSignals.Model.SelectionConfig();
+            System.String requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern = null;
+            if (cmdletContext.SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern = cmdletContext.SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern;
+            }
+            if (requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig.Pattern = requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern;
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfigIsNull = false;
+            }
+            Amazon.ApplicationSignals.SelectionType requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type = null;
+            if (cmdletContext.SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type = cmdletContext.SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type;
+            }
+            if (requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig.Type = requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type;
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfigIsNull = false;
+            }
+             // determine if requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig should be set to null
+            if (requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfigIsNull)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig = null;
+            }
+            if (requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig.SelectionConfig = requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig_sliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig;
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfigIsNull = false;
+            }
+             // determine if requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig should be set to null
+            if (requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfigIsNull)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig = null;
+            }
+            if (requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig.CompositeSliConfig = requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_CompositeSliConfig;
+                requestSliConfig_sliConfig_SliMetricConfigIsNull = false;
+            }
             Amazon.ApplicationSignals.Model.DependencyConfig requestSliConfig_sliConfig_SliMetricConfig_sliConfig_SliMetricConfig_DependencyConfig = null;
             
              // populate DependencyConfig
@@ -1402,6 +1632,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoInvestigationEnabled { get; set; }
             public List<Amazon.ApplicationSignals.Model.BurnRateConfiguration> BurnRateConfiguration { get; set; }
             public System.Boolean? CreateRecommendedSlo { get; set; }
             public System.String Description { get; set; }
@@ -1415,6 +1646,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             public System.String Name { get; set; }
             public Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator RequestBasedSliConfig_ComparisonOperator { get; set; }
             public System.Double? RequestBasedSliConfig_MetricThreshold { get; set; }
+            public List<Amazon.ApplicationSignals.Model.CompositeSliComponent> RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component { get; set; }
+            public System.String RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern { get; set; }
+            public Amazon.ApplicationSignals.SelectionType RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type { get; set; }
             public Dictionary<System.String, System.String> RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes { get; set; }
             public System.String RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyOperationName { get; set; }
             public Dictionary<System.String, System.String> RequestBasedSliMetricConfig_KeyAttribute { get; set; }
@@ -1428,6 +1662,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             public List<Amazon.ApplicationSignals.Model.MetricDataQuery> RequestBasedSliMetricConfig_TotalRequestCountMetric { get; set; }
             public Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator SliConfig_ComparisonOperator { get; set; }
             public System.Double? SliConfig_MetricThreshold { get; set; }
+            public List<Amazon.ApplicationSignals.Model.CompositeSliComponent> SliConfig_SliMetricConfig_CompositeSliConfig_Component { get; set; }
+            public System.String SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern { get; set; }
+            public Amazon.ApplicationSignals.SelectionType SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type { get; set; }
             public Dictionary<System.String, System.String> SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes { get; set; }
             public System.String SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName { get; set; }
             public Dictionary<System.String, System.String> SliMetricConfig_KeyAttribute { get; set; }

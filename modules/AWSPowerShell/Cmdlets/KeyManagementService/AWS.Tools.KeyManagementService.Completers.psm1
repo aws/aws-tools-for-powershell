@@ -348,6 +348,7 @@ $KMS_SelectMap = @{
                "New-KMSDataKeyWithoutPlaintext",
                "New-KMSMac",
                "New-KMSRandom",
+               "Get-KMSKeyLastUsage",
                "Get-KMSKeyPolicy",
                "Get-KMSKeyRotationStatus",
                "Get-KMSParametersForImport",

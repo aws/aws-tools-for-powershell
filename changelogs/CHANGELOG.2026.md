@@ -1,4 +1,24 @@
-﻿### 5.0.202 (2026-04-24 20:10Z)
+﻿### 5.0.203 (2026-04-27 21:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.239.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Application Signals
+    * Modified cmdlet New-CWASServiceLevelObjective: added parameters AutoInvestigationEnabled, RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component, RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern, RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type, SliConfig_SliMetricConfig_CompositeSliConfig_Component, SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern and SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type.
+    * Modified cmdlet Update-CWASServiceLevelObjective: added parameters AutoInvestigationEnabled, RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component, RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern, RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type, SliConfig_SliMetricConfig_CompositeSliConfig_Component, SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern and SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEPartition: added parameters AuditContext_AdditionalAuditContext, AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+    * Modified cmdlet Get-GLUEPartitionList: added parameters AuditContext_AdditionalAuditContext, AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+    * Modified cmdlet Get-GLUETableVersion: added parameters AuditContext_AdditionalAuditContext, AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+    * Modified cmdlet Get-GLUETableVersionList: added parameters AuditContext_AdditionalAuditContext, AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+  * Amazon Interactive Video Service
+    * Modified cmdlet New-IVSAdConfiguration: added parameter Tag.
+  * Amazon Key Management Service
+    * Added cmdlet Get-KMSKeyLastUsage leveraging the GetKeyLastUsage service API.
+  * Amazon Omics
+    * Modified cmdlet Start-OMICSRunBatch: added parameters DefaultRunSetting_ConfigurationName and DefaultRunSetting_NetworkingMode.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter AdvancedSecurityOptions_JWTOptions_JwksUrl.
+    * Modified cmdlet Update-OSDomainConfig: added parameter AdvancedSecurityOptions_JWTOptions_JwksUrl.
+
+### 5.0.202 (2026-04-24 20:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.238.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCAgentRuntime: added parameters AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType, AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain, AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId, AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId, AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag, AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier, AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier and AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride.
