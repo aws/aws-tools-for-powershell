@@ -24,6 +24,31 @@ s3_GetObject:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/s3_Read-S3Object.3.1.ps1
+        - description: '<emphasis role="bold">Example 4: Downloads a single object using multipart parallel download for improved performance on large files.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Read-S3Object.4.1.ps1
+        - description: '<emphasis role="bold">Example 5: Downloads a large object using RANGE mode with a custom 64MB part size. RANGE mode uses HTTP byte-range requests and works for all objects regardless of how they were uploaded.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Read-S3Object.5.1.ps1
+        - description: '<emphasis role="bold">Example 6: Downloads all objects with the key prefix "data/" to a local folder using multipart download with concurrent file downloads.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Read-S3Object.6.1.ps1
+        - description: '<emphasis role="bold">Example 7: Downloads a single object using multipart download with 20 concurrent connections for maximum throughput on high-bandwidth networks.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Read-S3Object.7.1.ps1
+        - description: '<emphasis role="bold">Example 8: Downloads all objects with the key prefix "data/" to a local folder using multipart download, continuing past individual file failures instead of aborting.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Read-S3Object.8.1.ps1
   services:
     s3:
       GetObject:

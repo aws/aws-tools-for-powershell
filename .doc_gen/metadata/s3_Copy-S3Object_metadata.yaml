@@ -34,6 +34,31 @@ s3_CopyObject:
         - snippet_files:
           - .doc_gen/snippet_files/s3_Copy-S3Object.5.1.ps1
           description:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 6: Downloads a single object to a local file using multipart parallel download for improved performance on large files.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.6.1.ps1
+          description:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 7: Downloads a large object using RANGE mode with a custom 64MB part size. RANGE mode uses HTTP byte-range requests and works for all objects regardless of how they were uploaded.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.7.1.ps1
+          description:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 8: Downloads all objects matching the key prefix to a local folder using multipart download with concurrent file downloads.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.8.1.ps1
+          description:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 9: Downloads a single object using multipart download with 20 concurrent connections for maximum throughput on high-bandwidth networks.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.9.1.ps1
+          description:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 10: Downloads all objects matching the key prefix to a local folder using multipart download, continuing past individual file failures instead of aborting.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.10.1.ps1
+          description:
   services:
     s3:
       CopyObject:
