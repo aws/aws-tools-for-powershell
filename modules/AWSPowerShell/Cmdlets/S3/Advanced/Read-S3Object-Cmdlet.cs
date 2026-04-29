@@ -285,12 +285,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// Enables multipart parallel download for significantly improved performance on large S3 objects.
-        /// When specified, the cmdlet uses the AWS SDK for .NET's multipart download engine which downloads
-        /// multiple parts of the object simultaneously, utilizing available network bandwidth more effectively.
-        /// </para>
-        /// <para>
-        /// <b>Pipeline output changes when this switch is used:</b> Instead of returning
-        /// <c>System.IO.FileInfo</c> (single file) or <c>System.IO.DirectoryInfo</c> (folder), the cmdlet
+        /// When specified, the cmdlet uses the AWS SDK for .NET's multipart download engine. For large objects,
+        /// the download is automatically split into parts (default 8 MB per part), multiple parts are downloaded
+        /// concurrently using parallel requests to S3, and downloaded parts are written directly to the file
+        /// as they arrive.
+        /// <b>Pipeline output changes when this switch is used:</b> The cmdlet
         /// returns <c>Amazon.S3.Transfer.TransferUtilityDownloadResponse</c> (single file) or
         /// <c>Amazon.S3.Transfer.TransferUtilityDownloadDirectoryResponse</c> (folder). These response
         /// objects provide access to download metadata including ETag, checksums, version ID, storage class,
@@ -299,10 +298,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// Without this switch, the cmdlet uses the legacy default single-stream download path and returns
         /// <c>FileInfo</c>/<c>DirectoryInfo</c>.
-        /// </para>
-        /// <para>
-        /// The following parameters require this switch: <c>-MultipartDownloadType</c>, <c>-PartSize</c>,
-        /// and <c>-ConcurrentServiceRequest</c>. Using these parameters without this switch will result in an error.
         /// </para>
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,20 +311,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// <para>
         /// <b>PART</b> (default): Downloads using the object's original multipart upload part boundaries.
-        /// This is optimal for objects that were uploaded using multipart upload, as it downloads each
+        /// This is more efficient for objects that were uploaded using multipart upload, as it downloads each
         /// original part in parallel. For objects uploaded via a single PUT operation, the SDK sees only
-        /// one part, so the download effectively uses a single stream with no parallelization benefit.
+        /// one part, so the download uses a single stream with no parallelization benefit.
         /// The <c>-PartSize</c> parameter is ignored in PART mode.
         /// </para>
         /// <para>
         /// <b>RANGE</b>: Downloads using HTTP byte-range requests with a configurable part size (see
-        /// <c>-PartSize</c>). This works for <b>all objects</b> regardless of how they were uploaded and
+        /// <c>-PartSize</c>). This works for all objects regardless of how they were uploaded and
         /// provides parallel downloads even for objects uploaded via a single PUT operation.
         /// </para>
         /// <para>
-        /// <b>RECOMMENDATION:</b> Use <c>-MultipartDownloadType RANGE</c> if you do not know how the object
-        /// was uploaded or if you want guaranteed parallelism on any object. Use PART mode (the default) if
-        /// you know the object was uploaded via multipart upload and want to use its original part boundaries.
+        /// <b>When to use PART vs RANGE:</b> Use <b>RANGE</b> when the object's upload method is unknown, 
+        /// when you need specific part sizes, or when downloading objects that were uploaded as a single part. 
+        /// Use <b>PART</b> (default) when you know the object was uploaded using multipart upload and want optimal performance.
         /// </para>
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_ToLocalFile, ValueFromPipelineByPropertyName = true)]
@@ -344,9 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <c>-UseMultipartDownload</c>. This parameter is ignored when using the default PART mode.
         /// </para>
         /// <para>
-        /// When not specified, the SDK uses a default part size of 8 MB. Larger part sizes reduce the
-        /// number of parallel requests but increase the amount of data per request. Smaller part sizes
-        /// increase parallelism but add more request overhead.
+        /// When not specified, the SDK uses a default part size of 8 MB.
         /// </para>
         /// <para>You can specify the part size in one of two ways:</para>
         /// <ul>
@@ -368,12 +361,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Requires <c>-UseMultipartDownload</c>.
         /// </para>
         /// <para>
-        /// Higher values can improve download throughput on high-bandwidth connections by downloading more
-        /// parts in parallel. Lower values reduce resource usage and concurrent connections to S3. The SDK
-        /// handles S3 throttling (HTTP 503 SlowDown) internally with automatic retry and exponential backoff,
-        /// so high values are safe to use.
-        /// </para>
-        /// <para>
         /// This property sets <c>TransferUtilityConfig.ConcurrentServiceRequests</c> on the underlying
         /// SDK TransferUtility. The value must be a positive integer.
         /// </para>
@@ -388,12 +375,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// When specified, downloads multiple files in parallel within a directory download operation.
         /// By default, files in a directory download are downloaded sequentially (one at a time).
-        /// </para>
-        /// <para>
-        /// This controls <b>file-level parallelism</b>, how many files download at the same time.
-        /// When combined with <c>-UseMultipartDownload</c>, each individual file also benefits from
-        /// <b>part-level parallelism</b> (multiple parts per file). This combination provides maximum
-        /// throughput for directory downloads containing many large files.
         /// </para>
         /// <para>
         /// This parameter works with both the legacy single-stream download path and the multipart
