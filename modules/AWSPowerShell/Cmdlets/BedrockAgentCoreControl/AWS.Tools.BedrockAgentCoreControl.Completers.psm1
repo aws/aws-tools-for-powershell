@@ -96,7 +96,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCGateway/AuthorizerType")
         }
         {
-            $v = "AWS_IAM","CUSTOM_JWT","NONE"
+            $v = "AUTHENTICATE_ONLY","AWS_IAM","CUSTOM_JWT","NONE"
             break
         }
 
@@ -202,6 +202,13 @@ $BACC_Completers = {
         }
         {
             $v = "none","sliding_window","summarization"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.IncludedData
+        "Get-BACCEvaluator/IncludedData"
+        {
+            $v = "ALL_DATA","METADATA_ONLY"
             break
         }
 
@@ -340,6 +347,7 @@ $BACC_map = @{
     "Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode"=@("New-BACCHarness","Update-BACCHarness")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
     "ExecutionStatus"=@("Update-BACCOnlineEvaluationConfig")
+    "IncludedData"=@("Get-BACCEvaluator")
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
     "Level"=@("New-BACCEvaluator","Update-BACCEvaluator")
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
@@ -415,8 +423,10 @@ $BACC_SelectMap = @{
                "New-BACCBrowser",
                "New-BACCBrowserProfile",
                "New-BACCCodeInterpreter",
+               "New-BACCConfigurationBundle",
                "New-BACCEvaluator",
                "New-BACCGateway",
+               "New-BACCGatewayRule",
                "New-BACCGatewayTarget",
                "New-BACCHarness",
                "New-BACCMemory",
@@ -433,8 +443,10 @@ $BACC_SelectMap = @{
                "Remove-BACCBrowser",
                "Remove-BACCBrowserProfile",
                "Remove-BACCCodeInterpreter",
+               "Remove-BACCConfigurationBundle",
                "Remove-BACCEvaluator",
                "Remove-BACCGateway",
+               "Remove-BACCGatewayRule",
                "Remove-BACCGatewayTarget",
                "Remove-BACCHarness",
                "Remove-BACCMemory",
@@ -452,8 +464,11 @@ $BACC_SelectMap = @{
                "Get-BACCBrowser",
                "Get-BACCBrowserProfile",
                "Get-BACCCodeInterpreter",
+               "Get-BACCConfigurationBundle",
+               "Get-BACCConfigurationBundleVersion",
                "Get-BACCEvaluator",
                "Get-BACCGateway",
+               "Get-BACCGatewayRule",
                "Get-BACCGatewayTarget",
                "Get-BACCHarness",
                "Get-BACCMemory",
@@ -474,7 +489,10 @@ $BACC_SelectMap = @{
                "Get-BACCBrowserProfileList",
                "Get-BACCBrowserList",
                "Get-BACCCodeInterpreterList",
+               "Get-BACCConfigurationBundleList",
+               "Get-BACCConfigurationBundleVersionList",
                "Get-BACCEvaluatorList",
+               "Get-BACCGatewayRuleList",
                "Get-BACCGatewayList",
                "Get-BACCGatewayTargetList",
                "Get-BACCHarnessList",
@@ -499,8 +517,10 @@ $BACC_SelectMap = @{
                "Update-BACCAgentRuntime",
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",
+               "Update-BACCConfigurationBundle",
                "Update-BACCEvaluator",
                "Update-BACCGateway",
+               "Update-BACCGatewayRule",
                "Update-BACCGatewayTarget",
                "Update-BACCHarness",
                "Update-BACCMemory",

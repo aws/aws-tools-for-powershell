@@ -112,6 +112,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String LlmAsAJudge_Instruction { get; set; }
         #endregion
         
+        #region Parameter KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of a customer managed KMS key to use for encrypting
+        /// sensitive evaluator data. Specify a new key ARN to rotate the encryption key, or specify
+        /// a key ARN to add encryption to an evaluator that was previously created without one.
+        /// When you rotate to a new key, the service decrypts the existing data with the old
+        /// key and re-encrypts it with the new key. Only symmetric encryption KMS keys are supported.
+        /// For more information, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html">Encryption
+        /// at rest for AgentCore Evaluations</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter EvaluatorConfig_CodeBased_LambdaConfig_LambdaArn
         /// <summary>
         /// <para>
@@ -316,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter EvaluatorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KmsKeyArn = this.KmsKeyArn;
             context.Level = this.Level;
             
             // allow further manipulation of loaded context prior to processing
@@ -569,6 +586,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.EvaluatorId = cmdletContext.EvaluatorId;
             }
+            if (cmdletContext.KmsKeyArn != null)
+            {
+                request.KmsKeyArn = cmdletContext.KmsKeyArn;
+            }
             if (cmdletContext.Level != null)
             {
                 request.Level = cmdletContext.Level;
@@ -642,6 +663,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<Amazon.BedrockAgentCoreControl.Model.CategoricalScaleDefinition> RatingScale_Categorical { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.NumericalScaleDefinition> RatingScale_Numerical { get; set; }
             public System.String EvaluatorId { get; set; }
+            public System.String KmsKeyArn { get; set; }
             public Amazon.BedrockAgentCoreControl.EvaluatorLevel Level { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdateEvaluatorResponse, UpdateBACCEvaluatorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

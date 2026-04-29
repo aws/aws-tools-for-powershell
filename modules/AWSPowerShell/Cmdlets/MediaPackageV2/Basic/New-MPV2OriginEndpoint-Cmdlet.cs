@@ -153,6 +153,24 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public Amazon.MediaPackageV2.ContainerType ContainerType { get; set; }
         #endregion
         
+        #region Parameter Segment_Scte_CustomAdType
+        /// <summary>
+        /// <para>
+        /// <para>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured,
+        /// events matching these types produce ad markers (such as <c>SCTE35-OUT</c> and <c>SCTE35-IN</c>
+        /// in HLS DATERANGE tags) in manifests.</para><para>Valid values: <c>PROGRAM</c> | <c>CHAPTER</c> | <c>UNSCHEDULED_EVENT</c> | <c>ALTERNATE_CONTENT_OPPORTUNITY</c>
+        /// | <c>NETWORK</c></para><para>If you don't specify any values, the default is empty (only default ad types are used).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Segment_Scte_CustomAdTypes")]
+        public System.String[] Segment_Scte_CustomAdType { get; set; }
+        #endregion
+        
         #region Parameter DashManifest
         /// <summary>
         /// <para>
@@ -410,9 +428,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         #region Parameter Scte_ScteInSegment
         /// <summary>
         /// <para>
-        /// <para>Controls whether SCTE-35 messages are included in segment files.</para><ul><li><para>None – SCTE-35 messages are not included in segments (default)</para></li><li><para>All – SCTE-35 messages are embedded in segment data</para></li></ul><para> For DASH manifests, when set to <c>All</c>, an <c>InbandEventStream</c> tag signals
-        /// that SCTE messages are present in segments. This setting works independently of manifest
-        /// ad markers.</para>
+        /// <para>Controls whether SCTE-35 messages are included in segment files.</para><ul><li><para>None – SCTE-35 messages are not included in segments (default)</para></li><li><para>All – SCTE-35 messages are embedded in segment data</para></li><li><para>MatchesFilter – SCTE-35 messages which match the ScteFilter are embedded in segment
+        /// data</para></li></ul><para> For DASH manifests, when set to <c>All</c> or <c>MatchesFilter</c>, an <c>InbandEventStream</c>
+        /// tag signals that SCTE messages are present in segments. This setting works independently
+        /// of manifest ad markers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -507,6 +526,19 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Segment_TsUseAudioRenditionGroup { get; set; }
+        #endregion
+        
+        #region Parameter UriSeparator
+        /// <summary>
+        /// <para>
+        /// <para>The separator character to use in generated URIs for this origin endpoint. This setting
+        /// applies to all manifest types on the endpoint. If you don't specify a value, the default
+        /// is <c>UNDERSCORE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.UriSeparator")]
+        public Amazon.MediaPackageV2.UriSeparator UriSeparator { get; set; }
         #endregion
         
         #region Parameter SpekeKeyProvider_Url
@@ -645,6 +677,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.SpekeKeyProvider_RoleArn = this.SpekeKeyProvider_RoleArn;
             context.SpekeKeyProvider_Url = this.SpekeKeyProvider_Url;
             context.Segment_IncludeIframeOnlyStream = this.Segment_IncludeIframeOnlyStream;
+            if (this.Segment_Scte_CustomAdType != null)
+            {
+                context.Segment_Scte_CustomAdType = new List<System.String>(this.Segment_Scte_CustomAdType);
+            }
             if (this.Scte_ScteFilter != null)
             {
                 context.Scte_ScteFilter = new List<System.String>(this.Scte_ScteFilter);
@@ -663,6 +699,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.UriSeparator = this.UriSeparator;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -797,6 +834,16 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
              // populate Scte
             var requestSegment_segment_ScteIsNull = true;
             requestSegment_segment_Scte = new Amazon.MediaPackageV2.Model.Scte();
+            List<System.String> requestSegment_segment_Scte_segment_Scte_CustomAdType = null;
+            if (cmdletContext.Segment_Scte_CustomAdType != null)
+            {
+                requestSegment_segment_Scte_segment_Scte_CustomAdType = cmdletContext.Segment_Scte_CustomAdType;
+            }
+            if (requestSegment_segment_Scte_segment_Scte_CustomAdType != null)
+            {
+                requestSegment_segment_Scte.CustomAdTypes = requestSegment_segment_Scte_segment_Scte_CustomAdType;
+                requestSegment_segment_ScteIsNull = false;
+            }
             List<System.String> requestSegment_segment_Scte_scte_ScteFilter = null;
             if (cmdletContext.Scte_ScteFilter != null)
             {
@@ -1030,6 +1077,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.UriSeparator != null)
+            {
+                request.UriSeparator = cmdletContext.UriSeparator;
+            }
             
             CmdletOutput output;
             
@@ -1110,6 +1161,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.String SpekeKeyProvider_RoleArn { get; set; }
             public System.String SpekeKeyProvider_Url { get; set; }
             public System.Boolean? Segment_IncludeIframeOnlyStream { get; set; }
+            public List<System.String> Segment_Scte_CustomAdType { get; set; }
             public List<System.String> Scte_ScteFilter { get; set; }
             public Amazon.MediaPackageV2.ScteInSegments Scte_ScteInSegment { get; set; }
             public System.Int32? Segment_SegmentDurationSecond { get; set; }
@@ -1118,6 +1170,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.Boolean? Segment_TsUseAudioRenditionGroup { get; set; }
             public System.Int32? StartoverWindowSecond { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public Amazon.MediaPackageV2.UriSeparator UriSeparator { get; set; }
             public System.Func<Amazon.MediaPackageV2.Model.CreateOriginEndpointResponse, NewMPV2OriginEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

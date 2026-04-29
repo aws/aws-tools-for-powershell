@@ -205,7 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// groups per fleet instance] * [# of container ports in the game server container group
         /// definition] + [# of container ports in the game server container group definition]</c></para></li></ul><para>You can also choose to manually set this parameter. When manually setting this parameter,
         /// you must use port numbers that match the fleet's connection port range.</para><note><para>If you set values manually, Amazon GameLift Servers no longer calculates a port range
-        /// for you, even if you later remove the manual settings. </para></note><para />
+        /// for you, even if you later remove the manual settings. </para></note><para>The port range must not overlap with the Amazon GameLift Servers reserved port range
+        /// <c>4092-4191</c>. This range is reserved for internal Amazon GameLift Servers services.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

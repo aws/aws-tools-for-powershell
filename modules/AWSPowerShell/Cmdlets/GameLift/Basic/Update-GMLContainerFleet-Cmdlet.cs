@@ -166,7 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceInboundPermissionAuthorization
         /// <summary>
         /// <para>
-        /// <para>A set of ports to add to the container fleet's inbound permissions.</para><para />
+        /// <para>A set of ports to add to the container fleet's inbound permissions.</para><para>The port range must not overlap with the Amazon GameLift Servers reserved port range
+        /// <c>4092-4191</c>. This range is reserved for internal Amazon GameLift Servers services.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

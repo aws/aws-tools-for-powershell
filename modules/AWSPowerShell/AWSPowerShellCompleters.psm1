@@ -8381,7 +8381,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCGateway/AuthorizerType")
         }
         {
-            $v = "AWS_IAM","CUSTOM_JWT","NONE"
+            $v = "AUTHENTICATE_ONLY","AWS_IAM","CUSTOM_JWT","NONE"
             break
         }
 
@@ -8487,6 +8487,13 @@ $BACC_Completers = {
         }
         {
             $v = "none","sliding_window","summarization"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.IncludedData
+        "Get-BACCEvaluator/IncludedData"
+        {
+            $v = "ALL_DATA","METADATA_ONLY"
             break
         }
 
@@ -8625,6 +8632,7 @@ $BACC_map = @{
     "Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode"=@("New-BACCHarness","Update-BACCHarness")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
     "ExecutionStatus"=@("Update-BACCOnlineEvaluationConfig")
+    "IncludedData"=@("Get-BACCEvaluator")
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
     "Level"=@("New-BACCEvaluator","Update-BACCEvaluator")
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
@@ -8700,8 +8708,10 @@ $BACC_SelectMap = @{
                "New-BACCBrowser",
                "New-BACCBrowserProfile",
                "New-BACCCodeInterpreter",
+               "New-BACCConfigurationBundle",
                "New-BACCEvaluator",
                "New-BACCGateway",
+               "New-BACCGatewayRule",
                "New-BACCGatewayTarget",
                "New-BACCHarness",
                "New-BACCMemory",
@@ -8718,8 +8728,10 @@ $BACC_SelectMap = @{
                "Remove-BACCBrowser",
                "Remove-BACCBrowserProfile",
                "Remove-BACCCodeInterpreter",
+               "Remove-BACCConfigurationBundle",
                "Remove-BACCEvaluator",
                "Remove-BACCGateway",
+               "Remove-BACCGatewayRule",
                "Remove-BACCGatewayTarget",
                "Remove-BACCHarness",
                "Remove-BACCMemory",
@@ -8737,8 +8749,11 @@ $BACC_SelectMap = @{
                "Get-BACCBrowser",
                "Get-BACCBrowserProfile",
                "Get-BACCCodeInterpreter",
+               "Get-BACCConfigurationBundle",
+               "Get-BACCConfigurationBundleVersion",
                "Get-BACCEvaluator",
                "Get-BACCGateway",
+               "Get-BACCGatewayRule",
                "Get-BACCGatewayTarget",
                "Get-BACCHarness",
                "Get-BACCMemory",
@@ -8759,7 +8774,10 @@ $BACC_SelectMap = @{
                "Get-BACCBrowserProfileList",
                "Get-BACCBrowserList",
                "Get-BACCCodeInterpreterList",
+               "Get-BACCConfigurationBundleList",
+               "Get-BACCConfigurationBundleVersionList",
                "Get-BACCEvaluatorList",
+               "Get-BACCGatewayRuleList",
                "Get-BACCGatewayList",
                "Get-BACCGatewayTargetList",
                "Get-BACCHarnessList",
@@ -8784,8 +8802,10 @@ $BACC_SelectMap = @{
                "Update-BACCAgentRuntime",
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",
+               "Update-BACCConfigurationBundle",
                "Update-BACCEvaluator",
                "Update-BACCGateway",
+               "Update-BACCGatewayRule",
                "Update-BACCGatewayTarget",
                "Update-BACCHarness",
                "Update-BACCMemory",
@@ -8808,6 +8828,13 @@ $BAC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentCore.ABTestExecutionStatus
+        "Update-BACABTest/ExecutionStatus"
+        {
+            $v = "NOT_STARTED","PAUSED","RUNNING","STOPPED"
+            break
+        }
+
         # Amazon.BedrockAgentCore.AutomationStreamStatus
         "Update-BACBrowserStream/AutomationStreamUpdate_StreamStatus"
         {
@@ -8874,6 +8901,20 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.RecommendationStatus
+        "Get-BACRecommendationList/StatusFilter"
+        {
+            $v = "COMPLETED","DELETING","FAILED","IN_PROGRESS","PENDING"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.RecommendationType
+        "Start-BACRecommendation/Type"
+        {
+            $v = "SYSTEM_PROMPT_RECOMMENDATION","TOOL_DESCRIPTION_RECOMMENDATION"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ScreenshotFormat
         "Invoke-BACBrowser/Action_Screenshot_Format"
         {
@@ -8903,11 +8944,14 @@ $BAC_map = @{
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
+    "ExecutionStatus"=@("Update-BACABTest")
     "Filter_EventFilter"=@("Get-BACSessionList")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
     "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
+    "StatusFilter"=@("Get-BACRecommendationList")
+    "Type"=@("Start-BACRecommendation")
 }
 
 _awsArgumentCompleterRegistration $BAC_Completers $BAC_map
@@ -8964,15 +9008,22 @@ $BAC_SelectMap = @{
                "Remove-BACBatchMemoryRecord",
                "Update-BACBatchMemoryRecord",
                "Complete-BACResourceTokenAuth",
+               "New-BACABTest",
                "New-BACEvent",
+               "Remove-BACABTest",
+               "Remove-BACBatchEvaluation",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
+               "Remove-BACRecommendation",
                "Invoke-BACEvaluate",
+               "Get-BACABTest",
                "Get-BACAgentCard",
+               "Get-BACBatchEvaluation",
                "Get-BACBrowserSession",
                "Get-BACCodeInterpreterSession",
                "Get-BACEvent",
                "Get-BACMemoryRecord",
+               "Get-BACRecommendation",
                "Get-BACResourceApiKey",
                "Get-BACResourceOauth2Token",
                "Get-BACWorkloadAccessToken",
@@ -8983,22 +9034,29 @@ $BAC_SelectMap = @{
                "Invoke-BACBrowser",
                "Invoke-BACCodeInterpreter",
                "Invoke-BACHarness",
+               "Get-BACABTestList",
                "Get-BACActorList",
+               "Get-BACBatchEvaluationList",
                "Get-BACBrowserSessionList",
                "Get-BACCodeInterpreterSessionList",
                "Get-BACEventList",
                "Get-BACMemoryExtractionJobList",
                "Get-BACMemoryRecordList",
+               "Get-BACRecommendationList",
                "Get-BACSessionList",
                "Invoke-BACMemoryRecord",
                "Save-BACBrowserSessionProfile",
                "Search-BACRegistryRecord",
+               "Start-BACBatchEvaluation",
                "Start-BACBrowserSession",
                "Start-BACCodeInterpreterSession",
                "Start-BACMemoryExtractionJob",
+               "Start-BACRecommendation",
+               "Stop-BACBatchEvaluation",
                "Stop-BACBrowserSession",
                "Stop-BACCodeInterpreterSession",
                "Stop-BACRuntimeSession",
+               "Update-BACABTest",
                "Update-BACBrowserStream")
 }
 
@@ -36943,6 +37001,7 @@ $GML_Completers = {
         # Amazon.GameLift.ContainerGroupType
         {
             ($_ -eq "Get-GMLContainerGroupDefinitionList/ContainerGroupType") -Or
+            ($_ -eq "Get-GMLContainerGroupPortMappingDetail/ContainerGroupType") -Or
             ($_ -eq "New-GMLContainerGroupDefinition/ContainerGroupType")
         }
         {
@@ -37184,7 +37243,7 @@ $GML_map = @{
     "ComparisonOperator"=@("Write-GMLScalingPolicy")
     "ComputeStatus"=@("Get-GMLComputeList")
     "ComputeType"=@("New-GMLFleet")
-    "ContainerGroupType"=@("Get-GMLContainerGroupDefinitionList","New-GMLContainerGroupDefinition")
+    "ContainerGroupType"=@("Get-GMLContainerGroupDefinitionList","Get-GMLContainerGroupPortMappingDetail","New-GMLContainerGroupDefinition")
     "DeleteOption"=@("Remove-GMLGameServerGroup")
     "DeploymentConfiguration_ImpairmentStrategy"=@("Update-GMLContainerFleet")
     "DeploymentConfiguration_ProtectionStrategy"=@("Update-GMLContainerFleet")
@@ -37305,6 +37364,7 @@ $GML_SelectMap = @{
                "Get-GMLCompute",
                "Get-GMLContainerFleet",
                "Get-GMLContainerGroupDefinition",
+               "Get-GMLContainerGroupPortMappingDetail",
                "Get-GMLEC2InstanceLimit",
                "Get-GMLFleetAttribute",
                "Get-GMLFleetCapacity",
@@ -54340,7 +54400,7 @@ $MPV2_Completers = {
             ($_ -eq "Update-MPV2OriginEndpoint/Scte_ScteInSegment")
         }
         {
-            $v = "ALL","NONE"
+            $v = "ALL","MATCHES_FILTER","NONE"
             break
         }
 
@@ -54351,6 +54411,16 @@ $MPV2_Completers = {
         }
         {
             $v = "AES_128","SAMPLE_AES"
+            break
+        }
+
+        # Amazon.MediaPackageV2.UriSeparator
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/UriSeparator") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/UriSeparator")
+        }
+        {
+            $v = "HYPHEN","UNDERSCORE"
             break
         }
 
@@ -54372,6 +54442,7 @@ $MPV2_map = @{
     "InputType"=@("New-MPV2Channel")
     "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
+    "UriSeparator"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
 }
 
 _awsArgumentCompleterRegistration $MPV2_Completers $MPV2_map

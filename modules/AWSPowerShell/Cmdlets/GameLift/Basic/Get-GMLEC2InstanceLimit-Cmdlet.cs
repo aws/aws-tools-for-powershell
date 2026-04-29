@@ -47,21 +47,23 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Region or in a remote location. For remote locations, limits also differ based on
     /// the combination of home Region and remote location. All requests must specify an Amazon
     /// Web Services Region (either explicitly or as your default settings). To get the limit
-    /// for a remote location, you must also specify the location. For example, the following
-    /// requests all return different results: 
+    /// for a remote location, you must also specify the location. To learn more about how
+    /// Amazon GameLift Servers handles locations, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html">Amazon
+    /// GameLift Servers service locations</a>. For example, the following requests all return
+    /// different results: 
     /// </para><ul><li><para>
     /// Request specifies the Region <c>ap-northeast-1</c> with no location. The result is
-    /// limits and usage data on all instance types that are deployed in <c>us-east-2</c>,
-    /// by all of the fleets that reside in <c>ap-northeast-1</c>. 
+    /// limits and usage data on all of the fleets that reside in <c>ap-northeast-1</c>, for
+    /// all instance types that are deployed in <c>ap-northeast-1</c>. 
     /// </para></li><li><para>
-    /// Request specifies the Region <c>us-east-1</c> with location <c>ca-central-1</c>. The
-    /// result is limits and usage data on all instance types that are deployed in <c>ca-central-1</c>,
-    /// by all of the fleets that reside in <c>us-east-2</c>. These limits do not affect fleets
-    /// in any other Regions that deploy instances to <c>ca-central-1</c>.
+    /// Request specifies the Region <c>ap-northeast-1</c> with location <c>us-west-2</c>.
+    /// The result is limits and usage data on all of the fleets that reside in <c>ap-northeast-1</c>,
+    /// for all instance types that are deployed in <c>us-west-2</c>.
     /// </para></li><li><para>
-    /// Request specifies the Region <c>eu-west-1</c> with location <c>ca-central-1</c>. The
-    /// result is limits and usage data on all instance types that are deployed in <c>ca-central-1</c>,
-    /// by all of the fleets that reside in <c>eu-west-1</c>.
+    /// Request specifies the Region <c>us-east-1</c> with location <c>ap-northeast-1</c>.
+    /// The result is limits and usage data on all of the fleets that reside in <c>us-east-1</c>,
+    /// for all instance types that are deployed in <c>ap-northeast-1</c>. These limits do
+    /// not affect fleets in any other Regions that deploy instances to <c>ap-northeast-1</c>.
     /// </para></li></ul><para>
     /// This operation can be used in the following ways:
     /// </para><ul><li><para>

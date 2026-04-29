@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the IAM role that grants permissions to read from
         /// CloudWatch logs, write evaluation results, and invoke Amazon Bedrock models for evaluation.
-        /// </para>
+        /// If the configuration references evaluators encrypted with a customer managed KMS key,
+        /// this role must also have <c>kms:Decrypt</c> permission on the KMS key. The service
+        /// validates this permission at configuration creation time. For more information, see
+        /// <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html">Encryption
+        /// at rest for AgentCore Evaluations</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

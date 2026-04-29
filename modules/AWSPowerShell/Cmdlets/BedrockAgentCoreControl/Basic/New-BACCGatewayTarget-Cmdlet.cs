@@ -93,6 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String[] MetadataConfiguration_AllowedResponseHeader { get; set; }
         #endregion
         
+        #region Parameter TargetConfiguration_Http_AgentcoreRuntime_Arn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AgentCore Runtime to route requests to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetConfiguration_Http_AgentcoreRuntime_Arn { get; set; }
+        #endregion
+        
         #region Parameter Lambda_ToolSchema_S3_BucketOwnerAccountId
         /// <summary>
         /// <para>
@@ -293,6 +303,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter TargetConfiguration_Http_AgentcoreRuntime_Qualifier
+        /// <summary>
+        /// <para>
+        /// <para>The qualifier for the agent runtime, used to target a specific endpoint version. If
+        /// not specified, the default endpoint is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetConfiguration_Http_AgentcoreRuntime_Qualifier { get; set; }
         #endregion
         
         #region Parameter PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier
@@ -595,6 +616,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             context.PrivateEndpoint_ManagedVpcResource_VpcIdentifier = this.PrivateEndpoint_ManagedVpcResource_VpcIdentifier;
             context.PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier = this.PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier;
+            context.TargetConfiguration_Http_AgentcoreRuntime_Arn = this.TargetConfiguration_Http_AgentcoreRuntime_Arn;
+            context.TargetConfiguration_Http_AgentcoreRuntime_Qualifier = this.TargetConfiguration_Http_AgentcoreRuntime_Qualifier;
             if (this.ApiGatewayToolConfiguration_ToolFilter != null)
             {
                 context.ApiGatewayToolConfiguration_ToolFilter = new List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolFilter>(this.ApiGatewayToolConfiguration_ToolFilter);
@@ -812,6 +835,56 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate TargetConfiguration
             var requestTargetConfigurationIsNull = true;
             request.TargetConfiguration = new Amazon.BedrockAgentCoreControl.Model.TargetConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.HttpTargetConfiguration requestTargetConfiguration_targetConfiguration_Http = null;
+            
+             // populate Http
+            var requestTargetConfiguration_targetConfiguration_HttpIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Http = new Amazon.BedrockAgentCoreControl.Model.HttpTargetConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.RuntimeTargetConfiguration requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime = null;
+            
+             // populate AgentcoreRuntime
+            var requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntimeIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime = new Amazon.BedrockAgentCoreControl.Model.RuntimeTargetConfiguration();
+            System.String requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime_targetConfiguration_Http_AgentcoreRuntime_Arn = null;
+            if (cmdletContext.TargetConfiguration_Http_AgentcoreRuntime_Arn != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime_targetConfiguration_Http_AgentcoreRuntime_Arn = cmdletContext.TargetConfiguration_Http_AgentcoreRuntime_Arn;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime_targetConfiguration_Http_AgentcoreRuntime_Arn != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime.Arn = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime_targetConfiguration_Http_AgentcoreRuntime_Arn;
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntimeIsNull = false;
+            }
+            System.String requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime_targetConfiguration_Http_AgentcoreRuntime_Qualifier = null;
+            if (cmdletContext.TargetConfiguration_Http_AgentcoreRuntime_Qualifier != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime_targetConfiguration_Http_AgentcoreRuntime_Qualifier = cmdletContext.TargetConfiguration_Http_AgentcoreRuntime_Qualifier;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime_targetConfiguration_Http_AgentcoreRuntime_Qualifier != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime.Qualifier = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime_targetConfiguration_Http_AgentcoreRuntime_Qualifier;
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntimeIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntimeIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http.AgentcoreRuntime = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime;
+                requestTargetConfiguration_targetConfiguration_HttpIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Http should be set to null
+            if (requestTargetConfiguration_targetConfiguration_HttpIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Http = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http != null)
+            {
+                request.TargetConfiguration.Http = requestTargetConfiguration_targetConfiguration_Http;
+                requestTargetConfigurationIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.McpTargetConfiguration requestTargetConfiguration_targetConfiguration_Mcp = null;
             
              // populate Mcp
@@ -1282,6 +1355,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public Dictionary<System.String, System.String> PrivateEndpoint_ManagedVpcResource_Tag { get; set; }
             public System.String PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
             public System.String PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
+            public System.String TargetConfiguration_Http_AgentcoreRuntime_Arn { get; set; }
+            public System.String TargetConfiguration_Http_AgentcoreRuntime_Qualifier { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolFilter> ApiGatewayToolConfiguration_ToolFilter { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolOverride> ApiGatewayToolConfiguration_ToolOverride { get; set; }
             public System.String ApiGateway_RestApiId { get; set; }

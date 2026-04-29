@@ -329,6 +329,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public Amazon.CloudFront.ItemSelection Cookies_Forward { get; set; }
         #endregion
         
+        #region Parameter DistributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the HTTP header that your origin includes in responses. CloudFront uses
+        /// this header to extract cache tags. The header value must contain comma-separated tag
+        /// values (for example, <c>product:electronics, category:tv, brand:example</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DistributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName { get; set; }
+        #endregion
+        
         #region Parameter DistributionConfig_HttpVersion
         /// <summary>
         /// <para>
@@ -1342,6 +1354,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.CacheBehaviors_Item = new List<Amazon.CloudFront.Model.CacheBehavior>(this.CacheBehaviors_Item);
             }
             context.CacheBehaviors_Quantity = this.CacheBehaviors_Quantity;
+            context.DistributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName = this.DistributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName;
             context.DistributionConfig_CallerReference = this.DistributionConfig_CallerReference;
             #if MODULAR
             if (this.DistributionConfig_CallerReference == null && ParameterWasBound(nameof(this.DistributionConfig_CallerReference)))
@@ -1680,6 +1693,31 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_WebACLId != null)
             {
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.WebACLId = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_WebACLId;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
+            }
+            Amazon.CloudFront.Model.CacheTagConfig requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig = null;
+            
+             // populate CacheTagConfig
+            var requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfigIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig = new Amazon.CloudFront.Model.CacheTagConfig();
+            System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName = cmdletContext.DistributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig.HeaderName = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfigIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfigIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.CacheTagConfig = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CacheTagConfig;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
             }
             Amazon.CloudFront.Model.ConnectionFunctionAssociation requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation = null;
@@ -2809,6 +2847,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.String DistributionConfig_AnycastIpListId { get; set; }
             public List<Amazon.CloudFront.Model.CacheBehavior> CacheBehaviors_Item { get; set; }
             public System.Int32? CacheBehaviors_Quantity { get; set; }
+            public System.String DistributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName { get; set; }
             public System.String DistributionConfig_CallerReference { get; set; }
             public System.String DistributionConfig_Comment { get; set; }
             public System.String ConnectionFunctionAssociation_Id { get; set; }

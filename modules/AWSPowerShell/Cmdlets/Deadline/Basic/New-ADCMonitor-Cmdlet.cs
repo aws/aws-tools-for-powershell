@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityCenterRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS region where IAM Identity Center is enabled. Required when Identity Center
-        /// is in a different region than the monitor.</para>
+        /// <para>The AWS Region where IAM Identity Center is enabled. Required when IAM Identity Center
+        /// is in a different Region than the monitor.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

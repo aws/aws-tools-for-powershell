@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the monitor. This ID is returned by the <c>CreateMonitor</c>
-        /// operation, and is included in the response to the <c>GetMonitor</c> operation.</para>
+        /// operation, and is included in the response to the <c>ListMonitors</c> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

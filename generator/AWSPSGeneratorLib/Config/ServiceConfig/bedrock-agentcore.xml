@@ -35,7 +35,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateABTest" OutputProperty="*" Verb="New" Noun="ABTest" ShouldProcessTarget="Name,GatewayArn,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEvent" OutputProperty="Event" Verb="New" Noun="Event" ShouldProcessTarget="MemoryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteABTest" OutputProperty="*" Verb="Remove" Noun="ABTest" ShouldProcessTarget="AbTestId" PipelineParameter="AbTestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBatchEvaluation" OutputProperty="*" Verb="Remove" Noun="BatchEvaluation" ShouldProcessTarget="BatchEvaluationId" PipelineParameter="BatchEvaluationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,11 +59,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecommendation" OutputProperty="*" Verb="Remove" Noun="Recommendation" ShouldProcessTarget="RecommendationId" PipelineParameter="RecommendationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="Evaluate" OutputProperty="EvaluationResults" Verb="Invoke" Noun="Evaluate" ShouldProcessTarget="EvaluatorId" PipelineParameter="EvaluatorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetABTest" OutputProperty="*" Verb="Get" Noun="ABTest" PipelineParameter="AbTestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAgentCard" OutputProperty="*" Verb="Get" Noun="AgentCard" PipelineParameter="AgentRuntimeArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBatchEvaluation" OutputProperty="*" Verb="Get" Noun="BatchEvaluation" PipelineParameter="BatchEvaluationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -68,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMemoryRecord" OutputProperty="MemoryRecord" Verb="Get" Noun="MemoryRecord" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommendation" OutputProperty="*" Verb="Get" Noun="Recommendation" PipelineParameter="RecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,7 +142,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListABTests" OutputProperty="AbTests" Verb="Get" Noun="ABTestList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListActors" OutputProperty="ActorSummaries" Verb="Get" Noun="ActorList" PipelineParameter="MemoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBatchEvaluations" OutputProperty="BatchEvaluations" Verb="Get" Noun="BatchEvaluationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -141,6 +177,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendations" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationList" PipelineParameter="StatusFilter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSessions" OutputProperty="SessionSummaries" Verb="Get" Noun="SessionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -157,6 +197,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartBatchEvaluation" OutputProperty="*" Verb="Start" Noun="BatchEvaluation" ShouldProcessTarget="BatchEvaluationName" PipelineParameter="BatchEvaluationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartBrowserSession" OutputProperty="*" Verb="Start" Noun="BrowserSession" ShouldProcessTarget="BrowserIdentifier" PipelineParameter="BrowserIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -169,6 +213,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartRecommendation" OutputProperty="*" Verb="Start" Noun="Recommendation" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopBatchEvaluation" OutputProperty="*" Verb="Stop" Noun="BatchEvaluation" ShouldProcessTarget="BatchEvaluationId" PipelineParameter="BatchEvaluationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopBrowserSession" OutputProperty="*" Verb="Stop" Noun="BrowserSession" ShouldProcessTarget="SessionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -178,6 +230,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopRuntimeSession" OutputProperty="*" Verb="Stop" Noun="RuntimeSession" ShouldProcessTarget="RuntimeSessionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateABTest" OutputProperty="*" Verb="Update" Noun="ABTest" ShouldProcessTarget="AbTestId" PipelineParameter="AbTestId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

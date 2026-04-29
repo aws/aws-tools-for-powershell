@@ -150,7 +150,7 @@ $MPV2_Completers = {
             ($_ -eq "Update-MPV2OriginEndpoint/Scte_ScteInSegment")
         }
         {
-            $v = "ALL","NONE"
+            $v = "ALL","MATCHES_FILTER","NONE"
             break
         }
 
@@ -161,6 +161,16 @@ $MPV2_Completers = {
         }
         {
             $v = "AES_128","SAMPLE_AES"
+            break
+        }
+
+        # Amazon.MediaPackageV2.UriSeparator
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/UriSeparator") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/UriSeparator")
+        }
+        {
+            $v = "HYPHEN","UNDERSCORE"
             break
         }
 
@@ -182,6 +192,7 @@ $MPV2_map = @{
     "InputType"=@("New-MPV2Channel")
     "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
+    "UriSeparator"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
 }
 
 _awsArgumentCompleterRegistration $MPV2_Completers $MPV2_map

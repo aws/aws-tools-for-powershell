@@ -145,6 +145,7 @@ $GML_Completers = {
         # Amazon.GameLift.ContainerGroupType
         {
             ($_ -eq "Get-GMLContainerGroupDefinitionList/ContainerGroupType") -Or
+            ($_ -eq "Get-GMLContainerGroupPortMappingDetail/ContainerGroupType") -Or
             ($_ -eq "New-GMLContainerGroupDefinition/ContainerGroupType")
         }
         {
@@ -386,7 +387,7 @@ $GML_map = @{
     "ComparisonOperator"=@("Write-GMLScalingPolicy")
     "ComputeStatus"=@("Get-GMLComputeList")
     "ComputeType"=@("New-GMLFleet")
-    "ContainerGroupType"=@("Get-GMLContainerGroupDefinitionList","New-GMLContainerGroupDefinition")
+    "ContainerGroupType"=@("Get-GMLContainerGroupDefinitionList","Get-GMLContainerGroupPortMappingDetail","New-GMLContainerGroupDefinition")
     "DeleteOption"=@("Remove-GMLGameServerGroup")
     "DeploymentConfiguration_ImpairmentStrategy"=@("Update-GMLContainerFleet")
     "DeploymentConfiguration_ProtectionStrategy"=@("Update-GMLContainerFleet")
@@ -507,6 +508,7 @@ $GML_SelectMap = @{
                "Get-GMLCompute",
                "Get-GMLContainerFleet",
                "Get-GMLContainerGroupDefinition",
+               "Get-GMLContainerGroupPortMappingDetail",
                "Get-GMLEC2InstanceLimit",
                "Get-GMLFleetAttribute",
                "Get-GMLFleetCapacity",

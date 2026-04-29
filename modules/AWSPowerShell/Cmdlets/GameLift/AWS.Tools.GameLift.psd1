@@ -103,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GMLContainerGroupDefinition', 
         'Get-GMLContainerGroupDefinitionList', 
         'Get-GMLContainerGroupDefinitionVersionList', 
+        'Get-GMLContainerGroupPortMappingDetail', 
         'Get-GMLEC2InstanceLimit', 
         'Get-GMLFleet', 
         'Get-GMLFleetAttribute', 

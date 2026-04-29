@@ -176,11 +176,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// for ensuring that game session requests with the same idempotency token are processed
         /// only once. Subsequent requests with the same string return the original <c>GameSession</c>
         /// object, with an updated status. Maximum token length is 48 characters. If provided,
-        /// this string is included in the new game session's ID. A game session ARN has the following
-        /// format: <c>arn:aws:gamelift:&lt;location&gt;::gamesession/&lt;fleet ID&gt;/&lt;custom
-        /// ID string or idempotency token&gt;</c>. Idempotency tokens remain in use for 30 days
-        /// after a game session has ended; game session objects are retained for this time period
-        /// and then deleted.</para>
+        /// this string is included in the new game session's ID. The value is always a full ARN
+        /// in the following format: <c>arn:aws:gamelift:&lt;location&gt;::gamesession/&lt;fleet
+        /// ID&gt;/&lt;ID string&gt;</c>. Idempotency tokens remain in use for 30 days after a
+        /// game session has ended; game session objects are retained for this time period and
+        /// then deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

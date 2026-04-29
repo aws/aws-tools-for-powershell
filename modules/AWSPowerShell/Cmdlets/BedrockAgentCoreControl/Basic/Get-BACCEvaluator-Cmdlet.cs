@@ -63,6 +63,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String EvaluatorId { get; set; }
         #endregion
         
+        #region Parameter IncludedData
+        /// <summary>
+        /// <para>
+        /// <para> Controls which data is returned in the response. <c>ALL_DATA</c> (default) returns
+        /// the full evaluator including decrypted instructions and rating scale. For evaluators
+        /// encrypted with a customer managed KMS key, this requires <c>kms:Decrypt</c> permission
+        /// on the key. <c>METADATA_ONLY</c> returns evaluator metadata and model configuration
+        /// without instructions or rating scale, and does not require any KMS permissions. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.IncludedData")]
+        public Amazon.BedrockAgentCoreControl.IncludedData IncludedData { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -100,6 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter EvaluatorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludedData = this.IncludedData;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.EvaluatorId != null)
             {
                 request.EvaluatorId = cmdletContext.EvaluatorId;
+            }
+            if (cmdletContext.IncludedData != null)
+            {
+                request.IncludedData = cmdletContext.IncludedData;
             }
             
             CmdletOutput output;
@@ -176,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EvaluatorId { get; set; }
+            public Amazon.BedrockAgentCoreControl.IncludedData IncludedData { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.GetEvaluatorResponse, GetBACCEvaluatorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

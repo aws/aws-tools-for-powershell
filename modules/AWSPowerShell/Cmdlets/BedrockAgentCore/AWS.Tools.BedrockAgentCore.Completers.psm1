@@ -80,6 +80,13 @@ $BAC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentCore.ABTestExecutionStatus
+        "Update-BACABTest/ExecutionStatus"
+        {
+            $v = "NOT_STARTED","PAUSED","RUNNING","STOPPED"
+            break
+        }
+
         # Amazon.BedrockAgentCore.AutomationStreamStatus
         "Update-BACBrowserStream/AutomationStreamUpdate_StreamStatus"
         {
@@ -146,6 +153,20 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.RecommendationStatus
+        "Get-BACRecommendationList/StatusFilter"
+        {
+            $v = "COMPLETED","DELETING","FAILED","IN_PROGRESS","PENDING"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.RecommendationType
+        "Start-BACRecommendation/Type"
+        {
+            $v = "SYSTEM_PROMPT_RECOMMENDATION","TOOL_DESCRIPTION_RECOMMENDATION"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ScreenshotFormat
         "Invoke-BACBrowser/Action_Screenshot_Format"
         {
@@ -175,11 +196,14 @@ $BAC_map = @{
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
+    "ExecutionStatus"=@("Update-BACABTest")
     "Filter_EventFilter"=@("Get-BACSessionList")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
     "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
+    "StatusFilter"=@("Get-BACRecommendationList")
+    "Type"=@("Start-BACRecommendation")
 }
 
 _awsArgumentCompleterRegistration $BAC_Completers $BAC_map
@@ -236,15 +260,22 @@ $BAC_SelectMap = @{
                "Remove-BACBatchMemoryRecord",
                "Update-BACBatchMemoryRecord",
                "Complete-BACResourceTokenAuth",
+               "New-BACABTest",
                "New-BACEvent",
+               "Remove-BACABTest",
+               "Remove-BACBatchEvaluation",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
+               "Remove-BACRecommendation",
                "Invoke-BACEvaluate",
+               "Get-BACABTest",
                "Get-BACAgentCard",
+               "Get-BACBatchEvaluation",
                "Get-BACBrowserSession",
                "Get-BACCodeInterpreterSession",
                "Get-BACEvent",
                "Get-BACMemoryRecord",
+               "Get-BACRecommendation",
                "Get-BACResourceApiKey",
                "Get-BACResourceOauth2Token",
                "Get-BACWorkloadAccessToken",
@@ -255,22 +286,29 @@ $BAC_SelectMap = @{
                "Invoke-BACBrowser",
                "Invoke-BACCodeInterpreter",
                "Invoke-BACHarness",
+               "Get-BACABTestList",
                "Get-BACActorList",
+               "Get-BACBatchEvaluationList",
                "Get-BACBrowserSessionList",
                "Get-BACCodeInterpreterSessionList",
                "Get-BACEventList",
                "Get-BACMemoryExtractionJobList",
                "Get-BACMemoryRecordList",
+               "Get-BACRecommendationList",
                "Get-BACSessionList",
                "Invoke-BACMemoryRecord",
                "Save-BACBrowserSessionProfile",
                "Search-BACRegistryRecord",
+               "Start-BACBatchEvaluation",
                "Start-BACBrowserSession",
                "Start-BACCodeInterpreterSession",
                "Start-BACMemoryExtractionJob",
+               "Start-BACRecommendation",
+               "Stop-BACBatchEvaluation",
                "Stop-BACBrowserSession",
                "Stop-BACCodeInterpreterSession",
                "Stop-BACRuntimeSession",
+               "Update-BACABTest",
                "Update-BACBrowserStream")
 }
 

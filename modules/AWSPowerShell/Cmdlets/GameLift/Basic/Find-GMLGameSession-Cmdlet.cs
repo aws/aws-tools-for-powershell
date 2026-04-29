@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To set search and sort criteria, create a filter expression using the following game
     /// session attributes. For game session search examples, see the Examples section of
     /// this topic.
-    /// </para><ul><li><para><b>gameSessionId</b> -- A unique identifier for the game session. You can use either
-    /// a <c>GameSessionId</c> or <c>GameSessionArn</c> value. 
+    /// </para><ul><li><para><b>gameSessionId</b> -- An identifier for the game session that is unique across
+    /// all regions. You must use the full ARN value. 
     /// </para></li><li><para><b>gameSessionName</b> -- Name assigned to a game session. Game session names do
     /// not need to be unique to a game session.
     /// </para></li><li><para><b>gameSessionProperties</b> -- A set of key-value pairs that can store custom data

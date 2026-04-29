@@ -489,8 +489,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute
         /// <summary>
         /// <para>
-        /// <para>The number of workers that can be added per minute to the fleet. The default is a
-        /// service-defined value that balances efficiency with cost.</para>
+        /// <para>The number of workers that can be added per minute to the fleet. The default is 10
+        /// workers per minute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -500,8 +500,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute
         /// <summary>
         /// <para>
-        /// <para>The number of workers that can be added per minute to the fleet. The default is a
-        /// service-defined value that balances efficiency with cost.</para>
+        /// <para>The number of workers that can be added per minute to the fleet. The default is 10
+        /// workers per minute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -292,13 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>The updated protocol type for the gateway.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.GatewayProtocolType")]
         public Amazon.BedrockAgentCoreControl.GatewayProtocolType ProtocolType { get; set; }
         #endregion
@@ -550,12 +544,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.Mcp_SupportedVersion = new List<System.String>(this.Mcp_SupportedVersion);
             }
             context.ProtocolType = this.ProtocolType;
-            #if MODULAR
-            if (this.ProtocolType == null && ParameterWasBound(nameof(this.ProtocolType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProtocolType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))

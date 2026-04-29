@@ -66,6 +66,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationBundle" OutputProperty="*" Verb="New" Noun="ConfigurationBundle" ShouldProcessTarget="BundleName" PipelineParameter="BundleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEvaluator" OutputProperty="*" Verb="New" Noun="Evaluator" ShouldProcessTarget="EvaluatorName" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="EvaluatorConfig_LlmAsAJudge_Instructions" NewName="LlmAsAJudge_Instruction" />
@@ -91,6 +95,10 @@
                 <Param Name="ProtocolConfiguration_Mcp_SearchType" NewName="Mcp_SearchType" />
                 <Param Name="ProtocolConfiguration_Mcp_SupportedVersions" NewName="Mcp_SupportedVersion" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGatewayRule" OutputProperty="*" Verb="New" Noun="GatewayRule" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGatewayTarget" OutputProperty="*" Verb="New" Noun="GatewayTarget" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
@@ -209,11 +217,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationBundle" OutputProperty="*" Verb="Remove" Noun="ConfigurationBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEvaluator" OutputProperty="*" Verb="Remove" Noun="Evaluator" ShouldProcessTarget="EvaluatorId" PipelineParameter="EvaluatorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteGateway" OutputProperty="*" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGatewayRule" OutputProperty="*" Verb="Remove" Noun="GatewayRule" ShouldProcessTarget="RuleId,GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -285,11 +301,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetConfigurationBundle" OutputProperty="*" Verb="Get" Noun="ConfigurationBundle" PipelineParameter="BundleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfigurationBundleVersion" OutputProperty="*" Verb="Get" Noun="ConfigurationBundleVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEvaluator" OutputProperty="*" Verb="Get" Noun="Evaluator" PipelineParameter="EvaluatorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetGateway" OutputProperty="*" Verb="Get" Noun="Gateway" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGatewayRule" OutputProperty="*" Verb="Get" Noun="GatewayRule" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -373,7 +401,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurationBundles" OutputProperty="Bundles" Verb="Get" Noun="ConfigurationBundleList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurationBundleVersions" OutputProperty="Versions" Verb="Get" Noun="ConfigurationBundleVersionList" PipelineParameter="BundleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEvaluators" OutputProperty="Evaluators" Verb="Get" Noun="EvaluatorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGatewayRules" OutputProperty="GatewayRules" Verb="Get" Noun="GatewayRuleList" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -487,6 +527,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationBundle" OutputProperty="*" Verb="Update" Noun="ConfigurationBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateEvaluator" OutputProperty="*" Verb="Update" Noun="Evaluator" ShouldProcessTarget="EvaluatorId" PipelineParameter="EvaluatorId" NoPipelineParameter="false">
             <Params>
                 <Param Name="EvaluatorConfig_LlmAsAJudge_Instructions" NewName="LlmAsAJudge_Instruction" />
@@ -512,6 +556,10 @@
                 <Param Name="ProtocolConfiguration_Mcp_SearchType" NewName="Mcp_SearchType" />
                 <Param Name="ProtocolConfiguration_Mcp_SupportedVersions" NewName="Mcp_SupportedVersion" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewayRule" OutputProperty="*" Verb="Update" Noun="GatewayRule" ShouldProcessTarget="RuleId,GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGatewayTarget" OutputProperty="*" Verb="Update" Noun="GatewayTarget" ShouldProcessTarget="TargetId" PipelineParameter="" NoPipelineParameter="true">

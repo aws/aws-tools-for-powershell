@@ -1,4 +1,49 @@
-﻿### 5.0.203 (2026-04-27 21:04Z)
+﻿### 5.0.204 (2026-04-29 19:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.240.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Get-BACCConfigurationBundle leveraging the GetConfigurationBundle service API.
+    * Added cmdlet Get-BACCConfigurationBundleList leveraging the ListConfigurationBundles service API.
+    * Added cmdlet Get-BACCConfigurationBundleVersion leveraging the GetConfigurationBundleVersion service API.
+    * Added cmdlet Get-BACCConfigurationBundleVersionList leveraging the ListConfigurationBundleVersions service API.
+    * Added cmdlet Get-BACCGatewayRule leveraging the GetGatewayRule service API.
+    * Added cmdlet Get-BACCGatewayRuleList leveraging the ListGatewayRules service API.
+    * Added cmdlet New-BACCConfigurationBundle leveraging the CreateConfigurationBundle service API.
+    * Added cmdlet New-BACCGatewayRule leveraging the CreateGatewayRule service API.
+    * Added cmdlet Remove-BACCConfigurationBundle leveraging the DeleteConfigurationBundle service API.
+    * Added cmdlet Remove-BACCGatewayRule leveraging the DeleteGatewayRule service API.
+    * Added cmdlet Update-BACCConfigurationBundle leveraging the UpdateConfigurationBundle service API.
+    * Added cmdlet Update-BACCGatewayRule leveraging the UpdateGatewayRule service API.
+    * Modified cmdlet Get-BACCEvaluator: added parameter IncludedData.
+    * Modified cmdlet New-BACCEvaluator: added parameter KmsKeyArn.
+    * Modified cmdlet New-BACCGatewayTarget: added parameters TargetConfiguration_Http_AgentcoreRuntime_Arn and TargetConfiguration_Http_AgentcoreRuntime_Qualifier.
+    * Modified cmdlet Update-BACCEvaluator: added parameter KmsKeyArn.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameters TargetConfiguration_Http_AgentcoreRuntime_Arn and TargetConfiguration_Http_AgentcoreRuntime_Qualifier.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Get-BACABTest leveraging the GetABTest service API.
+    * Added cmdlet Get-BACABTestList leveraging the ListABTests service API.
+    * Added cmdlet Get-BACBatchEvaluation leveraging the GetBatchEvaluation service API.
+    * Added cmdlet Get-BACBatchEvaluationList leveraging the ListBatchEvaluations service API.
+    * Added cmdlet Get-BACRecommendation leveraging the GetRecommendation service API.
+    * Added cmdlet Get-BACRecommendationList leveraging the ListRecommendations service API.
+    * Added cmdlet New-BACABTest leveraging the CreateABTest service API.
+    * Added cmdlet Remove-BACABTest leveraging the DeleteABTest service API.
+    * Added cmdlet Remove-BACBatchEvaluation leveraging the DeleteBatchEvaluation service API.
+    * Added cmdlet Remove-BACRecommendation leveraging the DeleteRecommendation service API.
+    * Added cmdlet Start-BACBatchEvaluation leveraging the StartBatchEvaluation service API.
+    * Added cmdlet Start-BACRecommendation leveraging the StartRecommendation service API.
+    * Added cmdlet Stop-BACBatchEvaluation leveraging the StopBatchEvaluation service API.
+    * Added cmdlet Update-BACABTest leveraging the UpdateABTest service API.
+  * Amazon CloudFront
+    * Modified cmdlet New-CFDistribution: added parameter DistributionConfig_CacheTagConfig_HeaderName.
+    * Modified cmdlet New-CFDistributionWithTag: added parameter DistributionConfigWithTags_DistributionConfig_CacheTagConfig_HeaderName.
+    * Modified cmdlet Update-CFDistribution: added parameter DistributionConfig_CacheTagConfig_HeaderName.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2OriginEndpoint: added parameters Segment_Scte_CustomAdType and UriSeparator.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameters Segment_Scte_CustomAdType and UriSeparator.
+  * Amazon GameLift Service
+    * Added cmdlet Get-GMLContainerGroupPortMappingDetail leveraging the DescribeContainerGroupPortMappings service API.
+
+### 5.0.203 (2026-04-27 21:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.239.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Application Signals
     * Modified cmdlet New-CWASServiceLevelObjective: added parameters AutoInvestigationEnabled, RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_Component, RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern, RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type, SliConfig_SliMetricConfig_CompositeSliConfig_Component, SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Pattern and SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type.

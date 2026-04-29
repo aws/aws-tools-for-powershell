@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
 {
     /// <summary>
     /// Retrieves information about the specified account including its account name, account
-    /// ID, and account creation date and time. To use this API, an IAM user or role must
-    /// have the <c>account:GetAccountInformation</c> IAM permission.
+    /// ID, account creation date and time, and account state. To use this API, an IAM user
+    /// or role must have the <c>account:GetAccountInformation</c> IAM permission.
     /// </summary>
     [Cmdlet("Get", "ACCTAccountInformation")]
     [OutputType("Amazon.Account.Model.GetAccountInformationResponse")]

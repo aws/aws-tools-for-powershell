@@ -299,7 +299,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter MaxToken
         /// <summary>
         /// <para>
-        /// <para>The maximum number of tokens the agent can generate per iteration.</para>
+        /// <para>The maximum total number of output tokens the agent can generate across all model
+        /// calls within a single invocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -310,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Model_BedrockModelConfig_MaxToken
         /// <summary>
         /// <para>
-        /// <para>The maximum number of tokens to allow in the generated response per iteration.</para>
+        /// <para>The maximum number of tokens to allow in the generated response per model call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -321,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Model_GeminiModelConfig_MaxToken
         /// <summary>
         /// <para>
-        /// <para>The maximum number of tokens to allow in the generated response per iteration.</para>
+        /// <para>The maximum number of tokens to allow in the generated response per model call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Model_OpenAiModelConfig_MaxToken
         /// <summary>
         /// <para>
-        /// <para>The maximum number of tokens to allow in the generated response per iteration.</para>
+        /// <para>The maximum number of tokens to allow in the generated response per model call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
