@@ -24,6 +24,7 @@ using Amazon.Runtime;
 using Amazon.Kinesis;
 using System.IO;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     public partial class WriteKINRecordCmdlet
@@ -60,7 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
 
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.FilePath != null)
             {
                 if (!File.Exists(this.FilePath))
@@ -71,7 +71,6 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             {
                 cmdletContext.Data = Encoding.UTF8.GetBytes(this.Text);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
         }
     }
 }

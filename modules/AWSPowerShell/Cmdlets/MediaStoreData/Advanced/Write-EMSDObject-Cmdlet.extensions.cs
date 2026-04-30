@@ -26,6 +26,7 @@ using Amazon.Runtime;
 using Amazon.MediaStoreData;
 using Amazon.MediaStoreData.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EMSD
 {
     public partial class WriteEMSDObjectCmdlet
@@ -45,12 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         {
             var cmdletContext = context as CmdletContext;
 
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.FilePath != null)
             {
                 cmdletContext.Body = new System.IO.FileInfo(this.FilePath);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
         }
     }
 }

@@ -21,6 +21,7 @@ using System.IO;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     public partial class PublishLMFunctionCmdlet
@@ -56,7 +57,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
 
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ZipFilename != null)
             {
                 var fqZipFilename = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.ZipFilename);
@@ -71,7 +71,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 cmdletContext.PublishVersion = true;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
         }
     }
 }

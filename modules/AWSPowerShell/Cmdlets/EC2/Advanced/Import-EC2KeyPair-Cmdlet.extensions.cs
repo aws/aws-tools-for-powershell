@@ -25,6 +25,7 @@ using Amazon.Runtime;
 using Amazon.EC2;
 using Amazon.EC2.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     public partial class ImportEC2KeyPairCmdlet
@@ -52,12 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
 
-#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.PublicKeyMaterial != null)
             {
                 cmdletContext.PublicKey = PublicKeyMaterial;
             }
-#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
         }
     }
 }

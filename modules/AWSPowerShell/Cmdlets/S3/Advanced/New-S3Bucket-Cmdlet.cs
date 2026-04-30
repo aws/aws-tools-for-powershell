@@ -23,6 +23,7 @@ using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
@@ -158,12 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (!string.IsNullOrEmpty(this.CannedACLName))
                 context.CannedACL = this.CannedACLName;
-#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             else if (this.PublicReadOnly.IsPresent)
                 context.CannedACL = S3CannedACL.PublicRead;
             else if (this.PublicReadWrite.IsPresent)
                 context.CannedACL = S3CannedACL.PublicReadWrite;
-#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
 
             context.ObjectLockEnabledForBucket = this.ObjectLockEnabledForBucket;
             context.PutBucketConfiguration = this.BucketConfiguration;

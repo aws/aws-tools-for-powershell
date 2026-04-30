@@ -24,6 +24,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.Util;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     internal static class AmazonEC2Helper

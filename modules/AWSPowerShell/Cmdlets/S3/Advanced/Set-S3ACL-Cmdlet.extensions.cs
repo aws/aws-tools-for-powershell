@@ -23,6 +23,7 @@ using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     public partial class SetS3ACLCmdlet
@@ -72,7 +73,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (string.IsNullOrEmpty(this.CannedACL))
             {
-#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
                 if (this.PublicReadOnly.IsPresent)
                 {
                     cmdletContext.CannedACL = S3CannedACL.PublicRead;
@@ -81,7 +81,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     cmdletContext.CannedACL = S3CannedACL.PublicReadWrite;
                 }
-#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             }
         }
     }

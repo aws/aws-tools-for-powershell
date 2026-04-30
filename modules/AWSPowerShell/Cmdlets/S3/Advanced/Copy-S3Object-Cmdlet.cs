@@ -656,12 +656,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (this.ExpectedBucketOwner != null)
                 context.ExpectedBucketOwner = this.ExpectedBucketOwner;
-#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("ModifiedSinceDate"))
                 context.ModifiedSinceDate = this.ModifiedSinceDate;
             if (ParameterWasBound("UnmodifiedSinceDate"))
                 context.UnmodifiedSinceDate = this.UnmodifiedSinceDate;
-#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
 
             if (ParameterWasBound("MetadataDirective"))
                 context.MetadataDirective = this.MetadataDirective;
@@ -834,7 +832,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.WebsiteRedirectLocation = cmdletContext.WebsiteRedirectLocation;
             if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
-#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ModifiedSinceDate.HasValue)
             {
                 request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
@@ -843,7 +840,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
             }
-#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
 
             request.CopySourceServerSideEncryptionCustomerMethod = cmdletContext.CopySourceServerSideEncryptionCustomerMethod;
             request.CopySourceServerSideEncryptionCustomerProvidedKey = cmdletContext.CopySourceServerSideEncryptionCustomerProvidedKey;
@@ -1068,7 +1064,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (!string.IsNullOrEmpty(cmdletContext.SourceVersionId))
                 request.VersionId = cmdletContext.SourceVersionId;
-#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ModifiedSinceDate.HasValue)
             {
                 request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
@@ -1077,7 +1072,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
             }
-#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
 
             request.ServerSideEncryptionCustomerMethod = cmdletContext.ServerSideEncryptionCustomerMethod;
             request.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
@@ -1117,7 +1111,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 S3Directory = cmdletContext.KeyPrefix
             };
 
-#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ModifiedSinceDate.HasValue)
             {
                 request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
@@ -1126,7 +1119,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
             }
-#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
 
             if (cmdletContext.RequestPayer != null)
             {
@@ -1543,7 +1535,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     request.ETagToMatch = new List<string> { _context.ETagToMatch };
                 if (_context.ETagToNotMatch != null)
                     request.ETagsToNotMatch = new List<string> { _context.ETagToNotMatch };
-#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
                 if (_context.ModifiedSinceDate.HasValue)
                 {
                     request.ModifiedSinceDate = _context.ModifiedSinceDate.Value;
@@ -1552,7 +1543,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     request.UnmodifiedSinceDate = _context.UnmodifiedSinceDate.Value;
                 }
-#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
 
                 request.CopySourceServerSideEncryptionCustomerMethod = _context.CopySourceServerSideEncryptionCustomerMethod;
                 request.CopySourceServerSideEncryptionCustomerProvidedKey = _context.CopySourceServerSideEncryptionCustomerProvidedKey;

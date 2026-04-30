@@ -24,6 +24,7 @@ using Amazon.EC2.Model;
 using Amazon.EC2;
 using Amazon.Runtime;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     public partial class StopEC2InstanceCmdlet
@@ -41,12 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
 
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ForceStop.IsPresent)
             {
                 cmdletContext.Enforce = true;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
         }      
     }
 }

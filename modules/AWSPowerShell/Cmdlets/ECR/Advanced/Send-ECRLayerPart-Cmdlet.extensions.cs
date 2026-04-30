@@ -19,6 +19,7 @@ using System;
 using Amazon.PowerShell.Common;
 using System.Text;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     public partial class SendECRLayerPartCmdlet
@@ -39,12 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         {
             var cmdletContext = context as CmdletContext;
 
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.LayerPartStream != null)
             {
                 cmdletContext.LayerPartBlob = LayerPartStream.ToArray();
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
         }
     }
 }

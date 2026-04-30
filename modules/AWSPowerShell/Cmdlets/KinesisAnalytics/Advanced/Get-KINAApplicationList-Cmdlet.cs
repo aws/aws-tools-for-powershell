@@ -25,6 +25,7 @@ using Amazon.Runtime;
 using Amazon.KinesisAnalytics;
 using Amazon.KinesisAnalytics.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.KINA
 {
     /// <summary>
@@ -121,14 +122,12 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.KinesisAnalytics.Model.ListApplicationsResponse, GetKINAApplicationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
 
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ExclusiveStartApplicationName = this.ExclusiveStartApplicationName;
             context.Limit = this.Limit;
 #if !MODULAR
@@ -154,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             var useParameterSelect = this.Select.StartsWith(".");
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.KinesisAnalytics.Model.ListApplicationsRequest();

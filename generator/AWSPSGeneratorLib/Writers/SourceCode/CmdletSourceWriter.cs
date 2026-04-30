@@ -837,10 +837,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 var customEmitter = FindCustomEmitterForParam(property);
                 if (customEmitter == null)
                 {
-                    if (property.IsDeprecated)
-                    {
-                        writer.WriteLine("#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute");
-                    }
                     if (property.CollectionType == SimplePropertyInfo.PropertyCollectionType.NoCollection || property.GenericCollectionTypes == null)
                     {
                         var paramCustomization = FindParameterCustomization(property.AnalyzedName);
@@ -1220,10 +1216,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.DecreaseIndent();
                         writer.CloseRegion();
                         writer.WriteLine($"#endif");
-                    }
-                    if (property.IsDeprecated)
-                    {
-                        writer.WriteLine("#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute");
                     }
                 }
                 else
@@ -1707,10 +1699,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 var autoIteration = MethodAnalysis.AutoIterateSettings;
                 var isEmitLimiter = property.Name == autoIteration?.EmitLimit;
 
-                if (!nestedProperty && property.IsDeprecated)
-                {
-                    writer.WriteLine("#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute");
-                }
                 writer.WriteLine($"if (cmdletContext.{property.CmdletParameterName} != null)");
                 writer.OpenRegion();
                 {
@@ -1754,10 +1742,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     }
                 }
                 writer.CloseRegion();
-                if (!nestedProperty && property.IsDeprecated)
-                {
-                    writer.WriteLine("#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute");
-                }
             }
             else
             {
@@ -1773,11 +1757,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 foreach (var child in property.Children.OrderBy(c => c.Children.Count))
                 {
-                    if (child.IsDeprecated)
-                    {
-                        writer.WriteLine("#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute");
-                    }
-
                     var childVariableName = usableVariableName + "_" + OperationAnalyzer.ToLowerCamelCase(child.CmdletParameterName);
 
                     var childPropertyType = MethodAnalysis.GetValidTypeName(child.PropertyType);
@@ -1792,11 +1771,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine($"{variableName}.{child.Name} = {childVariableName}{(child.PropertyType.IsValueType ? ".Value" : "")};");
                     writer.WriteLine($"{usableVariableName}IsNull = false;");
                     writer.CloseRegion();
-
-                    if (child.IsDeprecated)
-                    {
-                        writer.WriteLine("#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute");
-                    }
                 }
 
                 // If property is Required, then do not emit code that resets it's value to null if none of the child properties are set (currently controlled by NoResetToNullForRequiredParameter build config parameter).
