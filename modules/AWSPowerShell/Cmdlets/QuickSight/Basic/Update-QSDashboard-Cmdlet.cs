@@ -1244,7 +1244,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DashboardPublishOptions.VisualMenuOption = requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption;
                 requestDashboardPublishOptionsIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.QuickSight.Model.DashboardVisualPublishOptions requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions = null;
             
              // populate VisualPublishOptions
@@ -1285,7 +1284,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DashboardPublishOptions.VisualPublishOptions = requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions;
                 requestDashboardPublishOptionsIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.DashboardPublishOptions should be set to null
             if (requestDashboardPublishOptionsIsNull)
             {

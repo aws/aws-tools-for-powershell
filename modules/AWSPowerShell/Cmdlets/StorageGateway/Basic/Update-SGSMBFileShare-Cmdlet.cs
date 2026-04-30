@@ -408,9 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 context.InvalidUserList = new List<System.String>(this.InvalidUserList);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.KMSEncrypted = this.KMSEncrypted;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.KMSKey = this.KMSKey;
             context.NotificationPolicy = this.NotificationPolicy;
             context.ObjectACL = this.ObjectACL;
@@ -497,12 +495,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.InvalidUserList = cmdletContext.InvalidUserList;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.KMSEncrypted != null)
             {
                 request.KMSEncrypted = cmdletContext.KMSEncrypted.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.KMSKey != null)
             {
                 request.KMSKey = cmdletContext.KMSKey;

@@ -183,12 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             {
                 context.OrganizationEntityAccountFilter = new List<Amazon.AWSHealth.Model.EntityAccountFilter>(this.OrganizationEntityAccountFilter);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.OrganizationEntityFilter != null)
             {
                 context.OrganizationEntityFilter = new List<Amazon.AWSHealth.Model.EventAccountFilter>(this.OrganizationEntityFilter);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -219,12 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             {
                 request.OrganizationEntityAccountFilters = cmdletContext.OrganizationEntityAccountFilter;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.OrganizationEntityFilter != null)
             {
                 request.OrganizationEntityFilters = cmdletContext.OrganizationEntityFilter;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;

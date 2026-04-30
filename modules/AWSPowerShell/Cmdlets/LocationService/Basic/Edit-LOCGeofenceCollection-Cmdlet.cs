@@ -150,12 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #endif
             context.Description = this.Description;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlanDataSource = this.PricingPlanDataSource;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,18 +176,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.Description = cmdletContext.Description;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlanDataSource != null)
             {
                 request.PricingPlanDataSource = cmdletContext.PricingPlanDataSource;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             

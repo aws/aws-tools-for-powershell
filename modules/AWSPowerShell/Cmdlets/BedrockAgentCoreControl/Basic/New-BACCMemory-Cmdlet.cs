@@ -81,6 +81,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.Int32? EventExpiryDuration { get; set; }
         #endregion
         
+        #region Parameter IndexedKey
+        /// <summary>
+        /// <para>
+        /// <para>Metadata keys to index for filtering. Once declared, indexed keys cannot be removed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IndexedKeys")]
+        public Amazon.BedrockAgentCoreControl.Model.IndexedKey[] IndexedKey { get; set; }
+        #endregion
+        
         #region Parameter MemoryExecutionRoleArn
         /// <summary>
         /// <para>
@@ -224,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter EventExpiryDuration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.IndexedKey != null)
+            {
+                context.IndexedKey = new List<Amazon.BedrockAgentCoreControl.Model.IndexedKey>(this.IndexedKey);
+            }
             context.MemoryExecutionRoleArn = this.MemoryExecutionRoleArn;
             if (this.MemoryStrategy != null)
             {
@@ -279,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.EventExpiryDuration != null)
             {
                 request.EventExpiryDuration = cmdletContext.EventExpiryDuration.Value;
+            }
+            if (cmdletContext.IndexedKey != null)
+            {
+                request.IndexedKeys = cmdletContext.IndexedKey;
             }
             if (cmdletContext.MemoryExecutionRoleArn != null)
             {
@@ -374,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Description { get; set; }
             public System.String EncryptionKeyArn { get; set; }
             public System.Int32? EventExpiryDuration { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.IndexedKey> IndexedKey { get; set; }
             public System.String MemoryExecutionRoleArn { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.MemoryStrategyInput> MemoryStrategy { get; set; }
             public System.String Name { get; set; }

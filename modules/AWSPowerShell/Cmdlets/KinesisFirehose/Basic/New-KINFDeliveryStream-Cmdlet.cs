@@ -2316,9 +2316,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.MSKSourceConfiguration_ReadFromTimestamp = this.MSKSourceConfiguration_ReadFromTimestamp;
             context.MSKSourceConfiguration_TopicName = this.MSKSourceConfiguration_TopicName;
             context.RedshiftDestinationConfiguration = this.RedshiftDestinationConfiguration;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.S3DestinationConfiguration = this.S3DestinationConfiguration;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SnowflakeDestinationConfiguration_AccountUrl = this.SnowflakeDestinationConfiguration_AccountUrl;
             context.SnowflakeDestinationConfiguration_BufferingHints_IntervalInSeconds = this.SnowflakeDestinationConfiguration_BufferingHints_IntervalInSeconds;
             context.SnowflakeDestinationConfiguration_BufferingHints_SizeInMBs = this.SnowflakeDestinationConfiguration_BufferingHints_SizeInMBs;
@@ -4226,12 +4224,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 request.RedshiftDestinationConfiguration = cmdletContext.RedshiftDestinationConfiguration;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.S3DestinationConfiguration != null)
             {
                 request.S3DestinationConfiguration = cmdletContext.S3DestinationConfiguration;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
              // populate SnowflakeDestinationConfiguration
             var requestSnowflakeDestinationConfigurationIsNull = true;

@@ -478,9 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             context.ComputeCapacity_DesiredInstance = this.ComputeCapacity_DesiredInstance;
             context.ComputeCapacity_DesiredSession = this.ComputeCapacity_DesiredSession;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DeleteVpcConfig = this.DeleteVpcConfig;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.DisableIMDSV1 = this.DisableIMDSV1;
             context.DisconnectTimeoutInSecond = this.DisconnectTimeoutInSecond;
@@ -563,12 +561,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.ComputeCapacity = null;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.DeleteVpcConfig != null)
             {
                 request.DeleteVpcConfig = cmdletContext.DeleteVpcConfig.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;

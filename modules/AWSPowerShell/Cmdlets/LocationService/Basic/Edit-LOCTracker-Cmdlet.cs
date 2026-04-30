@@ -193,12 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             context.EventBridgeEnabled = this.EventBridgeEnabled;
             context.KmsKeyEnableGeospatialQuery = this.KmsKeyEnableGeospatialQuery;
             context.PositionFiltering = this.PositionFiltering;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlanDataSource = this.PricingPlanDataSource;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.TrackerName = this.TrackerName;
             #if MODULAR
             if (this.TrackerName == null && ParameterWasBound(nameof(this.TrackerName)))
@@ -238,18 +234,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.PositionFiltering = cmdletContext.PositionFiltering;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlanDataSource != null)
             {
                 request.PricingPlanDataSource = cmdletContext.PricingPlanDataSource;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.TrackerName != null)
             {
                 request.TrackerName = cmdletContext.TrackerName;

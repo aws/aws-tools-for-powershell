@@ -44,6 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Audience
+        /// <summary>
+        /// <para>
+        /// <para>The audiences to include in the token request. These are used to specify the intended
+        /// recipients of the OAuth2 token.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Audiences")]
+        public System.String[] Audience { get; set; }
+        #endregion
+        
         #region Parameter CustomParameter
         /// <summary>
         /// <para>
@@ -129,6 +145,22 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String ResourceOauth2ReturnUrl { get; set; }
         #endregion
         
+        #region Parameter Resource
+        /// <summary>
+        /// <para>
+        /// <para>The resources to include in the token request. These are used to specify the target
+        /// resources for which the OAuth2 token is being requested.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resources")]
+        public System.String[] Resource { get; set; }
+        #endregion
+        
         #region Parameter Scope
         /// <summary>
         /// <para>
@@ -210,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse, GetBACResourceOauth2TokenCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Audience != null)
+            {
+                context.Audience = new List<System.String>(this.Audience);
+            }
             if (this.CustomParameter != null)
             {
                 context.CustomParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -235,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             }
             #endif
             context.ResourceOauth2ReturnUrl = this.ResourceOauth2ReturnUrl;
+            if (this.Resource != null)
+            {
+                context.Resource = new List<System.String>(this.Resource);
+            }
             if (this.Scope != null)
             {
                 context.Scope = new List<System.String>(this.Scope);
@@ -269,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             // create request
             var request = new Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenRequest();
             
+            if (cmdletContext.Audience != null)
+            {
+                request.Audiences = cmdletContext.Audience;
+            }
             if (cmdletContext.CustomParameter != null)
             {
                 request.CustomParameters = cmdletContext.CustomParameter;
@@ -292,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.ResourceOauth2ReturnUrl != null)
             {
                 request.ResourceOauth2ReturnUrl = cmdletContext.ResourceOauth2ReturnUrl;
+            }
+            if (cmdletContext.Resource != null)
+            {
+                request.Resources = cmdletContext.Resource;
             }
             if (cmdletContext.Scope != null)
             {
@@ -360,12 +408,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Audience { get; set; }
             public Dictionary<System.String, System.String> CustomParameter { get; set; }
             public System.String CustomState { get; set; }
             public System.Boolean? ForceAuthentication { get; set; }
             public Amazon.BedrockAgentCore.Oauth2FlowType Oauth2Flow { get; set; }
             public System.String ResourceCredentialProviderName { get; set; }
             public System.String ResourceOauth2ReturnUrl { get; set; }
+            public List<System.String> Resource { get; set; }
             public List<System.String> Scope { get; set; }
             public System.String SessionUri { get; set; }
             public System.String WorkloadIdentityToken { get; set; }

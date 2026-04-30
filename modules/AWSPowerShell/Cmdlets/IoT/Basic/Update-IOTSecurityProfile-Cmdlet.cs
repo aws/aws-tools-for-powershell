@@ -267,12 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = CreateSelectDelegate<Amazon.IoT.Model.UpdateSecurityProfileResponse, UpdateIOTSecurityProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.AdditionalMetricsToRetain != null)
             {
                 context.AdditionalMetricsToRetain = new List<System.String>(this.AdditionalMetricsToRetain);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.AdditionalMetricsToRetainV2 != null)
             {
                 context.AdditionalMetricsToRetainV2 = new List<Amazon.IoT.Model.MetricToRetain>(this.AdditionalMetricsToRetainV2);
@@ -320,12 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.UpdateSecurityProfileRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AdditionalMetricsToRetain != null)
             {
                 request.AdditionalMetricsToRetain = cmdletContext.AdditionalMetricsToRetain;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AdditionalMetricsToRetainV2 != null)
             {
                 request.AdditionalMetricsToRetainV2 = cmdletContext.AdditionalMetricsToRetainV2;

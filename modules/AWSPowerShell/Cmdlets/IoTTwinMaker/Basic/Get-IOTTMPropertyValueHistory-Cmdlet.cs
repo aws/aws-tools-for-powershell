@@ -293,9 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             context.ComponentName = this.ComponentName;
             context.ComponentPath = this.ComponentPath;
             context.ComponentTypeId = this.ComponentTypeId;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndDateTime = this.EndDateTime;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndTime = this.EndTime;
             context.EntityId = this.EntityId;
             context.Interpolation_InterpolationType = this.Interpolation_InterpolationType;
@@ -317,9 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 WriteWarning("You are passing $null as a value for parameter SelectedProperty which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.StartDateTime = this.StartDateTime;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.StartTime = this.StartTime;
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
@@ -358,12 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             {
                 request.ComponentTypeId = cmdletContext.ComponentTypeId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EndDateTime != null)
             {
                 request.EndDateTime = cmdletContext.EndDateTime.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime;
@@ -417,12 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             {
                 request.SelectedProperties = cmdletContext.SelectedProperty;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.StartDateTime != null)
             {
                 request.StartDateTime = cmdletContext.StartDateTime.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.StartTime != null)
             {
                 request.StartTime = cmdletContext.StartTime;

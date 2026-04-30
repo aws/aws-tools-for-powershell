@@ -498,12 +498,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter Family which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.InferenceAccelerator != null)
             {
                 context.InferenceAccelerator = new List<Amazon.ECS.Model.InferenceAccelerator>(this.InferenceAccelerator);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.IpcMode = this.IpcMode;
             context.Memory = this.Memory;
             context.NetworkMode = this.NetworkMode;
@@ -588,12 +586,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.Family = cmdletContext.Family;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.InferenceAccelerator != null)
             {
                 request.InferenceAccelerators = cmdletContext.InferenceAccelerator;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.IpcMode != null)
             {
                 request.IpcMode = cmdletContext.IpcMode;

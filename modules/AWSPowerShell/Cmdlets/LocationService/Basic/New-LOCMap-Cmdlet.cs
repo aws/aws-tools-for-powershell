@@ -260,9 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter MapName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -334,12 +332,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.MapName = cmdletContext.MapName;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;

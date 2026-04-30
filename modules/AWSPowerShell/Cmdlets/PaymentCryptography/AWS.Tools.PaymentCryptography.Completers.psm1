@@ -195,6 +195,17 @@ $PAYCC_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptography.MpaOperation
+        {
+            ($_ -eq "Add-PAYCCMpaTeam/Action") -Or
+            ($_ -eq "Get-PAYCCMpaTeamAssociation/Action") -Or
+            ($_ -eq "Remove-PAYCCMpaTeam/Action")
+        }
+        {
+            $v = "IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE"
+            break
+        }
+
         # Amazon.PaymentCryptography.SigningAlgorithmType
         "Get-PAYCCCertificateSigningRequest/SigningAlgorithm"
         {
@@ -241,6 +252,7 @@ $PAYCC_Completers = {
 }
 
 $PAYCC_map = @{
+    "Action"=@("Add-PAYCCMpaTeam","Get-PAYCCMpaTeamAssociation","Remove-PAYCCMpaTeam")
     "DeriveKeyUsage"=@("New-PAYCCKey")
     "DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm"=@("Export-PAYCCKey","Import-PAYCCKey")
     "DiffieHellmanTr31KeyBlock_KeyDerivationFunction"=@("Export-PAYCCKey","Import-PAYCCKey")
@@ -321,24 +333,30 @@ $PAYCC_SelectCompleters = {
 
 $PAYCC_SelectMap = @{
     "Select"=@("Add-PAYCCKeyReplicationRegion",
+               "Add-PAYCCMpaTeam",
                "New-PAYCCAlias",
                "New-PAYCCKey",
                "Remove-PAYCCAlias",
                "Remove-PAYCCKey",
+               "Remove-PAYCCResourcePolicy",
                "Disable-PAYCCDefaultKeyReplicationRegion",
+               "Remove-PAYCCMpaTeam",
                "Enable-PAYCCDefaultKeyReplicationRegion",
                "Export-PAYCCKey",
                "Get-PAYCCAlias",
                "Get-PAYCCCertificateSigningRequest",
                "Get-PAYCCDefaultKeyReplicationRegion",
                "Get-PAYCCKey",
+               "Get-PAYCCMpaTeamAssociation",
                "Get-PAYCCParametersForExport",
                "Get-PAYCCParametersForImport",
                "Get-PAYCCPublicKeyCertificate",
+               "Get-PAYCCResourcePolicy",
                "Import-PAYCCKey",
                "Get-PAYCCAliasList",
                "Get-PAYCCKeyList",
                "Get-PAYCCResourceTag",
+               "Write-PAYCCResourcePolicy",
                "Remove-PAYCCKeyReplicationRegion",
                "Restore-PAYCCKey",
                "Start-PAYCCKeyUsage",

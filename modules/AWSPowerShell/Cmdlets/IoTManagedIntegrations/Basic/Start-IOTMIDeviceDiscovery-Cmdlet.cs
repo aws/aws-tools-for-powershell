@@ -248,9 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             context.AuthenticationMaterial = this.AuthenticationMaterial;
             context.AuthenticationMaterialType = this.AuthenticationMaterialType;
             context.ClientToken = this.ClientToken;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConnectorAssociationIdentifier = this.ConnectorAssociationIdentifier;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ConnectorDeviceIdList != null)
             {
                 context.ConnectorDeviceIdList = new List<System.String>(this.ConnectorDeviceIdList);
@@ -273,7 +271,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             #endif
             context.EndDeviceIdentifier = this.EndDeviceIdentifier;
             context.Protocol = this.Protocol;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -282,7 +279,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -315,12 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ConnectorAssociationIdentifier != null)
             {
                 request.ConnectorAssociationIdentifier = cmdletContext.ConnectorAssociationIdentifier;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ConnectorDeviceIdList != null)
             {
                 request.ConnectorDeviceIdList = cmdletContext.ConnectorDeviceIdList;
@@ -345,12 +339,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             {
                 request.Protocol = cmdletContext.Protocol;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             

@@ -113,6 +113,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.Boolean? Tls_Enabled { get; set; }
         #endregion
         
+        #region Parameter ZookeeperAccess_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Zookeeper Access was on or off for the cluster</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ZookeeperAccess_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ConnectivityInfo_NetworkType
         /// <summary>
         /// <para>
@@ -202,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
                 WriteWarning("You are passing $null as a value for parameter CurrentVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ZookeeperAccess_Enabled = this.ZookeeperAccess_Enabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -391,6 +402,25 @@ namespace Amazon.PowerShell.Cmdlets.MSK
                 request.CurrentVersion = cmdletContext.CurrentVersion;
             }
             
+             // populate ZookeeperAccess
+            var requestZookeeperAccessIsNull = true;
+            request.ZookeeperAccess = new Amazon.Kafka.Model.ZookeeperAccess();
+            System.Boolean? requestZookeeperAccess_zookeeperAccess_Enabled = null;
+            if (cmdletContext.ZookeeperAccess_Enabled != null)
+            {
+                requestZookeeperAccess_zookeeperAccess_Enabled = cmdletContext.ZookeeperAccess_Enabled.Value;
+            }
+            if (requestZookeeperAccess_zookeeperAccess_Enabled != null)
+            {
+                request.ZookeeperAccess.Enabled = requestZookeeperAccess_zookeeperAccess_Enabled.Value;
+                requestZookeeperAccessIsNull = false;
+            }
+             // determine if request.ZookeeperAccess should be set to null
+            if (requestZookeeperAccessIsNull)
+            {
+                request.ZookeeperAccess = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -452,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.Boolean? Scram_Enabled { get; set; }
             public System.Boolean? Tls_Enabled { get; set; }
             public System.String CurrentVersion { get; set; }
+            public System.Boolean? ZookeeperAccess_Enabled { get; set; }
             public System.Func<Amazon.Kafka.Model.UpdateConnectivityResponse, UpdateMSKConnectivityCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

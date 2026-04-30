@@ -242,12 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             {
                 context.UsageCriteria_AccountId = new List<System.String>(this.UsageCriteria_AccountId);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.UsageCriteria_DataSource != null)
             {
                 context.UsageCriteria_DataSource = new List<System.String>(this.UsageCriteria_DataSource);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.UsageCriteria_Feature != null)
             {
                 context.UsageCriteria_Feature = new List<System.String>(this.UsageCriteria_Feature);
@@ -307,7 +305,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 request.UsageCriteria.AccountIds = requestUsageCriteria_usageCriteria_AccountId;
                 requestUsageCriteriaIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<System.String> requestUsageCriteria_usageCriteria_DataSource = null;
             if (cmdletContext.UsageCriteria_DataSource != null)
             {
@@ -318,7 +315,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 request.UsageCriteria.DataSources = requestUsageCriteria_usageCriteria_DataSource;
                 requestUsageCriteriaIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<System.String> requestUsageCriteria_usageCriteria_Feature = null;
             if (cmdletContext.UsageCriteria_Feature != null)
             {

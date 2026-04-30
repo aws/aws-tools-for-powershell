@@ -508,9 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.LogDeliveryConfiguration = new List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest>(this.LogDeliveryConfiguration);
             }
             context.MultiAZEnabled = this.MultiAZEnabled;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.NodeGroupId = this.NodeGroupId;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.NotificationTopicArn = this.NotificationTopicArn;
             context.NotificationTopicStatus = this.NotificationTopicStatus;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
@@ -613,12 +611,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.MultiAZEnabled = cmdletContext.MultiAZEnabled.Value;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.NodeGroupId != null)
             {
                 request.NodeGroupId = cmdletContext.NodeGroupId;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.NotificationTopicArn != null)
             {
                 request.NotificationTopicArn = cmdletContext.NotificationTopicArn;

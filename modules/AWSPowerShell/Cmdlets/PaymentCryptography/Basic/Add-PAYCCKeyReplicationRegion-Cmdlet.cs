@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// The key must be in an active state to add Replication Regions. You can add multiple
     /// regions in a single operation, and the key will be available for use in those regions
     /// once replication is complete.
-    /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para><para><b>Cross-account use:</b> This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_RemoveKeyReplicationRegions.html">RemoveKeyReplicationRegions</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html">EnableDefaultKeyReplicationRegions</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetDefaultKeyReplicationRegions.html">GetDefaultKeyReplicationRegions</a></para></li></ul>
     /// </summary>
     [Cmdlet("Add", "PAYCCKeyReplicationRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter CertificatePem which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SetAsActive = this.SetAsActive;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
@@ -170,12 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.CertificatePem = cmdletContext.CertificatePem;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SetAsActive != null)
             {
                 request.SetAsActive = cmdletContext.SetAsActive.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;

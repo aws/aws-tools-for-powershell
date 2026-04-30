@@ -335,9 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 context.ContentRedirection_HostToClient_DeniedUrl = new List<System.String>(this.ContentRedirection_HostToClient_DeniedUrl);
             }
             context.ContentRedirection_HostToClient_Enabled = this.ContentRedirection_HostToClient_Enabled;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DeleteStorageConnector = this.DeleteStorageConnector;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             if (this.EmbedHostDomain != null)
@@ -469,12 +467,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.ContentRedirection = null;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.DeleteStorageConnector != null)
             {
                 request.DeleteStorageConnectors = cmdletContext.DeleteStorageConnector.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;

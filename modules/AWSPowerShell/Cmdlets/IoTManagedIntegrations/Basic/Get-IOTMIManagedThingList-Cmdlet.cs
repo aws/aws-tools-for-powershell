@@ -215,9 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             }
             context.ConnectorDestinationIdFilter = this.ConnectorDestinationIdFilter;
             context.ConnectorDeviceIdFilter = this.ConnectorDeviceIdFilter;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConnectorPolicyIdFilter = this.ConnectorPolicyIdFilter;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CredentialLockerFilter = this.CredentialLockerFilter;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -261,12 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             {
                 request.ConnectorDeviceIdFilter = cmdletContext.ConnectorDeviceIdFilter;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ConnectorPolicyIdFilter != null)
             {
                 request.ConnectorPolicyIdFilter = cmdletContext.ConnectorPolicyIdFilter;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.CredentialLockerFilter != null)
             {
                 request.CredentialLockerFilter = cmdletContext.CredentialLockerFilter;

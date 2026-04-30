@@ -80,6 +80,16 @@ $BACC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentCoreControl.ActorTokenContentType
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent")
+        }
+        {
+            $v = "AWS_IAM_ID_TOKEN_JWT","M2M","NONE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.AgentManagedRuntimeType
         {
             ($_ -eq "New-BACCAgentRuntime/CodeConfiguration_Runtime") -Or
@@ -104,6 +114,16 @@ $BACC_Completers = {
         "New-BACCBrowser/NetworkConfiguration_NetworkMode"
         {
             $v = "PUBLIC","VPC"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.ClientAuthenticationMethodType
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod")
+        }
+        {
+            $v = "AWS_IAM_ID_TOKEN_JWT","CLIENT_SECRET_BASIC","CLIENT_SECRET_POST"
             break
         }
 
@@ -248,6 +268,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.OnBehalfOfTokenExchangeGrantTypeType
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType")
+        }
+        {
+            $v = "JWT_AUTHORIZATION_GRANT","TOKEN_EXCHANGE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.OnlineEvaluationExecutionStatus
         "Update-BACCOnlineEvaluationConfig/ExecutionStatus"
         {
@@ -352,6 +382,9 @@ $BACC_map = @{
     "Level"=@("New-BACCEvaluator","Update-BACCEvaluator")
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
     "PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")

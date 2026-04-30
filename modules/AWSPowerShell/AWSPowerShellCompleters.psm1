@@ -8365,6 +8365,16 @@ $BACC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentCoreControl.ActorTokenContentType
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent")
+        }
+        {
+            $v = "AWS_IAM_ID_TOKEN_JWT","M2M","NONE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.AgentManagedRuntimeType
         {
             ($_ -eq "New-BACCAgentRuntime/CodeConfiguration_Runtime") -Or
@@ -8389,6 +8399,16 @@ $BACC_Completers = {
         "New-BACCBrowser/NetworkConfiguration_NetworkMode"
         {
             $v = "PUBLIC","VPC"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.ClientAuthenticationMethodType
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod")
+        }
+        {
+            $v = "AWS_IAM_ID_TOKEN_JWT","CLIENT_SECRET_BASIC","CLIENT_SECRET_POST"
             break
         }
 
@@ -8533,6 +8553,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.OnBehalfOfTokenExchangeGrantTypeType
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType")
+        }
+        {
+            $v = "JWT_AUTHORIZATION_GRANT","TOKEN_EXCHANGE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.OnlineEvaluationExecutionStatus
         "Update-BACCOnlineEvaluationConfig/ExecutionStatus"
         {
@@ -8637,6 +8667,9 @@ $BACC_map = @{
     "Level"=@("New-BACCEvaluator","Update-BACCEvaluator")
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
     "PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
@@ -8890,7 +8923,7 @@ $BAC_Completers = {
         # Amazon.BedrockAgentCore.Oauth2FlowType
         "Get-BACResourceOauth2Token/Oauth2Flow"
         {
-            $v = "M2M","USER_FEDERATION"
+            $v = "M2M","ON_BEHALF_OF_TOKEN_EXCHANGE","USER_FEDERATION"
             break
         }
 
@@ -23869,6 +23902,20 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.NetworkAccessType
+        "Start-DZNotebookRun/NetworkConfiguration_NetworkAccessType"
+        {
+            $v = "PUBLIC_INTERNET_ONLY","VPC_ONLY"
+            break
+        }
+
+        # Amazon.DataZone.NotebookRunStatus
+        "Get-DZNotebookRunList/Status"
+        {
+            $v = "FAILED","QUEUED","RUNNING","STARTING","STOPPED","STOPPING","SUCCEEDED"
+            break
+        }
+
         # Amazon.DataZone.NotificationType
         "Get-DZNotificationList/Type"
         {
@@ -23987,6 +24034,7 @@ $DZ_Completers = {
             ($_ -eq "Get-DZJobRunList/SortOrder") -Or
             ($_ -eq "Get-DZLineageEventList/SortOrder") -Or
             ($_ -eq "Get-DZLineageNodeHistoryList/SortOrder") -Or
+            ($_ -eq "Get-DZNotebookRunList/SortOrder") -Or
             ($_ -eq "Get-DZProjectMembershipList/SortOrder") -Or
             ($_ -eq "Get-DZProjectProfileList/SortOrder") -Or
             ($_ -eq "Get-DZSubscriptionGrantList/SortOrder") -Or
@@ -24080,6 +24128,13 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.TriggerSourceType
+        "Start-DZNotebookRun/TriggerSource_Type"
+        {
+            $v = "MANUAL","SCHEDULED","WORKFLOW"
+            break
+        }
+
         # Amazon.DataZone.TypesSearchScope
         "Search-DZType/SearchScope"
         {
@@ -24157,6 +24212,7 @@ $DZ_map = @{
     "Filters_Filter_Operator"=@("Search-DZListing","Search-DZResource","Search-DZType")
     "GlueConnectionInput_ConnectionType"=@("New-DZConnection")
     "GroupType"=@("Search-DZGroupProfile")
+    "NetworkConfiguration_NetworkAccessType"=@("Start-DZNotebookRun")
     "OAuth2Properties_OAuth2GrantType"=@("New-DZConnection")
     "PolicyType"=@("Add-DZPolicyGrant","Get-DZPolicyGrantList","Remove-DZPolicyGrant")
     "ProcessingStatus"=@("Get-DZLineageEventList")
@@ -24171,12 +24227,13 @@ $DZ_map = @{
     "SingleSignOn_UserAssignment"=@("New-DZDomain","Update-DZDomain")
     "Sort_Order"=@("Search-DZListing","Search-DZResource","Search-DZType")
     "SortBy"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "SortOrder"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZJobRunList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","New-DZProjectProfile","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZProjectProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
+    "SortOrder"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZNotebookRunList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZJobRunList","Get-DZMetadataGenerationRunList","Get-DZNotebookRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","New-DZProjectProfile","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZProjectProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "SubscriptionGrantCreationMode"=@("New-DZSubscriptionTarget","Update-DZSubscriptionTarget")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
+    "TriggerSource_Type"=@("Start-DZNotebookRun")
     "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
 }
@@ -24325,6 +24382,7 @@ $DZ_SelectMap = @{
                "Get-DZLineageNode",
                "Get-DZListing",
                "Get-DZMetadataGenerationRun",
+               "Get-DZNotebookRun",
                "Get-DZProject",
                "Get-DZProjectProfile",
                "Get-DZRule",
@@ -24355,6 +24413,7 @@ $DZ_SelectMap = @{
                "Get-DZLineageEventList",
                "Get-DZLineageNodeHistoryList",
                "Get-DZMetadataGenerationRunList",
+               "Get-DZNotebookRunList",
                "Get-DZNotificationList",
                "Get-DZPolicyGrantList",
                "Get-DZProjectMembershipList",
@@ -24384,6 +24443,8 @@ $DZ_SelectMap = @{
                "Search-DZUserProfile",
                "Start-DZDataSourceRun",
                "Start-DZMetadataGenerationRun",
+               "Start-DZNotebookRun",
+               "Stop-DZNotebookRun",
                "Add-DZResourceTag",
                "Remove-DZResourceTag",
                "Update-DZAccountPool",
@@ -59573,6 +59634,18 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.MskEnhancedMonitoringLevel
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring")
+        }
+        {
+            $v = "DEFAULT","PER_BROKER","PER_TOPIC_PER_BROKER","PER_TOPIC_PER_PARTITION"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.OutputFormat
         {
             ($_ -eq "New-CWOADMNTelemetryRule/ELBLoadBalancerLoggingParameters_OutputFormat") -Or
@@ -59593,7 +59666,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::Route53Resolver::ResolverEndpoint","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
+            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::Route53Resolver::ResolverEndpoint","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
             break
         }
 
@@ -59643,6 +59716,7 @@ $CWOADMN_map = @{
     "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "SourceLogsConfiguration_EncryptedLogGroupStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
@@ -63257,6 +63331,17 @@ $PAYCC_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptography.MpaOperation
+        {
+            ($_ -eq "Add-PAYCCMpaTeam/Action") -Or
+            ($_ -eq "Get-PAYCCMpaTeamAssociation/Action") -Or
+            ($_ -eq "Remove-PAYCCMpaTeam/Action")
+        }
+        {
+            $v = "IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE"
+            break
+        }
+
         # Amazon.PaymentCryptography.SigningAlgorithmType
         "Get-PAYCCCertificateSigningRequest/SigningAlgorithm"
         {
@@ -63303,6 +63388,7 @@ $PAYCC_Completers = {
 }
 
 $PAYCC_map = @{
+    "Action"=@("Add-PAYCCMpaTeam","Get-PAYCCMpaTeamAssociation","Remove-PAYCCMpaTeam")
     "DeriveKeyUsage"=@("New-PAYCCKey")
     "DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm"=@("Export-PAYCCKey","Import-PAYCCKey")
     "DiffieHellmanTr31KeyBlock_KeyDerivationFunction"=@("Export-PAYCCKey","Import-PAYCCKey")
@@ -63383,24 +63469,30 @@ $PAYCC_SelectCompleters = {
 
 $PAYCC_SelectMap = @{
     "Select"=@("Add-PAYCCKeyReplicationRegion",
+               "Add-PAYCCMpaTeam",
                "New-PAYCCAlias",
                "New-PAYCCKey",
                "Remove-PAYCCAlias",
                "Remove-PAYCCKey",
+               "Remove-PAYCCResourcePolicy",
                "Disable-PAYCCDefaultKeyReplicationRegion",
+               "Remove-PAYCCMpaTeam",
                "Enable-PAYCCDefaultKeyReplicationRegion",
                "Export-PAYCCKey",
                "Get-PAYCCAlias",
                "Get-PAYCCCertificateSigningRequest",
                "Get-PAYCCDefaultKeyReplicationRegion",
                "Get-PAYCCKey",
+               "Get-PAYCCMpaTeamAssociation",
                "Get-PAYCCParametersForExport",
                "Get-PAYCCParametersForImport",
                "Get-PAYCCPublicKeyCertificate",
+               "Get-PAYCCResourcePolicy",
                "Import-PAYCCKey",
                "Get-PAYCCAliasList",
                "Get-PAYCCKeyList",
                "Get-PAYCCResourceTag",
+               "Write-PAYCCResourcePolicy",
                "Remove-PAYCCKeyReplicationRegion",
                "Restore-PAYCCKey",
                "Start-PAYCCKeyUsage",
@@ -76114,6 +76206,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ProductionVariantInstanceType
+        {
+            ($_ -eq "New-SMInferenceComponent/Specification_InstanceType") -Or
+            ($_ -eq "Update-SMInferenceComponent/Specification_InstanceType")
+        }
+        {
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.large","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c5d.18xlarge","ml.c5d.2xlarge","ml.c5d.4xlarge","ml.c5d.9xlarge","ml.c5d.large","ml.c5d.xlarge","ml.c6g.12xlarge","ml.c6g.16xlarge","ml.c6g.2xlarge","ml.c6g.4xlarge","ml.c6g.8xlarge","ml.c6g.large","ml.c6g.xlarge","ml.c6gd.12xlarge","ml.c6gd.16xlarge","ml.c6gd.2xlarge","ml.c6gd.4xlarge","ml.c6gd.8xlarge","ml.c6gd.large","ml.c6gd.xlarge","ml.c6gn.12xlarge","ml.c6gn.16xlarge","ml.c6gn.2xlarge","ml.c6gn.4xlarge","ml.c6gn.8xlarge","ml.c6gn.large","ml.c6gn.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6in.12xlarge","ml.c6in.16xlarge","ml.c6in.24xlarge","ml.c6in.2xlarge","ml.c6in.32xlarge","ml.c6in.4xlarge","ml.c6in.8xlarge","ml.c6in.large","ml.c6in.xlarge","ml.c7g.12xlarge","ml.c7g.16xlarge","ml.c7g.2xlarge","ml.c7g.4xlarge","ml.c7g.8xlarge","ml.c7g.large","ml.c7g.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.c8g.12xlarge","ml.c8g.16xlarge","ml.c8g.24xlarge","ml.c8g.2xlarge","ml.c8g.48xlarge","ml.c8g.4xlarge","ml.c8g.8xlarge","ml.c8g.large","ml.c8g.medium","ml.c8g.xlarge","ml.dl1.24xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.inf1.24xlarge","ml.inf1.2xlarge","ml.inf1.6xlarge","ml.inf1.xlarge","ml.inf2.24xlarge","ml.inf2.48xlarge","ml.inf2.8xlarge","ml.inf2.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6g.12xlarge","ml.m6g.16xlarge","ml.m6g.2xlarge","ml.m6g.4xlarge","ml.m6g.8xlarge","ml.m6g.large","ml.m6g.xlarge","ml.m6gd.12xlarge","ml.m6gd.16xlarge","ml.m6gd.2xlarge","ml.m6gd.4xlarge","ml.m6gd.8xlarge","ml.m6gd.large","ml.m6gd.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.m8g.12xlarge","ml.m8g.16xlarge","ml.m8g.24xlarge","ml.m8g.2xlarge","ml.m8g.48xlarge","ml.m8g.4xlarge","ml.m8g.8xlarge","ml.m8g.large","ml.m8g.medium","ml.m8g.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6-b300.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r6g.12xlarge","ml.r6g.16xlarge","ml.r6g.2xlarge","ml.r6g.4xlarge","ml.r6g.8xlarge","ml.r6g.large","ml.r6g.xlarge","ml.r6gd.12xlarge","ml.r6gd.16xlarge","ml.r6gd.2xlarge","ml.r6gd.4xlarge","ml.r6gd.8xlarge","ml.r6gd.large","ml.r6gd.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7gd.12xlarge","ml.r7gd.16xlarge","ml.r7gd.2xlarge","ml.r7gd.4xlarge","ml.r7gd.8xlarge","ml.r7gd.large","ml.r7gd.medium","ml.r7gd.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.r8g.12xlarge","ml.r8g.16xlarge","ml.r8g.24xlarge","ml.r8g.2xlarge","ml.r8g.48xlarge","ml.r8g.4xlarge","ml.r8g.8xlarge","ml.r8g.large","ml.r8g.medium","ml.r8g.xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
+            break
+        }
+
         # Amazon.SageMaker.ProjectSortBy
         "Get-SMProjectList/SortBy"
         {
@@ -76816,6 +76918,7 @@ $SM_map = @{
     "SpaceSettings_RemoteAccess"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_SpaceManagedResource"=@("New-SMSpace","Update-SMSpace")
     "SpaceSharingSettings_SharingType"=@("New-SMSpace")
+    "Specification_InstanceType"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Specification_SchedulingConfig_PlacementStrategy"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","Get-SMMlflowAppList","New-SMAction","Update-SMAction")

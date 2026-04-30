@@ -622,7 +622,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             context.ActualSpend_Unit = this.ActualSpend_Unit;
             context.ForecastedSpend_Amount = this.ForecastedSpend_Amount;
             context.ForecastedSpend_Unit = this.ForecastedSpend_Unit;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.NewBudget_CostFilter != null)
             {
                 context.NewBudget_CostFilter = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
@@ -643,7 +642,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                     context.NewBudget_CostFilter.Add((String)hashKey, valueSet);
                 }
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CostTypes_IncludeCredit = this.CostTypes_IncludeCredit;
             context.CostTypes_IncludeDiscount = this.CostTypes_IncludeDiscount;
             context.CostTypes_IncludeOtherSubscription = this.CostTypes_IncludeOtherSubscription;
@@ -735,7 +733,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewBudget.BudgetType = requestNewBudget_newBudget_BudgetType;
                 requestNewBudgetIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Dictionary<System.String, List<System.String>> requestNewBudget_newBudget_CostFilter = null;
             if (cmdletContext.NewBudget_CostFilter != null)
             {
@@ -746,7 +743,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewBudget.CostFilters = requestNewBudget_newBudget_CostFilter;
                 requestNewBudgetIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.Budgets.Model.Expression requestNewBudget_newBudget_FilterExpression = null;
             if (cmdletContext.NewBudget_FilterExpression != null)
             {
@@ -1067,7 +1063,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewBudget.HealthStatus = requestNewBudget_newBudget_HealthStatus;
                 requestNewBudgetIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.Budgets.Model.CostTypes requestNewBudget_newBudget_CostTypes = null;
             
              // populate CostTypes
@@ -1193,7 +1188,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewBudget.CostTypes = requestNewBudget_newBudget_CostTypes;
                 requestNewBudgetIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.NewBudget should be set to null
             if (requestNewBudgetIsNull)
             {

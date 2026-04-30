@@ -142,7 +142,7 @@ $BAC_Completers = {
         # Amazon.BedrockAgentCore.Oauth2FlowType
         "Get-BACResourceOauth2Token/Oauth2Flow"
         {
-            $v = "M2M","USER_FEDERATION"
+            $v = "M2M","ON_BEHALF_OF_TOKEN_EXCHANGE","USER_FEDERATION"
             break
         }
 

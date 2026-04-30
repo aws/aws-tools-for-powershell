@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateMpaTeam" OutputProperty="MpaTeamAssociation" Verb="Add" Noun="MpaTeam" ShouldProcessTarget="MpaTeamArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAlias" OutputProperty="Alias" Verb="New" Noun="Alias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -49,7 +53,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableDefaultKeyReplicationRegions" OutputProperty="EnabledReplicationRegions" Verb="Disable" Noun="DefaultKeyReplicationRegion" ShouldProcessTarget="ReplicationRegions" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateMpaTeam" OutputProperty="MpaTeamAssociation" Verb="Remove" Noun="MpaTeam" ShouldProcessTarget="Action" PipelineParameter="Action" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -133,6 +145,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMpaTeamAssociation" OutputProperty="MpaTeamAssociation" Verb="Get" Noun="MpaTeamAssociation" PipelineParameter="Action" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetParametersForExport" OutputProperty="*" Verb="Get" Noun="ParametersForExport" PipelineParameter="KeyMaterialType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -142,6 +158,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPublicKeyCertificate" OutputProperty="*" Verb="Get" Noun="PublicKeyCertificate" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -220,6 +240,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

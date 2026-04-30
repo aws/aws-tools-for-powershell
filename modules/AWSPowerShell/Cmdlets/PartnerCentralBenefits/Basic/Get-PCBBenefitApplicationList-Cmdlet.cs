@@ -242,12 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.PCB
             {
                 context.AssociatedResourceArn = new List<System.String>(this.AssociatedResourceArn);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.AssociatedResource != null)
             {
                 context.AssociatedResource = new List<Amazon.PartnerCentralBenefits.Model.AssociatedResource>(this.AssociatedResource);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.BenefitIdentifier != null)
             {
                 context.BenefitIdentifier = new List<System.String>(this.BenefitIdentifier);
@@ -308,12 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.PCB
             {
                 request.AssociatedResourceArns = cmdletContext.AssociatedResourceArn;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AssociatedResource != null)
             {
                 request.AssociatedResources = cmdletContext.AssociatedResource;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.BenefitIdentifier != null)
             {
                 request.BenefitIdentifiers = cmdletContext.BenefitIdentifier;

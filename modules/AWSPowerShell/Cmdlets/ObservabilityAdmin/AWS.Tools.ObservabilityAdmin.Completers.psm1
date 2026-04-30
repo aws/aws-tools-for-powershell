@@ -134,6 +134,18 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.MskEnhancedMonitoringLevel
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring")
+        }
+        {
+            $v = "DEFAULT","PER_BROKER","PER_TOPIC_PER_BROKER","PER_TOPIC_PER_PARTITION"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.OutputFormat
         {
             ($_ -eq "New-CWOADMNTelemetryRule/ELBLoadBalancerLoggingParameters_OutputFormat") -Or
@@ -154,7 +166,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::Route53Resolver::ResolverEndpoint","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
+            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::Route53Resolver::ResolverEndpoint","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
             break
         }
 
@@ -204,6 +216,7 @@ $CWOADMN_map = @{
     "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "SourceLogsConfiguration_EncryptedLogGroupStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")

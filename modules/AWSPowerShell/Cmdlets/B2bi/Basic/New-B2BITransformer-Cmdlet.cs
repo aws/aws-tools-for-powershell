@@ -394,9 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             context.ClientToken = this.ClientToken;
             context.X12Details_TransactionSet = this.X12Details_TransactionSet;
             context.X12Details_Version = this.X12Details_Version;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FileFormat = this.FileFormat;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy = this.InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy;
             if (this.InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules != null)
             {
@@ -407,9 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             context.InputConversion_FromFormat = this.InputConversion_FromFormat;
             context.Mapping_Template = this.Mapping_Template;
             context.Mapping_TemplateLanguage = this.Mapping_TemplateLanguage;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MappingTemplate = this.MappingTemplate;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -425,9 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             context.OutputConversion_FormatOptions_X12_TransactionSet = this.OutputConversion_FormatOptions_X12_TransactionSet;
             context.OutputConversion_FormatOptions_X12_Version = this.OutputConversion_FormatOptions_X12_Version;
             context.OutputConversion_ToFormat = this.OutputConversion_ToFormat;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SampleDocument = this.SampleDocument;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SampleDocuments_BucketName = this.SampleDocuments_BucketName;
             if (this.SampleDocuments_Key != null)
             {
@@ -501,12 +495,10 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             {
                 request.EdiType = null;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.FileFormat != null)
             {
                 request.FileFormat = cmdletContext.FileFormat;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
              // populate InputConversion
             var requestInputConversionIsNull = true;
@@ -685,12 +677,10 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             {
                 request.Mapping = null;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.MappingTemplate != null)
             {
                 request.MappingTemplate = cmdletContext.MappingTemplate;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -844,12 +834,10 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             {
                 request.OutputConversion = null;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SampleDocument != null)
             {
                 request.SampleDocument = cmdletContext.SampleDocument;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
              // populate SampleDocuments
             var requestSampleDocumentsIsNull = true;

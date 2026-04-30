@@ -168,12 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
                 context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.ListGroupsResponse, FindIDSGroupListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.IdentityStore.Model.Filter>(this.Filter);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.IdentityStoreId = this.IdentityStoreId;
             #if MODULAR
             if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
@@ -210,12 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             // create request and set iteration invariants
             var request = new Amazon.IdentityStore.Model.ListGroupsRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.IdentityStoreId != null)
             {
                 request.IdentityStoreId = cmdletContext.IdentityStoreId;

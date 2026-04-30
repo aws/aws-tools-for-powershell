@@ -372,9 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             }
             #endif
             context.Brand = this.Brand;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Capability = this.Capability;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.CapabilityReport_Endpoint != null)
             {
                 context.CapabilityReport_Endpoint = new List<Amazon.IoTManagedIntegrations.Model.CapabilityReportEndpoint>(this.CapabilityReport_Endpoint);
@@ -446,12 +444,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             {
                 request.Brand = cmdletContext.Brand;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Capability != null)
             {
                 request.Capabilities = cmdletContext.Capability;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
              // populate CapabilityReport
             var requestCapabilityReportIsNull = true;

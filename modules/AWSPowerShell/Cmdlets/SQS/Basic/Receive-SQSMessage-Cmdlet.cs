@@ -311,12 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.Select = CreateSelectDelegate<Amazon.SQS.Model.ReceiveMessageResponse, ReceiveSQSMessageCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.AttributeName != null)
             {
                 context.AttributeName = new List<System.String>(this.AttributeName);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MessageCount = this.MessageCount;
             if (this.MessageAttributeName != null)
             {
@@ -352,12 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             // create request
             var request = new Amazon.SQS.Model.ReceiveMessageRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AttributeName != null)
             {
                 request.AttributeNames = cmdletContext.AttributeName;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.MessageCount != null)
             {
                 request.MaxNumberOfMessages = cmdletContext.MessageCount.Value;

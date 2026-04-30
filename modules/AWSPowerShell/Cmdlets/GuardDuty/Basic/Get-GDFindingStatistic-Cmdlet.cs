@@ -176,12 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             #endif
             context.FindingCriterion = this.FindingCriterion;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.FindingStatisticType != null)
             {
                 context.FindingStatisticType = new List<System.String>(this.FindingStatisticType);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupBy = this.GroupBy;
             context.MaxResult = this.MaxResult;
             context.OrderBy = this.OrderBy;
@@ -209,12 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             {
                 request.FindingCriteria = cmdletContext.FindingCriterion;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.FindingStatisticType != null)
             {
                 request.FindingStatisticTypes = cmdletContext.FindingStatisticType;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.GroupBy != null)
             {
                 request.GroupBy = cmdletContext.GroupBy;

@@ -550,6 +550,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetNotebookRun" OutputProperty="*" Verb="Get" Noun="NotebookRun" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -676,6 +680,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMetadataGenerationRuns" OutputProperty="Items" Verb="Get" Noun="MetadataGenerationRunList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotebookRuns" OutputProperty="Items" Verb="Get" Noun="NotebookRunList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -822,6 +830,14 @@
             <Params>
                 <Param Name="Types" NewName="Types" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartNotebookRun" OutputProperty="*" Verb="Start" Noun="NotebookRun" ShouldProcessTarget="DomainIdentifier,NotebookIdentifier,OwningProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopNotebookRun" OutputProperty="*" Verb="Stop" Noun="NotebookRun" ShouldProcessTarget="DomainIdentifier,Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">

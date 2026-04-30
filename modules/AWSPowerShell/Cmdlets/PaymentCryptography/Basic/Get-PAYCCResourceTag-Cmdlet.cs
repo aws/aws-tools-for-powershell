@@ -39,8 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// a <c>NextToken</c> value. Use this value in a subsequent <c>ListTagsForResource</c>
     /// request to get more tags. When you receive a response with no NextToken (or an empty
     /// or null value), that means there are no more tags to get.
-    /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para><para><b>Cross-account use:</b> This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UntagResource.html">UntagResource</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "PAYCCResourceTag")]

@@ -583,16 +583,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ContainerOverrides_Environment = new List<Amazon.Batch.Model.KeyValuePair>(this.ContainerOverrides_Environment);
             }
             context.ContainerOverrides_InstanceType = this.ContainerOverrides_InstanceType;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContainerOverrides_Memory = this.ContainerOverrides_Memory;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ContainerOverrides_ResourceRequirement != null)
             {
                 context.ContainerOverrides_ResourceRequirement = new List<Amazon.Batch.Model.ResourceRequirement>(this.ContainerOverrides_ResourceRequirement);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContainerOverrides_Vcpus = this.ContainerOverrides_Vcpus;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.DependsOn != null)
             {
                 context.DependsOn = new List<Amazon.Batch.Model.JobDependency>(this.DependsOn);
@@ -765,7 +761,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerOverrides.InstanceType = requestContainerOverrides_containerOverrides_InstanceType;
                 requestContainerOverridesIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestContainerOverrides_containerOverrides_Memory = null;
             if (cmdletContext.ContainerOverrides_Memory != null)
             {
@@ -776,7 +771,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerOverrides.Memory = requestContainerOverrides_containerOverrides_Memory.Value;
                 requestContainerOverridesIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.Batch.Model.ResourceRequirement> requestContainerOverrides_containerOverrides_ResourceRequirement = null;
             if (cmdletContext.ContainerOverrides_ResourceRequirement != null)
             {
@@ -787,7 +781,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerOverrides.ResourceRequirements = requestContainerOverrides_containerOverrides_ResourceRequirement;
                 requestContainerOverridesIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestContainerOverrides_containerOverrides_Vcpus = null;
             if (cmdletContext.ContainerOverrides_Vcpus != null)
             {
@@ -798,7 +791,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerOverrides.Vcpus = requestContainerOverrides_containerOverrides_Vcpus.Value;
                 requestContainerOverridesIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.ContainerOverrides should be set to null
             if (requestContainerOverridesIsNull)
             {

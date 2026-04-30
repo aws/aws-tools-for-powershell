@@ -300,26 +300,20 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 context.IframeConfig_Sandbox = new List<System.String>(this.IframeConfig_Sandbox);
             }
             context.InitializationTimeout = this.InitializationTimeout;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.IsService = this.IsService;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
             if (this.Permission != null)
             {
                 context.Permission = new List<System.String>(this.Permission);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Publication != null)
             {
                 context.Publication = new List<Amazon.AppIntegrationsService.Model.Publication>(this.Publication);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Subscription != null)
             {
                 context.Subscription = new List<Amazon.AppIntegrationsService.Model.Subscription>(this.Subscription);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -459,12 +453,10 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             {
                 request.InitializationTimeout = cmdletContext.InitializationTimeout.Value;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.IsService != null)
             {
                 request.IsService = cmdletContext.IsService.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -473,18 +465,14 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             {
                 request.Permissions = cmdletContext.Permission;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Publication != null)
             {
                 request.Publications = cmdletContext.Publication;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Subscription != null)
             {
                 request.Subscriptions = cmdletContext.Subscription;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             

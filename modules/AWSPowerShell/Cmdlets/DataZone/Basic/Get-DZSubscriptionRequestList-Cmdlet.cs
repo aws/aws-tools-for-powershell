@@ -244,9 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.OwningIamPrincipalArn = this.OwningIamPrincipalArn;
             context.OwningProjectId = this.OwningProjectId;
             context.OwningUserId = this.OwningUserId;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SortBy = this.SortBy;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SortOrder = this.SortOrder;
             context.Status = this.Status;
             context.SubscribedListingId = this.SubscribedListingId;
@@ -296,12 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.OwningUserId = cmdletContext.OwningUserId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SortBy != null)
             {
                 request.SortBy = cmdletContext.SortBy;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;

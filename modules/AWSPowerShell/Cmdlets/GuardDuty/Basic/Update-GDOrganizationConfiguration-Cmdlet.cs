@@ -214,9 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.UpdateOrganizationConfigurationResponse, UpdateGDOrganizationConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AutoEnable = this.AutoEnable;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AutoEnableOrganizationMember = this.AutoEnableOrganizationMember;
             context.AuditLogs_AutoEnable = this.AuditLogs_AutoEnable;
             context.EbsVolumes_AutoEnable = this.EbsVolumes_AutoEnable;
@@ -248,12 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             // create request
             var request = new Amazon.GuardDuty.Model.UpdateOrganizationConfigurationRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AutoEnable != null)
             {
                 request.AutoEnable = cmdletContext.AutoEnable.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AutoEnableOrganizationMember != null)
             {
                 request.AutoEnableOrganizationMembers = cmdletContext.AutoEnableOrganizationMember;

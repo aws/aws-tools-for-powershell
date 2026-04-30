@@ -135,9 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.CancelQueryResponse, StopCTQueryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStore = this.EventDataStore;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStoreOwnerAccountId = this.EventDataStoreOwnerAccountId;
             context.QueryId = this.QueryId;
             #if MODULAR
@@ -162,12 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // create request
             var request = new Amazon.CloudTrail.Model.CancelQueryRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EventDataStore != null)
             {
                 request.EventDataStore = cmdletContext.EventDataStore;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EventDataStoreOwnerAccountId != null)
             {
                 request.EventDataStoreOwnerAccountId = cmdletContext.EventDataStoreOwnerAccountId;

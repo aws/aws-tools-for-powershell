@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// When this operation is successful, Amazon Web Services Payment Cryptography returns
     /// the working key as a TR-31 WrappedKeyBlock, where the wrapping key is the ECDH derived
     /// key.
-    /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para><para><b>Cross-account use:</b> This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a></para></li></ul>
     /// </summary>
     [Cmdlet("Export", "PAYCCKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

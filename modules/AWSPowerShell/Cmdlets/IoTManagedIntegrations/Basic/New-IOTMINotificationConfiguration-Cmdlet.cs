@@ -170,7 +170,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 WriteWarning("You are passing $null as a value for parameter EventType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -179,7 +178,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -208,12 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             {
                 request.EventType = cmdletContext.EventType;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             

@@ -131,6 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public Amazon.ObservabilityAdmin.DestinationType DestinationConfiguration_DestinationType { get; set; }
         #endregion
         
+        #region Parameter Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring
+        /// <summary>
+        /// <para>
+        /// <para> The level of enhanced monitoring for the MSK cluster. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ObservabilityAdmin.MskEnhancedMonitoringLevel")]
+        public Amazon.ObservabilityAdmin.MskEnhancedMonitoringLevel Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring { get; set; }
+        #endregion
+        
         #region Parameter ELBLoadBalancerLoggingParameters_FieldDelimiter
         /// <summary>
         /// <para>
@@ -419,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             {
                 context.LogDeliveryParameters_LogType = new List<System.String>(this.LogDeliveryParameters_LogType);
             }
+            context.Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring = this.Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring;
             context.DestinationConfiguration_RetentionInDay = this.DestinationConfiguration_RetentionInDay;
             context.VPCFlowLogParameters_LogFormat = this.VPCFlowLogParameters_LogFormat;
             context.VPCFlowLogParameters_MaxAggregationInterval = this.VPCFlowLogParameters_MaxAggregationInterval;
@@ -641,6 +653,31 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters != null)
             {
                 requestRule_rule_DestinationConfiguration.LogDeliveryParameters = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters;
+                requestRule_rule_DestinationConfigurationIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.Model.MskMonitoringParameters requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters = null;
+            
+             // populate MskMonitoringParameters
+            var requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParametersIsNull = true;
+            requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters = new Amazon.ObservabilityAdmin.Model.MskMonitoringParameters();
+            Amazon.ObservabilityAdmin.MskEnhancedMonitoringLevel requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters_rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring = null;
+            if (cmdletContext.Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters_rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring = cmdletContext.Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters_rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters.EnhancedMonitoring = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters_rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParametersIsNull = false;
+            }
+             // determine if requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters should be set to null
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParametersIsNull)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters = null;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters != null)
+            {
+                requestRule_rule_DestinationConfiguration.MskMonitoringParameters = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_MskMonitoringParameters;
                 requestRule_rule_DestinationConfigurationIsNull = false;
             }
             Amazon.ObservabilityAdmin.Model.ELBLoadBalancerLoggingParameters requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters = null;
@@ -875,6 +912,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public System.String ELBLoadBalancerLoggingParameters_FieldDelimiter { get; set; }
             public Amazon.ObservabilityAdmin.OutputFormat ELBLoadBalancerLoggingParameters_OutputFormat { get; set; }
             public List<System.String> LogDeliveryParameters_LogType { get; set; }
+            public Amazon.ObservabilityAdmin.MskEnhancedMonitoringLevel Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring { get; set; }
             public System.Int32? DestinationConfiguration_RetentionInDay { get; set; }
             public System.String VPCFlowLogParameters_LogFormat { get; set; }
             public System.Int32? VPCFlowLogParameters_MaxAggregationInterval { get; set; }

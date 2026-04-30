@@ -470,9 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.Maintenance_MaintenanceStartTime = this.Maintenance_MaintenanceStartTime;
             context.Name = this.Name;
             context.RequestId = this.RequestId;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Reserved = this.Reserved;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.RoleArn = this.RoleArn;
             if (this.Tag != null)
             {
@@ -769,12 +767,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.RequestId = cmdletContext.RequestId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Reserved != null)
             {
                 request.Reserved = cmdletContext.Reserved;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;

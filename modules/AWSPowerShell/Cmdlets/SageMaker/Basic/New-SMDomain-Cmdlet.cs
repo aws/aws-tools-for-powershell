@@ -1180,9 +1180,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.UnifiedStudioSettings_ProjectS3Path = this.UnifiedStudioSettings_ProjectS3Path;
             context.UnifiedStudioSettings_SingleSignOnApplicationArn = this.UnifiedStudioSettings_SingleSignOnApplicationArn;
             context.UnifiedStudioSettings_StudioWebPortalAccess = this.UnifiedStudioSettings_StudioWebPortalAccess;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HomeEfsFileSystemKmsKeyId = this.HomeEfsFileSystemKmsKeyId;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.KmsKeyId = this.KmsKeyId;
             if (this.SubnetId != null)
             {
@@ -2128,12 +2126,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.DomainSettings = null;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.HomeEfsFileSystemKmsKeyId != null)
             {
                 request.HomeEfsFileSystemKmsKeyId = cmdletContext.HomeEfsFileSystemKmsKeyId;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;

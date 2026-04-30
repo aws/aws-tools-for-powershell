@@ -198,6 +198,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String InferenceComponentName { get; set; }
         #endregion
         
+        #region Parameter Specification_InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The ML compute instance type for the inference component specification. Specifies
+        /// which instance type this specification applies to. Required when using the <c>Specifications</c>
+        /// parameter with multiple entries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ProductionVariantInstanceType")]
+        public Amazon.SageMaker.ProductionVariantInstanceType Specification_InstanceType { get; set; }
+        #endregion
+        
         #region Parameter Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance
         /// <summary>
         /// <para>
@@ -294,6 +307,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SageMaker.InferenceComponentPlacementStrategy")]
         public Amazon.SageMaker.InferenceComponentPlacementStrategy Specification_SchedulingConfig_PlacementStrategy { get; set; }
+        #endregion
+        
+        #region Parameter Specification
+        /// <summary>
+        /// <para>
+        /// <para>A list of specification objects for the inference component, one per instance type.
+        /// Use this parameter when you want to deploy a different model or resource configuration
+        /// for the inference component on each instance type. You can use either this parameter
+        /// or the singular <c>Specification</c> parameter, but not both.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Specifications")]
+        public Amazon.SageMaker.Model.InferenceComponentSpecification[] Specification { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -399,12 +430,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.Container_Image = this.Container_Image;
             context.DataCacheConfig_EnableCaching = this.DataCacheConfig_EnableCaching;
+            context.Specification_InstanceType = this.Specification_InstanceType;
             context.Specification_ModelName = this.Specification_ModelName;
             context.Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode = this.Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode;
             context.Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance = this.Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance;
             context.Specification_SchedulingConfig_PlacementStrategy = this.Specification_SchedulingConfig_PlacementStrategy;
             context.StartupParameters_ContainerStartupHealthCheckTimeoutInSecond = this.StartupParameters_ContainerStartupHealthCheckTimeoutInSecond;
             context.StartupParameters_ModelDataDownloadTimeoutInSecond = this.StartupParameters_ModelDataDownloadTimeoutInSecond;
+            if (this.Specification != null)
+            {
+                context.Specification = new List<Amazon.SageMaker.Model.InferenceComponentSpecification>(this.Specification);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -465,6 +501,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpecification_specification_BaseInferenceComponentName != null)
             {
                 request.Specification.BaseInferenceComponentName = requestSpecification_specification_BaseInferenceComponentName;
+                requestSpecificationIsNull = false;
+            }
+            Amazon.SageMaker.ProductionVariantInstanceType requestSpecification_specification_InstanceType = null;
+            if (cmdletContext.Specification_InstanceType != null)
+            {
+                requestSpecification_specification_InstanceType = cmdletContext.Specification_InstanceType;
+            }
+            if (requestSpecification_specification_InstanceType != null)
+            {
+                request.Specification.InstanceType = requestSpecification_specification_InstanceType;
                 requestSpecificationIsNull = false;
             }
             System.String requestSpecification_specification_ModelName = null;
@@ -702,6 +748,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.Specification = null;
             }
+            if (cmdletContext.Specification != null)
+            {
+                request.Specifications = cmdletContext.Specification;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -777,12 +827,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Dictionary<System.String, System.String> Container_Environment { get; set; }
             public System.String Container_Image { get; set; }
             public System.Boolean? DataCacheConfig_EnableCaching { get; set; }
+            public Amazon.SageMaker.ProductionVariantInstanceType Specification_InstanceType { get; set; }
             public System.String Specification_ModelName { get; set; }
             public Amazon.SageMaker.AvailabilityZoneBalanceEnforcementMode Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode { get; set; }
             public System.Int32? Specification_SchedulingConfig_AvailabilityZoneBalance_MaxImbalance { get; set; }
             public Amazon.SageMaker.InferenceComponentPlacementStrategy Specification_SchedulingConfig_PlacementStrategy { get; set; }
             public System.Int32? StartupParameters_ContainerStartupHealthCheckTimeoutInSecond { get; set; }
             public System.Int32? StartupParameters_ModelDataDownloadTimeoutInSecond { get; set; }
+            public List<Amazon.SageMaker.Model.InferenceComponentSpecification> Specification { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String VariantName { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateInferenceComponentResponse, NewSMInferenceComponentCmdlet, object> Select { get; set; } =

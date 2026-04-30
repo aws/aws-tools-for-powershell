@@ -300,9 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.StartJobRunResponse, StartGLUEJobRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllocatedCapacity = this.AllocatedCapacity;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Argument != null)
             {
                 context.Argument = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -344,12 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.StartJobRunRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AllocatedCapacity != null)
             {
                 request.AllocatedCapacity = cmdletContext.AllocatedCapacity.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Argument != null)
             {
                 request.Arguments = cmdletContext.Argument;

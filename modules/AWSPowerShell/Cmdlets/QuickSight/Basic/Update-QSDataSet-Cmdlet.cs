@@ -524,7 +524,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter ImportMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.LogicalTableMap != null)
             {
                 context.LogicalTableMap = new Dictionary<System.String, Amazon.QuickSight.Model.LogicalTable>(StringComparer.Ordinal);
@@ -533,7 +532,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                     context.LogicalTableMap.Add((String)hashKey, (Amazon.QuickSight.Model.LogicalTable)(this.LogicalTableMap[hashKey]));
                 }
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -697,12 +695,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.ImportMode = cmdletContext.ImportMode;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.LogicalTableMap != null)
             {
                 request.LogicalTableMap = cmdletContext.LogicalTableMap;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;

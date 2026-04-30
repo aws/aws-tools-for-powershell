@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// pair in PEM format (base64 encoded) to derive a shared KEK.
     /// </para></li><li><para><c>CertificateAuthorityPublicKeyIdentifier</c>: The <c>keyARN</c> of the CA that
     /// signed the public key certificate of the receiving ECC key pair.
-    /// </para></li></ul><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para></li></ul><para><b>Cross-account use:</b> This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html">ExportKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html">GetParametersForImport</a></para></li></ul>
     /// </summary>
     [Cmdlet("Import", "PAYCCKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -774,6 +775,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String[] ReplicationRegion { get; set; }
         #endregion
         
+        #region Parameter RequesterComment
+        /// <summary>
+        /// <para>
+        /// <para>The comment from the requester explaining the reason for the import.</para><important><para>Don't include personal, confidential or sensitive information in this field. This
+        /// field may be displayed in plaintext in CloudTrail logs and other output.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RequesterComment { get; set; }
+        #endregion
+        
         #region Parameter DerivationData_SharedInformation
         /// <summary>
         /// <para>
@@ -1238,6 +1250,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             {
                 context.ReplicationRegion = new List<System.String>(this.ReplicationRegion);
             }
+            context.RequesterComment = this.RequesterComment;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.PaymentCryptography.Model.Tag>(this.Tag);
@@ -2254,6 +2267,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             {
                 request.ReplicationRegions = cmdletContext.ReplicationRegion;
             }
+            if (cmdletContext.RequesterComment != null)
+            {
+                request.RequesterComment = cmdletContext.RequesterComment;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -2391,6 +2408,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             public Amazon.PaymentCryptography.KeyUsage KeyAttributes_KeyUsage { get; set; }
             public System.String TrustedCertificatePublicKey_PublicKeyCertificate { get; set; }
             public List<System.String> ReplicationRegion { get; set; }
+            public System.String RequesterComment { get; set; }
             public List<Amazon.PaymentCryptography.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.PaymentCryptography.Model.ImportKeyResponse, ImportPAYCCKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Key;

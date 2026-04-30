@@ -112,6 +112,22 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         public System.String ObservabilityRegion { get; set; }
         #endregion
         
+        #region Parameter Regions
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon Web Services Regions where the Global Resolver will operate. The
+        /// resolver will be distributed across these Regions to provide global availability and
+        /// low-latency DNS resolution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Regions { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -169,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             context.ObservabilityRegion = this.ObservabilityRegion;
+            if (this.Regions != null)
+            {
+                context.Regions = new List<System.String>(this.Regions);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -204,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             if (cmdletContext.ObservabilityRegion != null)
             {
                 request.ObservabilityRegion = cmdletContext.ObservabilityRegion;
+            }
+            if (cmdletContext.Regions != null)
+            {
+                request.Regions = cmdletContext.Regions;
             }
             
             CmdletOutput output;
@@ -265,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             public Amazon.Route53GlobalResolver.GlobalResolverIpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public System.String ObservabilityRegion { get; set; }
+            public List<System.String> Regions { get; set; }
             public System.Func<Amazon.Route53GlobalResolver.Model.UpdateGlobalResolverResponse, UpdateR53GRGlobalResolverCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

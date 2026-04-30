@@ -476,9 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BypassPolicyLockoutSafetyCheck = this.BypassPolicyLockoutSafetyCheck;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CustomerMasterKeySpec = this.CustomerMasterKeySpec;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CustomKeyStoreId = this.CustomKeyStoreId;
             context.Description = this.Description;
             context.KeySpec = this.KeySpec;
@@ -511,12 +509,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             {
                 request.BypassPolicyLockoutSafetyCheck = cmdletContext.BypassPolicyLockoutSafetyCheck.Value;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.CustomerMasterKeySpec != null)
             {
                 request.CustomerMasterKeySpec = cmdletContext.CustomerMasterKeySpec;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.CustomKeyStoreId != null)
             {
                 request.CustomKeyStoreId = cmdletContext.CustomKeyStoreId;

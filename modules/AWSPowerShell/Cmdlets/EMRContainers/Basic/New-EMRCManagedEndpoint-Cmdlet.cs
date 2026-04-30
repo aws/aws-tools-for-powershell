@@ -319,9 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 context.Select = CreateSelectDelegate<Amazon.EMRContainers.Model.CreateManagedEndpointResponse, NewEMRCManagedEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CertificateArn = this.CertificateArn;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             if (this.ConfigurationOverrides_ApplicationConfiguration != null)
             {
@@ -394,12 +392,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             // create request
             var request = new Amazon.EMRContainers.Model.CreateManagedEndpointRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.CertificateArn != null)
             {
                 request.CertificateArn = cmdletContext.CertificateArn;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;

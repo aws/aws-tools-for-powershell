@@ -699,9 +699,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ComputeResources_Ec2Configuration = new List<Amazon.Batch.Model.Ec2Configuration>(this.ComputeResources_Ec2Configuration);
             }
             context.ComputeResources_Ec2KeyPair = this.ComputeResources_Ec2KeyPair;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ComputeResources_ImageId = this.ComputeResources_ImageId;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ComputeResources_InstanceRole = this.ComputeResources_InstanceRole;
             if (this.ComputeResources_InstanceType != null)
             {
@@ -832,7 +830,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ComputeResources.Ec2KeyPair = requestComputeResources_computeResources_Ec2KeyPair;
                 requestComputeResourcesIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestComputeResources_computeResources_ImageId = null;
             if (cmdletContext.ComputeResources_ImageId != null)
             {
@@ -843,7 +840,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ComputeResources.ImageId = requestComputeResources_computeResources_ImageId;
                 requestComputeResourcesIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestComputeResources_computeResources_InstanceRole = null;
             if (cmdletContext.ComputeResources_InstanceRole != null)
             {

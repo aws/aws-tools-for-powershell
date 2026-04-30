@@ -270,9 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             context.EndTime = this.EndTime;
             context.FilterPattern = this.FilterPattern;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Interleaved = this.Interleaved;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Limit = this.Limit;
             context.LogGroupIdentifier = this.LogGroupIdentifier;
             context.LogGroupName = this.LogGroupName;
@@ -311,12 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 request.FilterPattern = cmdletContext.FilterPattern;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Interleaved != null)
             {
                 request.Interleaved = cmdletContext.Interleaved.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
@@ -407,12 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 request.FilterPattern = cmdletContext.FilterPattern;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Interleaved != null)
             {
                 request.Interleaved = cmdletContext.Interleaved.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;

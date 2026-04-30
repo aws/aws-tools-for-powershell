@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FIAuthKey = this.FIAuthKey;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Nameserver != null)
             {
                 context.Nameserver = new List<Amazon.Route53Domains.Model.Nameserver>(this.Nameserver);
@@ -191,12 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 request.DomainName = cmdletContext.DomainName;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.FIAuthKey != null)
             {
                 request.FIAuthKey = cmdletContext.FIAuthKey;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Nameserver != null)
             {
                 request.Nameservers = cmdletContext.Nameserver;

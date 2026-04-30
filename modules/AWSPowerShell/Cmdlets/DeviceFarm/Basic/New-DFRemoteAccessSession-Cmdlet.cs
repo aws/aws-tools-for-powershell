@@ -266,9 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             }
             #endif
             context.InstanceArn = this.InstanceArn;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.InteractionMode = this.InteractionMode;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
             #if MODULAR
@@ -380,12 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 request.InstanceArn = cmdletContext.InstanceArn;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.InteractionMode != null)
             {
                 request.InteractionMode = cmdletContext.InteractionMode;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;

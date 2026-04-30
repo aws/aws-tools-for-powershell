@@ -260,12 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             {
                 context.Scope_AwsAccount = new List<Amazon.AuditManager.Model.AWSAccount>(this.Scope_AwsAccount);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Scope_AwsService != null)
             {
                 context.Scope_AwsService = new List<Amazon.AuditManager.Model.AWSService>(this.Scope_AwsService);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -349,7 +347,6 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
                 request.Scope.AwsAccounts = requestScope_scope_AwsAccount;
                 requestScopeIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.AuditManager.Model.AWSService> requestScope_scope_AwsService = null;
             if (cmdletContext.Scope_AwsService != null)
             {
@@ -360,7 +357,6 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
                 request.Scope.AwsServices = requestScope_scope_AwsService;
                 requestScopeIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.Scope should be set to null
             if (requestScopeIsNull)
             {

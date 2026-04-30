@@ -1109,9 +1109,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.LogConfiguration_SecretOption = new List<Amazon.Batch.Model.Secret>(this.LogConfiguration_SecretOption);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContainerProperties_Memory = this.ContainerProperties_Memory;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ContainerProperties_MountPoint != null)
             {
                 context.ContainerProperties_MountPoint = new List<Amazon.Batch.Model.MountPoint>(this.ContainerProperties_MountPoint);
@@ -1135,9 +1133,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ContainerProperties_Ulimit = new List<Amazon.Batch.Model.Ulimit>(this.ContainerProperties_Ulimit);
             }
             context.ContainerProperties_User = this.ContainerProperties_User;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContainerProperties_Vcpus = this.ContainerProperties_Vcpus;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ContainerProperties_Volume != null)
             {
                 context.ContainerProperties_Volume = new List<Amazon.Batch.Model.Volume>(this.ContainerProperties_Volume);
@@ -1340,7 +1336,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.JobRoleArn = requestContainerProperties_containerProperties_JobRoleArn;
                 requestContainerPropertiesIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestContainerProperties_containerProperties_Memory = null;
             if (cmdletContext.ContainerProperties_Memory != null)
             {
@@ -1351,7 +1346,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.Memory = requestContainerProperties_containerProperties_Memory.Value;
                 requestContainerPropertiesIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.Batch.Model.MountPoint> requestContainerProperties_containerProperties_MountPoint = null;
             if (cmdletContext.ContainerProperties_MountPoint != null)
             {
@@ -1422,7 +1416,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.User = requestContainerProperties_containerProperties_User;
                 requestContainerPropertiesIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestContainerProperties_containerProperties_Vcpus = null;
             if (cmdletContext.ContainerProperties_Vcpus != null)
             {
@@ -1433,7 +1426,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.Vcpus = requestContainerProperties_containerProperties_Vcpus.Value;
                 requestContainerPropertiesIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.Batch.Model.Volume> requestContainerProperties_containerProperties_Volume = null;
             if (cmdletContext.ContainerProperties_Volume != null)
             {

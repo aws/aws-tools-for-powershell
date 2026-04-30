@@ -285,9 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 WriteWarning("You are passing $null as a value for parameter BundleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CustomImageName = this.CustomImageName;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.InstanceName != null)
             {
                 context.InstanceName = new List<System.String>(this.InstanceName);
@@ -337,12 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 request.BundleId = cmdletContext.BundleId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.CustomImageName != null)
             {
                 request.CustomImageName = cmdletContext.CustomImageName;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.InstanceName != null)
             {
                 request.InstanceNames = cmdletContext.InstanceName;

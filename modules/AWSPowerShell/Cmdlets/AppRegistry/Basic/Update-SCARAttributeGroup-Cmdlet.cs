@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             #endif
             context.Attribute = this.Attribute;
             context.Description = this.Description;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,12 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             {
                 request.Description = cmdletContext.Description;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             

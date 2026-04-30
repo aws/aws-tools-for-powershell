@@ -550,9 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OntapConfiguration_OntapVolumeType = this.OntapConfiguration_OntapVolumeType;
             context.OntapConfiguration_SecurityStyle = this.OntapConfiguration_SecurityStyle;
             context.OntapConfiguration_SizeInByte = this.OntapConfiguration_SizeInByte;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.OntapConfiguration_SizeInMegabyte = this.OntapConfiguration_SizeInMegabyte;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SnaplockConfiguration_AuditLogVolume = this.SnaplockConfiguration_AuditLogVolume;
             context.AutocommitPeriod_Type = this.AutocommitPeriod_Type;
             context.AutocommitPeriod_Value = this.AutocommitPeriod_Value;
@@ -657,7 +655,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OntapConfiguration.SizeInBytes = requestOntapConfiguration_ontapConfiguration_SizeInByte.Value;
                 requestOntapConfigurationIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestOntapConfiguration_ontapConfiguration_SizeInMegabyte = null;
             if (cmdletContext.OntapConfiguration_SizeInMegabyte != null)
             {
@@ -668,7 +665,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OntapConfiguration.SizeInMegabytes = requestOntapConfiguration_ontapConfiguration_SizeInMegabyte.Value;
                 requestOntapConfigurationIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestOntapConfiguration_ontapConfiguration_SnapshotPolicy = null;
             if (cmdletContext.OntapConfiguration_SnapshotPolicy != null)
             {

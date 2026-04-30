@@ -1,4 +1,40 @@
-﻿### 5.0.204 (2026-04-29 19:46Z)
+﻿### 5.0.205 (2026-04-30 20:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.241.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCMemory: added parameter IndexedKey.
+    * Modified cmdlet New-BACCOauth2CredentialProvider: added parameters Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent and Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenScope.
+    * Modified cmdlet Update-BACCMemory: added parameter AddIndexedKey.
+    * Modified cmdlet Update-BACCOauth2CredentialProvider: added parameters Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent and Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenScope.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Get-BACMemoryRecordList: added parameter MetadataFilter.
+    * Modified cmdlet Get-BACResourceOauth2Token: added parameters Audience and Resource.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNTelemetryRule: added parameter Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring.
+    * Modified cmdlet New-CWOADMNTelemetryRuleForOrganization: added parameter Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring.
+    * Modified cmdlet Update-CWOADMNTelemetryRule: added parameter Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring.
+    * Modified cmdlet Update-CWOADMNTelemetryRuleForOrganization: added parameter Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring.
+  * Amazon DataZone
+    * Added cmdlet Get-DZNotebookRun leveraging the GetNotebookRun service API.
+    * Added cmdlet Get-DZNotebookRunList leveraging the ListNotebookRuns service API.
+    * Added cmdlet Start-DZNotebookRun leveraging the StartNotebookRun service API.
+    * Added cmdlet Stop-DZNotebookRun leveraging the StopNotebookRun service API.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Modified cmdlet Update-MSKConnectivity: added parameter ZookeeperAccess_Enabled.
+  * Amazon Payment Cryptography Control Plane
+    * Added cmdlet Add-PAYCCMpaTeam leveraging the AssociateMpaTeam service API.
+    * Added cmdlet Get-PAYCCMpaTeamAssociation leveraging the GetMpaTeamAssociation service API.
+    * Added cmdlet Get-PAYCCResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-PAYCCMpaTeam leveraging the DisassociateMpaTeam service API.
+    * Added cmdlet Remove-PAYCCResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-PAYCCResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet Import-PAYCCKey: added parameter RequesterComment.
+  * Amazon Route 53 Global Resolver
+    * Modified cmdlet Update-R53GRGlobalResolver: added parameter Regions.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceComponent: added parameters Specification and Specification_InstanceType.
+    * Modified cmdlet Update-SMInferenceComponent: added parameters Specification and Specification_InstanceType.
+
+### 5.0.204 (2026-04-29 19:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.240.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Get-BACCConfigurationBundle leveraging the GetConfigurationBundle service API.

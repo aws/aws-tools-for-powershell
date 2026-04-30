@@ -150,9 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.GetQueryResultsResponse, GetCTQueryResultCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStore = this.EventDataStore;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStoreOwnerAccountId = this.EventDataStoreOwnerAccountId;
             context.MaxQueryResult = this.MaxQueryResult;
             context.NextToken = this.NextToken;
@@ -181,12 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // create request and set iteration invariants
             var request = new Amazon.CloudTrail.Model.GetQueryResultsRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EventDataStore != null)
             {
                 request.EventDataStore = cmdletContext.EventDataStore;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EventDataStoreOwnerAccountId != null)
             {
                 request.EventDataStoreOwnerAccountId = cmdletContext.EventDataStoreOwnerAccountId;

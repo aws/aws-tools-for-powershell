@@ -167,9 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.Group = this.Group;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupName = this.GroupName;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Owner = this.Owner;
             
             // allow further manipulation of loaded context prior to processing
@@ -203,12 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             {
                 request.Group = cmdletContext.Group;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Owner != null)
             {
                 request.Owner = cmdletContext.Owner;

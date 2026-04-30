@@ -955,18 +955,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DisableApiTermination = this.DisableApiTermination;
             context.DryRun = this.DryRun;
             context.EbsOptimized = this.EbsOptimized;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ElasticGpuSpecification != null)
             {
                 context.ElasticGpuSpecification = new List<Amazon.EC2.Model.ElasticGpuSpecification>(this.ElasticGpuSpecification);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ElasticInferenceAccelerator != null)
             {
                 context.ElasticInferenceAccelerator = new List<Amazon.EC2.Model.ElasticInferenceAccelerator>(this.ElasticInferenceAccelerator);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EnablePrimaryIpv6 = this.EnablePrimaryIpv6;
             context.EnclaveOptions_Enabled = this.EnclaveOptions_Enabled;
             context.HibernationOptions_Configured = this.HibernationOptions_Configured;
@@ -1179,18 +1175,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.EbsOptimized = cmdletContext.EbsOptimized.Value;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ElasticGpuSpecification != null)
             {
                 request.ElasticGpuSpecification = cmdletContext.ElasticGpuSpecification;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ElasticInferenceAccelerator != null)
             {
                 request.ElasticInferenceAccelerators = cmdletContext.ElasticInferenceAccelerator;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EnablePrimaryIpv6 != null)
             {
                 request.EnablePrimaryIpv6 = cmdletContext.EnablePrimaryIpv6.Value;

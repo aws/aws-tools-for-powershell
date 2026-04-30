@@ -1389,9 +1389,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.AllowedMethods_Quantity = this.AllowedMethods_Quantity;
             context.DefaultCacheBehavior_CachePolicyId = this.DefaultCacheBehavior_CachePolicyId;
             context.DefaultCacheBehavior_Compress = this.DefaultCacheBehavior_Compress;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_DefaultTTL = this.DefaultCacheBehavior_DefaultTTL;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_FieldLevelEncryptionId = this.DefaultCacheBehavior_FieldLevelEncryptionId;
             context.Cookies_Forward = this.Cookies_Forward;
             if (this.WhitelistedNames_Item != null)
@@ -1421,12 +1419,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.LambdaFunctionAssociations_Item = new List<Amazon.CloudFront.Model.LambdaFunctionAssociation>(this.LambdaFunctionAssociations_Item);
             }
             context.LambdaFunctionAssociations_Quantity = this.LambdaFunctionAssociations_Quantity;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_MaxTTL = this.DefaultCacheBehavior_MaxTTL;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_MinTTL = this.DefaultCacheBehavior_MinTTL;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_OriginRequestPolicyId = this.DefaultCacheBehavior_OriginRequestPolicyId;
             context.DefaultCacheBehavior_RealtimeLogConfigArn = this.DefaultCacheBehavior_RealtimeLogConfigArn;
             context.DefaultCacheBehavior_ResponseHeadersPolicyId = this.DefaultCacheBehavior_ResponseHeadersPolicyId;
@@ -1506,12 +1500,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.TenantConfig_ParameterDefinition = new List<Amazon.CloudFront.Model.ParameterDefinition>(this.TenantConfig_ParameterDefinition);
             }
             context.ViewerCertificate_ACMCertificateArn = this.ViewerCertificate_ACMCertificateArn;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ViewerCertificate_Certificate = this.ViewerCertificate_Certificate;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ViewerCertificate_CertificateSource = this.ViewerCertificate_CertificateSource;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ViewerCertificate_CloudFrontDefaultCertificate = this.ViewerCertificate_CloudFrontDefaultCertificate;
             context.ViewerCertificate_IAMCertificateId = this.ViewerCertificate_IAMCertificateId;
             context.ViewerCertificate_MinimumProtocolVersion = this.ViewerCertificate_MinimumProtocolVersion;
@@ -2145,7 +2135,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate.ACMCertificateArn = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_ACMCertificateArn;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificateIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_Certificate = null;
             if (cmdletContext.ViewerCertificate_Certificate != null)
             {
@@ -2156,8 +2145,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate.Certificate = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_Certificate;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificateIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.CloudFront.CertificateSource requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_CertificateSource = null;
             if (cmdletContext.ViewerCertificate_CertificateSource != null)
             {
@@ -2168,7 +2155,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate.CertificateSource = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_CertificateSource;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificateIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Boolean? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_CloudFrontDefaultCertificate = null;
             if (cmdletContext.ViewerCertificate_CloudFrontDefaultCertificate != null)
             {
@@ -2244,7 +2230,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.Compress = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress.Value;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int64? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL = null;
             if (cmdletContext.DefaultCacheBehavior_DefaultTTL != null)
             {
@@ -2255,7 +2240,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.DefaultTTL = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL.Value;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_FieldLevelEncryptionId = null;
             if (cmdletContext.DefaultCacheBehavior_FieldLevelEncryptionId != null)
             {
@@ -2266,7 +2250,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.FieldLevelEncryptionId = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_FieldLevelEncryptionId;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int64? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL = null;
             if (cmdletContext.DefaultCacheBehavior_MaxTTL != null)
             {
@@ -2277,8 +2260,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.MaxTTL = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL.Value;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int64? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL = null;
             if (cmdletContext.DefaultCacheBehavior_MinTTL != null)
             {
@@ -2289,7 +2270,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.MinTTL = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL.Value;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_OriginRequestPolicyId = null;
             if (cmdletContext.DefaultCacheBehavior_OriginRequestPolicyId != null)
             {
@@ -2605,7 +2585,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.TrustedSigners = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.CloudFront.Model.ForwardedValues requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues = null;
             
              // populate ForwardedValues
@@ -2761,7 +2740,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.ForwardedValues = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior should be set to null
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull)
             {

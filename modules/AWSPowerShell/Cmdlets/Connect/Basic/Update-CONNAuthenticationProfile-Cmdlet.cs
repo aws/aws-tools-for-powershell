@@ -246,9 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Name = this.Name;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PeriodicSessionDuration = this.PeriodicSessionDuration;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SessionInactivityDuration = this.SessionInactivityDuration;
             context.SessionInactivityHandlingEnabled = this.SessionInactivityHandlingEnabled;
             
@@ -291,12 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.Name = cmdletContext.Name;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PeriodicSessionDuration != null)
             {
                 request.PeriodicSessionDuration = cmdletContext.PeriodicSessionDuration.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SessionInactivityDuration != null)
             {
                 request.SessionInactivityDuration = cmdletContext.SessionInactivityDuration.Value;

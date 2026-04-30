@@ -245,9 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PredefinedNotificationId = this.PredefinedNotificationId;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Priority = this.Priority;
             if (this.Recipient != null)
             {
@@ -299,12 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PredefinedNotificationId != null)
             {
                 request.PredefinedNotificationId = cmdletContext.PredefinedNotificationId;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Priority != null)
             {
                 request.Priority = cmdletContext.Priority;

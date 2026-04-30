@@ -121,9 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Group = this.Group;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupName = this.GroupName;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -144,12 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             {
                 request.Group = cmdletContext.Group;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             

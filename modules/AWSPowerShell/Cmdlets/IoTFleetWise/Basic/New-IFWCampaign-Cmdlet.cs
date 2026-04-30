@@ -446,9 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             }
             #endif
             context.PostTriggerCollectionDuration = this.PostTriggerCollectionDuration;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Priority = this.Priority;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SignalCatalogArn = this.SignalCatalogArn;
             #if MODULAR
             if (this.SignalCatalogArn == null && ParameterWasBound(nameof(this.SignalCatalogArn)))
@@ -618,12 +616,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             {
                 request.PostTriggerCollectionDuration = cmdletContext.PostTriggerCollectionDuration.Value;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Priority != null)
             {
                 request.Priority = cmdletContext.Priority.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SignalCatalogArn != null)
             {
                 request.SignalCatalogArn = cmdletContext.SignalCatalogArn;

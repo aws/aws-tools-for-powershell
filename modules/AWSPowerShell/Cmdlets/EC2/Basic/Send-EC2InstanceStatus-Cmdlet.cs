@@ -207,9 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.ReportInstanceStatusResponse, SendEC2InstanceStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DryRun = this.DryRun;
             context.EndTime = this.EndTime;
             if (this.Instance != null)
@@ -256,12 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ReportInstanceStatusRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;

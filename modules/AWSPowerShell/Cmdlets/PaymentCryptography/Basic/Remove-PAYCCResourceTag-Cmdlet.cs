@@ -35,8 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     ///  <note><para>
     /// Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or
     /// deny permission to the key.
-    /// </para></note><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para></note><para><b>Cross-account use:</b> This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "PAYCCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

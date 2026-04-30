@@ -189,9 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             context.IncludeAll = this.IncludeAll;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Status = this.Status;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.VersionStatus = this.VersionStatus;
             
             // allow further manipulation of loaded context prior to processing
@@ -231,12 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.VersionStatus != null)
             {
                 request.VersionStatus = cmdletContext.VersionStatus;

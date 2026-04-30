@@ -254,9 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Target_Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Type = this.Type;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Types != null)
             {
                 context.Types = new List<System.String>(this.Types);
@@ -328,12 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.Target = null;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Types != null)
             {
                 request.Types = cmdletContext.Types;

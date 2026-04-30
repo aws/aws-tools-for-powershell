@@ -105,12 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 context.Select = CreateSelectDelegate<Amazon.ECR.Model.GetAuthorizationTokenResponse, GetECRAuthorizationTokenCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.RegistryId != null)
             {
                 context.RegistryId = new List<System.String>(this.RegistryId);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,12 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             // create request
             var request = new Amazon.ECR.Model.GetAuthorizationTokenRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.RegistryId != null)
             {
                 request.RegistryIds = cmdletContext.RegistryId;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             

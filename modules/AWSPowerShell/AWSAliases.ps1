@@ -8879,6 +8879,7 @@ Set-Alias -Name DZ-GetLineageEvent -Value Get-DZLineageEvent
 Set-Alias -Name DZ-GetLineageNode -Value Get-DZLineageNode
 Set-Alias -Name DZ-GetListing -Value Get-DZListing
 Set-Alias -Name DZ-GetMetadataGenerationRun -Value Get-DZMetadataGenerationRun
+Set-Alias -Name DZ-GetNotebookRun -Value Get-DZNotebookRun
 Set-Alias -Name DZ-GetProject -Value Get-DZProject
 Set-Alias -Name DZ-GetProjectProfile -Value Get-DZProjectProfile
 Set-Alias -Name DZ-GetRule -Value Get-DZRule
@@ -8952,6 +8953,9 @@ Set-Alias -Name DZ-ListLineageNodeHistory -Value Get-DZLineageNodeHistoryList
 Set-Alias -Name List-DZMetadataGenerationRuns -Value Get-DZMetadataGenerationRunList
 Set-Alias -Name List-DZMetadataGenerationRunList -Value Get-DZMetadataGenerationRunList
 Set-Alias -Name DZ-ListMetadataGenerationRuns -Value Get-DZMetadataGenerationRunList
+Set-Alias -Name List-DZNotebookRuns -Value Get-DZNotebookRunList
+Set-Alias -Name List-DZNotebookRunList -Value Get-DZNotebookRunList
+Set-Alias -Name DZ-ListNotebookRuns -Value Get-DZNotebookRunList
 Set-Alias -Name List-DZNotifications -Value Get-DZNotificationList
 Set-Alias -Name List-DZNotificationList -Value Get-DZNotificationList
 Set-Alias -Name DZ-ListNotifications -Value Get-DZNotificationList
@@ -9017,6 +9021,8 @@ Set-Alias -Name Search-DZUserProfiles -Value Search-DZUserProfile
 Set-Alias -Name DZ-SearchUserProfiles -Value Search-DZUserProfile
 Set-Alias -Name DZ-StartDataSourceRun -Value Start-DZDataSourceRun
 Set-Alias -Name DZ-StartMetadataGenerationRun -Value Start-DZMetadataGenerationRun
+Set-Alias -Name DZ-StartNotebookRun -Value Start-DZNotebookRun
+Set-Alias -Name DZ-StopNotebookRun -Value Stop-DZNotebookRun
 Set-Alias -Name DZ-TagResource -Value Add-DZResourceTag
 Set-Alias -Name DZ-UntagResource -Value Remove-DZResourceTag
 Set-Alias -Name DZ-UpdateAccountPool -Value Update-DZAccountPool
@@ -24925,6 +24931,8 @@ Set-Alias -Name Verify-PAYCDPinData -Value Test-PAYCDPinData
 Set-Alias -Name PAYCD-VerifyPinData -Value Test-PAYCDPinData
 Set-Alias -Name Add-PAYCCKeyReplicationRegions -Value Add-PAYCCKeyReplicationRegion
 Set-Alias -Name PAYCC-AddKeyReplicationRegions -Value Add-PAYCCKeyReplicationRegion
+Set-Alias -Name Associate-PAYCCMpaTeam -Value Add-PAYCCMpaTeam
+Set-Alias -Name PAYCC-AssociateMpaTeam -Value Add-PAYCCMpaTeam
 Set-Alias -Name Create-PAYCCAlias -Value New-PAYCCAlias
 Set-Alias -Name PAYCC-CreateAlias -Value New-PAYCCAlias
 Set-Alias -Name Create-PAYCCKey -Value New-PAYCCKey
@@ -24933,8 +24941,12 @@ Set-Alias -Name Delete-PAYCCAlias -Value Remove-PAYCCAlias
 Set-Alias -Name PAYCC-DeleteAlias -Value Remove-PAYCCAlias
 Set-Alias -Name Delete-PAYCCKey -Value Remove-PAYCCKey
 Set-Alias -Name PAYCC-DeleteKey -Value Remove-PAYCCKey
+Set-Alias -Name Delete-PAYCCResourcePolicy -Value Remove-PAYCCResourcePolicy
+Set-Alias -Name PAYCC-DeleteResourcePolicy -Value Remove-PAYCCResourcePolicy
 Set-Alias -Name Disable-PAYCCDefaultKeyReplicationRegions -Value Disable-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-DisableDefaultKeyReplicationRegions -Value Disable-PAYCCDefaultKeyReplicationRegion
+Set-Alias -Name Disassociate-PAYCCMpaTeam -Value Remove-PAYCCMpaTeam
+Set-Alias -Name PAYCC-DisassociateMpaTeam -Value Remove-PAYCCMpaTeam
 Set-Alias -Name Enable-PAYCCDefaultKeyReplicationRegions -Value Enable-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-EnableDefaultKeyReplicationRegions -Value Enable-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-ExportKey -Value Export-PAYCCKey
@@ -24943,9 +24955,11 @@ Set-Alias -Name PAYCC-GetCertificateSigningRequest -Value Get-PAYCCCertificateSi
 Set-Alias -Name Get-PAYCCDefaultKeyReplicationRegions -Value Get-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-GetDefaultKeyReplicationRegions -Value Get-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-GetKey -Value Get-PAYCCKey
+Set-Alias -Name PAYCC-GetMpaTeamAssociation -Value Get-PAYCCMpaTeamAssociation
 Set-Alias -Name PAYCC-GetParametersForExport -Value Get-PAYCCParametersForExport
 Set-Alias -Name PAYCC-GetParametersForImport -Value Get-PAYCCParametersForImport
 Set-Alias -Name PAYCC-GetPublicKeyCertificate -Value Get-PAYCCPublicKeyCertificate
+Set-Alias -Name PAYCC-GetResourcePolicy -Value Get-PAYCCResourcePolicy
 Set-Alias -Name PAYCC-ImportKey -Value Import-PAYCCKey
 Set-Alias -Name List-PAYCCAliases -Value Get-PAYCCAliasList
 Set-Alias -Name List-PAYCCAliasList -Value Get-PAYCCAliasList
@@ -24954,6 +24968,8 @@ Set-Alias -Name List-PAYCCKeys -Value Get-PAYCCKeyList
 Set-Alias -Name List-PAYCCKeyList -Value Get-PAYCCKeyList
 Set-Alias -Name PAYCC-ListKeys -Value Get-PAYCCKeyList
 Set-Alias -Name PAYCC-ListTagsForResource -Value Get-PAYCCResourceTag
+Set-Alias -Name Put-PAYCCResourcePolicy -Value Write-PAYCCResourcePolicy
+Set-Alias -Name PAYCC-PutResourcePolicy -Value Write-PAYCCResourcePolicy
 Set-Alias -Name Remove-PAYCCKeyReplicationRegions -Value Remove-PAYCCKeyReplicationRegion
 Set-Alias -Name PAYCC-RemoveKeyReplicationRegions -Value Remove-PAYCCKeyReplicationRegion
 Set-Alias -Name PAYCC-RestoreKey -Value Restore-PAYCCKey

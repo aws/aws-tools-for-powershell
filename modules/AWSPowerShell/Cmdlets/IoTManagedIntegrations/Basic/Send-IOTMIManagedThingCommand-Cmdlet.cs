@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AccountAssociationId = this.AccountAssociationId;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConnectorAssociationId = this.ConnectorAssociationId;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Endpoint != null)
             {
                 context.Endpoint = new List<Amazon.IoTManagedIntegrations.Model.CommandEndpoint>(this.Endpoint);
@@ -194,12 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             {
                 request.AccountAssociationId = cmdletContext.AccountAssociationId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ConnectorAssociationId != null)
             {
                 request.ConnectorAssociationId = cmdletContext.ConnectorAssociationId;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Endpoint != null)
             {
                 request.Endpoints = cmdletContext.Endpoint;

@@ -291,9 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 WriteWarning("You are passing $null as a value for parameter AnomalySubscription_SubscriptionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AnomalySubscription_Threshold = this.AnomalySubscription_Threshold;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AnomalySubscription_ThresholdExpression = this.AnomalySubscription_ThresholdExpression;
             if (this.ResourceTag != null)
             {
@@ -379,7 +377,6 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 request.AnomalySubscription.SubscriptionName = requestAnomalySubscription_anomalySubscription_SubscriptionName;
                 requestAnomalySubscriptionIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Double? requestAnomalySubscription_anomalySubscription_Threshold = null;
             if (cmdletContext.AnomalySubscription_Threshold != null)
             {
@@ -390,7 +387,6 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 request.AnomalySubscription.Threshold = requestAnomalySubscription_anomalySubscription_Threshold.Value;
                 requestAnomalySubscriptionIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.CostExplorer.Model.Expression requestAnomalySubscription_anomalySubscription_ThresholdExpression = null;
             if (cmdletContext.AnomalySubscription_ThresholdExpression != null)
             {

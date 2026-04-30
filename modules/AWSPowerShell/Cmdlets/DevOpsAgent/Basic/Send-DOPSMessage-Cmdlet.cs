@@ -215,9 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter ExecutionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.UserId = this.UserId;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -285,12 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             {
                 request.ExecutionId = cmdletContext.ExecutionId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.UserId != null)
             {
                 request.UserId = cmdletContext.UserId;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             

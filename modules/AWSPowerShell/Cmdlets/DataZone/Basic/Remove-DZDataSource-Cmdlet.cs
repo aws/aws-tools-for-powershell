@@ -148,9 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteDataSourceResponse, RemoveDZDataSourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
             if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
@@ -182,12 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.DeleteDataSourceRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;

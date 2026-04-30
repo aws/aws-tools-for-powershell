@@ -40,8 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// can download the public key certificate of the asymmetric key. You can share the public
     /// key certificate to allow others to encrypt messages and verify signatures outside
     /// of Amazon Web Services Payment Cryptography
-    /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para><para><b>Cross-account use:</b> This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "PAYCCPublicKeyCertificate")]

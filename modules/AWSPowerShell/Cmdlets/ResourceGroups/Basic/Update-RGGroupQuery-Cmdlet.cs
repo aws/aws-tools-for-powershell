@@ -140,9 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Group = this.Group;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupName = this.GroupName;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ResourceQuery = this.ResourceQuery;
             #if MODULAR
             if (this.ResourceQuery == null && ParameterWasBound(nameof(this.ResourceQuery)))
@@ -170,12 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             {
                 request.Group = cmdletContext.Group;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ResourceQuery != null)
             {
                 request.ResourceQuery = cmdletContext.ResourceQuery;

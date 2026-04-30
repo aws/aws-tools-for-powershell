@@ -216,13 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AtRestEncryptionEnabled = this.AtRestEncryptionEnabled;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HealthMetricsConfig = this.HealthMetricsConfig;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.TransitEncryptionEnabled = this.TransitEncryptionEnabled;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Ttl = this.Ttl;
             #if MODULAR
             if (this.Ttl == null && ParameterWasBound(nameof(this.Ttl)))
@@ -261,22 +257,18 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 request.ApiId = cmdletContext.ApiId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AtRestEncryptionEnabled != null)
             {
                 request.AtRestEncryptionEnabled = cmdletContext.AtRestEncryptionEnabled.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.HealthMetricsConfig != null)
             {
                 request.HealthMetricsConfig = cmdletContext.HealthMetricsConfig;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.TransitEncryptionEnabled != null)
             {
                 request.TransitEncryptionEnabled = cmdletContext.TransitEncryptionEnabled.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Ttl != null)
             {
                 request.Ttl = cmdletContext.Ttl.Value;

@@ -200,7 +200,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
             context.DomainEntry_Id = this.DomainEntry_Id;
             context.DomainEntry_IsAlias = this.DomainEntry_IsAlias;
             context.DomainEntry_Name = this.DomainEntry_Name;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.DomainEntry_Option != null)
             {
                 context.DomainEntry_Option = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -209,7 +208,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
                     context.DomainEntry_Option.Add((String)hashKey, (System.String)(this.DomainEntry_Option[hashKey]));
                 }
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DomainEntry_Target = this.DomainEntry_Target;
             context.DomainEntry_Type = this.DomainEntry_Type;
             context.DomainName = this.DomainName;
@@ -269,7 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 request.DomainEntry.Name = requestDomainEntry_domainEntry_Name;
                 requestDomainEntryIsNull = false;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Dictionary<System.String, System.String> requestDomainEntry_domainEntry_Option = null;
             if (cmdletContext.DomainEntry_Option != null)
             {
@@ -280,7 +277,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 request.DomainEntry.Options = requestDomainEntry_domainEntry_Option;
                 requestDomainEntryIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestDomainEntry_domainEntry_Target = null;
             if (cmdletContext.DomainEntry_Target != null)
             {

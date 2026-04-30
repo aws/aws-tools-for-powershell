@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para><important><para>
     /// Ensure that no active cryptographic operations or applications depend on the key in
     /// the regions you're removing before performing this operation.
-    /// </para></important><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para></important><para><b>Cross-account use:</b> This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_AddKeyReplicationRegions.html">AddKeyReplicationRegions</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DisableDefaultKeyReplicationRegions.html">DisableDefaultKeyReplicationRegions</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "PAYCCKeyReplicationRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

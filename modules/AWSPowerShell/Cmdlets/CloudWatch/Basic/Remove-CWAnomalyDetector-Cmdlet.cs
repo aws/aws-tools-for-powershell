@@ -223,22 +223,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.DeleteAnomalyDetectorResponse, RemoveCWAnomalyDetectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Dimension != null)
             {
                 context.Dimension = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.MetricMathAnomalyDetector_MetricDataQuery != null)
             {
                 context.MetricMathAnomalyDetector_MetricDataQuery = new List<Amazon.CloudWatch.Model.MetricDataQuery>(this.MetricMathAnomalyDetector_MetricDataQuery);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MetricName = this.MetricName;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Namespace = this.Namespace;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SingleMetricAnomalyDetector_AccountId = this.SingleMetricAnomalyDetector_AccountId;
             if (this.SingleMetricAnomalyDetector_Dimension != null)
             {
@@ -247,9 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             context.SingleMetricAnomalyDetector_MetricName = this.SingleMetricAnomalyDetector_MetricName;
             context.SingleMetricAnomalyDetector_Namespace = this.SingleMetricAnomalyDetector_Namespace;
             context.SingleMetricAnomalyDetector_Stat = this.SingleMetricAnomalyDetector_Stat;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Stat = this.Stat;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -266,12 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request
             var request = new Amazon.CloudWatch.Model.DeleteAnomalyDetectorRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Dimension != null)
             {
                 request.Dimensions = cmdletContext.Dimension;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
              // populate MetricMathAnomalyDetector
             var requestMetricMathAnomalyDetectorIsNull = true;
@@ -291,18 +281,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.MetricMathAnomalyDetector = null;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.MetricName != null)
             {
                 request.MetricName = cmdletContext.MetricName;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Namespace != null)
             {
                 request.Namespace = cmdletContext.Namespace;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
              // populate SingleMetricAnomalyDetector
             var requestSingleMetricAnomalyDetectorIsNull = true;
@@ -362,12 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.SingleMetricAnomalyDetector = null;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Stat != null)
             {
                 request.Stat = cmdletContext.Stat;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
