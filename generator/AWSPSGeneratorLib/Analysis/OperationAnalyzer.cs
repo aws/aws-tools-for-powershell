@@ -2554,6 +2554,11 @@ namespace AWSPowerShellGenerator.Analysis
         /// Reverts the singularization by clearing NewName and setting AutoRename=false so the
         /// original plural name is retained and persisted in report.xml.
         ///
+        /// Also detects alias-parameter conflicts where a singularized parameter name collides with
+        /// an auto-applied alias from another parameter (e.g., a new plural parameter
+        /// Props_SparkGlueProperties_GlueConnectionNames singularized to Props_SparkGlueProperties_GlueConnectionName
+        /// conflicts with an existing parameter's alias Props_SparkGlueProperties_GlueConnectionName).
+        ///
         /// Only reverts parameters with Reason=Singularization. Parameters renamed by other auto-resolution
         /// features (e.g., reserved name resolution: Select → WidgetSelect) are not reverted, even if they
         /// happen to collide with a singularized name. Example: if an operation has both a reserved parameter
@@ -2563,6 +2568,7 @@ namespace AWSPowerShellGenerator.Analysis
         /// </summary>
         protected void RevertSingularizationOnCollision()
         {
+            // Phase 1: Detect and revert duplicate CmdletParameterName collisions
             var duplicateGroups = AnalyzedParameters
                 .Where(p => p.Customization == null || !p.Customization.Exclude)
                 .GroupBy(p => p.CmdletParameterName, StringComparer.OrdinalIgnoreCase)
@@ -2571,26 +2577,71 @@ namespace AWSPowerShellGenerator.Analysis
 
             foreach (var group in duplicateGroups)
             {
-                // Only revert parameters that were singularized (not reserved-name-resolved or config-loaded)
-                var singularizedParams = group
-                    .Where(p => p.Customization != null
-                                && p.Customization.Origin == Param.CustomizationOrigin.Singularization
-                                && !string.IsNullOrEmpty(p.Customization.NewName)
-                                && !string.Equals(p.Customization.NewName, p.AnalyzedName, StringComparison.Ordinal))
-                    .ToList();
-
-                foreach (var param in singularizedParams)
-                {
-                    // Revert: clear NewName so CmdletParameterName falls back to AnalyzedName (plural form)
-                    param.Customization.NewName = null;
-                    // Set AutoRename=false so this is persisted and prevents re-singularization on subsequent runs
-                    param.Customization.AutoRename = false;
-                    param.Customization.Origin = Param.CustomizationOrigin.SingularizationCollisionRevert;
-
-                    CurrentOperation.IsSingularizationCollisionResolved = true;
-                    InfoMessage.SingularizationCollisionResolved(CurrentModel, CurrentOperation, param);
-                }
+                RevertSingularizedParamsInGroup(group);
             }
+
+            // Phase 2: Detect and revert alias-parameter conflicts caused by singularization.
+            // This handles the case where a new plural parameter is singularized to a name that
+            // collides with an existing parameter's auto-applied alias (the AnalyzedName alias).
+            // Example: existing param "Props_X_GlueConnectionName" with NewName="X_GlueConnectionName"
+            // has auto-alias "Props_X_GlueConnectionName". New param "Props_X_GlueConnectionNames"
+            // singularized to "Props_X_GlueConnectionName" conflicts with that alias.
+            var allAliases = AnalyzedParameters
+                .Where(p => p.Customization == null || !p.Customization.Exclude)
+                .SelectMany(p => GetAllParameterAliases(p).Select(alias => new { Alias = alias, Parameter = p }))
+                .ToArray();
+
+            var aliasSet = new HashSet<string>(allAliases.Select(a => a.Alias), StringComparer.OrdinalIgnoreCase);
+
+            // Find singularized parameters whose CmdletParameterName conflicts with any alias
+            var singularizedParamsConflictingWithAliases = AnalyzedParameters
+                .Where(p => p.Customization != null
+                            && !p.Customization.Exclude
+                            && p.Customization.Origin == Param.CustomizationOrigin.Singularization
+                            && !string.IsNullOrEmpty(p.Customization.NewName)
+                            && !string.Equals(p.Customization.NewName, p.AnalyzedName, StringComparison.Ordinal)
+                            && aliasSet.Contains(p.CmdletParameterName))
+                .ToList();
+
+            foreach (var param in singularizedParamsConflictingWithAliases)
+            {
+                RevertSingularization(param);
+            }
+        }
+
+        /// <summary>
+        /// Reverts singularization for parameters in a group that have duplicate CmdletParameterNames.
+        /// </summary>
+        private void RevertSingularizedParamsInGroup(IGrouping<string, SimplePropertyInfo> group)
+        {
+            // Only revert parameters that were singularized (not reserved-name-resolved or config-loaded)
+            var singularizedParams = group
+                .Where(p => p.Customization != null
+                            && p.Customization.Origin == Param.CustomizationOrigin.Singularization
+                            && !string.IsNullOrEmpty(p.Customization.NewName)
+                            && !string.Equals(p.Customization.NewName, p.AnalyzedName, StringComparison.Ordinal))
+                .ToList();
+
+            foreach (var param in singularizedParams)
+            {
+                RevertSingularization(param);
+            }
+        }
+
+        /// <summary>
+        /// Reverts singularization for a single parameter by clearing NewName, setting AutoRename=false,
+        /// and marking the operation as having resolved a singularization collision.
+        /// </summary>
+        private void RevertSingularization(SimplePropertyInfo param)
+        {
+            // Revert: clear NewName so CmdletParameterName falls back to AnalyzedName (plural form)
+            param.Customization.NewName = null;
+            // Set AutoRename=false so this is persisted and prevents re-singularization on subsequent runs
+            param.Customization.AutoRename = false;
+            param.Customization.Origin = Param.CustomizationOrigin.SingularizationCollisionRevert;
+
+            CurrentOperation.IsSingularizationCollisionResolved = true;
+            InfoMessage.SingularizationCollisionResolved(CurrentModel, CurrentOperation, param);
         }
 
         /// <summary>

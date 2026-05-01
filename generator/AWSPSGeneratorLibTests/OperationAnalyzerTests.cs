@@ -2506,5 +2506,69 @@ namespace AWSPSGeneratorLibTests
                 "AutoRename should be false for the reverted parameter to prevent re-singularization on subsequent runs");
         }
 
+        [TestMethod]
+        public void SingularizationCollision_AliasParameterConflict_IsDetectedAndReverted()
+        {
+            // Arrange - Simulates the datazone CreateConnection scenario:
+            // Existing singular parameter "Props_SparkGlueProperties_GlueConnectionName" has config
+            // NewName="SparkGlueProperties_GlueConnectionName", which gives it an auto-alias of
+            // "Props_SparkGlueProperties_GlueConnectionName" (its AnalyzedName).
+            // New plural parameter "Props_SparkGlueProperties_GlueConnectionNames" is singularized to
+            // "Props_SparkGlueProperties_GlueConnectionName", conflicting with the alias.
+            var operation = new ServiceOperation
+            {
+                MethodName = "CreateItem",
+                IsAutoConfiguring = false, // existing operation
+                OriginalNoun = "Item",
+                RequestedVerb = "New",
+                RequestedNoun = "Item"
+            };
+
+            // Add a config-driven param customization for the singular parameter (simulating existing config)
+            operation.CustomParametersList.Add(new Param
+            {
+                Name = "Properties_ItemType",
+                NewName = "ItemType_Renamed"
+                // AutoApplyAlias defaults to true, so AnalyzedName "Properties_ItemType" becomes an alias
+            });
+
+            var analyzer = new TestableSingularizationCollisionAnalyzer(_allModels, _testModel, operation, null);
+
+            // Act - process request type (has both ItemType and ItemTypes in nested Properties)
+            analyzer.ProcessRequestTypeWithFinalization(typeof(TestRequestWithSingularizationCollision));
+            analyzer.RunParameterFinalization();
+
+            // Assert - The plural parameter should be reverted because its singularized CmdletParameterName
+            // "Properties_ItemType" conflicts with the alias "Properties_ItemType" of the renamed singular param.
+            Assert.IsTrue(operation.IsSingularizationCollisionResolved,
+                "IsSingularizationCollisionResolved should be true when singularized name conflicts with an alias");
+
+            var pluralParam = analyzer.AnalyzedParameters.FirstOrDefault(p => p.AnalyzedName == "Properties_ItemTypes");
+            Assert.IsNotNull(pluralParam, "Properties_ItemTypes parameter should exist");
+            Assert.AreEqual("Properties_ItemTypes", pluralParam.CmdletParameterName,
+                "The plural parameter should retain its original plural name after alias-conflict collision resolution");
+
+            Assert.IsNotNull(pluralParam.Customization, "Properties_ItemTypes parameter should have a Customization");
+            Assert.IsFalse(pluralParam.Customization.AutoRename,
+                "AutoRename should be false for the reverted parameter");
+
+            // Verify no alias-parameter conflicts remain
+            var allParamNames = analyzer.AnalyzedParameters.Select(p => p.CmdletParameterName).ToHashSet(StringComparer.OrdinalIgnoreCase);
+            foreach (var param in analyzer.AnalyzedParameters)
+            {
+                var aliases = analyzer.GetAllParameterAliases(param);
+                foreach (var alias in aliases)
+                {
+                    // An alias should not conflict with any other parameter's CmdletParameterName
+                    // (it's OK if it matches its own parameter name, but that's filtered out in GetAllParameterAliases)
+                    var conflictingParams = analyzer.AnalyzedParameters
+                        .Where(p => p != param && string.Equals(p.CmdletParameterName, alias, StringComparison.OrdinalIgnoreCase))
+                        .ToList();
+                    Assert.IsFalse(conflictingParams.Any(),
+                        $"Alias '{alias}' of parameter '{param.CmdletParameterName}' should not conflict with parameter '{string.Join(",", conflictingParams.Select(p => p.CmdletParameterName))}'");
+                }
+            }
+        }
+
     }
 }
