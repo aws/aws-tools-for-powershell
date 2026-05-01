@@ -738,6 +738,30 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String TrinoParameters_Host { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The S3 URI of the identity provider's CA certificates bundle in PEM format. Use this
+        /// parameter to provide a custom CA certificate bundle for the identity provider when
+        /// the default trust store does not include the required certificates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The S3 URI of the identity provider's CA certificates bundle in PEM format. Use this
+        /// parameter to provide a custom CA certificate bundle for the identity provider when
+        /// the default trust store does not include the required certificates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri { get; set; }
+        #endregion
+        
         #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri
         /// <summary>
         /// <para>
@@ -1584,6 +1608,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.SnowflakeParameters_Database = this.SnowflakeParameters_Database;
             context.SnowflakeParameters_DatabaseAccessControlRole = this.SnowflakeParameters_DatabaseAccessControlRole;
             context.SnowflakeParameters_Host = this.SnowflakeParameters_Host;
+            context.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri = this.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri;
             context.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri = this.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri;
             context.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = this.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
             context.DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope = this.DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope;
@@ -1598,6 +1623,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.StarburstParameters_Catalog = this.StarburstParameters_Catalog;
             context.StarburstParameters_DatabaseAccessControlRole = this.StarburstParameters_DatabaseAccessControlRole;
             context.StarburstParameters_Host = this.StarburstParameters_Host;
+            context.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri = this.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri;
             context.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri = this.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri;
             context.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = this.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
             context.DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope = this.DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope;
@@ -3186,6 +3212,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate OAuthParameters
             var requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParametersIsNull = true;
             requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters = new Amazon.QuickSight.Model.OAuthParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri = null;
+            if (cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri = cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters.IdentityProviderCACertificatesBundleS3Uri = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParametersIsNull = false;
+            }
             System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri = null;
             if (cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri != null)
             {
@@ -3331,6 +3367,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate OAuthParameters
             var requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParametersIsNull = true;
             requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters = new Amazon.QuickSight.Model.OAuthParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri = null;
+            if (cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri = cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters.IdentityProviderCACertificatesBundleS3Uri = requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri;
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParametersIsNull = false;
+            }
             System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri = null;
             if (cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri != null)
             {
@@ -3685,6 +3731,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String SnowflakeParameters_Database { get; set; }
             public System.String SnowflakeParameters_DatabaseAccessControlRole { get; set; }
             public System.String SnowflakeParameters_Host { get; set; }
+            public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri { get; set; }
             public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri { get; set; }
             public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn { get; set; }
             public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope { get; set; }
@@ -3699,6 +3746,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String StarburstParameters_Catalog { get; set; }
             public System.String StarburstParameters_DatabaseAccessControlRole { get; set; }
             public System.String StarburstParameters_Host { get; set; }
+            public System.String DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri { get; set; }
             public System.String DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri { get; set; }
             public System.String DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn { get; set; }
             public System.String DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope { get; set; }

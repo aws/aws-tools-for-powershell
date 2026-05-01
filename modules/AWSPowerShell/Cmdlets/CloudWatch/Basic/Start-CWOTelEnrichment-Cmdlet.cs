@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
     /// Enables enrichment and PromQL access for CloudWatch vended metrics for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">supported
-    /// AWS resources</a> in the account. Once enabled, metrics that contain a resource identifier
-    /// dimension (for example, EC2 <c>CPUUtilization</c> with an <c>InstanceId</c> dimension)
-    /// are enriched with resource ARN and resource tag labels and become queryable using
-    /// PromQL.
+    /// Amazon Web Services resources</a> in the account. Once enabled, metrics that contain
+    /// a resource identifier dimension (for example, EC2 <c>CPUUtilization</c> with an <c>InstanceId</c>
+    /// dimension) are enriched with resource ARN and resource tag labels and become queryable
+    /// using PromQL.
     /// 
     ///  
     /// <para>

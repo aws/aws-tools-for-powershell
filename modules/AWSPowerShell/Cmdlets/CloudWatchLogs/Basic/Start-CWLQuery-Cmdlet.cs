@@ -57,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Or the <c>queryString</c> must include a <c>SOURCE</c> command to select log groups
     /// for the query. The <c>SOURCE</c> command can select log groups based on log group
     /// name prefix, account ID, and log class, or select data sources using dataSource syntax
-    /// in LogsQL, PPL, and SQL. 
+    /// in LogsQL, PPL, and SQL. In LogsQL, the <c>SOURCE</c> command also supports filtering
+    /// by log group tags. 
     /// </para><para>
     /// For more information about the <c>SOURCE</c> command, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Source.html">SOURCE</a>.
     /// </para></li></ul></note><para>

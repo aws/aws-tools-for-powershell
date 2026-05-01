@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// Returns the current status of vended metric enrichment for the account, including
     /// whether CloudWatch vended metrics are enriched with resource ARN and resource tag
     /// labels and queryable using PromQL. For the list of supported resources, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">Supported
-    /// AWS infrastructure metrics</a>.
+    /// Amazon Web Services infrastructure metrics</a>.
     /// </summary>
     [Cmdlet("Get", "CWOTelEnrichment")]
     [OutputType("Amazon.CloudWatch.OTelEnrichmentStatus")]

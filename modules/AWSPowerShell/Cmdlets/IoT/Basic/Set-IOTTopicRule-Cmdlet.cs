@@ -96,6 +96,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String TopicRulePayload_AwsIotSqlVersion { get; set; }
         #endregion
         
+        #region Parameter TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic
+        /// <summary>
+        /// <para>
+        /// <para>Whether to allow batching messages from different MQTT topics into a single HTTP request.
+        /// By default, only messages from the same topic are batched together. The default value
+        /// is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopics")]
+        public System.Boolean? TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic { get; set; }
+        #endregion
+        
         #region Parameter CloudwatchLogs_BatchMode
         /// <summary>
         /// <para>
@@ -1497,6 +1510,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.Sigv4_RoleArn = this.Sigv4_RoleArn;
             context.Sigv4_ServiceName = this.Sigv4_ServiceName;
             context.Sigv4_SigningRegion = this.Sigv4_SigningRegion;
+            context.TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic = this.TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic;
             context.TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchOpenMs = this.TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchOpenMs;
             context.TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSize = this.TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSize;
             context.TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSizeByte = this.TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSizeByte;
@@ -2845,6 +2859,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
              // populate BatchConfig
             var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_BatchConfigIsNull = true;
             requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_BatchConfig = new Amazon.IoT.Model.BatchConfig();
+            System.Boolean? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_BatchConfig_topicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_BatchConfig_topicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic = cmdletContext.TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_BatchConfig_topicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_BatchConfig.BatchAcrossTopics = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_BatchConfig_topicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_BatchConfigIsNull = false;
+            }
             System.Int32? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_BatchConfig_topicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchOpenMs = null;
             if (cmdletContext.TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchOpenMs != null)
             {
@@ -3296,6 +3320,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String Sigv4_RoleArn { get; set; }
             public System.String Sigv4_ServiceName { get; set; }
             public System.String Sigv4_SigningRegion { get; set; }
+            public System.Boolean? TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic { get; set; }
             public System.Int32? TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchOpenMs { get; set; }
             public System.Int32? TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSize { get; set; }
             public System.Int32? TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSizeByte { get; set; }

@@ -31,8 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
     /// Disables enrichment and PromQL access for CloudWatch vended metrics for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">supported
-    /// AWS resources</a> in the account. After disabling, these metrics are no longer enriched
-    /// with resource ARN and resource tag labels, and cannot be queried using PromQL.
+    /// Amazon Web Services resources</a> in the account. After disabling, these metrics are
+    /// no longer enriched with resource ARN and resource tag labels, and cannot be queried
+    /// using PromQL.
     /// </summary>
     [Cmdlet("Stop", "CWOTelEnrichment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

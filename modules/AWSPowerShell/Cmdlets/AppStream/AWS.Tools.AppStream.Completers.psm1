@@ -171,6 +171,26 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.ScreenImageFormat
+        {
+            ($_ -eq "New-APSStack/AgentAccessConfig_ScreenImageFormat") -Or
+            ($_ -eq "Update-APSStack/AgentAccessConfig_ScreenImageFormat")
+        }
+        {
+            $v = "JPEG","PNG"
+            break
+        }
+
+        # Amazon.AppStream.ScreenResolution
+        {
+            ($_ -eq "New-APSStack/AgentAccessConfig_ScreenResolution") -Or
+            ($_ -eq "Update-APSStack/AgentAccessConfig_ScreenResolution")
+        }
+        {
+            $v = "W_1280xH_720"
+            break
+        }
+
         # Amazon.AppStream.StreamView
         {
             ($_ -eq "New-APSFleet/StreamView") -Or
@@ -214,6 +234,8 @@ $APS_Completers = {
 }
 
 $APS_map = @{
+    "AgentAccessConfig_ScreenImageFormat"=@("New-APSStack","Update-APSStack")
+    "AgentAccessConfig_ScreenResolution"=@("New-APSStack","Update-APSStack")
     "AgentSoftwareVersion"=@("New-APSImportedImage")
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")

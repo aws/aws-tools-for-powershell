@@ -3925,6 +3925,26 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.ScreenImageFormat
+        {
+            ($_ -eq "New-APSStack/AgentAccessConfig_ScreenImageFormat") -Or
+            ($_ -eq "Update-APSStack/AgentAccessConfig_ScreenImageFormat")
+        }
+        {
+            $v = "JPEG","PNG"
+            break
+        }
+
+        # Amazon.AppStream.ScreenResolution
+        {
+            ($_ -eq "New-APSStack/AgentAccessConfig_ScreenResolution") -Or
+            ($_ -eq "Update-APSStack/AgentAccessConfig_ScreenResolution")
+        }
+        {
+            $v = "W_1280xH_720"
+            break
+        }
+
         # Amazon.AppStream.StreamView
         {
             ($_ -eq "New-APSFleet/StreamView") -Or
@@ -3968,6 +3988,8 @@ $APS_Completers = {
 }
 
 $APS_map = @{
+    "AgentAccessConfig_ScreenImageFormat"=@("New-APSStack","Update-APSStack")
+    "AgentAccessConfig_ScreenResolution"=@("New-APSStack","Update-APSStack")
     "AgentSoftwareVersion"=@("New-APSImportedImage")
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
@@ -67304,6 +67326,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_SAPPhysicalInventoryAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SAPProductMasterDataAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SAPProductMasterDataAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Scenario") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Scenario") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SelfUpgradeUserRole") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SelfUpgradeUserRole") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ServiceNowAction") -Or
@@ -67414,6 +67438,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_SmartsheetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Space") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Space") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Story") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Story") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SubscribeDashboardEmailReport") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SubscribeDashboardEmailReport") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_TextractAction") -Or
@@ -67668,6 +67694,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSTheme/AxisLabelFontConfiguration_FontDecoration") -Or
             ($_ -eq "New-QSTheme/AxisTitleFontConfiguration_FontDecoration") -Or
             ($_ -eq "Update-QSTheme/AxisTitleFontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration") -Or
             ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration") -Or
@@ -67690,6 +67718,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSTheme/AxisLabelFontConfiguration_FontStyle") -Or
             ($_ -eq "New-QSTheme/AxisTitleFontConfiguration_FontStyle") -Or
             ($_ -eq "Update-QSTheme/AxisTitleFontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle") -Or
             ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle") -Or
@@ -67712,6 +67742,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name") -Or
             ($_ -eq "Update-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name") -Or
             ($_ -eq "Update-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name") -Or
@@ -67730,6 +67762,8 @@ $QS_Completers = {
 
         # Amazon.QuickSight.HorizontalTextAlignment
         {
+            ($_ -eq "New-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_TextAlignment") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_TextAlignment") -Or
             ($_ -eq "New-QSTheme/VisualSubtitleFontConfiguration_TextAlignment") -Or
             ($_ -eq "Update-QSTheme/VisualSubtitleFontConfiguration_TextAlignment") -Or
             ($_ -eq "New-QSTheme/VisualTitleFontConfiguration_TextAlignment") -Or
@@ -67901,6 +67935,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative") -Or
             ($_ -eq "Update-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative") -Or
             ($_ -eq "Update-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative") -Or
             ($_ -eq "New-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative") -Or
@@ -68254,6 +68290,7 @@ $QS_map = @{
     "Capabilities_SAPMaterialStockAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SAPPhysicalInventoryAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SAPProductMasterDataAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Scenario"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SelfUpgradeUserRole"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ServiceNowAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -68309,6 +68346,7 @@ $QS_map = @{
     "Capabilities_SlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SmartsheetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Space"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Story"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SubscribeDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_TextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Topic"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -68364,6 +68402,11 @@ $QS_map = @{
     "Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
     "Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
     "Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_ControlTitleFontConfiguration_TextAlignment"=@("New-QSTheme","Update-QSTheme")
     "Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
     "Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
     "Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")

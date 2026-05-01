@@ -39,11 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// You can optionally filter the list by log group class, by using regular expressions
-    /// in your request to match strings in the log group names, by using the fieldIndexes
-    /// parameter to filter log groups based on which field indexes are configured, by using
-    /// the dataSources parameter to filter log groups by data source types, and by using
-    /// the fieldIndexNames parameter to filter by specific field index names.
+    /// You can optionally filter the results by log group class, log group name pattern,
+    /// field indexes, data sources, field index names, or log group tags. If you specify
+    /// more than one filter type, the results include log groups that satisfy all filters.
     /// </para><para>
     /// This operation is paginated. By default, your first use of this operation returns
     /// 50 results, and includes a token to use in a subsequent operation to return more results.
@@ -154,6 +152,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String LogGroupNamePattern { get; set; }
         #endregion
         
+        #region Parameter LogGroupTag
+        /// <summary>
+        /// <para>
+        /// <para>An array of tag filters to return only log groups that have specific tags. Multiple
+        /// filters are combined with AND logic.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogGroupTags")]
+        public Amazon.CloudWatchLogs.Model.TagFilter[] LogGroupTag { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -235,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.Limit = this.Limit;
             context.LogGroupClass = this.LogGroupClass;
             context.LogGroupNamePattern = this.LogGroupNamePattern;
+            if (this.LogGroupTag != null)
+            {
+                context.LogGroupTag = new List<Amazon.CloudWatchLogs.Model.TagFilter>(this.LogGroupTag);
+            }
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -281,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LogGroupNamePattern != null)
             {
                 request.LogGroupNamePattern = cmdletContext.LogGroupNamePattern;
+            }
+            if (cmdletContext.LogGroupTag != null)
+            {
+                request.LogGroupTags = cmdletContext.LogGroupTag;
             }
             
             // Initialize loop variant and commence piping
@@ -368,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.Int32? Limit { get; set; }
             public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }
             public System.String LogGroupNamePattern { get; set; }
+            public List<Amazon.CloudWatchLogs.Model.TagFilter> LogGroupTag { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.ListLogGroupsResponse, GetCWLLogGroupListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LogGroups;

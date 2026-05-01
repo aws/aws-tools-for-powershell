@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
     /// Assigns one or more tags (key-value pairs) to the specified CloudWatch resource. Currently,
-    /// the only CloudWatch resources that can be tagged are alarms and Contributor Insights
-    /// rules.
+    /// the only CloudWatch resources that can be tagged are alarms, dashboards, metric streams
+    /// and Contributor Insights rules.
     /// 
     ///  
     /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the CloudWatch resource that you're adding tags to.</para><para>The ARN format of an alarm is <c>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:alarm:<i>alarm-name</i></c></para><para>The ARN format of a Contributor Insights rule is <c>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i></c></para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies">
+        /// <para>The ARN of the CloudWatch resource that you're adding tags to.</para><para>The ARN format of an alarm is <c>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:alarm:<i>alarm-name</i></c></para><para>The ARN format of a Contributor Insights rule is <c>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i></c></para><para>The ARN format of a dashboard is <c>arn:aws:cloudwatch::<i>account-id</i>:dashboard/<i>dashboard-name</i></c></para><para>The ARN format of a metric stream is <c>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:metric-stream/<i>metric-stream-name</i></c></para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies">
         /// Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General
         /// Reference</i>.</para>
         /// </para>

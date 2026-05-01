@@ -136,7 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// stores its keys at https://keys.server.example.com/openid-connect. In that case, the
         /// thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used
         /// by <c>https://keys.server.example.com.</c></para><para>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining
-        /// the thumbprint for an OpenID Connect provider</a> in the <i>IAM user Guide</i>.</para><para />
+        /// the thumbprint for an OpenID Connect provider</a> in the <i>IAM user Guide</i>.</para><note><para>If your OIDC provider's discovery endpoint and JWKS endpoint (<c>jwks_uri</c>) use
+        /// different certificates or hosts, include the thumbprints for both endpoints in this
+        /// list.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

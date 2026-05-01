@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching
+        /// <summary>
+        /// <para>
+        /// <para>Enables transitive matching for the rule-based matching workflow. When enabled, records
+        /// that match through different rules are grouped together into the same match group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching { get; set; }
+        #endregion
+        
         #region Parameter IncrementalRunConfig_IncrementalRunType
         /// <summary>
         /// <para>
@@ -366,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             {
                 context.RuleBasedProperties_Rule = new List<Amazon.EntityResolution.Model.Rule>(this.RuleBasedProperties_Rule);
             }
+            context.ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching = this.ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching;
             if (this.RuleConditionProperties_Rule != null)
             {
                 context.RuleConditionProperties_Rule = new List<Amazon.EntityResolution.Model.RuleCondition>(this.RuleConditionProperties_Rule);
@@ -466,6 +478,31 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             if (requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_ruleConditionProperties_Rule != null)
             {
                 requestResolutionTechniques_resolutionTechniques_RuleConditionProperties.Rules = requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_ruleConditionProperties_Rule;
+                requestResolutionTechniques_resolutionTechniques_RuleConditionPropertiesIsNull = false;
+            }
+            Amazon.EntityResolution.Model.MatchingConfig requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig = null;
+            
+             // populate MatchingConfig
+            var requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfigIsNull = true;
+            requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig = new Amazon.EntityResolution.Model.MatchingConfig();
+            System.Boolean? requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig_resolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching = null;
+            if (cmdletContext.ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig_resolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching = cmdletContext.ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching.Value;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig_resolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig.EnableTransitiveMatching = requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig_resolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching.Value;
+                requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfigIsNull = false;
+            }
+             // determine if requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig should be set to null
+            if (requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfigIsNull)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig = null;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleConditionProperties.MatchingConfig = requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_resolutionTechniques_RuleConditionProperties_MatchingConfig;
                 requestResolutionTechniques_resolutionTechniques_RuleConditionPropertiesIsNull = false;
             }
              // determine if requestResolutionTechniques_resolutionTechniques_RuleConditionProperties should be set to null
@@ -666,6 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             public Amazon.EntityResolution.AttributeMatchingModel RuleBasedProperties_AttributeMatchingModel { get; set; }
             public Amazon.EntityResolution.MatchPurpose RuleBasedProperties_MatchPurpose { get; set; }
             public List<Amazon.EntityResolution.Model.Rule> RuleBasedProperties_Rule { get; set; }
+            public System.Boolean? ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching { get; set; }
             public List<Amazon.EntityResolution.Model.RuleCondition> RuleConditionProperties_Rule { get; set; }
             public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

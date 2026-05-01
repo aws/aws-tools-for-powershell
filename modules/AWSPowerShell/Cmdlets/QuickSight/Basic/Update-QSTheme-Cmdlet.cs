@@ -66,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Configuration_Typography_AxisTitleFontConfiguration_FontSize_Absolute { get; set; }
         #endregion
         
+        #region Parameter Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute
+        /// <summary>
+        /// <para>
+        /// <para>The font size that you want to use in px.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Typography_DataLabelFontConfiguration_FontSize_Absolute
         /// <summary>
         /// <para>
@@ -317,6 +327,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AxisTitleFontConfiguration_FontColor { get; set; }
         #endregion
         
+        #region Parameter Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor
+        /// <summary>
+        /// <para>
+        /// <para>Determines the color of the text.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor { get; set; }
+        #endregion
+        
         #region Parameter DataLabelFontConfiguration_FontColor
         /// <summary>
         /// <para>
@@ -394,6 +414,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Alias("Configuration_Typography_AxisTitleFontConfiguration_FontDecoration")]
         [AWSConstantClassSource("Amazon.QuickSight.FontDecoration")]
         public Amazon.QuickSight.FontDecoration AxisTitleFontConfiguration_FontDecoration { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration
+        /// <summary>
+        /// <para>
+        /// <para>Determines the appearance of decorative lines on the text.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.FontDecoration")]
+        public Amazon.QuickSight.FontDecoration Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration { get; set; }
         #endregion
         
         #region Parameter DataLabelFontConfiguration_FontDecoration
@@ -493,6 +524,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AxisTitleFontConfiguration_FontFamily { get; set; }
         #endregion
         
+        #region Parameter Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily
+        /// <summary>
+        /// <para>
+        /// <para>The font family that you want to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily { get; set; }
+        #endregion
+        
         #region Parameter DataLabelFontConfiguration_FontFamily
         /// <summary>
         /// <para>
@@ -570,6 +611,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Alias("Configuration_Typography_AxisTitleFontConfiguration_FontStyle")]
         [AWSConstantClassSource("Amazon.QuickSight.FontStyle")]
         public Amazon.QuickSight.FontStyle AxisTitleFontConfiguration_FontStyle { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle
+        /// <summary>
+        /// <para>
+        /// <para>Determines the text display face that is inherited by the given font family.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.FontStyle")]
+        public Amazon.QuickSight.FontStyle Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle { get; set; }
         #endregion
         
         #region Parameter DataLabelFontConfiguration_FontStyle
@@ -705,6 +757,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.FontWeightName Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name { get; set; }
         #endregion
         
+        #region Parameter Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name
+        /// <summary>
+        /// <para>
+        /// <para>The lexical name for the level of boldness of the text display.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.FontWeightName")]
+        public Amazon.QuickSight.FontWeightName Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name
         /// <summary>
         /// <para>
@@ -831,6 +894,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Alias("AxisTitleFontSize_Relative")]
         [AWSConstantClassSource("Amazon.QuickSight.RelativeFontSize")]
         public Amazon.QuickSight.RelativeFontSize Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative
+        /// <summary>
+        /// <para>
+        /// <para>The lexical name for the text size, proportional to its surrounding context.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.RelativeFontSize")]
+        public Amazon.QuickSight.RelativeFontSize Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative { get; set; }
         #endregion
         
         #region Parameter Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative
@@ -972,6 +1046,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_UIColorPalette_SuccessForeground")]
         public System.String UIColorPalette_SuccessForeground { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Typography_ControlTitleFontConfiguration_TextAlignment
+        /// <summary>
+        /// <para>
+        /// <para>Determines the alignment of the control title.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.HorizontalTextAlignment")]
+        public Amazon.QuickSight.HorizontalTextAlignment Configuration_Typography_ControlTitleFontConfiguration_TextAlignment { get; set; }
         #endregion
         
         #region Parameter VisualSubtitleFontConfiguration_TextAlignment
@@ -1178,6 +1263,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative = this.Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative;
             context.AxisTitleFontConfiguration_FontStyle = this.AxisTitleFontConfiguration_FontStyle;
             context.Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name = this.Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name;
+            context.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor = this.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor;
+            context.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration = this.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration;
+            context.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily = this.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily;
+            context.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute = this.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute;
+            context.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative = this.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative;
+            context.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle = this.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle;
+            context.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name = this.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name;
+            context.Configuration_Typography_ControlTitleFontConfiguration_TextAlignment = this.Configuration_Typography_ControlTitleFontConfiguration_TextAlignment;
             context.DataLabelFontConfiguration_FontColor = this.DataLabelFontConfiguration_FontColor;
             context.DataLabelFontConfiguration_FontDecoration = this.DataLabelFontConfiguration_FontDecoration;
             context.DataLabelFontConfiguration_FontFamily = this.DataLabelFontConfiguration_FontFamily;
@@ -1537,6 +1630,146 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestConfiguration_configuration_Typography_typography_FontFamily != null)
             {
                 requestConfiguration_configuration_Typography.FontFamilies = requestConfiguration_configuration_Typography_typography_FontFamily;
+                requestConfiguration_configuration_TypographyIsNull = false;
+            }
+            Amazon.QuickSight.Model.ControlTitleFontConfiguration requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration = null;
+            
+             // populate ControlTitleFontConfiguration
+            var requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfigurationIsNull = true;
+            requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration = new Amazon.QuickSight.Model.ControlTitleFontConfiguration();
+            Amazon.QuickSight.HorizontalTextAlignment requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_TextAlignment = null;
+            if (cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_TextAlignment != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_TextAlignment = cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_TextAlignment;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_TextAlignment != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration.TextAlignment = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_TextAlignment;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.FontConfiguration requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration = null;
+            
+             // populate FontConfiguration
+            var requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfigurationIsNull = true;
+            requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration = new Amazon.QuickSight.Model.FontConfiguration();
+            System.String requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor = null;
+            if (cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor = cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration.FontColor = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.FontDecoration requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration = null;
+            if (cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration = cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration.FontDecoration = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily = null;
+            if (cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily = cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration.FontFamily = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.FontStyle requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle = null;
+            if (cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle = cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration.FontStyle = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.FontWeight requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight = null;
+            
+             // populate FontWeight
+            var requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeightIsNull = true;
+            requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight = new Amazon.QuickSight.Model.FontWeight();
+            Amazon.QuickSight.FontWeightName requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name = null;
+            if (cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name = cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight.Name = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeightIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight should be set to null
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeightIsNull)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight = null;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration.FontWeight = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.FontSize requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize = null;
+            
+             // populate FontSize
+            var requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSizeIsNull = true;
+            requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize = new Amazon.QuickSight.Model.FontSize();
+            System.String requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute = null;
+            if (cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute = cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize.Absolute = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSizeIsNull = false;
+            }
+            Amazon.QuickSight.RelativeFontSize requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative = null;
+            if (cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative = cmdletContext.Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize.Relative = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSizeIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize should be set to null
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSizeIsNull)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize = null;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration.FontSize = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration should be set to null
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfigurationIsNull)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration = null;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration != null)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration.FontConfiguration = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration_configuration_Typography_ControlTitleFontConfiguration_FontConfiguration;
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration should be set to null
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfigurationIsNull)
+            {
+                requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration = null;
+            }
+            if (requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration != null)
+            {
+                requestConfiguration_configuration_Typography.ControlTitleFontConfiguration = requestConfiguration_configuration_Typography_configuration_Typography_ControlTitleFontConfiguration;
                 requestConfiguration_configuration_TypographyIsNull = false;
             }
             Amazon.QuickSight.Model.VisualSubtitleFontConfiguration requestConfiguration_configuration_Typography_configuration_Typography_VisualSubtitleFontConfiguration = null;
@@ -2700,6 +2933,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.RelativeFontSize Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative { get; set; }
             public Amazon.QuickSight.FontStyle AxisTitleFontConfiguration_FontStyle { get; set; }
             public Amazon.QuickSight.FontWeightName Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name { get; set; }
+            public System.String Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor { get; set; }
+            public Amazon.QuickSight.FontDecoration Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration { get; set; }
+            public System.String Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily { get; set; }
+            public System.String Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute { get; set; }
+            public Amazon.QuickSight.RelativeFontSize Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative { get; set; }
+            public Amazon.QuickSight.FontStyle Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle { get; set; }
+            public Amazon.QuickSight.FontWeightName Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name { get; set; }
+            public Amazon.QuickSight.HorizontalTextAlignment Configuration_Typography_ControlTitleFontConfiguration_TextAlignment { get; set; }
             public System.String DataLabelFontConfiguration_FontColor { get; set; }
             public Amazon.QuickSight.FontDecoration DataLabelFontConfiguration_FontDecoration { get; set; }
             public System.String DataLabelFontConfiguration_FontFamily { get; set; }

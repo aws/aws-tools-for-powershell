@@ -201,6 +201,65 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String RedirectURL { get; set; }
         #endregion
         
+        #region Parameter AgentAccessConfig_S3BucketArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are
+        /// stored. Required when ScreenshotsUploadEnabled is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AgentAccessConfig_S3BucketArn { get; set; }
+        #endregion
+        
+        #region Parameter AgentAccessConfig_ScreenImageFormat
+        /// <summary>
+        /// <para>
+        /// <para>The image format for agent screen captures.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.ScreenImageFormat")]
+        public Amazon.AppStream.ScreenImageFormat AgentAccessConfig_ScreenImageFormat { get; set; }
+        #endregion
+        
+        #region Parameter AgentAccessConfig_ScreenResolution
+        /// <summary>
+        /// <para>
+        /// <para>The screen resolution for the agent streaming environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.ScreenResolution")]
+        public Amazon.AppStream.ScreenResolution AgentAccessConfig_ScreenResolution { get; set; }
+        #endregion
+        
+        #region Parameter AgentAccessConfig_ScreenshotsUploadEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AgentAccessConfig_ScreenshotsUploadEnabled { get; set; }
+        #endregion
+        
+        #region Parameter AgentAccessConfig_Setting
+        /// <summary>
+        /// <para>
+        /// <para>The list of agent access settings that define permissions for each agent action. You
+        /// must specify at least one setting.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentAccessConfig_Settings")]
+        public Amazon.AppStream.Model.AgentAccessSetting[] AgentAccessConfig_Setting { get; set; }
+        #endregion
+        
         #region Parameter ApplicationSettings_SettingsGroup
         /// <summary>
         /// <para>
@@ -313,6 +372,14 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 context.AccessEndpoint = new List<Amazon.AppStream.Model.AccessEndpoint>(this.AccessEndpoint);
             }
+            context.AgentAccessConfig_S3BucketArn = this.AgentAccessConfig_S3BucketArn;
+            context.AgentAccessConfig_ScreenImageFormat = this.AgentAccessConfig_ScreenImageFormat;
+            context.AgentAccessConfig_ScreenResolution = this.AgentAccessConfig_ScreenResolution;
+            context.AgentAccessConfig_ScreenshotsUploadEnabled = this.AgentAccessConfig_ScreenshotsUploadEnabled;
+            if (this.AgentAccessConfig_Setting != null)
+            {
+                context.AgentAccessConfig_Setting = new List<Amazon.AppStream.Model.AgentAccessSetting>(this.AgentAccessConfig_Setting);
+            }
             context.ApplicationSettings_Enabled = this.ApplicationSettings_Enabled;
             context.ApplicationSettings_SettingsGroup = this.ApplicationSettings_SettingsGroup;
             if (this.ContentRedirection_HostToClient_AllowedUrl != null)
@@ -375,6 +442,65 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.AccessEndpoint != null)
             {
                 request.AccessEndpoints = cmdletContext.AccessEndpoint;
+            }
+            
+             // populate AgentAccessConfig
+            var requestAgentAccessConfigIsNull = true;
+            request.AgentAccessConfig = new Amazon.AppStream.Model.AgentAccessConfig();
+            System.String requestAgentAccessConfig_agentAccessConfig_S3BucketArn = null;
+            if (cmdletContext.AgentAccessConfig_S3BucketArn != null)
+            {
+                requestAgentAccessConfig_agentAccessConfig_S3BucketArn = cmdletContext.AgentAccessConfig_S3BucketArn;
+            }
+            if (requestAgentAccessConfig_agentAccessConfig_S3BucketArn != null)
+            {
+                request.AgentAccessConfig.S3BucketArn = requestAgentAccessConfig_agentAccessConfig_S3BucketArn;
+                requestAgentAccessConfigIsNull = false;
+            }
+            Amazon.AppStream.ScreenImageFormat requestAgentAccessConfig_agentAccessConfig_ScreenImageFormat = null;
+            if (cmdletContext.AgentAccessConfig_ScreenImageFormat != null)
+            {
+                requestAgentAccessConfig_agentAccessConfig_ScreenImageFormat = cmdletContext.AgentAccessConfig_ScreenImageFormat;
+            }
+            if (requestAgentAccessConfig_agentAccessConfig_ScreenImageFormat != null)
+            {
+                request.AgentAccessConfig.ScreenImageFormat = requestAgentAccessConfig_agentAccessConfig_ScreenImageFormat;
+                requestAgentAccessConfigIsNull = false;
+            }
+            Amazon.AppStream.ScreenResolution requestAgentAccessConfig_agentAccessConfig_ScreenResolution = null;
+            if (cmdletContext.AgentAccessConfig_ScreenResolution != null)
+            {
+                requestAgentAccessConfig_agentAccessConfig_ScreenResolution = cmdletContext.AgentAccessConfig_ScreenResolution;
+            }
+            if (requestAgentAccessConfig_agentAccessConfig_ScreenResolution != null)
+            {
+                request.AgentAccessConfig.ScreenResolution = requestAgentAccessConfig_agentAccessConfig_ScreenResolution;
+                requestAgentAccessConfigIsNull = false;
+            }
+            System.Boolean? requestAgentAccessConfig_agentAccessConfig_ScreenshotsUploadEnabled = null;
+            if (cmdletContext.AgentAccessConfig_ScreenshotsUploadEnabled != null)
+            {
+                requestAgentAccessConfig_agentAccessConfig_ScreenshotsUploadEnabled = cmdletContext.AgentAccessConfig_ScreenshotsUploadEnabled.Value;
+            }
+            if (requestAgentAccessConfig_agentAccessConfig_ScreenshotsUploadEnabled != null)
+            {
+                request.AgentAccessConfig.ScreenshotsUploadEnabled = requestAgentAccessConfig_agentAccessConfig_ScreenshotsUploadEnabled.Value;
+                requestAgentAccessConfigIsNull = false;
+            }
+            List<Amazon.AppStream.Model.AgentAccessSetting> requestAgentAccessConfig_agentAccessConfig_Setting = null;
+            if (cmdletContext.AgentAccessConfig_Setting != null)
+            {
+                requestAgentAccessConfig_agentAccessConfig_Setting = cmdletContext.AgentAccessConfig_Setting;
+            }
+            if (requestAgentAccessConfig_agentAccessConfig_Setting != null)
+            {
+                request.AgentAccessConfig.Settings = requestAgentAccessConfig_agentAccessConfig_Setting;
+                requestAgentAccessConfigIsNull = false;
+            }
+             // determine if request.AgentAccessConfig should be set to null
+            if (requestAgentAccessConfigIsNull)
+            {
+                request.AgentAccessConfig = null;
             }
             
              // populate ApplicationSettings
@@ -570,6 +696,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.AppStream.Model.AccessEndpoint> AccessEndpoint { get; set; }
+            public System.String AgentAccessConfig_S3BucketArn { get; set; }
+            public Amazon.AppStream.ScreenImageFormat AgentAccessConfig_ScreenImageFormat { get; set; }
+            public Amazon.AppStream.ScreenResolution AgentAccessConfig_ScreenResolution { get; set; }
+            public System.Boolean? AgentAccessConfig_ScreenshotsUploadEnabled { get; set; }
+            public List<Amazon.AppStream.Model.AgentAccessSetting> AgentAccessConfig_Setting { get; set; }
             public System.Boolean? ApplicationSettings_Enabled { get; set; }
             public System.String ApplicationSettings_SettingsGroup { get; set; }
             public List<System.String> ContentRedirection_HostToClient_AllowedUrl { get; set; }

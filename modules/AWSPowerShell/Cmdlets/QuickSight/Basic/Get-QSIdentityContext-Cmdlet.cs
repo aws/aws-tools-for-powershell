@@ -108,6 +108,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter ContextRegion
+        /// <summary>
+        /// <para>
+        /// <para>The region in which the context is to be used. Use this parameter to obtain an identity
+        /// context for cross-region use.</para><para>The specified region must meet the following conditions:</para><ul><li><para>The region must be in the same Amazon Web Services partition as the region you are
+        /// calling from. Cross-partition requests are not supported. For example, you cannot
+        /// specify a region in the <c>aws-cn</c> partition when calling from a region in the
+        /// <c>aws</c> partition.</para></li><li><para>It must be a valid Amazon QuickSight supported region.</para></li><li><para>The calling customer account must be enabled in the specified context region.</para></li><li><para>This parameter is not supported when calling from an opt-in region.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContextRegion { get; set; }
+        #endregion
+        
         #region Parameter UserIdentifier_Email
         /// <summary>
         /// <para>
@@ -196,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ContextRegion = this.ContextRegion;
             context.Namespace = this.Namespace;
             context.SessionExpiresAt = this.SessionExpiresAt;
             context.UserIdentifier_Email = this.UserIdentifier_Email;
@@ -220,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
+            if (cmdletContext.ContextRegion != null)
+            {
+                request.ContextRegion = cmdletContext.ContextRegion;
             }
             if (cmdletContext.Namespace != null)
             {
@@ -324,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
+            public System.String ContextRegion { get; set; }
             public System.String Namespace { get; set; }
             public System.DateTime? SessionExpiresAt { get; set; }
             public System.String UserIdentifier_Email { get; set; }

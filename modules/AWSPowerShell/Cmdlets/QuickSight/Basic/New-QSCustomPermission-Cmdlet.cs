@@ -1375,6 +1375,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_SAPProductMasterDataAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_Scenario
+        /// <summary>
+        /// <para>
+        /// <para>The ability to perform Scenario-related actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_Scenario { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_SelfUpgradeUserRole
         /// <summary>
         /// <para>
@@ -1983,6 +1994,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_Space { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_Story
+        /// <summary>
+        /// <para>
+        /// <para>The ability to perform Story-related actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_Story { get; set; }
         #endregion
         
         #region Parameter Capabilities_SubscribeDashboardEmailReport
@@ -2722,6 +2744,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_SAPMaterialStockAction = this.Capabilities_SAPMaterialStockAction;
             context.Capabilities_SAPPhysicalInventoryAction = this.Capabilities_SAPPhysicalInventoryAction;
             context.Capabilities_SAPProductMasterDataAction = this.Capabilities_SAPProductMasterDataAction;
+            context.Capabilities_Scenario = this.Capabilities_Scenario;
             context.Capabilities_SelfUpgradeUserRole = this.Capabilities_SelfUpgradeUserRole;
             context.Capabilities_ServiceNowAction = this.Capabilities_ServiceNowAction;
             context.Capabilities_ShareAmazonBedrockARSAction = this.Capabilities_ShareAmazonBedrockARSAction;
@@ -2777,6 +2800,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_SlackAction = this.Capabilities_SlackAction;
             context.Capabilities_SmartsheetAction = this.Capabilities_SmartsheetAction;
             context.Capabilities_Space = this.Capabilities_Space;
+            context.Capabilities_Story = this.Capabilities_Story;
             context.Capabilities_SubscribeDashboardEmailReport = this.Capabilities_SubscribeDashboardEmailReport;
             context.Capabilities_TextractAction = this.Capabilities_TextractAction;
             context.Capabilities_Topic = this.Capabilities_Topic;
@@ -4022,6 +4046,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.SAPProductMasterDataAction = requestCapabilities_capabilities_SAPProductMasterDataAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Scenario = null;
+            if (cmdletContext.Capabilities_Scenario != null)
+            {
+                requestCapabilities_capabilities_Scenario = cmdletContext.Capabilities_Scenario;
+            }
+            if (requestCapabilities_capabilities_Scenario != null)
+            {
+                request.Capabilities.Scenario = requestCapabilities_capabilities_Scenario;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SelfUpgradeUserRole = null;
             if (cmdletContext.Capabilities_SelfUpgradeUserRole != null)
             {
@@ -4570,6 +4604,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_Space != null)
             {
                 request.Capabilities.Space = requestCapabilities_capabilities_Space;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Story = null;
+            if (cmdletContext.Capabilities_Story != null)
+            {
+                requestCapabilities_capabilities_Story = cmdletContext.Capabilities_Story;
+            }
+            if (requestCapabilities_capabilities_Story != null)
+            {
+                request.Capabilities.Story = requestCapabilities_capabilities_Story;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SubscribeDashboardEmailReport = null;
@@ -5257,6 +5301,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_SAPMaterialStockAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPPhysicalInventoryAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPProductMasterDataAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_Scenario { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SelfUpgradeUserRole { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ServiceNowAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAmazonBedrockARSAction { get; set; }
@@ -5312,6 +5357,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_SlackAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SmartsheetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Space { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_Story { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SubscribeDashboardEmailReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_TextractAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Topic { get; set; }

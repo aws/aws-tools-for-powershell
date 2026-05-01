@@ -1,4 +1,28 @@
-﻿### 5.0.205 (2026-04-30 20:03Z)
+﻿### 5.0.206 (2026-05-01 20:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.242.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Modified cmdlet New-APSStack: added parameters AgentAccessConfig_S3BucketArn, AgentAccessConfig_ScreenImageFormat, AgentAccessConfig_ScreenResolution, AgentAccessConfig_ScreenshotsUploadEnabled and AgentAccessConfig_Setting.
+    * Modified cmdlet Update-APSStack: added parameters AgentAccessConfig_S3BucketArn, AgentAccessConfig_ScreenImageFormat, AgentAccessConfig_ScreenResolution, AgentAccessConfig_ScreenshotsUploadEnabled and AgentAccessConfig_Setting.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWDashboard: added parameter Tag.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Get-CWLLogGroupList: added parameter LogGroupTag.
+  * Amazon EntityResolution
+    * Modified cmdlet New-ERESMatchingWorkflow: added parameter ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching.
+    * Modified cmdlet Update-ERESMatchingWorkflow: added parameter ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching.
+  * Amazon IoT
+    * Modified cmdlet New-IOTTopicRule: added parameter TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic.
+    * Modified cmdlet Set-IOTTopicRule: added parameter TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic.
+  * Amazon QuickSight
+    * Modified cmdlet Get-QSIdentityContext: added parameter ContextRegion.
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_Scenario and Capabilities_Story.
+    * Modified cmdlet New-QSDataSource: added parameters DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri and DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri.
+    * Modified cmdlet New-QSTheme: added parameters Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name and Configuration_Typography_ControlTitleFontConfiguration_TextAlignment.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_Scenario and Capabilities_Story.
+    * Modified cmdlet Update-QSDataSource: added parameters DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri and DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri.
+    * Modified cmdlet Update-QSTheme: added parameters Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontColor, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontDecoration, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontFamily, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Absolute, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontSize_Relative, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontStyle, Configuration_Typography_ControlTitleFontConfiguration_FontConfiguration_FontWeight_Name and Configuration_Typography_ControlTitleFontConfiguration_TextAlignment.
+
+### 5.0.205 (2026-04-30 20:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.241.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCMemory: added parameter IndexedKey.
