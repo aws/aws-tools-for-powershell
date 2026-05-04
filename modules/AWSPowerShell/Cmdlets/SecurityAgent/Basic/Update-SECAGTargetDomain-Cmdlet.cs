@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Updates a target domain record
+    /// Updates the verification method for a target domain.
     /// </summary>
     [Cmdlet("Update", "SECAGTargetDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityAgent.Model.UpdateTargetDomainResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter TargetDomainId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the target domain to update</para>
+        /// <para>The unique identifier of the target domain to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter VerificationMethod
         /// <summary>
         /// <para>
-        /// <para>Verification method for the target domain</para>
+        /// <para>The updated verification method for the target domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

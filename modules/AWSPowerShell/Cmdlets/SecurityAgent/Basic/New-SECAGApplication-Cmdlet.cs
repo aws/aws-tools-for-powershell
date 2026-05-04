@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Creates a new application
+    /// Creates a new application. An application is the top-level organizational unit that
+    /// supports IAM Identity Center integration.
     /// </summary>
     [Cmdlet("New", "SECAGApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter DefaultKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Default KMS key identifier used to encrypt application data</para>
+        /// <para>The identifier of the default AWS KMS key to use for encrypting data in the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter IdcInstanceArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the IAM Identity Center instance used for user authentication. Optional for
-        /// non-IdC applications</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with
+        /// the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the IAM role that the application uses to access AWS resources on your behalf</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to associate with the application</para><para />
+        /// <para>The tags to associate with the application.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

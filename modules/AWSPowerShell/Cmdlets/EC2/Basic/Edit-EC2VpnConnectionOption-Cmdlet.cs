@@ -104,6 +104,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String RemoteIpv6NetworkCidr { get; set; }
         #endregion
         
+        #region Parameter TunnelBandwidth
+        /// <summary>
+        /// <para>
+        /// <para>The desired bandwidth specification for the VPN connection. <c>standard</c> supports
+        /// up to 1.25 Gbps per tunnel, while <c>large</c> supports up to 5 Gbps per tunnel. Large
+        /// bandwidth is only available for VPN connections attached to a transit gateway or to
+        /// Cloud WAN. The default value is <c>standard</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.VpnTunnelBandwidth")]
+        public Amazon.EC2.VpnTunnelBandwidth TunnelBandwidth { get; set; }
+        #endregion
+        
         #region Parameter VpnConnectionId
         /// <summary>
         /// <para>
@@ -172,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.LocalIpv6NetworkCidr = this.LocalIpv6NetworkCidr;
             context.RemoteIpv4NetworkCidr = this.RemoteIpv4NetworkCidr;
             context.RemoteIpv6NetworkCidr = this.RemoteIpv6NetworkCidr;
+            context.TunnelBandwidth = this.TunnelBandwidth;
             context.VpnConnectionId = this.VpnConnectionId;
             #if MODULAR
             if (this.VpnConnectionId == null && ParameterWasBound(nameof(this.VpnConnectionId)))
@@ -214,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.RemoteIpv6NetworkCidr != null)
             {
                 request.RemoteIpv6NetworkCidr = cmdletContext.RemoteIpv6NetworkCidr;
+            }
+            if (cmdletContext.TunnelBandwidth != null)
+            {
+                request.TunnelBandwidth = cmdletContext.TunnelBandwidth;
             }
             if (cmdletContext.VpnConnectionId != null)
             {
@@ -279,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String LocalIpv6NetworkCidr { get; set; }
             public System.String RemoteIpv4NetworkCidr { get; set; }
             public System.String RemoteIpv6NetworkCidr { get; set; }
+            public Amazon.EC2.VpnTunnelBandwidth TunnelBandwidth { get; set; }
             public System.String VpnConnectionId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpnConnectionOptionsResponse, EditEC2VpnConnectionOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VpnConnection;

@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Adds a single member to an agent space with specified role
+    /// Creates a new membership, granting a user access to an agent space within an application.
     /// </summary>
     [Cmdlet("New", "SECAGMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>Agent space identifier</para>
+        /// <para>The unique identifier of the agent space to grant access to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>Application identifier</para>
+        /// <para>The unique identifier of the application that contains the agent space.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter MembershipId
         /// <summary>
         /// <para>
-        /// <para>Member identifier (userId or agentSpaceId)</para>
+        /// <para>The unique identifier for the membership.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter MemberType
         /// <summary>
         /// <para>
-        /// <para>Type of member (USER or AGENT_SPACE)</para>
+        /// <para>The type of member. Currently, only USER is supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Config_User_Role
         /// <summary>
         /// <para>
-        /// <para>Role of the user associated to the agent space</para>
+        /// <para>The role assigned to the user. Currently, only MEMBER is supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

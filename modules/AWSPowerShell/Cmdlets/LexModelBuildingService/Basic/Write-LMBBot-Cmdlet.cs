@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </para><para>
     /// This operation requires permissions for the <c>lex:PutBot</c> action. For more information,
     /// see <a>security-iam</a>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Write", "LMBBot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelBuildingService.Model.PutBotResponse")]
@@ -56,6 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.PutBotResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.PutBotResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class WriteLMBBotCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

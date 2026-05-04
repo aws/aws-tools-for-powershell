@@ -110,7 +110,7 @@ $SECAG_Completers = {
             ($_ -eq "Update-SECAGTargetDomain/VerificationMethod")
         }
         {
-            $v = "DNS_TXT","HTTP_ROUTE"
+            $v = "DNS_TXT","HTTP_ROUTE","PRIVATE_VPC"
             break
         }
 

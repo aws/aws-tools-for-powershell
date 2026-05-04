@@ -78,6 +78,21 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DeliverySourceConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>A map of key-value pairs to configure the delivery source. Both keys and values must
+        /// be between 1 and 255 characters in length. For example, <c>{"samplingRate": "50"}</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable DeliverySourceConfiguration { get; set; }
+        #endregion
+        
         #region Parameter LogType
         /// <summary>
         /// <para>
@@ -206,6 +221,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.PutDeliverySourceResponse, WriteCWLDeliverySourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.DeliverySourceConfiguration != null)
+            {
+                context.DeliverySourceConfiguration = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DeliverySourceConfiguration.Keys)
+                {
+                    context.DeliverySourceConfiguration.Add((String)hashKey, (System.String)(this.DeliverySourceConfiguration[hashKey]));
+                }
+            }
             context.LogType = this.LogType;
             #if MODULAR
             if (this.LogType == null && ParameterWasBound(nameof(this.LogType)))
@@ -251,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request
             var request = new Amazon.CloudWatchLogs.Model.PutDeliverySourceRequest();
             
+            if (cmdletContext.DeliverySourceConfiguration != null)
+            {
+                request.DeliverySourceConfiguration = cmdletContext.DeliverySourceConfiguration;
+            }
             if (cmdletContext.LogType != null)
             {
                 request.LogType = cmdletContext.LogType;
@@ -322,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> DeliverySourceConfiguration { get; set; }
             public System.String LogType { get; set; }
             public System.String Name { get; set; }
             public System.String ResourceArn { get; set; }

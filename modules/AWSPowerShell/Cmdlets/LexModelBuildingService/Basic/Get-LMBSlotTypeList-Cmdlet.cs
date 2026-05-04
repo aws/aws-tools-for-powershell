@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// <c>$LATEST</c> version of all slot types. 
     /// </para></li></ul><para>
     ///  The operation requires permission for the <c>lex:GetSlotTypes</c> action. 
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBSlotTypeList")]
     [OutputType("Amazon.LexModelBuildingService.Model.SlotTypeMetadata")]
@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet returns a collection of Amazon.LexModelBuildingService.Model.SlotTypeMetadata objects.",
         "The service call response (type Amazon.LexModelBuildingService.Model.GetSlotTypesResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBSlotTypeListCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

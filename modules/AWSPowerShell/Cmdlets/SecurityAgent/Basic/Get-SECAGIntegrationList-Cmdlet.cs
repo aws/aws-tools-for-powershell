@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Retrieves the Integrations associated with the user's account<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the integrations in your account, optionally filtered by provider or provider
+    /// type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SECAGIntegrationList")]
     [OutputType("Amazon.SecurityAgent.Model.IntegrationSummary")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Filter_Provider
         /// <summary>
         /// <para>
-        /// <para>Filter by provider</para>
+        /// <para>Filter integrations by provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Filter_ProviderType
         /// <summary>
         /// <para>
-        /// <para>Filter by provider type</para>
+        /// <para>Filter integrations by provider type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return</para>
+        /// <para>The maximum number of results to return in a single call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -86,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token for pagination</para>
+        /// <para>A token to use for paginating results that are returned in the response. Set the value
+        /// of this parameter to null for the first request. For subsequent calls, use the nextToken
+        /// value returned from the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

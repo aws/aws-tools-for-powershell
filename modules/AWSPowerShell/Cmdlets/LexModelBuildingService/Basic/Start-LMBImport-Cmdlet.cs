@@ -30,7 +30,7 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Starts a job to import a resource to Amazon Lex.
+    /// Starts a job to import a resource to Amazon Lex.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Start", "LMBImport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelBuildingService.Model.StartImportResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.StartImportResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.StartImportResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class StartLMBImportCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

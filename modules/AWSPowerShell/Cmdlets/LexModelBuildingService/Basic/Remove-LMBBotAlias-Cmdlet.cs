@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// channel association that refers to the bot. You can remove the reference to the alias
     /// by deleting the channel association. If you get the same exception again, delete the
     /// referring association until the <c>DeleteBotAlias</c> operation is successful.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "LMBBotAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LexModelBuildingService.Model.DeleteBotAliasResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class RemoveLMBBotAliasCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

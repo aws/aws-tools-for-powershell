@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// versions increment by 1. For more information, see <a>versioning-intro</a>. 
     /// </para><para>
     /// This operation requires permissions for the <c>lex:CreateSlotTypeVersion</c> action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "LMBSlotTypeVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelBuildingService.Model.CreateSlotTypeVersionResponse")]
@@ -51,6 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.CreateSlotTypeVersionResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.CreateSlotTypeVersionResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class NewLMBSlotTypeVersionCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

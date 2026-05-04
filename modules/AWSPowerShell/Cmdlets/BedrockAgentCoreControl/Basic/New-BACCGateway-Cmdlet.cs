@@ -165,6 +165,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String CustomJWTAuthorizer_DiscoveryUrl { get; set; }
         #endregion
         
+        #region Parameter ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether response streaming is enabled for the gateway. When set to <c>true</c>,
+        /// the gateway streams responses from targets back to the client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming { get; set; }
+        #endregion
+        
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType
         /// <summary>
         /// <para>
@@ -319,8 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain
         /// <summary>
         /// <para>
-        /// <para>An intermediate publicly resolvable domain used as the VPC Lattice resource configuration
-        /// endpoint. Required when your private endpoint uses a domain that is not publicly resolvable.</para>
+        /// <para>An intermediate domain to use as the resource configuration endpoint instead of the
+        /// actual target domain. Use this when you want to route traffic through an intermediate
+        /// component such as a VPC endpoint or internal load balancer. For more information,
+        /// see xref:lattice-vpc-egress-routing-domain[Route traffic through an intermediate domain].</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,6 +367,20 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupIds")]
         public System.String[] AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The session timeout in seconds. After this timeout, the session expires and subsequent
+        /// requests to this session will receive an error. The minimum value is 900 seconds (15
+        /// minutes), the maximum value is 28800 seconds (8 hours), and the default value is 3600
+        /// seconds (1 hour).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSeconds")]
+        public System.Int32? ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond { get; set; }
         #endregion
         
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId
@@ -554,6 +581,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.PolicyEngineConfiguration_Mode = this.PolicyEngineConfiguration_Mode;
             context.Mcp_Instruction = this.Mcp_Instruction;
             context.Mcp_SearchType = this.Mcp_SearchType;
+            context.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond = this.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond;
+            context.ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming = this.ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming;
             if (this.Mcp_SupportedVersion != null)
             {
                 context.Mcp_SupportedVersion = new List<System.String>(this.Mcp_SupportedVersion);
@@ -885,6 +914,56 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestProtocolConfiguration_protocolConfiguration_Mcp.SupportedVersions = requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_SupportedVersion;
                 requestProtocolConfiguration_protocolConfiguration_McpIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.Model.SessionConfiguration requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration = null;
+            
+             // populate SessionConfiguration
+            var requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfigurationIsNull = true;
+            requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration = new Amazon.BedrockAgentCoreControl.Model.SessionConfiguration();
+            System.Int32? requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration_protocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond = null;
+            if (cmdletContext.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration_protocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond = cmdletContext.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond.Value;
+            }
+            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration_protocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration.SessionTimeoutInSeconds = requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration_protocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond.Value;
+                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfigurationIsNull = false;
+            }
+             // determine if requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration should be set to null
+            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfigurationIsNull)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration = null;
+            }
+            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp.SessionConfiguration = requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration;
+                requestProtocolConfiguration_protocolConfiguration_McpIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.StreamingConfiguration requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration = null;
+            
+             // populate StreamingConfiguration
+            var requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfigurationIsNull = true;
+            requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration = new Amazon.BedrockAgentCoreControl.Model.StreamingConfiguration();
+            System.Boolean? requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration_protocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming = null;
+            if (cmdletContext.ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration_protocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming = cmdletContext.ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming.Value;
+            }
+            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration_protocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration.EnableResponseStreaming = requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration_protocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming.Value;
+                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfigurationIsNull = false;
+            }
+             // determine if requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration should be set to null
+            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfigurationIsNull)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration = null;
+            }
+            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp.StreamingConfiguration = requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration;
+                requestProtocolConfiguration_protocolConfiguration_McpIsNull = false;
+            }
              // determine if requestProtocolConfiguration_protocolConfiguration_Mcp should be set to null
             if (requestProtocolConfiguration_protocolConfiguration_McpIsNull)
             {
@@ -991,6 +1070,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode PolicyEngineConfiguration_Mode { get; set; }
             public System.String Mcp_Instruction { get; set; }
             public Amazon.BedrockAgentCoreControl.SearchType Mcp_SearchType { get; set; }
+            public System.Int32? ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond { get; set; }
+            public System.Boolean? ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming { get; set; }
             public List<System.String> Mcp_SupportedVersion { get; set; }
             public Amazon.BedrockAgentCoreControl.GatewayProtocolType ProtocolType { get; set; }
             public System.String RoleArn { get; set; }

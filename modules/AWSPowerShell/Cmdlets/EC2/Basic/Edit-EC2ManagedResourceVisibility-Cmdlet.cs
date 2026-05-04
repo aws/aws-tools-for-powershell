@@ -55,7 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <c>visible</c>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.EC2.ManagedResourceDefaultVisibility")]
         public Amazon.EC2.ManagedResourceDefaultVisibility DefaultVisibility { get; set; }
         #endregion
@@ -119,6 +125,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DefaultVisibility = this.DefaultVisibility;
+            #if MODULAR
+            if (this.DefaultVisibility == null && ParameterWasBound(nameof(this.DefaultVisibility)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DefaultVisibility which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DryRun = this.DryRun;
             
             // allow further manipulation of loaded context prior to processing

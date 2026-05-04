@@ -137,6 +137,13 @@ $VPCL_Completers = {
             break
         }
 
+        # Amazon.VPCLattice.ResourceConfigDnsResolution
+        "New-VPCLResourceGateway/ResourceConfigDnsResolution"
+        {
+            $v = "IN_VPC","PUBLIC"
+            break
+        }
+
         # Amazon.VPCLattice.ResourceConfigurationIpAddressType
         {
             ($_ -eq "New-VPCLResourceConfiguration/DnsResource_IpAddressType") -Or
@@ -216,6 +223,7 @@ $VPCL_map = @{
     "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "IpAddressType"=@("New-VPCLResourceGateway")
     "Protocol"=@("New-VPCLListener","New-VPCLResourceConfiguration")
+    "ResourceConfigDnsResolution"=@("New-VPCLResourceGateway")
     "ServiceNetworkLogType"=@("New-VPCLAccessLogSubscription")
     "TargetGroupType"=@("Get-VPCLTargetGroupList")
     "Type"=@("New-VPCLResourceConfiguration","New-VPCLTargetGroup")

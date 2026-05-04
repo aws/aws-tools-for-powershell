@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// Type Reference</a> in the <i>Alexa Skills Kit</i>.
     /// </para><para>
     /// This operation requires permission for the <c>lex:GetBuiltInSlotTypes</c> action.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBBuiltinSlotType")]
     [OutputType("Amazon.LexModelBuildingService.Model.BuiltinSlotTypeMetadata")]
@@ -47,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet returns a collection of Amazon.LexModelBuildingService.Model.BuiltinSlotTypeMetadata objects.",
         "The service call response (type Amazon.LexModelBuildingService.Model.GetBuiltinSlotTypesResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBBuiltinSlotTypeCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

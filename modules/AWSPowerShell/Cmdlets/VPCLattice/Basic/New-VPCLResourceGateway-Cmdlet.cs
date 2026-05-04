@@ -94,6 +94,24 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ResourceConfigDnsResolution
+        /// <summary>
+        /// <para>
+        /// <para>Indicates how DNS is resolved for resource configurations associated to this resource
+        /// gateway. ResourceConfigDnsResolution is set at creation time and cannot be changed.</para><ul><li><para><c>IN_VPC</c> - DNS resolution occurs privately within the resource gateway's VPC.
+        /// DNS queries for resources behind this resource gateway resolve using the DNS resolvers
+        /// defined in the VPC's DHCP option sets. Use this when your resource domain names are
+        /// hosted in private Route 53 hosted zones or on-premises DNS servers reachable from
+        /// the VPC.</para></li><li><para><c>PUBLIC</c> - DNS resolution occurs against public DNS resolvers. DNS queries for
+        /// resources behind this resource gateway resolve using standard public DNS. Use this
+        /// when your resource domain names are publicly resolvable.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.VPCLattice.ResourceConfigDnsResolution")]
+        public Amazon.VPCLattice.ResourceConfigDnsResolution ResourceConfigDnsResolution { get; set; }
+        #endregion
+        
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
@@ -219,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResourceConfigDnsResolution = this.ResourceConfigDnsResolution;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -267,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ResourceConfigDnsResolution != null)
+            {
+                request.ResourceConfigDnsResolution = cmdletContext.ResourceConfigDnsResolution;
             }
             if (cmdletContext.SecurityGroupId != null)
             {
@@ -343,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             public Amazon.VPCLattice.ResourceGatewayIpAddressType IpAddressType { get; set; }
             public System.Int32? Ipv4AddressesPerEni { get; set; }
             public System.String Name { get; set; }
+            public Amazon.VPCLattice.ResourceConfigDnsResolution ResourceConfigDnsResolution { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<System.String> SubnetId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

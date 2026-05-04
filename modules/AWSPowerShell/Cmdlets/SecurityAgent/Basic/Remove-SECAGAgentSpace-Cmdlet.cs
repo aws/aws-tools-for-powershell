@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Deletes an agent space record
+    /// Deletes an agent space and all of its associated resources, including pentests, findings,
+    /// and artifacts.
     /// </summary>
     [Cmdlet("Remove", "SECAGAgentSpace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the agent space to delete</para>
+        /// <para>The unique identifier of the agent space to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

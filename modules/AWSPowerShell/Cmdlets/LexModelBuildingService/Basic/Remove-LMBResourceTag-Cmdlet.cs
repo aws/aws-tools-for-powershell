@@ -30,7 +30,7 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Removes tags from a bot, bot alias or bot channel.
+    /// Removes tags from a bot, bot alias or bot channel.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "LMBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LexModelBuildingService.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class RemoveLMBResourceTagCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

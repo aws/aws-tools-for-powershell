@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/migrate.html">Migrating
     /// a bot</a> in the <i>Amazon Lex developer guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Start", "LMBMigration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelBuildingService.Model.StartMigrationResponse")]
@@ -45,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.StartMigrationResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.StartMigrationResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class StartLMBMigrationCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

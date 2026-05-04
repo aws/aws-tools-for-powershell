@@ -1471,7 +1471,10 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.VpnTunnelBandwidth
-        "New-EC2VpnConnection/Options_TunnelBandwidth"
+        {
+            ($_ -eq "New-EC2VpnConnection/Options_TunnelBandwidth") -Or
+            ($_ -eq "Edit-EC2VpnConnectionOption/TunnelBandwidth")
+        }
         {
             $v = "large","standard"
             break
@@ -1650,6 +1653,7 @@ $EC2_map = @{
     "TrafficType"=@("New-EC2FlowLog")
     "TransportProtocol"=@("New-EC2ClientVpnEndpoint")
     "TrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
+    "TunnelBandwidth"=@("Edit-EC2VpnConnectionOption")
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnConcentrator","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VerificationMethod"=@("Register-EC2IpamPoolCidr")

@@ -30053,7 +30053,10 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.VpnTunnelBandwidth
-        "New-EC2VpnConnection/Options_TunnelBandwidth"
+        {
+            ($_ -eq "New-EC2VpnConnection/Options_TunnelBandwidth") -Or
+            ($_ -eq "Edit-EC2VpnConnectionOption/TunnelBandwidth")
+        }
         {
             $v = "large","standard"
             break
@@ -30232,6 +30235,7 @@ $EC2_map = @{
     "TrafficType"=@("New-EC2FlowLog")
     "TransportProtocol"=@("New-EC2ClientVpnEndpoint")
     "TrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
+    "TunnelBandwidth"=@("Edit-EC2VpnConnectionOption")
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnConcentrator","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VerificationMethod"=@("Register-EC2IpamPoolCidr")
@@ -78087,7 +78091,7 @@ $SECAG_Completers = {
             ($_ -eq "Update-SECAGTargetDomain/VerificationMethod")
         }
         {
-            $v = "DNS_TXT","HTTP_ROUTE"
+            $v = "DNS_TXT","HTTP_ROUTE","PRIVATE_VPC"
             break
         }
 
@@ -86168,6 +86172,13 @@ $VPCL_Completers = {
             break
         }
 
+        # Amazon.VPCLattice.ResourceConfigDnsResolution
+        "New-VPCLResourceGateway/ResourceConfigDnsResolution"
+        {
+            $v = "IN_VPC","PUBLIC"
+            break
+        }
+
         # Amazon.VPCLattice.ResourceConfigurationIpAddressType
         {
             ($_ -eq "New-VPCLResourceConfiguration/DnsResource_IpAddressType") -Or
@@ -86247,6 +86258,7 @@ $VPCL_map = @{
     "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "IpAddressType"=@("New-VPCLResourceGateway")
     "Protocol"=@("New-VPCLListener","New-VPCLResourceConfiguration")
+    "ResourceConfigDnsResolution"=@("New-VPCLResourceGateway")
     "ServiceNetworkLogType"=@("New-VPCLAccessLogSubscription")
     "TargetGroupType"=@("Get-VPCLTargetGroupList")
     "Type"=@("New-VPCLResourceConfiguration","New-VPCLTargetGroup")

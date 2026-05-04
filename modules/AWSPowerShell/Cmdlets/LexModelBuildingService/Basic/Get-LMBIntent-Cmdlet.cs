@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     ///  
     /// <para>
     ///  This operation requires permissions to perform the <c>lex:GetIntent</c> action. 
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBIntent")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetIntentResponse")]
@@ -44,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetIntentResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetIntentResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBIntentCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

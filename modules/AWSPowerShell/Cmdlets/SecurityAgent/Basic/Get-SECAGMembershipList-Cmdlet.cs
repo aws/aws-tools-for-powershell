@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Lists all members associated to an agent space with pagination support<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a paginated list of membership summaries for the specified agent space within
+    /// an application.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SECAGMembershipList")]
     [OutputType("Amazon.SecurityAgent.Model.MembershipSummary")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>Agent space identifier</para>
+        /// <para>The unique identifier of the agent space to list memberships for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>Application identifier</para>
+        /// <para>The unique identifier of the application that contains the agent space.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter MemberType
         /// <summary>
         /// <para>
-        /// <para>Filter by member type</para>
+        /// <para>Filter memberships by member type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return</para>
+        /// <para>The maximum number of results to return in a single call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -109,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token for pagination</para>
+        /// <para>A token to use for paginating results that are returned in the response. Set the value
+        /// of this parameter to null for the first request. For subsequent calls, use the nextToken
+        /// value returned from the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

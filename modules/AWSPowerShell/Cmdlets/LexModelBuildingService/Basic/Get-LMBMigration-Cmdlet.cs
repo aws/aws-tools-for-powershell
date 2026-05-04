@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// <summary>
     /// Provides details about an ongoing or complete migration from an Amazon Lex V1 bot
     /// to an Amazon Lex V2 bot. Use this operation to view the migration alerts and warnings
-    /// related to the migration.
+    /// related to the migration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBMigration")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetMigrationResponse")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetMigrationResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetMigrationResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBMigrationCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

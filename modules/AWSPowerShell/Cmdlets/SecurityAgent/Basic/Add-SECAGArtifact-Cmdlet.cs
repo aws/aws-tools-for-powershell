@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Adds an Artifact for the given agent space
+    /// Uploads an artifact to an agent space. Artifacts provide additional context for security
+    /// testing, such as architecture diagrams, API specifications, or configuration files.
     /// </summary>
     [Cmdlet("Add", "SECAGArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the agent space</para>
+        /// <para>The unique identifier of the agent space to add the artifact to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ArtifactContent
         /// <summary>
         /// <para>
-        /// <para>Binary content of the artifact</para>
+        /// <para>The binary content of the artifact to upload.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -83,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ArtifactType
         /// <summary>
         /// <para>
-        /// <para>Type of the artifact file</para>
+        /// <para>The file type of the artifact. Valid values include TXT, PNG, JPEG, MD, PDF, DOCX,
+        /// DOC, JSON, and YAML.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter FileName
         /// <summary>
         /// <para>
-        /// <para>Name of the artifact file</para>
+        /// <para>The file name of the artifact.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

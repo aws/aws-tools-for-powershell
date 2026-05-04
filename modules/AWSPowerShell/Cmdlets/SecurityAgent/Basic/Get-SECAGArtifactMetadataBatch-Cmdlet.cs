@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Retrieve the list of artifact metadata for the given agent space
+    /// Retrieves metadata for one or more artifacts in an agent space.
     /// </summary>
     [Cmdlet("Get", "SECAGArtifactMetadataBatch")]
     [OutputType("Amazon.SecurityAgent.Model.ArtifactMetadataItem")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the agent space</para>
+        /// <para>The unique identifier of the agent space that contains the artifacts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ArtifactId
         /// <summary>
         /// <para>
-        /// <para>List of artifact identifiers</para><para />
+        /// <para>The list of artifact identifiers to retrieve metadata for.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

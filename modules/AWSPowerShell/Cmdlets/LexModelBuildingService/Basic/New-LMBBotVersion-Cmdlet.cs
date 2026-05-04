@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// versions increment by 1. For more information, see <a>versioning-intro</a>. 
     /// </para><para>
     ///  This operation requires permission for the <c>lex:CreateBotVersion</c> action. 
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "LMBBotVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelBuildingService.Model.CreateBotVersionResponse")]
@@ -50,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.CreateBotVersionResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.CreateBotVersionResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class NewLMBBotVersionCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

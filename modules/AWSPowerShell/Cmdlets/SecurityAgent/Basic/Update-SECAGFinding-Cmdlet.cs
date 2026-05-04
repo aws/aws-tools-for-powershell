@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Updates an existing security finding with new details or status
+    /// Updates the status or risk level of a security finding.
     /// </summary>
     [Cmdlet("Update", "SECAGFinding", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>ID of the agent space where the finding exists</para>
+        /// <para>The unique identifier of the agent space that contains the finding.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter FindingId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the finding to update</para>
+        /// <para>The unique identifier of the finding to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter RiskLevel
         /// <summary>
         /// <para>
-        /// <para>Updated severity level of the identified risk</para>
+        /// <para>The updated risk level for the finding.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Updated status of the finding</para>
+        /// <para>The updated status for the finding.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

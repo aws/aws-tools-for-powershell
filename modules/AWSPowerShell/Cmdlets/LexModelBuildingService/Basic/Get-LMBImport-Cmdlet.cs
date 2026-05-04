@@ -30,7 +30,7 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Gets information about an import job started with the <c>StartImport</c> operation.
+    /// Gets information about an import job started with the <c>StartImport</c> operation.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBImport")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetImportResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetImportResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetImportResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBImportCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

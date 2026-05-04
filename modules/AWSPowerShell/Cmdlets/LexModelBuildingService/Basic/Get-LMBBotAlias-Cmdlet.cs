@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     ///  
     /// <para>
     /// This operation requires permissions for the <c>lex:GetBotAlias</c> action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBBotAlias")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetBotAliasResponse")]
@@ -44,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetBotAliasResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetBotAliasResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBBotAliasCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

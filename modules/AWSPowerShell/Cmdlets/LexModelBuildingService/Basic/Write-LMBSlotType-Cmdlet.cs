@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// type, the bot's <c>status</c> field is set to <c>NOT_BUILT</c>.
     /// </para><para>
     /// This operation requires permissions for the <c>lex:PutSlotType</c> action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Write", "LMBSlotType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelBuildingService.Model.PutSlotTypeResponse")]
@@ -54,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.PutSlotTypeResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.PutSlotTypeResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class WriteLMBSlotTypeCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

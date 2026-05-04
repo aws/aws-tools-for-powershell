@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Retrieves application details by application ID
+    /// Retrieves information about an application.
     /// </summary>
     [Cmdlet("Get", "SECAGApplication")]
     [OutputType("Amazon.SecurityAgent.Model.GetApplicationResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>Application ID</para>
+        /// <para>The unique identifier of the application to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

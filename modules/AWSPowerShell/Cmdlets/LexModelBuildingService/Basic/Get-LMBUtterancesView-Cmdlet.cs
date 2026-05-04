@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// in improving Amazon Lex, utterances are not available.
     /// </para><para>
     /// This operation requires permissions for the <c>lex:GetUtterancesView</c> action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBUtterancesView")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetUtterancesViewResponse")]
@@ -63,6 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetUtterancesViewResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetUtterancesViewResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBUtterancesViewCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

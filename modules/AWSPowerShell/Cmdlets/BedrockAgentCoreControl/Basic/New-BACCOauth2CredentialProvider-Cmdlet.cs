@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenScope
         /// <summary>
         /// <para>
-        /// <para>Only valid when actorTokenContent is M2M</para><para />
+        /// <para>The scopes for the actor token. Only valid when actorTokenContent is M2M.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -444,8 +444,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain
         /// <summary>
         /// <para>
-        /// <para>An intermediate publicly resolvable domain used as the VPC Lattice resource configuration
-        /// endpoint. Required when your private endpoint uses a domain that is not publicly resolvable.</para>
+        /// <para>An intermediate domain to use as the resource configuration endpoint instead of the
+        /// actual target domain. Use this when you want to route traffic through an intermediate
+        /// component such as a VPC endpoint or internal load balancer. For more information,
+        /// see xref:lattice-vpc-egress-routing-domain[Route traffic through an intermediate domain].</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

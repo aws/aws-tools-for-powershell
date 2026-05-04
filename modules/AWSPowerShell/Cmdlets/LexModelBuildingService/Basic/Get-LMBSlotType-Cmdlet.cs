@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     ///  
     /// <para>
     /// This operation requires permissions for the <c>lex:GetSlotType</c> action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBSlotType")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetSlotTypeResponse")]
@@ -44,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetSlotTypeResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetSlotTypeResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBSlotTypeCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

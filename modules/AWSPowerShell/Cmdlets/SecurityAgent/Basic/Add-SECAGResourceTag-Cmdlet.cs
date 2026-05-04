@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Adds tags to a Security Agent resource
+    /// Adds tags to a resource.
     /// </summary>
     [Cmdlet("Add", "SECAGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the resource to tag</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to add to the resource</para><para />
+        /// <para>The tags to add to the resource.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

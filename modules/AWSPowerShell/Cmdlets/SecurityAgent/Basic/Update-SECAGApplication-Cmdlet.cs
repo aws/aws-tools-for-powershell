@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Updates application configuration
+    /// Updates the configuration of an existing application, including the IAM role and default
+    /// KMS key.
     /// </summary>
     [Cmdlet("Update", "SECAGApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>Application ID</para>
+        /// <para>The unique identifier of the application to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter DefaultKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Default KMS key identifier. Use an empty string to remove the default KMS key.</para>
+        /// <para>The updated identifier of the default AWS KMS key for the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the IAM role that the application uses to access AWS resources on your behalf</para>
+        /// <para>The updated Amazon Resource Name (ARN) of the IAM role for the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

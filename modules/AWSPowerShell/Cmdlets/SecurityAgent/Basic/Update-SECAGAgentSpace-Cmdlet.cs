@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Updates an agent space record
+    /// Updates the configuration of an existing agent space, including its name, description,
+    /// AWS resources, target domains, and code review settings.
     /// </summary>
     [Cmdlet("Update", "SECAGAgentSpace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityAgent.Model.UpdateAgentSpaceResponse")]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>ID of the agent space to update</para>
+        /// <para>The unique identifier of the agent space to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter CodeReviewSettings_ControlsScanning
         /// <summary>
         /// <para>
-        /// <para>Whether Controls are utilized for code review analysis</para>
+        /// <para>Indicates whether controls scanning is enabled for code reviews.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Description of the agent space</para>
+        /// <para>The updated description of the agent space.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter CodeReviewSettings_GeneralPurposeScanning
         /// <summary>
         /// <para>
-        /// <para>Whether general purpose analysis is performed for code review</para>
+        /// <para>Indicates whether general-purpose scanning is enabled for code reviews.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AwsResources_IamRole
         /// <summary>
         /// <para>
-        /// <para>IAM role ARNs that the Security Agent can assume to access customer resources</para><para />
+        /// <para>The IAM roles associated with the agent space.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -109,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AwsResources_LambdaFunctionArn
         /// <summary>
         /// <para>
-        /// <para>Lambda function ARNs or names used to retrieve tester credentials for pentests</para><para />
+        /// <para>The Amazon Resource Names (ARNs) of the Lambda functions associated with the agent
+        /// space.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -124,7 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AwsResources_LogGroup
         /// <summary>
         /// <para>
-        /// <para>CloudWatch log group ARNs or names used to store Security Agent logs</para><para />
+        /// <para>The Amazon Resource Names (ARNs) of the CloudWatch log groups associated with the
+        /// agent space.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -139,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the agent space</para>
+        /// <para>The updated name of the agent space.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AwsResources_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>S3 bucket ARNs or names used to store Security Agent artifacts</para><para />
+        /// <para>The Amazon Resource Names (ARNs) of the S3 buckets associated with the agent space.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -164,7 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AwsResources_SecretArn
         /// <summary>
         /// <para>
-        /// <para>SecretsManager secret ARNs or names used to store tester credentials for pentests</para><para />
+        /// <para>The Amazon Resource Names (ARNs) of the Secrets Manager secrets associated with the
+        /// agent space.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -179,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter TargetDomainId
         /// <summary>
         /// <para>
-        /// <para>Target domain IDs to associate with the agent space</para><para />
+        /// <para>The updated list of target domain identifiers to associate with the agent space.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -194,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AwsResources_Vpc
         /// <summary>
         /// <para>
-        /// <para>VPC configurations that the Security Agent accesses in the customer environment</para><para />
+        /// <para>The VPC configurations associated with the agent space.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Deletes an application
+    /// Deletes an application and its associated configuration, including IAM Identity Center
+    /// settings.
     /// </summary>
     [Cmdlet("Remove", "SECAGApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>Application ID</para>
+        /// <para>The unique identifier of the application to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Initiates the registration of Security Agent App for an external Provider
+    /// Initiates the OAuth registration flow with a third-party provider. Returns a redirect
+    /// URL and CSRF state token for completing the authorization.
     /// </summary>
     [Cmdlet("Start", "SECAGProviderRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityAgent.Model.InitiateProviderRegistrationResponse")]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Provider
         /// <summary>
         /// <para>
-        /// <para>Provider to register with</para>
+        /// <para>The provider to initiate registration with. Currently, only GITHUB is supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

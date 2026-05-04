@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// For more information, see <a>how-it-works</a>.
     /// </para><para>
     /// This operation requires permissions for the <c>lex:PutIntent</c> action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Write", "LMBIntent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelBuildingService.Model.PutIntentResponse")]
@@ -84,6 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.PutIntentResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.PutIntentResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class WriteLMBIntentCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

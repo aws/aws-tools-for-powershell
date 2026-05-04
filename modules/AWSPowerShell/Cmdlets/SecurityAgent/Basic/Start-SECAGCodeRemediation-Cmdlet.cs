@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Starts code remediation for the specified findings
+    /// Initiates code remediation for one or more security findings. This creates pull requests
+    /// in integrated repositories to fix the identified vulnerabilities.
     /// </summary>
     [Cmdlet("Start", "SECAGCodeRemediation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>ID of the agent space where the pentest job exists</para>
+        /// <para>The unique identifier of the agent space.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter FindingId
         /// <summary>
         /// <para>
-        /// <para>Identifiers of the findings to start code remediation for</para><para />
+        /// <para>The list of finding identifiers to initiate code remediation for.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -87,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter PentestJobId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the pentest job to start code remediation for</para>
+        /// <para>The unique identifier of the pentest job that produced the findings.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

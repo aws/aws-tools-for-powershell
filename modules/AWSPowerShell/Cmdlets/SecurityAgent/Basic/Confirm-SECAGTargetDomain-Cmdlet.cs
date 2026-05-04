@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Verifies ownership for a registered target domain
+    /// Initiates verification of a target domain. This checks whether the domain ownership
+    /// verification token has been properly configured.
     /// </summary>
     [Cmdlet("Confirm", "SECAGTargetDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityAgent.Model.VerifyTargetDomainResponse")]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter TargetDomainId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the target domain</para>
+        /// <para>The unique identifier of the target domain to verify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

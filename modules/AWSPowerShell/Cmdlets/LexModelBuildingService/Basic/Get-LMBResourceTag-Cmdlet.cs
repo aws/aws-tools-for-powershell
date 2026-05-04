@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
     /// Gets a list of tags associated with the specified resource. Only bots, bot aliases,
-    /// and bot channels can have tags associated with them.
+    /// and bot channels can have tags associated with them.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBResourceTag")]
     [OutputType("Amazon.LexModelBuildingService.Model.Tag")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet returns a collection of Amazon.LexModelBuildingService.Model.Tag objects.",
         "The service call response (type Amazon.LexModelBuildingService.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBResourceTagCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

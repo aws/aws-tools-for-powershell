@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Retrieves multiple agent spaces in a single request
+    /// Retrieves information about one or more agent spaces.
     /// </summary>
     [Cmdlet("Get", "SECAGAgentSpaceBatch")]
     [OutputType("Amazon.SecurityAgent.Model.BatchGetAgentSpacesResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>List of agent space IDs to retrieve</para><para />
+        /// <para>The list of agent space identifiers to retrieve.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

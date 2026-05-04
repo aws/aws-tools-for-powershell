@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Gets Integration metadata from the provided id
+    /// Retrieves information about an integration.
     /// </summary>
     [Cmdlet("Get", "SECAGIntegration")]
     [OutputType("Amazon.SecurityAgent.Model.GetIntegrationResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter IntegrationId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the integration</para>
+        /// <para>The unique identifier of the integration to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

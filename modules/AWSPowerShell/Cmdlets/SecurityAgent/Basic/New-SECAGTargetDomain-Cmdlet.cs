@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Creates a target domain record
+    /// Creates a new target domain for penetration testing. A target domain is a web domain
+    /// that must be registered and verified before it can be tested.
     /// </summary>
     [Cmdlet("New", "SECAGTargetDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityAgent.Model.CreateTargetDomainResponse")]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to associate with the target domain</para><para />
+        /// <para>The tags to associate with the target domain.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter TargetDomainName
         /// <summary>
         /// <para>
-        /// <para>Domain name of the target domain</para>
+        /// <para>The domain name to register as a target domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter VerificationMethod
         /// <summary>
         /// <para>
-        /// <para>Verification method for the target domain</para>
+        /// <para>The method to use for verifying domain ownership. Valid values are DNS_TXT, HTTP_ROUTE,
+        /// and PRIVATE_VPC.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

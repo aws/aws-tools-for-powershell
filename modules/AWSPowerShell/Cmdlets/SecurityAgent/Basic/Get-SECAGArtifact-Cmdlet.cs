@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Retrieve an Artifact for the given agent space
+    /// Retrieves an artifact from an agent space.
     /// </summary>
     [Cmdlet("Get", "SECAGArtifact")]
     [OutputType("Amazon.SecurityAgent.Model.GetArtifactResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the agent space</para>
+        /// <para>The unique identifier of the agent space that contains the artifact.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ArtifactId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the artifact</para>
+        /// <para>The unique identifier of the artifact to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

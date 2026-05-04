@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
     /// Adds the specified tags to the specified resource. If a tag key already exists, the
-    /// existing value is replaced with the new value.
+    /// existing value is replaced with the new value.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "LMBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LexModelBuildingService.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class AddLMBResourceTagCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

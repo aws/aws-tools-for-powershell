@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// slot type has no references and the <c>DeleteSlotType</c> call is successful. 
     /// </para></note><para>
     /// This operation requires permission for the <c>lex:DeleteSlotType</c> action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "LMBSlotType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -55,6 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LexModelBuildingService.Model.DeleteSlotTypeResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class RemoveLMBSlotTypeCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

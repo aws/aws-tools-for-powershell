@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     ///  
     /// <para>
     /// This operation requires permissions for the <c>lex:DeleteIntentVersion</c> action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "LMBIntentVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LexModelBuildingService.Model.DeleteIntentVersionResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class RemoveLMBIntentVersionCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

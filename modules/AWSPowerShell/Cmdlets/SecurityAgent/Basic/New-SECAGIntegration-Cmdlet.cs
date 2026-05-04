@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Creates the Integration of the Security Agent App with an external Provider
+    /// Creates a new integration with a third-party provider, such as GitHub, for code review
+    /// and remediation.
     /// </summary>
     [Cmdlet("New", "SECAGIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Input_Github_Code
         /// <summary>
         /// <para>
-        /// <para>Authorization code from OAuth flow</para>
+        /// <para>The OAuth authorization code received from GitHub.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter IntegrationDisplayName
         /// <summary>
         /// <para>
-        /// <para>Display name for the integration</para>
+        /// <para>The display name for the integration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>KMS key ID for encrypting integration details</para>
+        /// <para>The identifier of the AWS KMS key to use for encrypting data associated with the integration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Input_Github_OrganizationName
         /// <summary>
         /// <para>
-        /// <para>Name of the GitHub organization</para>
+        /// <para>The name of the GitHub organization to integrate with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Provider
         /// <summary>
         /// <para>
-        /// <para>Provider to integrate with</para>
+        /// <para>The integration provider. Currently, only GITHUB is supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Input_Github_State
         /// <summary>
         /// <para>
-        /// <para>CSRF state token for OAuth security</para>
+        /// <para>The CSRF state token for validating the OAuth flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to associate with the integration</para><para />
+        /// <para>The tags to associate with the integration.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

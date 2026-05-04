@@ -1,4 +1,16 @@
-﻿### 5.0.206 (2026-05-01 20:12Z)
+﻿### 5.0.207 (2026-05-04 20:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.243.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGateway: added parameters ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond and ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming.
+    * Modified cmdlet Update-BACCGateway: added parameters ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond and ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Write-CWLDeliverySource: added parameter DeliverySourceConfiguration.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Edit-EC2VpnConnectionOption: added parameter TunnelBandwidth.
+  * Amazon VPC Lattice
+    * Modified cmdlet New-VPCLResourceGateway: added parameter ResourceConfigDnsResolution.
+
+### 5.0.206 (2026-05-01 20:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.242.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Modified cmdlet New-APSStack: added parameters AgentAccessConfig_S3BucketArn, AgentAccessConfig_ScreenImageFormat, AgentAccessConfig_ScreenResolution, AgentAccessConfig_ScreenshotsUploadEnabled and AgentAccessConfig_Setting.

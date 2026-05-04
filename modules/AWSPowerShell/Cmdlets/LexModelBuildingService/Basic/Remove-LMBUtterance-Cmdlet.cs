@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// after 15 days.
     /// </para><para>
     /// This operation requires permissions for the <c>lex:DeleteUtterances</c> action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "LMBUtterance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -54,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LexModelBuildingService.Model.DeleteUtterancesResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class RemoveLMBUtteranceCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

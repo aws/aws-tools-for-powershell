@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Retrieves multiple target domains in a single request
+    /// Retrieves information about one or more target domains.
     /// </summary>
     [Cmdlet("Get", "SECAGTargetDomainBatch")]
     [OutputType("Amazon.SecurityAgent.Model.BatchGetTargetDomainsResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter TargetDomainId
         /// <summary>
         /// <para>
-        /// <para>List of target domain IDs to retrieve</para><para />
+        /// <para>The list of target domain identifiers to retrieve.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

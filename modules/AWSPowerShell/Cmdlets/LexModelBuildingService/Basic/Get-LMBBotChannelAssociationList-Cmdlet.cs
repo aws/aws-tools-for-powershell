@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// <para>
     /// The <c>GetBotChannelAssociations</c> operation requires permissions for the <c>lex:GetBotChannelAssociations</c>
     /// action.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBBotChannelAssociationList")]
     [OutputType("Amazon.LexModelBuildingService.Model.BotChannelAssociation")]
@@ -45,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet returns a collection of Amazon.LexModelBuildingService.Model.BotChannelAssociation objects.",
         "The service call response (type Amazon.LexModelBuildingService.Model.GetBotChannelAssociationsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBBotChannelAssociationListCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

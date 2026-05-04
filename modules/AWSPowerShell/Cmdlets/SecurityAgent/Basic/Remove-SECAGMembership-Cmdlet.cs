@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Removes a single member associated to an agent space
+    /// Deletes a membership, revoking a user's access to an agent space.
     /// </summary>
     [Cmdlet("Remove", "SECAGMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>Agent space identifier</para>
+        /// <para>The unique identifier of the agent space to revoke access from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>Application identifier</para>
+        /// <para>The unique identifier of the application that contains the agent space.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter MembershipId
         /// <summary>
         /// <para>
-        /// <para>Member identifier (userId or agentSpaceId)</para>
+        /// <para>The unique identifier of the membership to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter MemberType
         /// <summary>
         /// <para>
-        /// <para>Type of member (USER or AGENT_SPACE)</para>
+        /// <para>The type of member to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

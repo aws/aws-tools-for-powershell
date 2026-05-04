@@ -30,7 +30,7 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Exports the contents of a Amazon Lex resource in a specified format.
+    /// Exports the contents of a Amazon Lex resource in a specified format.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBExport")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetExportResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetExportResponse",
         "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetExportResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBExportCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

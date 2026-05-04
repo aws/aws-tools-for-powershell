@@ -30,7 +30,7 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "LMBMigrationSummaryList")]
     [OutputType("Amazon.LexModelBuildingService.Model.MigrationSummary")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         "This cmdlet returns a collection of Amazon.LexModelBuildingService.Model.MigrationSummary objects.",
         "The service call response (type Amazon.LexModelBuildingService.Model.GetMigrationsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.")]
     public partial class GetLMBMigrationSummaryListCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         

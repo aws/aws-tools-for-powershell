@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Deletes a target domain record
+    /// Deletes a target domain registration. After deletion, the domain can no longer be
+    /// used for penetration testing.
     /// </summary>
     [Cmdlet("Remove", "SECAGTargetDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter TargetDomainId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the target domain to delete</para>
+        /// <para>The unique identifier of the target domain to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

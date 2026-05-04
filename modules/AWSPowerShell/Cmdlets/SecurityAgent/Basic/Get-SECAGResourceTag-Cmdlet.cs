@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Lists tags for a Security Agent resource
+    /// Returns the tags associated with the specified resource.
     /// </summary>
     [Cmdlet("Get", "SECAGResourceTag")]
     [OutputType("System.String")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the resource to list tags for</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to list tags for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

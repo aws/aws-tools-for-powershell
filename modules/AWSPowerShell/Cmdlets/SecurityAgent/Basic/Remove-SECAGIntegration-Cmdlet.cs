@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Deletes the Integration of the Security Agent App with an external Provider
+    /// Deletes an integration with a third-party provider.
     /// </summary>
     [Cmdlet("Remove", "SECAGIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter IntegrationId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the integration</para>
+        /// <para>The unique identifier of the integration to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

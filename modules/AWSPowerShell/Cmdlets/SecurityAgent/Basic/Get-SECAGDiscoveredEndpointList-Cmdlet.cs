@@ -30,8 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Lists discovered endpoints associated with a pentest job with optional URI prefix
-    /// filtering<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a paginated list of endpoints discovered during a pentest job execution.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SECAGDiscoveredEndpointList")]
     [OutputType("Amazon.SecurityAgent.Model.DiscoveredEndpoint")]
@@ -49,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// <para>ID of the agent space where the pentest job exists</para>
+        /// <para>The unique identifier of the agent space.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter PentestJobId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the pentest job for which to retrieve discovered endpoints</para>
+        /// <para>The unique identifier of the pentest job to list discovered endpoints for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// <para>Optional URI prefix filter to narrow down results</para>
+        /// <para>A prefix to filter discovered endpoints by URI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of discovered endpoints to return in a single request (default: 50)</para>
+        /// <para>The maximum number of results to return in a single call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -109,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token for pagination</para>
+        /// <para>A token to use for paginating results that are returned in the response. Set the value
+        /// of this parameter to null for the first request. For subsequent calls, use the nextToken
+        /// value returned from the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
