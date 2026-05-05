@@ -23,50 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Route53Domains;
-using Amazon.Route53Domains.Model;
+using Amazon.MediaTailor;
+using Amazon.MediaTailor.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.R53D
+namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// This operation deletes the specified domain. This action is permanent. For more information,
-    /// see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-delete.html">Deleting
-    /// a domain name registration</a>.
-    /// 
-    ///  
-    /// <para>
-    /// To transfer the domain registration to another registrar, use the transfer process
-    /// that’s provided by the registrar to which you want to transfer the registration. Otherwise,
-    /// the following apply:
-    /// </para><ol><li><para>
-    /// You can’t get a refund for the cost of a deleted domain registration.
-    /// </para></li><li><para>
-    /// The registry for the top-level domain might hold the domain name for a brief time
-    /// before releasing it for other users to register (varies by registry). 
-    /// </para></li><li><para>
-    /// When the registration has been deleted, we'll send you a confirmation to the registrant
-    /// contact. The email will come from <c>noreply@domainnameverification.net</c> or <c>noreply@emailverification.info</c>
-    /// or <c>noreply@registrar.amazon</c>.
-    /// </para></li></ol>
+    /// Retrieves the configuration and metadata for a function. For more information about
+    /// functions, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working
+    /// with functions</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
-    [Cmdlet("Remove", "R53DDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Route 53 Domains DeleteDomain API operation.", Operation = new[] {"DeleteDomain"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.DeleteDomainResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Route53Domains.Model.DeleteDomainResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53Domains.Model.DeleteDomainResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EMTFunction")]
+    [OutputType("Amazon.MediaTailor.Model.GetFunctionResponse")]
+    [AWSCmdlet("Calls the AWS Elemental MediaTailor GetFunction API operation.", Operation = new[] {"GetFunction"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.GetFunctionResponse))]
+    [AWSCmdletOutput("Amazon.MediaTailor.Model.GetFunctionResponse",
+        "This cmdlet returns an Amazon.MediaTailor.Model.GetFunctionResponse object containing multiple properties."
     )]
-    public partial class RemoveR53DDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class GetEMTFunctionCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainName
+        #region Parameter FunctionId
         /// <summary>
         /// <para>
-        /// <para>Name of the domain to be deleted.</para>
+        /// <para>The identifier of the function.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,28 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainName { get; set; }
+        public System.String FunctionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'OperationId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Domains.Model.DeleteDomainResponse).
-        /// Specifying the name of a property of type Amazon.Route53Domains.Model.DeleteDomainResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaTailor.Model.GetFunctionResponse).
+        /// Specifying the name of a property of type Amazon.MediaTailor.Model.GetFunctionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "OperationId";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -110,12 +83,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-R53DDomain (DeleteDomain)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -123,14 +90,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53Domains.Model.DeleteDomainResponse, RemoveR53DDomainCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaTailor.Model.GetFunctionResponse, GetEMTFunctionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainName = this.DomainName;
+            context.FunctionId = this.FunctionId;
             #if MODULAR
-            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            if (this.FunctionId == null && ParameterWasBound(nameof(this.FunctionId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FunctionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -147,11 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Domains.Model.DeleteDomainRequest();
+            var request = new Amazon.MediaTailor.Model.GetFunctionRequest();
             
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.FunctionId != null)
             {
-                request.DomainName = cmdletContext.DomainName;
+                request.FunctionId = cmdletContext.FunctionId;
             }
             
             CmdletOutput output;
@@ -186,12 +153,12 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Domains.Model.DeleteDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.DeleteDomainRequest request)
+        private Amazon.MediaTailor.Model.GetFunctionResponse CallAWSServiceOperation(IAmazonMediaTailor client, Amazon.MediaTailor.Model.GetFunctionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "DeleteDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaTailor", "GetFunction");
             try
             {
-                return client.DeleteDomainAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetFunctionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -208,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainName { get; set; }
-            public System.Func<Amazon.Route53Domains.Model.DeleteDomainResponse, RemoveR53DDomainCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.OperationId;
+            public System.String FunctionId { get; set; }
+            public System.Func<Amazon.MediaTailor.Model.GetFunctionResponse, GetEMTFunctionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

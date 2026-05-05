@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The number of suggested domain names that you want Route 53 to return. Specify a value
-        /// between 1 and 50.</para>
+        /// between 1 and 50. Note that fewer than the requested number might be returned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

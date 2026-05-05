@@ -30,17 +30,23 @@ using Amazon.MarketplaceAgreement.Model;
 namespace Amazon.PowerShell.Cmdlets.MAS
 {
     /// <summary>
-    /// Retrieves detailed information about a specific billing adjustment request. Sellers
-    /// (proposers) can use this operation to view the status and details of a billing adjustment
-    /// request they submitted.
+    /// Allows buyers (acceptors) to accept a payment request that is in <c>PENDING_APPROVAL</c>
+    /// status. Once accepted, the payment request transitions to <c>APPROVED</c> status and
+    /// the charge will be processed. Buyers can optionally provide a purchase order reference
+    /// for their internal tracking.
+    /// 
+    ///  <note><para>
+    /// Only payment requests in <c>PENDING_APPROVAL</c> status can be accepted. A <c>ConflictException</c>
+    /// is thrown if the payment request is in any other status.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Get", "MASBillingAdjustmentRequest")]
-    [OutputType("Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse")]
-    [AWSCmdlet("Calls the AWS Marketplace Agreement Service GetBillingAdjustmentRequest API operation.", Operation = new[] {"GetBillingAdjustmentRequest"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse))]
-    [AWSCmdletOutput("Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse",
-        "This cmdlet returns an Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse object containing multiple properties."
+    [Cmdlet("Approve", "MASAgreementPaymentRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestResponse")]
+    [AWSCmdlet("Calls the AWS Marketplace Agreement Service AcceptAgreementPaymentRequest API operation.", Operation = new[] {"AcceptAgreementPaymentRequest"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestResponse))]
+    [AWSCmdletOutput("Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestResponse",
+        "This cmdlet returns an Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestResponse object containing multiple properties."
     )]
-    public partial class GetMASBillingAdjustmentRequestCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
+    public partial class ApproveMASAgreementPaymentRequestCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -49,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         #region Parameter AgreementId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agreement associated with the billing adjustment request.</para>
+        /// <para>The unique identifier of the agreement associated with the payment request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         public System.String AgreementId { get; set; }
         #endregion
         
-        #region Parameter BillingAdjustmentRequestId
+        #region Parameter PaymentRequestId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the billing adjustment request.</para>
+        /// <para>The unique identifier of the payment request to accept.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,18 +83,39 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BillingAdjustmentRequestId { get; set; }
+        public System.String PaymentRequestId { get; set; }
+        #endregion
+        
+        #region Parameter PurchaseOrderReference
+        /// <summary>
+        /// <para>
+        /// <para>An optional purchase order reference that buyers can provide to associate the payment
+        /// request with their internal purchase order system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PurchaseOrderReference { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse).
-        /// Specifying the name of a property of type Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestResponse).
+        /// Specifying the name of a property of type Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -100,6 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         {
             base.ProcessRecord();
             
+            var targetParameterNames = new string[]
+            {
+                nameof(this.AgreementId),
+                nameof(this.PaymentRequestId)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Approve-MASAgreementPaymentRequest (AcceptAgreementPaymentRequest)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -107,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse, GetMASBillingAdjustmentRequestCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestResponse, ApproveMASAgreementPaymentRequestCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AgreementId = this.AgreementId;
@@ -117,13 +155,14 @@ namespace Amazon.PowerShell.Cmdlets.MAS
                 WriteWarning("You are passing $null as a value for parameter AgreementId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.BillingAdjustmentRequestId = this.BillingAdjustmentRequestId;
+            context.PaymentRequestId = this.PaymentRequestId;
             #if MODULAR
-            if (this.BillingAdjustmentRequestId == null && ParameterWasBound(nameof(this.BillingAdjustmentRequestId)))
+            if (this.PaymentRequestId == null && ParameterWasBound(nameof(this.PaymentRequestId)))
             {
-                WriteWarning("You are passing $null as a value for parameter BillingAdjustmentRequestId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PaymentRequestId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PurchaseOrderReference = this.PurchaseOrderReference;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -138,15 +177,19 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestRequest();
+            var request = new Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestRequest();
             
             if (cmdletContext.AgreementId != null)
             {
                 request.AgreementId = cmdletContext.AgreementId;
             }
-            if (cmdletContext.BillingAdjustmentRequestId != null)
+            if (cmdletContext.PaymentRequestId != null)
             {
-                request.BillingAdjustmentRequestId = cmdletContext.BillingAdjustmentRequestId;
+                request.PaymentRequestId = cmdletContext.PaymentRequestId;
+            }
+            if (cmdletContext.PurchaseOrderReference != null)
+            {
+                request.PurchaseOrderReference = cmdletContext.PurchaseOrderReference;
             }
             
             CmdletOutput output;
@@ -181,12 +224,12 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         
         #region AWS Service Operation Call
         
-        private Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse CallAWSServiceOperation(IAmazonMarketplaceAgreement client, Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestRequest request)
+        private Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestResponse CallAWSServiceOperation(IAmazonMarketplaceAgreement client, Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Agreement Service", "GetBillingAdjustmentRequest");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Agreement Service", "AcceptAgreementPaymentRequest");
             try
             {
-                return client.GetBillingAdjustmentRequestAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.AcceptAgreementPaymentRequestAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -204,8 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgreementId { get; set; }
-            public System.String BillingAdjustmentRequestId { get; set; }
-            public System.Func<Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse, GetMASBillingAdjustmentRequestCmdlet, object> Select { get; set; } =
+            public System.String PaymentRequestId { get; set; }
+            public System.String PurchaseOrderReference { get; set; }
+            public System.Func<Amazon.MarketplaceAgreement.Model.AcceptAgreementPaymentRequestResponse, ApproveMASAgreementPaymentRequestCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

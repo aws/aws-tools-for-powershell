@@ -30,32 +30,18 @@ using Amazon.MarketplaceAgreement.Model;
 namespace Amazon.PowerShell.Cmdlets.MAS
 {
     /// <summary>
-    /// Obtains details about the terms in an agreement that you participated in as proposer
-    /// or acceptor.
-    /// 
-    ///  
-    /// <para>
-    /// The details include:
-    /// </para><ul><li><para><c>TermType</c> – The type of term, such as <c>LegalTerm</c>, <c>RenewalTerm</c>,
-    /// or <c>ConfigurableUpfrontPricingTerm</c>.
-    /// </para></li><li><para><c>TermID</c> – The ID of the particular term, which is common between offer and
-    /// agreement.
-    /// </para></li><li><para><c>TermPayload</c> – The key information contained in the term, such as the EULA
-    /// for <c>LegalTerm</c> or pricing and dimensions for various pricing terms, such as
-    /// <c>ConfigurableUpfrontPricingTerm</c> or <c>UsageBasedPricingTerm</c>.
-    /// </para></li></ul><ul><li><para><c>Configuration</c> – The buyer/acceptor's selection at the time of agreement creation,
-    /// such as the number of units purchased for a dimension or setting the <c>EnableAutoRenew</c>
-    /// flag.
-    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Allows acceptors to view charges and purchase orders that are associated with an agreement.
+    /// The response includes details about all charges regardless of whether a purchase order
+    /// is linked to each charge.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "MASAgreementTerm")]
-    [OutputType("Amazon.MarketplaceAgreement.Model.AcceptedTerm")]
-    [AWSCmdlet("Calls the AWS Marketplace Agreement Service GetAgreementTerms API operation.", Operation = new[] {"GetAgreementTerms"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse))]
-    [AWSCmdletOutput("Amazon.MarketplaceAgreement.Model.AcceptedTerm or Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse",
-        "This cmdlet returns a collection of Amazon.MarketplaceAgreement.Model.AcceptedTerm objects.",
-        "The service call response (type Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "MASAgreementChargeList")]
+    [OutputType("Amazon.MarketplaceAgreement.Model.Charge")]
+    [AWSCmdlet("Calls the AWS Marketplace Agreement Service ListAgreementCharges API operation.", Operation = new[] {"ListAgreementCharges"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.ListAgreementChargesResponse))]
+    [AWSCmdletOutput("Amazon.MarketplaceAgreement.Model.Charge or Amazon.MarketplaceAgreement.Model.ListAgreementChargesResponse",
+        "This cmdlet returns a collection of Amazon.MarketplaceAgreement.Model.Charge objects.",
+        "The service call response (type Amazon.MarketplaceAgreement.Model.ListAgreementChargesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetMASAgreementTermCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
+    public partial class GetMASAgreementChargeListCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -67,21 +53,34 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         /// <para>The unique identifier of the agreement.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AgreementId { get; set; }
+        #endregion
+        
+        #region Parameter AgreementType
+        /// <summary>
+        /// <para>
+        /// <para>Filter to retrieve charges of a specific agreement type (for example, <c>PurchaseAgreement</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AgreementType { get; set; }
+        #endregion
+        
+        #region Parameter Catalog
+        /// <summary>
+        /// <para>
+        /// <para>The catalog in which the charges were created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Catalog { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of agreements to return in the response.</para>
+        /// <para>The maximum number of charges to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -110,13 +109,13 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AcceptedTerms'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse).
-        /// Specifying the name of a property of type Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceAgreement.Model.ListAgreementChargesResponse).
+        /// Specifying the name of a property of type Amazon.MarketplaceAgreement.Model.ListAgreementChargesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AcceptedTerms";
+        public string Select { get; set; } = "Items";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -124,7 +123,6 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -146,16 +144,12 @@ namespace Amazon.PowerShell.Cmdlets.MAS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse, GetMASAgreementTermCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.ListAgreementChargesResponse, GetMASAgreementChargeListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AgreementId = this.AgreementId;
-            #if MODULAR
-            if (this.AgreementId == null && ParameterWasBound(nameof(this.AgreementId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AgreementId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.AgreementType = this.AgreementType;
+            context.Catalog = this.Catalog;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -183,11 +177,19 @@ namespace Amazon.PowerShell.Cmdlets.MAS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.MarketplaceAgreement.Model.GetAgreementTermsRequest();
+            var request = new Amazon.MarketplaceAgreement.Model.ListAgreementChargesRequest();
             
             if (cmdletContext.AgreementId != null)
             {
                 request.AgreementId = cmdletContext.AgreementId;
+            }
+            if (cmdletContext.AgreementType != null)
+            {
+                request.AgreementType = cmdletContext.AgreementType;
+            }
+            if (cmdletContext.Catalog != null)
+            {
+                request.Catalog = cmdletContext.Catalog;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -197,7 +199,6 @@ namespace Amazon.PowerShell.Cmdlets.MAS
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -231,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -251,12 +252,12 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         
         #region AWS Service Operation Call
         
-        private Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse CallAWSServiceOperation(IAmazonMarketplaceAgreement client, Amazon.MarketplaceAgreement.Model.GetAgreementTermsRequest request)
+        private Amazon.MarketplaceAgreement.Model.ListAgreementChargesResponse CallAWSServiceOperation(IAmazonMarketplaceAgreement client, Amazon.MarketplaceAgreement.Model.ListAgreementChargesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Agreement Service", "GetAgreementTerms");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Agreement Service", "ListAgreementCharges");
             try
             {
-                return client.GetAgreementTermsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListAgreementChargesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -274,10 +275,12 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgreementId { get; set; }
+            public System.String AgreementType { get; set; }
+            public System.String Catalog { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse, GetMASAgreementTermCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AcceptedTerms;
+            public System.Func<Amazon.MarketplaceAgreement.Model.ListAgreementChargesResponse, GetMASAgreementChargeListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }

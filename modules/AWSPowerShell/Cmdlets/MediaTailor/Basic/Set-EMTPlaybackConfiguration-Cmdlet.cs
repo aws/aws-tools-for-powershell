@@ -171,6 +171,24 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.FillPolicy AvailSuppression_FillPolicy { get; set; }
         #endregion
         
+        #region Parameter FunctionMapping
+        /// <summary>
+        /// <para>
+        /// <para>A map of lifecycle hook event names to function identifiers. The function mapping
+        /// specifies which function MediaTailor executes at each lifecycle hook during ad insertion.
+        /// Valid keys are <c>PRE_SESSION_INITIALIZATION</c> and <c>PRE_ADS_REQUEST</c>. For more
+        /// information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions
+        /// lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable FunctionMapping { get; set; }
+        #endregion
+        
         #region Parameter HttpRequest_Header
         /// <summary>
         /// <para>
@@ -451,6 +469,14 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 }
             }
             context.DashConfiguration = this.DashConfiguration;
+            if (this.FunctionMapping != null)
+            {
+                context.FunctionMapping = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FunctionMapping.Keys)
+                {
+                    context.FunctionMapping.Add((String)hashKey, (System.String)(this.FunctionMapping[hashKey]));
+                }
+            }
             context.InsertionMode = this.InsertionMode;
             context.LivePreRollConfiguration_AdDecisionServerUrl = this.LivePreRollConfiguration_AdDecisionServerUrl;
             context.LivePreRollConfiguration_MaxDurationSecond = this.LivePreRollConfiguration_MaxDurationSecond;
@@ -657,6 +683,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             {
                 request.DashConfiguration = cmdletContext.DashConfiguration;
             }
+            if (cmdletContext.FunctionMapping != null)
+            {
+                request.FunctionMapping = cmdletContext.FunctionMapping;
+            }
             if (cmdletContext.InsertionMode != null)
             {
                 request.InsertionMode = cmdletContext.InsertionMode;
@@ -817,6 +847,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Amazon.MediaTailor.Model.CdnConfiguration CdnConfiguration { get; set; }
             public Dictionary<System.String, Dictionary<System.String, System.String>> ConfigurationAlias { get; set; }
             public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
+            public Dictionary<System.String, System.String> FunctionMapping { get; set; }
             public Amazon.MediaTailor.InsertionMode InsertionMode { get; set; }
             public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
             public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }

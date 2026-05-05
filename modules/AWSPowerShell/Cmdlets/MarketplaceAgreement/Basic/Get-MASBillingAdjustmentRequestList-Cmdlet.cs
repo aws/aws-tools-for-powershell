@@ -31,11 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
 {
     /// <summary>
     /// Lists billing adjustment requests for a specific agreement. Sellers (proposers) can
-    /// use this operation to view all billing adjustment requests associated with an agreement.
-    /// 
-    ///  <note><para>
-    /// Pagination is supported through <c>maxResults</c> and <c>nextToken</c> parameters.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// use this operation to view all billing adjustment requests associated with an agreement.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MASBillingAdjustmentRequestList")]
     [OutputType("Amazon.MarketplaceAgreement.Model.BillingAdjustmentSummary")]
@@ -85,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         /// <summary>
         /// <para>
         /// <para>An optional filter to return billing adjustment requests created after the specified
-        /// POSIX timestamp (Unix epoch seconds).</para>
+        /// timestamp.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         /// <summary>
         /// <para>
         /// <para>An optional filter to return billing adjustment requests created before the specified
-        /// POSIX timestamp (Unix epoch seconds).</para>
+        /// timestamp.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to specify where to start pagination. Use the <c>nextToken</c> value from
-        /// a previous response to retrieve the next page of results.</para>
+        /// <para>A token to specify where to start pagination.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

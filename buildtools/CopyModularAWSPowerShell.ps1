@@ -102,6 +102,3 @@ Copy-Item -Path "$assembliesFolder/netstandard2.0/AWSSDK.Extensions.EC2.DecryptP
 New-Item -Path "$modularDeploymentFolder/AWS.Tools.Installer" -ItemType Directory | Out-Null
 Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psd1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psd1"
 Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psm1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psm1"
-
-# Copy the publish dependency graph to the deployment folder
-Copy-Item -Path "$rootFolder/aws-tools-publish-dependency-graph.json" -Destination "$modularDeploymentFolder/aws-tools-publish-dependency-graph.json"

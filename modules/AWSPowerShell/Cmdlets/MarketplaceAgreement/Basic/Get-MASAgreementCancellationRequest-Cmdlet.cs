@@ -33,11 +33,6 @@ namespace Amazon.PowerShell.Cmdlets.MAS
     /// Retrieves detailed information about a specific agreement cancellation request. Both
     /// sellers (proposers) and buyers (acceptors) can use this operation to view cancellation
     /// requests associated with their agreements.
-    /// 
-    ///  <note><para>
-    /// The calling identity must be either the acceptor or proposer of the agreement. A <c>ResourceNotFoundException</c>
-    /// is returned if the cancellation request does not exist.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "MASAgreementCancellationRequest")]
     [OutputType("Amazon.MarketplaceAgreement.Model.GetAgreementCancellationRequestResponse")]

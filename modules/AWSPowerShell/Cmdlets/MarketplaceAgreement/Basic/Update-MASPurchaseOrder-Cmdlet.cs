@@ -30,65 +30,62 @@ using Amazon.MarketplaceAgreement.Model;
 namespace Amazon.PowerShell.Cmdlets.MAS
 {
     /// <summary>
-    /// Retrieves detailed information about a specific billing adjustment request. Sellers
-    /// (proposers) can use this operation to view the status and details of a billing adjustment
-    /// request they submitted.
+    /// Allows acceptors to associate purchase orders with agreement charges after an agreement
+    /// is created.
     /// </summary>
-    [Cmdlet("Get", "MASBillingAdjustmentRequest")]
-    [OutputType("Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse")]
-    [AWSCmdlet("Calls the AWS Marketplace Agreement Service GetBillingAdjustmentRequest API operation.", Operation = new[] {"GetBillingAdjustmentRequest"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse))]
-    [AWSCmdletOutput("Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse",
-        "This cmdlet returns an Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse object containing multiple properties."
+    [Cmdlet("Update", "MASPurchaseOrder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Marketplace Agreement Service UpdatePurchaseOrders API operation.", Operation = new[] {"UpdatePurchaseOrders"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.UpdatePurchaseOrdersResponse))]
+    [AWSCmdletOutput("None or Amazon.MarketplaceAgreement.Model.UpdatePurchaseOrdersResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.MarketplaceAgreement.Model.UpdatePurchaseOrdersResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetMASBillingAdjustmentRequestCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
+    public partial class UpdateMASPurchaseOrderCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AgreementId
+        #region Parameter PurchaseOrder
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agreement associated with the billing adjustment request.</para>
+        /// <para>Contains information about purchase order associations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AgreementId { get; set; }
-        #endregion
-        
-        #region Parameter BillingAdjustmentRequestId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the billing adjustment request.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BillingAdjustmentRequestId { get; set; }
+        [Alias("PurchaseOrders")]
+        public Amazon.MarketplaceAgreement.Model.PurchaseOrder[] PurchaseOrder { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse).
-        /// Specifying the name of a property of type Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceAgreement.Model.UpdatePurchaseOrdersResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -100,6 +97,12 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-MASPurchaseOrder (UpdatePurchaseOrders)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -107,21 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.MAS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse, GetMASBillingAdjustmentRequestCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.UpdatePurchaseOrdersResponse, UpdateMASPurchaseOrderCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AgreementId = this.AgreementId;
-            #if MODULAR
-            if (this.AgreementId == null && ParameterWasBound(nameof(this.AgreementId)))
+            if (this.PurchaseOrder != null)
             {
-                WriteWarning("You are passing $null as a value for parameter AgreementId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.PurchaseOrder = new List<Amazon.MarketplaceAgreement.Model.PurchaseOrder>(this.PurchaseOrder);
             }
-            #endif
-            context.BillingAdjustmentRequestId = this.BillingAdjustmentRequestId;
             #if MODULAR
-            if (this.BillingAdjustmentRequestId == null && ParameterWasBound(nameof(this.BillingAdjustmentRequestId)))
+            if (this.PurchaseOrder == null && ParameterWasBound(nameof(this.PurchaseOrder)))
             {
-                WriteWarning("You are passing $null as a value for parameter BillingAdjustmentRequestId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PurchaseOrder which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -138,15 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestRequest();
+            var request = new Amazon.MarketplaceAgreement.Model.UpdatePurchaseOrdersRequest();
             
-            if (cmdletContext.AgreementId != null)
+            if (cmdletContext.PurchaseOrder != null)
             {
-                request.AgreementId = cmdletContext.AgreementId;
-            }
-            if (cmdletContext.BillingAdjustmentRequestId != null)
-            {
-                request.BillingAdjustmentRequestId = cmdletContext.BillingAdjustmentRequestId;
+                request.PurchaseOrders = cmdletContext.PurchaseOrder;
             }
             
             CmdletOutput output;
@@ -181,12 +176,12 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         
         #region AWS Service Operation Call
         
-        private Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse CallAWSServiceOperation(IAmazonMarketplaceAgreement client, Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestRequest request)
+        private Amazon.MarketplaceAgreement.Model.UpdatePurchaseOrdersResponse CallAWSServiceOperation(IAmazonMarketplaceAgreement client, Amazon.MarketplaceAgreement.Model.UpdatePurchaseOrdersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Agreement Service", "GetBillingAdjustmentRequest");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Agreement Service", "UpdatePurchaseOrders");
             try
             {
-                return client.GetBillingAdjustmentRequestAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdatePurchaseOrdersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -203,10 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AgreementId { get; set; }
-            public System.String BillingAdjustmentRequestId { get; set; }
-            public System.Func<Amazon.MarketplaceAgreement.Model.GetBillingAdjustmentRequestResponse, GetMASBillingAdjustmentRequestCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public List<Amazon.MarketplaceAgreement.Model.PurchaseOrder> PurchaseOrder { get; set; }
+            public System.Func<Amazon.MarketplaceAgreement.Model.UpdatePurchaseOrdersResponse, UpdateMASPurchaseOrderCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

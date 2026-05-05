@@ -35,8 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
     /// requests by specifying their party type and applying optional filters.
     /// 
     ///  <note><para><c>PartyType</c> is a required parameter. A <c>ValidationException</c> is returned
-    /// if <c>PartyType</c> is not provided. Pagination is supported through <c>maxResults</c>
-    /// (1-50, default 20) and <c>nextToken</c> parameters.
+    /// if <c>PartyType</c> is not provided.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MASAgreementCancellationRequestList")]
@@ -104,8 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>An optional parameter to filter cancellation requests by status. Valid values include
-        /// <c>PENDING_APPROVAL</c>, <c>APPROVED</c>, <c>REJECTED</c>, <c>CANCELLED</c>, and <c>VALIDATION_FAILED</c>.</para>
+        /// <para>An optional parameter to filter cancellation requests by status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to specify where to start pagination. Use the <c>nextToken</c> value from
-        /// a previous response to retrieve the next page of results.</para>
+        /// <para>A token to specify where to start pagination.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

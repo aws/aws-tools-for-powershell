@@ -23,50 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Route53Domains;
-using Amazon.Route53Domains.Model;
+using Amazon.MarketplaceAgreement;
+using Amazon.MarketplaceAgreement.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.R53D
+namespace Amazon.PowerShell.Cmdlets.MAS
 {
     /// <summary>
-    /// This operation deletes the specified domain. This action is permanent. For more information,
-    /// see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-delete.html">Deleting
-    /// a domain name registration</a>.
-    /// 
-    ///  
-    /// <para>
-    /// To transfer the domain registration to another registrar, use the transfer process
-    /// that’s provided by the registrar to which you want to transfer the registration. Otherwise,
-    /// the following apply:
-    /// </para><ol><li><para>
-    /// You can’t get a refund for the cost of a deleted domain registration.
-    /// </para></li><li><para>
-    /// The registry for the top-level domain might hold the domain name for a brief time
-    /// before releasing it for other users to register (varies by registry). 
-    /// </para></li><li><para>
-    /// When the registration has been deleted, we'll send you a confirmation to the registrant
-    /// contact. The email will come from <c>noreply@domainnameverification.net</c> or <c>noreply@emailverification.info</c>
-    /// or <c>noreply@registrar.amazon</c>.
-    /// </para></li></ol>
+    /// Accepts an agreement request to finalize the agreement. The acceptor can optionally
+    /// provide purchase orders to associate with the agreement charges.
     /// </summary>
-    [Cmdlet("Remove", "R53DDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Approve", "MASAgreementRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Route 53 Domains DeleteDomain API operation.", Operation = new[] {"DeleteDomain"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.DeleteDomainResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Route53Domains.Model.DeleteDomainResponse",
+    [AWSCmdlet("Calls the AWS Marketplace Agreement Service AcceptAgreementRequest API operation.", Operation = new[] {"AcceptAgreementRequest"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestResponse))]
+    [AWSCmdletOutput("System.String or Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53Domains.Model.DeleteDomainResponse) can be returned by specifying '-Select *'."
+        "The service call response (type Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveR53DDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class ApproveMASAgreementRequestCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainName
+        #region Parameter AgreementRequestId
         /// <summary>
         /// <para>
-        /// <para>Name of the domain to be deleted.</para>
+        /// <para>The unique identifier of the agreement request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,18 +60,33 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainName { get; set; }
+        public System.String AgreementRequestId { get; set; }
+        #endregion
+        
+        #region Parameter PurchaseOrder
+        /// <summary>
+        /// <para>
+        /// <para>A list of purchase orders associated with accepting a marketplace agreement request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PurchaseOrders")]
+        public Amazon.MarketplaceAgreement.Model.PurchaseOrder[] PurchaseOrder { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'OperationId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Domains.Model.DeleteDomainResponse).
-        /// Specifying the name of a property of type Amazon.Route53Domains.Model.DeleteDomainResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AgreementId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestResponse).
+        /// Specifying the name of a property of type Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "OperationId";
+        public string Select { get; set; } = "AgreementId";
         #endregion
         
         #region Parameter Force
@@ -110,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-R53DDomain (DeleteDomain)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AgreementRequestId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Approve-MASAgreementRequest (AcceptAgreementRequest)"))
             {
                 return;
             }
@@ -123,16 +121,20 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53Domains.Model.DeleteDomainResponse, RemoveR53DDomainCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestResponse, ApproveMASAgreementRequestCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainName = this.DomainName;
+            context.AgreementRequestId = this.AgreementRequestId;
             #if MODULAR
-            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            if (this.AgreementRequestId == null && ParameterWasBound(nameof(this.AgreementRequestId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AgreementRequestId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PurchaseOrder != null)
+            {
+                context.PurchaseOrder = new List<Amazon.MarketplaceAgreement.Model.PurchaseOrder>(this.PurchaseOrder);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,11 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Domains.Model.DeleteDomainRequest();
+            var request = new Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestRequest();
             
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.AgreementRequestId != null)
             {
-                request.DomainName = cmdletContext.DomainName;
+                request.AgreementRequestId = cmdletContext.AgreementRequestId;
+            }
+            if (cmdletContext.PurchaseOrder != null)
+            {
+                request.PurchaseOrders = cmdletContext.PurchaseOrder;
             }
             
             CmdletOutput output;
@@ -186,12 +192,12 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Domains.Model.DeleteDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.DeleteDomainRequest request)
+        private Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestResponse CallAWSServiceOperation(IAmazonMarketplaceAgreement client, Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "DeleteDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Agreement Service", "AcceptAgreementRequest");
             try
             {
-                return client.DeleteDomainAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.AcceptAgreementRequestAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -208,9 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainName { get; set; }
-            public System.Func<Amazon.Route53Domains.Model.DeleteDomainResponse, RemoveR53DDomainCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.OperationId;
+            public System.String AgreementRequestId { get; set; }
+            public List<Amazon.MarketplaceAgreement.Model.PurchaseOrder> PurchaseOrder { get; set; }
+            public System.Func<Amazon.MarketplaceAgreement.Model.AcceptAgreementRequestResponse, ApproveMASAgreementRequestCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AgreementId;
         }
         
     }

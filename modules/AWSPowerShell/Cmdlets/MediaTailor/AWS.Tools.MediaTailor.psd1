@@ -95,6 +95,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMTChannelList', 
         'Get-EMTChannelPolicy', 
         'Get-EMTChannelSchedule', 
+        'Get-EMTFunction', 
+        'Get-EMTFunctionList', 
         'Get-EMTLiveSource', 
         'Get-EMTLiveSourceList', 
         'Get-EMTPlaybackConfiguration', 
@@ -115,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EMTVodSource', 
         'Remove-EMTChannel', 
         'Remove-EMTChannelPolicy', 
+        'Remove-EMTFunction', 
         'Remove-EMTLiveSource', 
         'Remove-EMTPlaybackConfiguration', 
         'Remove-EMTPrefetchSchedule', 
@@ -130,7 +133,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-EMTProgram', 
         'Update-EMTSourceLocation', 
         'Update-EMTVodSource', 
-        'Write-EMTChannelPolicy')
+        'Write-EMTChannelPolicy', 
+        'Write-EMTFunction')
 
     # Variables to export from this module
     VariablesToExport = '*'

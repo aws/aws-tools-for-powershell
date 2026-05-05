@@ -104,6 +104,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.FunctionType
+        "Write-EMTFunction/FunctionType"
+        {
+            $v = "CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR"
+            break
+        }
+
         # Amazon.MediaTailor.InsertionMode
         "Set-EMTPlaybackConfiguration/InsertionMode"
         {
@@ -120,6 +127,13 @@ $EMT_Completers = {
 
         # Amazon.MediaTailor.Method
         "Set-EMTPlaybackConfiguration/HttpRequest_Method"
+        {
+            $v = "GET","POST"
+            break
+        }
+
+        # Amazon.MediaTailor.MethodType
+        "Write-EMTFunction/HttpRequestConfiguration_MethodType"
         {
             $v = "GET","POST"
             break
@@ -150,6 +164,17 @@ $EMT_Completers = {
         "New-EMTProgram/Transition_RelativePosition"
         {
             $v = "AFTER_PROGRAM","BEFORE_PROGRAM"
+            break
+        }
+
+        # Amazon.MediaTailor.RuntimeType
+        {
+            ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
+            ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
+            ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime")
+        }
+        {
+            $v = "JSONATA"
             break
         }
 
@@ -190,13 +215,18 @@ $EMT_map = @{
     "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
+    "FunctionType"=@("Write-EMTFunction")
     "HttpRequest_CompressRequest"=@("Set-EMTPlaybackConfiguration")
     "HttpRequest_Method"=@("Set-EMTPlaybackConfiguration")
+    "HttpRequestConfiguration_MethodType"=@("Write-EMTFunction")
+    "HttpRequestConfiguration_Runtime"=@("Write-EMTFunction")
     "InsertionMode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "RecurringRetrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
     "Retrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
     "ScheduleType"=@("Get-EMTPrefetchScheduleList","New-EMTPrefetchSchedule")
+    "SequentialExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "Tier"=@("New-EMTChannel")
     "Transition_RelativePosition"=@("New-EMTProgram")
 }
@@ -261,6 +291,7 @@ $EMT_SelectMap = @{
                "New-EMTVodSource",
                "Remove-EMTChannel",
                "Remove-EMTChannelPolicy",
+               "Remove-EMTFunction",
                "Remove-EMTLiveSource",
                "Remove-EMTPlaybackConfiguration",
                "Remove-EMTPrefetchSchedule",
@@ -274,10 +305,12 @@ $EMT_SelectMap = @{
                "Get-EMTVodSource",
                "Get-EMTChannelPolicy",
                "Get-EMTChannelSchedule",
+               "Get-EMTFunction",
                "Get-EMTPlaybackConfiguration",
                "Get-EMTPrefetchSchedule",
                "Get-EMTAlertList",
                "Get-EMTChannelList",
+               "Get-EMTFunctionList",
                "Get-EMTLiveSourceList",
                "Get-EMTPlaybackConfigurationList",
                "Get-EMTPrefetchScheduleList",
@@ -285,6 +318,7 @@ $EMT_SelectMap = @{
                "Get-EMTResourceTag",
                "Get-EMTVodSourceList",
                "Write-EMTChannelPolicy",
+               "Write-EMTFunction",
                "Set-EMTPlaybackConfiguration",
                "Start-EMTChannel",
                "Stop-EMTChannel",

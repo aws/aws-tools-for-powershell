@@ -62,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String DomainArn { get; set; }
         #endregion
         
+        #region Parameter VpcOptions_EgressEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Controls whether egress traffic from the domain is routed through the customer VPC.
+        /// When <c>true</c>, outbound traffic flows through the VPC. When <c>false</c>, outbound
+        /// traffic goes through the public internet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VpcOptions_EgressEnabled { get; set; }
+        #endregion
+        
         #region Parameter VpcOptions_SecurityGroupId
         /// <summary>
         /// <para>
@@ -160,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 WriteWarning("You are passing $null as a value for parameter DomainArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VpcOptions_EgressEnabled = this.VpcOptions_EgressEnabled;
             if (this.VpcOptions_SecurityGroupId != null)
             {
                 context.VpcOptions_SecurityGroupId = new List<System.String>(this.VpcOptions_SecurityGroupId);
@@ -196,6 +209,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
              // populate VpcOptions
             var requestVpcOptionsIsNull = true;
             request.VpcOptions = new Amazon.OpenSearchService.Model.VPCOptions();
+            System.Boolean? requestVpcOptions_vpcOptions_EgressEnabled = null;
+            if (cmdletContext.VpcOptions_EgressEnabled != null)
+            {
+                requestVpcOptions_vpcOptions_EgressEnabled = cmdletContext.VpcOptions_EgressEnabled.Value;
+            }
+            if (requestVpcOptions_vpcOptions_EgressEnabled != null)
+            {
+                request.VpcOptions.EgressEnabled = requestVpcOptions_vpcOptions_EgressEnabled.Value;
+                requestVpcOptionsIsNull = false;
+            }
             List<System.String> requestVpcOptions_vpcOptions_SecurityGroupId = null;
             if (cmdletContext.VpcOptions_SecurityGroupId != null)
             {
@@ -278,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         {
             public System.String ClientToken { get; set; }
             public System.String DomainArn { get; set; }
+            public System.Boolean? VpcOptions_EgressEnabled { get; set; }
             public List<System.String> VpcOptions_SecurityGroupId { get; set; }
             public List<System.String> VpcOptions_SubnetId { get; set; }
             public System.Func<Amazon.OpenSearchService.Model.CreateVpcEndpointResponse, NewOSVpcEndpointCmdlet, object> Select { get; set; } =

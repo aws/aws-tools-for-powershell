@@ -87,21 +87,31 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Approve-MASAgreementCancellationRequest', 
+        'Approve-MASAgreementPaymentRequest', 
+        'Approve-MASAgreementRequest', 
+        'Deny-MASAgreementCancellationRequest', 
+        'Deny-MASAgreementPaymentRequest', 
         'Get-MASAgreement', 
         'Get-MASAgreementCancellationRequest', 
         'Get-MASAgreementCancellationRequestList', 
+        'Get-MASAgreementChargeList', 
+        'Get-MASAgreementEntitlement', 
         'Get-MASAgreementInvoiceLineItemList', 
         'Get-MASAgreementPaymentRequest', 
         'Get-MASAgreementPaymentRequestList', 
         'Get-MASAgreementTerm', 
         'Get-MASBillingAdjustmentRequest', 
         'Get-MASBillingAdjustmentRequestList', 
+        'New-MASAgreementRequest', 
         'New-MASBillingAdjustmentRequestBatch', 
         'Search-MASAgreement', 
         'Send-MASAgreementCancellationRequest', 
         'Send-MASAgreementPaymentRequest', 
+        'Stop-MASAgreement', 
         'Stop-MASAgreementCancellationRequest', 
-        'Stop-MASAgreementPaymentRequest')
+        'Stop-MASAgreementPaymentRequest', 
+        'Update-MASPurchaseOrder')
 
     # Variables to export from this module
     VariablesToExport = '*'

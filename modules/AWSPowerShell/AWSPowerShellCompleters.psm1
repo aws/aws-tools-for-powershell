@@ -52353,6 +52353,13 @@ $MAS_Completers = {
             break
         }
 
+        # Amazon.MarketplaceAgreement.Intent
+        "New-MASAgreementRequest/Intent"
+        {
+            $v = "AMEND","NEW","REPLACE"
+            break
+        }
+
         # Amazon.MarketplaceAgreement.InvoiceType
         "Get-MASAgreementInvoiceLineItemList/InvoiceType"
         {
@@ -52381,6 +52388,13 @@ $MAS_Completers = {
             break
         }
 
+        # Amazon.MarketplaceAgreement.TaxEstimation
+        "New-MASAgreementRequest/TaxConfiguration_TaxEstimation"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -52391,10 +52405,12 @@ $MAS_Completers = {
 
 $MAS_map = @{
     "GroupBy"=@("Get-MASAgreementInvoiceLineItemList")
+    "Intent"=@("New-MASAgreementRequest")
     "InvoiceType"=@("Get-MASAgreementInvoiceLineItemList")
     "ReasonCode"=@("Send-MASAgreementCancellationRequest")
     "Sort_SortOrder"=@("Search-MASAgreement")
     "Status"=@("Get-MASAgreementCancellationRequestList","Get-MASAgreementPaymentRequestList","Get-MASBillingAdjustmentRequestList")
+    "TaxConfiguration_TaxEstimation"=@("New-MASAgreementRequest")
 }
 
 _awsArgumentCompleterRegistration $MAS_Completers $MAS_map
@@ -52447,21 +52463,31 @@ $MAS_SelectCompleters = {
 }
 
 $MAS_SelectMap = @{
-    "Select"=@("New-MASBillingAdjustmentRequestBatch",
+    "Select"=@("Approve-MASAgreementCancellationRequest",
+               "Approve-MASAgreementPaymentRequest",
+               "Approve-MASAgreementRequest",
+               "New-MASBillingAdjustmentRequestBatch",
+               "Stop-MASAgreement",
                "Stop-MASAgreementCancellationRequest",
                "Stop-MASAgreementPaymentRequest",
+               "New-MASAgreementRequest",
                "Get-MASAgreement",
                "Get-MASAgreementCancellationRequest",
+               "Get-MASAgreementEntitlement",
                "Get-MASAgreementPaymentRequest",
                "Get-MASAgreementTerm",
                "Get-MASBillingAdjustmentRequest",
                "Get-MASAgreementCancellationRequestList",
+               "Get-MASAgreementChargeList",
                "Get-MASAgreementInvoiceLineItemList",
                "Get-MASAgreementPaymentRequestList",
                "Get-MASBillingAdjustmentRequestList",
+               "Deny-MASAgreementCancellationRequest",
+               "Deny-MASAgreementPaymentRequest",
                "Search-MASAgreement",
                "Send-MASAgreementCancellationRequest",
-               "Send-MASAgreementPaymentRequest")
+               "Send-MASAgreementPaymentRequest",
+               "Update-MASPurchaseOrder")
 }
 
 _awsArgumentCompleterRegistration $MAS_SelectCompleters $MAS_SelectMap
@@ -54841,6 +54867,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.FunctionType
+        "Write-EMTFunction/FunctionType"
+        {
+            $v = "CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR"
+            break
+        }
+
         # Amazon.MediaTailor.InsertionMode
         "Set-EMTPlaybackConfiguration/InsertionMode"
         {
@@ -54857,6 +54890,13 @@ $EMT_Completers = {
 
         # Amazon.MediaTailor.Method
         "Set-EMTPlaybackConfiguration/HttpRequest_Method"
+        {
+            $v = "GET","POST"
+            break
+        }
+
+        # Amazon.MediaTailor.MethodType
+        "Write-EMTFunction/HttpRequestConfiguration_MethodType"
         {
             $v = "GET","POST"
             break
@@ -54887,6 +54927,17 @@ $EMT_Completers = {
         "New-EMTProgram/Transition_RelativePosition"
         {
             $v = "AFTER_PROGRAM","BEFORE_PROGRAM"
+            break
+        }
+
+        # Amazon.MediaTailor.RuntimeType
+        {
+            ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
+            ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
+            ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime")
+        }
+        {
+            $v = "JSONATA"
             break
         }
 
@@ -54927,13 +54978,18 @@ $EMT_map = @{
     "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
+    "FunctionType"=@("Write-EMTFunction")
     "HttpRequest_CompressRequest"=@("Set-EMTPlaybackConfiguration")
     "HttpRequest_Method"=@("Set-EMTPlaybackConfiguration")
+    "HttpRequestConfiguration_MethodType"=@("Write-EMTFunction")
+    "HttpRequestConfiguration_Runtime"=@("Write-EMTFunction")
     "InsertionMode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "RecurringRetrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
     "Retrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
     "ScheduleType"=@("Get-EMTPrefetchScheduleList","New-EMTPrefetchSchedule")
+    "SequentialExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "Tier"=@("New-EMTChannel")
     "Transition_RelativePosition"=@("New-EMTProgram")
 }
@@ -54998,6 +55054,7 @@ $EMT_SelectMap = @{
                "New-EMTVodSource",
                "Remove-EMTChannel",
                "Remove-EMTChannelPolicy",
+               "Remove-EMTFunction",
                "Remove-EMTLiveSource",
                "Remove-EMTPlaybackConfiguration",
                "Remove-EMTPrefetchSchedule",
@@ -55011,10 +55068,12 @@ $EMT_SelectMap = @{
                "Get-EMTVodSource",
                "Get-EMTChannelPolicy",
                "Get-EMTChannelSchedule",
+               "Get-EMTFunction",
                "Get-EMTPlaybackConfiguration",
                "Get-EMTPrefetchSchedule",
                "Get-EMTAlertList",
                "Get-EMTChannelList",
+               "Get-EMTFunctionList",
                "Get-EMTLiveSourceList",
                "Get-EMTPlaybackConfigurationList",
                "Get-EMTPrefetchScheduleList",
@@ -55022,6 +55081,7 @@ $EMT_SelectMap = @{
                "Get-EMTResourceTag",
                "Get-EMTVodSourceList",
                "Write-EMTChannelPolicy",
+               "Write-EMTFunction",
                "Set-EMTPlaybackConfiguration",
                "Start-EMTChannel",
                "Stop-EMTChannel",
@@ -75069,7 +75129,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType")
         }
         {
-            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
             break
         }
 

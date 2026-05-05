@@ -19,7 +19,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptAgreementCancellationRequest" OutputProperty="*" Verb="Approve" Noun="AgreementCancellationRequest" ShouldProcessTarget="AgreementCancellationRequestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcceptAgreementPaymentRequest" OutputProperty="*" Verb="Approve" Noun="AgreementPaymentRequest" ShouldProcessTarget="AgreementId,PaymentRequestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcceptAgreementRequest" OutputProperty="AgreementId" Verb="Approve" Noun="AgreementRequest" ShouldProcessTarget="AgreementRequestId" PipelineParameter="AgreementRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchCreateBillingAdjustmentRequest" OutputProperty="*" Verb="New" Noun="BillingAdjustmentRequestBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelAgreement" Verb="Stop" Noun="Agreement" ShouldProcessTarget="AgreementId" PipelineParameter="AgreementId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -31,11 +47,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgreementRequest" OutputProperty="*" Verb="New" Noun="AgreementRequest" ShouldProcessTarget="Intent" PipelineParameter="Intent" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAgreement" OutputProperty="*" Verb="Get" Noun="Agreement" PipelineParameter="AgreementId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAgreementCancellationRequest" OutputProperty="*" Verb="Get" Noun="AgreementCancellationRequest" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgreementEntitlements" OutputProperty="AgreementEntitlements" Verb="Get" Noun="AgreementEntitlement" PipelineParameter="AgreementId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAgreementCharges" OutputProperty="Items" Verb="Get" Noun="AgreementChargeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAgreementInvoiceLineItems" OutputProperty="AgreementInvoiceLineItemGroupSummaries" Verb="Get" Noun="AgreementInvoiceLineItemList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -67,6 +95,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RejectAgreementCancellationRequest" OutputProperty="*" Verb="Deny" Noun="AgreementCancellationRequest" ShouldProcessTarget="AgreementCancellationRequestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectAgreementPaymentRequest" OutputProperty="*" Verb="Deny" Noun="AgreementPaymentRequest" ShouldProcessTarget="AgreementId,PaymentRequestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchAgreements" OutputProperty="*" Verb="Search" Noun="Agreement" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -76,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendAgreementPaymentRequest" OutputProperty="*" Verb="Send" Noun="AgreementPaymentRequest" ShouldProcessTarget="AgreementId,TermId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePurchaseOrders" Verb="Update" Noun="PurchaseOrder" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

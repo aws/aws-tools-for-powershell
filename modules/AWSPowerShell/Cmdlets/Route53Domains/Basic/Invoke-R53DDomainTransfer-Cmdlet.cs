@@ -360,17 +360,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DurationInYears
         /// <summary>
         /// <para>
-        /// <para>The number of years that you want to register the domain for. Domains are registered
-        /// for a minimum of one year. The maximum period depends on the top-level domain.</para><para>Default: 1</para>
+        /// <para>Reserved for future use.</para><para>Currently, the effect of a domain transfer on the registration period varies by TLD.
+        /// For information about how transferring a domain affects the expiration date, see the
+        /// Transfer Term column in the pricing information at <a href="http://aws.amazon.com/route53/pricing/">Amazon
+        /// Route 53 Pricing</a>.</para><para>Default: 1</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? DurationInYears { get; set; }
         #endregion
         
@@ -933,12 +929,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             }
             #endif
             context.DurationInYears = this.DurationInYears;
-            #if MODULAR
-            if (this.DurationInYears == null && ParameterWasBound(nameof(this.DurationInYears)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DurationInYears which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.IdnLangCode = this.IdnLangCode;
             if (this.Nameserver != null)
             {

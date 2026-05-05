@@ -151,6 +151,23 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String[] AdsInteractionLog_PublishOptInEventType { get; set; }
         #endregion
         
+        #region Parameter ManifestServiceInteractionLog_PublishOptInEventType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that MediaTailor will emit the selected events in the logs for playback
+        /// sessions that are initialized with this configuration. These events are not emitted
+        /// by default and must be explicitly opted in.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestServiceInteractionLog_PublishOptInEventTypes")]
+        public System.String[] ManifestServiceInteractionLog_PublishOptInEventType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -212,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (this.ManifestServiceInteractionLog_ExcludeEventType != null)
             {
                 context.ManifestServiceInteractionLog_ExcludeEventType = new List<System.String>(this.ManifestServiceInteractionLog_ExcludeEventType);
+            }
+            if (this.ManifestServiceInteractionLog_PublishOptInEventType != null)
+            {
+                context.ManifestServiceInteractionLog_PublishOptInEventType = new List<System.String>(this.ManifestServiceInteractionLog_PublishOptInEventType);
             }
             context.PercentEnabled = this.PercentEnabled;
             #if MODULAR
@@ -290,6 +311,16 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 request.ManifestServiceInteractionLog.ExcludeEventTypes = requestManifestServiceInteractionLog_manifestServiceInteractionLog_ExcludeEventType;
                 requestManifestServiceInteractionLogIsNull = false;
             }
+            List<System.String> requestManifestServiceInteractionLog_manifestServiceInteractionLog_PublishOptInEventType = null;
+            if (cmdletContext.ManifestServiceInteractionLog_PublishOptInEventType != null)
+            {
+                requestManifestServiceInteractionLog_manifestServiceInteractionLog_PublishOptInEventType = cmdletContext.ManifestServiceInteractionLog_PublishOptInEventType;
+            }
+            if (requestManifestServiceInteractionLog_manifestServiceInteractionLog_PublishOptInEventType != null)
+            {
+                request.ManifestServiceInteractionLog.PublishOptInEventTypes = requestManifestServiceInteractionLog_manifestServiceInteractionLog_PublishOptInEventType;
+                requestManifestServiceInteractionLogIsNull = false;
+            }
              // determine if request.ManifestServiceInteractionLog should be set to null
             if (requestManifestServiceInteractionLogIsNull)
             {
@@ -362,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public List<System.String> AdsInteractionLog_PublishOptInEventType { get; set; }
             public List<System.String> EnabledLoggingStrategy { get; set; }
             public List<System.String> ManifestServiceInteractionLog_ExcludeEventType { get; set; }
+            public List<System.String> ManifestServiceInteractionLog_PublishOptInEventType { get; set; }
             public System.Int32? PercentEnabled { get; set; }
             public System.String PlaybackConfigurationName { get; set; }
             public System.Func<Amazon.MediaTailor.Model.ConfigureLogsForPlaybackConfigurationResponse, AddEMTLogsForPlaybackConfigurationCmdlet, object> Select { get; set; } =

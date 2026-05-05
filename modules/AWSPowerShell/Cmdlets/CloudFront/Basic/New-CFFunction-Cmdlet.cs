@@ -110,6 +110,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public Amazon.CloudFront.Model.KeyValueStoreAssociation[] KeyValueStoreAssociations_Item { get; set; }
         #endregion
         
+        #region Parameter Tags_Item
+        /// <summary>
+        /// <para>
+        /// <para>A complex type that contains <c>Tag</c> elements.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags_Items")]
+        public Amazon.CloudFront.Model.Tag[] Tags_Item { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -234,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tags_Item != null)
+            {
+                context.Tags_Item = new List<Amazon.CloudFront.Model.Tag>(this.Tags_Item);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -328,6 +347,25 @@ namespace Amazon.PowerShell.Cmdlets.CF
                     request.Name = cmdletContext.Name;
                 }
                 
+                 // populate Tags
+                var requestTagsIsNull = true;
+                request.Tags = new Amazon.CloudFront.Model.Tags();
+                List<Amazon.CloudFront.Model.Tag> requestTags_tags_Item = null;
+                if (cmdletContext.Tags_Item != null)
+                {
+                    requestTags_tags_Item = cmdletContext.Tags_Item;
+                }
+                if (requestTags_tags_Item != null)
+                {
+                    request.Tags.Items = requestTags_tags_Item;
+                    requestTagsIsNull = false;
+                }
+                 // determine if request.Tags should be set to null
+                if (requestTagsIsNull)
+                {
+                    request.Tags = null;
+                }
+                
                 CmdletOutput output;
                 
                 // issue call
@@ -396,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? KeyValueStoreAssociations_Quantity { get; set; }
             public Amazon.CloudFront.FunctionRuntime FunctionConfig_Runtime { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.CloudFront.Model.Tag> Tags_Item { get; set; }
             public System.Func<Amazon.CloudFront.Model.CreateFunctionResponse, NewCFFunctionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

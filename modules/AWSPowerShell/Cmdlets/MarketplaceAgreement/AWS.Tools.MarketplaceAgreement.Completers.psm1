@@ -101,6 +101,13 @@ $MAS_Completers = {
             break
         }
 
+        # Amazon.MarketplaceAgreement.Intent
+        "New-MASAgreementRequest/Intent"
+        {
+            $v = "AMEND","NEW","REPLACE"
+            break
+        }
+
         # Amazon.MarketplaceAgreement.InvoiceType
         "Get-MASAgreementInvoiceLineItemList/InvoiceType"
         {
@@ -129,6 +136,13 @@ $MAS_Completers = {
             break
         }
 
+        # Amazon.MarketplaceAgreement.TaxEstimation
+        "New-MASAgreementRequest/TaxConfiguration_TaxEstimation"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -139,10 +153,12 @@ $MAS_Completers = {
 
 $MAS_map = @{
     "GroupBy"=@("Get-MASAgreementInvoiceLineItemList")
+    "Intent"=@("New-MASAgreementRequest")
     "InvoiceType"=@("Get-MASAgreementInvoiceLineItemList")
     "ReasonCode"=@("Send-MASAgreementCancellationRequest")
     "Sort_SortOrder"=@("Search-MASAgreement")
     "Status"=@("Get-MASAgreementCancellationRequestList","Get-MASAgreementPaymentRequestList","Get-MASBillingAdjustmentRequestList")
+    "TaxConfiguration_TaxEstimation"=@("New-MASAgreementRequest")
 }
 
 _awsArgumentCompleterRegistration $MAS_Completers $MAS_map
@@ -195,21 +211,31 @@ $MAS_SelectCompleters = {
 }
 
 $MAS_SelectMap = @{
-    "Select"=@("New-MASBillingAdjustmentRequestBatch",
+    "Select"=@("Approve-MASAgreementCancellationRequest",
+               "Approve-MASAgreementPaymentRequest",
+               "Approve-MASAgreementRequest",
+               "New-MASBillingAdjustmentRequestBatch",
+               "Stop-MASAgreement",
                "Stop-MASAgreementCancellationRequest",
                "Stop-MASAgreementPaymentRequest",
+               "New-MASAgreementRequest",
                "Get-MASAgreement",
                "Get-MASAgreementCancellationRequest",
+               "Get-MASAgreementEntitlement",
                "Get-MASAgreementPaymentRequest",
                "Get-MASAgreementTerm",
                "Get-MASBillingAdjustmentRequest",
                "Get-MASAgreementCancellationRequestList",
+               "Get-MASAgreementChargeList",
                "Get-MASAgreementInvoiceLineItemList",
                "Get-MASAgreementPaymentRequestList",
                "Get-MASBillingAdjustmentRequestList",
+               "Deny-MASAgreementCancellationRequest",
+               "Deny-MASAgreementPaymentRequest",
                "Search-MASAgreement",
                "Send-MASAgreementCancellationRequest",
-               "Send-MASAgreementPaymentRequest")
+               "Send-MASAgreementPaymentRequest",
+               "Update-MASPurchaseOrder")
 }
 
 _awsArgumentCompleterRegistration $MAS_SelectCompleters $MAS_SelectMap

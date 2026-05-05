@@ -1,4 +1,38 @@
-﻿### 5.0.207 (2026-05-04 20:31Z)
+﻿### 5.0.208 (2026-05-05 20:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.244.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFront
+    * Modified cmdlet New-CFFunction: added parameter Tags_Item.
+    * Modified cmdlet New-CFKeyValueStore: added parameter Tags_Item.
+  * Amazon Elemental MediaTailor
+    * Added cmdlet Get-EMTFunction leveraging the GetFunction service API.
+    * Added cmdlet Get-EMTFunctionList leveraging the ListFunctions service API.
+    * Added cmdlet Remove-EMTFunction leveraging the DeleteFunction service API.
+    * Added cmdlet Write-EMTFunction leveraging the PutFunction service API.
+    * Modified cmdlet Add-EMTLogsForPlaybackConfiguration: added parameter ManifestServiceInteractionLog_PublishOptInEventType.
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameter FunctionMapping.
+  * Amazon Marketplace Agreement Service
+    * Added cmdlet Approve-MASAgreementCancellationRequest leveraging the AcceptAgreementCancellationRequest service API.
+    * Added cmdlet Approve-MASAgreementPaymentRequest leveraging the AcceptAgreementPaymentRequest service API.
+    * Added cmdlet Approve-MASAgreementRequest leveraging the AcceptAgreementRequest service API.
+    * Added cmdlet Deny-MASAgreementCancellationRequest leveraging the RejectAgreementCancellationRequest service API.
+    * Added cmdlet Deny-MASAgreementPaymentRequest leveraging the RejectAgreementPaymentRequest service API.
+    * Added cmdlet Get-MASAgreementChargeList leveraging the ListAgreementCharges service API.
+    * Added cmdlet Get-MASAgreementEntitlement leveraging the GetAgreementEntitlements service API.
+    * Added cmdlet New-MASAgreementRequest leveraging the CreateAgreementRequest service API.
+    * Added cmdlet Stop-MASAgreement leveraging the CancelAgreement service API.
+    * Added cmdlet Update-MASPurchaseOrder leveraging the UpdatePurchaseOrders service API.
+  * Amazon Medical Imaging Service
+    * Modified cmdlet Start-MISDICOMImportJob: added parameter ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter VPCOptions_EgressEnabled.
+    * Modified cmdlet New-OSVpcEndpoint: added parameter VpcOptions_EgressEnabled.
+    * Modified cmdlet Update-OSDomainConfig: added parameter VPCOptions_EgressEnabled.
+    * Modified cmdlet Update-OSVpcEndpoint: added parameter VpcOptions_EgressEnabled.
+  * Amazon Simple Storage Service (S3)
+    * [Breaking Change] Modified cmdlet Copy-S3Object: output changed from Amazon.S3.Model.S3Object, System.IO.FileInfo and System.IO.DirectoryInfo to Amazon.S3.Model.S3Object, System.IO.FileInfo, System.IO.DirectoryInfo, Amazon.S3.Transfer.TransferUtilityDownloadResponse and Amazon.S3.Transfer.TransferUtilityDownloadDirectoryResponse; added parameters ConcurrentServiceRequest, DownloadFilesConcurrently, FailurePolicy, MultipartDownloadType, PartSize and UseMultipartDownload.
+    * [Breaking Change] Modified cmdlet Read-S3Object: output changed from System.IO.FileInfo and System.IO.DirectoryInfo to System.IO.FileInfo, System.IO.DirectoryInfo, Amazon.S3.Transfer.TransferUtilityDownloadResponse and Amazon.S3.Transfer.TransferUtilityDownloadDirectoryResponse; added parameters ConcurrentServiceRequest, DownloadFilesConcurrently, FailurePolicy, MultipartDownloadType, PartSize and UseMultipartDownload.
+
+### 5.0.207 (2026-05-04 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.243.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCGateway: added parameters ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond and ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming.

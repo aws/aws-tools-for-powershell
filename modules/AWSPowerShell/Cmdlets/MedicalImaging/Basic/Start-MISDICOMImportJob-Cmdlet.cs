@@ -31,9 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
 {
     /// <summary>
     /// Start importing bulk data into an <c>ACTIVE</c> data store. The import job imports
-    /// DICOM P10 files found in the S3 prefix specified by the <c>inputS3Uri</c> parameter.
-    /// The import job stores processing results in the file specified by the <c>outputS3Uri</c>
-    /// parameter.
+    /// DICOM P10 files or enhances existing DICOM files with JSON metadata. The <c>importConfiguration</c>
+    /// parameter specifies the import type. The data is found in the S3 prefix specified
+    /// by the <c>inputS3Uri</c> parameter. The import job stores processing results in the
+    /// file specified by the <c>outputS3Uri</c> parameter.
     /// </summary>
     [Cmdlet("Start", "MISDICOMImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MedicalImaging.Model.StartDICOMImportJobResponse")]
@@ -80,6 +81,21 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DatastoreId { get; set; }
+        #endregion
+        
+        #region Parameter ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping
+        /// <summary>
+        /// <para>
+        /// <para>Maps DCM files to their metadata.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMappings")]
+        public Amazon.MedicalImaging.Model.DicomMetadataMapping[] ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping { get; set; }
         #endregion
         
         #region Parameter InputOwnerAccountId
@@ -207,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                 WriteWarning("You are passing $null as a value for parameter DatastoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping != null)
+            {
+                context.ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping = new List<Amazon.MedicalImaging.Model.DicomMetadataMapping>(this.ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping);
+            }
             context.InputOwnerAccountId = this.InputOwnerAccountId;
             context.InputS3Uri = this.InputS3Uri;
             #if MODULAR
@@ -250,6 +270,40 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             if (cmdletContext.DatastoreId != null)
             {
                 request.DatastoreId = cmdletContext.DatastoreId;
+            }
+            
+             // populate ImportConfiguration
+            var requestImportConfigurationIsNull = true;
+            request.ImportConfiguration = new Amazon.MedicalImaging.Model.ImportConfiguration();
+            Amazon.MedicalImaging.Model.DicomJsonMetadataImportConfiguration requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration = null;
+            
+             // populate DicomJsonMetadataImportConfiguration
+            var requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfigurationIsNull = true;
+            requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration = new Amazon.MedicalImaging.Model.DicomJsonMetadataImportConfiguration();
+            List<Amazon.MedicalImaging.Model.DicomMetadataMapping> requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping = null;
+            if (cmdletContext.ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping != null)
+            {
+                requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping = cmdletContext.ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping;
+            }
+            if (requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping != null)
+            {
+                requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration.DicomMetadataMappings = requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping;
+                requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfigurationIsNull = false;
+            }
+             // determine if requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration should be set to null
+            if (requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfigurationIsNull)
+            {
+                requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration = null;
+            }
+            if (requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration != null)
+            {
+                request.ImportConfiguration.DicomJsonMetadataImportConfiguration = requestImportConfiguration_importConfiguration_DicomJsonMetadataImportConfiguration;
+                requestImportConfigurationIsNull = false;
+            }
+             // determine if request.ImportConfiguration should be set to null
+            if (requestImportConfigurationIsNull)
+            {
+                request.ImportConfiguration = null;
             }
             if (cmdletContext.InputOwnerAccountId != null)
             {
@@ -325,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             public System.String ClientToken { get; set; }
             public System.String DataAccessRoleArn { get; set; }
             public System.String DatastoreId { get; set; }
+            public List<Amazon.MedicalImaging.Model.DicomMetadataMapping> ImportConfiguration_DicomJsonMetadataImportConfiguration_DicomMetadataMapping { get; set; }
             public System.String InputOwnerAccountId { get; set; }
             public System.String InputS3Uri { get; set; }
             public System.String JobName { get; set; }

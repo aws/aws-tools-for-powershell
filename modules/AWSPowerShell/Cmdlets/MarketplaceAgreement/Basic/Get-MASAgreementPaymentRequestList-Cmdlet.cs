@@ -134,8 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to specify where to start pagination. Use the <c>nextToken</c> value from
-        /// a previous response to retrieve the next page of results.</para>
+        /// <para>A token to specify where to start pagination.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

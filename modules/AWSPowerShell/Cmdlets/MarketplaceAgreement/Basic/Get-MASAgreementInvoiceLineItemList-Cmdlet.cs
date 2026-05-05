@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.MAS
     /// by billing period, invoice type, and issued date.
     /// 
     ///  <note><para>
-    /// The <c>groupBy</c> parameter is required and currently supports only <c>INVOICE_ID</c>
-    /// as a value. The <c>agreementId</c> parameter is required.
+    /// The <c>groupBy</c> parameter is required and supports only <c>INVOICE_ID</c> as a
+    /// value. The <c>agreementId</c> parameter is required.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MASAgreementInvoiceLineItemList")]
