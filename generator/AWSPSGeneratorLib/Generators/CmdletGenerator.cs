@@ -342,7 +342,6 @@ namespace AWSPowerShellGenerator.Generators
                 SourceArtifacts.WriteLegacyAliasesModularFiles(LegacyAliases, ModelCollection.ConfigModels.Values);
                 SourceArtifacts.WriteCompletersModularFiles(ModelCollection.ConfigModels.Values);
                 SourceArtifacts.WriteModularManifestFiles(ModelCollection.ConfigModels.Values, LegacyAliases);
-                SourceArtifacts.WriteDependencyGraph(ModelCollection.ConfigModels.Values);
 
                 SourceArtifacts.WriteVersionFile();
 

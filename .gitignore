@@ -45,7 +45,6 @@ PSGalleryDownloads
 /buildConfigErrors
 /serviceNewOperationsMapping.json
 /serviceRemovedOperations.json
-/aws-tools-publish-dependency-graph.json
 
 codesign-zip
 *.binlog
