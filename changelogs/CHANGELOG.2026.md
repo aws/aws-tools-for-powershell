@@ -1,4 +1,17 @@
-﻿### 5.0.208 (2026-05-05 20:04Z)
+﻿### 5.0.209 (2026-05-06 20:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.245.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEDataQualityRulesetEvaluationRunList: added parameter Filter_RulesetName.
+    * Modified cmdlet Start-GLUEDataQualityRulesetEvaluationRun: added parameter AdditionalRunOptions_CustomLogGroupPrefix.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2BotLocale: added parameters AudioFillerSettings_AudioType, AudioFillerSettings_Enabled, AudioFillerSettings_MinimumPlayDurationInMillisecond, AudioFillerSettings_ResponseDeliveryDelayInMillisecond and AudioFillerSettings_StartDelayInMillisecond.
+    * Modified cmdlet Start-LMBV2Import: added parameters ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType, ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled, ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond, ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond and ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond.
+    * Modified cmdlet Update-LMBV2BotLocale: added parameters AudioFillerSettings_AudioType, AudioFillerSettings_Enabled, AudioFillerSettings_MinimumPlayDurationInMillisecond, AudioFillerSettings_ResponseDeliveryDelayInMillisecond and AudioFillerSettings_StartDelayInMillisecond.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBRecommendedPolicyV2 leveraging the GetRecommendedPolicyV2 service API.
+    * Added cmdlet New-SHUBRecommendedPolicyV2 leveraging the GenerateRecommendedPolicyV2 service API.
+
+### 5.0.208 (2026-05-05 20:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.244.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFront
     * Modified cmdlet New-CFFunction: added parameter Tags_Item.

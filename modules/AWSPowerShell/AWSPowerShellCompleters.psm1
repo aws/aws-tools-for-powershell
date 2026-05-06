@@ -56443,6 +56443,17 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.AudioFillerType
+        {
+            ($_ -eq "New-LMBV2BotLocale/AudioFillerSettings_AudioType") -Or
+            ($_ -eq "Update-LMBV2BotLocale/AudioFillerSettings_AudioType") -Or
+            ($_ -eq "Start-LMBV2Import/ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType")
+        }
+        {
+            $v = "MELODY_CHIPPER_CHIME","MELODY_CURIOUS_CRAWL","MELODY_PATIENT_PING","MELODY_PONDERING_PONG","MELODY_RISING_RIPPLE","TYPING_KINETIC_KEYS","TYPING_QUIET_QWERTY"
+            break
+        }
+
         # Amazon.LexModelsV2.AudioRecognitionStrategy
         {
             ($_ -eq "New-LMBV2SlotType/AdvancedRecognitionSetting_AudioRecognitionStrategy") -Or
@@ -56865,6 +56876,7 @@ $LMBV2_map = @{
     "AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "AnalysisScope"=@("Start-LMBV2BotAnalyzer")
     "ApiMode"=@("Start-LMBV2TestExecution")
+    "AudioFillerSettings_AudioType"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
     "BedrockModelConfiguration_TraceStatus"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "BotLocaleImportSpecification_SpeechDetectionSensitivity"=@("Start-LMBV2Import")
     "BotType"=@("New-LMBV2Bot","Update-LMBV2Bot")
@@ -56908,6 +56920,7 @@ $LMBV2_map = @{
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Intent","New-LMBV2Slot","Update-LMBV2Intent","Update-LMBV2Slot")
     "RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
+    "ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType"=@("Start-LMBV2Import")
     "ResultFilterBy_ResultTypeFilter"=@("Get-LMBV2TestExecutionResultItemList")
     "S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
     "SearchOrder"=@("Search-LMBV2AssociatedTranscript")
@@ -57747,7 +57760,7 @@ $MWAA_Completers = {
             ($_ -eq "Update-MWAAEnvironment/WebserverAccessMode")
         }
         {
-            $v = "PRIVATE_ONLY","PUBLIC_ONLY"
+            $v = "PRIVATE_ONLY","PUBLIC_AND_PRIVATE","PUBLIC_ONLY"
             break
         }
 
@@ -78652,6 +78665,7 @@ $SHUB_SelectMap = @{
                "Enable-SHUBOrganizationAdminAccount",
                "Enable-SHUBSecurityHub",
                "Enable-SHUBSecurityHubV2",
+               "New-SHUBRecommendedPolicyV2",
                "Get-SHUBAdministratorAccount",
                "Get-SHUBAggregatorV2",
                "Get-SHUBAutomationRuleV2",
@@ -78670,6 +78684,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBInvitationsCount",
                "Get-SHUBMasterAccount",
                "Get-SHUBMember",
+               "Get-SHUBRecommendedPolicyV2",
                "Get-SHUBResourcesStatisticsV2",
                "Get-SHUBResourcesTrendsV2",
                "Get-SHUBResourcesV2",

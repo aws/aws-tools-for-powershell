@@ -162,6 +162,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String GlueTable_ConnectionName { get; set; }
         #endregion
         
+        #region Parameter AdditionalRunOptions_CustomLogGroupPrefix
+        /// <summary>
+        /// <para>
+        /// <para>A custom prefix for the CloudWatch log group names. When specified, evaluation run
+        /// logs are written to <c>&lt;CustomLogGroupPrefix&gt;/error</c> and <c>&lt;CustomLogGroupPrefix&gt;/output</c>
+        /// instead of the default <c>/aws-glue/data-quality/error</c> and <c>/aws-glue/data-quality/output</c>
+        /// log groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_CustomLogGroupPrefix { get; set; }
+        #endregion
+        
         #region Parameter DataQualityGlueTable_DatabaseName
         /// <summary>
         /// <para>
@@ -357,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.AdditionalRunOptions_CloudWatchMetricsEnabled = this.AdditionalRunOptions_CloudWatchMetricsEnabled;
             context.AdditionalRunOptions_CompositeRuleEvaluationMethod = this.AdditionalRunOptions_CompositeRuleEvaluationMethod;
+            context.AdditionalRunOptions_CustomLogGroupPrefix = this.AdditionalRunOptions_CustomLogGroupPrefix;
             context.AdditionalRunOptions_ResultsS3Prefix = this.AdditionalRunOptions_ResultsS3Prefix;
             context.ClientToken = this.ClientToken;
             if (this.DataQualityGlueTable_AdditionalOption != null)
@@ -445,6 +459,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestAdditionalRunOptions_additionalRunOptions_CompositeRuleEvaluationMethod != null)
             {
                 request.AdditionalRunOptions.CompositeRuleEvaluationMethod = requestAdditionalRunOptions_additionalRunOptions_CompositeRuleEvaluationMethod;
+                requestAdditionalRunOptionsIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_CustomLogGroupPrefix = null;
+            if (cmdletContext.AdditionalRunOptions_CustomLogGroupPrefix != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_CustomLogGroupPrefix = cmdletContext.AdditionalRunOptions_CustomLogGroupPrefix;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_CustomLogGroupPrefix != null)
+            {
+                request.AdditionalRunOptions.CustomLogGroupPrefix = requestAdditionalRunOptions_additionalRunOptions_CustomLogGroupPrefix;
                 requestAdditionalRunOptionsIsNull = false;
             }
             System.String requestAdditionalRunOptions_additionalRunOptions_ResultsS3Prefix = null;
@@ -689,6 +713,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Dictionary<System.String, Amazon.Glue.Model.DataSource> AdditionalDataSource { get; set; }
             public System.Boolean? AdditionalRunOptions_CloudWatchMetricsEnabled { get; set; }
             public Amazon.Glue.DQCompositeRuleEvaluationMethod AdditionalRunOptions_CompositeRuleEvaluationMethod { get; set; }
+            public System.String AdditionalRunOptions_CustomLogGroupPrefix { get; set; }
             public System.String AdditionalRunOptions_ResultsS3Prefix { get; set; }
             public System.String ClientToken { get; set; }
             public Dictionary<System.String, System.String> DataQualityGlueTable_AdditionalOption { get; set; }

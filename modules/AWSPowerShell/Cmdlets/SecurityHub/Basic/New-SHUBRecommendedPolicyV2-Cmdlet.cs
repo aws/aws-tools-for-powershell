@@ -23,33 +23,34 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.MWAA;
-using Amazon.MWAA.Model;
+using Amazon.SecurityHub;
+using Amazon.SecurityHub.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.MWAA
+namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Associates key-value tag pairs to your Amazon Managed Workflows for Apache Airflow
-    /// (MWAA) environment.
+    /// Begins the recommended policy generation to remediate a Security Hub finding. <c>GenerateRecommendedPolicyV2</c>
+    /// only supports findings for unused permissions.
     /// </summary>
-    [Cmdlet("Add", "MWAAResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "SHUBRecommendedPolicyV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AmazonMWAA TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MWAA.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.MWAA.Model.TagResourceResponse",
+    [AWSCmdlet("Calls the AWS Security Hub GenerateRecommendedPolicyV2 API operation.", Operation = new[] {"GenerateRecommendedPolicyV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response))]
+    [AWSCmdletOutput("None or Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MWAA.Model.TagResourceResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response) be returned by specifying '-Select *'."
     )]
-    public partial class AddMWAAResourceTagCmdlet : AmazonMWAAClientCmdlet, IExecutor
+    public partial class NewSHUBRecommendedPolicyV2Cmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceArn
+        #region Parameter MetadataUid
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <c>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</c>.</para>
+        /// <para>The unique identifier (ID) of Security Hub OCSF findings found under the <c>metadata.uid</c>
+        /// field of the finding.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,37 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The key-value tag pairs you want to associate to your environment. For example, <c>"Environment":
-        /// "Staging"</c>. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web Services resources</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String MetadataUid { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MWAA.Model.TagResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-MWAAResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MetadataUid), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SHUBRecommendedPolicyV2 (GenerateRecommendedPolicyV2)"))
             {
                 return;
             }
@@ -129,28 +106,14 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MWAA.Model.TagResourceResponse, AddMWAAResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response, NewSHUBRecommendedPolicyV2Cmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ResourceArn = this.ResourceArn;
+            context.MetadataUid = this.MetadataUid;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.MetadataUid == null && ParameterWasBound(nameof(this.MetadataUid)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
-            #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MetadataUid which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -167,15 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MWAA.Model.TagResourceRequest();
+            var request = new Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Request();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.MetadataUid != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.MetadataUid = cmdletContext.MetadataUid;
             }
             
             CmdletOutput output;
@@ -210,12 +169,12 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         
         #region AWS Service Operation Call
         
-        private Amazon.MWAA.Model.TagResourceResponse CallAWSServiceOperation(IAmazonMWAA client, Amazon.MWAA.Model.TagResourceRequest request)
+        private Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AmazonMWAA", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GenerateRecommendedPolicyV2");
             try
             {
-                return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GenerateRecommendedPolicyV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -232,9 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.MWAA.Model.TagResourceResponse, AddMWAAResourceTagCmdlet, object> Select { get; set; } =
+            public System.String MetadataUid { get; set; }
+            public System.Func<Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response, NewSHUBRecommendedPolicyV2Cmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

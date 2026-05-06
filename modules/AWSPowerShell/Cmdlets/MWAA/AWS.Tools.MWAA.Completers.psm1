@@ -118,7 +118,7 @@ $MWAA_Completers = {
             ($_ -eq "Update-MWAAEnvironment/WebserverAccessMode")
         }
         {
-            $v = "PRIVATE_ONLY","PUBLIC_ONLY"
+            $v = "PRIVATE_ONLY","PUBLIC_AND_PRIVATE","PUBLIC_ONLY"
             break
         }
 

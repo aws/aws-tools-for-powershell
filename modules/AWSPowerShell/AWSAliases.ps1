@@ -30658,6 +30658,8 @@ Set-Alias -Name SHUB-EnableImportFindingsForProduct -Value Enable-SHUBImportFind
 Set-Alias -Name SHUB-EnableOrganizationAdminAccount -Value Enable-SHUBOrganizationAdminAccount
 Set-Alias -Name SHUB-EnableSecurityHub -Value Enable-SHUBSecurityHub
 Set-Alias -Name SHUB-EnableSecurityHubV2 -Value Enable-SHUBSecurityHubV2
+Set-Alias -Name Generate-SHUBRecommendedPolicyV2 -Value New-SHUBRecommendedPolicyV2
+Set-Alias -Name SHUB-GenerateRecommendedPolicyV2 -Value New-SHUBRecommendedPolicyV2
 Set-Alias -Name SHUB-GetAdministratorAccount -Value Get-SHUBAdministratorAccount
 Set-Alias -Name SHUB-GetAggregatorV2 -Value Get-SHUBAggregatorV2
 Set-Alias -Name SHUB-GetAutomationRuleV2 -Value Get-SHUBAutomationRuleV2
@@ -30681,6 +30683,7 @@ Set-Alias -Name SHUB-GetInvitationsCount -Value Get-SHUBInvitationsCount
 Set-Alias -Name SHUB-GetMasterAccount -Value Get-SHUBMasterAccount
 Set-Alias -Name Get-SHUBMembers -Value Get-SHUBMember
 Set-Alias -Name SHUB-GetMembers -Value Get-SHUBMember
+Set-Alias -Name SHUB-GetRecommendedPolicyV2 -Value Get-SHUBRecommendedPolicyV2
 Set-Alias -Name SHUB-GetResourcesStatisticsV2 -Value Get-SHUBResourcesStatisticsV2
 Set-Alias -Name SHUB-GetResourcesTrendsV2 -Value Get-SHUBResourcesTrendsV2
 Set-Alias -Name SHUB-GetResourcesV2 -Value Get-SHUBResourcesV2

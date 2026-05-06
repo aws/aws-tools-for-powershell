@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>A list of key-value pairs containing the Apache Airflow configuration options you
-        /// want to attach to your environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache
+        /// want to attach to your environment. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache
         /// Airflow configuration options</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The Apache Airflow version for your environment. If no value is specified, it defaults
-        /// to the latest version. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache
-        /// Airflow versions on Amazon Managed Workflows for Apache Airflow (Amazon MWAA)</a>.</para><para>Valid values: <c>1.10.12</c>, <c>2.0.2</c>, <c>2.2.2</c>, <c>2.4.3</c>, <c>2.5.1</c>,
-        /// <c>2.6.3</c>, <c>2.7.2</c>, <c>2.8.1</c>, <c>2.9.2</c>, <c>2.10.1</c>, and <c>2.10.3</c>.</para>
+        /// to the latest version. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache
+        /// Airflow versions on Amazon Managed Workflows for Apache Airflow (Amazon MWAA)</a>.</para><para>Valid values: <c>2.7.2</c>, <c>2.8.1</c>, <c>2.9.2</c>, <c>2.10.1</c>, <c>2.10.3</c>,
+        /// <c>2.11.0</c>, and <c>3.0.6</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The relative path to the DAGs folder on your Amazon S3 bucket. For example, <c>dags</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding
+        /// For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding
         /// or updating DAGs</a>.</para>
         /// </para>
         /// </summary>
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The environment class type. Valid values: <c>mw1.micro</c>, <c>mw1.small</c>, <c>mw1.medium</c>,
         /// <c>mw1.large</c>, <c>mw1.xlarge</c>, and <c>mw1.2xlarge</c>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
+        /// refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
         /// MWAA environment class</a>.</para>
         /// </para>
         /// </summary>
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// role is an Amazon Web Services Identity and Access Management (IAM) role that grants
         /// MWAA permission to access Amazon Web Services services and resources used by your
         /// environment. For example, <c>arn:aws:iam::123456789:role/my-execution-role</c>. For
-        /// more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon
+        /// more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon
         /// MWAA Execution role</a>.</para>
         /// </para>
         /// </summary>
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The Amazon Web Services Key Management Service (KMS) key to encrypt the data in your
         /// environment. You can use an Amazon Web Services owned CMK, or a Customer managed CMK
-        /// (advanced). For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/create-environment.html">Create
+        /// (advanced). For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/create-environment.html">Create
         /// an Amazon MWAA environment</a>.</para>
         /// </para>
         /// </summary>
@@ -365,7 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The version of the plugins.zip file on your Amazon S3 bucket. You must specify a version
-        /// each time a plugins.zip file is updated. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
+        /// each time a plugins.zip file is updated. For more information, refer to <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
         /// S3 Versioning works</a>.</para>
         /// </para>
         /// </summary>
@@ -378,7 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The relative path to the <c>plugins.zip</c> file on your Amazon S3 bucket. For example,
         /// <c>plugins.zip</c>. If specified, then the <c>plugins.zip</c> version is required.
-        /// For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing
+        /// For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing
         /// custom plugins</a>.</para>
         /// </para>
         /// </summary>
@@ -391,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The version of the <c>requirements.txt</c> file on your Amazon S3 bucket. You must
         /// specify a version each time a requirements.txt file is updated. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
+        /// refer to <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
         /// S3 Versioning works</a>.</para>
         /// </para>
         /// </summary>
@@ -404,7 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The relative path to the <c>requirements.txt</c> file on your Amazon S3 bucket. For
         /// example, <c>requirements.txt</c>. If specified, then a version is required. For more
-        /// information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html">Installing
+        /// information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html">Installing
         /// Python dependencies</a>.</para>
         /// </para>
         /// </summary>
@@ -428,7 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter NetworkConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of security group IDs. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security
+        /// <para>A list of security group IDs. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security
         /// in your VPC on Amazon MWAA</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -446,7 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting
         /// files are stored. For example, <c>arn:aws:s3:::my-airflow-bucket-unique-name</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create
+        /// For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create
         /// an Amazon S3 bucket for Amazon MWAA</a>.</para>
         /// </para>
         /// </summary>
@@ -467,7 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>The version of the startup shell script in your Amazon S3 bucket. You must specify
         /// the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">version
         /// ID</a> that Amazon S3 assigns to the file every time you update the script. </para><para> Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are no more
-        /// than 1,024 bytes long. The following is an example: </para><para><c>3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo</c></para><para> For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
+        /// than 1,024 bytes long. The following is an example: </para><para><c>3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo</c></para><para> For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
         /// a startup script</a>. </para>
         /// </para>
         /// </summary>
@@ -481,7 +481,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>The relative path to the startup shell script in your Amazon S3 bucket. For example,
         /// <c>s3://mwaa-environment/startup.sh</c>.</para><para> Amazon MWAA runs the script as your environment starts, and before running the Apache
         /// Airflow process. You can use this script to install dependencies, modify Apache Airflow
-        /// configuration options, and set environment variables. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
+        /// configuration options, and set environment variables. For more information, refer
+        /// to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
         /// a startup script</a>. </para>
         /// </para>
         /// </summary>
@@ -492,7 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter NetworkConfiguration_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of subnet IDs. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About
+        /// <para>A list of subnet IDs. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About
         /// networking on Amazon MWAA</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -509,7 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The key-value tag pairs you want to associate to your environment. For example, <c>"Environment":
-        /// "Staging"</c>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// "Staging"</c>. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// Amazon Web Services resources</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -526,7 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>Defines the access mode for the Apache Airflow <i>web server</i>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
+        /// refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
         /// Airflow access modes</a>.</para>
         /// </para>
         /// </summary>

@@ -158,6 +158,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DataQualityGlueTable_PreProcessingQuery { get; set; }
         #endregion
         
+        #region Parameter Filter_RulesetName
+        /// <summary>
+        /// <para>
+        /// <para>Filter results by the name of the ruleset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filter_RulesetName { get; set; }
+        #endregion
+        
         #region Parameter Filter_StartedAfter
         /// <summary>
         /// <para>
@@ -290,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.GlueTable_ConnectionName = this.GlueTable_ConnectionName;
             context.GlueTable_DatabaseName = this.GlueTable_DatabaseName;
             context.GlueTable_TableName = this.GlueTable_TableName;
+            context.Filter_RulesetName = this.Filter_RulesetName;
             context.Filter_StartedAfter = this.Filter_StartedAfter;
             context.Filter_StartedBefore = this.Filter_StartedBefore;
             context.MaxResult = this.MaxResult;
@@ -316,6 +327,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.Glue.Model.DataQualityRulesetEvaluationRunFilter();
+            System.String requestFilter_filter_RulesetName = null;
+            if (cmdletContext.Filter_RulesetName != null)
+            {
+                requestFilter_filter_RulesetName = cmdletContext.Filter_RulesetName;
+            }
+            if (requestFilter_filter_RulesetName != null)
+            {
+                request.Filter.RulesetName = requestFilter_filter_RulesetName;
+                requestFilterIsNull = false;
+            }
             System.DateTime? requestFilter_filter_StartedAfter = null;
             if (cmdletContext.Filter_StartedAfter != null)
             {
@@ -590,6 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String GlueTable_ConnectionName { get; set; }
             public System.String GlueTable_DatabaseName { get; set; }
             public System.String GlueTable_TableName { get; set; }
+            public System.String Filter_RulesetName { get; set; }
             public System.DateTime? Filter_StartedAfter { get; set; }
             public System.DateTime? Filter_StartedBefore { get; set; }
             public System.Int32? MaxResult { get; set; }

@@ -57,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String DeepgramConfig_ApiTokenSecretArn { get; set; }
         #endregion
         
+        #region Parameter ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the audio filler to play while Amazon Lex processes the user's input.
+        /// This field is required when <c>enabled</c> is <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LexModelsV2.AudioFillerType")]
+        public Amazon.LexModelsV2.AudioFillerType ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType { get; set; }
+        #endregion
+        
         #region Parameter BotLocaleImportSpecification_BotId
         /// <summary>
         /// <para>
@@ -182,6 +194,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Boolean? ErrorLogSettings_Enabled { get; set; }
         #endregion
         
+        #region Parameter ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether audio filler playback is enabled for the bot locale. Set to <c>true</c>
+        /// to play filler audio while Amazon Lex processes a user utterance. Set to <c>false</c>
+        /// to disable filler audio.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled { get; set; }
+        #endregion
+        
         #region Parameter VoiceSettings_Engine
         /// <summary>
         /// <para>
@@ -297,6 +321,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.MergeStrategy MergeStrategy { get; set; }
         #endregion
         
+        #region Parameter ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The minimum time, in milliseconds, that audio filler plays once it has started, even
+        /// if the bot response becomes ready sooner. Valid range is <c>1000</c> to <c>5000</c>
+        /// milliseconds. If not specified, Amazon Lex uses a default of <c>3000</c> milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMilliseconds")]
+        public System.Int32? ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond { get; set; }
+        #endregion
+        
         #region Parameter TestSetImportResourceSpecification_Modality
         /// <summary>
         /// <para>
@@ -346,6 +383,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceSpecification_BotLocaleImportSpecification_NluIntentConfidenceThreshold")]
         public System.Double? BotLocaleImportSpecification_NluIntentConfidenceThreshold { get; set; }
+        #endregion
+        
+        #region Parameter ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The silent delay, in milliseconds, inserted between the end of audio filler playback
+        /// and the start of the bot's response. Valid range is <c>200</c> to <c>1000</c> milliseconds.
+        /// If not specified, Amazon Lex uses a default of <c>500</c> milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMilliseconds")]
+        public System.Int32? ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond { get; set; }
         #endregion
         
         #region Parameter BotImportSpecification_RoleArn
@@ -439,6 +489,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [Alias("ResourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelPreference")]
         [AWSConstantClassSource("Amazon.LexModelsV2.SpeechModelPreference")]
         public Amazon.LexModelsV2.SpeechModelPreference SpeechRecognitionSettings_SpeechModelPreference { get; set; }
+        #endregion
+        
+        #region Parameter ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The time, in milliseconds, to wait after the end of the user's utterance before starting
+        /// audio filler playback. Valid range is <c>500</c> to <c>5000</c> milliseconds. If not
+        /// specified, Amazon Lex uses a default of <c>2500</c> milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMilliseconds")]
+        public System.Int32? ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond { get; set; }
         #endregion
         
         #region Parameter BotImportSpecification_TestBotAliasTag
@@ -590,6 +653,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                     context.BotImportSpecification_TestBotAliasTag.Add((String)hashKey, (System.String)(this.BotImportSpecification_TestBotAliasTag[hashKey]));
                 }
             }
+            context.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType = this.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType;
+            context.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled = this.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled;
+            context.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond = this.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond;
+            context.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond = this.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond;
+            context.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond = this.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond;
             context.BotLocaleImportSpecification_BotId = this.BotLocaleImportSpecification_BotId;
             context.BotLocaleImportSpecification_BotVersion = this.BotLocaleImportSpecification_BotVersion;
             context.BotLocaleImportSpecification_LocaleId = this.BotLocaleImportSpecification_LocaleId;
@@ -1174,6 +1242,71 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.VoiceSettings = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings;
                 requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
             }
+            Amazon.LexModelsV2.Model.AudioFillerSettings requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings = null;
+            
+             // populate AudioFillerSettings
+            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettingsIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings = new Amazon.LexModelsV2.Model.AudioFillerSettings();
+            Amazon.LexModelsV2.AudioFillerType requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType = null;
+            if (cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType = cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings.AudioType = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettingsIsNull = false;
+            }
+            System.Boolean? requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled = null;
+            if (cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled = cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled.Value;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings.Enabled = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled.Value;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettingsIsNull = false;
+            }
+            System.Int32? requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond = null;
+            if (cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond = cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond.Value;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings.MinimumPlayDurationInMilliseconds = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond.Value;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettingsIsNull = false;
+            }
+            System.Int32? requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond = null;
+            if (cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond = cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond.Value;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings.ResponseDeliveryDelayInMilliseconds = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond.Value;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettingsIsNull = false;
+            }
+            System.Int32? requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond = null;
+            if (cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond = cmdletContext.ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond.Value;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings.StartDelayInMilliseconds = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond.Value;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettingsIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettingsIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.AudioFillerSettings = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_AudioFillerSettings;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
              // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification should be set to null
             if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull)
             {
@@ -1254,6 +1387,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Int32? BotImportSpecification_IdleSessionTTLInSecond { get; set; }
             public System.String BotImportSpecification_RoleArn { get; set; }
             public Dictionary<System.String, System.String> BotImportSpecification_TestBotAliasTag { get; set; }
+            public Amazon.LexModelsV2.AudioFillerType ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_AudioType { get; set; }
+            public System.Boolean? ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled { get; set; }
+            public System.Int32? ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_MinimumPlayDurationInMillisecond { get; set; }
+            public System.Int32? ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_ResponseDeliveryDelayInMillisecond { get; set; }
+            public System.Int32? ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_StartDelayInMillisecond { get; set; }
             public System.String BotLocaleImportSpecification_BotId { get; set; }
             public System.String BotLocaleImportSpecification_BotVersion { get; set; }
             public System.String BotLocaleImportSpecification_LocaleId { get; set; }

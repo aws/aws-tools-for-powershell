@@ -70,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.AssistedNluMode NluImprovement_AssistedNluMode { get; set; }
         #endregion
         
+        #region Parameter AudioFillerSettings_AudioType
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the audio filler to play while Amazon Lex processes the user's input.
+        /// This field is required when <c>enabled</c> is <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LexModelsV2.AudioFillerType")]
+        public Amazon.LexModelsV2.AudioFillerType AudioFillerSettings_AudioType { get; set; }
+        #endregion
+        
         #region Parameter BotId
         /// <summary>
         /// <para>
@@ -157,6 +169,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter AudioFillerSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether audio filler playback is enabled for the bot locale. Set to <c>true</c>
+        /// to play filler audio while Amazon Lex processes a user utterance. Set to <c>false</c>
+        /// to disable filler audio.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AudioFillerSettings_Enabled { get; set; }
         #endregion
         
         #region Parameter DescriptiveBotBuilder_Enabled
@@ -294,6 +318,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Int32? IntentDisambiguationSettings_MaxDisambiguationIntent { get; set; }
         #endregion
         
+        #region Parameter AudioFillerSettings_MinimumPlayDurationInMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The minimum time, in milliseconds, that audio filler plays once it has started, even
+        /// if the bot response becomes ready sooner. Valid range is <c>1000</c> to <c>5000</c>
+        /// milliseconds. If not specified, Amazon Lex uses a default of <c>3000</c> milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AudioFillerSettings_MinimumPlayDurationInMilliseconds")]
+        public System.Int32? AudioFillerSettings_MinimumPlayDurationInMillisecond { get; set; }
+        #endregion
+        
         #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn
         /// <summary>
         /// <para>
@@ -365,6 +402,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Double? NluIntentConfidenceThreshold { get; set; }
         #endregion
         
+        #region Parameter AudioFillerSettings_ResponseDeliveryDelayInMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The silent delay, in milliseconds, inserted between the end of audio filler playback
+        /// and the start of the bot's response. Valid range is <c>200</c> to <c>1000</c> milliseconds.
+        /// If not specified, Amazon Lex uses a default of <c>500</c> milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AudioFillerSettings_ResponseDeliveryDelayInMilliseconds")]
+        public System.Int32? AudioFillerSettings_ResponseDeliveryDelayInMillisecond { get; set; }
+        #endregion
+        
         #region Parameter SpeechDetectionSensitivity
         /// <summary>
         /// <para>
@@ -387,6 +437,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.LexModelsV2.SpeechModelPreference")]
         public Amazon.LexModelsV2.SpeechModelPreference SpeechRecognitionSettings_SpeechModelPreference { get; set; }
+        #endregion
+        
+        #region Parameter AudioFillerSettings_StartDelayInMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The time, in milliseconds, to wait after the end of the user's utterance before starting
+        /// audio filler playback. Valid range is <c>500</c> to <c>5000</c> milliseconds. If not
+        /// specified, Amazon Lex uses a default of <c>2500</c> milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AudioFillerSettings_StartDelayInMilliseconds")]
+        public System.Int32? AudioFillerSettings_StartDelayInMillisecond { get; set; }
         #endregion
         
         #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus
@@ -521,6 +584,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.Select = CreateSelectDelegate<Amazon.LexModelsV2.Model.UpdateBotLocaleResponse, UpdateLMBV2BotLocaleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AudioFillerSettings_AudioType = this.AudioFillerSettings_AudioType;
+            context.AudioFillerSettings_Enabled = this.AudioFillerSettings_Enabled;
+            context.AudioFillerSettings_MinimumPlayDurationInMillisecond = this.AudioFillerSettings_MinimumPlayDurationInMillisecond;
+            context.AudioFillerSettings_ResponseDeliveryDelayInMillisecond = this.AudioFillerSettings_ResponseDeliveryDelayInMillisecond;
+            context.AudioFillerSettings_StartDelayInMillisecond = this.AudioFillerSettings_StartDelayInMillisecond;
             context.BotId = this.BotId;
             #if MODULAR
             if (this.BotId == null && ParameterWasBound(nameof(this.BotId)))
@@ -597,6 +665,65 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             // create request
             var request = new Amazon.LexModelsV2.Model.UpdateBotLocaleRequest();
             
+            
+             // populate AudioFillerSettings
+            var requestAudioFillerSettingsIsNull = true;
+            request.AudioFillerSettings = new Amazon.LexModelsV2.Model.AudioFillerSettings();
+            Amazon.LexModelsV2.AudioFillerType requestAudioFillerSettings_audioFillerSettings_AudioType = null;
+            if (cmdletContext.AudioFillerSettings_AudioType != null)
+            {
+                requestAudioFillerSettings_audioFillerSettings_AudioType = cmdletContext.AudioFillerSettings_AudioType;
+            }
+            if (requestAudioFillerSettings_audioFillerSettings_AudioType != null)
+            {
+                request.AudioFillerSettings.AudioType = requestAudioFillerSettings_audioFillerSettings_AudioType;
+                requestAudioFillerSettingsIsNull = false;
+            }
+            System.Boolean? requestAudioFillerSettings_audioFillerSettings_Enabled = null;
+            if (cmdletContext.AudioFillerSettings_Enabled != null)
+            {
+                requestAudioFillerSettings_audioFillerSettings_Enabled = cmdletContext.AudioFillerSettings_Enabled.Value;
+            }
+            if (requestAudioFillerSettings_audioFillerSettings_Enabled != null)
+            {
+                request.AudioFillerSettings.Enabled = requestAudioFillerSettings_audioFillerSettings_Enabled.Value;
+                requestAudioFillerSettingsIsNull = false;
+            }
+            System.Int32? requestAudioFillerSettings_audioFillerSettings_MinimumPlayDurationInMillisecond = null;
+            if (cmdletContext.AudioFillerSettings_MinimumPlayDurationInMillisecond != null)
+            {
+                requestAudioFillerSettings_audioFillerSettings_MinimumPlayDurationInMillisecond = cmdletContext.AudioFillerSettings_MinimumPlayDurationInMillisecond.Value;
+            }
+            if (requestAudioFillerSettings_audioFillerSettings_MinimumPlayDurationInMillisecond != null)
+            {
+                request.AudioFillerSettings.MinimumPlayDurationInMilliseconds = requestAudioFillerSettings_audioFillerSettings_MinimumPlayDurationInMillisecond.Value;
+                requestAudioFillerSettingsIsNull = false;
+            }
+            System.Int32? requestAudioFillerSettings_audioFillerSettings_ResponseDeliveryDelayInMillisecond = null;
+            if (cmdletContext.AudioFillerSettings_ResponseDeliveryDelayInMillisecond != null)
+            {
+                requestAudioFillerSettings_audioFillerSettings_ResponseDeliveryDelayInMillisecond = cmdletContext.AudioFillerSettings_ResponseDeliveryDelayInMillisecond.Value;
+            }
+            if (requestAudioFillerSettings_audioFillerSettings_ResponseDeliveryDelayInMillisecond != null)
+            {
+                request.AudioFillerSettings.ResponseDeliveryDelayInMilliseconds = requestAudioFillerSettings_audioFillerSettings_ResponseDeliveryDelayInMillisecond.Value;
+                requestAudioFillerSettingsIsNull = false;
+            }
+            System.Int32? requestAudioFillerSettings_audioFillerSettings_StartDelayInMillisecond = null;
+            if (cmdletContext.AudioFillerSettings_StartDelayInMillisecond != null)
+            {
+                requestAudioFillerSettings_audioFillerSettings_StartDelayInMillisecond = cmdletContext.AudioFillerSettings_StartDelayInMillisecond.Value;
+            }
+            if (requestAudioFillerSettings_audioFillerSettings_StartDelayInMillisecond != null)
+            {
+                request.AudioFillerSettings.StartDelayInMilliseconds = requestAudioFillerSettings_audioFillerSettings_StartDelayInMillisecond.Value;
+                requestAudioFillerSettingsIsNull = false;
+            }
+             // determine if request.AudioFillerSettings should be set to null
+            if (requestAudioFillerSettingsIsNull)
+            {
+                request.AudioFillerSettings = null;
+            }
             if (cmdletContext.BotId != null)
             {
                 request.BotId = cmdletContext.BotId;
@@ -1252,6 +1379,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.LexModelsV2.AudioFillerType AudioFillerSettings_AudioType { get; set; }
+            public System.Boolean? AudioFillerSettings_Enabled { get; set; }
+            public System.Int32? AudioFillerSettings_MinimumPlayDurationInMillisecond { get; set; }
+            public System.Int32? AudioFillerSettings_ResponseDeliveryDelayInMillisecond { get; set; }
+            public System.Int32? AudioFillerSettings_StartDelayInMillisecond { get; set; }
             public System.String BotId { get; set; }
             public System.String BotVersion { get; set; }
             public System.String Description { get; set; }
