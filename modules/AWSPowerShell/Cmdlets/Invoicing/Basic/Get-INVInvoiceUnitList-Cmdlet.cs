@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.INV
         #region Parameter Filters_BillSourceAccount
         /// <summary>
         /// <para>
-        /// <para> A list of Amazon Web Services account account IDs used to filter invoice units. These
-        /// are payer accounts from other Organizations that have delegated their billing responsibility
+        /// <para> A list of Amazon Web Services account IDs used to filter invoice units. These are
+        /// payer accounts from other Organizations that have delegated their billing responsibility
         /// to the receiver account through the billing transfer feature. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

@@ -401,9 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride
         /// <summary>
         /// <para>
-        /// <para>The list of private endpoint overrides for the custom OAuth2 provider. Each override
-        /// maps a specific domain to a private endpoint, enabling secure connectivity through
-        /// VPC Lattice resource configurations.</para><para />
+        /// <para>The private endpoint overrides for the custom OAuth2 provider configuration.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

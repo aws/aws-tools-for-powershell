@@ -1,4 +1,42 @@
-﻿### 5.0.209 (2026-05-06 20:48Z)
+﻿### 5.0.210 (2026-05-07 20:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.246.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Get-BACCPaymentConnector leveraging the GetPaymentConnector service API.
+    * Added cmdlet Get-BACCPaymentConnectorList leveraging the ListPaymentConnectors service API.
+    * Added cmdlet Get-BACCPaymentCredentialProvider leveraging the GetPaymentCredentialProvider service API.
+    * Added cmdlet Get-BACCPaymentCredentialProviderList leveraging the ListPaymentCredentialProviders service API.
+    * Added cmdlet Get-BACCPaymentManager leveraging the GetPaymentManager service API.
+    * Added cmdlet Get-BACCPaymentManagerList leveraging the ListPaymentManagers service API.
+    * Added cmdlet New-BACCPaymentConnector leveraging the CreatePaymentConnector service API.
+    * Added cmdlet New-BACCPaymentCredentialProvider leveraging the CreatePaymentCredentialProvider service API.
+    * Added cmdlet New-BACCPaymentManager leveraging the CreatePaymentManager service API.
+    * Added cmdlet Remove-BACCPaymentConnector leveraging the DeletePaymentConnector service API.
+    * Added cmdlet Remove-BACCPaymentCredentialProvider leveraging the DeletePaymentCredentialProvider service API.
+    * Added cmdlet Remove-BACCPaymentManager leveraging the DeletePaymentManager service API.
+    * Added cmdlet Update-BACCPaymentConnector leveraging the UpdatePaymentConnector service API.
+    * Added cmdlet Update-BACCPaymentCredentialProvider leveraging the UpdatePaymentCredentialProvider service API.
+    * Added cmdlet Update-BACCPaymentManager leveraging the UpdatePaymentManager service API.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Get-BACPaymentInstrument leveraging the GetPaymentInstrument service API.
+    * Added cmdlet Get-BACPaymentInstrumentBalance leveraging the GetPaymentInstrumentBalance service API.
+    * Added cmdlet Get-BACPaymentInstrumentList leveraging the ListPaymentInstruments service API.
+    * Added cmdlet Get-BACPaymentSession leveraging the GetPaymentSession service API.
+    * Added cmdlet Get-BACPaymentSessionList leveraging the ListPaymentSessions service API.
+    * Added cmdlet Get-BACResourcePaymentToken leveraging the GetResourcePaymentToken service API.
+    * Added cmdlet Invoke-BACPayment leveraging the ProcessPayment service API.
+    * Added cmdlet New-BACPaymentInstrument leveraging the CreatePaymentInstrument service API.
+    * Added cmdlet New-BACPaymentSession leveraging the CreatePaymentSession service API.
+    * Added cmdlet Remove-BACPaymentInstrument leveraging the DeletePaymentInstrument service API.
+    * Added cmdlet Remove-BACPaymentSession leveraging the DeletePaymentSession service API.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Get-EC2InstanceType: added parameter IncludeUnsupportedInRegion.
+  * Amazon Invoicing
+    * Modified cmdlet Get-INVInvoiceSummaryList: added parameter Filter_ReceiverRole.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet New-R53RResolverEndpoint: added parameters Dns64Enabled and Ipv6InternetAccessEnabled.
+    * Modified cmdlet Update-R53RResolverEndpoint: added parameters Dns64Enabled and Ipv6InternetAccessEnabled.
+
+### 5.0.209 (2026-05-06 20:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.245.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Glue
     * Modified cmdlet Get-GLUEDataQualityRulesetEvaluationRunList: added parameter Filter_RulesetName.

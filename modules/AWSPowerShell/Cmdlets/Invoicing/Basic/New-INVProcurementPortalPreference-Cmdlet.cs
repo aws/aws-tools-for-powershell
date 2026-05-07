@@ -30,9 +30,13 @@ using Amazon.Invoicing.Model;
 namespace Amazon.PowerShell.Cmdlets.INV
 {
     /// <summary>
+    /// <i><b>This feature API is subject to changing at any time. For more information,
+    /// see the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service
+    /// Terms</a> (Betas and Previews).</b></i><para>
     /// Creates a procurement portal preference configuration for e-invoice delivery and purchase
     /// order retrieval. This preference defines how invoices are delivered to a procurement
     /// portal and how purchase orders are retrieved.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "INVProcurementPortalPreference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

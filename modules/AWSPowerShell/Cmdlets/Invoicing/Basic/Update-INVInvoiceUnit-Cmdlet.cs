@@ -49,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.INV
         #region Parameter Rule_BillSourceAccount
         /// <summary>
         /// <para>
-        /// <para> A list of Amazon Web Services account account IDs that have delegated their billing
-        /// responsibility to the receiver account through transfer billing. Unlike linked accounts,
-        /// these bill source accounts can be payer accounts from other organizations that have
-        /// authorized billing transfer to this account. </para><para />
+        /// <para> A list of Amazon Web Services account IDs that have delegated their billing responsibility
+        /// to the receiver account through transfer billing. Unlike linked accounts, these bill
+        /// source accounts can be payer accounts from other organizations that have authorized
+        /// billing transfer to this account. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

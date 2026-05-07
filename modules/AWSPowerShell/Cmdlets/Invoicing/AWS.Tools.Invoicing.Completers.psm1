@@ -135,6 +135,13 @@ $INV_Completers = {
             break
         }
 
+        # Amazon.Invoicing.ReceiverRole
+        "Get-INVInvoiceSummaryList/Filter_ReceiverRole"
+        {
+            $v = "BUYER","RESELLER","SELLER"
+            break
+        }
+
         # Amazon.Invoicing.SupplierDomain
         {
             ($_ -eq "New-INVProcurementPortalPreference/SupplierDomain") -Or
@@ -159,6 +166,7 @@ $INV_map = @{
     "EinvoiceDeliveryPreference_ConnectionTestingMethod"=@("New-INVProcurementPortalPreference","Write-INVProcurementPortalPreference")
     "EinvoiceDeliveryPreference_Protocol"=@("New-INVProcurementPortalPreference","Write-INVProcurementPortalPreference")
     "EinvoiceDeliveryPreferenceStatus"=@("Update-INVProcurementPortalPreferenceStatus")
+    "Filter_ReceiverRole"=@("Get-INVInvoiceSummaryList")
     "ProcurementPortalName"=@("New-INVProcurementPortalPreference")
     "PurchaseOrderRetrievalPreferenceStatus"=@("Update-INVProcurementPortalPreferenceStatus")
     "Selector_ResourceType"=@("Get-INVInvoiceSummaryList")

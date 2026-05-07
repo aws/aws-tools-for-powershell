@@ -23,37 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Invoicing;
-using Amazon.Invoicing.Model;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.INV
+namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// <i><b>This feature API is subject to changing at any time. For more information,
-    /// see the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service
-    /// Terms</a> (Betas and Previews).</b></i><para>
-    /// Deletes an existing procurement portal preference. This action cannot be undone. Active
-    /// e-invoice delivery and PO retrieval configurations will be terminated.
-    /// </para>
+    /// Deletes a payment manager. All payment connectors associated with the payment manager
+    /// must be deleted before the payment manager can be deleted. This operation initiates
+    /// the deletion process asynchronously.
     /// </summary>
-    [Cmdlet("Remove", "INVProcurementPortalPreference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Invoicing DeleteProcurementPortalPreference API operation.", Operation = new[] {"DeleteProcurementPortalPreference"}, SelectReturnType = typeof(Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "BACCPaymentManager", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeletePaymentManager API operation.", Operation = new[] {"DeletePaymentManager"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerResponse object containing multiple properties."
     )]
-    public partial class RemoveINVProcurementPortalPreferenceCmdlet : AmazonInvoicingClientCmdlet, IExecutor
+    public partial class RemoveBACCPaymentManagerCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ProcurementPortalPreferenceArn
+        #region Parameter PaymentManagerId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the procurement portal preference to delete.</para>
+        /// <para>The unique identifier of the payment manager to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,18 +60,32 @@ namespace Amazon.PowerShell.Cmdlets.INV
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProcurementPortalPreferenceArn { get; set; }
+        public System.String PaymentManagerId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If you don't specify this field, a value is randomly generated for
+        /// you. If this token matches a previous request, the service ignores the request, but
+        /// doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProcurementPortalPreferenceArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceResponse).
-        /// Specifying the name of a property of type Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProcurementPortalPreferenceArn";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -97,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.INV
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProcurementPortalPreferenceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-INVProcurementPortalPreference (DeleteProcurementPortalPreference)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PaymentManagerId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACCPaymentManager (DeletePaymentManager)"))
             {
                 return;
             }
@@ -110,14 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.INV
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceResponse, RemoveINVProcurementPortalPreferenceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerResponse, RemoveBACCPaymentManagerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ProcurementPortalPreferenceArn = this.ProcurementPortalPreferenceArn;
+            context.ClientToken = this.ClientToken;
+            context.PaymentManagerId = this.PaymentManagerId;
             #if MODULAR
-            if (this.ProcurementPortalPreferenceArn == null && ParameterWasBound(nameof(this.ProcurementPortalPreferenceArn)))
+            if (this.PaymentManagerId == null && ParameterWasBound(nameof(this.PaymentManagerId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProcurementPortalPreferenceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PaymentManagerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -134,11 +145,15 @@ namespace Amazon.PowerShell.Cmdlets.INV
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerRequest();
             
-            if (cmdletContext.ProcurementPortalPreferenceArn != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ProcurementPortalPreferenceArn = cmdletContext.ProcurementPortalPreferenceArn;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.PaymentManagerId != null)
+            {
+                request.PaymentManagerId = cmdletContext.PaymentManagerId;
             }
             
             CmdletOutput output;
@@ -173,12 +188,12 @@ namespace Amazon.PowerShell.Cmdlets.INV
         
         #region AWS Service Operation Call
         
-        private Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceResponse CallAWSServiceOperation(IAmazonInvoicing client, Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Invoicing", "DeleteProcurementPortalPreference");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeletePaymentManager");
             try
             {
-                return client.DeleteProcurementPortalPreferenceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeletePaymentManagerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -195,9 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.INV
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProcurementPortalPreferenceArn { get; set; }
-            public System.Func<Amazon.Invoicing.Model.DeleteProcurementPortalPreferenceResponse, RemoveINVProcurementPortalPreferenceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProcurementPortalPreferenceArn;
+            public System.String ClientToken { get; set; }
+            public System.String PaymentManagerId { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.DeletePaymentManagerResponse, RemoveBACCPaymentManagerCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

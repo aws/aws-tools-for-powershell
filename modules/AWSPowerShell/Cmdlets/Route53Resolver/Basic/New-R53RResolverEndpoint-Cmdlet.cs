@@ -93,6 +93,20 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public Amazon.Route53Resolver.ResolverEndpointDirection Direction { get; set; }
         #endregion
         
+        #region Parameter Dns64Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether DNS64 is enabled for the inbound Resolver endpoint. When set to
+        /// <c>true</c>, Route 53 Resolver synthesizes AAAA (IPv6) records for IPv4-only services
+        /// by prepending the <c>64:ff9b::/96</c> prefix to the IPv4 address. This enables IPv6-only
+        /// clients that send queries through the inbound endpoint to reach IPv4-only services.
+        /// DNS64 works with NAT64 to provide complete IPv6-to-IPv4 translation. Default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Dns64Enabled { get; set; }
+        #endregion
+        
         #region Parameter IpAddress
         /// <summary>
         /// <para>
@@ -115,6 +129,23 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("IpAddresses")]
         public Amazon.Route53Resolver.Model.IpAddressRequest[] IpAddress { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6InternetAccessEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether IPv6 internet access is enabled for the outbound Resolver endpoint.
+        /// When set to <c>true</c>, the endpoint elastic network interfaces (ENIs) can forward
+        /// DNS queries to public IPv6 targets through an internet gateway. Default is false.</para><important><para>When you enable IPv6 internet access, use network controls like security groups, NACLs,
+        /// or egress-only internet gateways to protect the endpoint ENIs from unsolicited ingress
+        /// traffic. Be aware that some network controls can affect DNS query throughput due to
+        /// connection tracking. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/userguide/security-group-connection-tracking.html">Amazon
+        /// EC2 security group connection tracking</a> and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver-endpoint-scaling.html">Resolver
+        /// endpoint scaling</a>.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Ipv6InternetAccessEnabled { get; set; }
         #endregion
         
         #region Parameter Name
@@ -314,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter Direction which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Dns64Enabled = this.Dns64Enabled;
             if (this.IpAddress != null)
             {
                 context.IpAddress = new List<Amazon.Route53Resolver.Model.IpAddressRequest>(this.IpAddress);
@@ -324,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter IpAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Ipv6InternetAccessEnabled = this.Ipv6InternetAccessEnabled;
             context.Name = this.Name;
             context.OutpostArn = this.OutpostArn;
             context.PreferredInstanceType = this.PreferredInstanceType;
@@ -372,9 +405,17 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             {
                 request.Direction = cmdletContext.Direction;
             }
+            if (cmdletContext.Dns64Enabled != null)
+            {
+                request.Dns64Enabled = cmdletContext.Dns64Enabled.Value;
+            }
             if (cmdletContext.IpAddress != null)
             {
                 request.IpAddresses = cmdletContext.IpAddress;
+            }
+            if (cmdletContext.Ipv6InternetAccessEnabled != null)
+            {
+                request.Ipv6InternetAccessEnabled = cmdletContext.Ipv6InternetAccessEnabled.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -469,7 +510,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         {
             public System.String CreatorRequestId { get; set; }
             public Amazon.Route53Resolver.ResolverEndpointDirection Direction { get; set; }
+            public System.Boolean? Dns64Enabled { get; set; }
             public List<Amazon.Route53Resolver.Model.IpAddressRequest> IpAddress { get; set; }
+            public System.Boolean? Ipv6InternetAccessEnabled { get; set; }
             public System.String Name { get; set; }
             public System.String OutpostArn { get; set; }
             public System.String PreferredInstanceType { get; set; }

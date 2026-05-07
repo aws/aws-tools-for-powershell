@@ -23,28 +23,23 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Invoicing;
-using Amazon.Invoicing.Model;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.INV
+namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// <i><b>This feature API is subject to changing at any time. For more information,
-    /// see the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service
-    /// Terms</a> (Betas and Previews).</b></i><para>
-    /// Retrieves a list of procurement portal preferences associated with the Amazon Web
-    /// Services account.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all payment managers in the account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "INVProcurementPortalPreferenceList")]
-    [OutputType("Amazon.Invoicing.Model.ProcurementPortalPreferenceSummary")]
-    [AWSCmdlet("Calls the AWS Invoicing ListProcurementPortalPreferences API operation.", Operation = new[] {"ListProcurementPortalPreferences"}, SelectReturnType = typeof(Amazon.Invoicing.Model.ListProcurementPortalPreferencesResponse))]
-    [AWSCmdletOutput("Amazon.Invoicing.Model.ProcurementPortalPreferenceSummary or Amazon.Invoicing.Model.ListProcurementPortalPreferencesResponse",
-        "This cmdlet returns a collection of Amazon.Invoicing.Model.ProcurementPortalPreferenceSummary objects.",
-        "The service call response (type Amazon.Invoicing.Model.ListProcurementPortalPreferencesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BACCPaymentManagerList")]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.PaymentManagerSummary")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListPaymentManagers API operation.", Operation = new[] {"ListPaymentManagers"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.PaymentManagerSummary or Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersResponse",
+        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.PaymentManagerSummary objects.",
+        "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetINVProcurementPortalPreferenceListCmdlet : AmazonInvoicingClientCmdlet, IExecutor
+    public partial class GetBACCPaymentManagerListCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -53,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.INV
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call. To retrieve the remaining
-        /// results, make another call with the returned NextToken value.</para>
+        /// <para>The maximum number of results to return in the response. If the total number of results
+        /// is greater than this value, use the token returned in the response in the <c>nextToken</c>
+        /// field when making another request to return the next batch of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -70,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.INV
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. (You received this token from a previous call.)</para>
+        /// <para>If the total number of results is greater than the <c>maxResults</c> value provided
+        /// in the request, enter the token returned in the <c>nextToken</c> field in the response
+        /// in this field to return the next batch of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -83,13 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.INV
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProcurementPortalPreferences'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Invoicing.Model.ListProcurementPortalPreferencesResponse).
-        /// Specifying the name of a property of type Amazon.Invoicing.Model.ListProcurementPortalPreferencesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PaymentManagers'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProcurementPortalPreferences";
+        public string Select { get; set; } = "PaymentManagers";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -118,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Invoicing.Model.ListProcurementPortalPreferencesResponse, GetINVProcurementPortalPreferenceListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersResponse, GetBACCPaymentManagerListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -148,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Invoicing.Model.ListProcurementPortalPreferencesRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersRequest();
             
             if (cmdletContext.MaxResult != null)
             {
@@ -211,12 +209,12 @@ namespace Amazon.PowerShell.Cmdlets.INV
         
         #region AWS Service Operation Call
         
-        private Amazon.Invoicing.Model.ListProcurementPortalPreferencesResponse CallAWSServiceOperation(IAmazonInvoicing client, Amazon.Invoicing.Model.ListProcurementPortalPreferencesRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Invoicing", "ListProcurementPortalPreferences");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListPaymentManagers");
             try
             {
-                return client.ListProcurementPortalPreferencesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListPaymentManagersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -235,8 +233,8 @@ namespace Amazon.PowerShell.Cmdlets.INV
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Invoicing.Model.ListProcurementPortalPreferencesResponse, GetINVProcurementPortalPreferenceListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProcurementPortalPreferences;
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.ListPaymentManagersResponse, GetBACCPaymentManagerListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PaymentManagers;
         }
         
     }

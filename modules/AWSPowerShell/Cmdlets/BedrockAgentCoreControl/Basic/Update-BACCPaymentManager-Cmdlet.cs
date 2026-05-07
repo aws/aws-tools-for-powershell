@@ -30,28 +30,22 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Creates a gateway for Amazon Bedrock Agent. A gateway serves as an integration point
-    /// between your agent and external services.
-    /// 
-    ///  
-    /// <para>
-    /// If you specify <c>CUSTOM_JWT</c> as the <c>authorizerType</c>, you must provide an
-    /// <c>authorizerConfiguration</c>.
-    /// </para>
+    /// Updates an existing payment manager. This operation uses PATCH semantics, so you only
+    /// need to specify the fields you want to change.
     /// </summary>
-    [Cmdlet("New", "BACCGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateGatewayResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateGateway API operation.", Operation = new[] {"CreateGateway"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateGatewayResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateGatewayResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateGatewayResponse object containing multiple properties."
+    [Cmdlet("Update", "BACCPaymentManager", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UpdatePaymentManager API operation.", Operation = new[] {"UpdatePaymentManager"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse object containing multiple properties."
     )]
-    public partial class NewBACCGatewayCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class UpdateBACCPaymentManagerCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter CustomJWTAuthorizer_AllowedAudience
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience
         /// <summary>
         /// <para>
         /// <para>Represents individual audience values that are validated in the incoming JWT token
@@ -63,11 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience")]
-        public System.String[] CustomJWTAuthorizer_AllowedAudience { get; set; }
+        public System.String[] AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience { get; set; }
         #endregion
         
-        #region Parameter CustomJWTAuthorizer_AllowedClient
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient
         /// <summary>
         /// <para>
         /// <para>Represents individual client IDs that are validated in the incoming JWT token validation
@@ -80,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClients")]
-        public System.String[] CustomJWTAuthorizer_AllowedClient { get; set; }
+        public System.String[] AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient { get; set; }
         #endregion
         
-        #region Parameter CustomJWTAuthorizer_AllowedScope
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope
         /// <summary>
         /// <para>
         /// <para>An array of scopes that are allowed to access the token.</para><para />
@@ -95,39 +88,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScopes")]
-        public System.String[] CustomJWTAuthorizer_AllowedScope { get; set; }
-        #endregion
-        
-        #region Parameter PolicyEngineConfiguration_Arn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the policy engine. The policy engine contains Cedar policies that define
-        /// fine-grained authorization rules specifying who can perform what actions on which
-        /// resources as agents interact through the gateway.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PolicyEngineConfiguration_Arn { get; set; }
+        public System.String[] AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope { get; set; }
         #endregion
         
         #region Parameter AuthorizerType
         /// <summary>
         /// <para>
-        /// <para>The type of authorizer to use for the gateway.</para><ul><li><para><c>CUSTOM_JWT</c> - Authorize with a bearer token.</para></li><li><para><c>AWS_IAM</c> - Authorize with your Amazon Web Services IAM credentials.</para></li><li><para><c>NONE</c> - No authorization</para></li></ul>
+        /// <para>The updated authorizer type for the payment manager.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.AuthorizerType")]
-        public Amazon.BedrockAgentCoreControl.AuthorizerType AuthorizerType { get; set; }
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.PaymentsAuthorizerType")]
+        public Amazon.BedrockAgentCoreControl.PaymentsAuthorizerType AuthorizerType { get; set; }
         #endregion
         
-        #region Parameter CustomJWTAuthorizer_CustomClaim
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim
         /// <summary>
         /// <para>
         /// <para>An array of objects that define a custom claim validation name, value, and operation
@@ -140,20 +115,20 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaims")]
-        public Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType[] CustomJWTAuthorizer_CustomClaim { get; set; }
+        public Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType[] AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim { get; set; }
         #endregion
         
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the gateway.</para>
+        /// <para>The updated description of the payment manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter CustomJWTAuthorizer_DiscoveryUrl
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl
         /// <summary>
         /// <para>
         /// <para>This URL is used to fetch OpenID Connect configuration or authorization server metadata
@@ -161,19 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl")]
-        public System.String CustomJWTAuthorizer_DiscoveryUrl { get; set; }
-        #endregion
-        
-        #region Parameter ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether response streaming is enabled for the gateway. When set to <c>true</c>,
-        /// the gateway streams responses from targets back to the client.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming { get; set; }
+        public System.String AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
         #endregion
         
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType
@@ -187,88 +150,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.EndpointIpAddressType AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
         #endregion
         
-        #region Parameter ExceptionLevel
+        #region Parameter PaymentManagerId
         /// <summary>
         /// <para>
-        /// <para>The level of detail in error messages returned when invoking the gateway.</para><ul><li><para>If the value is <c>DEBUG</c>, granular exception messages are returned to help a user
-        /// debug the gateway.</para></li><li><para>If the value is omitted, a generic error message is returned to the end user.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.ExceptionLevel")]
-        public Amazon.BedrockAgentCoreControl.ExceptionLevel ExceptionLevel { get; set; }
-        #endregion
-        
-        #region Parameter Mcp_Instruction
-        /// <summary>
-        /// <para>
-        /// <para>The instructions for using the Model Context Protocol gateway. These instructions
-        /// provide guidance on how to interact with the gateway.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ProtocolConfiguration_Mcp_Instructions")]
-        public System.String Mcp_Instruction { get; set; }
-        #endregion
-        
-        #region Parameter InterceptorConfiguration
-        /// <summary>
-        /// <para>
-        /// <para>A list of configuration settings for a gateway interceptor. Gateway interceptors allow
-        /// custom code to be invoked during gateway invocations.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InterceptorConfigurations")]
-        public Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration[] InterceptorConfiguration { get; set; }
-        #endregion
-        
-        #region Parameter KmsKeyArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with
-        /// the gateway.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KmsKeyArn { get; set; }
-        #endregion
-        
-        #region Parameter PolicyEngineConfiguration_Mode
-        /// <summary>
-        /// <para>
-        /// <para>The enforcement mode for the policy engine. Valid values include:</para><ul><li><para><c>LOG_ONLY</c> - The policy engine evaluates each action against your policies and
-        /// adds traces on whether tool calls would be allowed or denied, but does not enforce
-        /// the decision. Use this mode to test and validate policies before enabling enforcement.</para></li><li><para><c>ENFORCE</c> - The policy engine evaluates actions against your policies and enforces
-        /// decisions by allowing or denying agent operations. Test and validate policies in <c>LOG_ONLY</c>
-        /// mode before enabling enforcement to avoid unintended denials or adversely affecting
-        /// production traffic.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode")]
-        public Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode PolicyEngineConfiguration_Mode { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the gateway. The name must be unique within your account.</para>
+        /// <para>The unique identifier of the payment manager to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String PaymentManagerId { get; set; }
         #endregion
         
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride
@@ -286,17 +182,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride[] AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
         #endregion
         
-        #region Parameter ProtocolType
-        /// <summary>
-        /// <para>
-        /// <para>The protocol type for the gateway.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.GatewayProtocolType")]
-        public Amazon.BedrockAgentCoreControl.GatewayProtocolType ProtocolType { get; set; }
-        #endregion
-        
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier
         /// <summary>
         /// <para>
@@ -310,18 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the gateway
-        /// to access Amazon Web Services services.</para>
+        /// <para>The updated Amazon Resource Name (ARN) of the IAM role for the payment manager.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
         #endregion
         
@@ -336,19 +213,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
-        #endregion
-        
-        #region Parameter Mcp_SearchType
-        /// <summary>
-        /// <para>
-        /// <para>The search type for the Model Context Protocol gateway. This field specifies how the
-        /// gateway handles search operations.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ProtocolConfiguration_Mcp_SearchType")]
-        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SearchType")]
-        public Amazon.BedrockAgentCoreControl.SearchType Mcp_SearchType { get; set; }
         #endregion
         
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId
@@ -367,20 +231,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String[] AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId { get; set; }
         #endregion
         
-        #region Parameter ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond
-        /// <summary>
-        /// <para>
-        /// <para>The session timeout in seconds. After this timeout, the session expires and subsequent
-        /// requests to this session will receive an error. The minimum value is 900 seconds (15
-        /// minutes), the maximum value is 28800 seconds (8 hours), and the default value is 3600
-        /// seconds (1 hour).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSeconds")]
-        public System.Int32? ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond { get; set; }
-        #endregion
-        
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId
         /// <summary>
         /// <para>
@@ -396,22 +246,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String[] AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SubnetId { get; set; }
         #endregion
         
-        #region Parameter Mcp_SupportedVersion
-        /// <summary>
-        /// <para>
-        /// <para>The supported versions of the Model Context Protocol. This field specifies which versions
-        /// of the protocol the gateway can use.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ProtocolConfiguration_Mcp_SupportedVersions")]
-        public System.String[] Mcp_SupportedVersion { get; set; }
-        #endregion
-        
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag
         /// <summary>
         /// <para>
@@ -425,21 +259,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tags")]
         public System.Collections.Hashtable AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A map of key-value pairs to associate with the gateway as metadata tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier
@@ -469,8 +288,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.CreateGatewayResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.CreateGatewayResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -496,8 +315,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BACCGateway (CreateGateway)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PaymentManagerId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BACCPaymentManager (UpdatePaymentManager)"))
             {
                 return;
             }
@@ -509,26 +328,26 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.CreateGatewayResponse, NewBACCGatewayCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse, UpdateBACCPaymentManagerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.CustomJWTAuthorizer_AllowedAudience != null)
+            if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience != null)
             {
-                context.CustomJWTAuthorizer_AllowedAudience = new List<System.String>(this.CustomJWTAuthorizer_AllowedAudience);
+                context.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience = new List<System.String>(this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience);
             }
-            if (this.CustomJWTAuthorizer_AllowedClient != null)
+            if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient != null)
             {
-                context.CustomJWTAuthorizer_AllowedClient = new List<System.String>(this.CustomJWTAuthorizer_AllowedClient);
+                context.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient = new List<System.String>(this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient);
             }
-            if (this.CustomJWTAuthorizer_AllowedScope != null)
+            if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope != null)
             {
-                context.CustomJWTAuthorizer_AllowedScope = new List<System.String>(this.CustomJWTAuthorizer_AllowedScope);
+                context.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope = new List<System.String>(this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope);
             }
-            if (this.CustomJWTAuthorizer_CustomClaim != null)
+            if (this.AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim != null)
             {
-                context.CustomJWTAuthorizer_CustomClaim = new List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType>(this.CustomJWTAuthorizer_CustomClaim);
+                context.AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim = new List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType>(this.AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim);
             }
-            context.CustomJWTAuthorizer_DiscoveryUrl = this.CustomJWTAuthorizer_DiscoveryUrl;
+            context.AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl = this.AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl;
             context.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType = this.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType;
             context.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain = this.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain;
             if (this.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId != null)
@@ -554,53 +373,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride = new List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride>(this.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride);
             }
             context.AuthorizerType = this.AuthorizerType;
-            #if MODULAR
-            if (this.AuthorizerType == null && ParameterWasBound(nameof(this.AuthorizerType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AuthorizerType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
-            context.ExceptionLevel = this.ExceptionLevel;
-            if (this.InterceptorConfiguration != null)
-            {
-                context.InterceptorConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration>(this.InterceptorConfiguration);
-            }
-            context.KmsKeyArn = this.KmsKeyArn;
-            context.Name = this.Name;
+            context.PaymentManagerId = this.PaymentManagerId;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.PaymentManagerId == null && ParameterWasBound(nameof(this.PaymentManagerId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PaymentManagerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PolicyEngineConfiguration_Arn = this.PolicyEngineConfiguration_Arn;
-            context.PolicyEngineConfiguration_Mode = this.PolicyEngineConfiguration_Mode;
-            context.Mcp_Instruction = this.Mcp_Instruction;
-            context.Mcp_SearchType = this.Mcp_SearchType;
-            context.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond = this.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond;
-            context.ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming = this.ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming;
-            if (this.Mcp_SupportedVersion != null)
-            {
-                context.Mcp_SupportedVersion = new List<System.String>(this.Mcp_SupportedVersion);
-            }
-            context.ProtocolType = this.ProtocolType;
             context.RoleArn = this.RoleArn;
-            #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -615,7 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.CreateGatewayRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerRequest();
             
             
              // populate AuthorizerConfiguration
@@ -626,54 +408,54 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate CustomJWTAuthorizer
             var requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = true;
             requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer = new Amazon.BedrockAgentCoreControl.Model.CustomJWTAuthorizerConfiguration();
-            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedAudience = null;
-            if (cmdletContext.CustomJWTAuthorizer_AllowedAudience != null)
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedAudience = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedAudience = cmdletContext.CustomJWTAuthorizer_AllowedAudience;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedAudience = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience;
             }
-            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedAudience != null)
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedAudience != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedAudience = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedAudience;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedAudience = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedAudience;
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
             }
-            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedClient = null;
-            if (cmdletContext.CustomJWTAuthorizer_AllowedClient != null)
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedClient = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedClient = cmdletContext.CustomJWTAuthorizer_AllowedClient;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedClient = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient;
             }
-            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedClient != null)
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedClient != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedClients = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedClient;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedClients = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedClient;
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
             }
-            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedScope = null;
-            if (cmdletContext.CustomJWTAuthorizer_AllowedScope != null)
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedScope = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedScope = cmdletContext.CustomJWTAuthorizer_AllowedScope;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedScope = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope;
             }
-            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedScope != null)
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedScope != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedScopes = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedScope;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedScopes = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedScope;
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
             }
-            List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_CustomClaim = null;
-            if (cmdletContext.CustomJWTAuthorizer_CustomClaim != null)
+            List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_CustomClaim = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_CustomClaim = cmdletContext.CustomJWTAuthorizer_CustomClaim;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_CustomClaim = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim;
             }
-            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_CustomClaim != null)
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_CustomClaim != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.CustomClaims = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_CustomClaim;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.CustomClaims = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_CustomClaim;
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
             }
-            System.String requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_DiscoveryUrl = null;
-            if (cmdletContext.CustomJWTAuthorizer_DiscoveryUrl != null)
+            System.String requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_DiscoveryUrl = cmdletContext.CustomJWTAuthorizer_DiscoveryUrl;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl;
             }
-            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_DiscoveryUrl != null)
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl != null)
             {
-                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.DiscoveryUrl = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_DiscoveryUrl;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.DiscoveryUrl = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl;
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
             }
             List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride = null;
@@ -828,166 +610,13 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.ExceptionLevel != null)
+            if (cmdletContext.PaymentManagerId != null)
             {
-                request.ExceptionLevel = cmdletContext.ExceptionLevel;
-            }
-            if (cmdletContext.InterceptorConfiguration != null)
-            {
-                request.InterceptorConfigurations = cmdletContext.InterceptorConfiguration;
-            }
-            if (cmdletContext.KmsKeyArn != null)
-            {
-                request.KmsKeyArn = cmdletContext.KmsKeyArn;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            
-             // populate PolicyEngineConfiguration
-            var requestPolicyEngineConfigurationIsNull = true;
-            request.PolicyEngineConfiguration = new Amazon.BedrockAgentCoreControl.Model.GatewayPolicyEngineConfiguration();
-            System.String requestPolicyEngineConfiguration_policyEngineConfiguration_Arn = null;
-            if (cmdletContext.PolicyEngineConfiguration_Arn != null)
-            {
-                requestPolicyEngineConfiguration_policyEngineConfiguration_Arn = cmdletContext.PolicyEngineConfiguration_Arn;
-            }
-            if (requestPolicyEngineConfiguration_policyEngineConfiguration_Arn != null)
-            {
-                request.PolicyEngineConfiguration.Arn = requestPolicyEngineConfiguration_policyEngineConfiguration_Arn;
-                requestPolicyEngineConfigurationIsNull = false;
-            }
-            Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode requestPolicyEngineConfiguration_policyEngineConfiguration_Mode = null;
-            if (cmdletContext.PolicyEngineConfiguration_Mode != null)
-            {
-                requestPolicyEngineConfiguration_policyEngineConfiguration_Mode = cmdletContext.PolicyEngineConfiguration_Mode;
-            }
-            if (requestPolicyEngineConfiguration_policyEngineConfiguration_Mode != null)
-            {
-                request.PolicyEngineConfiguration.Mode = requestPolicyEngineConfiguration_policyEngineConfiguration_Mode;
-                requestPolicyEngineConfigurationIsNull = false;
-            }
-             // determine if request.PolicyEngineConfiguration should be set to null
-            if (requestPolicyEngineConfigurationIsNull)
-            {
-                request.PolicyEngineConfiguration = null;
-            }
-            
-             // populate ProtocolConfiguration
-            var requestProtocolConfigurationIsNull = true;
-            request.ProtocolConfiguration = new Amazon.BedrockAgentCoreControl.Model.GatewayProtocolConfiguration();
-            Amazon.BedrockAgentCoreControl.Model.MCPGatewayConfiguration requestProtocolConfiguration_protocolConfiguration_Mcp = null;
-            
-             // populate Mcp
-            var requestProtocolConfiguration_protocolConfiguration_McpIsNull = true;
-            requestProtocolConfiguration_protocolConfiguration_Mcp = new Amazon.BedrockAgentCoreControl.Model.MCPGatewayConfiguration();
-            System.String requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_Instruction = null;
-            if (cmdletContext.Mcp_Instruction != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_Instruction = cmdletContext.Mcp_Instruction;
-            }
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_Instruction != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp.Instructions = requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_Instruction;
-                requestProtocolConfiguration_protocolConfiguration_McpIsNull = false;
-            }
-            Amazon.BedrockAgentCoreControl.SearchType requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_SearchType = null;
-            if (cmdletContext.Mcp_SearchType != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_SearchType = cmdletContext.Mcp_SearchType;
-            }
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_SearchType != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp.SearchType = requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_SearchType;
-                requestProtocolConfiguration_protocolConfiguration_McpIsNull = false;
-            }
-            List<System.String> requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_SupportedVersion = null;
-            if (cmdletContext.Mcp_SupportedVersion != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_SupportedVersion = cmdletContext.Mcp_SupportedVersion;
-            }
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_SupportedVersion != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp.SupportedVersions = requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_SupportedVersion;
-                requestProtocolConfiguration_protocolConfiguration_McpIsNull = false;
-            }
-            Amazon.BedrockAgentCoreControl.Model.SessionConfiguration requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration = null;
-            
-             // populate SessionConfiguration
-            var requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfigurationIsNull = true;
-            requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration = new Amazon.BedrockAgentCoreControl.Model.SessionConfiguration();
-            System.Int32? requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration_protocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond = null;
-            if (cmdletContext.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration_protocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond = cmdletContext.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond.Value;
-            }
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration_protocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration.SessionTimeoutInSeconds = requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration_protocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond.Value;
-                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfigurationIsNull = false;
-            }
-             // determine if requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration should be set to null
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfigurationIsNull)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration = null;
-            }
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp.SessionConfiguration = requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_SessionConfiguration;
-                requestProtocolConfiguration_protocolConfiguration_McpIsNull = false;
-            }
-            Amazon.BedrockAgentCoreControl.Model.StreamingConfiguration requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration = null;
-            
-             // populate StreamingConfiguration
-            var requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfigurationIsNull = true;
-            requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration = new Amazon.BedrockAgentCoreControl.Model.StreamingConfiguration();
-            System.Boolean? requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration_protocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming = null;
-            if (cmdletContext.ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration_protocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming = cmdletContext.ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming.Value;
-            }
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration_protocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration.EnableResponseStreaming = requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration_protocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming.Value;
-                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfigurationIsNull = false;
-            }
-             // determine if requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration should be set to null
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfigurationIsNull)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration = null;
-            }
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration != null)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp.StreamingConfiguration = requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_StreamingConfiguration;
-                requestProtocolConfiguration_protocolConfiguration_McpIsNull = false;
-            }
-             // determine if requestProtocolConfiguration_protocolConfiguration_Mcp should be set to null
-            if (requestProtocolConfiguration_protocolConfiguration_McpIsNull)
-            {
-                requestProtocolConfiguration_protocolConfiguration_Mcp = null;
-            }
-            if (requestProtocolConfiguration_protocolConfiguration_Mcp != null)
-            {
-                request.ProtocolConfiguration.Mcp = requestProtocolConfiguration_protocolConfiguration_Mcp;
-                requestProtocolConfigurationIsNull = false;
-            }
-             // determine if request.ProtocolConfiguration should be set to null
-            if (requestProtocolConfigurationIsNull)
-            {
-                request.ProtocolConfiguration = null;
-            }
-            if (cmdletContext.ProtocolType != null)
-            {
-                request.ProtocolType = cmdletContext.ProtocolType;
+                request.PaymentManagerId = cmdletContext.PaymentManagerId;
             }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -1022,12 +651,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.CreateGatewayResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateGatewayRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UpdatePaymentManager");
             try
             {
-                return client.CreateGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdatePaymentManagerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -1044,11 +673,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> CustomJWTAuthorizer_AllowedAudience { get; set; }
-            public List<System.String> CustomJWTAuthorizer_AllowedClient { get; set; }
-            public List<System.String> CustomJWTAuthorizer_AllowedScope { get; set; }
-            public List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> CustomJWTAuthorizer_CustomClaim { get; set; }
-            public System.String CustomJWTAuthorizer_DiscoveryUrl { get; set; }
+            public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience { get; set; }
+            public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient { get; set; }
+            public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim { get; set; }
+            public System.String AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
             public Amazon.BedrockAgentCoreControl.EndpointIpAddressType AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
             public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
             public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId { get; set; }
@@ -1057,24 +686,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
             public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
-            public Amazon.BedrockAgentCoreControl.AuthorizerType AuthorizerType { get; set; }
+            public Amazon.BedrockAgentCoreControl.PaymentsAuthorizerType AuthorizerType { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
-            public Amazon.BedrockAgentCoreControl.ExceptionLevel ExceptionLevel { get; set; }
-            public List<Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration> InterceptorConfiguration { get; set; }
-            public System.String KmsKeyArn { get; set; }
-            public System.String Name { get; set; }
-            public System.String PolicyEngineConfiguration_Arn { get; set; }
-            public Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode PolicyEngineConfiguration_Mode { get; set; }
-            public System.String Mcp_Instruction { get; set; }
-            public Amazon.BedrockAgentCoreControl.SearchType Mcp_SearchType { get; set; }
-            public System.Int32? ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond { get; set; }
-            public System.Boolean? ProtocolConfiguration_Mcp_StreamingConfiguration_EnableResponseStreaming { get; set; }
-            public List<System.String> Mcp_SupportedVersion { get; set; }
-            public Amazon.BedrockAgentCoreControl.GatewayProtocolType ProtocolType { get; set; }
+            public System.String PaymentManagerId { get; set; }
             public System.String RoleArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateGatewayResponse, NewBACCGatewayCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse, UpdateBACCPaymentManagerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

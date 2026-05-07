@@ -80,6 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.INV
         public System.Int32? BillingPeriod_Month { get; set; }
         #endregion
         
+        #region Parameter Filter_ReceiverRole
+        /// <summary>
+        /// <para>
+        /// <para>The role of the invoice receiver to filter by.</para><note><para>When <c>ReceiverRole</c> is specified:</para><ul><li><para>Data is available starting <c>2025-06-01</c>. Queries for periods before <c>2025-06-01</c>
+        /// return a validation error.</para></li><li><para><c>TimeInterval</c> supports a time interval of up to 5 years. Without <c>ReceiverRole</c>,
+        /// <c>TimeInterval</c> is limited to one month.</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Invoicing.ReceiverRole")]
+        public Amazon.Invoicing.ReceiverRole Filter_ReceiverRole { get; set; }
+        #endregion
+        
         #region Parameter Selector_ResourceType
         /// <summary>
         /// <para>
@@ -212,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
             context.BillingPeriod_Month = this.BillingPeriod_Month;
             context.BillingPeriod_Year = this.BillingPeriod_Year;
             context.Filter_InvoicingEntity = this.Filter_InvoicingEntity;
+            context.Filter_ReceiverRole = this.Filter_ReceiverRole;
             context.TimeInterval_EndDate = this.TimeInterval_EndDate;
             context.TimeInterval_StartDate = this.TimeInterval_StartDate;
             context.MaxResult = this.MaxResult;
@@ -269,6 +283,16 @@ namespace Amazon.PowerShell.Cmdlets.INV
             if (requestFilter_filter_InvoicingEntity != null)
             {
                 request.Filter.InvoicingEntity = requestFilter_filter_InvoicingEntity;
+                requestFilterIsNull = false;
+            }
+            Amazon.Invoicing.ReceiverRole requestFilter_filter_ReceiverRole = null;
+            if (cmdletContext.Filter_ReceiverRole != null)
+            {
+                requestFilter_filter_ReceiverRole = cmdletContext.Filter_ReceiverRole;
+            }
+            if (requestFilter_filter_ReceiverRole != null)
+            {
+                request.Filter.ReceiverRole = requestFilter_filter_ReceiverRole;
                 requestFilterIsNull = false;
             }
             Amazon.Invoicing.Model.BillingPeriod requestFilter_filter_BillingPeriod = null;
@@ -461,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
             public System.Int32? BillingPeriod_Month { get; set; }
             public System.Int32? BillingPeriod_Year { get; set; }
             public System.String Filter_InvoicingEntity { get; set; }
+            public Amazon.Invoicing.ReceiverRole Filter_ReceiverRole { get; set; }
             public System.DateTime? TimeInterval_EndDate { get; set; }
             public System.DateTime? TimeInterval_StartDate { get; set; }
             public int? MaxResult { get; set; }

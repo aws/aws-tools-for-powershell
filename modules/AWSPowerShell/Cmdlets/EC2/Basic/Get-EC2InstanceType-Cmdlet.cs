@@ -31,7 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the specified instance types. By default, all instance types for the current
-    /// Region are described. Alternatively, you can filter the results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Region are described. Alternatively, you can filter the results. To include instance
+    /// types that are not supported in the current Region, set <c>IncludeUnsupportedInRegion</c>
+    /// to <c>true</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2InstanceType")]
     [OutputType("Amazon.EC2.Model.InstanceTypeInfo")]
@@ -116,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter IncludeUnsupportedInRegion
+        /// <summary>
+        /// <para>
+        /// <para>If <c>true</c>, the response includes instance types that are not supported in the
+        /// current Region, in addition to the supported types. Default: <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeUnsupportedInRegion { get; set; }
         #endregion
         
         #region Parameter InstanceType
@@ -211,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            context.IncludeUnsupportedInRegion = this.IncludeUnsupportedInRegion;
             if (this.InstanceType != null)
             {
                 context.InstanceType = new List<System.String>(this.InstanceType);
@@ -252,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeUnsupportedInRegion != null)
+            {
+                request.IncludeUnsupportedInRegion = cmdletContext.IncludeUnsupportedInRegion.Value;
             }
             if (cmdletContext.InstanceType != null)
             {
@@ -323,6 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeUnsupportedInRegion != null)
+            {
+                request.IncludeUnsupportedInRegion = cmdletContext.IncludeUnsupportedInRegion.Value;
             }
             if (cmdletContext.InstanceType != null)
             {
@@ -443,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public System.Boolean? IncludeUnsupportedInRegion { get; set; }
             public List<System.String> InstanceType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }

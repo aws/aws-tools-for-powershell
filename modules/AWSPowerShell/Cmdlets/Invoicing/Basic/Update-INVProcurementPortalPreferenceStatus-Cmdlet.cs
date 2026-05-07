@@ -30,8 +30,12 @@ using Amazon.Invoicing.Model;
 namespace Amazon.PowerShell.Cmdlets.INV
 {
     /// <summary>
+    /// <i><b>This feature API is subject to changing at any time. For more information,
+    /// see the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service
+    /// Terms</a> (Betas and Previews).</b></i><para>
     /// Updates the status of a procurement portal preference, including the activation state
     /// of e-invoice delivery and purchase order retrieval features.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "INVProcurementPortalPreferenceStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -30,7 +30,11 @@ using Amazon.Invoicing.Model;
 namespace Amazon.PowerShell.Cmdlets.INV
 {
     /// <summary>
+    /// <i><b>This feature API is subject to changing at any time. For more information,
+    /// see the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service
+    /// Terms</a> (Betas and Previews).</b></i><para>
     /// Retrieves the details of a specific procurement portal preference configuration.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "INVProcurementPortalPreference")]
     [OutputType("Amazon.Invoicing.Model.ProcurementPortalPreference")]

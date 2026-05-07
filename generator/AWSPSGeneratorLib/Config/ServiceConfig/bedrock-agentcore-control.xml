@@ -171,6 +171,18 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePaymentConnector" OutputProperty="*" Verb="New" Noun="PaymentConnector" ShouldProcessTarget="PaymentManagerId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePaymentCredentialProvider" OutputProperty="*" Verb="New" Noun="PaymentCredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePaymentManager" OutputProperty="*" Verb="New" Noun="PaymentManager" ShouldProcessTarget="Name,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyEngineId" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Definition_Cedar_Statement" NewName="Cedar_Statement" />
@@ -250,6 +262,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteOnlineEvaluationConfig" OutputProperty="*" Verb="Remove" Noun="OnlineEvaluationConfig" ShouldProcessTarget="OnlineEvaluationConfigId" PipelineParameter="OnlineEvaluationConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePaymentConnector" OutputProperty="*" Verb="Remove" Noun="PaymentConnector" ShouldProcessTarget="PaymentConnectorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePaymentCredentialProvider" Verb="Remove" Noun="PaymentCredentialProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePaymentManager" OutputProperty="*" Verb="Remove" Noun="PaymentManager" ShouldProcessTarget="PaymentManagerId" PipelineParameter="PaymentManagerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -338,6 +362,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetOnlineEvaluationConfig" OutputProperty="*" Verb="Get" Noun="OnlineEvaluationConfig" PipelineParameter="OnlineEvaluationConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPaymentConnector" OutputProperty="*" Verb="Get" Noun="PaymentConnector" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPaymentCredentialProvider" OutputProperty="*" Verb="Get" Noun="PaymentCredentialProvider" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPaymentManager" OutputProperty="*" Verb="Get" Noun="PaymentManager" PipelineParameter="PaymentManagerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -438,6 +474,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListOnlineEvaluationConfigs" OutputProperty="OnlineEvaluationConfigs" Verb="Get" Noun="OnlineEvaluationConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPaymentConnectors" OutputProperty="PaymentConnectors" Verb="Get" Noun="PaymentConnectorList" PipelineParameter="PaymentManagerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPaymentCredentialProviders" OutputProperty="CredentialProviders" Verb="Get" Noun="PaymentCredentialProviderList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPaymentManagers" OutputProperty="PaymentManagers" Verb="Get" Noun="PaymentManagerList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -630,6 +678,18 @@
                 <Param Name="Rule_SamplingConfig_SamplingPercentage" NewName="SamplingConfig_SamplingPercentage" />
                 <Param Name="Rule_SessionConfig_SessionTimeoutMinutes" NewName="SessionConfig_SessionTimeoutMinute" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePaymentConnector" OutputProperty="*" Verb="Update" Noun="PaymentConnector" ShouldProcessTarget="PaymentConnectorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePaymentCredentialProvider" OutputProperty="*" Verb="Update" Noun="PaymentCredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePaymentManager" OutputProperty="*" Verb="Update" Noun="PaymentManager" ShouldProcessTarget="PaymentManagerId" PipelineParameter="PaymentManagerId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePolicy" OutputProperty="*" Verb="Update" Noun="Policy" ShouldProcessTarget="PolicyEngineId" PipelineParameter="" NoPipelineParameter="true">

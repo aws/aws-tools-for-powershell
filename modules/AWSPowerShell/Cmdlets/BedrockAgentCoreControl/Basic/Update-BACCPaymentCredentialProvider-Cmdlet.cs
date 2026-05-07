@@ -1,0 +1,420 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.BACC
+{
+    /// <summary>
+    /// Updates an existing payment credential provider with new authentication credentials.
+    /// </summary>
+    [Cmdlet("Update", "BACCPaymentCredentialProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UpdatePaymentCredentialProvider API operation.", Operation = new[] {"UpdatePaymentCredentialProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderResponse object containing multiple properties."
+    )]
+    public partial class UpdateBACCPaymentCredentialProviderCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The API key identifier provided by Coinbase Developer Platform.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret
+        /// <summary>
+        /// <para>
+        /// <para>The API key secret provided by Coinbase Developer Platform.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret { get; set; }
+        #endregion
+        
+        #region Parameter ProviderConfigurationInput_StripePrivyConfiguration_AppId
+        /// <summary>
+        /// <para>
+        /// <para>The app ID provided by Privy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProviderConfigurationInput_StripePrivyConfiguration_AppId { get; set; }
+        #endregion
+        
+        #region Parameter ProviderConfigurationInput_StripePrivyConfiguration_AppSecret
+        /// <summary>
+        /// <para>
+        /// <para>The app secret provided by Privy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProviderConfigurationInput_StripePrivyConfiguration_AppSecret { get; set; }
+        #endregion
+        
+        #region Parameter ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationId
+        /// <summary>
+        /// <para>
+        /// <para>The authorization ID for the Stripe Privy integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationId { get; set; }
+        #endregion
+        
+        #region Parameter ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>The authorization private key for the Stripe Privy integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey { get; set; }
+        #endregion
+        
+        #region Parameter CredentialProviderVendor
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.PaymentCredentialProviderVendorType")]
+        public Amazon.BedrockAgentCoreControl.PaymentCredentialProviderVendorType CredentialProviderVendor { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the payment credential provider to update.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecret
+        /// <summary>
+        /// <para>
+        /// <para>The wallet secret provided by Coinbase Developer Platform.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecret { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BACCPaymentCredentialProvider (UpdatePaymentCredentialProvider)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderResponse, UpdateBACCPaymentCredentialProviderCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.CredentialProviderVendor = this.CredentialProviderVendor;
+            #if MODULAR
+            if (this.CredentialProviderVendor == null && ParameterWasBound(nameof(this.CredentialProviderVendor)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CredentialProviderVendor which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId = this.ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId;
+            context.ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret = this.ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret;
+            context.ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecret = this.ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecret;
+            context.ProviderConfigurationInput_StripePrivyConfiguration_AppId = this.ProviderConfigurationInput_StripePrivyConfiguration_AppId;
+            context.ProviderConfigurationInput_StripePrivyConfiguration_AppSecret = this.ProviderConfigurationInput_StripePrivyConfiguration_AppSecret;
+            context.ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationId = this.ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationId;
+            context.ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey = this.ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderRequest();
+            
+            if (cmdletContext.CredentialProviderVendor != null)
+            {
+                request.CredentialProviderVendor = cmdletContext.CredentialProviderVendor;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            
+             // populate ProviderConfigurationInput
+            var requestProviderConfigurationInputIsNull = true;
+            request.ProviderConfigurationInput = new Amazon.BedrockAgentCoreControl.Model.PaymentProviderConfigurationInput();
+            Amazon.BedrockAgentCoreControl.Model.CoinbaseCdpConfigurationInput requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration = null;
+            
+             // populate CoinbaseCdpConfiguration
+            var requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfigurationIsNull = true;
+            requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration = new Amazon.BedrockAgentCoreControl.Model.CoinbaseCdpConfigurationInput();
+            System.String requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId = null;
+            if (cmdletContext.ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId = cmdletContext.ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId;
+            }
+            if (requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration.ApiKeyId = requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId;
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfigurationIsNull = false;
+            }
+            System.String requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret = null;
+            if (cmdletContext.ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret = cmdletContext.ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret;
+            }
+            if (requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration.ApiKeySecret = requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret;
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfigurationIsNull = false;
+            }
+            System.String requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_WalletSecret = null;
+            if (cmdletContext.ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecret != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_WalletSecret = cmdletContext.ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecret;
+            }
+            if (requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_WalletSecret != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration.WalletSecret = requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration_providerConfigurationInput_CoinbaseCdpConfiguration_WalletSecret;
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfigurationIsNull = false;
+            }
+             // determine if requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration should be set to null
+            if (requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfigurationIsNull)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration = null;
+            }
+            if (requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration != null)
+            {
+                request.ProviderConfigurationInput.CoinbaseCdpConfiguration = requestProviderConfigurationInput_providerConfigurationInput_CoinbaseCdpConfiguration;
+                requestProviderConfigurationInputIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.StripePrivyConfigurationInput requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration = null;
+            
+             // populate StripePrivyConfiguration
+            var requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfigurationIsNull = true;
+            requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration = new Amazon.BedrockAgentCoreControl.Model.StripePrivyConfigurationInput();
+            System.String requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AppId = null;
+            if (cmdletContext.ProviderConfigurationInput_StripePrivyConfiguration_AppId != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AppId = cmdletContext.ProviderConfigurationInput_StripePrivyConfiguration_AppId;
+            }
+            if (requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AppId != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration.AppId = requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AppId;
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfigurationIsNull = false;
+            }
+            System.String requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AppSecret = null;
+            if (cmdletContext.ProviderConfigurationInput_StripePrivyConfiguration_AppSecret != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AppSecret = cmdletContext.ProviderConfigurationInput_StripePrivyConfiguration_AppSecret;
+            }
+            if (requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AppSecret != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration.AppSecret = requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AppSecret;
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfigurationIsNull = false;
+            }
+            System.String requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AuthorizationId = null;
+            if (cmdletContext.ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationId != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AuthorizationId = cmdletContext.ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationId;
+            }
+            if (requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AuthorizationId != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration.AuthorizationId = requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AuthorizationId;
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfigurationIsNull = false;
+            }
+            System.String requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey = null;
+            if (cmdletContext.ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey = cmdletContext.ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey;
+            }
+            if (requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey != null)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration.AuthorizationPrivateKey = requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration_providerConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey;
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfigurationIsNull = false;
+            }
+             // determine if requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration should be set to null
+            if (requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfigurationIsNull)
+            {
+                requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration = null;
+            }
+            if (requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration != null)
+            {
+                request.ProviderConfigurationInput.StripePrivyConfiguration = requestProviderConfigurationInput_providerConfigurationInput_StripePrivyConfiguration;
+                requestProviderConfigurationInputIsNull = false;
+            }
+             // determine if request.ProviderConfigurationInput should be set to null
+            if (requestProviderConfigurationInputIsNull)
+            {
+                request.ProviderConfigurationInput = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UpdatePaymentCredentialProvider");
+            try
+            {
+                return client.UpdatePaymentCredentialProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public Amazon.BedrockAgentCoreControl.PaymentCredentialProviderVendorType CredentialProviderVendor { get; set; }
+            public System.String Name { get; set; }
+            public System.String ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeyId { get; set; }
+            public System.String ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecret { get; set; }
+            public System.String ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecret { get; set; }
+            public System.String ProviderConfigurationInput_StripePrivyConfiguration_AppId { get; set; }
+            public System.String ProviderConfigurationInput_StripePrivyConfiguration_AppSecret { get; set; }
+            public System.String ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationId { get; set; }
+            public System.String ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKey { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdatePaymentCredentialProviderResponse, UpdateBACCPaymentCredentialProviderCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

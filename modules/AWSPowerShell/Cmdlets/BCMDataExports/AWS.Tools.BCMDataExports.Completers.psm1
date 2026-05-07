@@ -126,7 +126,7 @@ $BCMDE_Completers = {
             ($_ -eq "Update-BCMDEExport/S3OutputConfigurations_OutputType")
         }
         {
-            $v = "CUSTOM"
+            $v = "ATHENA","CUSTOM","REDSHIFT"
             break
         }
 

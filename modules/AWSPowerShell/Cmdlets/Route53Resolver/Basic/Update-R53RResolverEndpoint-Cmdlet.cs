@@ -47,6 +47,37 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Dns64Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether DNS64 is enabled for the inbound Resolver endpoint. When set to
+        /// <c>true</c>, Route 53 Resolver synthesizes AAAA (IPv6) records for IPv4-only services
+        /// by prepending the <c>64:ff9b::/96</c> prefix to the IPv4 address. This enables IPv6-only
+        /// clients that send queries through the inbound endpoint to reach IPv4-only services.
+        /// DNS64 works with NAT64 to provide complete IPv6-to-IPv4 translation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Dns64Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6InternetAccessEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether IPv6 internet access is enabled for the outbound Resolver endpoint.
+        /// When set to <c>true</c>, the endpoint elastic network interfaces (ENIs) can forward
+        /// DNS queries to public IPv6 targets through an internet gateway.</para><important><para>When you enable IPv6 internet access, use network controls like security groups, NACLs,
+        /// or egress-only internet gateways to protect the endpoint ENIs from unsolicited ingress
+        /// traffic. Be aware that some network controls can affect DNS query throughput due to
+        /// connection tracking. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/userguide/security-group-connection-tracking.html">Amazon
+        /// EC2 security group connection tracking</a> and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver-endpoint-scaling.html">Resolver
+        /// endpoint scaling</a>.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Ipv6InternetAccessEnabled { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -198,6 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse, UpdateR53RResolverEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Dns64Enabled = this.Dns64Enabled;
+            context.Ipv6InternetAccessEnabled = this.Ipv6InternetAccessEnabled;
             context.Name = this.Name;
             if (this.Protocol != null)
             {
@@ -233,6 +266,14 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             // create request
             var request = new Amazon.Route53Resolver.Model.UpdateResolverEndpointRequest();
             
+            if (cmdletContext.Dns64Enabled != null)
+            {
+                request.Dns64Enabled = cmdletContext.Dns64Enabled.Value;
+            }
+            if (cmdletContext.Ipv6InternetAccessEnabled != null)
+            {
+                request.Ipv6InternetAccessEnabled = cmdletContext.Ipv6InternetAccessEnabled.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -316,6 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Dns64Enabled { get; set; }
+            public System.Boolean? Ipv6InternetAccessEnabled { get; set; }
             public System.String Name { get; set; }
             public List<System.String> Protocol { get; set; }
             public System.String ResolverEndpointId { get; set; }

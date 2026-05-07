@@ -160,9 +160,11 @@ $BACC_Completers = {
             ($_ -eq "New-BACCAgentRuntime/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
             ($_ -eq "New-BACCGateway/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
             ($_ -eq "New-BACCHarness/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "New-BACCPaymentManager/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
             ($_ -eq "New-BACCRegistry/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
             ($_ -eq "Update-BACCAgentRuntime/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
             ($_ -eq "Update-BACCGateway/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-BACCPaymentManager/AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
             ($_ -eq "Update-BACCHarness/AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
             ($_ -eq "Update-BACCRegistry/AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
             ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
@@ -285,6 +287,36 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.PaymentConnectorType
+        {
+            ($_ -eq "New-BACCPaymentConnector/Type") -Or
+            ($_ -eq "Update-BACCPaymentConnector/Type")
+        }
+        {
+            $v = "CoinbaseCDP","StripePrivy"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.PaymentCredentialProviderVendorType
+        {
+            ($_ -eq "New-BACCPaymentCredentialProvider/CredentialProviderVendor") -Or
+            ($_ -eq "Update-BACCPaymentCredentialProvider/CredentialProviderVendor")
+        }
+        {
+            $v = "CoinbaseCDP","StripePrivy"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.PaymentsAuthorizerType
+        {
+            ($_ -eq "New-BACCPaymentManager/AuthorizerType") -Or
+            ($_ -eq "Update-BACCPaymentManager/AuthorizerType")
+        }
+        {
+            $v = "AWS_IAM","CUSTOM_JWT"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.PolicyValidationMode
         {
             ($_ -eq "New-BACCPolicy/ValidationMode") -Or
@@ -368,11 +400,11 @@ $BACC_Completers = {
 }
 
 $BACC_map = @{
-    "AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCAgentRuntime","New-BACCGateway","New-BACCHarness","New-BACCRegistry","Update-BACCAgentRuntime","Update-BACCGateway")
+    "AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCAgentRuntime","New-BACCGateway","New-BACCHarness","New-BACCPaymentManager","New-BACCRegistry","Update-BACCAgentRuntime","Update-BACCGateway","Update-BACCPaymentManager")
     "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
-    "AuthorizerType"=@("New-BACCGateway","New-BACCRegistry","Update-BACCGateway")
+    "AuthorizerType"=@("New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
-    "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","New-BACCPaymentCredentialProvider","Update-BACCOauth2CredentialProvider","Update-BACCPaymentCredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
     "Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode"=@("New-BACCHarness","Update-BACCHarness")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
@@ -395,7 +427,7 @@ $BACC_map = @{
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
     "TargetConfiguration_Mcp_McpServer_ListingMode"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "Truncation_Strategy"=@("New-BACCHarness","Update-BACCHarness")
-    "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
+    "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList","New-BACCPaymentConnector","Update-BACCPaymentConnector")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "View"=@("Get-BACCMemory")
 }
@@ -465,6 +497,9 @@ $BACC_SelectMap = @{
                "New-BACCMemory",
                "New-BACCOauth2CredentialProvider",
                "New-BACCOnlineEvaluationConfig",
+               "New-BACCPaymentConnector",
+               "New-BACCPaymentCredentialProvider",
+               "New-BACCPaymentManager",
                "New-BACCPolicy",
                "New-BACCPolicyEngine",
                "New-BACCRegistry",
@@ -485,6 +520,9 @@ $BACC_SelectMap = @{
                "Remove-BACCMemory",
                "Remove-BACCOauth2CredentialProvider",
                "Remove-BACCOnlineEvaluationConfig",
+               "Remove-BACCPaymentConnector",
+               "Remove-BACCPaymentCredentialProvider",
+               "Remove-BACCPaymentManager",
                "Remove-BACCPolicy",
                "Remove-BACCPolicyEngine",
                "Remove-BACCRegistry",
@@ -507,6 +545,9 @@ $BACC_SelectMap = @{
                "Get-BACCMemory",
                "Get-BACCOauth2CredentialProvider",
                "Get-BACCOnlineEvaluationConfig",
+               "Get-BACCPaymentConnector",
+               "Get-BACCPaymentCredentialProvider",
+               "Get-BACCPaymentManager",
                "Get-BACCPolicy",
                "Get-BACCPolicyEngine",
                "Get-BACCPolicyGeneration",
@@ -532,6 +573,9 @@ $BACC_SelectMap = @{
                "Get-BACCMemoryList",
                "Get-BACCOauth2CredentialProviderList",
                "Get-BACCOnlineEvaluationConfigList",
+               "Get-BACCPaymentConnectorList",
+               "Get-BACCPaymentCredentialProviderList",
+               "Get-BACCPaymentManagerList",
                "Get-BACCPolicyList",
                "Get-BACCPolicyEngineList",
                "Get-BACCPolicyGenerationAssetList",
@@ -559,6 +603,9 @@ $BACC_SelectMap = @{
                "Update-BACCMemory",
                "Update-BACCOauth2CredentialProvider",
                "Update-BACCOnlineEvaluationConfig",
+               "Update-BACCPaymentConnector",
+               "Update-BACCPaymentCredentialProvider",
+               "Update-BACCPaymentManager",
                "Update-BACCPolicy",
                "Update-BACCPolicyEngine",
                "Update-BACCRegistry",

@@ -94,6 +94,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.BlockchainChainId
+        "Get-BACPaymentInstrumentBalance/Chain"
+        {
+            $v = "BASE","BASE_SEPOLIA","ETHEREUM","SOLANA","SOLANA_DEVNET"
+            break
+        }
+
         # Amazon.BedrockAgentCore.BrowserSessionStatus
         "Get-BACBrowserSessionList/Status"
         {
@@ -108,6 +115,20 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.CryptoWalletNetwork
+        "New-BACPaymentInstrument/PaymentInstrumentDetails_EmbeddedCryptoWallet_Network"
+        {
+            $v = "ETHEREUM","SOLANA"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.Currency
+        "New-BACPaymentSession/Limits_MaxSpendAmount_Currency"
+        {
+            $v = "USD"
+            break
+        }
+
         # Amazon.BedrockAgentCore.EventFilterCondition
         "Get-BACSessionList/Filter_EventFilter"
         {
@@ -119,6 +140,13 @@ $BAC_Completers = {
         "Get-BACMemoryExtractionJobList/Filter_Status"
         {
             $v = "FAILED"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.InstrumentBalanceToken
+        "Get-BACPaymentInstrumentBalance/Token"
+        {
+            $v = "USDC"
             break
         }
 
@@ -143,6 +171,27 @@ $BAC_Completers = {
         "Get-BACResourceOauth2Token/Oauth2Flow"
         {
             $v = "M2M","ON_BEHALF_OF_TOKEN_EXCHANGE","USER_FEDERATION"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.PaymentHttpMethodType
+        "Get-BACResourcePaymentToken/PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestMethod"
+        {
+            $v = "DELETE","GET","PATCH","POST","PUT"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.PaymentInstrumentType
+        "New-BACPaymentInstrument/PaymentInstrumentType"
+        {
+            $v = "EMBEDDED_CRYPTO_WALLET"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.PaymentType
+        "Invoke-BACPayment/PaymentType"
+        {
+            $v = "CRYPTO_X402"
             break
         }
 
@@ -196,13 +245,20 @@ $BAC_map = @{
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
+    "Chain"=@("Get-BACPaymentInstrumentBalance")
     "ExecutionStatus"=@("Update-BACABTest")
     "Filter_EventFilter"=@("Get-BACSessionList")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
+    "Limits_MaxSpendAmount_Currency"=@("New-BACPaymentSession")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
+    "PaymentInstrumentDetails_EmbeddedCryptoWallet_Network"=@("New-BACPaymentInstrument")
+    "PaymentInstrumentType"=@("New-BACPaymentInstrument")
+    "PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestMethod"=@("Get-BACResourcePaymentToken")
+    "PaymentType"=@("Invoke-BACPayment")
     "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
     "StatusFilter"=@("Get-BACRecommendationList")
+    "Token"=@("Get-BACPaymentInstrumentBalance")
     "Type"=@("Start-BACRecommendation")
 }
 
@@ -262,10 +318,14 @@ $BAC_SelectMap = @{
                "Complete-BACResourceTokenAuth",
                "New-BACABTest",
                "New-BACEvent",
+               "New-BACPaymentInstrument",
+               "New-BACPaymentSession",
                "Remove-BACABTest",
                "Remove-BACBatchEvaluation",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
+               "Remove-BACPaymentInstrument",
+               "Remove-BACPaymentSession",
                "Remove-BACRecommendation",
                "Invoke-BACEvaluate",
                "Get-BACABTest",
@@ -275,9 +335,13 @@ $BAC_SelectMap = @{
                "Get-BACCodeInterpreterSession",
                "Get-BACEvent",
                "Get-BACMemoryRecord",
+               "Get-BACPaymentInstrument",
+               "Get-BACPaymentInstrumentBalance",
+               "Get-BACPaymentSession",
                "Get-BACRecommendation",
                "Get-BACResourceApiKey",
                "Get-BACResourceOauth2Token",
+               "Get-BACResourcePaymentToken",
                "Get-BACWorkloadAccessToken",
                "Get-BACWorkloadAccessTokenForJWT",
                "Get-BACWorkloadAccessTokenForUserId",
@@ -294,8 +358,11 @@ $BAC_SelectMap = @{
                "Get-BACEventList",
                "Get-BACMemoryExtractionJobList",
                "Get-BACMemoryRecordList",
+               "Get-BACPaymentInstrumentList",
+               "Get-BACPaymentSessionList",
                "Get-BACRecommendationList",
                "Get-BACSessionList",
+               "Invoke-BACPayment",
                "Invoke-BACMemoryRecord",
                "Save-BACBrowserSessionProfile",
                "Search-BACRegistryRecord",

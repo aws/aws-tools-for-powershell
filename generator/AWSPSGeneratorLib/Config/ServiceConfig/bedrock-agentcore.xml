@@ -43,6 +43,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePaymentInstrument" OutputProperty="PaymentInstrument" Verb="New" Noun="PaymentInstrument" ShouldProcessTarget="PaymentConnectorId,PaymentManagerArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePaymentSession" OutputProperty="PaymentSession" Verb="New" Noun="PaymentSession" ShouldProcessTarget="PaymentManagerArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteABTest" OutputProperty="*" Verb="Remove" Noun="ABTest" ShouldProcessTarget="AbTestId" PipelineParameter="AbTestId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +64,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMemoryRecord" OutputProperty="MemoryRecordId" Verb="Remove" Noun="MemoryRecord" ShouldProcessTarget="MemoryRecordId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePaymentInstrument" OutputProperty="Status" Verb="Remove" Noun="PaymentInstrument" ShouldProcessTarget="PaymentInstrumentId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePaymentSession" OutputProperty="Status" Verb="Remove" Noun="PaymentSession" ShouldProcessTarget="PaymentSessionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,6 +111,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPaymentInstrument" OutputProperty="PaymentInstrument" Verb="Get" Noun="PaymentInstrument" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPaymentInstrumentBalance" OutputProperty="*" Verb="Get" Noun="PaymentInstrumentBalance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPaymentSession" OutputProperty="PaymentSession" Verb="Get" Noun="PaymentSession" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRecommendation" OutputProperty="*" Verb="Get" Noun="Recommendation" PipelineParameter="RecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -104,6 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResourceOauth2Token" OutputProperty="*" Verb="Get" Noun="ResourceOauth2Token" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePaymentToken" OutputProperty="PaymentTokenResponse" Verb="Get" Noun="ResourcePaymentToken" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,11 +209,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPaymentInstruments" OutputProperty="PaymentInstruments" Verb="Get" Noun="PaymentInstrumentList" PipelineParameter="PaymentManagerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPaymentSessions" OutputProperty="PaymentSessions" Verb="Get" Noun="PaymentSessionList" PipelineParameter="PaymentManagerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRecommendations" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationList" PipelineParameter="StatusFilter" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListSessions" OutputProperty="SessionSummaries" Verb="Get" Noun="SessionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ProcessPayment" OutputProperty="*" Verb="Invoke" Noun="Payment" ShouldProcessTarget="PaymentInstrumentId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
