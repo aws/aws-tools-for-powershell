@@ -398,6 +398,45 @@ namespace AWSPowerShellGenerator.Utils
             }
         }
 
+        public void WriteDependencyGraph(IEnumerable<ConfigModel> services)
+        {
+            var graph = new Dictionary<string, string[]>();
+
+            foreach (var project in services.GroupBy(service => service.AssemblyName)
+                                            .Where(project => project.Any(s => !string.IsNullOrWhiteSpace(s.ServiceModuleGuid))))
+            {
+                var moduleName = $"AWS.Tools.{project.Key}";
+                var deps = services
+                    .Where(service => !string.IsNullOrWhiteSpace(service.ServiceModuleGuid) &&
+                                      service.AssemblyName != project.Key &&
+                                      project.First().SDKDependencies != null &&
+                                      project.First().SDKDependencies.Contains(service.AssemblyName))
+                    .Select(service => $"AWS.Tools.{service.AssemblyName}")
+                    .Concat(new[] { "AWS.Tools.Common" })
+                    .ToArray();
+
+                graph[moduleName] = deps;
+            }
+
+            // Validate: graph should contain exactly the set of services with module GUIDs
+            var expectedModuleCount = services.GroupBy(s => s.AssemblyName)
+                .Count(g => g.Any(s => !string.IsNullOrWhiteSpace(s.ServiceModuleGuid)));
+            if (graph.Count != expectedModuleCount)
+            {
+                throw new InvalidOperationException(
+                    $"Dependency graph has {graph.Count} modules but expected {expectedModuleCount} (services with module GUIDs). " +
+                    "This indicates a bug in WriteDependencyGraph.");
+            }
+
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(graph, Newtonsoft.Json.Formatting.Indented);
+            // Write to repo root (two levels up from modules/AWSPowerShell).
+            // CopyModularAWSPowerShell.ps1 copies this to Deployment/ at build time.
+            var repoRoot = Path.GetFullPath(Path.Combine(AwsPowerShellModuleFolder, "..", ".."));
+            File.WriteAllText(
+                Path.Combine(repoRoot, "aws-tools-publish-dependency-graph.json"),
+                json);
+        }
+
         public void WriteVersionFile()
         {
             var filePath = Path.Combine(AwsPowerShellModuleFolder, AWSPowerShellVersionJsonFilename);
