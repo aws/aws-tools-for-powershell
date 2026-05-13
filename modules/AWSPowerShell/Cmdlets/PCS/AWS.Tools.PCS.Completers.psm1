@@ -103,7 +103,7 @@ $PCS_Completers = {
             ($_ -eq "Update-PCSComputeNodeGroup/PurchaseOption")
         }
         {
-            $v = "CAPACITY_BLOCK","ONDEMAND","SPOT"
+            $v = "CAPACITY_BLOCK","INTERRUPTIBLE_CAPACITY_RESERVATION","ONDEMAND","SPOT"
             break
         }
 

@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The number of days that automated snapshots are retained. If the value is 0, automated
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
-        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>You can't disable automated snapshots for RA3 node types. Set the automated retention
-        /// period from 1-35 days.</para><para>Default: The value selected for the cluster from which the snapshot was taken.</para><para>Constraints: Must be a value from 0 to 35.</para>
+        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>You can't disable automated snapshots for RG or RA3 node types. Set the automated
+        /// retention period from 1-35 days.</para><para>Default: The value selected for the cluster from which the snapshot was taken.</para><para>Constraints: Must be a value from 0 to 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,8 +424,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The port number on which the cluster accepts connections.</para><para>Default: The same port as the original cluster.</para><para>Valid values: For clusters with DC2 nodes, must be within the range <c>1150</c>-<c>65535</c>.
-        /// For clusters with ra3 nodes, must be within the ranges <c>5431</c>-<c>5455</c> or
-        /// <c>8191</c>-<c>8215</c>.</para>
+        /// For clusters with RG or RA3 nodes, must be within the ranges <c>5431</c>-<c>5455</c>
+        /// or <c>8191</c>-<c>8215</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

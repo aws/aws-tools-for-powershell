@@ -8635,7 +8635,10 @@ $BACC_Completers = {
         }
 
         # Amazon.BedrockAgentCoreControl.RegistryAuthorizerType
-        "New-BACCRegistry/AuthorizerType"
+        {
+            ($_ -eq "Get-BACCRegistryList/AuthorizerType") -Or
+            ($_ -eq "New-BACCRegistry/AuthorizerType")
+        }
         {
             $v = "AWS_IAM","CUSTOM_JWT"
             break
@@ -8709,7 +8712,7 @@ $BACC_Completers = {
 $BACC_map = @{
     "AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCAgentRuntime","New-BACCGateway","New-BACCHarness","New-BACCPaymentManager","New-BACCRegistry","Update-BACCAgentRuntime","Update-BACCGateway","Update-BACCPaymentManager")
     "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
-    "AuthorizerType"=@("New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
+    "AuthorizerType"=@("Get-BACCRegistryList","New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","New-BACCPaymentCredentialProvider","Update-BACCOauth2CredentialProvider","Update-BACCPaymentCredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
@@ -8857,7 +8860,10 @@ $BACC_SelectMap = @{
                "Get-BACCPaymentManager",
                "Get-BACCPolicy",
                "Get-BACCPolicyEngine",
+               "Get-BACCPolicyEngineSummary",
                "Get-BACCPolicyGeneration",
+               "Get-BACCPolicyGenerationSummary",
+               "Get-BACCPolicySummary",
                "Get-BACCRegistry",
                "Get-BACCRegistryRecord",
                "Get-BACCResourcePolicy",
@@ -8885,8 +8891,11 @@ $BACC_SelectMap = @{
                "Get-BACCPaymentManagerList",
                "Get-BACCPolicyList",
                "Get-BACCPolicyEngineList",
+               "Get-BACCPolicyEngineSummaryList",
                "Get-BACCPolicyGenerationAssetList",
                "Get-BACCPolicyGenerationList",
+               "Get-BACCPolicyGenerationSummaryList",
+               "Get-BACCPolicySummaryList",
                "Get-BACCRegistryList",
                "Get-BACCRegistryRecordList",
                "Get-BACCResourceTag",
@@ -20385,7 +20394,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnEmailAnalysisAvailable","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnAlertUpdate","OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnEmailAnalysisAvailable","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSchedulePublish","OnScheduleTimeOffRequestActivity","OnScheduleUpdate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
             break
         }
 
@@ -21590,6 +21599,16 @@ $CCS2_Completers = {
             break
         }
 
+        # Amazon.ConnectCampaignsV2.LocalTimeZoneDetectionScope
+        {
+            ($_ -eq "New-CCS2Campaign/CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope") -Or
+            ($_ -eq "Update-CCS2CampaignCommunicationTime/CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope")
+        }
+        {
+            $v = "ALL_AVAILABLE","PRIMARY_ONLY"
+            break
+        }
+
 
     }
 
@@ -21602,6 +21621,7 @@ $CCS2_map = @{
     "CampaignDeletionPolicy"=@("Remove-CCS2ConnectInstanceConfig")
     "ChannelSubtype"=@("Remove-CCS2CampaignChannelSubtypeConfig")
     "CommunicationLimitsOverride_InstanceLimitsHandling"=@("New-CCS2Campaign","Update-CCS2CampaignCommunicationLimit")
+    "CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope"=@("New-CCS2Campaign","Update-CCS2CampaignCommunicationTime")
     "Config"=@("Remove-CCS2CampaignCommunicationLimit","Remove-CCS2CampaignCommunicationTime")
     "EncryptionConfig_EncryptionType"=@("Start-CCS2InstanceOnboardingJob")
     "InstanceIdFilter_Operator"=@("Get-CCS2CampaignList")
@@ -28071,6 +28091,40 @@ _awsArgumentCompleterRegistration $DS_SelectCompleters $DS_SelectMap
 # Argument completions for service Amazon Aurora DSQL
 
 
+$DSQL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DSQL.StreamFormat
+        "New-DSQLStream/Format"
+        {
+            $v = "JSON"
+            break
+        }
+
+        # Amazon.DSQL.StreamOrdering
+        "New-DSQLStream/Ordering"
+        {
+            $v = "UNORDERED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DSQL_map = @{
+    "Format"=@("New-DSQLStream")
+    "Ordering"=@("New-DSQLStream")
+}
+
+_awsArgumentCompleterRegistration $DSQL_Completers $DSQL_map
+
 $DSQL_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -28120,12 +28174,16 @@ $DSQL_SelectCompleters = {
 
 $DSQL_SelectMap = @{
     "Select"=@("New-DSQLCluster",
+               "New-DSQLStream",
                "Remove-DSQLCluster",
                "Remove-DSQLClusterPolicy",
+               "Remove-DSQLStream",
                "Get-DSQLCluster",
                "Get-DSQLClusterPolicy",
+               "Get-DSQLStream",
                "Get-DSQLVpcEndpointServiceName",
                "Get-DSQLClusterList",
+               "Get-DSQLStreamList",
                "Get-DSQLResourceTag",
                "Set-DSQLClusterPolicy",
                "Add-DSQLResourceTag",
@@ -50115,6 +50173,16 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.OriginIpAddressTypeEnum
+        {
+            ($_ -eq "New-LSDistribution/Origin_IpAddressType") -Or
+            ($_ -eq "Update-LSDistribution/Origin_IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.Lightsail.OriginProtocolPolicyEnum
         {
             ($_ -eq "New-LSDistribution/Origin_ProtocolPolicy") -Or
@@ -50206,6 +50274,7 @@ $LS_map = @{
     "HttpToken"=@("Update-LSInstanceMetadataOption")
     "IpAddressType"=@("New-LSDistribution","New-LSInstance","New-LSInstancesFromSnapshot","New-LSLoadBalancer","Set-LSIpAddressType")
     "MetricName"=@("Add-LSAlarm","Get-LSBucketMetricData","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "Origin_IpAddressType"=@("New-LSDistribution","Update-LSDistribution")
     "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")
     "Origin_RegionName"=@("New-LSDistribution","Update-LSDistribution")
     "PasswordVersion"=@("Get-LSRelationalDatabaseMasterUserPassword")
@@ -64058,7 +64127,7 @@ $PCS_Completers = {
             ($_ -eq "Update-PCSComputeNodeGroup/PurchaseOption")
         }
         {
-            $v = "CAPACITY_BLOCK","ONDEMAND","SPOT"
+            $v = "CAPACITY_BLOCK","INTERRUPTIBLE_CAPACITY_RESERVATION","ONDEMAND","SPOT"
             break
         }
 
@@ -67293,6 +67362,8 @@ $QS_Completers = {
 
         # Amazon.QuickSight.CapabilityState
         {
+            ($_ -eq "New-QSCustomPermission/Capabilities_AccessAppsNativeDataStore") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_AccessAppsNativeDataStore") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Action") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Action") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
@@ -67307,6 +67378,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_AmazonSThreeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Analysis") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Analysis") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_App") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_App") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ApproveFlowShareRequest") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ApproveFlowShareRequest") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_AsanaAction") -Or
@@ -67337,6 +67410,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateAmazonBedrockKRSAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateAmazonSThreeAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateAmazonSThreeAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateApp") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateApp") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateAsanaAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateAsanaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateBambooHRAction") -Or
@@ -67473,6 +67548,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_IncludeContentInScheduledReportsEmail") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_IntercomAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_IntercomAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_InvokeAppsAIInference") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_InvokeAppsAIInference") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_JiraAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_JiraAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_KnowledgeBase") -Or
@@ -67541,6 +67618,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAmazonSThreeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareAnalyses") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAnalyses") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareApp") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareApp") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareAsanaAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAsanaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareBambooHRAction") -Or
@@ -68373,6 +68452,7 @@ $QS_map = @{
     "AxisLabelFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "AxisTitleFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
     "AxisTitleFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "Capabilities_AccessAppsNativeDataStore"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Action"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AddOrRunAnomalyDetectionForAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -68380,6 +68460,7 @@ $QS_map = @{
     "Capabilities_AmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AmazonSThreeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Analysis"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_App"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ApproveFlowShareRequest"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Automate"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -68395,6 +68476,7 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateAmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateAmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateAmazonSThreeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateApp"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateAsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -68463,6 +68545,7 @@ $QS_map = @{
     "Capabilities_HuggingFaceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_IncludeContentInScheduledReportsEmail"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_IntercomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_InvokeAppsAIInference"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_JiraAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_KnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_LinearAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -68497,6 +68580,7 @@ $QS_map = @{
     "Capabilities_ShareAmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAmazonSThreeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareApp"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -72743,21 +72827,29 @@ $RTB_SelectCompleters = {
 
 $RTB_SelectMap = @{
     "Select"=@("Approve-RTBLink",
+               "Add-RTBCertificate",
                "New-RTBInboundExternalLink",
                "New-RTBLink",
+               "New-RTBLinkRoutingRule",
                "New-RTBOutboundExternalLink",
                "New-RTBRequesterGateway",
                "New-RTBResponderGateway",
                "Remove-RTBInboundExternalLink",
                "Remove-RTBLink",
+               "Remove-RTBLinkRoutingRule",
                "Remove-RTBOutboundExternalLink",
                "Remove-RTBRequesterGateway",
                "Remove-RTBResponderGateway",
+               "Remove-RTBCertificate",
+               "Get-RTBCertificateAssociation",
                "Get-RTBInboundExternalLink",
                "Get-RTBLink",
+               "Get-RTBLinkRoutingRule",
                "Get-RTBOutboundExternalLink",
                "Get-RTBRequesterGateway",
                "Get-RTBResponderGateway",
+               "Get-RTBCertificateAssociationList",
+               "Get-RTBLinkRoutingRuleList",
                "Get-RTBLinkList",
                "Get-RTBRequesterGatewayList",
                "Get-RTBResponderGatewayList",
@@ -72767,6 +72859,7 @@ $RTB_SelectMap = @{
                "Remove-RTBResourceTag",
                "Update-RTBLink",
                "Update-RTBLinkModuleFlow",
+               "Update-RTBLinkRoutingRule",
                "Update-RTBRequesterGateway",
                "Update-RTBResponderGateway")
 }
@@ -76085,6 +76178,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ManagedStorageType
+        {
+            ($_ -eq "New-SMModelPackageGroup/ManagedConfiguration_ManagedStorageType") -Or
+            ($_ -eq "New-SMModelPackage/ManagedStorageType")
+        }
+        {
+            $v = "Restricted"
+            break
+        }
+
         # Amazon.SageMaker.MlflowAppStatus
         "Get-SMMlflowAppList/Status"
         {
@@ -77115,6 +77218,8 @@ $SM_map = @{
     "IpAddressType"=@("New-SMNotebookInstance","New-SMWorkforce","Update-SMNotebookInstance","Update-SMWorkforce")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "ManagedConfiguration_ManagedStorageType"=@("New-SMModelPackageGroup")
+    "ManagedStorageType"=@("New-SMModelPackage")
     "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMClusterSoftware","Update-SMEndpoint","Update-SMInferenceComponent")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
     "ModelCard_ModelCardStatus"=@("New-SMModelPackage","Update-SMModelPackage")
@@ -78265,7 +78370,9 @@ $SECAG_Completers = {
 
         # Amazon.SecurityAgent.CodeRemediationStrategy
         {
+            ($_ -eq "New-SECAGCodeReview/CodeRemediationStrategy") -Or
             ($_ -eq "New-SECAGPentest/CodeRemediationStrategy") -Or
+            ($_ -eq "Update-SECAGCodeReview/CodeRemediationStrategy") -Or
             ($_ -eq "Update-SECAGPentest/CodeRemediationStrategy")
         }
         {
@@ -78353,7 +78460,10 @@ $SECAG_Completers = {
         }
 
         # Amazon.SecurityAgent.StepName
-        "Get-SECAGPentestJobTaskList/StepName"
+        {
+            ($_ -eq "Get-SECAGCodeReviewJobTaskList/StepName") -Or
+            ($_ -eq "Get-SECAGPentestJobTaskList/StepName")
+        }
         {
             $v = "FINALIZING","PENTEST","PREFLIGHT","STATIC_ANALYSIS"
             break
@@ -78376,7 +78486,7 @@ $SECAG_Completers = {
 
 $SECAG_map = @{
     "ArtifactType"=@("Add-SECAGArtifact")
-    "CodeRemediationStrategy"=@("New-SECAGPentest","Update-SECAGPentest")
+    "CodeRemediationStrategy"=@("New-SECAGCodeReview","New-SECAGPentest","Update-SECAGCodeReview","Update-SECAGPentest")
     "Confidence"=@("Get-SECAGFindingList")
     "Config_User_Role"=@("New-SECAGMembership")
     "Filter_Provider"=@("Get-SECAGIntegrationList")
@@ -78386,7 +78496,7 @@ $SECAG_map = @{
     "ResourceType"=@("Get-SECAGIntegratedResourceList")
     "RiskLevel"=@("Get-SECAGFindingList","Update-SECAGFinding")
     "Status"=@("Get-SECAGFindingList","Update-SECAGFinding")
-    "StepName"=@("Get-SECAGPentestJobTaskList")
+    "StepName"=@("Get-SECAGCodeReviewJobTaskList","Get-SECAGPentestJobTaskList")
     "VerificationMethod"=@("New-SECAGTargetDomain","Update-SECAGTargetDomain")
 }
 
@@ -78441,9 +78551,13 @@ $SECAG_SelectCompleters = {
 
 $SECAG_SelectMap = @{
     "Select"=@("Add-SECAGArtifact",
+               "Remove-SECAGCodeReviewBatch",
                "Remove-SECAGPentestBatch",
                "Get-SECAGAgentSpaceBatch",
                "Get-SECAGArtifactMetadataBatch",
+               "Get-SECAGCodeReviewJobBatch",
+               "Get-SECAGCodeReviewJobTaskBatch",
+               "Get-SECAGCodeReviewBatch",
                "Get-SECAGFindingBatch",
                "Get-SECAGPentestJobBatch",
                "Get-SECAGPentestJobTaskBatch",
@@ -78451,6 +78565,7 @@ $SECAG_SelectMap = @{
                "Get-SECAGTargetDomainBatch",
                "New-SECAGAgentSpace",
                "New-SECAGApplication",
+               "New-SECAGCodeReview",
                "New-SECAGIntegration",
                "New-SECAGMembership",
                "New-SECAGPentest",
@@ -78468,6 +78583,9 @@ $SECAG_SelectMap = @{
                "Get-SECAGAgentSpaceList",
                "Get-SECAGApplicationList",
                "Get-SECAGArtifactList",
+               "Get-SECAGCodeReviewJobsForCodeReviewList",
+               "Get-SECAGCodeReviewJobTaskList",
+               "Get-SECAGCodeReviewList",
                "Get-SECAGDiscoveredEndpointList",
                "Get-SECAGFindingList",
                "Get-SECAGIntegratedResourceList",
@@ -78479,12 +78597,15 @@ $SECAG_SelectMap = @{
                "Get-SECAGResourceTag",
                "Get-SECAGTargetDomainList",
                "Start-SECAGCodeRemediation",
+               "Start-SECAGCodeReviewJob",
                "Start-SECAGPentestJob",
+               "Stop-SECAGCodeReviewJob",
                "Stop-SECAGPentestJob",
                "Add-SECAGResourceTag",
                "Remove-SECAGResourceTag",
                "Update-SECAGAgentSpace",
                "Update-SECAGApplication",
+               "Update-SECAGCodeReview",
                "Update-SECAGFinding",
                "Update-SECAGIntegratedResource",
                "Update-SECAGPentest",

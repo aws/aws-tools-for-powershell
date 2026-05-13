@@ -522,6 +522,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String SecurityConfig_KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter ManagedStorageType
+        /// <summary>
+        /// <para>
+        /// <para>The storage type of the model package.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ManagedStorageType")]
+        public Amazon.SageMaker.ManagedStorageType ManagedStorageType { get; set; }
+        #endregion
+        
         #region Parameter ModelApprovalStatus
         /// <summary>
         /// <para>
@@ -1124,6 +1135,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.InferenceSpecification_SupportedTransformInstanceType = new List<System.String>(this.InferenceSpecification_SupportedTransformInstanceType);
             }
+            context.ManagedStorageType = this.ManagedStorageType;
             context.MetadataProperties_CommitId = this.MetadataProperties_CommitId;
             context.MetadataProperties_GeneratedBy = this.MetadataProperties_GeneratedBy;
             context.MetadataProperties_ProjectId = this.MetadataProperties_ProjectId;
@@ -1748,6 +1760,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInferenceSpecificationIsNull)
             {
                 request.InferenceSpecification = null;
+            }
+            if (cmdletContext.ManagedStorageType != null)
+            {
+                request.ManagedStorageType = cmdletContext.ManagedStorageType;
             }
             
              // populate MetadataProperties
@@ -2494,6 +2510,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> InferenceSpecification_SupportedRealtimeInferenceInstanceType { get; set; }
             public List<System.String> InferenceSpecification_SupportedResponseMIMEType { get; set; }
             public List<System.String> InferenceSpecification_SupportedTransformInstanceType { get; set; }
+            public Amazon.SageMaker.ManagedStorageType ManagedStorageType { get; set; }
             public System.String MetadataProperties_CommitId { get; set; }
             public System.String MetadataProperties_GeneratedBy { get; set; }
             public System.String MetadataProperties_ProjectId { get; set; }

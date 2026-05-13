@@ -23,11 +23,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateStream" OutputProperty="*" Verb="New" Noun="Stream" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCluster" OutputProperty="*" Verb="Remove" Noun="Cluster" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteClusterPolicy" OutputProperty="PolicyVersion" Verb="Remove" Noun="ClusterPolicy" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStream" OutputProperty="*" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,11 +47,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStream" OutputProperty="*" Verb="Get" Noun="Stream" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetVpcEndpointServiceName" OutputProperty="ServiceName" Verb="Get" Noun="VpcEndpointServiceName" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

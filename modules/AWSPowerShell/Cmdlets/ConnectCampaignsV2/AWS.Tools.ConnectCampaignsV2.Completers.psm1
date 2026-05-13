@@ -139,6 +139,16 @@ $CCS2_Completers = {
             break
         }
 
+        # Amazon.ConnectCampaignsV2.LocalTimeZoneDetectionScope
+        {
+            ($_ -eq "New-CCS2Campaign/CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope") -Or
+            ($_ -eq "Update-CCS2CampaignCommunicationTime/CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope")
+        }
+        {
+            $v = "ALL_AVAILABLE","PRIMARY_ONLY"
+            break
+        }
+
 
     }
 
@@ -151,6 +161,7 @@ $CCS2_map = @{
     "CampaignDeletionPolicy"=@("Remove-CCS2ConnectInstanceConfig")
     "ChannelSubtype"=@("Remove-CCS2CampaignChannelSubtypeConfig")
     "CommunicationLimitsOverride_InstanceLimitsHandling"=@("New-CCS2Campaign","Update-CCS2CampaignCommunicationLimit")
+    "CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope"=@("New-CCS2Campaign","Update-CCS2CampaignCommunicationTime")
     "Config"=@("Remove-CCS2CampaignCommunicationLimit","Remove-CCS2CampaignCommunicationTime")
     "EncryptionConfig_EncryptionType"=@("Start-CCS2InstanceOnboardingJob")
     "InstanceIdFilter_Operator"=@("Get-CCS2CampaignList")

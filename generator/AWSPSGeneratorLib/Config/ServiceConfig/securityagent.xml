@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteCodeReviews" OutputProperty="*" Verb="Remove" Noun="CodeReviewBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeletePentests" OutputProperty="*" Verb="Remove" Noun="PentestBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -32,6 +36,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchGetArtifactMetadata" OutputProperty="ArtifactMetadataList" Verb="Get" Noun="ArtifactMetadataBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetCodeReviewJobs" OutputProperty="*" Verb="Get" Noun="CodeReviewJobBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetCodeReviewJobTasks" OutputProperty="*" Verb="Get" Noun="CodeReviewJobTaskBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetCodeReviews" OutputProperty="*" Verb="Get" Noun="CodeReviewBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -60,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationId" Verb="New" Noun="Application" ShouldProcessTarget="DefaultKmsKeyId,IdcInstanceArn,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCodeReview" OutputProperty="*" Verb="New" Noun="CodeReview" ShouldProcessTarget="AgentSpaceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,6 +151,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeReviewJobsForCodeReview" OutputProperty="CodeReviewJobSummaries" Verb="Get" Noun="CodeReviewJobsForCodeReviewList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeReviewJobTasks" OutputProperty="CodeReviewJobTaskSummaries" Verb="Get" Noun="CodeReviewJobTaskList" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeReviews" OutputProperty="CodeReviewSummaries" Verb="Get" Noun="CodeReviewList" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDiscoveredEndpoints" OutputProperty="DiscoveredEndpoints" Verb="Get" Noun="DiscoveredEndpointList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -175,7 +207,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartCodeReviewJob" OutputProperty="*" Verb="Start" Noun="CodeReviewJob" ShouldProcessTarget="AgentSpaceId,CodeReviewId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartPentestJob" OutputProperty="*" Verb="Start" Noun="PentestJob" ShouldProcessTarget="AgentSpaceId,PentestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopCodeReviewJob" Verb="Stop" Noun="CodeReviewJob" ShouldProcessTarget="CodeReviewJobId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -196,6 +236,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApplication" OutputProperty="ApplicationId" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCodeReview" OutputProperty="*" Verb="Update" Noun="CodeReview" ShouldProcessTarget="CodeReviewId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

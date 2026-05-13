@@ -324,7 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// after their jobs complete. For each instance, the delay period begins when the last
         /// job finishes. If no new jobs are placed on the instance during this delay, Batch terminates
         /// the instance once the delay expires.</para><para>Valid Range: Minimum value of 20. Maximum value of 10080. Use 0 to unset and disable
-        /// the scale down delay.</para><note><para>The scale down delay does not apply to:</para><ul><li><para>Instances being replaced during infrastructure updates</para></li><li><para>Newly launched instances that have not yet run any jobs</para></li><li><para>Spot instances reclaimed due to interruption</para></li></ul></note>
+        /// the scale down delay.</para><note><para>Idle instances retained during the scale-down delay period are billable at standard
+        /// EC2 pricing.</para></note><note><para>The scale down delay does not apply to:</para><ul><li><para>Instances being replaced during infrastructure updates</para></li><li><para>Newly launched instances that have not yet run any jobs</para></li><li><para>Spot instances reclaimed due to interruption</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -453,10 +454,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// based on the job queue demand.</para><para>If the state is <c>DISABLED</c>, then the Batch scheduler doesn't attempt to place
         /// jobs within the environment. Jobs in a <c>STARTING</c> or <c>RUNNING</c> state continue
         /// to progress normally. Managed compute environments in the <c>DISABLED</c> state don't
-        /// scale out. </para><note><para>Compute environments in a <c>DISABLED</c> state may continue to incur billing charges.
-        /// To prevent additional charges, turn off and then delete the compute environment. For
-        /// more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state">State</a>
-        /// in the <i>Batch User Guide</i>.</para></note><para>When an instance is idle, the instance scales down to the <c>minvCpus</c> value. However,
+        /// scale out. </para><note><para>Compute environments in a <c>DISABLED</c> state may continue to incur billing charges,
+        /// for example, if they have running instances due to jobs that are still executing or
+        /// a non-zero <c>minvCpus</c> setting. To prevent additional charges, disable and delete
+        /// the compute environment.</para></note><para>When an instance is idle, the instance scales down to the <c>minvCpus</c> value. However,
         /// the instance size doesn't change. For example, consider a <c>c5.8xlarge</c> instance
         /// with a <c>minvCpus</c> value of <c>4</c> and a <c>desiredvCpus</c> value of <c>36</c>.
         /// This instance doesn't scale down to a <c>c5.large</c> instance.</para>

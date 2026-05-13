@@ -26,6 +26,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateCertificate" OutputProperty="*" Verb="Add" Noun="Certificate" ShouldProcessTarget="GatewayId,AcmCertificateArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInboundExternalLink" OutputProperty="*" Verb="New" Noun="InboundExternalLink" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
             <Params>
                 <Param Name="LogSettings_ApplicationLogs_Sampling_ErrorLog" NewName="Sampling_ErrorLog" />
@@ -38,6 +42,10 @@
                 <Param Name="LogSettings_ApplicationLogs_Sampling_ErrorLog" NewName="Sampling_ErrorLog" />
                 <Param Name="LogSettings_ApplicationLogs_Sampling_FilterLog" NewName="Sampling_FilterLog" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLinkRoutingRule" OutputProperty="*" Verb="New" Noun="LinkRoutingRule" ShouldProcessTarget="GatewayId,LinkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOutboundExternalLink" OutputProperty="*" Verb="New" Noun="OutboundExternalLink" ShouldProcessTarget="GatewayId" PipelineParameter="" NoPipelineParameter="true">
@@ -72,6 +80,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLinkRoutingRule" OutputProperty="*" Verb="Remove" Noun="LinkRoutingRule" ShouldProcessTarget="GatewayId,LinkId,RuleId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteOutboundExternalLink" OutputProperty="*" Verb="Remove" Noun="OutboundExternalLink" ShouldProcessTarget="GatewayId,LinkId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -84,11 +96,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateCertificate" OutputProperty="*" Verb="Remove" Noun="Certificate" ShouldProcessTarget="GatewayId,AcmCertificateArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCertificateAssociation" OutputProperty="*" Verb="Get" Noun="CertificateAssociation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetInboundExternalLink" OutputProperty="*" Verb="Get" Noun="InboundExternalLink" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetLink" OutputProperty="*" Verb="Get" Noun="Link" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLinkRoutingRule" OutputProperty="*" Verb="Get" Noun="LinkRoutingRule" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -101,6 +125,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResponderGateway" OutputProperty="*" Verb="Get" Noun="ResponderGateway" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCertificateAssociations" OutputProperty="CertificateAssociations" Verb="Get" Noun="CertificateAssociationList" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLinkRoutingRules" OutputProperty="Rules" Verb="Get" Noun="LinkRoutingRuleList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,6 +172,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLinkModuleFlow" OutputProperty="*" Verb="Update" Noun="LinkModuleFlow" ShouldProcessTarget="GatewayId,LinkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLinkRoutingRule" OutputProperty="*" Verb="Update" Noun="LinkRoutingRule" ShouldProcessTarget="GatewayId,LinkId,RuleId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

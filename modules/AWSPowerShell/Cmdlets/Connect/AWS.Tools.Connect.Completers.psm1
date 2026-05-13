@@ -362,7 +362,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnEmailAnalysisAvailable","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnAlertUpdate","OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnEmailAnalysisAvailable","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSchedulePublish","OnScheduleTimeOffRequestActivity","OnScheduleUpdate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
             break
         }
 

@@ -143,6 +143,8 @@ $QS_Completers = {
 
         # Amazon.QuickSight.CapabilityState
         {
+            ($_ -eq "New-QSCustomPermission/Capabilities_AccessAppsNativeDataStore") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_AccessAppsNativeDataStore") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Action") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Action") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
@@ -157,6 +159,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_AmazonSThreeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Analysis") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Analysis") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_App") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_App") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ApproveFlowShareRequest") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ApproveFlowShareRequest") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_AsanaAction") -Or
@@ -187,6 +191,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateAmazonBedrockKRSAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateAmazonSThreeAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateAmazonSThreeAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateApp") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateApp") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateAsanaAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateAsanaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateBambooHRAction") -Or
@@ -323,6 +329,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_IncludeContentInScheduledReportsEmail") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_IntercomAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_IntercomAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_InvokeAppsAIInference") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_InvokeAppsAIInference") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_JiraAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_JiraAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_KnowledgeBase") -Or
@@ -391,6 +399,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAmazonSThreeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareAnalyses") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAnalyses") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareApp") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareApp") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareAsanaAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAsanaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareBambooHRAction") -Or
@@ -1223,6 +1233,7 @@ $QS_map = @{
     "AxisLabelFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "AxisTitleFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
     "AxisTitleFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "Capabilities_AccessAppsNativeDataStore"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Action"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AddOrRunAnomalyDetectionForAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1230,6 +1241,7 @@ $QS_map = @{
     "Capabilities_AmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AmazonSThreeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Analysis"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_App"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ApproveFlowShareRequest"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Automate"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1245,6 +1257,7 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateAmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateAmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateAmazonSThreeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateApp"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateAsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1313,6 +1326,7 @@ $QS_map = @{
     "Capabilities_HuggingFaceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_IncludeContentInScheduledReportsEmail"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_IntercomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_InvokeAppsAIInference"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_JiraAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_KnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_LinearAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1347,6 +1361,7 @@ $QS_map = @{
     "Capabilities_ShareAmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAmazonSThreeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareApp"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")

@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter CredentialProviderVendor
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Capabilities_AccessAppsNativeDataStore
+        /// <summary>
+        /// <para>
+        /// <para>The ability to access the native data store for new and existing apps.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_AccessAppsNativeDataStore { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_Action
         /// <summary>
         /// <para>
@@ -133,6 +144,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Alias("Capabilities_ApproveFlowShareRequests")]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ApproveFlowShareRequest { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_App
+        /// <summary>
+        /// <para>
+        /// <para>The ability to perform apps-related actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_Apps")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_App { get; set; }
         #endregion
         
         #region Parameter Capabilities_AsanaAction
@@ -305,6 +328,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateAmazonSThreeAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateAndUpdateApp
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create or update apps.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_CreateAndUpdateApps")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateApp { get; set; }
         #endregion
         
         #region Parameter Capabilities_CreateAndUpdateAsanaAction
@@ -1083,6 +1118,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_IntercomAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_InvokeAppsAIInference
+        /// <summary>
+        /// <para>
+        /// <para>The ability to add and invoke AI inference in new and existing apps.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_InvokeAppsAIInference { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_JiraAction
         /// <summary>
         /// <para>
@@ -1461,6 +1507,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareAnalyses { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareApp
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share apps with other users.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_ShareApps")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareApp { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareAsanaAction
@@ -2613,6 +2671,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Capabilities_AccessAppsNativeDataStore = this.Capabilities_AccessAppsNativeDataStore;
             context.Capabilities_Action = this.Capabilities_Action;
             context.Capabilities_AddOrRunAnomalyDetectionForAnalyses = this.Capabilities_AddOrRunAnomalyDetectionForAnalyses;
             context.Capabilities_AmazonBedrockARSAction = this.Capabilities_AmazonBedrockARSAction;
@@ -2621,6 +2680,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_AmazonSThreeAction = this.Capabilities_AmazonSThreeAction;
             context.Capabilities_Analysis = this.Capabilities_Analysis;
             context.Capabilities_ApproveFlowShareRequest = this.Capabilities_ApproveFlowShareRequest;
+            context.Capabilities_App = this.Capabilities_App;
             context.Capabilities_AsanaAction = this.Capabilities_AsanaAction;
             context.Capabilities_Automate = this.Capabilities_Automate;
             context.Capabilities_BambooHRAction = this.Capabilities_BambooHRAction;
@@ -2635,6 +2695,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateAmazonBedrockFSAction = this.Capabilities_CreateAndUpdateAmazonBedrockFSAction;
             context.Capabilities_CreateAndUpdateAmazonBedrockKRSAction = this.Capabilities_CreateAndUpdateAmazonBedrockKRSAction;
             context.Capabilities_CreateAndUpdateAmazonSThreeAction = this.Capabilities_CreateAndUpdateAmazonSThreeAction;
+            context.Capabilities_CreateAndUpdateApp = this.Capabilities_CreateAndUpdateApp;
             context.Capabilities_CreateAndUpdateAsanaAction = this.Capabilities_CreateAndUpdateAsanaAction;
             context.Capabilities_CreateAndUpdateBambooHRAction = this.Capabilities_CreateAndUpdateBambooHRAction;
             context.Capabilities_CreateAndUpdateBoxAgentAction = this.Capabilities_CreateAndUpdateBoxAgentAction;
@@ -2703,6 +2764,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_HuggingFaceAction = this.Capabilities_HuggingFaceAction;
             context.Capabilities_IncludeContentInScheduledReportsEmail = this.Capabilities_IncludeContentInScheduledReportsEmail;
             context.Capabilities_IntercomAction = this.Capabilities_IntercomAction;
+            context.Capabilities_InvokeAppsAIInference = this.Capabilities_InvokeAppsAIInference;
             context.Capabilities_JiraAction = this.Capabilities_JiraAction;
             context.Capabilities_KnowledgeBase = this.Capabilities_KnowledgeBase;
             context.Capabilities_LinearAction = this.Capabilities_LinearAction;
@@ -2737,6 +2799,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ShareAmazonBedrockKRSAction = this.Capabilities_ShareAmazonBedrockKRSAction;
             context.Capabilities_ShareAmazonSThreeAction = this.Capabilities_ShareAmazonSThreeAction;
             context.Capabilities_ShareAnalyses = this.Capabilities_ShareAnalyses;
+            context.Capabilities_ShareApp = this.Capabilities_ShareApp;
             context.Capabilities_ShareAsanaAction = this.Capabilities_ShareAsanaAction;
             context.Capabilities_ShareBambooHRAction = this.Capabilities_ShareBambooHRAction;
             context.Capabilities_ShareBoxAgentAction = this.Capabilities_ShareBoxAgentAction;
@@ -2867,6 +2930,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate Capabilities
             var requestCapabilitiesIsNull = true;
             request.Capabilities = new Amazon.QuickSight.Model.Capabilities();
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_AccessAppsNativeDataStore = null;
+            if (cmdletContext.Capabilities_AccessAppsNativeDataStore != null)
+            {
+                requestCapabilities_capabilities_AccessAppsNativeDataStore = cmdletContext.Capabilities_AccessAppsNativeDataStore;
+            }
+            if (requestCapabilities_capabilities_AccessAppsNativeDataStore != null)
+            {
+                request.Capabilities.AccessAppsNativeDataStore = requestCapabilities_capabilities_AccessAppsNativeDataStore;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Action = null;
             if (cmdletContext.Capabilities_Action != null)
             {
@@ -2945,6 +3018,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ApproveFlowShareRequest != null)
             {
                 request.Capabilities.ApproveFlowShareRequests = requestCapabilities_capabilities_ApproveFlowShareRequest;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_App = null;
+            if (cmdletContext.Capabilities_App != null)
+            {
+                requestCapabilities_capabilities_App = cmdletContext.Capabilities_App;
+            }
+            if (requestCapabilities_capabilities_App != null)
+            {
+                request.Capabilities.Apps = requestCapabilities_capabilities_App;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_AsanaAction = null;
@@ -3085,6 +3168,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_CreateAndUpdateAmazonSThreeAction != null)
             {
                 request.Capabilities.CreateAndUpdateAmazonSThreeAction = requestCapabilities_capabilities_CreateAndUpdateAmazonSThreeAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateApp = null;
+            if (cmdletContext.Capabilities_CreateAndUpdateApp != null)
+            {
+                requestCapabilities_capabilities_CreateAndUpdateApp = cmdletContext.Capabilities_CreateAndUpdateApp;
+            }
+            if (requestCapabilities_capabilities_CreateAndUpdateApp != null)
+            {
+                request.Capabilities.CreateAndUpdateApps = requestCapabilities_capabilities_CreateAndUpdateApp;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateAsanaAction = null;
@@ -3767,6 +3860,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.IntercomAction = requestCapabilities_capabilities_IntercomAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_InvokeAppsAIInference = null;
+            if (cmdletContext.Capabilities_InvokeAppsAIInference != null)
+            {
+                requestCapabilities_capabilities_InvokeAppsAIInference = cmdletContext.Capabilities_InvokeAppsAIInference;
+            }
+            if (requestCapabilities_capabilities_InvokeAppsAIInference != null)
+            {
+                request.Capabilities.InvokeAppsAIInference = requestCapabilities_capabilities_InvokeAppsAIInference;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_JiraAction = null;
             if (cmdletContext.Capabilities_JiraAction != null)
             {
@@ -4105,6 +4208,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareAnalyses != null)
             {
                 request.Capabilities.ShareAnalyses = requestCapabilities_capabilities_ShareAnalyses;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareApp = null;
+            if (cmdletContext.Capabilities_ShareApp != null)
+            {
+                requestCapabilities_capabilities_ShareApp = cmdletContext.Capabilities_ShareApp;
+            }
+            if (requestCapabilities_capabilities_ShareApp != null)
+            {
+                request.Capabilities.ShareApps = requestCapabilities_capabilities_ShareApp;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareAsanaAction = null;
@@ -5162,6 +5275,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_AccessAppsNativeDataStore { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Action { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AddOrRunAnomalyDetectionForAnalyses { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AmazonBedrockARSAction { get; set; }
@@ -5170,6 +5284,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_AmazonSThreeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Analysis { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ApproveFlowShareRequest { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_App { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AsanaAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Automate { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_BambooHRAction { get; set; }
@@ -5184,6 +5299,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateAmazonBedrockFSAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateAmazonBedrockKRSAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateAmazonSThreeAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateApp { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateAsanaAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateBambooHRAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateBoxAgentAction { get; set; }
@@ -5252,6 +5368,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_HuggingFaceAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_IncludeContentInScheduledReportsEmail { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_IntercomAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_InvokeAppsAIInference { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_JiraAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_KnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_LinearAction { get; set; }
@@ -5286,6 +5403,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAmazonBedrockKRSAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAmazonSThreeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAnalyses { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareApp { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAsanaAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareBambooHRAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareBoxAgentAction { get; set; }

@@ -1,0 +1,487 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.SecurityAgent;
+using Amazon.SecurityAgent.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.SECAG
+{
+    /// <summary>
+    /// Updates an existing code review configuration.
+    /// </summary>
+    [Cmdlet("Update", "SECAGCodeReview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SecurityAgent.Model.UpdateCodeReviewResponse")]
+    [AWSCmdlet("Calls the AWS Security Agent UpdateCodeReview API operation.", Operation = new[] {"UpdateCodeReview"}, SelectReturnType = typeof(Amazon.SecurityAgent.Model.UpdateCodeReviewResponse))]
+    [AWSCmdletOutput("Amazon.SecurityAgent.Model.UpdateCodeReviewResponse",
+        "This cmdlet returns an Amazon.SecurityAgent.Model.UpdateCodeReviewResponse object containing multiple properties."
+    )]
+    public partial class UpdateSECAGCodeReviewCmdlet : AmazonSecurityAgentClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter Assets_Actor
+        /// <summary>
+        /// <para>
+        /// <para>The list of actors used during penetration testing.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Assets_Actors")]
+        public Amazon.SecurityAgent.Model.Actor[] Assets_Actor { get; set; }
+        #endregion
+        
+        #region Parameter AgentSpaceId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the agent space that contains the code review.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AgentSpaceId { get; set; }
+        #endregion
+        
+        #region Parameter CodeRemediationStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The updated code remediation strategy for the code review.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityAgent.CodeRemediationStrategy")]
+        public Amazon.SecurityAgent.CodeRemediationStrategy CodeRemediationStrategy { get; set; }
+        #endregion
+        
+        #region Parameter CodeReviewId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the code review to update.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String CodeReviewId { get; set; }
+        #endregion
+        
+        #region Parameter Assets_Document
+        /// <summary>
+        /// <para>
+        /// <para>The list of documents that provide context for the pentest.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Assets_Documents")]
+        public Amazon.SecurityAgent.Model.DocumentInfo[] Assets_Document { get; set; }
+        #endregion
+        
+        #region Parameter Assets_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>The list of endpoints to test during the pentest.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Assets_Endpoints")]
+        public Amazon.SecurityAgent.Model.Endpoint[] Assets_Endpoint { get; set; }
+        #endregion
+        
+        #region Parameter Assets_IntegratedRepository
+        /// <summary>
+        /// <para>
+        /// <para>The list of integrated repositories associated with the pentest.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Assets_IntegratedRepositories")]
+        public Amazon.SecurityAgent.Model.IntegratedRepository[] Assets_IntegratedRepository { get; set; }
+        #endregion
+        
+        #region Parameter LogConfig_LogGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch log group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogConfig_LogGroup { get; set; }
+        #endregion
+        
+        #region Parameter LogConfig_LogStream
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch log stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogConfig_LogStream { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRole
+        /// <summary>
+        /// <para>
+        /// <para>The updated IAM service role for the code review.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceRole { get; set; }
+        #endregion
+        
+        #region Parameter Assets_SourceCode
+        /// <summary>
+        /// <para>
+        /// <para>The list of source code repositories to analyze during the pentest.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SecurityAgent.Model.SourceCodeRepository[] Assets_SourceCode { get; set; }
+        #endregion
+        
+        #region Parameter Title
+        /// <summary>
+        /// <para>
+        /// <para>The updated title of the code review.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Title { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityAgent.Model.UpdateCodeReviewResponse).
+        /// Specifying the name of a property of type Amazon.SecurityAgent.Model.UpdateCodeReviewResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CodeReviewId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SECAGCodeReview (UpdateCodeReview)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.SecurityAgent.Model.UpdateCodeReviewResponse, UpdateSECAGCodeReviewCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.AgentSpaceId = this.AgentSpaceId;
+            #if MODULAR
+            if (this.AgentSpaceId == null && ParameterWasBound(nameof(this.AgentSpaceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Assets_Actor != null)
+            {
+                context.Assets_Actor = new List<Amazon.SecurityAgent.Model.Actor>(this.Assets_Actor);
+            }
+            if (this.Assets_Document != null)
+            {
+                context.Assets_Document = new List<Amazon.SecurityAgent.Model.DocumentInfo>(this.Assets_Document);
+            }
+            if (this.Assets_Endpoint != null)
+            {
+                context.Assets_Endpoint = new List<Amazon.SecurityAgent.Model.Endpoint>(this.Assets_Endpoint);
+            }
+            if (this.Assets_IntegratedRepository != null)
+            {
+                context.Assets_IntegratedRepository = new List<Amazon.SecurityAgent.Model.IntegratedRepository>(this.Assets_IntegratedRepository);
+            }
+            if (this.Assets_SourceCode != null)
+            {
+                context.Assets_SourceCode = new List<Amazon.SecurityAgent.Model.SourceCodeRepository>(this.Assets_SourceCode);
+            }
+            context.CodeRemediationStrategy = this.CodeRemediationStrategy;
+            context.CodeReviewId = this.CodeReviewId;
+            #if MODULAR
+            if (this.CodeReviewId == null && ParameterWasBound(nameof(this.CodeReviewId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CodeReviewId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.LogConfig_LogGroup = this.LogConfig_LogGroup;
+            context.LogConfig_LogStream = this.LogConfig_LogStream;
+            context.ServiceRole = this.ServiceRole;
+            context.Title = this.Title;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.SecurityAgent.Model.UpdateCodeReviewRequest();
+            
+            if (cmdletContext.AgentSpaceId != null)
+            {
+                request.AgentSpaceId = cmdletContext.AgentSpaceId;
+            }
+            
+             // populate Assets
+            var requestAssetsIsNull = true;
+            request.Assets = new Amazon.SecurityAgent.Model.Assets();
+            List<Amazon.SecurityAgent.Model.Actor> requestAssets_assets_Actor = null;
+            if (cmdletContext.Assets_Actor != null)
+            {
+                requestAssets_assets_Actor = cmdletContext.Assets_Actor;
+            }
+            if (requestAssets_assets_Actor != null)
+            {
+                request.Assets.Actors = requestAssets_assets_Actor;
+                requestAssetsIsNull = false;
+            }
+            List<Amazon.SecurityAgent.Model.DocumentInfo> requestAssets_assets_Document = null;
+            if (cmdletContext.Assets_Document != null)
+            {
+                requestAssets_assets_Document = cmdletContext.Assets_Document;
+            }
+            if (requestAssets_assets_Document != null)
+            {
+                request.Assets.Documents = requestAssets_assets_Document;
+                requestAssetsIsNull = false;
+            }
+            List<Amazon.SecurityAgent.Model.Endpoint> requestAssets_assets_Endpoint = null;
+            if (cmdletContext.Assets_Endpoint != null)
+            {
+                requestAssets_assets_Endpoint = cmdletContext.Assets_Endpoint;
+            }
+            if (requestAssets_assets_Endpoint != null)
+            {
+                request.Assets.Endpoints = requestAssets_assets_Endpoint;
+                requestAssetsIsNull = false;
+            }
+            List<Amazon.SecurityAgent.Model.IntegratedRepository> requestAssets_assets_IntegratedRepository = null;
+            if (cmdletContext.Assets_IntegratedRepository != null)
+            {
+                requestAssets_assets_IntegratedRepository = cmdletContext.Assets_IntegratedRepository;
+            }
+            if (requestAssets_assets_IntegratedRepository != null)
+            {
+                request.Assets.IntegratedRepositories = requestAssets_assets_IntegratedRepository;
+                requestAssetsIsNull = false;
+            }
+            List<Amazon.SecurityAgent.Model.SourceCodeRepository> requestAssets_assets_SourceCode = null;
+            if (cmdletContext.Assets_SourceCode != null)
+            {
+                requestAssets_assets_SourceCode = cmdletContext.Assets_SourceCode;
+            }
+            if (requestAssets_assets_SourceCode != null)
+            {
+                request.Assets.SourceCode = requestAssets_assets_SourceCode;
+                requestAssetsIsNull = false;
+            }
+             // determine if request.Assets should be set to null
+            if (requestAssetsIsNull)
+            {
+                request.Assets = null;
+            }
+            if (cmdletContext.CodeRemediationStrategy != null)
+            {
+                request.CodeRemediationStrategy = cmdletContext.CodeRemediationStrategy;
+            }
+            if (cmdletContext.CodeReviewId != null)
+            {
+                request.CodeReviewId = cmdletContext.CodeReviewId;
+            }
+            
+             // populate LogConfig
+            var requestLogConfigIsNull = true;
+            request.LogConfig = new Amazon.SecurityAgent.Model.CloudWatchLog();
+            System.String requestLogConfig_logConfig_LogGroup = null;
+            if (cmdletContext.LogConfig_LogGroup != null)
+            {
+                requestLogConfig_logConfig_LogGroup = cmdletContext.LogConfig_LogGroup;
+            }
+            if (requestLogConfig_logConfig_LogGroup != null)
+            {
+                request.LogConfig.LogGroup = requestLogConfig_logConfig_LogGroup;
+                requestLogConfigIsNull = false;
+            }
+            System.String requestLogConfig_logConfig_LogStream = null;
+            if (cmdletContext.LogConfig_LogStream != null)
+            {
+                requestLogConfig_logConfig_LogStream = cmdletContext.LogConfig_LogStream;
+            }
+            if (requestLogConfig_logConfig_LogStream != null)
+            {
+                request.LogConfig.LogStream = requestLogConfig_logConfig_LogStream;
+                requestLogConfigIsNull = false;
+            }
+             // determine if request.LogConfig should be set to null
+            if (requestLogConfigIsNull)
+            {
+                request.LogConfig = null;
+            }
+            if (cmdletContext.ServiceRole != null)
+            {
+                request.ServiceRole = cmdletContext.ServiceRole;
+            }
+            if (cmdletContext.Title != null)
+            {
+                request.Title = cmdletContext.Title;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.SecurityAgent.Model.UpdateCodeReviewResponse CallAWSServiceOperation(IAmazonSecurityAgent client, Amazon.SecurityAgent.Model.UpdateCodeReviewRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Agent", "UpdateCodeReview");
+            try
+            {
+                return client.UpdateCodeReviewAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String AgentSpaceId { get; set; }
+            public List<Amazon.SecurityAgent.Model.Actor> Assets_Actor { get; set; }
+            public List<Amazon.SecurityAgent.Model.DocumentInfo> Assets_Document { get; set; }
+            public List<Amazon.SecurityAgent.Model.Endpoint> Assets_Endpoint { get; set; }
+            public List<Amazon.SecurityAgent.Model.IntegratedRepository> Assets_IntegratedRepository { get; set; }
+            public List<Amazon.SecurityAgent.Model.SourceCodeRepository> Assets_SourceCode { get; set; }
+            public Amazon.SecurityAgent.CodeRemediationStrategy CodeRemediationStrategy { get; set; }
+            public System.String CodeReviewId { get; set; }
+            public System.String LogConfig_LogGroup { get; set; }
+            public System.String LogConfig_LogStream { get; set; }
+            public System.String ServiceRole { get; set; }
+            public System.String Title { get; set; }
+            public System.Func<Amazon.SecurityAgent.Model.UpdateCodeReviewResponse, UpdateSECAGCodeReviewCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

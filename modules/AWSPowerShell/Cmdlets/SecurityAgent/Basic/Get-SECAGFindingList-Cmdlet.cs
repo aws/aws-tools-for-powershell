@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter CodeReviewJobId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the code review job to list findings for. Mutually exclusive
+        /// with pentestJobId.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CodeReviewJobId { get; set; }
+        #endregion
+        
         #region Parameter Confidence
         /// <summary>
         /// <para>
@@ -89,14 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         /// <para>The unique identifier of the pentest job to list findings for.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PentestJobId { get; set; }
         #endregion
         
@@ -211,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CodeReviewJobId = this.CodeReviewJobId;
             context.Confidence = this.Confidence;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -225,12 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             context.Name = this.Name;
             context.NextToken = this.NextToken;
             context.PentestJobId = this.PentestJobId;
-            #if MODULAR
-            if (this.PentestJobId == null && ParameterWasBound(nameof(this.PentestJobId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PentestJobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.RiskLevel = this.RiskLevel;
             context.RiskType = this.RiskType;
             context.Status = this.Status;
@@ -255,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             if (cmdletContext.AgentSpaceId != null)
             {
                 request.AgentSpaceId = cmdletContext.AgentSpaceId;
+            }
+            if (cmdletContext.CodeReviewJobId != null)
+            {
+                request.CodeReviewJobId = cmdletContext.CodeReviewJobId;
             }
             if (cmdletContext.Confidence != null)
             {
@@ -364,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentSpaceId { get; set; }
+            public System.String CodeReviewJobId { get; set; }
             public Amazon.SecurityAgent.ConfidenceLevel Confidence { get; set; }
             public int? MaxResult { get; set; }
             public System.String Name { get; set; }

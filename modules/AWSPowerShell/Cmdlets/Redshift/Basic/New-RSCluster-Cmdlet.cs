@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The number of days that automated snapshots are retained. If the value is 0, automated
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
-        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>You can't disable automated snapshots for RA3 node types. Set the automated retention
-        /// period from 1-35 days.</para><para>Default: <c>1</c></para><para>Constraints: Must be a value from 0 to 35.</para>
+        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>You can't disable automated snapshots for RG or RA3 node types. Set the automated
+        /// retention period from 1-35 days.</para><para>Default: <c>1</c></para><para>Constraints: Must be a value from 0 to 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -480,8 +480,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The node type to be provisioned for the cluster. For information about node types,
         /// go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
-        /// </para><para>Valid Values: <c>dc2.large</c> | <c>dc2.8xlarge</c> | <c>ra3.large</c> | <c>ra3.xlplus</c>
-        /// | <c>ra3.4xlarge</c> | <c>ra3.16xlarge</c></para>
+        /// </para><para>Valid Values: <c>dc2.large</c> | <c>dc2.8xlarge</c>| <c>rg.xlarge</c> | <c>rg.4xlarge</c>
+        /// | <c>ra3.large</c> | <c>ra3.xlplus</c> | <c>ra3.4xlarge</c> | <c>ra3.16xlarge</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -514,9 +514,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The port number on which the cluster accepts incoming connections.</para><para>The cluster is accessible only via the JDBC and ODBC connection strings. Part of the
         /// connection string requires the port on which the cluster will listen for incoming
-        /// connections.</para><para>Default: <c>5439</c></para><para>Valid Values: </para><ul><li><para>For clusters with ra3 nodes - Select a port within the ranges <c>5431-5455</c> or
-        /// <c>8191-8215</c>. (If you have an existing cluster with ra3 nodes, it isn't required
-        /// that you change the port to these ranges.)</para></li><li><para>For clusters with dc2 nodes - Select a port within the range <c>1150-65535</c>.</para></li></ul>
+        /// connections.</para><para>Default: <c>5439</c></para><para>Valid Values: </para><ul><li><para>For clusters with RG or RA3 nodes - Select a port within the ranges <c>5431-5455</c>
+        /// or <c>8191-8215</c>. (If you have an existing cluster with RG or RA3 nodes, it isn't
+        /// required that you change the port to these ranges.)</para></li><li><para>For clusters with dc2 nodes - Select a port within the range <c>1150-65535</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

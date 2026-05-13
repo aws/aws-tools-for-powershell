@@ -89,7 +89,9 @@ $SECAG_Completers = {
 
         # Amazon.SecurityAgent.CodeRemediationStrategy
         {
+            ($_ -eq "New-SECAGCodeReview/CodeRemediationStrategy") -Or
             ($_ -eq "New-SECAGPentest/CodeRemediationStrategy") -Or
+            ($_ -eq "Update-SECAGCodeReview/CodeRemediationStrategy") -Or
             ($_ -eq "Update-SECAGPentest/CodeRemediationStrategy")
         }
         {
@@ -177,7 +179,10 @@ $SECAG_Completers = {
         }
 
         # Amazon.SecurityAgent.StepName
-        "Get-SECAGPentestJobTaskList/StepName"
+        {
+            ($_ -eq "Get-SECAGCodeReviewJobTaskList/StepName") -Or
+            ($_ -eq "Get-SECAGPentestJobTaskList/StepName")
+        }
         {
             $v = "FINALIZING","PENTEST","PREFLIGHT","STATIC_ANALYSIS"
             break
@@ -200,7 +205,7 @@ $SECAG_Completers = {
 
 $SECAG_map = @{
     "ArtifactType"=@("Add-SECAGArtifact")
-    "CodeRemediationStrategy"=@("New-SECAGPentest","Update-SECAGPentest")
+    "CodeRemediationStrategy"=@("New-SECAGCodeReview","New-SECAGPentest","Update-SECAGCodeReview","Update-SECAGPentest")
     "Confidence"=@("Get-SECAGFindingList")
     "Config_User_Role"=@("New-SECAGMembership")
     "Filter_Provider"=@("Get-SECAGIntegrationList")
@@ -210,7 +215,7 @@ $SECAG_map = @{
     "ResourceType"=@("Get-SECAGIntegratedResourceList")
     "RiskLevel"=@("Get-SECAGFindingList","Update-SECAGFinding")
     "Status"=@("Get-SECAGFindingList","Update-SECAGFinding")
-    "StepName"=@("Get-SECAGPentestJobTaskList")
+    "StepName"=@("Get-SECAGCodeReviewJobTaskList","Get-SECAGPentestJobTaskList")
     "VerificationMethod"=@("New-SECAGTargetDomain","Update-SECAGTargetDomain")
 }
 
@@ -265,9 +270,13 @@ $SECAG_SelectCompleters = {
 
 $SECAG_SelectMap = @{
     "Select"=@("Add-SECAGArtifact",
+               "Remove-SECAGCodeReviewBatch",
                "Remove-SECAGPentestBatch",
                "Get-SECAGAgentSpaceBatch",
                "Get-SECAGArtifactMetadataBatch",
+               "Get-SECAGCodeReviewJobBatch",
+               "Get-SECAGCodeReviewJobTaskBatch",
+               "Get-SECAGCodeReviewBatch",
                "Get-SECAGFindingBatch",
                "Get-SECAGPentestJobBatch",
                "Get-SECAGPentestJobTaskBatch",
@@ -275,6 +284,7 @@ $SECAG_SelectMap = @{
                "Get-SECAGTargetDomainBatch",
                "New-SECAGAgentSpace",
                "New-SECAGApplication",
+               "New-SECAGCodeReview",
                "New-SECAGIntegration",
                "New-SECAGMembership",
                "New-SECAGPentest",
@@ -292,6 +302,9 @@ $SECAG_SelectMap = @{
                "Get-SECAGAgentSpaceList",
                "Get-SECAGApplicationList",
                "Get-SECAGArtifactList",
+               "Get-SECAGCodeReviewJobsForCodeReviewList",
+               "Get-SECAGCodeReviewJobTaskList",
+               "Get-SECAGCodeReviewList",
                "Get-SECAGDiscoveredEndpointList",
                "Get-SECAGFindingList",
                "Get-SECAGIntegratedResourceList",
@@ -303,12 +316,15 @@ $SECAG_SelectMap = @{
                "Get-SECAGResourceTag",
                "Get-SECAGTargetDomainList",
                "Start-SECAGCodeRemediation",
+               "Start-SECAGCodeReviewJob",
                "Start-SECAGPentestJob",
+               "Stop-SECAGCodeReviewJob",
                "Stop-SECAGPentestJob",
                "Add-SECAGResourceTag",
                "Remove-SECAGResourceTag",
                "Update-SECAGAgentSpace",
                "Update-SECAGApplication",
+               "Update-SECAGCodeReview",
                "Update-SECAGFinding",
                "Update-SECAGIntegratedResource",
                "Update-SECAGPentest",

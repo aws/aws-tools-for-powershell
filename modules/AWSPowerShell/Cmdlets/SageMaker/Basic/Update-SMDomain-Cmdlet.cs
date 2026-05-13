@@ -875,6 +875,62 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
         #endregion
         
+        #region Parameter DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the SageMaker AI Training Plan to use for this app. When you specify a
+        /// training plan, the app launches on reserved GPU capacity. This field is supported
+        /// for JupyterLab and CodeEditor app types.</para><para>For more information about how to reserve GPU capacity with SageMaker AI Training
+        /// Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/training-plan-utilization-for-studio-apps.html">Using
+        /// training plans in Studio applications</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn { get; set; }
+        #endregion
+        
+        #region Parameter DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the SageMaker AI Training Plan to use for this app. When you specify a
+        /// training plan, the app launches on reserved GPU capacity. This field is supported
+        /// for JupyterLab and CodeEditor app types.</para><para>For more information about how to reserve GPU capacity with SageMaker AI Training
+        /// Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/training-plan-utilization-for-studio-apps.html">Using
+        /// training plans in Studio applications</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn { get; set; }
+        #endregion
+        
+        #region Parameter DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the SageMaker AI Training Plan to use for this app. When you specify a
+        /// training plan, the app launches on reserved GPU capacity. This field is supported
+        /// for JupyterLab and CodeEditor app types.</para><para>For more information about how to reserve GPU capacity with SageMaker AI Training
+        /// Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/training-plan-utilization-for-studio-apps.html">Using
+        /// training plans in Studio applications</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn { get; set; }
+        #endregion
+        
+        #region Parameter DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the SageMaker AI Training Plan to use for this app. When you specify a
+        /// training plan, the app launches on reserved GPU capacity. This field is supported
+        /// for JupyterLab and CodeEditor app types.</para><para>For more information about how to reserve GPU capacity with SageMaker AI Training
+        /// Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/training-plan-utilization-for-studio-apps.html">Using
+        /// training plans in Studio applications</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn { get; set; }
+        #endregion
+        
         #region Parameter CustomPosixUserConfig_Uid
         /// <summary>
         /// <para>
@@ -989,6 +1045,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn = this.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn;
             context.DefaultResourceSpec_SageMakerImageVersionAlias = this.DefaultResourceSpec_SageMakerImageVersionAlias;
             context.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
+            context.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn = this.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn;
             if (this.EmrSettings_AssumableRoleArn != null)
             {
                 context.EmrSettings_AssumableRoleArn = new List<System.String>(this.EmrSettings_AssumableRoleArn);
@@ -1010,6 +1067,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn = this.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn;
             context.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = this.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
             context.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
+            context.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn = this.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn;
             if (this.JupyterServerAppSettings_LifecycleConfigArn != null)
             {
                 context.JupyterServerAppSettings_LifecycleConfigArn = new List<System.String>(this.JupyterServerAppSettings_LifecycleConfigArn);
@@ -1023,6 +1081,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn = this.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn;
             context.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = this.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
             context.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
+            context.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn = this.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn;
             if (this.KernelGatewayAppSettings_LifecycleConfigArn != null)
             {
                 context.KernelGatewayAppSettings_LifecycleConfigArn = new List<System.String>(this.KernelGatewayAppSettings_LifecycleConfigArn);
@@ -1056,6 +1115,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DefaultResourceSpec_SageMakerImageArn = this.DefaultResourceSpec_SageMakerImageArn;
             context.DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionAlias = this.DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionAlias;
             context.DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultResourceSpec_SageMakerImageVersionArn;
+            context.DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn = this.DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn;
             context.RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn = this.RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn;
             context.RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl = this.RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl;
             context.RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl = this.RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl;
@@ -1301,6 +1361,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec.SageMakerImageVersionArn = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpecIsNull = false;
             }
+            System.String requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn = null;
+            if (cmdletContext.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn = cmdletContext.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec.TrainingPlanArn = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpecIsNull = false;
+            }
              // determine if requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec should be set to null
             if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpecIsNull)
             {
@@ -1399,6 +1469,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn != null)
             {
                 requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec.SageMakerImageVersionArn = requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
+                requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn = null;
+            if (cmdletContext.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn = cmdletContext.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec.TrainingPlanArn = requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn;
                 requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpecIsNull = false;
             }
              // determine if requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec should be set to null
@@ -1624,6 +1704,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn != null)
             {
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec.SageMakerImageVersionArn = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn = null;
+            if (cmdletContext.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn = cmdletContext.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec.TrainingPlanArn = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn;
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpecIsNull = false;
             }
              // determine if requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec should be set to null
@@ -1888,6 +1978,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec.SageMakerImageVersionArn = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn;
                 requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpecIsNull = false;
             }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn = null;
+            if (cmdletContext.DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn = cmdletContext.DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec.TrainingPlanArn = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpecIsNull = false;
+            }
              // determine if requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec should be set to null
             if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpecIsNull)
             {
@@ -2093,6 +2193,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn { get; set; }
             public System.String DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
+            public System.String DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn { get; set; }
             public List<System.String> EmrSettings_AssumableRoleArn { get; set; }
             public List<System.String> EmrSettings_ExecutionRoleArn { get; set; }
             public List<System.String> JupyterLabAppSettings_LifecycleConfigArn { get; set; }
@@ -2102,6 +2203,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn { get; set; }
             public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
+            public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn { get; set; }
             public List<System.String> JupyterServerAppSettings_LifecycleConfigArn { get; set; }
             public List<Amazon.SageMaker.Model.CustomImage> KernelGatewayAppSettings_CustomImage { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType { get; set; }
@@ -2109,6 +2211,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn { get; set; }
             public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
+            public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn { get; set; }
             public List<System.String> KernelGatewayAppSettings_LifecycleConfigArn { get; set; }
             public List<System.String> DefaultSpaceSettings_SecurityGroup { get; set; }
             public System.Int32? DefaultEbsStorageSettings_DefaultEbsVolumeSizeInGb { get; set; }
@@ -2127,6 +2230,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }
             public System.String DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
+            public System.String DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn { get; set; }
             public System.String RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn { get; set; }
             public System.String RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl { get; set; }
             public System.String RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl { get; set; }

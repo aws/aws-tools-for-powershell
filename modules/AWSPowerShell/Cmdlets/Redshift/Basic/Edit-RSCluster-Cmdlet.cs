@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
         /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>If you decrease the automated snapshot retention period from its current value, existing
         /// automated snapshots that fall outside of the new retention period will be immediately
-        /// deleted.</para><para>You can't disable automated snapshots for RA3 node types. Set the automated retention
-        /// period from 1-35 days.</para><para>Default: Uses existing setting.</para><para>Constraints: Must be a value from 0 to 35.</para>
+        /// deleted.</para><para>You can't disable automated snapshots for RG or RA3 node types. Set the automated
+        /// retention period from 1-35 days.</para><para>Default: Uses existing setting.</para><para>Constraints: Must be a value from 0 to 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -385,8 +385,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The new node type of the cluster. If you specify a new node type, you must also specify
         /// the number of nodes parameter.</para><para> For more information about resizing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing
-        /// Clusters in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para><para>Valid Values: <c>dc2.large</c> | <c>dc2.8xlarge</c> | <c>ra3.large</c> | <c>ra3.xlplus</c>
-        /// | <c>ra3.4xlarge</c> | <c>ra3.16xlarge</c></para>
+        /// Clusters in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para><para>Valid Values: <c>dc2.large</c> | <c>dc2.8xlarge</c>| <c>rg.xlarge</c> | <c>rg.4xlarge</c>
+        /// | <c>ra3.large</c> | <c>ra3.xlplus</c> | <c>ra3.4xlarge</c> | <c>ra3.16xlarge</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,9 +408,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The option to change the port of an Amazon Redshift cluster.</para><para>Valid Values: </para><ul><li><para>For clusters with ra3 nodes - Select a port within the ranges <c>5431-5455</c> or
-        /// <c>8191-8215</c>. (If you have an existing cluster with ra3 nodes, it isn't required
-        /// that you change the port to these ranges.)</para></li><li><para>For clusters with dc2 nodes - Select a port within the range <c>1150-65535</c>.</para></li></ul>
+        /// <para>The option to change the port of an Amazon Redshift cluster.</para><para>Valid Values: </para><ul><li><para>For clusters with RG or RA3 nodes - Select a port within the ranges <c>5431-5455</c>
+        /// or <c>8191-8215</c>. (If you have an existing cluster with RG or RA3 nodes, it isn't
+        /// required that you change the port to these ranges.)</para></li><li><para>For clusters with dc2 nodes - Select a port within the range <c>1150-65535</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

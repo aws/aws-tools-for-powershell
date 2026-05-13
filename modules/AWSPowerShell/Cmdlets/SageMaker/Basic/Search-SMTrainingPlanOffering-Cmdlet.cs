@@ -121,10 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker
-        /// Endpoints) to search for in the offerings.</para><para>Training plans are specific to their target resource.</para><ul><li><para>A training plan designed for SageMaker training jobs can only be used to schedule
+        /// Endpoints, Studio apps) to search for in the offerings.</para><para>Training plans are specific to their target resource.</para><ul><li><para>A training plan designed for SageMaker training jobs can only be used to schedule
         /// and run training jobs.</para></li><li><para>A training plan for HyperPod clusters can be used exclusively to provide compute resources
         /// to a cluster's instance group.</para></li><li><para>A training plan for SageMaker endpoints can be used exclusively to provide compute
-        /// resources to SageMaker endpoints for model deployment.</para></li></ul><para />
+        /// resources to SageMaker endpoints for model deployment.</para></li><li><para>A training plan for Studio apps can be used to launch JupyterLab and Code Editor apps
+        /// on reserved training plan capacity.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

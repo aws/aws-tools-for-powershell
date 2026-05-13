@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ManagedConfiguration_ManagedStorageType
+        /// <summary>
+        /// <para>
+        /// <para>The storage type of the model package.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ManagedStorageType")]
+        public Amazon.SageMaker.ManagedStorageType ManagedConfiguration_ManagedStorageType { get; set; }
+        #endregion
+        
         #region Parameter ModelPackageGroupDescription
         /// <summary>
         /// <para>
@@ -135,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.CreateModelPackageGroupResponse, NewSMModelPackageGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ManagedConfiguration_ManagedStorageType = this.ManagedConfiguration_ManagedStorageType;
             context.ModelPackageGroupDescription = this.ModelPackageGroupDescription;
             context.ModelPackageGroupName = this.ModelPackageGroupName;
             #if MODULAR
@@ -163,6 +175,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateModelPackageGroupRequest();
             
+            
+             // populate ManagedConfiguration
+            var requestManagedConfigurationIsNull = true;
+            request.ManagedConfiguration = new Amazon.SageMaker.Model.ManagedConfiguration();
+            Amazon.SageMaker.ManagedStorageType requestManagedConfiguration_managedConfiguration_ManagedStorageType = null;
+            if (cmdletContext.ManagedConfiguration_ManagedStorageType != null)
+            {
+                requestManagedConfiguration_managedConfiguration_ManagedStorageType = cmdletContext.ManagedConfiguration_ManagedStorageType;
+            }
+            if (requestManagedConfiguration_managedConfiguration_ManagedStorageType != null)
+            {
+                request.ManagedConfiguration.ManagedStorageType = requestManagedConfiguration_managedConfiguration_ManagedStorageType;
+                requestManagedConfigurationIsNull = false;
+            }
+             // determine if request.ManagedConfiguration should be set to null
+            if (requestManagedConfigurationIsNull)
+            {
+                request.ManagedConfiguration = null;
+            }
             if (cmdletContext.ModelPackageGroupDescription != null)
             {
                 request.ModelPackageGroupDescription = cmdletContext.ModelPackageGroupDescription;
@@ -230,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMaker.ManagedStorageType ManagedConfiguration_ManagedStorageType { get; set; }
             public System.String ModelPackageGroupDescription { get; set; }
             public System.String ModelPackageGroupName { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

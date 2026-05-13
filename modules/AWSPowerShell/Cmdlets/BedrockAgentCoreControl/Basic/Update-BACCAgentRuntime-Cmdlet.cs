@@ -316,6 +316,32 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.Boolean? MetadataConfiguration_RequireMMDSV2 { get; set; }
         #endregion
         
+        #region Parameter NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint
+        /// <summary>
+        /// <para>
+        /// <para><note><para>This field applies only to Agent Runtimes. It is not applicable to Browsers or Code
+        /// Interpreters.</para></note><para>Controls whether a service-managed Amazon S3 gateway endpoint is provisioned in the
+        /// VPC network topology for the agent runtime. This gateway is used by Amazon Bedrock
+        /// AgentCore Runtime to download code and container images during agent startup.</para><para>Starting May 5, 2026, Amazon Bedrock AgentCore Runtime is gradually rolling out a
+        /// change to how network isolation is configured for VPC mode agents. Agent runtimes
+        /// created on or after this rollout will no longer include the service-managed Amazon
+        /// S3 gateway. Instead, all network access, including to Amazon S3, is governed exclusively
+        /// by your VPC configuration. This field cannot be set on agent runtimes created after
+        /// the rollout. Passing this field in an <c>UpdateAgentRuntime</c> request for these
+        /// agent runtimes returns a <c>ValidationException</c>.</para><para>Agent runtimes created before the rollout are not affected and continue to operate
+        /// with the service-managed Amazon S3 gateway. To enforce full VPC network isolation
+        /// on these existing agent runtimes, set this field to <c>false</c> via the <c>UpdateAgentRuntime</c>
+        /// API. Before opting out, ensure your VPC provides the Amazon S3 access required for
+        /// agent startup. If this field is not specified or is set to <c>true</c>, the service-managed
+        /// Amazon S3 gateway remains provisioned.</para><para>This field is only supported in the <c>UpdateAgentRuntime</c> API for pre-rollout
+        /// agent runtimes. Passing this field in a <c>CreateAgentRuntime</c> request returns
+        /// a <c>ValidationException</c>.</para></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint { get; set; }
+        #endregion
+        
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier
         /// <summary>
         /// <para>
@@ -617,6 +643,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter NetworkConfiguration_NetworkMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint = this.NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint;
             if (this.NetworkModeConfig_SecurityGroup != null)
             {
                 context.NetworkModeConfig_SecurityGroup = new List<System.String>(this.NetworkModeConfig_SecurityGroup);
@@ -1068,6 +1095,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate NetworkModeConfig
             var requestNetworkConfiguration_networkConfiguration_NetworkModeConfigIsNull = true;
             requestNetworkConfiguration_networkConfiguration_NetworkModeConfig = new Amazon.BedrockAgentCoreControl.Model.VpcConfig();
+            System.Boolean? requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint = null;
+            if (cmdletContext.NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint = cmdletContext.NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint.Value;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfig.RequireServiceS3Endpoint = requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint.Value;
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfigIsNull = false;
+            }
             List<System.String> requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkModeConfig_SecurityGroup = null;
             if (cmdletContext.NetworkModeConfig_SecurityGroup != null)
             {
@@ -1228,6 +1265,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.Int32? LifecycleConfiguration_MaxLifetime { get; set; }
             public System.Boolean? MetadataConfiguration_RequireMMDSV2 { get; set; }
             public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
+            public System.Boolean? NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint { get; set; }
             public List<System.String> NetworkModeConfig_SecurityGroup { get; set; }
             public List<System.String> NetworkModeConfig_Subnet { get; set; }
             public Amazon.BedrockAgentCoreControl.ServerProtocol ProtocolConfiguration_ServerProtocol { get; set; }

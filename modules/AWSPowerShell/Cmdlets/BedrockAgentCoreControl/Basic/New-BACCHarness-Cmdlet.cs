@@ -428,6 +428,32 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride[] AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
         #endregion
         
+        #region Parameter Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint
+        /// <summary>
+        /// <para>
+        /// <para><note><para>This field applies only to Agent Runtimes. It is not applicable to Browsers or Code
+        /// Interpreters.</para></note><para>Controls whether a service-managed Amazon S3 gateway endpoint is provisioned in the
+        /// VPC network topology for the agent runtime. This gateway is used by Amazon Bedrock
+        /// AgentCore Runtime to download code and container images during agent startup.</para><para>Starting May 5, 2026, Amazon Bedrock AgentCore Runtime is gradually rolling out a
+        /// change to how network isolation is configured for VPC mode agents. Agent runtimes
+        /// created on or after this rollout will no longer include the service-managed Amazon
+        /// S3 gateway. Instead, all network access, including to Amazon S3, is governed exclusively
+        /// by your VPC configuration. This field cannot be set on agent runtimes created after
+        /// the rollout. Passing this field in an <c>UpdateAgentRuntime</c> request for these
+        /// agent runtimes returns a <c>ValidationException</c>.</para><para>Agent runtimes created before the rollout are not affected and continue to operate
+        /// with the service-managed Amazon S3 gateway. To enforce full VPC network isolation
+        /// on these existing agent runtimes, set this field to <c>false</c> via the <c>UpdateAgentRuntime</c>
+        /// API. Before opting out, ensure your VPC provides the Amazon S3 access required for
+        /// agent startup. If this field is not specified or is set to <c>true</c>, the service-managed
+        /// Amazon S3 gateway remains provisioned.</para><para>This field is only supported in the <c>UpdateAgentRuntime</c> API for pre-rollout
+        /// agent runtimes. Passing this field in a <c>CreateAgentRuntime</c> request returns
+        /// a <c>ValidationException</c>.</para></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint { get; set; }
+        #endregion
+        
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier
         /// <summary>
         /// <para>
@@ -834,6 +860,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.Environment_AgentCoreRuntimeEnvironment_LifecycleConfiguration_IdleRuntimeSessionTimeout = this.Environment_AgentCoreRuntimeEnvironment_LifecycleConfiguration_IdleRuntimeSessionTimeout;
             context.Environment_AgentCoreRuntimeEnvironment_LifecycleConfiguration_MaxLifetime = this.Environment_AgentCoreRuntimeEnvironment_LifecycleConfiguration_MaxLifetime;
             context.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode = this.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode;
+            context.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint = this.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint;
             if (this.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_SecurityGroup != null)
             {
                 context.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_SecurityGroup = new List<System.String>(this.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_SecurityGroup);
@@ -1216,6 +1243,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate NetworkModeConfig
             var requestEnvironment_environment_AgentCoreRuntimeEnvironment_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfigIsNull = true;
             requestEnvironment_environment_AgentCoreRuntimeEnvironment_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig = new Amazon.BedrockAgentCoreControl.Model.VpcConfig();
+            System.Boolean? requestEnvironment_environment_AgentCoreRuntimeEnvironment_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint = null;
+            if (cmdletContext.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint != null)
+            {
+                requestEnvironment_environment_AgentCoreRuntimeEnvironment_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint = cmdletContext.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint.Value;
+            }
+            if (requestEnvironment_environment_AgentCoreRuntimeEnvironment_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint != null)
+            {
+                requestEnvironment_environment_AgentCoreRuntimeEnvironment_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig.RequireServiceS3Endpoint = requestEnvironment_environment_AgentCoreRuntimeEnvironment_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint.Value;
+                requestEnvironment_environment_AgentCoreRuntimeEnvironment_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfigIsNull = false;
+            }
             List<System.String> requestEnvironment_environment_AgentCoreRuntimeEnvironment_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_SecurityGroup = null;
             if (cmdletContext.Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_SecurityGroup != null)
             {
@@ -1791,6 +1828,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.Int32? Environment_AgentCoreRuntimeEnvironment_LifecycleConfiguration_IdleRuntimeSessionTimeout { get; set; }
             public System.Int32? Environment_AgentCoreRuntimeEnvironment_LifecycleConfiguration_MaxLifetime { get; set; }
             public Amazon.BedrockAgentCoreControl.NetworkMode Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode { get; set; }
+            public System.Boolean? Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint { get; set; }
             public List<System.String> Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_SecurityGroup { get; set; }
             public List<System.String> Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_Subnet { get; set; }
             public System.String EnvironmentArtifact_ContainerConfiguration_ContainerUri { get; set; }

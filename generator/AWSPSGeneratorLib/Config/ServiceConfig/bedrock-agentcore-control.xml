@@ -385,7 +385,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicyEngineSummary" OutputProperty="*" Verb="Get" Noun="PolicyEngineSummary" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPolicyGeneration" OutputProperty="*" Verb="Get" Noun="PolicyGeneration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicyGenerationSummary" OutputProperty="*" Verb="Get" Noun="PolicyGenerationSummary" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicySummary" OutputProperty="*" Verb="Get" Noun="PolicySummary" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -497,11 +509,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyEngineSummaries" OutputProperty="PolicyEngines" Verb="Get" Noun="PolicyEngineSummaryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPolicyGenerationAssets" OutputProperty="PolicyGenerationAssets" Verb="Get" Noun="PolicyGenerationAssetList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPolicyGenerations" OutputProperty="PolicyGenerations" Verb="Get" Noun="PolicyGenerationList" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyGenerationSummaries" OutputProperty="PolicyGenerations" Verb="Get" Noun="PolicyGenerationSummaryList" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicySummaries" OutputProperty="Policies" Verb="Get" Noun="PolicySummaryList" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

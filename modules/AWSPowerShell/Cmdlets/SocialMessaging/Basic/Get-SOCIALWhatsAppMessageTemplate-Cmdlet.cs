@@ -68,15 +68,31 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         /// <para>The numeric ID of the template assigned by Meta.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MetaTemplateId { get; set; }
+        #endregion
+        
+        #region Parameter TemplateLanguageCode
+        /// <summary>
+        /// <para>
+        /// <para>The language code of the message template (for example, <c>en</c> or <c>en_US</c>).
+        /// Use together with <c>templateName</c> as an alternative to <c>metaTemplateId</c> to
+        /// identify a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateLanguageCode { get; set; }
+        #endregion
+        
+        #region Parameter TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the message template. Use together with <c>templateLanguageCode</c> as
+        /// an alternative to <c>metaTemplateId</c> to identify a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -117,12 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
             }
             #endif
             context.MetaTemplateId = this.MetaTemplateId;
-            #if MODULAR
-            if (this.MetaTemplateId == null && ParameterWasBound(nameof(this.MetaTemplateId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MetaTemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TemplateLanguageCode = this.TemplateLanguageCode;
+            context.TemplateName = this.TemplateName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -146,6 +158,14 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
             if (cmdletContext.MetaTemplateId != null)
             {
                 request.MetaTemplateId = cmdletContext.MetaTemplateId;
+            }
+            if (cmdletContext.TemplateLanguageCode != null)
+            {
+                request.TemplateLanguageCode = cmdletContext.TemplateLanguageCode;
+            }
+            if (cmdletContext.TemplateName != null)
+            {
+                request.TemplateName = cmdletContext.TemplateName;
             }
             
             CmdletOutput output;
@@ -204,6 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         {
             public System.String Id { get; set; }
             public System.String MetaTemplateId { get; set; }
+            public System.String TemplateLanguageCode { get; set; }
+            public System.String TemplateName { get; set; }
             public System.Func<Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateResponse, GetSOCIALWhatsAppMessageTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Template;
         }

@@ -145,6 +145,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.String[] LocalTimeZoneConfig_LocalTimeZoneDetection { get; set; }
         #endregion
         
+        #region Parameter CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConnectCampaignsV2.LocalTimeZoneDetectionScope")]
+        public Amazon.ConnectCampaignsV2.LocalTimeZoneDetectionScope CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope { get; set; }
+        #endregion
+        
         #region Parameter CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList
         /// <summary>
         /// <para>
@@ -276,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             {
                 context.LocalTimeZoneConfig_LocalTimeZoneDetection = new List<System.String>(this.LocalTimeZoneConfig_LocalTimeZoneDetection);
             }
+            context.CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope = this.CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope;
             if (this.CommunicationTimeConfig_Sms_OpenHours_DailyHours != null)
             {
                 context.CommunicationTimeConfig_Sms_OpenHours_DailyHours = new Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>>(StringComparer.Ordinal);
@@ -438,41 +450,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_Email != null)
             {
                 request.CommunicationTimeConfig.Email = requestCommunicationTimeConfig_communicationTimeConfig_Email;
-                requestCommunicationTimeConfigIsNull = false;
-            }
-            Amazon.ConnectCampaignsV2.Model.LocalTimeZoneConfig requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = null;
-            
-             // populate LocalTimeZoneConfig
-            var requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = true;
-            requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = new Amazon.ConnectCampaignsV2.Model.LocalTimeZoneConfig();
-            System.String requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone = null;
-            if (cmdletContext.LocalTimeZoneConfig_DefaultTimeZone != null)
-            {
-                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone = cmdletContext.LocalTimeZoneConfig_DefaultTimeZone;
-            }
-            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone != null)
-            {
-                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig.DefaultTimeZone = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone;
-                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = false;
-            }
-            List<System.String> requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection = null;
-            if (cmdletContext.LocalTimeZoneConfig_LocalTimeZoneDetection != null)
-            {
-                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection = cmdletContext.LocalTimeZoneConfig_LocalTimeZoneDetection;
-            }
-            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection != null)
-            {
-                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig.LocalTimeZoneDetection = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection;
-                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = false;
-            }
-             // determine if requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig should be set to null
-            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull)
-            {
-                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = null;
-            }
-            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig != null)
-            {
-                request.CommunicationTimeConfig.LocalTimeZoneConfig = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig;
                 requestCommunicationTimeConfigIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.TimeWindow requestCommunicationTimeConfig_communicationTimeConfig_Sms = null;
@@ -670,6 +647,51 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
                 request.CommunicationTimeConfig.WhatsApp = requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp;
                 requestCommunicationTimeConfigIsNull = false;
             }
+            Amazon.ConnectCampaignsV2.Model.LocalTimeZoneConfig requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = null;
+            
+             // populate LocalTimeZoneConfig
+            var requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = true;
+            requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = new Amazon.ConnectCampaignsV2.Model.LocalTimeZoneConfig();
+            System.String requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone = null;
+            if (cmdletContext.LocalTimeZoneConfig_DefaultTimeZone != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone = cmdletContext.LocalTimeZoneConfig_DefaultTimeZone;
+            }
+            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig.DefaultTimeZone = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone;
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = false;
+            }
+            List<System.String> requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection = null;
+            if (cmdletContext.LocalTimeZoneConfig_LocalTimeZoneDetection != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection = cmdletContext.LocalTimeZoneConfig_LocalTimeZoneDetection;
+            }
+            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig.LocalTimeZoneDetection = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection;
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = false;
+            }
+            Amazon.ConnectCampaignsV2.LocalTimeZoneDetectionScope requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_communicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope = null;
+            if (cmdletContext.CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_communicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope = cmdletContext.CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope;
+            }
+            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_communicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig.LocalTimeZoneDetectionScope = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_communicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope;
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = null;
+            }
+            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig != null)
+            {
+                request.CommunicationTimeConfig.LocalTimeZoneConfig = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig;
+                requestCommunicationTimeConfigIsNull = false;
+            }
              // determine if request.CommunicationTimeConfig should be set to null
             if (requestCommunicationTimeConfigIsNull)
             {
@@ -738,6 +760,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod> CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList { get; set; }
             public System.String LocalTimeZoneConfig_DefaultTimeZone { get; set; }
             public List<System.String> LocalTimeZoneConfig_LocalTimeZoneDetection { get; set; }
+            public Amazon.ConnectCampaignsV2.LocalTimeZoneDetectionScope CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope { get; set; }
             public Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> CommunicationTimeConfig_Sms_OpenHours_DailyHours { get; set; }
             public List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod> CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList { get; set; }
             public Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> CommunicationTimeConfig_Telephony_OpenHours_DailyHours { get; set; }

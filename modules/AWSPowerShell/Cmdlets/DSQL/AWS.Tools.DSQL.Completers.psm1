@@ -75,6 +75,40 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Aurora DSQL
 
 
+$DSQL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DSQL.StreamFormat
+        "New-DSQLStream/Format"
+        {
+            $v = "JSON"
+            break
+        }
+
+        # Amazon.DSQL.StreamOrdering
+        "New-DSQLStream/Ordering"
+        {
+            $v = "UNORDERED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DSQL_map = @{
+    "Format"=@("New-DSQLStream")
+    "Ordering"=@("New-DSQLStream")
+}
+
+_awsArgumentCompleterRegistration $DSQL_Completers $DSQL_map
+
 $DSQL_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -124,12 +158,16 @@ $DSQL_SelectCompleters = {
 
 $DSQL_SelectMap = @{
     "Select"=@("New-DSQLCluster",
+               "New-DSQLStream",
                "Remove-DSQLCluster",
                "Remove-DSQLClusterPolicy",
+               "Remove-DSQLStream",
                "Get-DSQLCluster",
                "Get-DSQLClusterPolicy",
+               "Get-DSQLStream",
                "Get-DSQLVpcEndpointServiceName",
                "Get-DSQLClusterList",
+               "Get-DSQLStreamList",
                "Get-DSQLResourceTag",
                "Set-DSQLClusterPolicy",
                "Add-DSQLResourceTag",

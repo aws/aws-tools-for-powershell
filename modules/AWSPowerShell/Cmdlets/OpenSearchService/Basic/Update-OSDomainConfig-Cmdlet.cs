@@ -359,6 +359,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? ServerlessVectorAcceleration_Enabled { get; set; }
         #endregion
         
+        #region Parameter AutomatedSnapshotPauseOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable or disable automated snapshot pause for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ColdStorageOptions_Enabled
         /// <summary>
         /// <para>
@@ -423,6 +433,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? IdentityCenterOptions_EnabledAPIAccess { get; set; }
+        #endregion
+        
+        #region Parameter AutomatedSnapshotPauseOptions_EndTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp at which the automated snapshot pause should end. The maximum allowed
+        /// duration between <c>StartTime</c> and <c>EndTime</c> is 3 days.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? AutomatedSnapshotPauseOptions_EndTime { get; set; }
         #endregion
         
         #region Parameter DomainEndpointOptions_EnforceHTTPS
@@ -816,6 +837,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
         #endregion
         
+        #region Parameter AutomatedSnapshotPauseOptions_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp at which the automated snapshot pause should begin.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? AutomatedSnapshotPauseOptions_StartTime { get; set; }
+        #endregion
+        
         #region Parameter IAMFederationOptions_SubjectKey
         /// <summary>
         /// <para>
@@ -1084,6 +1115,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.NaturalLanguageQueryGenerationOptions_DesiredState = this.NaturalLanguageQueryGenerationOptions_DesiredState;
             context.S3VectorsEngine_Enabled = this.S3VectorsEngine_Enabled;
             context.ServerlessVectorAcceleration_Enabled = this.ServerlessVectorAcceleration_Enabled;
+            context.AutomatedSnapshotPauseOptions_Enabled = this.AutomatedSnapshotPauseOptions_Enabled;
+            context.AutomatedSnapshotPauseOptions_EndTime = this.AutomatedSnapshotPauseOptions_EndTime;
+            context.AutomatedSnapshotPauseOptions_StartTime = this.AutomatedSnapshotPauseOptions_StartTime;
             context.AutoTuneOptions_DesiredState = this.AutoTuneOptions_DesiredState;
             if (this.AutoTuneOptions_MaintenanceSchedule != null)
             {
@@ -1574,6 +1608,45 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAIMLOptionsIsNull)
             {
                 request.AIMLOptions = null;
+            }
+            
+             // populate AutomatedSnapshotPauseOptions
+            var requestAutomatedSnapshotPauseOptionsIsNull = true;
+            request.AutomatedSnapshotPauseOptions = new Amazon.OpenSearchService.Model.AutomatedSnapshotPauseRequestOptions();
+            System.Boolean? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled = null;
+            if (cmdletContext.AutomatedSnapshotPauseOptions_Enabled != null)
+            {
+                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled = cmdletContext.AutomatedSnapshotPauseOptions_Enabled.Value;
+            }
+            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled != null)
+            {
+                request.AutomatedSnapshotPauseOptions.Enabled = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled.Value;
+                requestAutomatedSnapshotPauseOptionsIsNull = false;
+            }
+            System.DateTime? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime = null;
+            if (cmdletContext.AutomatedSnapshotPauseOptions_EndTime != null)
+            {
+                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime = cmdletContext.AutomatedSnapshotPauseOptions_EndTime.Value;
+            }
+            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime != null)
+            {
+                request.AutomatedSnapshotPauseOptions.EndTime = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime.Value;
+                requestAutomatedSnapshotPauseOptionsIsNull = false;
+            }
+            System.DateTime? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime = null;
+            if (cmdletContext.AutomatedSnapshotPauseOptions_StartTime != null)
+            {
+                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime = cmdletContext.AutomatedSnapshotPauseOptions_StartTime.Value;
+            }
+            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime != null)
+            {
+                request.AutomatedSnapshotPauseOptions.StartTime = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime.Value;
+                requestAutomatedSnapshotPauseOptionsIsNull = false;
+            }
+             // determine if request.AutomatedSnapshotPauseOptions should be set to null
+            if (requestAutomatedSnapshotPauseOptionsIsNull)
+            {
+                request.AutomatedSnapshotPauseOptions = null;
             }
             
              // populate AutoTuneOptions
@@ -2344,6 +2417,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState NaturalLanguageQueryGenerationOptions_DesiredState { get; set; }
             public System.Boolean? S3VectorsEngine_Enabled { get; set; }
             public System.Boolean? ServerlessVectorAcceleration_Enabled { get; set; }
+            public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
+            public System.DateTime? AutomatedSnapshotPauseOptions_EndTime { get; set; }
+            public System.DateTime? AutomatedSnapshotPauseOptions_StartTime { get; set; }
             public Amazon.OpenSearchService.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
             public List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule> AutoTuneOptions_MaintenanceSchedule { get; set; }
             public Amazon.OpenSearchService.RollbackOnDisable AutoTuneOptions_RollbackOnDisable { get; set; }

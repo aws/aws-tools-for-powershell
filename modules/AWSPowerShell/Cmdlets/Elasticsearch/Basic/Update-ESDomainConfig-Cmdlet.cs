@@ -255,6 +255,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Boolean? SAMLOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter AutomatedSnapshotPauseOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable or disable automated snapshot pause for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter CognitoOptions_Enabled
         /// <summary>
         /// <para>
@@ -295,6 +305,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EncryptionAtRestOptions")]
         public Amazon.Elasticsearch.Model.EncryptionAtRestOptions EncryptionAtRestOption { get; set; }
+        #endregion
+        
+        #region Parameter AutomatedSnapshotPauseOptions_EndTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp at which the automated snapshot pause should end. The maximum allowed
+        /// duration between <c>StartTime</c> and <c>EndTime</c> is 3 days.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? AutomatedSnapshotPauseOptions_EndTime { get; set; }
         #endregion
         
         #region Parameter DomainEndpointOptions_EnforceHTTPS
@@ -531,6 +552,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
         #endregion
         
+        #region Parameter AutomatedSnapshotPauseOptions_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp at which the automated snapshot pause should begin.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? AutomatedSnapshotPauseOptions_StartTime { get; set; }
+        #endregion
+        
         #region Parameter SAMLOptions_SubjectKey
         /// <summary>
         /// <para>
@@ -725,6 +756,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.SAMLOptions_RolesKey = this.SAMLOptions_RolesKey;
             context.SAMLOptions_SessionTimeoutMinute = this.SAMLOptions_SessionTimeoutMinute;
             context.SAMLOptions_SubjectKey = this.SAMLOptions_SubjectKey;
+            context.AutomatedSnapshotPauseOptions_Enabled = this.AutomatedSnapshotPauseOptions_Enabled;
+            context.AutomatedSnapshotPauseOptions_EndTime = this.AutomatedSnapshotPauseOptions_EndTime;
+            context.AutomatedSnapshotPauseOptions_StartTime = this.AutomatedSnapshotPauseOptions_StartTime;
             context.AutoTuneOptions_DesiredState = this.AutoTuneOptions_DesiredState;
             if (this.AutoTuneOptions_MaintenanceSchedule != null)
             {
@@ -1001,6 +1035,45 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (requestAdvancedSecurityOptionsIsNull)
             {
                 request.AdvancedSecurityOptions = null;
+            }
+            
+             // populate AutomatedSnapshotPauseOptions
+            var requestAutomatedSnapshotPauseOptionsIsNull = true;
+            request.AutomatedSnapshotPauseOptions = new Amazon.Elasticsearch.Model.AutomatedSnapshotPauseRequestOptions();
+            System.Boolean? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled = null;
+            if (cmdletContext.AutomatedSnapshotPauseOptions_Enabled != null)
+            {
+                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled = cmdletContext.AutomatedSnapshotPauseOptions_Enabled.Value;
+            }
+            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled != null)
+            {
+                request.AutomatedSnapshotPauseOptions.Enabled = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled.Value;
+                requestAutomatedSnapshotPauseOptionsIsNull = false;
+            }
+            System.DateTime? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime = null;
+            if (cmdletContext.AutomatedSnapshotPauseOptions_EndTime != null)
+            {
+                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime = cmdletContext.AutomatedSnapshotPauseOptions_EndTime.Value;
+            }
+            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime != null)
+            {
+                request.AutomatedSnapshotPauseOptions.EndTime = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime.Value;
+                requestAutomatedSnapshotPauseOptionsIsNull = false;
+            }
+            System.DateTime? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime = null;
+            if (cmdletContext.AutomatedSnapshotPauseOptions_StartTime != null)
+            {
+                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime = cmdletContext.AutomatedSnapshotPauseOptions_StartTime.Value;
+            }
+            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime != null)
+            {
+                request.AutomatedSnapshotPauseOptions.StartTime = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime.Value;
+                requestAutomatedSnapshotPauseOptionsIsNull = false;
+            }
+             // determine if request.AutomatedSnapshotPauseOptions should be set to null
+            if (requestAutomatedSnapshotPauseOptionsIsNull)
+            {
+                request.AutomatedSnapshotPauseOptions = null;
             }
             
              // populate AutoTuneOptions
@@ -1530,6 +1603,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.String SAMLOptions_RolesKey { get; set; }
             public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
             public System.String SAMLOptions_SubjectKey { get; set; }
+            public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
+            public System.DateTime? AutomatedSnapshotPauseOptions_EndTime { get; set; }
+            public System.DateTime? AutomatedSnapshotPauseOptions_StartTime { get; set; }
             public Amazon.Elasticsearch.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
             public List<Amazon.Elasticsearch.Model.AutoTuneMaintenanceSchedule> AutoTuneOptions_MaintenanceSchedule { get; set; }
             public Amazon.Elasticsearch.RollbackOnDisable AutoTuneOptions_RollbackOnDisable { get; set; }

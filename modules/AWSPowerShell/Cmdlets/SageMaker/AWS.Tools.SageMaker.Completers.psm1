@@ -1002,6 +1002,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ManagedStorageType
+        {
+            ($_ -eq "New-SMModelPackageGroup/ManagedConfiguration_ManagedStorageType") -Or
+            ($_ -eq "New-SMModelPackage/ManagedStorageType")
+        }
+        {
+            $v = "Restricted"
+            break
+        }
+
         # Amazon.SageMaker.MlflowAppStatus
         "Get-SMMlflowAppList/Status"
         {
@@ -2032,6 +2042,8 @@ $SM_map = @{
     "IpAddressType"=@("New-SMNotebookInstance","New-SMWorkforce","Update-SMNotebookInstance","Update-SMWorkforce")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "ManagedConfiguration_ManagedStorageType"=@("New-SMModelPackageGroup")
+    "ManagedStorageType"=@("New-SMModelPackage")
     "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMClusterSoftware","Update-SMEndpoint","Update-SMInferenceComponent")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
     "ModelCard_ModelCardStatus"=@("New-SMModelPackage","Update-SMModelPackage")

@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter CredentialProviderVendor
         /// <summary>
         /// <para>
-        /// <para>The vendor type (e.g., CoinbaseCDP)</para>
+        /// <para>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Unique name for the payment credential provider</para>
+        /// <para>Unique name for the payment credential provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional tags for resource organization</para><para />
+        /// <para>Optional tags for resource organization.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

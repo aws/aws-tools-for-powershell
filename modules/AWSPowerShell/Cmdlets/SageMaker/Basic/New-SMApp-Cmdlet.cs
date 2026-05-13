@@ -189,6 +189,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter ResourceSpec_TrainingPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the SageMaker AI Training Plan to use for this app. When you specify a
+        /// training plan, the app launches on reserved GPU capacity. This field is supported
+        /// for JupyterLab and CodeEditor app types.</para><para>For more information about how to reserve GPU capacity with SageMaker AI Training
+        /// Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/training-plan-utilization-for-studio-apps.html">Using
+        /// training plans in Studio applications</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceSpec_TrainingPlanArn { get; set; }
+        #endregion
+        
         #region Parameter UserProfileName
         /// <summary>
         /// <para>
@@ -272,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ResourceSpec_SageMakerImageArn = this.ResourceSpec_SageMakerImageArn;
             context.ResourceSpec_SageMakerImageVersionAlias = this.ResourceSpec_SageMakerImageVersionAlias;
             context.ResourceSpec_SageMakerImageVersionArn = this.ResourceSpec_SageMakerImageVersionArn;
+            context.ResourceSpec_TrainingPlanArn = this.ResourceSpec_TrainingPlanArn;
             context.SpaceName = this.SpaceName;
             if (this.Tag != null)
             {
@@ -364,6 +379,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.ResourceSpec.SageMakerImageVersionArn = requestResourceSpec_resourceSpec_SageMakerImageVersionArn;
                 requestResourceSpecIsNull = false;
             }
+            System.String requestResourceSpec_resourceSpec_TrainingPlanArn = null;
+            if (cmdletContext.ResourceSpec_TrainingPlanArn != null)
+            {
+                requestResourceSpec_resourceSpec_TrainingPlanArn = cmdletContext.ResourceSpec_TrainingPlanArn;
+            }
+            if (requestResourceSpec_resourceSpec_TrainingPlanArn != null)
+            {
+                request.ResourceSpec.TrainingPlanArn = requestResourceSpec_resourceSpec_TrainingPlanArn;
+                requestResourceSpecIsNull = false;
+            }
              // determine if request.ResourceSpec should be set to null
             if (requestResourceSpecIsNull)
             {
@@ -445,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ResourceSpec_SageMakerImageArn { get; set; }
             public System.String ResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String ResourceSpec_SageMakerImageVersionArn { get; set; }
+            public System.String ResourceSpec_TrainingPlanArn { get; set; }
             public System.String SpaceName { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String UserProfileName { get; set; }

@@ -1,4 +1,76 @@
-﻿### 5.0.210 (2026-05-07 20:08Z)
+﻿### 5.0.211 (2026-05-13 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.247.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonConnectCampaignServiceV2
+    * Modified cmdlet New-CCS2Campaign: added parameter CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope.
+    * Modified cmdlet Update-CCS2CampaignCommunicationTime: added parameter CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope.
+  * Amazon Aurora DSQL
+    * Added cmdlet Get-DSQLStream leveraging the GetStream service API.
+    * Added cmdlet Get-DSQLStreamList leveraging the ListStreams service API.
+    * Added cmdlet New-DSQLStream leveraging the CreateStream service API.
+    * Added cmdlet Remove-DSQLStream leveraging the DeleteStream service API.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Get-BACCPolicyEngineSummary leveraging the GetPolicyEngineSummary service API.
+    * Added cmdlet Get-BACCPolicyEngineSummaryList leveraging the ListPolicyEngineSummaries service API.
+    * Added cmdlet Get-BACCPolicyGenerationSummary leveraging the GetPolicyGenerationSummary service API.
+    * Added cmdlet Get-BACCPolicyGenerationSummaryList leveraging the ListPolicyGenerationSummaries service API.
+    * Added cmdlet Get-BACCPolicySummary leveraging the GetPolicySummary service API.
+    * Added cmdlet Get-BACCPolicySummaryList leveraging the ListPolicySummaries service API.
+    * Modified cmdlet Get-BACCRegistryList: added parameter AuthorizerType.
+    * Modified cmdlet New-BACCAgentRuntime: added parameter NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint.
+    * Modified cmdlet New-BACCBrowser: added parameter NetworkConfiguration_VpcConfig_RequireServiceS3Endpoint.
+    * Modified cmdlet New-BACCCodeInterpreter: added parameter NetworkConfiguration_VpcConfig_RequireServiceS3Endpoint.
+    * Modified cmdlet New-BACCHarness: added parameter Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameter NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint.
+    * Modified cmdlet Update-BACCHarness: added parameter Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint.
+  * Amazon Elasticsearch
+    * Modified cmdlet New-ESDomain: added parameters AutomatedSnapshotPauseOptions_Enabled, AutomatedSnapshotPauseOptions_EndTime and AutomatedSnapshotPauseOptions_StartTime.
+    * Modified cmdlet Update-ESDomainConfig: added parameters AutomatedSnapshotPauseOptions_Enabled, AutomatedSnapshotPauseOptions_EndTime and AutomatedSnapshotPauseOptions_StartTime.
+  * Amazon End User Messaging Social
+    * Modified cmdlet Get-SOCIALWhatsAppMessageTemplate: added parameters TemplateLanguageCode and TemplateName.
+    * Modified cmdlet Update-SOCIALWhatsAppMessageTemplate: added parameters TemplateLanguageCode and TemplateName.
+  * Amazon Lightsail
+    * Modified cmdlet New-LSDistribution: added parameter Origin_IpAddressType.
+    * Modified cmdlet Update-LSDistribution: added parameter Origin_IpAddressType.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameters AutomatedSnapshotPauseOptions_Enabled, AutomatedSnapshotPauseOptions_EndTime and AutomatedSnapshotPauseOptions_StartTime.
+    * Modified cmdlet Update-OSDomainConfig: added parameters AutomatedSnapshotPauseOptions_Enabled, AutomatedSnapshotPauseOptions_EndTime and AutomatedSnapshotPauseOptions_StartTime.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_AccessAppsNativeDataStore, Capabilities_App, Capabilities_CreateAndUpdateApp, Capabilities_InvokeAppsAIInference and Capabilities_ShareApp.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_AccessAppsNativeDataStore, Capabilities_App, Capabilities_CreateAndUpdateApp, Capabilities_InvokeAppsAIInference and Capabilities_ShareApp.
+  * Amazon RTBFabric
+    * Added cmdlet Add-RTBCertificate leveraging the AssociateCertificate service API.
+    * Added cmdlet Get-RTBCertificateAssociation leveraging the GetCertificateAssociation service API.
+    * Added cmdlet Get-RTBCertificateAssociationList leveraging the ListCertificateAssociations service API.
+    * Added cmdlet Get-RTBLinkRoutingRule leveraging the GetLinkRoutingRule service API.
+    * Added cmdlet Get-RTBLinkRoutingRuleList leveraging the ListLinkRoutingRules service API.
+    * Added cmdlet New-RTBLinkRoutingRule leveraging the CreateLinkRoutingRule service API.
+    * Added cmdlet Remove-RTBCertificate leveraging the DisassociateCertificate service API.
+    * Added cmdlet Remove-RTBLinkRoutingRule leveraging the DeleteLinkRoutingRule service API.
+    * Added cmdlet Update-RTBLinkRoutingRule leveraging the UpdateLinkRoutingRule service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMApp: added parameter ResourceSpec_TrainingPlanArn.
+    * Modified cmdlet New-SMDomain: added parameters DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn and DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_TrainingPlanArn.
+    * Modified cmdlet New-SMModelPackage: added parameter ManagedStorageType.
+    * Modified cmdlet New-SMModelPackageGroup: added parameter ManagedConfiguration_ManagedStorageType.
+    * Modified cmdlet New-SMSpace: added parameters SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_TrainingPlanArn, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn, SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn and SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn.
+    * Modified cmdlet Update-SMDomain: added parameters DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn and DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_TrainingPlanArn.
+    * Modified cmdlet Update-SMSpace: added parameters SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_TrainingPlanArn, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_TrainingPlanArn, SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_TrainingPlanArn and SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_TrainingPlanArn.
+  * Amazon Security Agent
+    * Added cmdlet Get-SECAGCodeReviewBatch leveraging the BatchGetCodeReviews service API.
+    * Added cmdlet Get-SECAGCodeReviewJobBatch leveraging the BatchGetCodeReviewJobs service API.
+    * Added cmdlet Get-SECAGCodeReviewJobsForCodeReviewList leveraging the ListCodeReviewJobsForCodeReview service API.
+    * Added cmdlet Get-SECAGCodeReviewJobTaskBatch leveraging the BatchGetCodeReviewJobTasks service API.
+    * Added cmdlet Get-SECAGCodeReviewJobTaskList leveraging the ListCodeReviewJobTasks service API.
+    * Added cmdlet Get-SECAGCodeReviewList leveraging the ListCodeReviews service API.
+    * Added cmdlet New-SECAGCodeReview leveraging the CreateCodeReview service API.
+    * Added cmdlet Remove-SECAGCodeReviewBatch leveraging the BatchDeleteCodeReviews service API.
+    * Added cmdlet Start-SECAGCodeReviewJob leveraging the StartCodeReviewJob service API.
+    * Added cmdlet Stop-SECAGCodeReviewJob leveraging the StopCodeReviewJob service API.
+    * Added cmdlet Update-SECAGCodeReview leveraging the UpdateCodeReview service API.
+    * Modified cmdlet Get-SECAGFindingList: added parameter CodeReviewJobId.
+    * Modified cmdlet Start-SECAGCodeRemediation: added parameter CodeReviewJobId.
+
+### 5.0.210 (2026-05-07 20:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.246.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Get-BACCPaymentConnector leveraging the GetPaymentConnector service API.

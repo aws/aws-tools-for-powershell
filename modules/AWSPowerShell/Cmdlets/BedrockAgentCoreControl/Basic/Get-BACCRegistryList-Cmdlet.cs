@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
     /// Lists all registries in the account. You can optionally filter results by status using
-    /// the <c>status</c> parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// the <c>status</c> parameter, or by authorizer type using the <c>authorizerType</c>
+    /// parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACCRegistryList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.RegistrySummary")]
@@ -45,6 +46,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AuthorizerType
+        /// <summary>
+        /// <para>
+        /// <para>Filter registries by their authorizer type. Possible values are <c>CUSTOM_JWT</c>
+        /// and <c>AWS_IAM</c>. For more information about authorizer types, see the <c>RegistryAuthorizerType</c>
+        /// enum.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.RegistryAuthorizerType")]
+        public Amazon.BedrockAgentCoreControl.RegistryAuthorizerType AuthorizerType { get; set; }
+        #endregion
         
         #region Parameter Status
         /// <summary>
@@ -133,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListRegistriesResponse, GetBACCRegistryListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AuthorizerType = this.AuthorizerType;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -163,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             // create request and set iteration invariants
             var request = new Amazon.BedrockAgentCoreControl.Model.ListRegistriesRequest();
             
+            if (cmdletContext.AuthorizerType != null)
+            {
+                request.AuthorizerType = cmdletContext.AuthorizerType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -250,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.BedrockAgentCoreControl.RegistryAuthorizerType AuthorizerType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.BedrockAgentCoreControl.RegistryStatus Status { get; set; }

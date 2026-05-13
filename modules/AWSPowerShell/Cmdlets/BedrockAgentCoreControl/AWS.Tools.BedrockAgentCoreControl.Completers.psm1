@@ -328,7 +328,10 @@ $BACC_Completers = {
         }
 
         # Amazon.BedrockAgentCoreControl.RegistryAuthorizerType
-        "New-BACCRegistry/AuthorizerType"
+        {
+            ($_ -eq "Get-BACCRegistryList/AuthorizerType") -Or
+            ($_ -eq "New-BACCRegistry/AuthorizerType")
+        }
         {
             $v = "AWS_IAM","CUSTOM_JWT"
             break
@@ -402,7 +405,7 @@ $BACC_Completers = {
 $BACC_map = @{
     "AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCAgentRuntime","New-BACCGateway","New-BACCHarness","New-BACCPaymentManager","New-BACCRegistry","Update-BACCAgentRuntime","Update-BACCGateway","Update-BACCPaymentManager")
     "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
-    "AuthorizerType"=@("New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
+    "AuthorizerType"=@("Get-BACCRegistryList","New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","New-BACCPaymentCredentialProvider","Update-BACCOauth2CredentialProvider","Update-BACCPaymentCredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
@@ -550,7 +553,10 @@ $BACC_SelectMap = @{
                "Get-BACCPaymentManager",
                "Get-BACCPolicy",
                "Get-BACCPolicyEngine",
+               "Get-BACCPolicyEngineSummary",
                "Get-BACCPolicyGeneration",
+               "Get-BACCPolicyGenerationSummary",
+               "Get-BACCPolicySummary",
                "Get-BACCRegistry",
                "Get-BACCRegistryRecord",
                "Get-BACCResourcePolicy",
@@ -578,8 +584,11 @@ $BACC_SelectMap = @{
                "Get-BACCPaymentManagerList",
                "Get-BACCPolicyList",
                "Get-BACCPolicyEngineList",
+               "Get-BACCPolicyEngineSummaryList",
                "Get-BACCPolicyGenerationAssetList",
                "Get-BACCPolicyGenerationList",
+               "Get-BACCPolicyGenerationSummaryList",
+               "Get-BACCPolicySummaryList",
                "Get-BACCRegistryList",
                "Get-BACCRegistryRecordList",
                "Get-BACCResourceTag",

@@ -218,6 +218,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
         #endregion
         
+        #region Parameter Origin_IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type that the distribution uses when connecting to the origin.</para><para>The possible values are <c>ipv4</c> for IPv4 only, <c>ipv6</c> for IPv6 only, and
+        /// <c>dualstack</c> for IPv4 and IPv6.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lightsail.OriginIpAddressTypeEnum")]
+        public Amazon.Lightsail.OriginIpAddressTypeEnum Origin_IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter CacheBehaviorSettings_MaximumTTL
         /// <summary>
         /// <para>
@@ -457,6 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             #endif
             context.IpAddressType = this.IpAddressType;
+            context.Origin_IpAddressType = this.Origin_IpAddressType;
             context.Origin_Name = this.Origin_Name;
             context.Origin_ProtocolPolicy = this.Origin_ProtocolPolicy;
             context.Origin_RegionName = this.Origin_RegionName;
@@ -689,6 +702,16 @@ namespace Amazon.PowerShell.Cmdlets.LS
              // populate Origin
             var requestOriginIsNull = true;
             request.Origin = new Amazon.Lightsail.Model.InputOrigin();
+            Amazon.Lightsail.OriginIpAddressTypeEnum requestOrigin_origin_IpAddressType = null;
+            if (cmdletContext.Origin_IpAddressType != null)
+            {
+                requestOrigin_origin_IpAddressType = cmdletContext.Origin_IpAddressType;
+            }
+            if (requestOrigin_origin_IpAddressType != null)
+            {
+                request.Origin.IpAddressType = requestOrigin_origin_IpAddressType;
+                requestOriginIsNull = false;
+            }
             System.String requestOrigin_origin_Name = null;
             if (cmdletContext.Origin_Name != null)
             {
@@ -814,6 +837,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public Amazon.Lightsail.BehaviorEnum DefaultCacheBehavior_Behavior { get; set; }
             public System.String DistributionName { get; set; }
             public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
+            public Amazon.Lightsail.OriginIpAddressTypeEnum Origin_IpAddressType { get; set; }
             public System.String Origin_Name { get; set; }
             public Amazon.Lightsail.OriginProtocolPolicyEnum Origin_ProtocolPolicy { get; set; }
             public Amazon.Lightsail.RegionName Origin_RegionName { get; set; }

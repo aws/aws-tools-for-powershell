@@ -290,6 +290,16 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.OriginIpAddressTypeEnum
+        {
+            ($_ -eq "New-LSDistribution/Origin_IpAddressType") -Or
+            ($_ -eq "Update-LSDistribution/Origin_IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.Lightsail.OriginProtocolPolicyEnum
         {
             ($_ -eq "New-LSDistribution/Origin_ProtocolPolicy") -Or
@@ -381,6 +391,7 @@ $LS_map = @{
     "HttpToken"=@("Update-LSInstanceMetadataOption")
     "IpAddressType"=@("New-LSDistribution","New-LSInstance","New-LSInstancesFromSnapshot","New-LSLoadBalancer","Set-LSIpAddressType")
     "MetricName"=@("Add-LSAlarm","Get-LSBucketMetricData","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "Origin_IpAddressType"=@("New-LSDistribution","Update-LSDistribution")
     "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")
     "Origin_RegionName"=@("New-LSDistribution","Update-LSDistribution")
     "PasswordVersion"=@("Get-LSRelationalDatabaseMasterUserPassword")

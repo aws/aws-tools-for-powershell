@@ -438,7 +438,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>
         /// <para>The job timeout in minutes. This is the maximum time that a job run can consume resources
         /// before it is terminated and enters <c>TIMEOUT</c> status.</para><para>Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs
-        /// will throw an exception.</para><para>When the value is left blank, the timeout is defaulted to 2880 minutes.</para><para>Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted
+        /// will throw an exception.</para><para>When the value is left blank, the timeout is defaulted to 2,880 minutes for Glue version
+        /// 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.</para><para>Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted
         /// to 7 days. For instance if you have specified a timeout of 20 days for a batch job,
         /// it will be stopped on the 7th day.</para><para>For streaming jobs, if you have set up a maintenance window, it will be restarted
         /// during the maintenance window after 7 days.</para>
