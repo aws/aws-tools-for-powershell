@@ -15,21 +15,22 @@ namespace PSReleaseNotesGenerator
     public class BreakingChanges
     {
         public const string SharedSourceCodeKey = "AWS_CORE_PS_SOURCECODE";
-        private Dictionary<string, List<string>> lookup = new Dictionary<string, List<string>>();
+        private Dictionary<string, List<(string Text, BreakingChangeType Type)>> lookup = new Dictionary<string, List<(string Text, BreakingChangeType Type)>>();
 
         /// <summary>
         /// Adds a breaking change to the breaking changes lookup.
         /// </summary>
         /// <param name="serviceKey">The C2jFilename for the service.</param>
         /// <param name="text">The breaking change text</param>
-        public void Add(string serviceKey, string text)
+        /// <param name="type">The type of the breaking change</param>
+        public void Add(string serviceKey, string text, BreakingChangeType type)
         {
             if (!lookup.ContainsKey(serviceKey))
             {
-                lookup.Add(serviceKey, new List<string>());
+                lookup.Add(serviceKey, new List<(string Text, BreakingChangeType Type)>());
             }
 
-            lookup[serviceKey].Add(text);
+            lookup[serviceKey].Add((text, type));
         }
 
         /// <summary>
@@ -74,9 +75,11 @@ namespace PSReleaseNotesGenerator
                     element.Add(new XAttribute("InOverrides", overridesServiceKeys.Contains(serviceNounPrefix)));
                     xdoc.Root.Add(element);
 
-                    foreach (var error in breakingChange.Value)
+                    foreach (var entry in breakingChange.Value)
                     {
-                        element.Add(new XElement("Reason", error));
+                        var reasonElement = new XElement("Reason", entry.Text);
+                        reasonElement.Add(new XAttribute("Type", entry.Type.ToString()));
+                        element.Add(reasonElement);
                     }
                 }
             }

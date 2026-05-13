@@ -245,7 +245,7 @@ namespace PSReleaseNotesGenerator
             foreach (var oldService in oldServices.Where(service => !newServices.Keys.Contains(service.Key)).OrderBy(service => GetServiceName(service)))
             {
                 lineText = $"{BreakingChangeText} Removed support for {GetServiceName(oldService)}";
-                breakingChanges.Add(oldService.Key, lineText);
+                breakingChanges.Add(oldService.Key, lineText, BreakingChangeType.ServiceRemoved);
                 outputWriter.WriteLine($"  * {lineText}");
             }
 
@@ -264,7 +264,7 @@ namespace PSReleaseNotesGenerator
                     {
                         PrintServiceHeader(newService.Key, outputWriter, ref IsServiceHeaderPrinted);
                         lineText = $"{BreakingChangeText} Removed cmdlet{(removedCmdlets.Length > 1 ? "s" : "")} {FormatCollection(removedCmdlets)}.";
-                        breakingChanges.Add(newService.Key, lineText);
+                        breakingChanges.Add(newService.Key, lineText, BreakingChangeType.CmdletRemoved);
                         outputWriter.WriteLine($"    * {lineText}");
                     }
 
@@ -299,9 +299,17 @@ namespace PSReleaseNotesGenerator
                                     $"{string.Join("; ", cmdLetComparison.Select(comparison => comparison.Message))}.";
                                 if(isBreakingChange)
                                 {
-                                    breakingChanges.Add(newService.Key, lineText);
+                                    var groupedByType = cmdLetComparison
+                                        .Where(comparison => comparison.IsBreakingChange)
+                                        .GroupBy(comparison => comparison.Type.Value);
+                                    foreach (var group in groupedByType)
+                                    {
+                                        var groupText = $"{BreakingChangeText} Modified cmdlet {newCmdlet.Key}: " +
+                                            $"{string.Join("; ", group.Select(comparison => comparison.Message))}.";
+                                        breakingChanges.Add(newService.Key, groupText, group.Key);
+                                    }
                                 }
-                                
+
                                 outputWriter.WriteLine($"    * {lineText}");
                             }
                         }
@@ -318,20 +326,20 @@ namespace PSReleaseNotesGenerator
             return outputWriter.ToString();
         }
 
-        private static IEnumerable<(string Message, bool IsBreakingChange)> CompareCmdlet(Cmdlet newCmdlet, Cmdlet oldCmdlet)
+        private static IEnumerable<(string Message, bool IsBreakingChange, BreakingChangeType? Type)> CompareCmdlet(Cmdlet newCmdlet, Cmdlet oldCmdlet)
         {
             if (newCmdlet.OutputTypes.Count() != oldCmdlet.OutputTypes.Count() || newCmdlet.OutputTypes.Intersect(oldCmdlet.OutputTypes).Count() != oldCmdlet.OutputTypes.Count())
                 if (!oldCmdlet.OutputTypes.Contains("None"))
-                    yield return ($"output changed from {FormatCollection(oldCmdlet.OutputTypes)} to {FormatCollection(newCmdlet.OutputTypes)}", true);
+                    yield return ($"output changed from {FormatCollection(oldCmdlet.OutputTypes)} to {FormatCollection(newCmdlet.OutputTypes)}", true, BreakingChangeType.CmdletOutputTypeChanged);
 
             if (newCmdlet.DefaultParameterSet != oldCmdlet.DefaultParameterSet)
-                   yield return ($"default parameter set changed from {oldCmdlet.DefaultParameterSet ?? "null"} to {newCmdlet.DefaultParameterSet ?? "null"}", true);
+                   yield return ($"default parameter set changed from {oldCmdlet.DefaultParameterSet ?? "null"} to {newCmdlet.DefaultParameterSet ?? "null"}", true, BreakingChangeType.DefaultParameterSetChanged);
 
             if (newCmdlet.SupportsShouldProcess != oldCmdlet.SupportsShouldProcess)
-                yield return ($"default parameter set changed from {oldCmdlet.SupportsShouldProcess} to {newCmdlet.SupportsShouldProcess}", true);
+                yield return ($"SupportsShouldProcess changed from {oldCmdlet.SupportsShouldProcess} to {newCmdlet.SupportsShouldProcess}", true, BreakingChangeType.SupportsShouldProcessChanged);
 
             if (newCmdlet.ConfirmImpact != oldCmdlet.ConfirmImpact)
-                yield return ($"default parameter set changed from {oldCmdlet.ConfirmImpact} to {newCmdlet.ConfirmImpact}", true);
+                yield return ($"ConfirmImpact changed from {oldCmdlet.ConfirmImpact} to {newCmdlet.ConfirmImpact}", true, BreakingChangeType.ConfirmImpactChanged);
 
             var removedParameters = oldCmdlet.Parameters
                 .Where(oldParameter => FindMatchingParameter(oldParameter, newCmdlet.Parameters) == null)
@@ -339,7 +347,7 @@ namespace PSReleaseNotesGenerator
                 .OrderBy(oldParameterName => oldParameterName)
                 .ToArray();
             if (removedParameters.Length > 0)
-                yield return ($"removed parameter{(removedParameters.Length > 1 ? "s" : "")} {FormatCollection(removedParameters)}", true);
+                yield return ($"removed parameter{(removedParameters.Length > 1 ? "s" : "")} {FormatCollection(removedParameters)}", true, BreakingChangeType.ParameterRemoved);
 
             foreach (var newParameter in newCmdlet.Parameters.OrderBy(newParameter => newParameter.Name))
             {
@@ -347,21 +355,21 @@ namespace PSReleaseNotesGenerator
                 if (oldParameter != null)
                 {
                     if (newParameter.Mandatory && !oldParameter.Mandatory)
-                        yield return ($"parameter {newParameter.Name} is now mandatory", true);
+                        yield return ($"parameter {newParameter.Name} is now mandatory", true, BreakingChangeType.ParameterBecameMandatory);
                     if (newParameter.Type != oldParameter.Type)
-                        yield return ($"the type of parameter {newParameter.Name} changed from {oldParameter.Type} to {newParameter.Type}", true);
+                        yield return ($"the type of parameter {newParameter.Name} changed from {oldParameter.Type} to {newParameter.Type}", true, BreakingChangeType.ParameterTypeChanged);
                     else if (!newParameter.Nullable && oldParameter.Nullable)
-                        yield return ($"parameter {newParameter.Name} isn't nullable anymore", true);
+                        yield return ($"parameter {newParameter.Name} isn't nullable anymore", true, BreakingChangeType.ParameterNoLongerNullable);
                     if (!newParameter.ValueFromPipeline && oldParameter.ValueFromPipeline)
-                        yield return ($"parameter {newParameter.Name} doesn't support pipeline ByValue anymore", true);
+                        yield return ($"parameter {newParameter.Name} doesn't support pipeline ByValue anymore", true, BreakingChangeType.ParameterPipelineByValueRemoved);
                     if (!newParameter.ValueFromPipelineByPropertyName && oldParameter.ValueFromPipelineByPropertyName)
-                        yield return ($"parameter {newParameter.Name} doesn't support pipeline ByPropertyName anymore", true);
+                        yield return ($"parameter {newParameter.Name} doesn't support pipeline ByPropertyName anymore", true, BreakingChangeType.ParameterPipelineByPropertyNameRemoved);
                     if (!newParameter.ValueFromRemainingArguments && oldParameter.ValueFromRemainingArguments)
-                        yield return ($"parameter {newParameter.Name} cannot take value from remaining command line parameters anymore", true);
+                        yield return ($"parameter {newParameter.Name} cannot take value from remaining command line parameters anymore", true, BreakingChangeType.ParameterRemainingArgumentsRemoved);
                     if (newParameter.Position < 0 && oldParameter.Position >= 0)
-                        yield return ($"parameter {newParameter.Name} cannot be used positionally anymore", true);
+                        yield return ($"parameter {newParameter.Name} cannot be used positionally anymore", true, BreakingChangeType.ParameterPositionalRemoved);
                     if (newParameter.Position >= 0 && oldParameter.Position >= 0 && newParameter.Position != oldParameter.Position)
-                        yield return ($"parameter {newParameter.Name} position changed from {oldParameter.Position} to {newParameter.Position}", true);
+                        yield return ($"parameter {newParameter.Name} position changed from {oldParameter.Position} to {newParameter.Position}", true, BreakingChangeType.ParameterPositionChanged);
                 }
             }
 
@@ -372,7 +380,7 @@ namespace PSReleaseNotesGenerator
                 .ToArray();
             if (addedParameters.Length > 0)
             {
-                yield return ($"added parameter{(addedParameters.Length > 1 ? "s" : "")} {FormatCollection(addedParameters)}", false);
+                yield return ($"added parameter{(addedParameters.Length > 1 ? "s" : "")} {FormatCollection(addedParameters)}", false, null);
             }
 
             foreach (var newParameter in newCmdlet.Parameters)
@@ -381,15 +389,15 @@ namespace PSReleaseNotesGenerator
                 if (oldParameter != null)
                 {
                     if (!newParameter.Mandatory && oldParameter.Mandatory)
-                        yield return ($"parameter {newParameter.Name} is not mandatory anymore", false);
+                        yield return ($"parameter {newParameter.Name} is not mandatory anymore", false, null);
                     //if (newParameter.ValueFromPipeline && !oldParameter.ValueFromPipeline)
-                    //    yield return ($"parameter {newParameter.Name} now supports pipeline ByValue", false);
+                    //    yield return ($"parameter {newParameter.Name} now supports pipeline ByValue", false, null);
                     //if (newParameter.ValueFromPipelineByPropertyName && !oldParameter.ValueFromPipelineByPropertyName)
-                    //    yield return ($"parameter {newParameter.Name} now supports pipeline ByPropertyName", false);
+                    //    yield return ($"parameter {newParameter.Name} now supports pipeline ByPropertyName", false, null);
                     //if (newParameter.ValueFromRemainingArguments && !oldParameter.ValueFromRemainingArguments)
-                    //    yield return ($"parameter {newParameter.Name} can now take value from remaining command line parameters", false);
+                    //    yield return ($"parameter {newParameter.Name} can now take value from remaining command line parameters", false, null);
                     //if (newParameter.Position != 0 && oldParameter.Position == 0)
-                    //    yield return ($"parameter {newParameter.Name} can now be used positionally", false);
+                    //    yield return ($"parameter {newParameter.Name} can now be used positionally", false, null);
                 }
             }
         }

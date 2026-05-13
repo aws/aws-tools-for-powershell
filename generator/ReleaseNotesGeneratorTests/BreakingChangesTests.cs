@@ -23,11 +23,11 @@ namespace ReleaseNotesGeneratorTests
             var expectedXML = @"<?xml version=""1.0"" encoding=""utf-8""?>
 <Services>
   <ES InOverrides=""false"">
-    <Reason>[Breaking Change] the reason for the breaking change.</Reason>
+    <Reason Type=""CmdletRemoved"">[Breaking Change] the reason for the breaking change.</Reason>
   </ES>
 </Services>";
             var breakingChanges = new BreakingChanges();
-            breakingChanges.Add("ES", "[Breaking Change] the reason for the breaking change.");
+            breakingChanges.Add("ES", "[Breaking Change] the reason for the breaking change.", BreakingChangeType.CmdletRemoved);
             var xml = breakingChanges.CreateLookupXML(new HashSet<string>());
             Assert.IsNotNull(xml);
             Assert.AreEqual(expectedXML, xml);
@@ -39,17 +39,17 @@ namespace ReleaseNotesGeneratorTests
             var expectedXML = @"<?xml version=""1.0"" encoding=""utf-8""?>
 <Services>
   <" + BreakingChanges.SharedSourceCodeKey + @" InOverrides=""false"">
-    <Reason>[Breaking Change] the reason for the core breaking change.</Reason>
+    <Reason Type=""ParameterRemoved"">[Breaking Change] the reason for the core breaking change.</Reason>
   </" + BreakingChanges.SharedSourceCodeKey + @">
   <ES InOverrides=""true"">
-    <Reason>[Breaking Change] the reason for the breaking change.</Reason>
-    <Reason>[Breaking Change] the 2nd reason for the breaking change.</Reason>
+    <Reason Type=""CmdletRemoved"">[Breaking Change] the reason for the breaking change.</Reason>
+    <Reason Type=""ParameterTypeChanged"">[Breaking Change] the 2nd reason for the breaking change.</Reason>
   </ES>
 </Services>";
             var breakingChanges = new BreakingChanges();
-            breakingChanges.Add("", "[Breaking Change] the reason for the core breaking change.");
-            breakingChanges.Add("ES", "[Breaking Change] the reason for the breaking change.");
-            breakingChanges.Add("ES", "[Breaking Change] the 2nd reason for the breaking change.");
+            breakingChanges.Add("", "[Breaking Change] the reason for the core breaking change.", BreakingChangeType.ParameterRemoved);
+            breakingChanges.Add("ES", "[Breaking Change] the reason for the breaking change.", BreakingChangeType.CmdletRemoved);
+            breakingChanges.Add("ES", "[Breaking Change] the 2nd reason for the breaking change.", BreakingChangeType.ParameterTypeChanged);
             var xml = breakingChanges.CreateLookupXML(new HashSet<string>() { "ES" });
             Assert.IsNotNull(xml);
             Assert.AreEqual(expectedXML, xml);
