@@ -400,8 +400,19 @@ namespace Amazon.PowerShell.Common
             // region set in profile store (including legacy key name)?
             if (region == null)
             {
-                if (!TryLoadProfile(self, SettingsStore.PSDefaultSettingName, self.ProfileLocation, ref region, ref source))
-                    TryLoadProfile(self, SettingsStore.PSLegacyDefaultSettingName, self.ProfileLocation, ref region, ref source);
+                // If the cmdlet was invoked with -ProfileName, look up that profile's region first.
+                // Otherwise (or if it has no region), fall back to the [default] / legacy-default profile.
+                var namedProfile = (self as IAWSCredentialsArguments)?.ProfileName;
+                if (!string.IsNullOrEmpty(namedProfile))
+                {
+                    TryLoadProfile(self, namedProfile, self.ProfileLocation, ref region, ref source);
+                }
+
+                if (region == null)
+                {
+                    if (!TryLoadProfile(self, SettingsStore.PSDefaultSettingName, self.ProfileLocation, ref region, ref source))
+                        TryLoadProfile(self, SettingsStore.PSLegacyDefaultSettingName, self.ProfileLocation, ref region, ref source);
+                }
             }
 
             // region set in environment variables?
