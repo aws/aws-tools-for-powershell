@@ -47,7 +47,9 @@ namespace AWSPowerShellGenerator.Analysis
                 "Debug", "db", "ErrorAction", "ea", "ErrorVariable", "ev", "InformationAction", "infa", "InformationVariable", "iv", "OutVariable", "ov", "OutBuffer", "ob",
                 "PipelineVariable", "pv", "Verbose", "vb", "WarningAction", "wa", "WarningVariable", "wv", "WhatIf", "wi", "Confirm", "cf",
                 //Custom parameters added to every service cmdlet
-                "Select"},
+                "Select",
+                //Inherited members from PSCmdlet/Cmdlet base classes - prevents singularization into these names
+                "SessionState"},
             StringComparer.OrdinalIgnoreCase);
 
         // Static cache to store paginator attributes per service assembly
