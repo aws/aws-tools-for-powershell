@@ -1,4 +1,7 @@
-﻿### 4.1.1029 (2026-04-23 20:11Z)
+﻿### 4.1.1030 (2026-05-14 19:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1252.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.1029 (2026-04-23 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1251.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Simple Storage Service (S3)
     * Modified cmdlet Write-S3GetObjectResponse: added parameters ChecksumMD5, ChecksumSHA512, ChecksumXXHASH128, ChecksumXXHASH3 and ChecksumXXHASH64.
