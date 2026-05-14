@@ -173,7 +173,10 @@ namespace Amazon.PowerShell.Common
             {
                 AWSCredentials defaultAWSCredentials;
                 if (SettingsStore.TryGetAWSCredentials(SettingsStore.PSDefaultSettingName, ProfileLocation, out defaultAWSCredentials))
-                    awsPSCredentialsFromDefaultProfile = new AWSPSCredentials(defaultAWSCredentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Profile);
+                {
+                    var credentialsFilePath = (profile.CredentialProfileStore as SharedCredentialsFile)?.FilePath;
+                    awsPSCredentialsFromDefaultProfile = new AWSPSCredentials(defaultAWSCredentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Profile, ProfileLocation, credentialsFilePath);
+                }
                 else
                     awsPSCredentialsFromDefaultProfile = null;
 

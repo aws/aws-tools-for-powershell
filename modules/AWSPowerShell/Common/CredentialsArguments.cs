@@ -17,6 +17,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Management.Automation;
 using System.Net;
@@ -70,6 +71,11 @@ namespace Amazon.PowerShell.Common
         internal AWSCredentials Credentials { get; private set; }
         internal string Name { get; private set; }
         internal CredentialsSource Source { get; private set; }
+        internal string ProfileLocation { get; private set; }
+        internal string CredentialsFilePath { get; private set; }
+        internal DateTime? CredentialsFileLastWriteTimeUtc { get; private set; }
+        private DateTime? lastCheckedAtUtc;
+        private static readonly TimeSpan CheckThrottleInterval = TimeSpan.FromSeconds(2);
 
         public override string ToString()
         {
@@ -80,10 +86,69 @@ namespace Amazon.PowerShell.Common
         }
 
         internal AWSPSCredentials(AWSCredentials credentials, string name, CredentialsSource source)
+            : this(credentials, name, source, null, null)
+        {
+        }
+
+        internal AWSPSCredentials(AWSCredentials credentials, string name, CredentialsSource source, string profileLocation, string credentialsFilePath)
         {
             this.Credentials = credentials;
             this.Name = name;
             this.Source = source;
+            this.ProfileLocation = profileLocation;
+            this.CredentialsFilePath = credentialsFilePath;
+            this.CredentialsFileLastWriteTimeUtc = SafeGetLastWriteTimeUtc(credentialsFilePath);
+        }
+
+        /// <summary>
+        /// Returns true if the cached credentials originated from a shared-credentials file whose
+        /// modification time has changed since they were resolved. Limited to static credential
+        /// snapshots (BasicAWSCredentials, SessionAWSCredentials) since other types (SSO, assume-role,
+        /// container, instance-profile, federated, credential_process) self-refresh in the .NET SDK.
+        /// </summary>
+        internal bool ShouldRefreshFromFile()
+        {
+            if (string.IsNullOrEmpty(CredentialsFilePath) || CredentialsFileLastWriteTimeUtc == null)
+                return false;
+
+            var credentialsType = Credentials?.GetType();
+            if (credentialsType != typeof(BasicAWSCredentials) && credentialsType != typeof(SessionAWSCredentials))
+                return false;
+
+            var now = DateTime.UtcNow;
+            if (lastCheckedAtUtc != null && (now - lastCheckedAtUtc.Value) < CheckThrottleInterval)
+                return false;
+            lastCheckedAtUtc = now;
+
+            var current = SafeGetLastWriteTimeUtc(CredentialsFilePath);
+            return current != null && current != CredentialsFileLastWriteTimeUtc;
+        }
+
+        /// <summary>
+        /// Replaces the cached AWSCredentials with a freshly resolved instance and updates the file
+        /// mtime snapshot. Mutates in place so references already handed out (including the
+        /// $StoredAWSCredentials session variable) observe the new values.
+        /// </summary>
+        internal void RefreshFromProfile(AWSCredentials newCredentials)
+        {
+            this.Credentials = newCredentials;
+            this.CredentialsFileLastWriteTimeUtc = SafeGetLastWriteTimeUtc(CredentialsFilePath);
+        }
+
+        private static DateTime? SafeGetLastWriteTimeUtc(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                return null;
+            try
+            {
+                if (!File.Exists(path))
+                    return null;
+                return File.GetLastWriteTimeUtc(path);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         private AWSPSCredentials() { }
@@ -102,6 +167,7 @@ namespace Amazon.PowerShell.Common
             credentials = null;
             AWSCredentials innerCredentials = null;
             string name = null;
+            string credentialsFilePath = null;
             var source = CredentialsSource.Unknown;
             var userSpecifiedProfile = !string.IsNullOrEmpty(self.ProfileName);
 
@@ -125,6 +191,7 @@ namespace Amazon.PowerShell.Common
                     innerCredentials = AWSCredentialsFactory.GetAWSCredentials(credentialProfile, profileChain);
                     source = CredentialsSource.Profile;
                     name = self.ProfileName;
+                    credentialsFilePath = (credentialProfile.CredentialProfileStore as SharedCredentialsFile)?.FilePath;
                     SetProxyAndCallbackIfNecessary(innerCredentials, self, psHost, sessionState);
                 }
                 else
@@ -152,6 +219,7 @@ namespace Amazon.PowerShell.Common
                 if (variableValue is AWSPSCredentials)
                 {
                     credentials = variableValue as AWSPSCredentials;
+                    RefreshSessionCredentialsIfFileChanged(credentials, self as Cmdlet);
                     source = CredentialsSource.Session;
                     innerCredentials = credentials.Credentials; // so remaining probes are skipped
                     // don't set proxy and callback, use credentials.Credentials as-is
@@ -160,10 +228,51 @@ namespace Amazon.PowerShell.Common
 
             if (credentials == null && innerCredentials != null)
             {
-                credentials = new AWSPSCredentials(innerCredentials, name, source);
+                credentials = new AWSPSCredentials(innerCredentials, name, source, self.ProfileLocation, credentialsFilePath);
             }
 
             return (credentials != null);
+        }
+
+        /// <summary>
+        /// If the cached session credentials came from a shared-credentials file that has since been
+        /// rewritten externally (e.g. by aws-adfs rotating keys), re-resolve the named profile from
+        /// disk and update the cached AWSPSCredentials in place. Best-effort: if the profile no longer
+        /// exists or resolution fails, the existing cached credentials are kept and the next AWS call
+        /// will surface whatever error the SDK returns. See PowerShell-608.
+        /// </summary>
+        private static void RefreshSessionCredentialsIfFileChanged(AWSPSCredentials cached, Cmdlet cmdlet)
+        {
+            if (cached == null || !cached.ShouldRefreshFromFile())
+                return;
+
+            try
+            {
+                var refreshChain = new CredentialProfileStoreChain(cached.ProfileLocation);
+                if (refreshChain.TryGetProfile(cached.Name, out var refreshedProfile))
+                {
+                    var refreshedCredentials = AWSCredentialsFactory.GetAWSCredentials(refreshedProfile, refreshChain);
+                    if (refreshedCredentials != null)
+                    {
+                        cached.RefreshFromProfile(refreshedCredentials);
+                        cmdlet?.WriteVerbose(string.Format(
+                            "Detected change to credentials file '{0}'; re-resolved profile '{1}' from disk.",
+                            cached.CredentialsFilePath, cached.Name));
+                    }
+                }
+                else
+                {
+                    cmdlet?.WriteVerbose(string.Format(
+                        "Credentials file '{0}' was modified but profile '{1}' is no longer present; continuing with cached credentials.",
+                        cached.CredentialsFilePath, cached.Name));
+                }
+            }
+            catch (Exception ex)
+            {
+                cmdlet?.WriteDebug(string.Format(
+                    "Failed to refresh credentials for profile '{0}' from '{1}': {2}",
+                    cached.Name, cached.CredentialsFilePath, ex.Message));
+            }
         }
 
         private static void SetProxyAndCallbackIfNecessary(AWSCredentials innerCredentials, IAWSCredentialsArguments self, PSHost psHost, SessionState sessionState)
