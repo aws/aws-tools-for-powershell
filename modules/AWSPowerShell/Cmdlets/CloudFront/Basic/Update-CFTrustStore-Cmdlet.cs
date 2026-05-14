@@ -112,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String CaCertificatesBundleS3Location_Region { get; set; }
         #endregion
         
+        #region Parameter UseClientCertificateOCSPEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean that determines whether to use the CA certificate's OCSP endpoint to check
+        /// certificate revocation status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseClientCertificateOCSPEndpoint { get; set; }
+        #endregion
+        
         #region Parameter CaCertificatesBundleS3Location_Version
         /// <summary>
         /// <para>
@@ -187,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter IfMatch which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UseClientCertificateOCSPEndpoint = this.UseClientCertificateOCSPEndpoint;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -275,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             {
                 request.IfMatch = cmdletContext.IfMatch;
             }
+            if (cmdletContext.UseClientCertificateOCSPEndpoint != null)
+            {
+                request.UseClientCertificateOCSPEndpoint = cmdletContext.UseClientCertificateOCSPEndpoint.Value;
+            }
             
             CmdletOutput output;
             
@@ -336,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.String CaCertificatesBundleS3Location_Version { get; set; }
             public System.String Id { get; set; }
             public System.String IfMatch { get; set; }
+            public System.Boolean? UseClientCertificateOCSPEndpoint { get; set; }
             public System.Func<Amazon.CloudFront.Model.UpdateTrustStoreResponse, UpdateCFTrustStoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrustStore;
         }

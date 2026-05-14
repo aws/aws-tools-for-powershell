@@ -30,16 +30,15 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Gets the details of a <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook
-    /// run</a> in Amazon SageMaker Unified Studio.
+    /// Gets the details of a notebook export in Amazon SageMaker Unified Studio.
     /// </summary>
-    [Cmdlet("Get", "DZNotebookRun")]
-    [OutputType("Amazon.DataZone.Model.GetNotebookRunResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone GetNotebookRun API operation.", Operation = new[] {"GetNotebookRun"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetNotebookRunResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.GetNotebookRunResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetNotebookRunResponse object containing multiple properties."
+    [Cmdlet("Get", "DZNotebookExport")]
+    [OutputType("Amazon.DataZone.Model.GetNotebookExportResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone GetNotebookExport API operation.", Operation = new[] {"GetNotebookExport"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetNotebookExportResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.GetNotebookExportResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.GetNotebookExportResponse object containing multiple properties."
     )]
-    public partial class GetDZNotebookRunCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class GetDZNotebookExportCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -49,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook
-        /// run exists.</para>
+        /// export exists.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the notebook run.</para>
+        /// <para>The identifier of the notebook export.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetNotebookRunResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.GetNotebookRunResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetNotebookExportResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.GetNotebookExportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetNotebookRunResponse, GetDZNotebookRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetNotebookExportResponse, GetDZNotebookExportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DomainIdentifier = this.DomainIdentifier;
@@ -138,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.GetNotebookRunRequest();
+            var request = new Amazon.DataZone.Model.GetNotebookExportRequest();
             
             if (cmdletContext.DomainIdentifier != null)
             {
@@ -181,12 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.GetNotebookRunResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetNotebookRunRequest request)
+        private Amazon.DataZone.Model.GetNotebookExportResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetNotebookExportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetNotebookRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetNotebookExport");
             try
             {
-                return client.GetNotebookRunAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetNotebookExportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -205,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.GetNotebookRunResponse, GetDZNotebookRunCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.DataZone.Model.GetNotebookExportResponse, GetDZNotebookExportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

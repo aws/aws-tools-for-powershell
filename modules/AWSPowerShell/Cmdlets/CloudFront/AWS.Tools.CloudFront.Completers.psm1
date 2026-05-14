@@ -414,7 +414,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFDistribution/ViewerMtlsConfig_Mode")
         }
         {
-            $v = "optional","required"
+            $v = "optional","passthrough","required"
             break
         }
 

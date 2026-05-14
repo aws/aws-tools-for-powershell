@@ -30,9 +30,10 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Starts a notebook run in an Amazon DataZone domain. A notebook run represents the
-    /// execution of a Amazon DataZone notebook within a project. You can configure compute,
-    /// network, timeout, and environment settings for the run.
+    /// Starts a notebook run in Amazon SageMaker Unified Studio. A notebook run represents
+    /// the execution of an <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">Amazon
+    /// SageMaker notebook</a> within a project. You can configure compute, network, timeout,
+    /// and environment settings for the run.
     /// </summary>
     [Cmdlet("Start", "DZNotebookRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.StartNotebookRunResponse")]
@@ -49,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon DataZone domain in which the notebook run is started.</para>
+        /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook
+        /// run is started.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

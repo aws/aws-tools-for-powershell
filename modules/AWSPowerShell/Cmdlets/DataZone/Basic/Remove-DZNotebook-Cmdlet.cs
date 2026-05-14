@@ -30,16 +30,17 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Gets the details of a <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook
-    /// run</a> in Amazon SageMaker Unified Studio.
+    /// Deletes a <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook</a>
+    /// in Amazon SageMaker Unified Studio.
     /// </summary>
-    [Cmdlet("Get", "DZNotebookRun")]
-    [OutputType("Amazon.DataZone.Model.GetNotebookRunResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone GetNotebookRun API operation.", Operation = new[] {"GetNotebookRun"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetNotebookRunResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.GetNotebookRunResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetNotebookRunResponse object containing multiple properties."
+    [Cmdlet("Remove", "DZNotebook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon DataZone DeleteNotebook API operation.", Operation = new[] {"DeleteNotebook"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteNotebookResponse))]
+    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteNotebookResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.DataZone.Model.DeleteNotebookResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetDZNotebookRunCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class RemoveDZNotebookCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -49,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook
-        /// run exists.</para>
+        /// exists.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the notebook run.</para>
+        /// <para>The identifier of the notebook to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,13 +83,22 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetNotebookRunResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.GetNotebookRunResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteNotebookResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -100,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             base.ProcessRecord();
             
+            var targetParameterNames = new string[]
+            {
+                nameof(this.DomainIdentifier),
+                nameof(this.Identifier)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZNotebook (DeleteNotebook)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -107,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetNotebookRunResponse, GetDZNotebookRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteNotebookResponse, RemoveDZNotebookCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DomainIdentifier = this.DomainIdentifier;
@@ -138,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.GetNotebookRunRequest();
+            var request = new Amazon.DataZone.Model.DeleteNotebookRequest();
             
             if (cmdletContext.DomainIdentifier != null)
             {
@@ -181,12 +202,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.GetNotebookRunResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetNotebookRunRequest request)
+        private Amazon.DataZone.Model.DeleteNotebookResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteNotebookRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetNotebookRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteNotebook");
             try
             {
-                return client.GetNotebookRunAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteNotebookAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -205,8 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.GetNotebookRunResponse, GetDZNotebookRunCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.DataZone.Model.DeleteNotebookResponse, RemoveDZNotebookCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

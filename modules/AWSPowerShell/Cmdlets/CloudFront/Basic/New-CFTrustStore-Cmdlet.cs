@@ -110,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String CaCertificatesBundleS3Location_Region { get; set; }
         #endregion
         
+        #region Parameter UseClientCertificateOCSPEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean that determines whether to use the CA certificate's OCSP endpoint to check
+        /// certificate revocation status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseClientCertificateOCSPEndpoint { get; set; }
+        #endregion
+        
         #region Parameter CaCertificatesBundleS3Location_Version
         /// <summary>
         /// <para>
@@ -182,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             {
                 context.Tags_Item = new List<Amazon.CloudFront.Model.Tag>(this.Tags_Item);
             }
+            context.UseClientCertificateOCSPEndpoint = this.UseClientCertificateOCSPEndpoint;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -285,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             {
                 request.Tags = null;
             }
+            if (cmdletContext.UseClientCertificateOCSPEndpoint != null)
+            {
+                request.UseClientCertificateOCSPEndpoint = cmdletContext.UseClientCertificateOCSPEndpoint.Value;
+            }
             
             CmdletOutput output;
             
@@ -346,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.String CaCertificatesBundleS3Location_Version { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.CloudFront.Model.Tag> Tags_Item { get; set; }
+            public System.Boolean? UseClientCertificateOCSPEndpoint { get; set; }
             public System.Func<Amazon.CloudFront.Model.CreateTrustStoreResponse, NewCFTrustStoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrustStore;
         }

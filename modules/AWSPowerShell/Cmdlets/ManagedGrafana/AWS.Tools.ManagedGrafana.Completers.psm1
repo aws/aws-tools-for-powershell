@@ -90,6 +90,16 @@ $MGRF_Completers = {
             break
         }
 
+        # Amazon.ManagedGrafana.IPAddressType
+        {
+            ($_ -eq "New-MGRFWorkspace/IpAddressType") -Or
+            ($_ -eq "Update-MGRFWorkspace/IpAddressType")
+        }
+        {
+            $v = "DualStack","IPv4"
+            break
+        }
+
         # Amazon.ManagedGrafana.LicenseType
         {
             ($_ -eq "Add-MGRFLicense/LicenseType") -Or
@@ -135,6 +145,7 @@ $MGRF_Completers = {
 $MGRF_map = @{
     "AccountAccessType"=@("New-MGRFWorkspace","Update-MGRFWorkspace")
     "GrafanaRole"=@("New-MGRFWorkspaceServiceAccount")
+    "IpAddressType"=@("New-MGRFWorkspace","Update-MGRFWorkspace")
     "LicenseType"=@("Add-MGRFLicense","Remove-MGRFLicense")
     "PermissionType"=@("New-MGRFWorkspace","Update-MGRFWorkspace")
     "UserType"=@("Get-MGRFPermissionList")

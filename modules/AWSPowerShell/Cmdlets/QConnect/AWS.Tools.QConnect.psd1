@@ -116,6 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-QCMessageTemplate', 
         'Get-QCMessageTemplateList', 
         'Get-QCMessageTemplateVersionList', 
+        'Get-QCModelList', 
         'Get-QCNextMessage', 
         'Get-QCQuickResponse', 
         'Get-QCQuickResponseList', 

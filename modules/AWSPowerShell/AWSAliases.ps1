@@ -3324,11 +3324,16 @@ Set-Alias -Name List-BDRRAsyncInvokes -Value Get-BDRRAsyncInvokeList
 Set-Alias -Name List-BDRRAsyncInvokeList -Value Get-BDRRAsyncInvokeList
 Set-Alias -Name BDRR-ListAsyncInvokes -Value Get-BDRRAsyncInvokeList
 Set-Alias -Name BDRR-StartAsyncInvoke -Value Start-BDRRAsyncInvoke
+Set-Alias -Name Delete-BDRAdvancedPromptOptimizationJob -Value Remove-BDRAdvancedPromptOptimizationJobBatch
+Set-Alias -Name Delete-BDRAdvancedPromptOptimizationJobBatch -Value Remove-BDRAdvancedPromptOptimizationJobBatch
+Set-Alias -Name BDR-BatchDeleteAdvancedPromptOptimizationJob -Value Remove-BDRAdvancedPromptOptimizationJobBatch
 Set-Alias -Name Delete-BDREvaluationJob -Value Set-BDRBatchDeleteEvaluationJob
 Set-Alias -Name Delete-BDRBatchDeleteEvaluationJob -Value Set-BDRBatchDeleteEvaluationJob
 Set-Alias -Name BDR-BatchDeleteEvaluationJob -Value Set-BDRBatchDeleteEvaluationJob
 Set-Alias -Name Cancel-BDRAutomatedReasoningPolicyBuildWorkflow -Value Stop-BDRAutomatedReasoningPolicyBuildWorkflow
 Set-Alias -Name BDR-CancelAutomatedReasoningPolicyBuildWorkflow -Value Stop-BDRAutomatedReasoningPolicyBuildWorkflow
+Set-Alias -Name Create-BDRAdvancedPromptOptimizationJob -Value New-BDRAdvancedPromptOptimizationJob
+Set-Alias -Name BDR-CreateAdvancedPromptOptimizationJob -Value New-BDRAdvancedPromptOptimizationJob
 Set-Alias -Name Create-BDRAutomatedReasoningPolicy -Value New-BDRAutomatedReasoningPolicy
 Set-Alias -Name BDR-CreateAutomatedReasoningPolicy -Value New-BDRAutomatedReasoningPolicy
 Set-Alias -Name Create-BDRAutomatedReasoningPolicyTestCase -Value New-BDRAutomatedReasoningPolicyTestCase
@@ -3396,6 +3401,7 @@ Set-Alias -Name BDR-DeleteResourcePolicy -Value Remove-BDRResourcePolicy
 Set-Alias -Name Deregister-BDRMarketplaceModelEndpoint -Value Unregister-BDRMarketplaceModelEndpoint
 Set-Alias -Name BDR-DeregisterMarketplaceModelEndpoint -Value Unregister-BDRMarketplaceModelEndpoint
 Set-Alias -Name BDR-ExportAutomatedReasoningPolicyVersion -Value Export-BDRAutomatedReasoningPolicyVersion
+Set-Alias -Name BDR-GetAdvancedPromptOptimizationJob -Value Get-BDRAdvancedPromptOptimizationJob
 Set-Alias -Name Get-BDRAutomatedReasoningPolicyAnnotations -Value Get-BDRAutomatedReasoningPolicyAnnotation
 Set-Alias -Name BDR-GetAutomatedReasoningPolicyAnnotations -Value Get-BDRAutomatedReasoningPolicyAnnotation
 Set-Alias -Name BDR-GetAutomatedReasoningPolicy -Value Get-BDRAutomatedReasoningPolicy
@@ -3423,6 +3429,9 @@ Set-Alias -Name BDR-GetPromptRouter -Value Get-BDRPromptRouter
 Set-Alias -Name BDR-GetProvisionedModelThroughput -Value Get-BDRProvisionedModelThroughput
 Set-Alias -Name BDR-GetResourcePolicy -Value Get-BDRResourcePolicy
 Set-Alias -Name BDR-GetUseCaseForModelAccess -Value Get-BDRUseCaseForModelAccess
+Set-Alias -Name List-BDRAdvancedPromptOptimizationJobs -Value Get-BDRAdvancedPromptOptimizationJobList
+Set-Alias -Name List-BDRAdvancedPromptOptimizationJobList -Value Get-BDRAdvancedPromptOptimizationJobList
+Set-Alias -Name BDR-ListAdvancedPromptOptimizationJobs -Value Get-BDRAdvancedPromptOptimizationJobList
 Set-Alias -Name List-BDRAutomatedReasoningPolicies -Value Get-BDRAutomatedReasoningPolicyList
 Set-Alias -Name List-BDRAutomatedReasoningPolicyList -Value Get-BDRAutomatedReasoningPolicyList
 Set-Alias -Name BDR-ListAutomatedReasoningPolicies -Value Get-BDRAutomatedReasoningPolicyList
@@ -3495,6 +3504,7 @@ Set-Alias -Name BDR-PutUseCaseForModelAccess -Value Write-BDRUseCaseForModelAcce
 Set-Alias -Name BDR-RegisterMarketplaceModelEndpoint -Value Register-BDRMarketplaceModelEndpoint
 Set-Alias -Name BDR-StartAutomatedReasoningPolicyBuildWorkflow -Value Start-BDRAutomatedReasoningPolicyBuildWorkflow
 Set-Alias -Name BDR-StartAutomatedReasoningPolicyTestWorkflow -Value Start-BDRAutomatedReasoningPolicyTestWorkflow
+Set-Alias -Name BDR-StopAdvancedPromptOptimizationJob -Value Stop-BDRAdvancedPromptOptimizationJob
 Set-Alias -Name BDR-StopEvaluationJob -Value Stop-BDREvaluationJob
 Set-Alias -Name BDR-StopModelCustomizationJob -Value Stop-BDRModelCustomizationJob
 Set-Alias -Name BDR-StopModelInvocationJob -Value Stop-BDRModelInvocationJob
@@ -8834,6 +8844,8 @@ Set-Alias -Name Create-DZGroupProfile -Value New-DZGroupProfile
 Set-Alias -Name DZ-CreateGroupProfile -Value New-DZGroupProfile
 Set-Alias -Name Create-DZListingChangeSet -Value New-DZListingChangeSet
 Set-Alias -Name DZ-CreateListingChangeSet -Value New-DZListingChangeSet
+Set-Alias -Name Create-DZNotebook -Value New-DZNotebook
+Set-Alias -Name DZ-CreateNotebook -Value New-DZNotebook
 Set-Alias -Name Create-DZProject -Value New-DZProject
 Set-Alias -Name DZ-CreateProject -Value New-DZProject
 Set-Alias -Name Create-DZProjectMembership -Value New-DZProjectMembership
@@ -8888,6 +8900,8 @@ Set-Alias -Name Delete-DZGlossaryTerm -Value Remove-DZGlossaryTerm
 Set-Alias -Name DZ-DeleteGlossaryTerm -Value Remove-DZGlossaryTerm
 Set-Alias -Name Delete-DZListing -Value Remove-DZListing
 Set-Alias -Name DZ-DeleteListing -Value Remove-DZListing
+Set-Alias -Name Delete-DZNotebook -Value Remove-DZNotebook
+Set-Alias -Name DZ-DeleteNotebook -Value Remove-DZNotebook
 Set-Alias -Name Delete-DZProject -Value Remove-DZProject
 Set-Alias -Name DZ-DeleteProject -Value Remove-DZProject
 Set-Alias -Name Delete-DZProjectMembership -Value Remove-DZProjectMembership
@@ -8938,6 +8952,8 @@ Set-Alias -Name DZ-GetLineageEvent -Value Get-DZLineageEvent
 Set-Alias -Name DZ-GetLineageNode -Value Get-DZLineageNode
 Set-Alias -Name DZ-GetListing -Value Get-DZListing
 Set-Alias -Name DZ-GetMetadataGenerationRun -Value Get-DZMetadataGenerationRun
+Set-Alias -Name DZ-GetNotebook -Value Get-DZNotebook
+Set-Alias -Name DZ-GetNotebookExport -Value Get-DZNotebookExport
 Set-Alias -Name DZ-GetNotebookRun -Value Get-DZNotebookRun
 Set-Alias -Name DZ-GetProject -Value Get-DZProject
 Set-Alias -Name DZ-GetProjectProfile -Value Get-DZProjectProfile
@@ -9015,6 +9031,9 @@ Set-Alias -Name DZ-ListMetadataGenerationRuns -Value Get-DZMetadataGenerationRun
 Set-Alias -Name List-DZNotebookRuns -Value Get-DZNotebookRunList
 Set-Alias -Name List-DZNotebookRunList -Value Get-DZNotebookRunList
 Set-Alias -Name DZ-ListNotebookRuns -Value Get-DZNotebookRunList
+Set-Alias -Name List-DZNotebooks -Value Get-DZNotebookList
+Set-Alias -Name List-DZNotebookList -Value Get-DZNotebookList
+Set-Alias -Name DZ-ListNotebooks -Value Get-DZNotebookList
 Set-Alias -Name List-DZNotifications -Value Get-DZNotificationList
 Set-Alias -Name List-DZNotificationList -Value Get-DZNotificationList
 Set-Alias -Name DZ-ListNotifications -Value Get-DZNotificationList
@@ -9080,6 +9099,8 @@ Set-Alias -Name Search-DZUserProfiles -Value Search-DZUserProfile
 Set-Alias -Name DZ-SearchUserProfiles -Value Search-DZUserProfile
 Set-Alias -Name DZ-StartDataSourceRun -Value Start-DZDataSourceRun
 Set-Alias -Name DZ-StartMetadataGenerationRun -Value Start-DZMetadataGenerationRun
+Set-Alias -Name DZ-StartNotebookExport -Value Start-DZNotebookExport
+Set-Alias -Name DZ-StartNotebookImport -Value Start-DZNotebookImport
 Set-Alias -Name DZ-StartNotebookRun -Value Start-DZNotebookRun
 Set-Alias -Name DZ-StopNotebookRun -Value Stop-DZNotebookRun
 Set-Alias -Name DZ-TagResource -Value Add-DZResourceTag
@@ -9097,6 +9118,7 @@ Set-Alias -Name DZ-UpdateEnvironmentProfile -Value Update-DZEnvironmentProfile
 Set-Alias -Name DZ-UpdateGlossary -Value Update-DZGlossary
 Set-Alias -Name DZ-UpdateGlossaryTerm -Value Update-DZGlossaryTerm
 Set-Alias -Name DZ-UpdateGroupProfile -Value Update-DZGroupProfile
+Set-Alias -Name DZ-UpdateNotebook -Value Update-DZNotebook
 Set-Alias -Name DZ-UpdateProject -Value Update-DZProject
 Set-Alias -Name DZ-UpdateProjectProfile -Value Update-DZProjectProfile
 Set-Alias -Name DZ-UpdateRootDomainUnitOwner -Value Update-DZRootDomainUnitOwner
@@ -26460,6 +26482,9 @@ Set-Alias -Name QC-ListMessageTemplates -Value Get-QCMessageTemplateList
 Set-Alias -Name List-QCMessageTemplateVersions -Value Get-QCMessageTemplateVersionList
 Set-Alias -Name List-QCMessageTemplateVersionList -Value Get-QCMessageTemplateVersionList
 Set-Alias -Name QC-ListMessageTemplateVersions -Value Get-QCMessageTemplateVersionList
+Set-Alias -Name List-QCModels -Value Get-QCModelList
+Set-Alias -Name List-QCModelList -Value Get-QCModelList
+Set-Alias -Name QC-ListModels -Value Get-QCModelList
 Set-Alias -Name List-QCQuickResponses -Value Get-QCQuickResponseList
 Set-Alias -Name List-QCQuickResponseList -Value Get-QCQuickResponseList
 Set-Alias -Name QC-ListQuickResponses -Value Get-QCQuickResponseList

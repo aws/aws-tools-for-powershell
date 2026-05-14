@@ -106,7 +106,10 @@ $QC_Completers = {
         }
 
         # Amazon.QConnect.AIPromptType
-        "New-QCAIPrompt/Type"
+        {
+            ($_ -eq "Get-QCModelList/AiPromptType") -Or
+            ($_ -eq "New-QCAIPrompt/Type")
+        }
         {
             $v = "ANSWER_GENERATION","CASE_SUMMARIZATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_QUERY_REFORMULATION","EMAIL_RESPONSE","INTENT_LABELING_GENERATION","NOTE_TAKING","ORCHESTRATION","QUERY_REFORMULATION","SELF_SERVICE_ANSWER_GENERATION","SELF_SERVICE_PRE_PROCESSING"
             break
@@ -196,6 +199,13 @@ $QC_Completers = {
         "Send-QCMessage/Type"
         {
             $v = "TEXT","TOOL_USE_RESULT"
+            break
+        }
+
+        # Amazon.QConnect.ModelLifecycle
+        "Get-QCModelList/ModelLifecycle"
+        {
+            $v = "ACTIVE","LEGACY"
             break
         }
 
@@ -304,6 +314,7 @@ $QC_Completers = {
 $QC_map = @{
     "Adm_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
     "AiAgentType"=@("Remove-QCAssistantAIAgent","Update-QCAssistantAIAgent")
+    "AiPromptType"=@("Get-QCModelList")
     "ApiFormat"=@("New-QCAIPrompt")
     "Apns_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
     "AssociationType"=@("New-QCAssistantAssociation","New-QCContentAssociation")
@@ -317,6 +328,7 @@ $QC_map = @{
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")
+    "ModelLifecycle"=@("Get-QCModelList")
     "Namespace"=@("Update-QCSessionData")
     "OrderOnField_Order"=@("Search-QCMessageTemplate","Search-QCQuickResponse")
     "Origin"=@("Get-QCAIAgentList","Get-QCAIAgentVersionList","Get-QCAIPromptList","Get-QCAIPromptVersionList")
@@ -444,6 +456,7 @@ $QC_SelectMap = @{
                "Get-QCMessageList",
                "Get-QCMessageTemplateList",
                "Get-QCMessageTemplateVersionList",
+               "Get-QCModelList",
                "Get-QCQuickResponseList",
                "Get-QCSpanList",
                "Get-QCResourceTag",

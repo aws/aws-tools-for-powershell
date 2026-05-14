@@ -225,6 +225,13 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.FileFormat
+        "Start-DZNotebookExport/FileFormat"
+        {
+            $v = "IPYNB","PDF"
+            break
+        }
+
         # Amazon.DataZone.FilterOperator
         {
             ($_ -eq "Search-DZListing/Filters_Filter_Operator") -Or
@@ -372,6 +379,16 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.NotebookStatus
+        {
+            ($_ -eq "Get-DZNotebookList/Status") -Or
+            ($_ -eq "Update-DZNotebook/Status")
+        }
+        {
+            $v = "ACTIVE","ARCHIVED"
+            break
+        }
+
         # Amazon.DataZone.NotificationType
         "Get-DZNotificationList/Type"
         {
@@ -390,6 +407,13 @@ $DZ_Completers = {
         "Update-DZProject/EnvironmentDeploymentDetails_OverallDeploymentStatus"
         {
             $v = "FAILED_DEPLOYMENT","FAILED_VALIDATION","IN_PROGRESS","PENDING_DEPLOYMENT","SUCCESSFUL"
+            break
+        }
+
+        # Amazon.DataZone.PackageManager
+        "Update-DZNotebook/EnvironmentConfiguration_PackageConfig_PackageManager"
+        {
+            $v = "UV"
             break
         }
 
@@ -470,6 +494,7 @@ $DZ_Completers = {
 
         # Amazon.DataZone.SortKey
         {
+            ($_ -eq "Get-DZNotebookList/SortBy") -Or
             ($_ -eq "Get-DZSubscriptionGrantList/SortBy") -Or
             ($_ -eq "Get-DZSubscriptionList/SortBy") -Or
             ($_ -eq "Get-DZSubscriptionRequestList/SortBy") -Or
@@ -490,6 +515,7 @@ $DZ_Completers = {
             ($_ -eq "Get-DZJobRunList/SortOrder") -Or
             ($_ -eq "Get-DZLineageEventList/SortOrder") -Or
             ($_ -eq "Get-DZLineageNodeHistoryList/SortOrder") -Or
+            ($_ -eq "Get-DZNotebookList/SortOrder") -Or
             ($_ -eq "Get-DZNotebookRunList/SortOrder") -Or
             ($_ -eq "Get-DZProjectMembershipList/SortOrder") -Or
             ($_ -eq "Get-DZProjectProfileList/SortOrder") -Or
@@ -664,7 +690,9 @@ $DZ_map = @{
     "DomainVersion"=@("New-DZDomain")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
     "EntityType"=@("Add-DZEntityOwner","Add-DZGovernedTerm","Add-DZPolicyGrant","Get-DZBatchAttributesMetadata","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZGovernedTerm","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint","Set-DZBatchAttributesMetadata")
+    "EnvironmentConfiguration_PackageConfig_PackageManager"=@("Update-DZNotebook")
     "EnvironmentDeploymentDetails_OverallDeploymentStatus"=@("Update-DZProject")
+    "FileFormat"=@("Start-DZNotebookExport")
     "Filters_Filter_Operator"=@("Search-DZListing","Search-DZResource","Search-DZType")
     "GlueConnectionInput_ConnectionType"=@("New-DZConnection")
     "GroupType"=@("Search-DZGroupProfile")
@@ -682,9 +710,9 @@ $DZ_map = @{
     "SingleSignOn_Type"=@("New-DZDomain","Update-DZDomain")
     "SingleSignOn_UserAssignment"=@("New-DZDomain","Update-DZDomain")
     "Sort_Order"=@("Search-DZListing","Search-DZResource","Search-DZType")
-    "SortBy"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "SortOrder"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZNotebookRunList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZJobRunList","Get-DZMetadataGenerationRunList","Get-DZNotebookRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","New-DZProjectProfile","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZProjectProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
+    "SortBy"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZNotebookList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "SortOrder"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZNotebookList","Get-DZNotebookRunList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZJobRunList","Get-DZMetadataGenerationRunList","Get-DZNotebookList","Get-DZNotebookRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","New-DZProjectProfile","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZNotebook","Update-DZProjectProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "SubscriptionGrantCreationMode"=@("New-DZSubscriptionTarget","Update-DZSubscriptionTarget")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TargetType"=@("Get-DZRuleList")
@@ -774,6 +802,7 @@ $DZ_SelectMap = @{
                "New-DZGlossaryTerm",
                "New-DZGroupProfile",
                "New-DZListingChangeSet",
+               "New-DZNotebook",
                "New-DZProject",
                "New-DZProjectMembership",
                "New-DZProjectProfile",
@@ -801,6 +830,7 @@ $DZ_SelectMap = @{
                "Remove-DZGlossary",
                "Remove-DZGlossaryTerm",
                "Remove-DZListing",
+               "Remove-DZNotebook",
                "Remove-DZProject",
                "Remove-DZProjectMembership",
                "Remove-DZProjectProfile",
@@ -838,6 +868,8 @@ $DZ_SelectMap = @{
                "Get-DZLineageNode",
                "Get-DZListing",
                "Get-DZMetadataGenerationRun",
+               "Get-DZNotebook",
+               "Get-DZNotebookExport",
                "Get-DZNotebookRun",
                "Get-DZProject",
                "Get-DZProjectProfile",
@@ -870,6 +902,7 @@ $DZ_SelectMap = @{
                "Get-DZLineageNodeHistoryList",
                "Get-DZMetadataGenerationRunList",
                "Get-DZNotebookRunList",
+               "Get-DZNotebookList",
                "Get-DZNotificationList",
                "Get-DZPolicyGrantList",
                "Get-DZProjectMembershipList",
@@ -899,6 +932,8 @@ $DZ_SelectMap = @{
                "Search-DZUserProfile",
                "Start-DZDataSourceRun",
                "Start-DZMetadataGenerationRun",
+               "Start-DZNotebookExport",
+               "Start-DZNotebookImport",
                "Start-DZNotebookRun",
                "Stop-DZNotebookRun",
                "Add-DZResourceTag",
@@ -916,6 +951,7 @@ $DZ_SelectMap = @{
                "Update-DZGlossary",
                "Update-DZGlossaryTerm",
                "Update-DZGroupProfile",
+               "Update-DZNotebook",
                "Update-DZProject",
                "Update-DZProjectProfile",
                "Update-DZRootDomainUnitOwner",

@@ -283,6 +283,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotebook" OutputProperty="*" Verb="New" Noun="Notebook" ShouldProcessTarget="Name,DomainIdentifier,OwningProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="Id" Verb="New" Noun="Project" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -399,6 +403,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteListing" Verb="Remove" Noun="Listing" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotebook" Verb="Remove" Noun="Notebook" ShouldProcessTarget="DomainIdentifier,Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -550,6 +558,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetNotebook" OutputProperty="*" Verb="Get" Noun="Notebook" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNotebookExport" OutputProperty="*" Verb="Get" Noun="NotebookExport" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetNotebookRun" OutputProperty="*" Verb="Get" Noun="NotebookRun" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -684,6 +700,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNotebookRuns" OutputProperty="Items" Verb="Get" Noun="NotebookRunList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotebooks" OutputProperty="Items" Verb="Get" Noun="NotebookList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -832,6 +852,14 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartNotebookExport" OutputProperty="*" Verb="Start" Noun="NotebookExport" ShouldProcessTarget="DomainIdentifier,NotebookIdentifier,OwningProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartNotebookImport" OutputProperty="*" Verb="Start" Noun="NotebookImport" ShouldProcessTarget="Name,DomainIdentifier,OwningProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartNotebookRun" OutputProperty="*" Verb="Start" Noun="NotebookRun" ShouldProcessTarget="DomainIdentifier,NotebookIdentifier,OwningProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -974,6 +1002,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGroupProfile" OutputProperty="*" Verb="Update" Noun="GroupProfile" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotebook" OutputProperty="*" Verb="Update" Noun="Notebook" ShouldProcessTarget="DomainIdentifier,Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

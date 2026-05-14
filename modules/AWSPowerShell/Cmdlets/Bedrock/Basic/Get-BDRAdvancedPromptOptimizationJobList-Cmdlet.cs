@@ -23,112 +23,54 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Lists <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook
-    /// runs</a> in Amazon SageMaker Unified Studio.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all advanced prompt optimization jobs for the account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "DZNotebookRunList")]
-    [OutputType("Amazon.DataZone.Model.NotebookRunSummary")]
-    [AWSCmdlet("Calls the Amazon DataZone ListNotebookRuns API operation.", Operation = new[] {"ListNotebookRuns"}, SelectReturnType = typeof(Amazon.DataZone.Model.ListNotebookRunsResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.NotebookRunSummary or Amazon.DataZone.Model.ListNotebookRunsResponse",
-        "This cmdlet returns a collection of Amazon.DataZone.Model.NotebookRunSummary objects.",
-        "The service call response (type Amazon.DataZone.Model.ListNotebookRunsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BDRAdvancedPromptOptimizationJobList")]
+    [OutputType("Amazon.Bedrock.Model.AdvancedPromptOptimizationJobSummary")]
+    [AWSCmdlet("Calls the Amazon Bedrock ListAdvancedPromptOptimizationJobs API operation.", Operation = new[] {"ListAdvancedPromptOptimizationJobs"}, SelectReturnType = typeof(Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsResponse))]
+    [AWSCmdletOutput("Amazon.Bedrock.Model.AdvancedPromptOptimizationJobSummary or Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsResponse",
+        "This cmdlet returns a collection of Amazon.Bedrock.Model.AdvancedPromptOptimizationJobSummary objects.",
+        "The service call response (type Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetDZNotebookRunListCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class GetBDRAdvancedPromptOptimizationJobListCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainIdentifier
+        #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebook
-        /// runs.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter NotebookIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the notebook to filter runs by.</para>
+        /// <para>Field to sort by in the returned list of jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NotebookIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter OwningProjectIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the project that owns the notebook runs.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OwningProjectIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter ScheduleIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the schedule to filter notebook runs by.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ScheduleIdentifier { get; set; }
+        [AWSConstantClassSource("Amazon.Bedrock.SortJobsBy")]
+        public Amazon.Bedrock.SortJobsBy SortBy { get; set; }
         #endregion
         
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for the results.</para>
+        /// <para>Sort order for the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.SortOrder")]
-        public Amazon.DataZone.SortOrder SortOrder { get; set; }
-        #endregion
-        
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>The status to filter notebook runs by.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.NotebookRunStatus")]
-        public Amazon.DataZone.NotebookRunStatus Status { get; set; }
+        [AWSConstantClassSource("Amazon.Bedrock.SortOrder")]
+        public Amazon.Bedrock.SortOrder SortOrder { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of notebook runs to return in a single call. When the number of
-        /// notebook runs exceeds the value of <c>MaxResults</c>, the response contains a <c>NextToken</c>
-        /// value.</para>
+        /// <para>Maximum number of results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -144,11 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When the number of notebook runs is greater than the default value for the <c>MaxResults</c>
-        /// parameter, or if you explicitly specify a value for <c>MaxResults</c> that is less
-        /// than the number of notebook runs, the response includes a pagination token named <c>NextToken</c>.
-        /// You can specify this <c>NextToken</c> value in a subsequent call to <c>ListNotebookRuns</c>
-        /// to list the next set of notebook runs.</para>
+        /// <para>Pagination token for the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -161,13 +99,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.ListNotebookRunsResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.ListNotebookRunsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'JobSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "JobSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -196,16 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.ListNotebookRunsResponse, GetDZNotebookRunListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsResponse, GetBDRAdvancedPromptOptimizationJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainIdentifier = this.DomainIdentifier;
-            #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -217,17 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.NextToken = this.NextToken;
-            context.NotebookIdentifier = this.NotebookIdentifier;
-            context.OwningProjectIdentifier = this.OwningProjectIdentifier;
-            #if MODULAR
-            if (this.OwningProjectIdentifier == null && ParameterWasBound(nameof(this.OwningProjectIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OwningProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ScheduleIdentifier = this.ScheduleIdentifier;
+            context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
-            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -244,35 +166,19 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.DataZone.Model.ListNotebookRunsRequest();
+            var request = new Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
-            {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.NotebookIdentifier != null)
+            if (cmdletContext.SortBy != null)
             {
-                request.NotebookIdentifier = cmdletContext.NotebookIdentifier;
-            }
-            if (cmdletContext.OwningProjectIdentifier != null)
-            {
-                request.OwningProjectIdentifier = cmdletContext.OwningProjectIdentifier;
-            }
-            if (cmdletContext.ScheduleIdentifier != null)
-            {
-                request.ScheduleIdentifier = cmdletContext.ScheduleIdentifier;
+                request.SortBy = cmdletContext.SortBy;
             }
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
             }
             
             // Initialize loop variant and commence piping
@@ -331,12 +237,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.ListNotebookRunsResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.ListNotebookRunsRequest request)
+        private Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "ListNotebookRuns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "ListAdvancedPromptOptimizationJobs");
             try
             {
-                return client.ListNotebookRunsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListAdvancedPromptOptimizationJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -353,16 +259,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String NotebookIdentifier { get; set; }
-            public System.String OwningProjectIdentifier { get; set; }
-            public System.String ScheduleIdentifier { get; set; }
-            public Amazon.DataZone.SortOrder SortOrder { get; set; }
-            public Amazon.DataZone.NotebookRunStatus Status { get; set; }
-            public System.Func<Amazon.DataZone.Model.ListNotebookRunsResponse, GetDZNotebookRunListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public Amazon.Bedrock.SortJobsBy SortBy { get; set; }
+            public Amazon.Bedrock.SortOrder SortOrder { get; set; }
+            public System.Func<Amazon.Bedrock.Model.ListAdvancedPromptOptimizationJobsResponse, GetBDRAdvancedPromptOptimizationJobListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.JobSummaries;
         }
         
     }

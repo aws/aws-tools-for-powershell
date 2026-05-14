@@ -47,6 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter HasDatabases
+        /// <summary>
+        /// <para>
+        /// <para>When <c>true</c>, the response only includes catalogs that can contain databases.
+        /// Some catalogs are organizational containers that hold only other catalogs, not databases.
+        /// When this parameter is set to <c>true</c>, those container-only catalogs are excluded,
+        /// and only catalogs capable of containing databases are returned. Defaults to <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HasDatabases { get; set; }
+        #endregion
+        
         #region Parameter IncludeRoot
         /// <summary>
         /// <para>
@@ -148,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetCatalogsResponse, GetGLUECatalogListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.HasDatabases = this.HasDatabases;
             context.IncludeRoot = this.IncludeRoot;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -171,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request and set iteration invariants
             var request = new Amazon.Glue.Model.GetCatalogsRequest();
             
+            if (cmdletContext.HasDatabases != null)
+            {
+                request.HasDatabases = cmdletContext.HasDatabases.Value;
+            }
             if (cmdletContext.IncludeRoot != null)
             {
                 request.IncludeRoot = cmdletContext.IncludeRoot.Value;
@@ -266,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? HasDatabases { get; set; }
             public System.Boolean? IncludeRoot { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

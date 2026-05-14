@@ -30,17 +30,17 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Lists <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook
-    /// runs</a> in Amazon SageMaker Unified Studio.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebooks</a>
+    /// in Amazon SageMaker Unified Studio.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "DZNotebookRunList")]
-    [OutputType("Amazon.DataZone.Model.NotebookRunSummary")]
-    [AWSCmdlet("Calls the Amazon DataZone ListNotebookRuns API operation.", Operation = new[] {"ListNotebookRuns"}, SelectReturnType = typeof(Amazon.DataZone.Model.ListNotebookRunsResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.NotebookRunSummary or Amazon.DataZone.Model.ListNotebookRunsResponse",
-        "This cmdlet returns a collection of Amazon.DataZone.Model.NotebookRunSummary objects.",
-        "The service call response (type Amazon.DataZone.Model.ListNotebookRunsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "DZNotebookList")]
+    [OutputType("Amazon.DataZone.Model.NotebookSummary")]
+    [AWSCmdlet("Calls the Amazon DataZone ListNotebooks API operation.", Operation = new[] {"ListNotebooks"}, SelectReturnType = typeof(Amazon.DataZone.Model.ListNotebooksResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.NotebookSummary or Amazon.DataZone.Model.ListNotebooksResponse",
+        "This cmdlet returns a collection of Amazon.DataZone.Model.NotebookSummary objects.",
+        "The service call response (type Amazon.DataZone.Model.ListNotebooksResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetDZNotebookRunListCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class GetDZNotebookListCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebook
-        /// runs.</para>
+        /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebooks.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,20 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
-        #region Parameter NotebookIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the notebook to filter runs by.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NotebookIdentifier { get; set; }
-        #endregion
-        
         #region Parameter OwningProjectIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the project that owns the notebook runs.</para>
+        /// <para>The identifier of the project that owns the notebooks.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,14 +80,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String OwningProjectIdentifier { get; set; }
         #endregion
         
-        #region Parameter ScheduleIdentifier
+        #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The identifier of the schedule to filter notebook runs by.</para>
+        /// <para>The field to sort the results by.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ScheduleIdentifier { get; set; }
+        [AWSConstantClassSource("Amazon.DataZone.SortKey")]
+        public Amazon.DataZone.SortKey SortBy { get; set; }
         #endregion
         
         #region Parameter SortOrder
@@ -115,20 +105,19 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status to filter notebook runs by.</para>
+        /// <para>The status to filter notebooks by.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.NotebookRunStatus")]
-        public Amazon.DataZone.NotebookRunStatus Status { get; set; }
+        [AWSConstantClassSource("Amazon.DataZone.NotebookStatus")]
+        public Amazon.DataZone.NotebookStatus Status { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of notebook runs to return in a single call. When the number of
-        /// notebook runs exceeds the value of <c>MaxResults</c>, the response contains a <c>NextToken</c>
-        /// value.</para>
+        /// <para>The maximum number of notebooks to return in a single call. When the number of notebooks
+        /// exceeds the value of <c>MaxResults</c>, the response contains a <c>NextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -144,11 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When the number of notebook runs is greater than the default value for the <c>MaxResults</c>
+        /// <para>When the number of notebooks is greater than the default value for the <c>MaxResults</c>
         /// parameter, or if you explicitly specify a value for <c>MaxResults</c> that is less
-        /// than the number of notebook runs, the response includes a pagination token named <c>NextToken</c>.
-        /// You can specify this <c>NextToken</c> value in a subsequent call to <c>ListNotebookRuns</c>
-        /// to list the next set of notebook runs.</para>
+        /// than the number of notebooks, the response includes a pagination token named <c>NextToken</c>.
+        /// You can specify this <c>NextToken</c> value in a subsequent call to <c>ListNotebooks</c>
+        /// to list the next set of notebooks.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -162,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.ListNotebookRunsResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.ListNotebookRunsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.ListNotebooksResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.ListNotebooksResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.ListNotebookRunsResponse, GetDZNotebookRunListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.ListNotebooksResponse, GetDZNotebookListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DomainIdentifier = this.DomainIdentifier;
@@ -217,7 +206,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.NextToken = this.NextToken;
-            context.NotebookIdentifier = this.NotebookIdentifier;
             context.OwningProjectIdentifier = this.OwningProjectIdentifier;
             #if MODULAR
             if (this.OwningProjectIdentifier == null && ParameterWasBound(nameof(this.OwningProjectIdentifier)))
@@ -225,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter OwningProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ScheduleIdentifier = this.ScheduleIdentifier;
+            context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             context.Status = this.Status;
             
@@ -244,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.DataZone.Model.ListNotebookRunsRequest();
+            var request = new Amazon.DataZone.Model.ListNotebooksRequest();
             
             if (cmdletContext.DomainIdentifier != null)
             {
@@ -254,17 +242,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.NotebookIdentifier != null)
-            {
-                request.NotebookIdentifier = cmdletContext.NotebookIdentifier;
-            }
             if (cmdletContext.OwningProjectIdentifier != null)
             {
                 request.OwningProjectIdentifier = cmdletContext.OwningProjectIdentifier;
             }
-            if (cmdletContext.ScheduleIdentifier != null)
+            if (cmdletContext.SortBy != null)
             {
-                request.ScheduleIdentifier = cmdletContext.ScheduleIdentifier;
+                request.SortBy = cmdletContext.SortBy;
             }
             if (cmdletContext.SortOrder != null)
             {
@@ -331,12 +315,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.ListNotebookRunsResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.ListNotebookRunsRequest request)
+        private Amazon.DataZone.Model.ListNotebooksResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.ListNotebooksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "ListNotebookRuns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "ListNotebooks");
             try
             {
-                return client.ListNotebookRunsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListNotebooksAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -356,12 +340,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainIdentifier { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String NotebookIdentifier { get; set; }
             public System.String OwningProjectIdentifier { get; set; }
-            public System.String ScheduleIdentifier { get; set; }
+            public Amazon.DataZone.SortKey SortBy { get; set; }
             public Amazon.DataZone.SortOrder SortOrder { get; set; }
-            public Amazon.DataZone.NotebookRunStatus Status { get; set; }
-            public System.Func<Amazon.DataZone.Model.ListNotebookRunsResponse, GetDZNotebookRunListCmdlet, object> Select { get; set; } =
+            public Amazon.DataZone.NotebookStatus Status { get; set; }
+            public System.Func<Amazon.DataZone.Model.ListNotebooksResponse, GetDZNotebookListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }
         

@@ -30,26 +30,36 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Stops a running <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook
-    /// run</a> in Amazon SageMaker Unified Studio.
+    /// Starts a notebook import in Amazon SageMaker Unified Studio. This operation imports
+    /// a notebook from an Amazon Simple Storage Service location into a project.
     /// </summary>
-    [Cmdlet("Stop", "DZNotebookRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DataZone.Model.StopNotebookRunResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone StopNotebookRun API operation.", Operation = new[] {"StopNotebookRun"}, SelectReturnType = typeof(Amazon.DataZone.Model.StopNotebookRunResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.StopNotebookRunResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.StopNotebookRunResponse object containing multiple properties."
+    [Cmdlet("Start", "DZNotebookImport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DataZone.Model.StartNotebookImportResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone StartNotebookImport API operation.", Operation = new[] {"StartNotebookImport"}, SelectReturnType = typeof(Amazon.DataZone.Model.StartNotebookImportResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.StartNotebookImportResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.StartNotebookImportResponse object containing multiple properties."
     )]
-    public partial class StopDZNotebookRunCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class StartDZNotebookImportCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>The description of the imported notebook.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook
-        /// run is stopped.</para>
+        /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which to import the
+        /// notebook.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
-        #region Parameter Identifier
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The identifier of the notebook run to stop.</para>
+        /// <para>The name of the imported notebook. The name must be between 1 and 256 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +87,34 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OwningProjectIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the project that will own the imported notebook.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OwningProjectIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter SourceLocation_S3
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Simple Storage Service URI of the notebook source file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceLocation_S3 { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -94,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.StopNotebookRunResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.StopNotebookRunResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.StartNotebookImportResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.StartNotebookImportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,11 +160,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             var targetParameterNames = new string[]
             {
+                nameof(this.Name),
                 nameof(this.DomainIdentifier),
-                nameof(this.Identifier)
+                nameof(this.OwningProjectIdentifier)
             };
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-DZNotebookRun (StopNotebookRun)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-DZNotebookImport (StartNotebookImport)"))
             {
                 return;
             }
@@ -139,10 +177,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.StopNotebookRunResponse, StopDZNotebookRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.StartNotebookImportResponse, StartDZNotebookImportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
             if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
@@ -150,13 +189,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OwningProjectIdentifier = this.OwningProjectIdentifier;
+            #if MODULAR
+            if (this.OwningProjectIdentifier == null && ParameterWasBound(nameof(this.OwningProjectIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OwningProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SourceLocation_S3 = this.SourceLocation_S3;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,19 +218,46 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.StopNotebookRunRequest();
+            var request = new Amazon.DataZone.Model.StartNotebookImportRequest();
             
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.Name != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.OwningProjectIdentifier != null)
+            {
+                request.OwningProjectIdentifier = cmdletContext.OwningProjectIdentifier;
+            }
+            
+             // populate SourceLocation
+            var requestSourceLocationIsNull = true;
+            request.SourceLocation = new Amazon.DataZone.Model.SourceLocation();
+            System.String requestSourceLocation_sourceLocation_S3 = null;
+            if (cmdletContext.SourceLocation_S3 != null)
+            {
+                requestSourceLocation_sourceLocation_S3 = cmdletContext.SourceLocation_S3;
+            }
+            if (requestSourceLocation_sourceLocation_S3 != null)
+            {
+                request.SourceLocation.S3 = requestSourceLocation_sourceLocation_S3;
+                requestSourceLocationIsNull = false;
+            }
+             // determine if request.SourceLocation should be set to null
+            if (requestSourceLocationIsNull)
+            {
+                request.SourceLocation = null;
             }
             
             CmdletOutput output;
@@ -218,12 +292,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.StopNotebookRunResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.StopNotebookRunRequest request)
+        private Amazon.DataZone.Model.StartNotebookImportResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.StartNotebookImportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "StopNotebookRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "StartNotebookImport");
             try
             {
-                return client.StopNotebookRunAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.StartNotebookImportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -241,9 +315,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.StopNotebookRunResponse, StopDZNotebookRunCmdlet, object> Select { get; set; } =
+            public System.String Name { get; set; }
+            public System.String OwningProjectIdentifier { get; set; }
+            public System.String SourceLocation_S3 { get; set; }
+            public System.Func<Amazon.DataZone.Model.StartNotebookImportResponse, StartDZNotebookImportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

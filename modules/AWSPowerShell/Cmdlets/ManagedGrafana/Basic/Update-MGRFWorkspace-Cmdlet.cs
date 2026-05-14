@@ -70,6 +70,20 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         public Amazon.ManagedGrafana.AccountAccessType AccountAccessType { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values
+        /// are <c>IPv4</c> and <c>DualStack</c>. For more information about IP address types,
+        /// see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-nac.html">Network
+        /// access control</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ManagedGrafana.IPAddressType")]
+        public Amazon.ManagedGrafana.IPAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter OrganizationRoleName
         /// <summary>
         /// <para>
@@ -355,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AccountAccessType = this.AccountAccessType;
+            context.IpAddressType = this.IpAddressType;
             if (this.NetworkAccessControl_PrefixListId != null)
             {
                 context.NetworkAccessControl_PrefixListId = new List<System.String>(this.NetworkAccessControl_PrefixListId);
@@ -417,6 +432,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             if (cmdletContext.AccountAccessType != null)
             {
                 request.AccountAccessType = cmdletContext.AccountAccessType;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             
              // populate NetworkAccessControl
@@ -580,6 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ManagedGrafana.AccountAccessType AccountAccessType { get; set; }
+            public Amazon.ManagedGrafana.IPAddressType IpAddressType { get; set; }
             public List<System.String> NetworkAccessControl_PrefixListId { get; set; }
             public List<System.String> NetworkAccessControl_VpceId { get; set; }
             public System.String OrganizationRoleName { get; set; }

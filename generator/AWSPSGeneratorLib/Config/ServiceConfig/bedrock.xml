@@ -20,11 +20,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchDeleteAdvancedPromptOptimizationJob" OutputProperty="*" Verb="Remove" Noun="AdvancedPromptOptimizationJobBatch" ShouldProcessTarget="JobIdentifiers" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteEvaluationJob" OutputProperty="*" Verb="Set" Noun="BatchDeleteEvaluationJob" ShouldProcessTarget="JobIdentifiers" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CancelAutomatedReasoningPolicyBuildWorkflow" Verb="Stop" Noun="AutomatedReasoningPolicyBuildWorkflow" ShouldProcessTarget="BuildWorkflowId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAdvancedPromptOptimizationJob" OutputProperty="JobArn" Verb="New" Noun="AdvancedPromptOptimizationJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -214,6 +222,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAdvancedPromptOptimizationJob" OutputProperty="*" Verb="Get" Noun="AdvancedPromptOptimizationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAutomatedReasoningPolicy" OutputProperty="*" Verb="Get" Noun="AutomatedReasoningPolicy" PipelineParameter="PolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -311,6 +323,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetUseCaseForModelAccess" OutputProperty="FormData" Verb="Get" Noun="UseCaseForModelAccess" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAdvancedPromptOptimizationJobs" OutputProperty="JobSummaries" Verb="Get" Noun="AdvancedPromptOptimizationJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -437,6 +453,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAutomatedReasoningPolicyTestWorkflow" OutputProperty="PolicyArn" Verb="Start" Noun="AutomatedReasoningPolicyTestWorkflow" ShouldProcessTarget="BuildWorkflowId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAdvancedPromptOptimizationJob" Verb="Stop" Noun="AdvancedPromptOptimizationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

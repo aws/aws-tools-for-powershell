@@ -23,112 +23,76 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.QConnect;
+using Amazon.QConnect.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Lists <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook
-    /// runs</a> in Amazon SageMaker Unified Studio.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the models available to an Amazon Q in Connect assistant in the assistant's
+    /// Amazon Web Services Region. The available models are determined by the region of the
+    /// specified assistant.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "DZNotebookRunList")]
-    [OutputType("Amazon.DataZone.Model.NotebookRunSummary")]
-    [AWSCmdlet("Calls the Amazon DataZone ListNotebookRuns API operation.", Operation = new[] {"ListNotebookRuns"}, SelectReturnType = typeof(Amazon.DataZone.Model.ListNotebookRunsResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.NotebookRunSummary or Amazon.DataZone.Model.ListNotebookRunsResponse",
-        "This cmdlet returns a collection of Amazon.DataZone.Model.NotebookRunSummary objects.",
-        "The service call response (type Amazon.DataZone.Model.ListNotebookRunsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "QCModelList")]
+    [OutputType("Amazon.QConnect.Model.ModelSummary")]
+    [AWSCmdlet("Calls the Amazon Q Connect ListModels API operation.", Operation = new[] {"ListModels"}, SelectReturnType = typeof(Amazon.QConnect.Model.ListModelsResponse))]
+    [AWSCmdletOutput("Amazon.QConnect.Model.ModelSummary or Amazon.QConnect.Model.ListModelsResponse",
+        "This cmdlet returns a collection of Amazon.QConnect.Model.ModelSummary objects.",
+        "The service call response (type Amazon.QConnect.Model.ListModelsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetDZNotebookRunListCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class GetQCModelListCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainIdentifier
+        #region Parameter AiPromptType
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebook
-        /// runs.</para>
+        /// <para>The type of the AI Prompt to filter models by. When specified, only models that support
+        /// the given AI Prompt type are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QConnect.AIPromptType")]
+        public Amazon.QConnect.AIPromptType AiPromptType { get; set; }
+        #endregion
+        
+        #region Parameter AssistantId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN. The assistant's region determines which models are available.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
+        public System.String AssistantId { get; set; }
         #endregion
         
-        #region Parameter NotebookIdentifier
+        #region Parameter ModelLifecycle
         /// <summary>
         /// <para>
-        /// <para>The identifier of the notebook to filter runs by.</para>
+        /// <para>The lifecycle status of models to filter by. When specified, only models with the
+        /// given lifecycle status are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NotebookIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter OwningProjectIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the project that owns the notebook runs.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OwningProjectIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter ScheduleIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the schedule to filter notebook runs by.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ScheduleIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter SortOrder
-        /// <summary>
-        /// <para>
-        /// <para>The sort order for the results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.SortOrder")]
-        public Amazon.DataZone.SortOrder SortOrder { get; set; }
-        #endregion
-        
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>The status to filter notebook runs by.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.NotebookRunStatus")]
-        public Amazon.DataZone.NotebookRunStatus Status { get; set; }
+        [AWSConstantClassSource("Amazon.QConnect.ModelLifecycle")]
+        public Amazon.QConnect.ModelLifecycle ModelLifecycle { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of notebook runs to return in a single call. When the number of
-        /// notebook runs exceeds the value of <c>MaxResults</c>, the response contains a <c>NextToken</c>
-        /// value.</para>
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -144,11 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When the number of notebook runs is greater than the default value for the <c>MaxResults</c>
-        /// parameter, or if you explicitly specify a value for <c>MaxResults</c> that is less
-        /// than the number of notebook runs, the response includes a pagination token named <c>NextToken</c>.
-        /// You can specify this <c>NextToken</c> value in a subsequent call to <c>ListNotebookRuns</c>
-        /// to list the next set of notebook runs.</para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -161,13 +122,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.ListNotebookRunsResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.ListNotebookRunsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ModelSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.ListModelsResponse).
+        /// Specifying the name of a property of type Amazon.QConnect.Model.ListModelsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "ModelSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -196,14 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.ListNotebookRunsResponse, GetDZNotebookRunListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.ListModelsResponse, GetQCModelListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainIdentifier = this.DomainIdentifier;
+            context.AiPromptType = this.AiPromptType;
+            context.AssistantId = this.AssistantId;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.AssistantId == null && ParameterWasBound(nameof(this.AssistantId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssistantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
@@ -216,18 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.ModelLifecycle = this.ModelLifecycle;
             context.NextToken = this.NextToken;
-            context.NotebookIdentifier = this.NotebookIdentifier;
-            context.OwningProjectIdentifier = this.OwningProjectIdentifier;
-            #if MODULAR
-            if (this.OwningProjectIdentifier == null && ParameterWasBound(nameof(this.OwningProjectIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OwningProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ScheduleIdentifier = this.ScheduleIdentifier;
-            context.SortOrder = this.SortOrder;
-            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -244,35 +196,23 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.DataZone.Model.ListNotebookRunsRequest();
+            var request = new Amazon.QConnect.Model.ListModelsRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.AiPromptType != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+                request.AiPromptType = cmdletContext.AiPromptType;
+            }
+            if (cmdletContext.AssistantId != null)
+            {
+                request.AssistantId = cmdletContext.AssistantId;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.NotebookIdentifier != null)
+            if (cmdletContext.ModelLifecycle != null)
             {
-                request.NotebookIdentifier = cmdletContext.NotebookIdentifier;
-            }
-            if (cmdletContext.OwningProjectIdentifier != null)
-            {
-                request.OwningProjectIdentifier = cmdletContext.OwningProjectIdentifier;
-            }
-            if (cmdletContext.ScheduleIdentifier != null)
-            {
-                request.ScheduleIdentifier = cmdletContext.ScheduleIdentifier;
-            }
-            if (cmdletContext.SortOrder != null)
-            {
-                request.SortOrder = cmdletContext.SortOrder;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
+                request.ModelLifecycle = cmdletContext.ModelLifecycle;
             }
             
             // Initialize loop variant and commence piping
@@ -331,12 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.ListNotebookRunsResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.ListNotebookRunsRequest request)
+        private Amazon.QConnect.Model.ListModelsResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.ListModelsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "ListNotebookRuns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "ListModels");
             try
             {
-                return client.ListNotebookRunsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListModelsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -353,16 +293,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
+            public Amazon.QConnect.AIPromptType AiPromptType { get; set; }
+            public System.String AssistantId { get; set; }
             public int? MaxResult { get; set; }
+            public Amazon.QConnect.ModelLifecycle ModelLifecycle { get; set; }
             public System.String NextToken { get; set; }
-            public System.String NotebookIdentifier { get; set; }
-            public System.String OwningProjectIdentifier { get; set; }
-            public System.String ScheduleIdentifier { get; set; }
-            public Amazon.DataZone.SortOrder SortOrder { get; set; }
-            public Amazon.DataZone.NotebookRunStatus Status { get; set; }
-            public System.Func<Amazon.DataZone.Model.ListNotebookRunsResponse, GetDZNotebookRunListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.Func<Amazon.QConnect.Model.ListModelsResponse, GetQCModelListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ModelSummaries;
         }
         
     }

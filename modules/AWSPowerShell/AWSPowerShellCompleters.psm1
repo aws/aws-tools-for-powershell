@@ -10062,6 +10062,7 @@ $BDR_Completers = {
 
         # Amazon.Bedrock.SortJobsBy
         {
+            ($_ -eq "Get-BDRAdvancedPromptOptimizationJobList/SortBy") -Or
             ($_ -eq "Get-BDREvaluationJobList/SortBy") -Or
             ($_ -eq "Get-BDRModelCopyJobList/SortBy") -Or
             ($_ -eq "Get-BDRModelCustomizationJobList/SortBy") -Or
@@ -10086,6 +10087,7 @@ $BDR_Completers = {
 
         # Amazon.Bedrock.SortOrder
         {
+            ($_ -eq "Get-BDRAdvancedPromptOptimizationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRCustomModelDeploymentList/SortOrder") -Or
             ($_ -eq "Get-BDRCustomModelList/SortOrder") -Or
             ($_ -eq "Get-BDREvaluationJobList/SortOrder") -Or
@@ -10128,8 +10130,8 @@ $BDR_map = @{
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
-    "SortBy"=@("Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
-    "SortOrder"=@("Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortBy"=@("Get-BDRAdvancedPromptOptimizationJobList","Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortOrder"=@("Get-BDRAdvancedPromptOptimizationJobList","Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "StatusEqual"=@("Get-BDRCustomModelDeploymentList","Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "TopicPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "Type"=@("Get-BDRPromptRouterList")
@@ -10186,8 +10188,10 @@ $BDR_SelectCompleters = {
 }
 
 $BDR_SelectMap = @{
-    "Select"=@("Set-BDRBatchDeleteEvaluationJob",
+    "Select"=@("Remove-BDRAdvancedPromptOptimizationJobBatch",
+               "Set-BDRBatchDeleteEvaluationJob",
                "Stop-BDRAutomatedReasoningPolicyBuildWorkflow",
+               "New-BDRAdvancedPromptOptimizationJob",
                "New-BDRAutomatedReasoningPolicy",
                "New-BDRAutomatedReasoningPolicyTestCase",
                "New-BDRAutomatedReasoningPolicyVersion",
@@ -10222,6 +10226,7 @@ $BDR_SelectMap = @{
                "Remove-BDRResourcePolicy",
                "Unregister-BDRMarketplaceModelEndpoint",
                "Export-BDRAutomatedReasoningPolicyVersion",
+               "Get-BDRAdvancedPromptOptimizationJob",
                "Get-BDRAutomatedReasoningPolicy",
                "Get-BDRAutomatedReasoningPolicyAnnotation",
                "Get-BDRAutomatedReasoningPolicyBuildWorkflow",
@@ -10247,6 +10252,7 @@ $BDR_SelectMap = @{
                "Get-BDRProvisionedModelThroughput",
                "Get-BDRResourcePolicy",
                "Get-BDRUseCaseForModelAccess",
+               "Get-BDRAdvancedPromptOptimizationJobList",
                "Get-BDRAutomatedReasoningPolicyList",
                "Get-BDRAutomatedReasoningPolicyBuildWorkflowList",
                "Get-BDRAutomatedReasoningPolicyTestCaseList",
@@ -10275,6 +10281,7 @@ $BDR_SelectMap = @{
                "Register-BDRMarketplaceModelEndpoint",
                "Start-BDRAutomatedReasoningPolicyBuildWorkflow",
                "Start-BDRAutomatedReasoningPolicyTestWorkflow",
+               "Stop-BDRAdvancedPromptOptimizationJob",
                "Stop-BDREvaluationJob",
                "Stop-BDRModelCustomizationJob",
                "Stop-BDRModelInvocationJob",
@@ -14678,7 +14685,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFDistribution/ViewerMtlsConfig_Mode")
         }
         {
-            $v = "optional","required"
+            $v = "optional","passthrough","required"
             break
         }
 
@@ -23925,6 +23932,13 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.FileFormat
+        "Start-DZNotebookExport/FileFormat"
+        {
+            $v = "IPYNB","PDF"
+            break
+        }
+
         # Amazon.DataZone.FilterOperator
         {
             ($_ -eq "Search-DZListing/Filters_Filter_Operator") -Or
@@ -24072,6 +24086,16 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.NotebookStatus
+        {
+            ($_ -eq "Get-DZNotebookList/Status") -Or
+            ($_ -eq "Update-DZNotebook/Status")
+        }
+        {
+            $v = "ACTIVE","ARCHIVED"
+            break
+        }
+
         # Amazon.DataZone.NotificationType
         "Get-DZNotificationList/Type"
         {
@@ -24090,6 +24114,13 @@ $DZ_Completers = {
         "Update-DZProject/EnvironmentDeploymentDetails_OverallDeploymentStatus"
         {
             $v = "FAILED_DEPLOYMENT","FAILED_VALIDATION","IN_PROGRESS","PENDING_DEPLOYMENT","SUCCESSFUL"
+            break
+        }
+
+        # Amazon.DataZone.PackageManager
+        "Update-DZNotebook/EnvironmentConfiguration_PackageConfig_PackageManager"
+        {
+            $v = "UV"
             break
         }
 
@@ -24170,6 +24201,7 @@ $DZ_Completers = {
 
         # Amazon.DataZone.SortKey
         {
+            ($_ -eq "Get-DZNotebookList/SortBy") -Or
             ($_ -eq "Get-DZSubscriptionGrantList/SortBy") -Or
             ($_ -eq "Get-DZSubscriptionList/SortBy") -Or
             ($_ -eq "Get-DZSubscriptionRequestList/SortBy") -Or
@@ -24190,6 +24222,7 @@ $DZ_Completers = {
             ($_ -eq "Get-DZJobRunList/SortOrder") -Or
             ($_ -eq "Get-DZLineageEventList/SortOrder") -Or
             ($_ -eq "Get-DZLineageNodeHistoryList/SortOrder") -Or
+            ($_ -eq "Get-DZNotebookList/SortOrder") -Or
             ($_ -eq "Get-DZNotebookRunList/SortOrder") -Or
             ($_ -eq "Get-DZProjectMembershipList/SortOrder") -Or
             ($_ -eq "Get-DZProjectProfileList/SortOrder") -Or
@@ -24364,7 +24397,9 @@ $DZ_map = @{
     "DomainVersion"=@("New-DZDomain")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
     "EntityType"=@("Add-DZEntityOwner","Add-DZGovernedTerm","Add-DZPolicyGrant","Get-DZBatchAttributesMetadata","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZGovernedTerm","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint","Set-DZBatchAttributesMetadata")
+    "EnvironmentConfiguration_PackageConfig_PackageManager"=@("Update-DZNotebook")
     "EnvironmentDeploymentDetails_OverallDeploymentStatus"=@("Update-DZProject")
+    "FileFormat"=@("Start-DZNotebookExport")
     "Filters_Filter_Operator"=@("Search-DZListing","Search-DZResource","Search-DZType")
     "GlueConnectionInput_ConnectionType"=@("New-DZConnection")
     "GroupType"=@("Search-DZGroupProfile")
@@ -24382,9 +24417,9 @@ $DZ_map = @{
     "SingleSignOn_Type"=@("New-DZDomain","Update-DZDomain")
     "SingleSignOn_UserAssignment"=@("New-DZDomain","Update-DZDomain")
     "Sort_Order"=@("Search-DZListing","Search-DZResource","Search-DZType")
-    "SortBy"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "SortOrder"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZNotebookRunList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZJobRunList","Get-DZMetadataGenerationRunList","Get-DZNotebookRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","New-DZProjectProfile","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZProjectProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
+    "SortBy"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZNotebookList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "SortOrder"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZNotebookList","Get-DZNotebookRunList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZJobRunList","Get-DZMetadataGenerationRunList","Get-DZNotebookList","Get-DZNotebookRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","New-DZProjectProfile","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZNotebook","Update-DZProjectProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "SubscriptionGrantCreationMode"=@("New-DZSubscriptionTarget","Update-DZSubscriptionTarget")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TargetType"=@("Get-DZRuleList")
@@ -24474,6 +24509,7 @@ $DZ_SelectMap = @{
                "New-DZGlossaryTerm",
                "New-DZGroupProfile",
                "New-DZListingChangeSet",
+               "New-DZNotebook",
                "New-DZProject",
                "New-DZProjectMembership",
                "New-DZProjectProfile",
@@ -24501,6 +24537,7 @@ $DZ_SelectMap = @{
                "Remove-DZGlossary",
                "Remove-DZGlossaryTerm",
                "Remove-DZListing",
+               "Remove-DZNotebook",
                "Remove-DZProject",
                "Remove-DZProjectMembership",
                "Remove-DZProjectProfile",
@@ -24538,6 +24575,8 @@ $DZ_SelectMap = @{
                "Get-DZLineageNode",
                "Get-DZListing",
                "Get-DZMetadataGenerationRun",
+               "Get-DZNotebook",
+               "Get-DZNotebookExport",
                "Get-DZNotebookRun",
                "Get-DZProject",
                "Get-DZProjectProfile",
@@ -24570,6 +24609,7 @@ $DZ_SelectMap = @{
                "Get-DZLineageNodeHistoryList",
                "Get-DZMetadataGenerationRunList",
                "Get-DZNotebookRunList",
+               "Get-DZNotebookList",
                "Get-DZNotificationList",
                "Get-DZPolicyGrantList",
                "Get-DZProjectMembershipList",
@@ -24599,6 +24639,8 @@ $DZ_SelectMap = @{
                "Search-DZUserProfile",
                "Start-DZDataSourceRun",
                "Start-DZMetadataGenerationRun",
+               "Start-DZNotebookExport",
+               "Start-DZNotebookImport",
                "Start-DZNotebookRun",
                "Stop-DZNotebookRun",
                "Add-DZResourceTag",
@@ -24616,6 +24658,7 @@ $DZ_SelectMap = @{
                "Update-DZGlossary",
                "Update-DZGlossaryTerm",
                "Update-DZGroupProfile",
+               "Update-DZNotebook",
                "Update-DZProject",
                "Update-DZProjectProfile",
                "Update-DZRootDomainUnitOwner",
@@ -39654,6 +39697,16 @@ $MGRF_Completers = {
             break
         }
 
+        # Amazon.ManagedGrafana.IPAddressType
+        {
+            ($_ -eq "New-MGRFWorkspace/IpAddressType") -Or
+            ($_ -eq "Update-MGRFWorkspace/IpAddressType")
+        }
+        {
+            $v = "DualStack","IPv4"
+            break
+        }
+
         # Amazon.ManagedGrafana.LicenseType
         {
             ($_ -eq "Add-MGRFLicense/LicenseType") -Or
@@ -39699,6 +39752,7 @@ $MGRF_Completers = {
 $MGRF_map = @{
     "AccountAccessType"=@("New-MGRFWorkspace","Update-MGRFWorkspace")
     "GrafanaRole"=@("New-MGRFWorkspaceServiceAccount")
+    "IpAddressType"=@("New-MGRFWorkspace","Update-MGRFWorkspace")
     "LicenseType"=@("Add-MGRFLicense","Remove-MGRFLicense")
     "PermissionType"=@("New-MGRFWorkspace","Update-MGRFWorkspace")
     "UserType"=@("Get-MGRFPermissionList")
@@ -55756,7 +55810,7 @@ $MGN_Completers = {
         # Amazon.Mgn.SecurityGroupMappingStrategy
         "Start-MGNNetworkMigrationMapping/SecurityGroupMappingStrategy"
         {
-            $v = "MAP","SKIP"
+            $v = "MAP","MAP_DHCP","SKIP"
             break
         }
 
@@ -66920,7 +66974,10 @@ $QC_Completers = {
         }
 
         # Amazon.QConnect.AIPromptType
-        "New-QCAIPrompt/Type"
+        {
+            ($_ -eq "Get-QCModelList/AiPromptType") -Or
+            ($_ -eq "New-QCAIPrompt/Type")
+        }
         {
             $v = "ANSWER_GENERATION","CASE_SUMMARIZATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_QUERY_REFORMULATION","EMAIL_RESPONSE","INTENT_LABELING_GENERATION","NOTE_TAKING","ORCHESTRATION","QUERY_REFORMULATION","SELF_SERVICE_ANSWER_GENERATION","SELF_SERVICE_PRE_PROCESSING"
             break
@@ -67010,6 +67067,13 @@ $QC_Completers = {
         "Send-QCMessage/Type"
         {
             $v = "TEXT","TOOL_USE_RESULT"
+            break
+        }
+
+        # Amazon.QConnect.ModelLifecycle
+        "Get-QCModelList/ModelLifecycle"
+        {
+            $v = "ACTIVE","LEGACY"
             break
         }
 
@@ -67118,6 +67182,7 @@ $QC_Completers = {
 $QC_map = @{
     "Adm_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
     "AiAgentType"=@("Remove-QCAssistantAIAgent","Update-QCAssistantAIAgent")
+    "AiPromptType"=@("Get-QCModelList")
     "ApiFormat"=@("New-QCAIPrompt")
     "Apns_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
     "AssociationType"=@("New-QCAssistantAssociation","New-QCContentAssociation")
@@ -67131,6 +67196,7 @@ $QC_map = @{
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")
+    "ModelLifecycle"=@("Get-QCModelList")
     "Namespace"=@("Update-QCSessionData")
     "OrderOnField_Order"=@("Search-QCMessageTemplate","Search-QCQuickResponse")
     "Origin"=@("Get-QCAIAgentList","Get-QCAIAgentVersionList","Get-QCAIPromptList","Get-QCAIPromptVersionList")
@@ -67258,6 +67324,7 @@ $QC_SelectMap = @{
                "Get-QCMessageList",
                "Get-QCMessageTemplateList",
                "Get-QCMessageTemplateVersionList",
+               "Get-QCModelList",
                "Get-QCQuickResponseList",
                "Get-QCSpanList",
                "Get-QCResourceTag",

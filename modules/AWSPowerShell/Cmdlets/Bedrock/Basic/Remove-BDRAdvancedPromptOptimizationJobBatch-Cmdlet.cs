@@ -23,72 +23,68 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Gets the details of a <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook
-    /// run</a> in Amazon SageMaker Unified Studio.
+    /// Batch delete the specified advanced prompt optimization jobs.
     /// </summary>
-    [Cmdlet("Get", "DZNotebookRun")]
-    [OutputType("Amazon.DataZone.Model.GetNotebookRunResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone GetNotebookRun API operation.", Operation = new[] {"GetNotebookRun"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetNotebookRunResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.GetNotebookRunResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetNotebookRunResponse object containing multiple properties."
+    [Cmdlet("Remove", "BDRAdvancedPromptOptimizationJobBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock BatchDeleteAdvancedPromptOptimizationJob API operation.", Operation = new[] {"BatchDeleteAdvancedPromptOptimizationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse))]
+    [AWSCmdletOutput("Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse",
+        "This cmdlet returns an Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse object containing multiple properties."
     )]
-    public partial class GetDZNotebookRunCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class RemoveBDRAdvancedPromptOptimizationJobBatchCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainIdentifier
+        #region Parameter JobIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook
-        /// run exists.</para>
+        /// <para>List of advanced prompt optimization job identifiers to delete.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the notebook run.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        [Alias("JobIdentifiers")]
+        public System.String[] JobIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetNotebookRunResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.GetNotebookRunResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -100,6 +96,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BDRAdvancedPromptOptimizationJobBatch (BatchDeleteAdvancedPromptOptimizationJob)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -107,21 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetNotebookRunResponse, GetDZNotebookRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse, RemoveBDRAdvancedPromptOptimizationJobBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainIdentifier = this.DomainIdentifier;
-            #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.JobIdentifier != null)
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.JobIdentifier = new List<System.String>(this.JobIdentifier);
             }
-            #endif
-            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.JobIdentifier == null && ParameterWasBound(nameof(this.JobIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -138,15 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.GetNotebookRunRequest();
+            var request = new Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.JobIdentifier != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
-            }
-            if (cmdletContext.Identifier != null)
-            {
-                request.Identifier = cmdletContext.Identifier;
+                request.JobIdentifiers = cmdletContext.JobIdentifier;
             }
             
             CmdletOutput output;
@@ -181,12 +175,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.GetNotebookRunResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetNotebookRunRequest request)
+        private Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetNotebookRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "BatchDeleteAdvancedPromptOptimizationJob");
             try
             {
-                return client.GetNotebookRunAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.BatchDeleteAdvancedPromptOptimizationJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -203,9 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.GetNotebookRunResponse, GetDZNotebookRunCmdlet, object> Select { get; set; } =
+            public List<System.String> JobIdentifier { get; set; }
+            public System.Func<Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse, RemoveBDRAdvancedPromptOptimizationJobBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -191,7 +191,7 @@ $MGN_Completers = {
         # Amazon.Mgn.SecurityGroupMappingStrategy
         "Start-MGNNetworkMigrationMapping/SecurityGroupMappingStrategy"
         {
-            $v = "MAP","SKIP"
+            $v = "MAP","MAP_DHCP","SKIP"
             break
         }
 

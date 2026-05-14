@@ -121,6 +121,20 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         public System.String GrafanaVersion { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values
+        /// are <c>IPv4</c> and <c>DualStack</c>. For more information about IP address types,
+        /// see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-nac.html">Network
+        /// access control</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ManagedGrafana.IPAddressType")]
+        public Amazon.ManagedGrafana.IPAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -424,6 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             context.ClientToken = this.ClientToken;
             context.Configuration = this.Configuration;
             context.GrafanaVersion = this.GrafanaVersion;
+            context.IpAddressType = this.IpAddressType;
             context.KmsKeyId = this.KmsKeyId;
             if (this.NetworkAccessControl_PrefixListId != null)
             {
@@ -508,6 +523,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             if (cmdletContext.GrafanaVersion != null)
             {
                 request.GrafanaVersion = cmdletContext.GrafanaVersion;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -671,6 +690,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             public System.String ClientToken { get; set; }
             public System.String Configuration { get; set; }
             public System.String GrafanaVersion { get; set; }
+            public Amazon.ManagedGrafana.IPAddressType IpAddressType { get; set; }
             public System.String KmsKeyId { get; set; }
             public List<System.String> NetworkAccessControl_PrefixListId { get; set; }
             public List<System.String> NetworkAccessControl_VpceId { get; set; }

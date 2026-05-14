@@ -286,6 +286,7 @@ $BDR_Completers = {
 
         # Amazon.Bedrock.SortJobsBy
         {
+            ($_ -eq "Get-BDRAdvancedPromptOptimizationJobList/SortBy") -Or
             ($_ -eq "Get-BDREvaluationJobList/SortBy") -Or
             ($_ -eq "Get-BDRModelCopyJobList/SortBy") -Or
             ($_ -eq "Get-BDRModelCustomizationJobList/SortBy") -Or
@@ -310,6 +311,7 @@ $BDR_Completers = {
 
         # Amazon.Bedrock.SortOrder
         {
+            ($_ -eq "Get-BDRAdvancedPromptOptimizationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRCustomModelDeploymentList/SortOrder") -Or
             ($_ -eq "Get-BDRCustomModelList/SortOrder") -Or
             ($_ -eq "Get-BDREvaluationJobList/SortOrder") -Or
@@ -352,8 +354,8 @@ $BDR_map = @{
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
-    "SortBy"=@("Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
-    "SortOrder"=@("Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortBy"=@("Get-BDRAdvancedPromptOptimizationJobList","Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortOrder"=@("Get-BDRAdvancedPromptOptimizationJobList","Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "StatusEqual"=@("Get-BDRCustomModelDeploymentList","Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "TopicPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "Type"=@("Get-BDRPromptRouterList")
@@ -410,8 +412,10 @@ $BDR_SelectCompleters = {
 }
 
 $BDR_SelectMap = @{
-    "Select"=@("Set-BDRBatchDeleteEvaluationJob",
+    "Select"=@("Remove-BDRAdvancedPromptOptimizationJobBatch",
+               "Set-BDRBatchDeleteEvaluationJob",
                "Stop-BDRAutomatedReasoningPolicyBuildWorkflow",
+               "New-BDRAdvancedPromptOptimizationJob",
                "New-BDRAutomatedReasoningPolicy",
                "New-BDRAutomatedReasoningPolicyTestCase",
                "New-BDRAutomatedReasoningPolicyVersion",
@@ -446,6 +450,7 @@ $BDR_SelectMap = @{
                "Remove-BDRResourcePolicy",
                "Unregister-BDRMarketplaceModelEndpoint",
                "Export-BDRAutomatedReasoningPolicyVersion",
+               "Get-BDRAdvancedPromptOptimizationJob",
                "Get-BDRAutomatedReasoningPolicy",
                "Get-BDRAutomatedReasoningPolicyAnnotation",
                "Get-BDRAutomatedReasoningPolicyBuildWorkflow",
@@ -471,6 +476,7 @@ $BDR_SelectMap = @{
                "Get-BDRProvisionedModelThroughput",
                "Get-BDRResourcePolicy",
                "Get-BDRUseCaseForModelAccess",
+               "Get-BDRAdvancedPromptOptimizationJobList",
                "Get-BDRAutomatedReasoningPolicyList",
                "Get-BDRAutomatedReasoningPolicyBuildWorkflowList",
                "Get-BDRAutomatedReasoningPolicyTestCaseList",
@@ -499,6 +505,7 @@ $BDR_SelectMap = @{
                "Register-BDRMarketplaceModelEndpoint",
                "Start-BDRAutomatedReasoningPolicyBuildWorkflow",
                "Start-BDRAutomatedReasoningPolicyTestWorkflow",
+               "Stop-BDRAdvancedPromptOptimizationJob",
                "Stop-BDREvaluationJob",
                "Stop-BDRModelCustomizationJob",
                "Stop-BDRModelInvocationJob",

@@ -1,4 +1,32 @@
-﻿### 5.0.211 (2026-05-13 20:33Z)
+﻿### 5.0.212 (2026-05-14 20:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.248.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRAdvancedPromptOptimizationJob leveraging the GetAdvancedPromptOptimizationJob service API.
+    * Added cmdlet Get-BDRAdvancedPromptOptimizationJobList leveraging the ListAdvancedPromptOptimizationJobs service API.
+    * Added cmdlet New-BDRAdvancedPromptOptimizationJob leveraging the CreateAdvancedPromptOptimizationJob service API.
+    * Added cmdlet Remove-BDRAdvancedPromptOptimizationJobBatch leveraging the BatchDeleteAdvancedPromptOptimizationJob service API.
+    * Added cmdlet Stop-BDRAdvancedPromptOptimizationJob leveraging the StopAdvancedPromptOptimizationJob service API.
+  * Amazon CloudFront
+    * Modified cmdlet New-CFTrustStore: added parameter UseClientCertificateOCSPEndpoint.
+    * Modified cmdlet Update-CFTrustStore: added parameter UseClientCertificateOCSPEndpoint.
+  * Amazon DataZone
+    * Added cmdlet Get-DZNotebook leveraging the GetNotebook service API.
+    * Added cmdlet Get-DZNotebookExport leveraging the GetNotebookExport service API.
+    * Added cmdlet Get-DZNotebookList leveraging the ListNotebooks service API.
+    * Added cmdlet New-DZNotebook leveraging the CreateNotebook service API.
+    * Added cmdlet Remove-DZNotebook leveraging the DeleteNotebook service API.
+    * Added cmdlet Start-DZNotebookExport leveraging the StartNotebookExport service API.
+    * Added cmdlet Start-DZNotebookImport leveraging the StartNotebookImport service API.
+    * Added cmdlet Update-DZNotebook leveraging the UpdateNotebook service API.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUECatalogList: added parameter HasDatabases.
+  * Amazon Managed Grafana
+    * Modified cmdlet New-MGRFWorkspace: added parameter IpAddressType.
+    * Modified cmdlet Update-MGRFWorkspace: added parameter IpAddressType.
+  * Amazon Q Connect
+    * Added cmdlet Get-QCModelList leveraging the ListModels service API.
+
+### 5.0.211 (2026-05-13 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.247.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonConnectCampaignServiceV2
     * Modified cmdlet New-CCS2Campaign: added parameter CommunicationTimeConfig_LocalTimeZoneConfig_LocalTimeZoneDetectionScope.
