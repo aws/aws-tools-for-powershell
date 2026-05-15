@@ -1,4 +1,0 @@
-{
-  "Type": "Patch",
-  "Description": "**BREAKING CHANGE**: Region resolution now honors `-ProfileName`. Previously, the `region` key from the named profile was ignored and `[default]`'s region was used instead. Cmdlets now resolve region from the named profile first, falling back to `default` as before. Customers whose named profile and `default` specified different regions will see calls now route to the named profile's region."
-}

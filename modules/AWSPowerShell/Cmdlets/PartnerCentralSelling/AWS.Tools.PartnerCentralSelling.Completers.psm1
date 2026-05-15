@@ -163,6 +163,16 @@ $PC_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralSelling.ExpectedContractDurationTerm
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/Project_ExpectedContractDuration_Term") -Or
+            ($_ -eq "Update-PCOpportunity/Project_ExpectedContractDuration_Term")
+        }
+        {
+            $v = "Months"
+            break
+        }
+
         # Amazon.PartnerCentralSelling.Industry
         {
             ($_ -eq "Invoke-PCCreateOpportunity/Account_Industry") -Or
@@ -402,6 +412,7 @@ $PC_map = @{
     "Payload_CustomerProject_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
     "Project_AwsPartition"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Project_CompetitorName"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "Project_ExpectedContractDuration_Term"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "RelatedEntityType"=@("Invoke-PCAssociateOpportunity","Invoke-PCDisassociateOpportunity")
     "ResourceType"=@("Get-PCEngagementResourceAssociationList","Get-PCResourceSnapshot","Get-PCResourceSnapshotList","Invoke-PCResourceSnapshot","Invoke-PCResourceSnapshotJob")
     "SoftwareRevenue_DeliveryModel"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")

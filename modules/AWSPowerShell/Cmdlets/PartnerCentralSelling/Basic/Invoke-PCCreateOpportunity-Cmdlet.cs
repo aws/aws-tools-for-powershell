@@ -771,6 +771,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String LifeCycle_TargetCloseDate { get; set; }
         #endregion
         
+        #region Parameter Project_ExpectedContractDuration_Term
+        /// <summary>
+        /// <para>
+        /// <para>The unit of measurement for the contract duration value. Currently accepts only <c>Months</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.ExpectedContractDurationTerm")]
+        public Amazon.PartnerCentralSelling.ExpectedContractDurationTerm Project_ExpectedContractDuration_Term { get; set; }
+        #endregion
+        
         #region Parameter Project_Title
         /// <summary>
         /// <para>
@@ -802,6 +813,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Marketing_UseCases")]
         public System.String[] Marketing_UseCase { get; set; }
+        #endregion
+        
+        #region Parameter Project_ExpectedContractDuration_Value
+        /// <summary>
+        /// <para>
+        /// <para>A String representation of the contract duration as an integer, expressed in the unit
+        /// defined by <c>Term</c>. Valid values range from <c>1</c> to <c>144</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Project_ExpectedContractDuration_Value { get; set; }
         #endregion
         
         #region Parameter Account_WebsiteUrl
@@ -949,6 +971,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
             {
                 context.Project_DeliveryModel = new List<System.String>(this.Project_DeliveryModel);
             }
+            context.Project_ExpectedContractDuration_Term = this.Project_ExpectedContractDuration_Term;
+            context.Project_ExpectedContractDuration_Value = this.Project_ExpectedContractDuration_Value;
             if (this.Project_ExpectedCustomerSpend != null)
             {
                 context.Project_ExpectedCustomerSpend = new List<Amazon.PartnerCentralSelling.Model.ExpectedCustomerSpend>(this.Project_ExpectedCustomerSpend);
@@ -1459,6 +1483,41 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 request.Project.Title = requestProject_project_Title;
                 requestProjectIsNull = false;
             }
+            Amazon.PartnerCentralSelling.Model.ExpectedContractDuration requestProject_project_ExpectedContractDuration = null;
+            
+             // populate ExpectedContractDuration
+            var requestProject_project_ExpectedContractDurationIsNull = true;
+            requestProject_project_ExpectedContractDuration = new Amazon.PartnerCentralSelling.Model.ExpectedContractDuration();
+            Amazon.PartnerCentralSelling.ExpectedContractDurationTerm requestProject_project_ExpectedContractDuration_project_ExpectedContractDuration_Term = null;
+            if (cmdletContext.Project_ExpectedContractDuration_Term != null)
+            {
+                requestProject_project_ExpectedContractDuration_project_ExpectedContractDuration_Term = cmdletContext.Project_ExpectedContractDuration_Term;
+            }
+            if (requestProject_project_ExpectedContractDuration_project_ExpectedContractDuration_Term != null)
+            {
+                requestProject_project_ExpectedContractDuration.Term = requestProject_project_ExpectedContractDuration_project_ExpectedContractDuration_Term;
+                requestProject_project_ExpectedContractDurationIsNull = false;
+            }
+            System.String requestProject_project_ExpectedContractDuration_project_ExpectedContractDuration_Value = null;
+            if (cmdletContext.Project_ExpectedContractDuration_Value != null)
+            {
+                requestProject_project_ExpectedContractDuration_project_ExpectedContractDuration_Value = cmdletContext.Project_ExpectedContractDuration_Value;
+            }
+            if (requestProject_project_ExpectedContractDuration_project_ExpectedContractDuration_Value != null)
+            {
+                requestProject_project_ExpectedContractDuration.Value = requestProject_project_ExpectedContractDuration_project_ExpectedContractDuration_Value;
+                requestProject_project_ExpectedContractDurationIsNull = false;
+            }
+             // determine if requestProject_project_ExpectedContractDuration should be set to null
+            if (requestProject_project_ExpectedContractDurationIsNull)
+            {
+                requestProject_project_ExpectedContractDuration = null;
+            }
+            if (requestProject_project_ExpectedContractDuration != null)
+            {
+                request.Project.ExpectedContractDuration = requestProject_project_ExpectedContractDuration;
+                requestProjectIsNull = false;
+            }
              // determine if request.Project should be set to null
             if (requestProjectIsNull)
             {
@@ -1637,6 +1696,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String Project_CustomerBusinessProblem { get; set; }
             public System.String Project_CustomerUseCase { get; set; }
             public List<System.String> Project_DeliveryModel { get; set; }
+            public Amazon.PartnerCentralSelling.ExpectedContractDurationTerm Project_ExpectedContractDuration_Term { get; set; }
+            public System.String Project_ExpectedContractDuration_Value { get; set; }
             public List<Amazon.PartnerCentralSelling.Model.ExpectedCustomerSpend> Project_ExpectedCustomerSpend { get; set; }
             public System.String Project_OtherCompetitorName { get; set; }
             public System.String Project_OtherSolutionDescription { get; set; }

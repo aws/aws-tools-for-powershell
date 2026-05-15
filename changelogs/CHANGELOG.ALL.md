@@ -1,4 +1,11 @@
-﻿### 5.0.212 (2026-05-14 20:13Z)
+﻿### 5.0.213 (2026-05-15 21:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.249.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Partner Central Selling API
+    * Modified cmdlet Invoke-PCCreateOpportunity: added parameters Project_ExpectedContractDuration_Term and Project_ExpectedContractDuration_Value.
+    * Modified cmdlet Update-PCOpportunity: added parameters Project_ExpectedContractDuration_Term and Project_ExpectedContractDuration_Value.
+  * **BREAKING CHANGE**: Region resolution now honors `-ProfileName`. Previously, the `region` key from the named profile was ignored and `[default]`'s region was used instead. Cmdlets now resolve region from the named profile first, falling back to `default` as before. Customers whose named profile and `default` specified different regions will see calls now route to the named profile's region.
+
+### 5.0.212 (2026-05-14 20:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.248.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Get-BDRAdvancedPromptOptimizationJob leveraging the GetAdvancedPromptOptimizationJob service API.
