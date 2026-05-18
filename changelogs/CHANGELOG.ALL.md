@@ -1,4 +1,19 @@
-﻿### 5.0.213 (2026-05-15 21:25Z)
+﻿### 5.0.214 (2026-05-18 20:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.250.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EC2 Container Service
+    * Added cmdlet Resume-ECSServiceDeployment leveraging the ContinueServiceDeployment service API.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2IpamPoolAllocation leveraging the ModifyIpamPoolAllocation service API.
+    * Added cmdlet Get-EC2IpamPoolAllocationDetail leveraging the DescribeIpamPoolAllocations service API.
+    * Modified cmdlet New-EC2IpamPoolCidr: added parameter TagSpecification.
+  * Amazon IAM Access Analyzer
+    * Added cmdlet New-IAMAAServiceLinkedAnalyzer leveraging the CreateServiceLinkedAnalyzer service API.
+    * Added cmdlet Remove-IAMAAServiceLinkedAnalyzer leveraging the DeleteServiceLinkedAnalyzer service API.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSDataSet: added parameter SemanticModelConfiguration_SemanticMetadata.
+    * Modified cmdlet Update-QSDataSet: added parameter SemanticModelConfiguration_SemanticMetadata.
+
+### 5.0.213 (2026-05-15 21:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.249.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Partner Central Selling API
     * Modified cmdlet Invoke-PCCreateOpportunity: added parameters Project_ExpectedContractDuration_Term and Project_ExpectedContractDuration_Value.

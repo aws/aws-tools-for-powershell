@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     /// For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete
-    /// traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// traffic distribution groups</a> in the <i>Connect Customer Administrator Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CONNTrafficDistributionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

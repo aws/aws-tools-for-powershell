@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Associates an email address alias with an existing email address in an Amazon Connect
+    /// Associates an email address alias with an existing email address in an Connect Customer
     /// instance. This creates a forwarding relationship where emails sent to the alias email
     /// address are automatically forwarded to the primary email address. 
     /// 
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// (for example, sales@example.com, info@example.com) to a centralized customer service
     /// email during organizational restructuring.
     /// </para></li><li><para><b>Brand management</b>: Enable you to use familiar brand-specific email addresses
-    /// that forward to the appropriate Amazon Connect instance email address.
+    /// that forward to the appropriate Connect Customer instance email address.
     /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
     /// Each email address can have a maximum of one alias. You cannot create multiple aliases
     /// for the same email address. 
@@ -61,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// The timestamp of when the association occurred.
     /// </para></li><li><para>
     /// The status of the forwarding configuration.
-    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect
+    /// Customer endpoints and quotas</a>.
     /// </para><para><b>Related operations</b></para><ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html">DisassociateEmailAddressAlias</a>:
-    /// Removes the alias association between two email addresses in an Amazon Connect instance.
+    /// Removes the alias association between two email addresses in an Connect Customer instance.
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html">DescribeEmailAddress</a>:
     /// View current alias configurations for an email address.
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html">SearchEmailAddresses</a>:
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

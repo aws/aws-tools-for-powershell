@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Enables rehydration of chats for the lifespan of a contact. For more information about
     /// chat rehydration, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable
-    /// persistent chat</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// persistent chat</a> in the <i>Connect Customer Administrator Guide</i>.
     /// </summary>
     [Cmdlet("New", "CONNPersistentContactAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The contactId chosen for rehydration depends on the type chosen.</para><ul><li><para><c>ENTIRE_PAST_SESSION</c>: Rehydrates a chat from the most recently terminated past
         /// chat contact of the specified past ended chat session. To use this type, provide the
         /// <c>initialContactId</c> of the past ended chat session in the <c>sourceContactId</c>
-        /// field. In this type, Amazon Connect determines what the most recent chat contact on
-        /// the past ended chat session and uses it to start a persistent chat. </para></li><li><para><c>FROM_SEGMENT</c>: Rehydrates a chat from the specified past chat contact provided
+        /// field. In this type, Connect Customer determines what the most recent chat contact
+        /// on the past ended chat session and uses it to start a persistent chat. </para></li><li><para><c>FROM_SEGMENT</c>: Rehydrates a chat from the specified past chat contact provided
         /// in the <c>sourceContactId</c> field. </para></li></ul><para>The actual contactId used for rehydration is provided in the response of this API.</para><para>To illustrate how to use rehydration type, consider the following example: A customer
         /// starts a chat session. Agent a1 accepts the chat and a conversation starts between
         /// the customer and Agent a1. This first contact creates a contact ID <b>C1</b>. Agent

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Creates a prompt. For more information about prompts, such as supported file types
     /// and maximum length, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create
-    /// prompts</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// prompts</a> in the <i>Connect Customer Administrator Guide</i>.
     /// </summary>
     [Cmdlet("New", "CONNPrompt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreatePromptResponse")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

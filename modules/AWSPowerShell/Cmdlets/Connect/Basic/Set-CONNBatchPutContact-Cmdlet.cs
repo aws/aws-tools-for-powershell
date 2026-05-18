@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// <note><para>
-    /// Only the Amazon Connect outbound campaigns service principal is allowed to assume
+    /// Only the Connect Customer outbound campaigns service principal is allowed to assume
     /// a role in your account and call this API.
     /// </para></note><para>
-    /// Allows you to create a batch of contacts in Amazon Connect. The outbound campaigns
+    /// Allows you to create a batch of contacts in Connect Customer. The outbound campaigns
     /// capability ingests dial requests via the <a href="https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html">PutDialRequestBatch</a>
     /// API. It then uses BatchPutContact to create contacts corresponding to those dial requests.
     /// If agents are available, the dial requests are dialed out, which results in a voice
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

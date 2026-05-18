@@ -43,14 +43,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para><para>
     /// For information about how manual contact assignment works in the agent workspace,
     /// see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access
-    /// the Worklist app in the Amazon Connect agent workspace</a> in the <i>Amazon Connect
+    /// the Worklist app in the Connect Customer agent workspace</a> in the <i>Connect Customer
     /// Administrator Guide</i>. 
     /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
     /// This API only returns the manual assignment queues associated with a routing profile.
     /// Use the ListRoutingProfileQueues API to list the auto assignment queues for the routing
     /// profile.
-    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect
+    /// Customer endpoints and quotas</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNRoutingProfileManualAssignmentQueueList")]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact within the Amazon Connect instance.</para>
+        /// <para>The identifier of the contact within the Connect Customer instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

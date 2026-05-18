@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter QuickConnectConfig_QuickConnectType
         /// <summary>
         /// <para>
-        /// <para>The type of quick connect. In the Amazon Connect admin website, when you create a
-        /// quick connect, you are prompted to assign one of the following types: Agent (USER),
+        /// <para>The type of quick connect. In the Connect Customer admin website, when you create
+        /// a quick connect, you are prompted to assign one of the following types: Agent (USER),
         /// External (PHONE_NUMBER), or Queue (QUEUE). </para>
         /// </para>
         /// </summary>

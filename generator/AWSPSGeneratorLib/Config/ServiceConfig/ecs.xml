@@ -24,6 +24,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ContinueServiceDeployment" OutputProperty="ServiceDeploymentArn" Verb="Resume" Noun="ServiceDeployment" ShouldProcessTarget="ServiceDeploymentArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCapacityProvider" OutputProperty="CapacityProvider" Verb="New" Noun="CapacityProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AutoScalingGroupProvider_ManagedScaling_InstanceWarmupPeriod" NewName="ManagedScaling_InstanceWarmupPeriod" />

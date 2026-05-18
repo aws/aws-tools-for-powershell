@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Removes a list of analytics datasets associated with a given Amazon Connect instance.
+    /// Removes a list of analytics datasets associated with a given Connect Customer instance.
     /// You can disassociate multiple datasets in a single call.
     /// </summary>
     [Cmdlet("Unregister", "CONNBatchAnalyticsDataSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the target account. Use to disassociate a dataset from a different
-        /// account than the one containing the Amazon Connect instance. If not specified, by
-        /// default this value is the Amazon Web Services account that has the Amazon Connect
+        /// account than the one containing the Connect Customer instance. If not specified, by
+        /// default this value is the Amazon Web Services account that has the Connect Customer
         /// instance.</para>
         /// </para>
         /// </summary>

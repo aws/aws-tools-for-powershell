@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Places an inbound in-app, web, or video call to a contact, and then initiates the
     /// flow. It performs the actions in the flow that are specified (in ContactFlowId) and
-    /// present in the Amazon Connect instance (specified as InstanceId).
+    /// present in the Connect Customer instance (specified as InstanceId).
     /// </summary>
     [Cmdlet("Start", "CONNWebRTCContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.StartWebRTCContactResponse")]
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
-        /// Connect attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
+        /// <para>A custom key-value pair using an attribute map. The attributes are standard Connect
+        /// Customer attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
         /// keys can include only alphanumeric, -, and _ characters.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect
+        /// <para>The identifier of the flow for the call. To see the ContactFlowId in the Connect Customer
         /// admin website, on the navigation menu go to <b>Routing</b>, <b>Flows</b>. Choose the
         /// flow. On the flow page, under the name of the flow, choose <b>Show additional flow
         /// information</b>. The ContactFlowId is the last part of the ARN, shown here in bold:
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RelatedContactId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for an Amazon Connect contact. This identifier is related to
-        /// the contact starting.</para>
+        /// <para>The unique identifier for an Connect Customer contact. This identifier is related
+        /// to the contact starting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

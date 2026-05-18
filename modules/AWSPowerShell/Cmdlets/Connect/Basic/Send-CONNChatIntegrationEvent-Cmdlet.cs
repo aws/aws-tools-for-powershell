@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Processes chat integration events from Amazon Web Services or external integrations
-    /// to Amazon Connect. A chat integration event includes:
+    /// to Connect Customer. A chat integration event includes:
     /// 
     ///  <ul><li><para>
     /// SourceId, DestinationId, and Subtype: a set of identifiers, uniquely representing
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter NewSessionDetails_Attribute
         /// <summary>
         /// <para>
-        /// <para> A custom key-value pair using an attribute map. The attributes are standard Amazon
-        /// Connect attributes. They can be accessed in flows just like any other contact attributes.
+        /// <para> A custom key-value pair using an attribute map. The attributes are standard Connect
+        /// Customer attributes. They can be accessed in flows just like any other contact attributes.
         /// </para><para> There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
         /// keys can include only alphanumeric, dash, and underscore characters. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>Content of the message or event. This is required when <c>Type</c> is <c>MESSAGE</c>
         /// and for certain <c>ContentTypes</c> when <c>Type</c> is <c>EVENT</c>.</para><ul><li><para>For allowed message content, see the <c>Content</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a>
-        /// topic in the <i>Amazon Connect Participant Service API Reference</i>.</para></li><li><para>For allowed event content, see the <c>Content</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a>
-        /// topic in the <i>Amazon Connect Participant Service API Reference</i>. </para></li></ul>
+        /// topic in the <i>Connect Customer Participant Service API Reference</i>.</para></li><li><para>For allowed event content, see the <c>Content</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a>
+        /// topic in the <i>Connect Customer Participant Service API Reference</i>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>Type of content. This is required when <c>Type</c> is <c>MESSAGE</c> or <c>EVENT</c>.
         /// </para><ul><li><para>For allowed message content types, see the <c>ContentType</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a>
-        /// topic in the <i>Amazon Connect Participant Service API Reference</i>.</para></li><li><para>For allowed event content types, see the <c>ContentType</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a>
-        /// topic in the <i>Amazon Connect Participant Service API Reference</i>. </para></li></ul>
+        /// topic in the <i>Connect Customer Participant Service API Reference</i>.</para></li><li><para>For allowed event content types, see the <c>ContentType</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a>
+        /// topic in the <i>Connect Customer Participant Service API Reference</i>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,9 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>Chat system identifier, used in part to uniquely identify chat. This is associated
-        /// with the Amazon Connect instance and flow to be used to start chats. For Server Migration
-        /// Service, this is the phone number destination of inbound Server Migration Service
-        /// messages represented by an Amazon Web Services End User Messaging phone number ARN.</para>
+        /// with the Connect Customer instance and flow to be used to start chats. For Server
+        /// Migration Service, this is the phone number destination of inbound Server Migration
+        /// Service messages represented by an Amazon Web Services End User Messaging phone number
+        /// ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

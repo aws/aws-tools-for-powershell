@@ -51,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Metrics are only available while the contact is actively in queue.
     /// </para></li><li><para>
     /// For more information, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Position
-    /// in queue</a> metric in the <i>Amazon Connect Administrator Guide</i>. 
-    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
+    /// in queue</a> metric in the <i>Connect Customer Administrator Guide</i>. 
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect
+    /// Customer endpoints and quotas</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CONNContactMetric")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
+        /// <para>The identifier of the contact in this instance of Connect Customer. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

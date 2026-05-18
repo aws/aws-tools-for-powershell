@@ -45,12 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para><note><para>
     /// UK numbers with a 447 prefix are not allowed by default. Before you can dial these
     /// UK mobile numbers, you must submit a service quota increase request. For more information,
-    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
-    /// Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. 
+    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Connect
+    /// Customer Service Quotas</a> in the <i>Connect Customer Administrator Guide</i>. 
     /// </para></note><note><para>
     /// Campaign calls are not allowed by default. Before you can make a call with <c>TrafficType</c>
-    /// = <c>CAMPAIGN</c>, you must submit a service quota increase request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon
-    /// Connect campaigns</a>. 
+    /// = <c>CAMPAIGN</c>, you must submit a service quota increase request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Connect
+    /// Customer campaigns</a>. 
     /// </para></note><note><para>
     /// For Preview dialing mode, only the Amazon Connect outbound campaigns service principal
     /// is allowed to assume a role in your account and call this API with OutboundStrategy.
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
-        /// Connect attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
+        /// <para>A custom key-value pair using an attribute map. The attributes are standard Connect
+        /// Customer attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
         /// keys can include only alphanumeric, dash, and underscore characters.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the flow for the outbound call. To see the ContactFlowId in the
-        /// Amazon Connect admin website, on the navigation menu go to <b>Routing</b>, <b>Contact
+        /// Connect Customer admin website, on the navigation menu go to <b>Routing</b>, <b>Contact
         /// Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose <b>Show
         /// additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
         /// here in bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>A description of the voice contact that appears in the agent's snapshot in the CCP
         /// logs. For more information about CCP logs, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/download-ccp-logs.html">Download
-        /// and review CCP logs</a> in the <i>Amazon Connect Administrator Guide</i>.</para>
+        /// and review CCP logs</a> in the <i>Connect Customer Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SourcePhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number associated with the Amazon Connect instance, in E.164 format. If
+        /// <para>The phone number associated with the Connect Customer instance, in E.164 format. If
         /// you do not specify a source phone number, you must specify a queue.</para>
         /// </para>
         /// </summary>
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>Denotes the class of traffic. Calls with different traffic types are handled differently
-        /// by Amazon Connect. The default value is <c>GENERAL</c>. Use <c>CAMPAIGN</c> if <c>EnableAnswerMachineDetection</c>
+        /// by Connect Customer. The default value is <c>GENERAL</c>. Use <c>CAMPAIGN</c> if <c>EnableAnswerMachineDetection</c>
         /// is set to <c>true</c>. For all other cases, use <c>GENERAL</c>. </para>
         /// </para>
         /// </summary>

@@ -30,15 +30,15 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Replicates an Amazon Connect instance in the specified Amazon Web Services Region
-    /// and copies configuration information for Amazon Connect resources across Amazon Web
-    /// Services Regions. 
+    /// Replicates an Connect Customer instance in the specified Amazon Web Services Region
+    /// and copies configuration information for Connect Customer resources across Amazon
+    /// Web Services Regions. 
     /// 
     ///  
     /// <para>
-    /// For more information about replicating an Amazon Connect instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create
-    /// a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect Administrator
-    /// Guide</i>.
+    /// For more information about replicating an Connect Customer instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create
+    /// a replica of your existing Connect Customer instance</a> in the <i>Connect Customer
+    /// Administrator Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Copy", "CONNInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You can provide
         /// the <c>InstanceId</c>, or the entire ARN.</para>
         /// </para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ReplicaRegion
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Region where to replicate the Amazon Connect instance.</para>
+        /// <para>The Amazon Web Services Region where to replicate the Connect Customer instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

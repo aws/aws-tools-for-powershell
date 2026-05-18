@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Removes the alias association between two email addresses in an Amazon Connect instance.
+    /// Removes the alias association between two email addresses in an Connect Customer instance.
     /// After disassociation, emails sent to the former alias email address are no longer
     /// forwarded to the primary email address. Both email addresses continue to exist independently
     /// and can receive emails directly.
@@ -64,10 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// an empty body.
     /// </para></li><li><para>
     /// The timestamp of when the disassociation occurred.
-    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect
+    /// Customer endpoints and quotas</a>.
     /// </para><para><b>Related operations</b></para><ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateEmailAddressAlias.html">AssociateEmailAddressAlias</a>:
-    /// Associates an email address alias with an existing email address in an Amazon Connect
+    /// Associates an email address alias with an existing email address in an Connect Customer
     /// instance.
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html">DescribeEmailAddress</a>:
     /// View current alias configurations for an email address.
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

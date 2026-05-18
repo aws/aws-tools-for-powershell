@@ -30,11 +30,11 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a new queue for the specified Amazon Connect instance.
+    /// Creates a new queue for the specified Connect Customer instance.
     /// 
     ///  <important><ul><li><para>
     /// If the phone number is claimed to a traffic distribution group that was created in
-    /// the same Region as the Amazon Connect instance where you are calling this API, then
+    /// the same Region as the Connect Customer instance where you are calling this API, then
     /// you can use a full phone number ARN or a UUID for <c>OutboundCallerIdNumberId</c>.
     /// However, if the phone number is claimed to a traffic distribution group that is in
     /// one Region, and you are calling this API from an instance in another Amazon Web Services
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

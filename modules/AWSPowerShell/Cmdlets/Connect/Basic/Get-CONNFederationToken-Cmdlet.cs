@@ -30,18 +30,18 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Supports SAML sign-in for Amazon Connect. Retrieves a token for federation. The token
-    /// is for the Amazon Connect user which corresponds to the IAM credentials that were
-    /// used to invoke this action. 
+    /// Supports SAML sign-in for Connect Customer. Retrieves a token for federation. The
+    /// token is for the Connect Customer user which corresponds to the IAM credentials that
+    /// were used to invoke this action. 
     /// 
     ///  
     /// <para>
-    /// For more information about how SAML sign-in works in Amazon Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html&#xD;&#xA;            ">Configure SAML with IAM for Amazon Connect in the <i>Amazon Connect Administrator
+    /// For more information about how SAML sign-in works in Connect Customer, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html&#xD;&#xA;            ">Configure SAML with IAM for Connect Customer in the <i>Connect Customer Administrator
     /// Guide</i>.</a></para><note><para>
     /// This API doesn't support root users. If you try to invoke GetFederationToken with
     /// root credentials, an error message similar to the following one appears: 
     /// </para><para><c>Provided identity: Principal: .... User: .... cannot be used for federation with
-    /// Amazon Connect</c></para></note>
+    /// Connect Customer</c></para></note>
     /// </summary>
     [Cmdlet("Get", "CONNFederationToken")]
     [OutputType("Amazon.Connect.Model.Credentials")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

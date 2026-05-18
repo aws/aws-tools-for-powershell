@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Lists phone numbers claimed to your Amazon Connect instance or traffic distribution
+    /// Lists phone numbers claimed to your Connect Customer instance or traffic distribution
     /// group. If the provided <c>TargetArn</c> is a traffic distribution group, you can call
     /// this API in both Amazon Web Services Regions associated with traffic distribution
     /// group.
@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     /// For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set
-    /// Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator
+    /// Up Phone Numbers for Your Contact Center</a> in the <i>Connect Customer Administrator
     /// Guide</i>.
     /// </para><note><ul><li><para>
     /// When given an instance ARN, <c>ListPhoneNumbersV2</c> returns only the phone numbers
@@ -64,11 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
-        /// can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance that phone numbers are claimed to.
+        /// You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <c>TargetArn</c>
         /// and <c>InstanceId</c> are not provided, this API lists numbers claimed to all the
-        /// Amazon Connect instances belonging to your account in the same Amazon Web Services
+        /// Connect Customer instances belonging to your account in the same Amazon Web Services
         /// Region as the request.</para>
         /// </para>
         /// </summary>
@@ -120,10 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TargetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution
+        /// <para>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution
         /// groups that phone number inbound traffic is routed through. If both <c>TargetArn</c>
         /// and <c>InstanceId</c> input are not provided, this API lists numbers claimed to all
-        /// the Amazon Connect instances belonging to your account in the same Amazon Web Services
+        /// the Connect Customer instances belonging to your account in the same Amazon Web Services
         /// Region as the request.</para>
         /// </para>
         /// </summary>

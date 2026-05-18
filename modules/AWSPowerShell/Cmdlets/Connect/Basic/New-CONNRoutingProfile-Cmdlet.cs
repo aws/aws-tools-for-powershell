@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// agents and supervisors can't pick or assign any contacts from this routing profile.
         /// The limit of 10 array members applies to the maximum number of RoutingProfileManualAssignmentQueueConfig
         /// objects that can be passed during a CreateRoutingProfile API request. It is different
-        /// from the quota of 50 queues per routing profile per instance that is listed in Amazon
-        /// Connect service quotas.</para><para>Note: Use this config for chat, email, and task contacts. It does not support voice
+        /// from the quota of 50 queues per routing profile per instance that is listed in Connect
+        /// Customer service quotas.</para><para>Note: Use this config for chat, email, and task contacts. It does not support voice
         /// contacts.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -176,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The inbound queues associated with the routing profile. If no queue is added, the
         /// agent can make only outbound calls.</para><para>The limit of 10 array members applies to the maximum number of <c>RoutingProfileQueueConfig</c>
         /// objects that can be passed during a CreateRoutingProfile API request. It is different
-        /// from the quota of 50 queues per routing profile per instance that is listed in <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
-        /// Connect service quotas</a>. </para><para />
+        /// from the quota of 50 queues per routing profile per instance that is listed in <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Connect
+        /// Customer service quotas</a>. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

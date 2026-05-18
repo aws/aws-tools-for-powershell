@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a traffic distribution group given an Amazon Connect instance that has been
+    /// Creates a traffic distribution group given an Connect Customer instance that has been
     /// replicated.
     /// 
     ///  <note><para>
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// is returned.
     /// </para></note><para>
     /// For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set
-    /// up traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// up traffic distribution groups</a> in the <i>Connect Customer Administrator Guide</i>.
     /// 
     /// </para>
     /// </summary>
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance that has been replicated. You can find
-        /// the <c>instanceId</c> in the ARN of the instance.</para>
+        /// <para>The identifier of the Connect Customer instance that has been replicated. You can
+        /// find the <c>instanceId</c> in the ARN of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

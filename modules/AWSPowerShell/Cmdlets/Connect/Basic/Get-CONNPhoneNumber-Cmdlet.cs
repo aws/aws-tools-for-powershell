@@ -30,8 +30,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Gets details and status of a phone number that’s claimed to your Amazon Connect instance
-    /// or traffic distribution group.
+    /// Gets details and status of a phone number that’s claimed to your Connect Customer
+    /// instance or traffic distribution group.
     /// 
     ///  <important><para>
     /// If the number is claimed to a traffic distribution group, and you are calling in the

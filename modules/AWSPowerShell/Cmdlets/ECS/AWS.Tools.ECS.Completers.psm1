@@ -201,6 +201,13 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.DeploymentLifecycleHookAction
+        "Resume-ECSServiceDeployment/Action"
+        {
+            $v = "CONTINUE","ROLLBACK"
+            break
+        }
+
         # Amazon.ECS.DeploymentStrategy
         {
             ($_ -eq "New-ECSService/DeploymentConfiguration_Strategy") -Or
@@ -476,6 +483,7 @@ $ECS_Completers = {
 $ECS_map = @{
     "AccessLogConfiguration_Format"=@("New-ECSService","Update-ECSService")
     "AccessLogConfiguration_IncludeQueryParameter"=@("New-ECSService","Update-ECSService")
+    "Action"=@("Resume-ECSServiceDeployment")
     "AutoScalingGroupProvider_ManagedDraining"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
@@ -564,7 +572,8 @@ $ECS_SelectCompleters = {
 }
 
 $ECS_SelectMap = @{
-    "Select"=@("New-ECSCapacityProvider",
+    "Select"=@("Resume-ECSServiceDeployment",
+               "New-ECSCapacityProvider",
                "New-ECSCluster",
                "New-ECSDaemon",
                "New-ECSExpressGatewayService",

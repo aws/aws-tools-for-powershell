@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
-        /// Connect attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
+        /// <para>A custom key-value pair using an attribute map. The attributes are standard Connect
+        /// Customer attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
         /// keys can include only alphanumeric, dash, and underscore characters.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The ID of the previous contact when creating a transfer contact. This value can be
         /// provided only for external audio contacts. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Integrate
-        /// Amazon Connect Contact Lens with external voice systems</a> in the <i>Amazon Connect
+        /// Connect Customer Contact Lens with external voice systems</a> in the <i>Connect Customer
         /// Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RelatedContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
+        /// <para>The identifier of the contact in this instance of Connect Customer. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A set of system defined key-value pairs stored on individual contact segments (unique
-        /// contact ID) using an attribute map. The attributes are standard Amazon Connect attributes.
+        /// contact ID) using an attribute map. The attributes are standard Connect Customer attributes.
         /// They can be accessed in flows.</para><para>Attribute keys can include only alphanumeric, -, and _.</para><para>This field can be used to set Segment Contact Expiry as a duration in minutes.</para><note><para>To set contact expiry, a ValueMap must be specified containing the integer number
         /// of minutes the contact will be active for before expiring, with <c>SegmentAttributes</c>
         /// like { <c> "connect:ContactExpiry": {"ValueMap" : { "ExpiryDuration": { "ValueInteger":

@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Provides information about the queues for the specified Amazon Connect instance.
+    /// Provides information about the queues for the specified Connect Customer instance.
     /// 
     ///  
     /// <para>
@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// than 1000 agents and you limit the number of results of the API call in code.
     /// </para><para>
     /// For more information about queues, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html">Queues:
-    /// Standard and Agent</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// Standard and Agent</a> in the <i>Connect Customer Administrator Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNQueueList")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

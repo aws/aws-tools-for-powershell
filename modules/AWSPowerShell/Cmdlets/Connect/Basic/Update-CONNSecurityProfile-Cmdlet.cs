@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     /// For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security
-    /// Profiles</a> in the <i>Amazon Connect Administrator Guide</i>. For a mapping of the
-    /// API name and user interface name of the security profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
+    /// Profiles</a> in the <i>Connect Customer Administrator Guide</i>. For a mapping of
+    /// the API name and user interface name of the security profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
     /// of security profile permissions</a>. 
     /// </para>
     /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the hierarchy group that a security profile uses to restrict access
-        /// to resources in Amazon Connect.</para>
+        /// to resources in Connect Customer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AllowedAccessControlTag
         /// <summary>
         /// <para>
-        /// <para>The list of tags that a security profile uses to restrict access to resources in Amazon
-        /// Connect.</para><para />
+        /// <para>The list of tags that a security profile uses to restrict access to resources in Connect
+        /// Customer.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The list of resources that a security profile applies hierarchy restrictions to in
-        /// Amazon Connect. Following are acceptable ResourceNames: <c>User</c>.</para><para />
+        /// Connect Customer. Following are acceptable ResourceNames: <c>User</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -206,8 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TagRestrictedResource
         /// <summary>
         /// <para>
-        /// <para>The list of resources that a security profile applies tag restrictions to in Amazon
-        /// Connect.</para><para />
+        /// <para>The list of resources that a security profile applies tag restrictions to in Connect
+        /// Customer.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

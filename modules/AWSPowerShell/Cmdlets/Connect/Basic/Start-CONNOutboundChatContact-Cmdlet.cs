@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html">StartOutboundChatContact</a>
     /// Flow Action.
     /// </para><para>
-    /// For more information about using SMS or WhatsApp in Amazon Connect, see the following
-    /// topics in the <i>Amazon Connect Administrator Guide</i>:
+    /// For more information about using SMS or WhatsApp in Connect Customer, see the following
+    /// topics in the <i>Connect Customer Administrator Guide</i>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-sms-messaging.html">Set
     /// up SMS messaging</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/sms-number.html">Request
     /// an SMS-enabled phone number through Amazon Web Services End User Messaging SMS</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/whatsapp-integration.html">Set
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
-        /// Connect attributes, and can be accessed in flows just like any other contact attributes.</para><para />
+        /// <para>A custom key-value pair using an attribute map. The attributes are standard Connect
+        /// Customer attributes, and can be accessed in flows just like any other contact attributes.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect
+        /// <para>The identifier of the flow for the call. To see the ContactFlowId in the Connect Customer
         /// console user interface, on the navigation menu go to <b>Routing, Contact Flows</b>.
         /// Choose the flow. On the flow page, under the name of the flow, choose <b>Show additional
         /// flow information</b>. The ContactFlowId is the last part of the ARN, shown here in
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can find the instance ID in the
+        /// <para>The identifier of the Connect Customer instance. You can find the instance ID in the
         /// Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -239,8 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RelatedContactId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for an Amazon Connect contact. This identifier is related to
-        /// the contact starting.</para>
+        /// <para>The unique identifier for an Connect Customer contact. This identifier is related
+        /// to the contact starting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A set of system defined key-value pairs stored on individual contact segments using
-        /// an attribute map. The attributes are standard Amazon Connect attributes. They can
+        /// an attribute map. The attributes are standard Connect Customer attributes. They can
         /// be accessed in flows.</para><ul><li><para>Attribute keys can include only alphanumeric, <c>-</c>, and <c>_</c>.</para></li><li><para>This field can be used to show channel subtype, such as <c>connect:SMS</c> and <c>connect:WhatsApp</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

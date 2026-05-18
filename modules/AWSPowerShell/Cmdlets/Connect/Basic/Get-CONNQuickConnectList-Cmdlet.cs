@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Provides information about the quick connects for the specified Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides information about the quick connects for the specified Connect Customer instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNQuickConnectList")]
     [OutputType("Amazon.Connect.Model.QuickConnectSummary")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. Both Instance
         /// ID and Instance ARN are supported input formats. </para>
         /// </para>
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter QuickConnectType
         /// <summary>
         /// <para>
-        /// <para>The type of quick connect. In the Amazon Connect admin website, when you create a
-        /// quick connect, you are prompted to assign one of the following types: Agent (USER),
+        /// <para>The type of quick connect. In the Connect Customer admin website, when you create
+        /// a quick connect, you are prompted to assign one of the following types: Agent (USER),
         /// External (PHONE_NUMBER), or Queue (QUEUE).</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

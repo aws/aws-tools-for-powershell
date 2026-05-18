@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
+        /// <para>The identifier of the Connect Customer instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

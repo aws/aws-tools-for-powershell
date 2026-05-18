@@ -309,6 +309,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Collections.Hashtable PhysicalTableMap { get; set; }
         #endregion
         
+        #region Parameter SemanticModelConfiguration_SemanticMetadata
+        /// <summary>
+        /// <para>
+        /// <para>The dataset-level semantic metadata, including a description and custom instructions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QuickSight.Model.DataSetSemanticMetadata[] SemanticModelConfiguration_SemanticMetadata { get; set; }
+        #endregion
+        
         #region Parameter DataPrepConfiguration_SourceTableMap
         /// <summary>
         /// <para>
@@ -640,6 +654,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.RowLevelPermissionTagConfiguration_TagRule = new List<Amazon.QuickSight.Model.RowLevelPermissionTagRule>(this.RowLevelPermissionTagConfiguration_TagRule);
             }
+            if (this.SemanticModelConfiguration_SemanticMetadata != null)
+            {
+                context.SemanticModelConfiguration_SemanticMetadata = new List<Amazon.QuickSight.Model.DataSetSemanticMetadata>(this.SemanticModelConfiguration_SemanticMetadata);
+            }
             if (this.SemanticModelConfiguration_TableMap != null)
             {
                 context.SemanticModelConfiguration_TableMap = new Dictionary<System.String, Amazon.QuickSight.Model.SemanticTable>(StringComparer.Ordinal);
@@ -906,6 +924,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate SemanticModelConfiguration
             var requestSemanticModelConfigurationIsNull = true;
             request.SemanticModelConfiguration = new Amazon.QuickSight.Model.SemanticModelConfiguration();
+            List<Amazon.QuickSight.Model.DataSetSemanticMetadata> requestSemanticModelConfiguration_semanticModelConfiguration_SemanticMetadata = null;
+            if (cmdletContext.SemanticModelConfiguration_SemanticMetadata != null)
+            {
+                requestSemanticModelConfiguration_semanticModelConfiguration_SemanticMetadata = cmdletContext.SemanticModelConfiguration_SemanticMetadata;
+            }
+            if (requestSemanticModelConfiguration_semanticModelConfiguration_SemanticMetadata != null)
+            {
+                request.SemanticModelConfiguration.SemanticMetadata = requestSemanticModelConfiguration_semanticModelConfiguration_SemanticMetadata;
+                requestSemanticModelConfigurationIsNull = false;
+            }
             Dictionary<System.String, Amazon.QuickSight.Model.SemanticTable> requestSemanticModelConfiguration_semanticModelConfiguration_TableMap = null;
             if (cmdletContext.SemanticModelConfiguration_TableMap != null)
             {
@@ -1011,6 +1039,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.Status RowLevelPermissionTagConfiguration_Status { get; set; }
             public List<List<System.String>> RowLevelPermissionTagConfiguration_TagRuleConfiguration { get; set; }
             public List<Amazon.QuickSight.Model.RowLevelPermissionTagRule> RowLevelPermissionTagConfiguration_TagRule { get; set; }
+            public List<Amazon.QuickSight.Model.DataSetSemanticMetadata> SemanticModelConfiguration_SemanticMetadata { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.SemanticTable> SemanticModelConfiguration_TableMap { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
             public Amazon.QuickSight.DataSetUseAs UseAs { get; set; }

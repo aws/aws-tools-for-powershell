@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
+    /// This API is in preview release for Connect Customer and is subject to change.
     /// 
     ///  
     /// <para>
@@ -51,11 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para><c>SystemEndpoint</c> is not populated for contacts with initiation method of MONITOR,
     /// QUEUE_TRANSFER, or CALLBACK
     /// </para></li><li><para>
-    /// Contact information remains available in Amazon Connect for 24 months from the <c>InitiationTimestamp</c>,
-    /// and then it is deleted. Only contact information that is available in Amazon Connect
+    /// Contact information remains available in Connect Customer for 24 months from the <c>InitiationTimestamp</c>,
+    /// and then it is deleted. Only contact information that is available in Connect Customer
     /// is returned by this API.
-    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect
+    /// Customer endpoints and quotas</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CONNContact")]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

@@ -30,8 +30,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Returns all the available versions for the specified Amazon Connect instance and flow
-    /// identifier.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns all the available versions for the specified Connect Customer instance and
+    /// flow identifier.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNContactFlowVersionList")]
     [OutputType("Amazon.Connect.Model.ContactFlowVersionSummary")]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
+        /// <para>The identifier of the Connect Customer instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

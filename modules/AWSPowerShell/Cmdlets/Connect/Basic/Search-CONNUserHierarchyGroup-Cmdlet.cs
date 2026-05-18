@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Searches UserHierarchyGroups in an Amazon Connect instance, with optional filtering.
+    /// Searches UserHierarchyGroups in an Connect Customer instance, with optional filtering.
     /// 
     ///  <important><para>
     /// The UserHierarchyGroup with <c>"LevelId": "0"</c> is the foundation for building levels
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// <para>The identifier of the Connect Customer instance. You can find the instanceId in the
         /// ARN of the instance.</para>
         /// </para>
         /// </summary>

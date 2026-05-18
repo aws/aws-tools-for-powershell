@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Provides a pre-signed Amazon S3 URL in response for uploading your content.
     /// 
     ///  <important><para>
-    /// You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Amazon
-    /// Connect Case</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Amazon
-    /// Connect Email</a>. 
+    /// You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Connect
+    /// Customer Case</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Connect
+    /// Customer Email</a>. 
     /// </para></important>
     /// </summary>
     [Cmdlet("Start", "CONNAttachedFileUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Amazon Connect instance.</para>
+        /// <para>The unique identifier of the Connect Customer instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

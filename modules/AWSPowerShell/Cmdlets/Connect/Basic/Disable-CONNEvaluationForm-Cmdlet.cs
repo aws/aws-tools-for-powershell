@@ -30,9 +30,9 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deactivates an evaluation form in the specified Amazon Connect instance. After a form
-    /// is deactivated, it is no longer available for users to start new evaluations based
-    /// on the form.
+    /// Deactivates an evaluation form in the specified Connect Customer instance. After a
+    /// form is deactivated, it is no longer available for users to start new evaluations
+    /// based on the form.
     /// </summary>
     [Cmdlet("Disable", "CONNEvaluationForm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.DeactivateEvaluationFormResponse")]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

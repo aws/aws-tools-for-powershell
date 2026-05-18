@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates an hours of operation override in an Amazon Connect hours of operation resource.
+    /// Creates an hours of operation override in an Connect Customer hours of operation resource.
     /// </summary>
     [Cmdlet("New", "CONNHoursOfOperationOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
+        /// <para>The identifier of the Connect Customer instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

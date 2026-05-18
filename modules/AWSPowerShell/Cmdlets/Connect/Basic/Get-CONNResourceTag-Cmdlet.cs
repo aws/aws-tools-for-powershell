@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon
-    /// Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
+    /// For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Connect
+    /// Customer Identity-Based Policy Examples</a> in the <i>Connect Customer Administrator
     /// Guide</i>.
     /// </para>
     /// </summary>
@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource. All Amazon Connect resources (instances,
+        /// <para>The Amazon Resource Name (ARN) of the resource. All Connect Customer resources (instances,
         /// queues, flows, routing profiles, etc) have an ARN. To locate the ARN for an instance,
         /// for example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">Find
-        /// your Amazon Connect instance ID/ARN</a>. </para>
+        /// your Connect Customer instance ID/ARN</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

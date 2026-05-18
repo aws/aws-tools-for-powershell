@@ -30,13 +30,13 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a new predefined attribute for the specified Amazon Connect instance. A <i>predefined
-    /// attribute</i> is made up of a name and a value.
+    /// Creates a new predefined attribute for the specified Connect Customer instance. A
+    /// <i>predefined attribute</i> is made up of a name and a value.
     /// 
     ///  
     /// <para>
-    /// For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon
-    /// Connect quotas</a>.
+    /// For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Connect
+    /// Customer quotas</a>.
     /// </para><para><b>Use cases</b></para><para>
     /// Following are common uses cases for this API:
     /// </para><ul><li><para>
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// unit names used in your organization. This is a use case where information for a contact
     /// varies between transfers or conferences. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use
     /// contact segment attributes</a>.
-    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect
+    /// Customer endpoints and quotas</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CONNPredefinedAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AttributeConfiguration_EnableValueValidationOnAssociation
         /// <summary>
         /// <para>
-        /// <para>When this parameter is set to true, Amazon Connect enforces strict validation on the
-        /// specific values, if the values are predefined in attributes. The contact will store
-        /// only valid and predefined values for the predefined attribute key.</para>
+        /// <para>When this parameter is set to true, Connect Customer enforces strict validation on
+        /// the specific values, if the values are predefined in attributes. The contact will
+        /// store only valid and predefined values for the predefined attribute key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can find the instance ID in the
+        /// <para>The identifier of the Connect Customer instance. You can find the instance ID in the
         /// Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>Values that enable you to categorize your predefined attributes. You can use them
-        /// in custom UI elements across the Amazon Connect admin website.</para><para />
+        /// in custom UI elements across the Connect Customer admin website.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

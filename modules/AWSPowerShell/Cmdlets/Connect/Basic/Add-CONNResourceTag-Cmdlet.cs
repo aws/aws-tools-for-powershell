@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Some of the supported resource types are agents, routing profiles, queues, quick connects,
     /// flows, agent statuses, hours of operation, phone numbers, security profiles, and task
     /// templates. For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging
-    /// resources in Amazon Connect</a>.
+    /// resources in Connect Customer</a>.
     /// </para><para>
-    /// For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon
-    /// Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
+    /// For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Connect
+    /// Customer Identity-Based Policy Examples</a> in the <i>Connect Customer Administrator
     /// Guide</i>.
     /// </para>
     /// </summary>

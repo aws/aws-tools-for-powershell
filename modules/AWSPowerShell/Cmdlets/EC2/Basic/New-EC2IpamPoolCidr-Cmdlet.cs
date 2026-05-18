@@ -166,6 +166,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? PreviewNextCidr { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The key/value combination of a tag assigned to the resource. Use the tag key in the
+        /// filter name and the tag value as the filter value. For example, to find all resources
+        /// that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>, specify <c>tag:Owner</c>
+        /// for the filter name and <c>TeamA</c> for the filter value.</para><para>If you specify tags, the request is authorized against the allocation resource in
+        /// addition to the pool resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -245,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.NetmaskLength = this.NetmaskLength;
             context.PreviewNextCidr = this.PreviewNextCidr;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -296,6 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PreviewNextCidr != null)
             {
                 request.PreviewNextCidr = cmdletContext.PreviewNextCidr.Value;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -361,6 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String IpamPoolId { get; set; }
             public System.Int32? NetmaskLength { get; set; }
             public System.Boolean? PreviewNextCidr { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.AllocateIpamPoolCidrResponse, NewEC2IpamPoolCidrCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IpamPoolAllocation;
         }

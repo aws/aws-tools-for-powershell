@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Send outbound email for outbound campaigns. For more information about outbound campaigns,
     /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html">Set
-    /// up Amazon Connect outbound campaigns</a>.
+    /// up Connect Customer outbound campaigns</a>.
     /// 
     ///  <note><para>
-    /// Only the Amazon Connect outbound campaigns service principal is allowed to assume
+    /// Only the Connect Customer outbound campaigns service principal is allowed to assume
     /// a role in your account and call this API.
     /// </para></note>
     /// </summary>
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

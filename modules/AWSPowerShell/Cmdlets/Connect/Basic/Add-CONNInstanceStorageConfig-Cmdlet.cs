@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
+    /// This API is in preview release for Connect Customer and is subject to change.
     /// 
     ///  
     /// <para>
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter StorageConfigKinesisVideoStreamConfigEncryptionConfigKeyId
         /// <summary>
         /// <para>
-        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para><para>Amazon Connect supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><c>SYMMETRIC_DEFAULT</c></a>. </para></note>
+        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para><para>Connect Customer supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><c>SYMMETRIC_DEFAULT</c></a>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter StorageConfigS3ConfigEncryptionConfigKeyId
         /// <summary>
         /// <para>
-        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para><para>Amazon Connect supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><c>SYMMETRIC_DEFAULT</c></a>. </para></note>
+        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para><para>Connect Customer supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><c>SYMMETRIC_DEFAULT</c></a>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

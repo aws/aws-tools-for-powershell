@@ -14,10 +14,14 @@ Set-Alias -Name Create-IAMAAAnalyzer -Value New-IAMAAAnalyzer
 Set-Alias -Name IAMAA-CreateAnalyzer -Value New-IAMAAAnalyzer
 Set-Alias -Name Create-IAMAAArchiveRule -Value New-IAMAAArchiveRule
 Set-Alias -Name IAMAA-CreateArchiveRule -Value New-IAMAAArchiveRule
+Set-Alias -Name Create-IAMAAServiceLinkedAnalyzer -Value New-IAMAAServiceLinkedAnalyzer
+Set-Alias -Name IAMAA-CreateServiceLinkedAnalyzer -Value New-IAMAAServiceLinkedAnalyzer
 Set-Alias -Name Delete-IAMAAAnalyzer -Value Remove-IAMAAAnalyzer
 Set-Alias -Name IAMAA-DeleteAnalyzer -Value Remove-IAMAAAnalyzer
 Set-Alias -Name Delete-IAMAAArchiveRule -Value Remove-IAMAAArchiveRule
 Set-Alias -Name IAMAA-DeleteArchiveRule -Value Remove-IAMAAArchiveRule
+Set-Alias -Name Delete-IAMAAServiceLinkedAnalyzer -Value Remove-IAMAAServiceLinkedAnalyzer
+Set-Alias -Name IAMAA-DeleteServiceLinkedAnalyzer -Value Remove-IAMAAServiceLinkedAnalyzer
 Set-Alias -Name Generate-IAMAAFindingRecommendation -Value Start-IAMAAFindingRecommendation
 Set-Alias -Name IAMAA-GenerateFindingRecommendation -Value Start-IAMAAFindingRecommendation
 Set-Alias -Name IAMAA-GetAccessPreview -Value Get-IAMAAAccessPreview
@@ -11559,6 +11563,9 @@ Set-Alias -Name EC2-DescribeIpamExternalResourceVerificationTokens -Value Get-EC
 Set-Alias -Name Describe-EC2IpamPolicies -Value Get-EC2IpamPolicy
 Set-Alias -Name Describe-EC2IpamPolicy -Value Get-EC2IpamPolicy
 Set-Alias -Name EC2-DescribeIpamPolicies -Value Get-EC2IpamPolicy
+Set-Alias -Name Describe-EC2IpamPoolAllocations -Value Get-EC2IpamPoolAllocationDetail
+Set-Alias -Name Describe-EC2IpamPoolAllocationDetail -Value Get-EC2IpamPoolAllocationDetail
+Set-Alias -Name EC2-DescribeIpamPoolAllocations -Value Get-EC2IpamPoolAllocationDetail
 Set-Alias -Name Describe-EC2IpamPools -Value Get-EC2IpamPool
 Set-Alias -Name Describe-EC2IpamPool -Value Get-EC2IpamPool
 Set-Alias -Name EC2-DescribeIpamPools -Value Get-EC2IpamPool
@@ -12167,6 +12174,8 @@ Set-Alias -Name EC2-ModifyIpam -Value Edit-EC2Ipam
 Set-Alias -Name Modify-EC2IpamPolicyAllocationRules -Value Edit-EC2IpamPolicyAllocationRule
 Set-Alias -Name Modify-EC2IpamPolicyAllocationRule -Value Edit-EC2IpamPolicyAllocationRule
 Set-Alias -Name EC2-ModifyIpamPolicyAllocationRules -Value Edit-EC2IpamPolicyAllocationRule
+Set-Alias -Name Modify-EC2IpamPoolAllocation -Value Edit-EC2IpamPoolAllocation
+Set-Alias -Name EC2-ModifyIpamPoolAllocation -Value Edit-EC2IpamPoolAllocation
 Set-Alias -Name Modify-EC2IpamPool -Value Edit-EC2IpamPool
 Set-Alias -Name EC2-ModifyIpamPool -Value Edit-EC2IpamPool
 Set-Alias -Name Modify-EC2IpamPrefixListResolver -Value Edit-EC2IpamPrefixListResolver
@@ -12579,6 +12588,8 @@ Set-Alias -Name Upload-ECRLayerPart -Value Send-ECRLayerPart
 Set-Alias -Name ECR-UploadLayerPart -Value Send-ECRLayerPart
 Set-Alias -Name Validate-ECRPullThroughCacheRule -Value Test-ECRPullThroughCacheRule
 Set-Alias -Name ECR-ValidatePullThroughCacheRule -Value Test-ECRPullThroughCacheRule
+Set-Alias -Name Continue-ECSServiceDeployment -Value Resume-ECSServiceDeployment
+Set-Alias -Name ECS-ContinueServiceDeployment -Value Resume-ECSServiceDeployment
 Set-Alias -Name Create-ECSCapacityProvider -Value New-ECSCapacityProvider
 Set-Alias -Name ECS-CreateCapacityProvider -Value New-ECSCapacityProvider
 Set-Alias -Name Create-ECSCluster -Value New-ECSCluster

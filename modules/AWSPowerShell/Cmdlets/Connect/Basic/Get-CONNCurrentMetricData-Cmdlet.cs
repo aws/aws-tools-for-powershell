@@ -30,12 +30,12 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Gets the real-time metric data from the specified Amazon Connect instance.
+    /// Gets the real-time metric data from the specified Connect Customer instance.
     /// 
     ///  
     /// <para>
     /// For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
-    /// definitions</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// definitions</a> in the <i>Connect Customer Administrator Guide</i>.
     /// </para><note><para>
     /// When you make a successful API request, you can expect the following metric values
     /// in the response:
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The metrics to retrieve. Specify the name or metricId, and unit for each metric. The
         /// following metrics are available. For a description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
-        /// definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</para><note><para> MetricId should be used to reference custom metrics or out of the box metrics as
+        /// definitions</a> in the <i>Connect Customer Administrator Guide</i>.</para><note><para> MetricId should be used to reference custom metrics or out of the box metrics as
         /// Arn. If using MetricId, the limit is 10 MetricId per request.</para></note><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#aftercallwork-real-time">ACW</a></para></dd><dt>AGENTS_AVAILABLE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#available-real-time">Available</a></para></dd><dt>AGENTS_ERROR</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#error-real-time">Error</a></para></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#non-productive-time-real-time">NPT
         /// (Non-Productive Time)</a></para></dd><dt>AGENTS_ON_CALL</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time">On
         /// contact</a></para></dd><dt>AGENTS_ON_CONTACT</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time">On
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

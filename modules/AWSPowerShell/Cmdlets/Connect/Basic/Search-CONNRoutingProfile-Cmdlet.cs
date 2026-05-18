@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Searches routing profiles in an Amazon Connect instance, with optional filtering.
+    /// Searches routing profiles in an Connect Customer instance, with optional filtering.
     /// 
     ///  <note><para><c>SearchRoutingProfiles</c> does not populate LastModifiedRegion, LastModifiedTime,
     /// MediaConcurrencies.CrossChannelBehavior, and AgentAvailabilityTimer in its response,
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

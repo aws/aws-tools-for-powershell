@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Submits a contact evaluation in the specified Amazon Connect instance. Answers included
+    /// Submits a contact evaluation in the specified Connect Customer instance. Answers included
     /// in the request are merged with existing answers for the given evaluation. If no answers
     /// or notes are passed, the evaluation is submitted with the existing answers and notes.
     /// You can delete an answer or note by passing an empty object (<c>{}</c>) to the question
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SubmittedBy_ConnectUserArn
         /// <summary>
         /// <para>
-        /// <para>Represents the Amazon Connect ARN of the user.</para>
+        /// <para>Represents the Connect Customer ARN of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Gets metric data from the specified Amazon Connect instance. 
+    /// Gets metric data from the specified Connect Customer instance. 
     /// 
     ///  
     /// <para><c>GetMetricDataV2</c> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>,
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para><para>
     /// For a description of the historical metrics that are supported by <c>GetMetricDataV2</c>
     /// and <c>GetMetricData</c>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
-    /// definitions</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// definitions</a> in the <i>Connect Customer Administrator Guide</i>.
     /// </para><note><para>
     /// When you make a successful API request, you can expect the following metric values
     /// in the response:
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>Q_CONNECT_ENABLED</c>
         /// | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c>
         /// | <c>TEST_CASE</c> | <c>TEST_CASE_EXECUTION_FAILURE_REASON</c> | <c>TEST_CASE_EXECUTION_RESULT</c>
-        /// | <c>TEST_CASE_EXECUTION_STATE</c></para><note><para>The following filter keys correspond to Amazon Connect resources and are used for
+        /// | <c>TEST_CASE_EXECUTION_STATE</c></para><note><para>The following filter keys correspond to Connect Customer resources and are used for
         /// authorizing requests. A <c>GetMetricDataV2</c> request requires at least one of these
         /// filters:</para><para><c>QUEUE</c>, <c>ROUTING_PROFILE</c>, <c>AGENT</c>, <c>AGENT_HIERARCHY_LEVEL_ONE</c>,
         /// <c>AGENT_HIERARCHY_LEVEL_TWO</c>, <c>AGENT_HIERARCHY_LEVEL_THREE</c>, <c>AGENT_HIERARCHY_LEVEL_FOUR</c>,
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// values for the <c>contact/segmentAttributes/connect:ValidationTestType</c> filter
         /// key. This filter is available only for contact record-driven metrics.</para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-outbound-campaigns_Campaign.html">Campaign</a>
         /// ARNs are valid filter values for the <c>CAMPAIGN</c> filter key.</para></li><li><para>To filter by phone number, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-historical-metrics-report.html">Create
-        /// a historical metrics report</a> in the <i>Amazon Connect Administrator Guide</i>.</para></li></ul><para />
+        /// a historical metrics report</a> in the <i>Connect Customer Administrator Guide</i>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -189,8 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para><c>IntervalPeriod</c>: An aggregated grouping applied to request metrics. Valid <c>IntervalPeriod</c>
         /// values are: <c>FIFTEEN_MIN</c> | <c>THIRTY_MIN</c> | <c>HOUR</c> | <c>DAY</c> | <c>WEEK</c>
         /// | <c>TOTAL</c>. </para><para>For example, if <c>IntervalPeriod</c> is selected <c>THIRTY_MIN</c>, <c>StartTime</c>
-        /// and <c>EndTime</c> differs by 1 day, then Amazon Connect returns 48 results in the
-        /// response. Each result is aggregated by the THIRTY_MIN period. By default Amazon Connect
+        /// and <c>EndTime</c> differs by 1 day, then Connect Customer returns 48 results in the
+        /// response. Each result is aggregated by the THIRTY_MIN period. By default Connect Customer
         /// aggregates results based on the <c>TOTAL</c> interval period. </para><para>The following list describes restrictions on <c>StartTime</c> and <c>EndTime</c> based
         /// on what <c>IntervalPeriod</c> is requested. </para><ul><li><para><c>FIFTEEN_MIN</c>: The difference between <c>StartTime</c> and <c>EndTime</c> must
         /// be less than 3 days.</para></li><li><para><c>THIRTY_MIN</c>: The difference between <c>StartTime</c> and <c>EndTime</c> must
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The metrics to retrieve. Specify the name or metricId, groupings, and filters for
         /// each metric. The following historical metrics are available. For a description of
         /// each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
-        /// definition</a> in the <i>Amazon Connect Administrator Guide</i>.</para><note><para>MetricId should be used to reference custom metrics or out of the box metrics as Arn.
+        /// definition</a> in the <i>Connect Customer Administrator Guide</i>.</para><note><para>MetricId should be used to reference custom metrics or out of the box metrics as Arn.
         /// If using MetricId, the limit is 20 MetricId per request.</para></note><dl><dt>ABANDONMENT_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#abandonment-rate">Abandonment
         /// rate</a></para></dd><dt>AGENT_ADHERENT_TIME</dt><dd><para>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting,
@@ -580,7 +580,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource. This includes the <c>instanceId</c>
-        /// an Amazon Connect instance.</para>
+        /// an Connect Customer instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

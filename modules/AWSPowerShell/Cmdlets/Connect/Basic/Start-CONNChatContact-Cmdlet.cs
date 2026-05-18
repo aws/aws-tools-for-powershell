@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Initiates a flow to start a new chat for the customer. Response of this API provides
     /// a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>
-    /// API in the Amazon Connect Participant Service.
+    /// API in the Connect Customer Participant Service.
     /// 
     ///  
     /// <para>
@@ -51,11 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// account may not support the ability to configure custom chat durations. For more information,
     /// contact Amazon Web Services Support. 
     /// </para><para>
-    /// For more information about chat, see the following topics in the <i>Amazon Connect
+    /// For more information about chat, see the following topics in the <i>Connect Customer
     /// Administrator Guide</i>: 
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html">Concepts:
-    /// Web and mobile messaging capabilities in Amazon Connect</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a></para></li></ul>
+    /// Web and mobile messaging capabilities in Connect Customer</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect
+    /// Customer Chat security best practices</a></para></li></ul>
     /// </summary>
     [Cmdlet("Start", "CONNChatContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.StartChatContactResponse")]
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
-        /// Connect attributes. They can be accessed in flows just like any other contact attributes.
+        /// <para>A custom key-value pair using an attribute map. The attributes are standard Connect
+        /// Customer attributes. They can be accessed in flows just like any other contact attributes.
         /// </para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
         /// keys can include only alphanumeric, dash, and underscore characters.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the flow for initiating the chat. To see the ContactFlowId in the
-        /// Amazon Connect admin website, on the navigation menu go to <b>Routing</b>, <b>Flows</b>.
+        /// Connect Customer admin website, on the navigation menu go to <b>Routing</b>, <b>Flows</b>.
         /// Choose the flow. On the flow page, under the name of the flow, choose <b>Show additional
         /// flow information</b>. The ContactFlowId is the last part of the ARN, shown here in
         /// bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// is required for persistent chat. </para><ul><li><para><c>ENTIRE_PAST_SESSION</c>: Rehydrates a chat from the most recently terminated past
         /// chat contact of the specified past ended chat session. To use this type, provide the
         /// <c>initialContactId</c> of the past ended chat session in the <c>sourceContactId</c>
-        /// field. In this type, Amazon Connect determines the most recent chat contact on the
+        /// field. In this type, Connect Customer determines the most recent chat contact on the
         /// specified chat session that has ended, and uses it to start a persistent chat. </para></li><li><para><c>FROM_SEGMENT</c>: Rehydrates a chat from the past chat contact that is specified
         /// in the <c>sourceContactId</c> field. </para></li></ul><para>The actual contactId used for rehydration is provided in the response of this API.
         /// </para>
@@ -228,8 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RelatedContactId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for an Amazon Connect contact. This identifier is related to
-        /// the chat starting.</para><note><para>You cannot provide data for both RelatedContactId and PersistentChat. </para></note>
+        /// <para>The unique identifier for an Connect Customer contact. This identifier is related
+        /// to the chat starting.</para><note><para>You cannot provide data for both RelatedContactId and PersistentChat. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A set of system defined key-value pairs stored on individual contact segments using
-        /// an attribute map. The attributes are standard Amazon Connect attributes. They can
+        /// an attribute map. The attributes are standard Connect Customer attributes. They can
         /// be accessed in flows.</para><para>Attribute keys can include only alphanumeric, -, and _.</para><para>This field can be used to show channel subtype, such as <c>connect:Guide</c>.</para><note><para>The types <c>application/vnd.amazonaws.connect.message.interactive</c> and <c>application/vnd.amazonaws.connect.message.interactive.response</c>
         /// must be present in the SupportedMessagingContentTypes field of this API in order to
         /// set <c>SegmentAttributes</c> as {<c> "connect:Subtype": {"valueString" : "connect:Guide"

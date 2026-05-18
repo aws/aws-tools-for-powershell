@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Searches for available phone numbers that you can claim to your Amazon Connect instance
+    /// Searches for available phone numbers that you can claim to your Connect Customer instance
     /// or traffic distribution group. If the provided <c>TargetArn</c> is a traffic distribution
     /// group, you can call this API in both Amazon Web Services Regions associated with the
     /// traffic distribution group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
-        /// can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance that phone numbers are claimed to.
+        /// You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter
         /// <c>InstanceId</c> or <c>TargetArn</c>. </para>
         /// </para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TargetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution
+        /// <para>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution
         /// groups that phone number inbound traffic is routed through. You must enter <c>InstanceId</c>
         /// or <c>TargetArn</c>. </para>
         /// </para>

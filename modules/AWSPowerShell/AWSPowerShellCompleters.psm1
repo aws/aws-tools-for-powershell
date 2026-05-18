@@ -138,7 +138,8 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.Type
         {
             ($_ -eq "Get-IAMAAAnalyzerList/Type") -Or
-            ($_ -eq "New-IAMAAAnalyzer/Type")
+            ($_ -eq "New-IAMAAAnalyzer/Type") -Or
+            ($_ -eq "New-IAMAAServiceLinkedAnalyzer/Type")
         }
         {
             $v = "ACCOUNT","ACCOUNT_INTERNAL_ACCESS","ACCOUNT_UNUSED_ACCESS","ORGANIZATION","ORGANIZATION_INTERNAL_ACCESS","ORGANIZATION_UNUSED_ACCESS"
@@ -166,7 +167,7 @@ $IAMAA_map = @{
     "ResourceType"=@("Get-IAMAAAnalyzedResourceList","Test-IAMAANoPublicAccess")
     "Sort_OrderBy"=@("Get-IAMAAFindingList","Get-IAMAAFindingsV2List")
     "Status"=@("Update-IAMAAFinding")
-    "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer")
+    "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer","New-IAMAAServiceLinkedAnalyzer")
     "ValidatePolicyResourceType"=@("Use-IAMAAPolicyValidation")
 }
 
@@ -228,8 +229,10 @@ $IAMAA_SelectMap = @{
                "New-IAMAAAccessPreview",
                "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
+               "New-IAMAAServiceLinkedAnalyzer",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",
+               "Remove-IAMAAServiceLinkedAnalyzer",
                "Start-IAMAAFindingRecommendation",
                "Get-IAMAAAccessPreview",
                "Get-IAMAAAnalyzedResource",
@@ -30858,6 +30861,7 @@ $EC2_SelectMap = @{
                "Get-EC2IpamByoasn",
                "Get-EC2IpamExternalResourceVerificationToken",
                "Get-EC2IpamPolicy",
+               "Get-EC2IpamPoolAllocationDetail",
                "Get-EC2IpamPool",
                "Get-EC2IpamPrefixListResolver",
                "Get-EC2IpamPrefixListResolverTarget",
@@ -31148,6 +31152,7 @@ $EC2_SelectMap = @{
                "Edit-EC2Ipam",
                "Edit-EC2IpamPolicyAllocationRule",
                "Edit-EC2IpamPool",
+               "Edit-EC2IpamPoolAllocation",
                "Edit-EC2IpamPrefixListResolver",
                "Edit-EC2IpamPrefixListResolverTarget",
                "Edit-EC2IpamResourceCidr",
@@ -31700,6 +31705,13 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.DeploymentLifecycleHookAction
+        "Resume-ECSServiceDeployment/Action"
+        {
+            $v = "CONTINUE","ROLLBACK"
+            break
+        }
+
         # Amazon.ECS.DeploymentStrategy
         {
             ($_ -eq "New-ECSService/DeploymentConfiguration_Strategy") -Or
@@ -31975,6 +31987,7 @@ $ECS_Completers = {
 $ECS_map = @{
     "AccessLogConfiguration_Format"=@("New-ECSService","Update-ECSService")
     "AccessLogConfiguration_IncludeQueryParameter"=@("New-ECSService","Update-ECSService")
+    "Action"=@("Resume-ECSServiceDeployment")
     "AutoScalingGroupProvider_ManagedDraining"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
@@ -32063,7 +32076,8 @@ $ECS_SelectCompleters = {
 }
 
 $ECS_SelectMap = @{
-    "Select"=@("New-ECSCapacityProvider",
+    "Select"=@("Resume-ECSServiceDeployment",
+               "New-ECSCapacityProvider",
                "New-ECSCluster",
                "New-ECSDaemon",
                "New-ECSExpressGatewayService",

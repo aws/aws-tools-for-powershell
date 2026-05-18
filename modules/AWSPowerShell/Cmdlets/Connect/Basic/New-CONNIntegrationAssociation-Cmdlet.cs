@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates an Amazon Web Services resource association with an Amazon Connect instance.
+    /// Creates an Amazon Web Services resource association with an Connect Customer instance.
     /// </summary>
     [Cmdlet("New", "CONNIntegrationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateIntegrationAssociationResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter IntegrationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the integration.</para><note><para>When integrating with Amazon Web Services End User Messaging, the Amazon Connect and
-        /// Amazon Web Services End User Messaging instances must be in the same account.</para></note>
+        /// <para>The Amazon Resource Name (ARN) of the integration.</para><note><para>When integrating with Amazon Web Services End User Messaging, the Connect Customer
+        /// and Amazon Web Services End User Messaging instances must be in the same account.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

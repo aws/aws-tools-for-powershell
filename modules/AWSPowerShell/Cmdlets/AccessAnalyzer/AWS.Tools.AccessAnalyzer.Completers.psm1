@@ -138,7 +138,8 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.Type
         {
             ($_ -eq "Get-IAMAAAnalyzerList/Type") -Or
-            ($_ -eq "New-IAMAAAnalyzer/Type")
+            ($_ -eq "New-IAMAAAnalyzer/Type") -Or
+            ($_ -eq "New-IAMAAServiceLinkedAnalyzer/Type")
         }
         {
             $v = "ACCOUNT","ACCOUNT_INTERNAL_ACCESS","ACCOUNT_UNUSED_ACCESS","ORGANIZATION","ORGANIZATION_INTERNAL_ACCESS","ORGANIZATION_UNUSED_ACCESS"
@@ -166,7 +167,7 @@ $IAMAA_map = @{
     "ResourceType"=@("Get-IAMAAAnalyzedResourceList","Test-IAMAANoPublicAccess")
     "Sort_OrderBy"=@("Get-IAMAAFindingList","Get-IAMAAFindingsV2List")
     "Status"=@("Update-IAMAAFinding")
-    "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer")
+    "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer","New-IAMAAServiceLinkedAnalyzer")
     "ValidatePolicyResourceType"=@("Use-IAMAAPolicyValidation")
 }
 
@@ -228,8 +229,10 @@ $IAMAA_SelectMap = @{
                "New-IAMAAAccessPreview",
                "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
+               "New-IAMAAServiceLinkedAnalyzer",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",
+               "Remove-IAMAAServiceLinkedAnalyzer",
                "Start-IAMAAFindingRecommendation",
                "Get-IAMAAAccessPreview",
                "Get-IAMAAAnalyzedResource",

@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Initiates a flow to start a new task contact. For more information about task contacts,
     /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html">Concepts:
-    /// Tasks in Amazon Connect</a> in the <i>Amazon Connect Administrator Guide</i>. 
+    /// Tasks in Connect Customer</a> in the <i>Connect Customer Administrator Guide</i>.
+    /// 
     /// 
     ///  
     /// <para>
@@ -57,13 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <c>QuickConnectID</c>, or <c>TaskTemplateID</c>. Only one parameter is required as
     /// long as the task template has a flow configured to run it. If more than one parameter
     /// is specified, or only the <c>TaskTemplateID</c> is specified but it does not have
-    /// a flow configured, the request returns an error because Amazon Connect cannot identify
+    /// a flow configured, the request returns an error because Connect Customer cannot identify
     /// the unique flow to run when the task is created.
     /// </para><para>
     /// A <c>ServiceQuotaExceededException</c> occurs when the number of open tasks exceeds
     /// the active tasks quota or there are already 12 tasks referencing the same <c>PreviousContactId</c>.
-    /// For more information about service quotas for task contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
-    /// Connect service quotas</a> in the <i>Amazon Connect Administrator Guide</i>. 
+    /// For more information about service quotas for task contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Connect
+    /// Customer service quotas</a> in the <i>Connect Customer Administrator Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CONNTaskContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -98,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
-        /// Connect attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
+        /// <para>A custom key-value pair using an attribute map. The attributes are standard Connect
+        /// Customer attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
         /// keys can include only alphanumeric, dash, and underscore characters.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -116,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the flow for initiating the tasks. To see the ContactFlowId in the
-        /// Amazon Connect admin website, on the navigation menu go to <b>Routing</b>, <b>Flows</b>.
+        /// Connect Customer admin website, on the navigation menu go to <b>Routing</b>, <b>Flows</b>.
         /// Choose the flow. On the flow page, under the name of the flow, choose <b>Show additional
         /// flow information</b>. The ContactFlowId is the last part of the ARN, shown here in
         /// bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
@@ -139,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
@@ -247,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A set of system defined key-value pairs stored on individual contact segments (unique
-        /// contact ID) using an attribute map. The attributes are standard Amazon Connect attributes.
+        /// contact ID) using an attribute map. The attributes are standard Connect Customer attributes.
         /// They can be accessed in flows.</para><para>Attribute keys can include only alphanumeric, -, and _.</para><para>This field can be used to set Contact Expiry as a duration in minutes and set a UserId
         /// for the User who created a task.</para><note><para>To set contact expiry, a ValueMap must be specified containing the integer number
         /// of minutes the contact will be active for before expiring, with <c>SegmentAttributes</c>
@@ -271,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>A unique identifier for the task template. For more information about task templates,
         /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/task-templates.html">Create
-        /// task templates</a> in the <i>Amazon Connect Administrator Guide</i>. </para>
+        /// task templates</a> in the <i>Connect Customer Administrator Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

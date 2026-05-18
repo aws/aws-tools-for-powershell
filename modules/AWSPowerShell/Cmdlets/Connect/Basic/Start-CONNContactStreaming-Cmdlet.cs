@@ -35,13 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     ///  For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable
-    /// real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// real-time chat message streaming</a> in the <i>Connect Customer Administrator Guide</i>.
     /// </para><para>
-    /// For more information about chat, see the following topics in the <i>Amazon Connect
+    /// For more information about chat, see the following topics in the <i>Connect Customer
     /// Administrator Guide</i>: 
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html">Concepts:
-    /// Web and mobile messaging capabilities in Amazon Connect</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a></para></li></ul>
+    /// Web and mobile messaging capabilities in Connect Customer</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect
+    /// Customer Chat security best practices</a></para></li></ul>
     /// </summary>
     [Cmdlet("Start", "CONNContactStreaming", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes a predefined attribute from the specified Amazon Connect instance.
+    /// Deletes a predefined attribute from the specified Connect Customer instance.
     /// </summary>
     [Cmdlet("Remove", "CONNPredefinedAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para> The identifier of the Amazon Connect instance. You can find the instance ID in the
-        /// Amazon Resource Name (ARN) of the instance.</para>
+        /// <para> The identifier of the Connect Customer instance. You can find the instance ID in
+        /// the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

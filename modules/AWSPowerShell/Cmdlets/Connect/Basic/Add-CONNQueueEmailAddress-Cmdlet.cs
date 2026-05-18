@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// You can associate up to 49 additional email addresses with a single queue, plus 1
     /// default outbound email address, for a total of 50.
     /// </para></li><li><para>
-    /// The email addresses must already exist in the Amazon Connect instance before they
+    /// The email addresses must already exist in the Connect Customer instance before they
     /// can be associated with a queue.
     /// </para></li><li><para>
     /// Agents will be able to select from these associated email addresses when handling
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>

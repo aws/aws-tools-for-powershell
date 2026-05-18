@@ -30,9 +30,9 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a custom vocabulary associated with your Amazon Connect instance. You can
+    /// Creates a custom vocabulary associated with your Connect Customer instance. You can
     /// set a custom vocabulary to be your default vocabulary for a given language. Contact
-    /// Lens for Amazon Connect uses the default vocabulary in post-call and real-time contact
+    /// Lens for Connect Customer uses the default vocabulary in post-call and real-time contact
     /// analysis sessions for that language.
     /// </summary>
     [Cmdlet("New", "CONNVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
