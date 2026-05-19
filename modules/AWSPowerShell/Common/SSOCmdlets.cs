@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Common
                 if (!SettingsStore.TryGetProfile("default", null, out var profile))
                 {
                     this.ThrowTerminatingError(new ErrorRecord(
-                        new ArgumentException($"profile {ProfileName} not found in the shared config (~/.aws/config) file."),
-                        "ArgumentException", ErrorCategory.InvalidArgument, this.ProfileName));
+                        new ArgumentException($"default profile not found in the shared config (~/.aws/config) file."),
+                        "ArgumentException", ErrorCategory.InvalidArgument, this));
                 }
 
                 if (profile.Options.SsoSession != null && profile.Options.SsoStartUrl != null &&
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Common
                 {
                     this.ThrowTerminatingError(new ErrorRecord(
                         new ArgumentException($"Either ProfileName or SessionName or a default profile with SSO configuration is required."),
-                        "ArgumentException", ErrorCategory.InvalidArgument, this.ProfileName));
+                        "ArgumentException", ErrorCategory.InvalidArgument, this));
                 }
             }
 
