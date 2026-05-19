@@ -1,0 +1,19 @@
+name: PR workflow
+permissions:
+  contents: read
+on:
+  pull_request:
+    types: [synchronize, opened, reopened, edited]
+
+jobs:
+  check-is-destination-branch-protected:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7.0.1
+
+        # "base_ref" is the target branch of the pull request (https://docs.github.com/en/actions/learn-github-actions/contexts#github-context)
+        if: ${{ github.base_ref == 'main' }}
+
+        with:
+          script: |
+            core.setFailed("PRs must not target 'main'. Please target 'development' or a feature branch instead.")
