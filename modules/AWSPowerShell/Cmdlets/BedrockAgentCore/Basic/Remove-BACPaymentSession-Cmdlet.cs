@@ -30,23 +30,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Delete a payment manager session
-    /// 
-    ///  
-    /// <para>
-    /// Permanently removes a payment session record from the database. This is a hard delete
-    /// operation that removes the session completely.
-    /// </para><para>
-    /// Deleting a non-existent or already-deleted session returns ResourceNotFoundException
-    /// (404).
-    /// </para><para>
-    /// Authorization: The caller must own the session (accountId, userId, and paymentManagerId
-    /// must match). If authorization fails, a 403 Forbidden error is returned.
-    /// </para><para>
-    /// Errors:
-    /// </para><ul><li>ResourceNotFoundException: The session does not exist or has already been
-    /// deleted</li><li>AccessDeniedException: The caller is not authorized to delete this
-    /// session</li><li>ValidationException: Required fields are missing or invalid</li><li>InternalServerException: An unexpected server error occurred</li></ul>
+    /// Deletes a payment session. This permanently removes the payment session record.
     /// </summary>
     [Cmdlet("Remove", "BACPaymentSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCore.PaymentSessionStatus")]

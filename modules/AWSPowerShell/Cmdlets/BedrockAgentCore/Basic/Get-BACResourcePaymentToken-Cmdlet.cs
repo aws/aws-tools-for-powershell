@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentTokenRequest_StripePrivyTokenRequest_IncludeAuthorizationSignature
         /// <summary>
         /// <para>
-        /// <para>Set to true to generate privy-authorization-signature</para>
+        /// <para>Set to true to generate privy-authorization-signature.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentTokenRequest_CoinbaseCdpTokenRequest_IncludeWalletAuthToken
         /// <summary>
         /// <para>
-        /// <para>Set to true for wallet write operations (requires walletSecret configured)</para>
+        /// <para>Set to true for wallet write operations (requires walletSecret configured).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestBody
         /// <summary>
         /// <para>
-        /// <para>Request body JSON - used to generate wallet auth JWT</para>
+        /// <para>Request body JSON — used to generate wallet auth JWT.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentTokenRequest_StripePrivyTokenRequest_RequestBody
         /// <summary>
         /// <para>
-        /// <para>Request body JSON for the Privy API call</para>
+        /// <para>Request body JSON for the Privy API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestHost
         /// <summary>
         /// <para>
-        /// <para>Optional - defaults to "api.cdp.coinbase.com"</para>
+        /// <para>The host for the payment API request. Defaults to "api.cdp.coinbase.com".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentTokenRequest_StripePrivyTokenRequest_RequestHost
         /// <summary>
         /// <para>
-        /// <para>Optional - defaults to "api.privy.io"</para>
+        /// <para>The host for the Privy API request. Defaults to "api.privy.io".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter ResourceCredentialProviderName
         /// <summary>
         /// <para>
-        /// <para>Name of the payment credential provider to use</para>
+        /// <para>Name of the payment credential provider to use.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -157,8 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter WorkloadIdentityToken
         /// <summary>
         /// <para>
-        /// <para>Workload access token for authorization. Named workloadIdentityToken for consistency
-        /// with APIKey and OAuth2CredentialProvider.</para>
+        /// <para>Workload access token for authorization.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

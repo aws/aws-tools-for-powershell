@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Get the balance of a payment instrument
+    /// Get the balance of a payment instrument.
     /// </summary>
     [Cmdlet("Get", "BACPaymentInstrumentBalance")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetPaymentInstrumentBalanceResponse")]
@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Chain
         /// <summary>
         /// <para>
-        /// <para>The specific blockchain chain to query balance on. Required because balances are chain-specific
-        /// — the same wallet address may hold different token balances on different chains.</para>
+        /// <para>The specific blockchain chain to query balance on. Required because balances are chain-specific.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,8 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Token
         /// <summary>
         /// <para>
-        /// <para>The token to query balance for. Required to specify which supported token's balance
-        /// to return.</para>
+        /// <para>The token to query balance for. Only tokens supported for X402 payments are returned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

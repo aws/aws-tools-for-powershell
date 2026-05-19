@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Create a new payment manager session
+    /// Create a new payment session.
     /// </summary>
     [Cmdlet("New", "BACPaymentSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.PaymentSession")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Limits_MaxSpendAmount_Currency
         /// <summary>
         /// <para>
-        /// <para>The currency code for this amount.</para>
+        /// <para>The currency code for the amount.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token to ensure request uniqueness.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

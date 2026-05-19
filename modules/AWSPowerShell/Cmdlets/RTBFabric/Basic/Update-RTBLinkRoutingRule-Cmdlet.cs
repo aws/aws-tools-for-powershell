@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter Conditions_HostHeader
         /// <summary>
         /// <para>
-        /// <para>Exact host match — RFC 3986 unreserved characters</para>
+        /// <para>The exact host header value to match.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter Conditions_HostHeaderWildcard
         /// <summary>
         /// <para>
-        /// <para>Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved plus *</para>
+        /// <para>A wildcard pattern for host header matching (for example, <c>*.example.com</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter Conditions_QueryStringEquals_Key
         /// <summary>
         /// <para>
-        /// <para>RFC 3986 unreserved characters</para>
+        /// <para>The key of the query string parameter to match. Must contain only RFC 3986 unreserved
+        /// characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter Conditions_PathExact
         /// <summary>
         /// <para>
-        /// <para>Exact path match — must start with /; RFC 3986 unreserved plus /</para>
+        /// <para>The exact path to match. Must start with <c>/</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter Conditions_PathPrefix
         /// <summary>
         /// <para>
-        /// <para>Path prefix matching — strict starts-with, no wildcard (preferred for new rules).
-        /// Must start with /; RFC 3986 unreserved plus /</para>
+        /// <para>The path prefix to match. The request path must start with this value. Must start
+        /// with <c>/</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter Conditions_QueryStringExist
         /// <summary>
         /// <para>
-        /// <para>Query string key presence check (any value accepted) — RFC 3986 unreserved characters</para>
+        /// <para>A query string key that must be present in the request (any value is accepted).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter Conditions_QueryStringEquals_Value
         /// <summary>
         /// <para>
-        /// <para>RFC 3986 unreserved characters</para>
+        /// <para>The value of the query string parameter to match. Must contain only RFC 3986 unreserved
+        /// characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

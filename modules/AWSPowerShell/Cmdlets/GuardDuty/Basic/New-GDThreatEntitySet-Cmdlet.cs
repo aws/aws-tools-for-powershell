@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Creates a new threat entity set. In a threat entity set, you can provide known malicious
-    /// IP addresses and domains for your Amazon Web Services environment. GuardDuty generates
-    /// findings based on the entries in the threat entity sets. Only users of the administrator
-    /// account can manage entity sets, which automatically apply to member accounts.
+    /// threat entities for your Amazon Web Services environment. GuardDuty generates findings
+    /// based on the entries in the threat entity sets. Only users of the administrator account
+    /// can manage entity sets, which automatically apply to member accounts.
     /// </summary>
     [Cmdlet("New", "GDThreatEntitySet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

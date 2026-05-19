@@ -120,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         #region Parameter SortField
         /// <summary>
         /// <para>
-        /// <para>Field to sort by</para><pre><c>Sorting restrictions: </c></pre><ul><li>Only sorting on createdAt is supported
-        /// when using priority or status filters alone.</li><li>Sorting by priority is not supported
-        /// when using Timestamp filters (createdAfter, createdBefore)</li></ul>
+        /// <para>Field to sort by Sorting restrictions: - Only sorting on createdAt is supported when
+        /// using priority or status filters alone. - Sorting by priority is not supported when
+        /// using Timestamp filters (createdAfter, createdBefore)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Get a payment session
+    /// Get a payment session.
     /// </summary>
     [Cmdlet("Get", "BACPaymentSession")]
     [OutputType("Amazon.BedrockAgentCore.Model.PaymentSession")]

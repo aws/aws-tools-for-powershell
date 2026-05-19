@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Create a new payment instrument for a connector
+    /// Create a new payment instrument for a connector.
     /// </summary>
     [Cmdlet("New", "BACPaymentInstrument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.PaymentInstrument")]
@@ -58,9 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentInstrumentDetails_EmbeddedCryptoWallet_LinkedAccount
         /// <summary>
         /// <para>
-        /// <para>List of linkedAccounts linked to this wallet. Each linkedAccount represents a way
-        /// the end user can authenticate to this wallet. Can be empty when adding a new linkedAccount
-        /// to an existing wallet.</para><para />
+        /// <para>List of linked accounts linked to this wallet. Each represents a way the end user
+        /// can authenticate to this wallet.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -76,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// <summary>
         /// <para>
         /// <para>The blockchain network for this embedded crypto wallet. Supported networks: ETHEREUM,
-        /// SOLANA</para>
+        /// SOLANA.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentInstrumentDetails_EmbeddedCryptoWallet_RedirectUrl
         /// <summary>
         /// <para>
-        /// <para>URL for the end user to complete a provider-specific action (e.g., wallet linking,
-        /// onboarding). Returned by the payment connector during instrument creation.</para>
+        /// <para>URL for the end user to complete a provider-specific action such as wallet linking
+        /// or onboarding.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token to ensure request uniqueness.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

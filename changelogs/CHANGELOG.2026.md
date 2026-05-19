@@ -1,4 +1,11 @@
-﻿### 5.0.214 (2026-05-18 20:25Z)
+﻿### 5.0.215 (2026-05-19 20:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.251.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DevOps Agent Service
+    * Modified cmdlet Add-DOPSService: added parameter Configuration_Mcpserversigv4_Tool.
+    * Modified cmdlet Register-DOPSService: added parameters ServiceDetails_Mcpserversigv4_AuthorizationConfig_CustomHeader, ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region, ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn, ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service, ServiceDetails_Mcpserversigv4_Description, ServiceDetails_Mcpserversigv4_Endpoint and ServiceDetails_Mcpserversigv4_Name.
+    * Modified cmdlet Update-DOPSAssociation: added parameter Configuration_Mcpserversigv4_Tool.
+
+### 5.0.214 (2026-05-18 20:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.250.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EC2 Container Service
     * Added cmdlet Resume-ECSServiceDeployment leveraging the ContinueServiceDeployment service API.

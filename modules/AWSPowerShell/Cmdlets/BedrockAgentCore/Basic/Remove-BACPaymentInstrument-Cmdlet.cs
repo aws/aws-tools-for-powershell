@@ -30,27 +30,8 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Delete a payment instrument
-    /// 
-    ///  
-    /// <para>
-    /// Marks a payment instrument as deleted by updating its status to DELETED. This is a
-    /// soft delete operation that preserves the record in the database for audit and compliance
-    /// purposes. The record remains queryable for audit purposes but is excluded from normal
-    /// list and get operations.
-    /// </para><para>
-    /// Deleting an already-deleted or non-existent instrument returns ResourceNotFoundException
-    /// (404).
-    /// </para><para>
-    /// Authorization: The caller must own the instrument (accountId, userId, and paymentManagerId
-    /// must match). If authorization fails, a 403 Forbidden error is returned.
-    /// </para><para>
-    /// Timestamp Management: The updatedAt timestamp is set to the current time, while createdAt
-    /// is preserved. The version field is incremented for optimistic locking.
-    /// </para><para>
-    /// Errors:
-    /// </para><ul><li>ResourceNotFoundException: The instrument does not exist or is already deleted</li><li>AccessDeniedException: The caller is not authorized to delete this instrument</li><li>ValidationException: Required fields are missing or invalid</li><li>InternalServerException:
-    /// An unexpected server error occurred</li></ul>
+    /// Deletes a payment instrument. This is a soft delete operation that preserves the record
+    /// for audit and compliance purposes.
     /// </summary>
     [Cmdlet("Remove", "BACPaymentInstrument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCore.PaymentInstrumentStatus")]

@@ -162,7 +162,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.PostRegisterServiceSupportedService
         "Register-DOPSService/Service"
         {
-            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversplunk","pagerduty","servicenow"
+            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","servicenow"
             break
         }
 
@@ -200,7 +200,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.Service
         "Get-DOPSServiceList/FilterServiceType"
         {
-            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversplunk","pagerduty","servicenow","slack"
+            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","servicenow","slack"
             break
         }
 

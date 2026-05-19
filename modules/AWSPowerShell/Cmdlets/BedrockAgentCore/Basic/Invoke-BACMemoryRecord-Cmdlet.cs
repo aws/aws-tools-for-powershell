@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// <summary>
         /// <para>
         /// <para>The namespace prefix to filter memory records by. Searches for memory records in namespaces
-        /// that start with the provided prefix.</para>
+        /// that start with the provided prefix. Either <c>namespace</c> or <c>namespacePath</c>
+        /// is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// <summary>
         /// <para>
         /// <para>Use namespacePath for hierarchical retrievals. Return all memory records where namespace
-        /// falls under the same parent hierarchy.</para>
+        /// falls under the same parent hierarchy. Either <c>namespace</c> or <c>namespacePath</c>
+        /// is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

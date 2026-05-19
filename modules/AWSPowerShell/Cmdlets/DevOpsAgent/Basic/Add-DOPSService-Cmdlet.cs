@@ -488,6 +488,21 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String[] Configuration_Mcpservergrafana_Tool { get; set; }
         #endregion
         
+        #region Parameter Configuration_Mcpserversigv4_Tool
+        /// <summary>
+        /// <para>
+        /// <para>List of MCP tools available for the association.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Mcpserversigv4_Tools")]
+        public System.String[] Configuration_Mcpserversigv4_Tool { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Slack_WorkspaceId
         /// <summary>
         /// <para>
@@ -595,6 +610,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             }
             context.Configuration_Mcpservernewrelic_AccountId = this.Configuration_Mcpservernewrelic_AccountId;
             context.Configuration_Mcpservernewrelic_Endpoint = this.Configuration_Mcpservernewrelic_Endpoint;
+            if (this.Configuration_Mcpserversigv4_Tool != null)
+            {
+                context.Configuration_Mcpserversigv4_Tool = new List<System.String>(this.Configuration_Mcpserversigv4_Tool);
+            }
             context.Configuration_Mcpserversplunk = this.Configuration_Mcpserversplunk;
             context.Configuration_Pagerduty_CustomerEmail = this.Configuration_Pagerduty_CustomerEmail;
             if (this.Configuration_Pagerduty_Service != null)
@@ -725,6 +744,31 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Mcpserver != null)
             {
                 request.Configuration.Mcpserver = requestConfiguration_configuration_Mcpserver;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.MCPServerSigV4Configuration requestConfiguration_configuration_Mcpserversigv4 = null;
+            
+             // populate Mcpserversigv4
+            var requestConfiguration_configuration_Mcpserversigv4IsNull = true;
+            requestConfiguration_configuration_Mcpserversigv4 = new Amazon.DevOpsAgent.Model.MCPServerSigV4Configuration();
+            List<System.String> requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool = null;
+            if (cmdletContext.Configuration_Mcpserversigv4_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool = cmdletContext.Configuration_Mcpserversigv4_Tool;
+            }
+            if (requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpserversigv4.Tools = requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool;
+                requestConfiguration_configuration_Mcpserversigv4IsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Mcpserversigv4 should be set to null
+            if (requestConfiguration_configuration_Mcpserversigv4IsNull)
+            {
+                requestConfiguration_configuration_Mcpserversigv4 = null;
+            }
+            if (requestConfiguration_configuration_Mcpserversigv4 != null)
+            {
+                request.Configuration.Mcpserversigv4 = requestConfiguration_configuration_Mcpserversigv4;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.DynatraceConfiguration requestConfiguration_configuration_Dynatrace = null;
@@ -1377,6 +1421,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public List<System.String> Configuration_Mcpservergrafana_Tool { get; set; }
             public System.String Configuration_Mcpservernewrelic_AccountId { get; set; }
             public System.String Configuration_Mcpservernewrelic_Endpoint { get; set; }
+            public List<System.String> Configuration_Mcpserversigv4_Tool { get; set; }
             public Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration Configuration_Mcpserversplunk { get; set; }
             public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
             public List<System.String> Configuration_Pagerduty_Service { get; set; }

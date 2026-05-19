@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Process a payment transaction
+    /// Processes a payment using a payment instrument within a payment session.
     /// </summary>
     [Cmdlet("Invoke", "BACPayment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.ProcessPaymentResponse")]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentInput_CryptoX402_Payload
         /// <summary>
         /// <para>
-        /// <para>This can hold any JSON-like object</para>
+        /// <para>The X402 payment payload.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentInstrumentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the payment instrument to use for this transaction.</para>
+        /// <para>The ID of the payment instrument to use.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentManagerArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the payment manager handling this payment.</para>
+        /// <para>The ARN of the payment manager.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentSessionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the payment session for this transaction.</para>
+        /// <para>The ID of the payment session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentType
         /// <summary>
         /// <para>
-        /// <para>The type of payment being processed.</para>
+        /// <para>The type of payment to process.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentInput_CryptoX402_Version
         /// <summary>
         /// <para>
-        /// <para>The X402 protocol version (e.g., "v1", "v2")</para>
+        /// <para>The version of the X402 protocol.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token to ensure request uniqueness.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

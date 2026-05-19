@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Get a payment instrument by ID
+    /// Get a payment instrument by ID.
     /// </summary>
     [Cmdlet("Get", "BACPaymentInstrument")]
     [OutputType("Amazon.BedrockAgentCore.Model.PaymentInstrument")]
