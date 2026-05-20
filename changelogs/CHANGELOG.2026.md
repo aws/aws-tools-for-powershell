@@ -1,4 +1,8 @@
-﻿### 4.1.1030 (2026-05-14 19:55Z)
+﻿### 4.1.1031 (2026-05-20 18:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1252.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Removed bundled log4net.dll from the AWSPowerShell module. This library is only used by AWSSDK.Core v3 via reflection if opted-in to log4net logging.
+
+### 4.1.1030 (2026-05-14 19:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1252.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.1029 (2026-04-23 20:11Z)
