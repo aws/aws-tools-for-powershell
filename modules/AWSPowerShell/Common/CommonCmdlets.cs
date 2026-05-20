@@ -499,11 +499,6 @@ namespace Amazon.PowerShell.Common
                 sw.WriteLine("Release notes: {0}", "https://github.com/aws/aws-tools-for-powershell/blob/v4.1/changelogs/CHANGELOG.ALL.md");
                 sw.WriteLine();
 
-                // recognise 3rd party libraries
-                sw.WriteLine("This software includes third party software subject to the following copyrights:");
-                sw.WriteLine("- Logging from log4net, Apache License"); 
-                sw.WriteLine("[http://logging.apache.org/log4net/license.html]");
-
                 WriteObject(sw.ToString());
             }
 
