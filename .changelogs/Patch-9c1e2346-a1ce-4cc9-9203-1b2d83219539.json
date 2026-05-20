@@ -1,0 +1,4 @@
+{
+  "Type": "Patch",
+  "Description": "Removed bundled log4net.dll from the AWSPowerShell module. This library is no longer used by AWSSDK.Core v4, which removed its internal log4net integration."
+}

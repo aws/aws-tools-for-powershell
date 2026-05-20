@@ -214,7 +214,6 @@
         <!-- clone the generated file from coreclr -->
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFiles="$(DesktopDeploymentArtifacts)/AWSPowerShell.Format.ps1xml" />
 
-        <Copy SourceFiles="$(RootPath)/thirdparty/log4net.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(DesktopDeploymentArtifacts)/CHANGELOG.txt"/>
         <Copy SourceFiles="$(RootPath)/LICENSE" DestinationFiles="$(DesktopDeploymentArtifacts)/LICENSE"/>
         <Copy SourceFiles="$(RootPath)/NOTICE" DestinationFiles="$(DesktopDeploymentArtifacts)/NOTICE"/>
