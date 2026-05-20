@@ -59,8 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// does not involve PIN change. When assigning IAM permissions, it is important to understand
     /// that <a>EncryptData</a> using EMV keys and <a>GenerateMac</a> perform similar functions
     /// to this command.
-    /// </para></note><para><b>Cross-account use</b>: This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para></note><para><b>Cross-account use</b>: This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>EncryptData</a></para></li><li><para><a>GenerateMac</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PAYCDMacEmvPinChange", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

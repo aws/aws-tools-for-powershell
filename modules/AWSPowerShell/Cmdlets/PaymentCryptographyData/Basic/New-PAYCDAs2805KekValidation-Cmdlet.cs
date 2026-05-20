@@ -30,8 +30,9 @@ using Amazon.PaymentCryptographyData.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCD
 {
     /// <summary>
-    /// Establishes node-to-node initialization between payment processing nodes such as an
-    /// acquirer, issuer or payment network using Australian Standard 2805 (AS2805).
+    /// Generates a <c>KekValidationRequest</c> or a <c>KekValidationResponse</c> for node-to-node
+    /// initialization between payment processing nodes using <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/as2805.html">Australian
+    /// Standard 2805 (AS2805)</a>.
     /// 
     ///  
     /// <para>
@@ -44,18 +45,27 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// or <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>
     /// operations.
     /// </para><para>
-    /// The node initiating communication can use <c>GenerateAS2805KekValidation</c> to generate
-    /// a combined KEK validation request and KEK validation response to send to the partnering
-    /// node for validation. When invoked, the API internally generates a random sending key
-    /// encrypted under KEKs and provides a receiving key encrypted under KEKr as response.
-    /// The initiating node sends the response returned by this API to its partner for validation.
+    /// To use <c>GenerateAs2805KekValidation</c> to generate a KEK validation request, set
+    /// <c>KekValidationType</c> to <c>KekValidationRequest</c>. This operation returns both
+    /// <c>RandomKeySend</c> (KRs) and <c>RandomKeyReceive</c> (KRr) as response values. The
+    /// partnering node receives the KRs, uses its KEKr to decrypt it, and generates a KRr
+    /// which is an inverted value of KRs. The node receiving the KRr validates it against
+    /// its own KRr generated during KEK validation request outside of Amazon Web Services
+    /// Payment Cryptography.
+    /// </para><para>
+    /// You can also use this operation to generate a KEK validation response, by setting
+    /// <c>KekValidationType</c> to <c>KekValidationResponse</c> and providing the incoming
+    /// KRs. This operation then calculates a KRr. To learn more about more about node-to-node
+    /// initialization, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/as2805.kekvalidation.html">Validation
+    /// of KEK</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
     /// types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography
     /// User Guide</i>. 
-    /// </para><para><b>Cross-account use</b>: This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para><para><b>Cross-account use</b>: This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "PAYCDAs2805KekValidation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -99,10 +109,22 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String KeyIdentifier { get; set; }
         #endregion
         
+        #region Parameter KekValidationType_KekValidationRequest_RandomKeyMaxLength
+        /// <summary>
+        /// <para>
+        /// <para>The maximum length of the random key to generate for a KEK validation request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.RandomKeyMaxLength")]
+        public Amazon.PaymentCryptographyData.RandomKeyMaxLength KekValidationType_KekValidationRequest_RandomKeyMaxLength { get; set; }
+        #endregion
+        
         #region Parameter KekValidationType_KekValidationResponse_RandomKeySend
         /// <summary>
         /// <para>
-        /// <para>The random key for generating a KEK validation response.</para>
+        /// <para>The random key send value received from the initiating node to generate a KEK validation
+        /// response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.KekValidationType_KekValidationRequest_DeriveKeyAlgorithm = this.KekValidationType_KekValidationRequest_DeriveKeyAlgorithm;
+            context.KekValidationType_KekValidationRequest_RandomKeyMaxLength = this.KekValidationType_KekValidationRequest_RandomKeyMaxLength;
             context.KekValidationType_KekValidationResponse_RandomKeySend = this.KekValidationType_KekValidationResponse_RandomKeySend;
             context.KeyIdentifier = this.KeyIdentifier;
             #if MODULAR
@@ -209,31 +232,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
              // populate KekValidationType
             var requestKekValidationTypeIsNull = true;
             request.KekValidationType = new Amazon.PaymentCryptographyData.Model.As2805KekValidationType();
-            Amazon.PaymentCryptographyData.Model.KekValidationRequest requestKekValidationType_kekValidationType_KekValidationRequest = null;
-            
-             // populate KekValidationRequest
-            var requestKekValidationType_kekValidationType_KekValidationRequestIsNull = true;
-            requestKekValidationType_kekValidationType_KekValidationRequest = new Amazon.PaymentCryptographyData.Model.KekValidationRequest();
-            Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_DeriveKeyAlgorithm = null;
-            if (cmdletContext.KekValidationType_KekValidationRequest_DeriveKeyAlgorithm != null)
-            {
-                requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_DeriveKeyAlgorithm = cmdletContext.KekValidationType_KekValidationRequest_DeriveKeyAlgorithm;
-            }
-            if (requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_DeriveKeyAlgorithm != null)
-            {
-                requestKekValidationType_kekValidationType_KekValidationRequest.DeriveKeyAlgorithm = requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_DeriveKeyAlgorithm;
-                requestKekValidationType_kekValidationType_KekValidationRequestIsNull = false;
-            }
-             // determine if requestKekValidationType_kekValidationType_KekValidationRequest should be set to null
-            if (requestKekValidationType_kekValidationType_KekValidationRequestIsNull)
-            {
-                requestKekValidationType_kekValidationType_KekValidationRequest = null;
-            }
-            if (requestKekValidationType_kekValidationType_KekValidationRequest != null)
-            {
-                request.KekValidationType.KekValidationRequest = requestKekValidationType_kekValidationType_KekValidationRequest;
-                requestKekValidationTypeIsNull = false;
-            }
             Amazon.PaymentCryptographyData.Model.KekValidationResponse requestKekValidationType_kekValidationType_KekValidationResponse = null;
             
              // populate KekValidationResponse
@@ -257,6 +255,41 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestKekValidationType_kekValidationType_KekValidationResponse != null)
             {
                 request.KekValidationType.KekValidationResponse = requestKekValidationType_kekValidationType_KekValidationResponse;
+                requestKekValidationTypeIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.Model.KekValidationRequest requestKekValidationType_kekValidationType_KekValidationRequest = null;
+            
+             // populate KekValidationRequest
+            var requestKekValidationType_kekValidationType_KekValidationRequestIsNull = true;
+            requestKekValidationType_kekValidationType_KekValidationRequest = new Amazon.PaymentCryptographyData.Model.KekValidationRequest();
+            Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_DeriveKeyAlgorithm = null;
+            if (cmdletContext.KekValidationType_KekValidationRequest_DeriveKeyAlgorithm != null)
+            {
+                requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_DeriveKeyAlgorithm = cmdletContext.KekValidationType_KekValidationRequest_DeriveKeyAlgorithm;
+            }
+            if (requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_DeriveKeyAlgorithm != null)
+            {
+                requestKekValidationType_kekValidationType_KekValidationRequest.DeriveKeyAlgorithm = requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_DeriveKeyAlgorithm;
+                requestKekValidationType_kekValidationType_KekValidationRequestIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.RandomKeyMaxLength requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_RandomKeyMaxLength = null;
+            if (cmdletContext.KekValidationType_KekValidationRequest_RandomKeyMaxLength != null)
+            {
+                requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_RandomKeyMaxLength = cmdletContext.KekValidationType_KekValidationRequest_RandomKeyMaxLength;
+            }
+            if (requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_RandomKeyMaxLength != null)
+            {
+                requestKekValidationType_kekValidationType_KekValidationRequest.RandomKeyMaxLength = requestKekValidationType_kekValidationType_KekValidationRequest_kekValidationType_KekValidationRequest_RandomKeyMaxLength;
+                requestKekValidationType_kekValidationType_KekValidationRequestIsNull = false;
+            }
+             // determine if requestKekValidationType_kekValidationType_KekValidationRequest should be set to null
+            if (requestKekValidationType_kekValidationType_KekValidationRequestIsNull)
+            {
+                requestKekValidationType_kekValidationType_KekValidationRequest = null;
+            }
+            if (requestKekValidationType_kekValidationType_KekValidationRequest != null)
+            {
+                request.KekValidationType.KekValidationRequest = requestKekValidationType_kekValidationType_KekValidationRequest;
                 requestKekValidationTypeIsNull = false;
             }
              // determine if request.KekValidationType should be set to null
@@ -328,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm KekValidationType_KekValidationRequest_DeriveKeyAlgorithm { get; set; }
+            public Amazon.PaymentCryptographyData.RandomKeyMaxLength KekValidationType_KekValidationRequest_RandomKeyMaxLength { get; set; }
             public System.String KekValidationType_KekValidationResponse_RandomKeySend { get; set; }
             public System.String KeyIdentifier { get; set; }
             public Amazon.PaymentCryptographyData.RandomKeySendVariantMask RandomKeySendVariantMask { get; set; }

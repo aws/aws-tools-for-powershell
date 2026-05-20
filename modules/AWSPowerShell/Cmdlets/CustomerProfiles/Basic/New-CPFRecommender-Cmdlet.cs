@@ -87,14 +87,37 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public Amazon.CustomerProfiles.Model.EventParameters[] EventsConfig_EventParametersList { get; set; }
         #endregion
         
+        #region Parameter RecommenderConfig_ExcludedColumn
+        /// <summary>
+        /// <para>
+        /// <para>A map of dataset type to a list of column names to exclude from training. The <c>_webAnalytics</c>
+        /// and <c>_catalogItem</c> keys are supported. The column names must be valid columns
+        /// defined in the recommender schema. All columns in the schema except the listed columns
+        /// will be used for training. The following columns are mandatory and cannot be excluded:
+        /// <c>Item.Id</c>, <c>EventTimestamp</c>, and <c>EventType</c> for <c>_webAnalytics</c>;
+        /// <c>Id</c> for <c>_catalogItem</c>. Mutually exclusive with IncludedColumns — both
+        /// cannot be specified in the same request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommenderConfig_ExcludedColumns")]
+        public System.Collections.Hashtable RecommenderConfig_ExcludedColumn { get; set; }
+        #endregion
+        
         #region Parameter RecommenderConfig_IncludedColumn
         /// <summary>
         /// <para>
-        /// <para>A map of dataset type to a list of column names to train on. The column names must
-        /// be a subset of the columns defined in the recommender schema. If not specified, all
-        /// columns in the schema are used for training. The following columns are always included
-        /// and do not need to be specified: <c>Item.Id</c>, <c>ItemList[].Id</c>, <c>EventTimestamp</c>,
-        /// <c>EventType</c>, and <c>EventValue</c>.</para><para />
+        /// <para>A map of dataset type to a list of column names to train on. The <c>_webAnalytics</c>
+        /// and <c>_catalogItem</c> keys are supported. The column names must be a subset of the
+        /// columns defined in the recommender schema. If not specified, all columns in the schema
+        /// are used for training. The following columns are always included in training and do
+        /// not need to be specified: <c>Item.Id</c>, <c>EventTimestamp</c>, and <c>EventType</c>
+        /// for <c>_webAnalytics</c>; <c>Id</c> for <c>_catalogItem</c>. Mutually exclusive with
+        /// ExcludedColumns — both cannot be specified in the same request.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -180,7 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter RecommenderConfig_TrainingFrequency
         /// <summary>
         /// <para>
-        /// <para>How often the recommender should retrain its model with new data.</para>
+        /// <para>How often the recommender should retrain its model with new data. If set to 0, automatic
+        /// retraining will not be enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,6 +268,26 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (this.EventsConfig_EventParametersList != null)
             {
                 context.EventsConfig_EventParametersList = new List<Amazon.CustomerProfiles.Model.EventParameters>(this.EventsConfig_EventParametersList);
+            }
+            if (this.RecommenderConfig_ExcludedColumn != null)
+            {
+                context.RecommenderConfig_ExcludedColumn = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RecommenderConfig_ExcludedColumn.Keys)
+                {
+                    object hashValue = this.RecommenderConfig_ExcludedColumn[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.RecommenderConfig_ExcludedColumn.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.RecommenderConfig_ExcludedColumn.Add((String)hashKey, valueSet);
+                }
             }
             if (this.RecommenderConfig_IncludedColumn != null)
             {
@@ -318,6 +362,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
              // populate RecommenderConfig
             var requestRecommenderConfigIsNull = true;
             request.RecommenderConfig = new Amazon.CustomerProfiles.Model.RecommenderConfig();
+            Dictionary<System.String, List<System.String>> requestRecommenderConfig_recommenderConfig_ExcludedColumn = null;
+            if (cmdletContext.RecommenderConfig_ExcludedColumn != null)
+            {
+                requestRecommenderConfig_recommenderConfig_ExcludedColumn = cmdletContext.RecommenderConfig_ExcludedColumn;
+            }
+            if (requestRecommenderConfig_recommenderConfig_ExcludedColumn != null)
+            {
+                request.RecommenderConfig.ExcludedColumns = requestRecommenderConfig_recommenderConfig_ExcludedColumn;
+                requestRecommenderConfigIsNull = false;
+            }
             Dictionary<System.String, List<System.String>> requestRecommenderConfig_recommenderConfig_IncludedColumn = null;
             if (cmdletContext.RecommenderConfig_IncludedColumn != null)
             {
@@ -467,6 +521,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String Description { get; set; }
             public System.String DomainName { get; set; }
             public List<Amazon.CustomerProfiles.Model.EventParameters> EventsConfig_EventParametersList { get; set; }
+            public Dictionary<System.String, List<System.String>> RecommenderConfig_ExcludedColumn { get; set; }
             public Dictionary<System.String, List<System.String>> RecommenderConfig_IncludedColumn { get; set; }
             public System.Int32? RecommenderConfig_InferenceConfig_MinProvisionedTPS { get; set; }
             public System.Int32? RecommenderConfig_TrainingFrequency { get; set; }

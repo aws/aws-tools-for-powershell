@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
     /// Creates an event stream, which is a subscription to real-time events, such as when
-    /// profiles are created and updated through Amazon Connect Customer Profiles.
+    /// profiles are created and updated through Connect Customer Customer Profiles.
     /// 
     ///  
     /// <para>

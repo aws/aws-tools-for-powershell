@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// 
     ///  
     /// <para>
-    /// Each Amazon Connect instance can be associated with only one domain. Multiple Amazon
-    /// Connect instances can be associated with one domain.
+    /// Each Connect Customer instance can be associated with only one domain. Multiple Connect
+    /// Customer instances can be associated with one domain.
     /// </para><para>
     /// Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a>
     /// to enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity

@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Convert-PAYCDKeyMaterial', 
         'Convert-PAYCDPinData', 
         'New-PAYCDAs2805KekValidation', 
+        'New-PAYCDAuthRequestCryptogram', 
         'New-PAYCDCardValidationData', 
         'New-PAYCDMac', 
         'New-PAYCDMacEmvPinChange', 

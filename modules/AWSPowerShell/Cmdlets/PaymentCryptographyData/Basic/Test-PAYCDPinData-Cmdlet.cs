@@ -46,8 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
     /// types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography
     /// User Guide</i>. 
-    /// </para><para><b>Cross-account use</b>: This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para><para><b>Cross-account use</b>: This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>GeneratePinData</a></para></li><li><para><a>TranslatePinData</a></para></li></ul>
     /// </summary>
     [Cmdlet("Test", "PAYCDPinData")]

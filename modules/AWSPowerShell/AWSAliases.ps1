@@ -25036,6 +25036,8 @@ Set-Alias -Name Encrypt-PAYCDData -Value Protect-PAYCDData
 Set-Alias -Name PAYCD-EncryptData -Value Protect-PAYCDData
 Set-Alias -Name Generate-PAYCDAs2805KekValidation -Value New-PAYCDAs2805KekValidation
 Set-Alias -Name PAYCD-GenerateAs2805KekValidation -Value New-PAYCDAs2805KekValidation
+Set-Alias -Name Generate-PAYCDAuthRequestCryptogram -Value New-PAYCDAuthRequestCryptogram
+Set-Alias -Name PAYCD-GenerateAuthRequestCryptogram -Value New-PAYCDAuthRequestCryptogram
 Set-Alias -Name Generate-PAYCDCardValidationData -Value New-PAYCDCardValidationData
 Set-Alias -Name PAYCD-GenerateCardValidationData -Value New-PAYCDCardValidationData
 Set-Alias -Name Generate-PAYCDMac -Value New-PAYCDMac

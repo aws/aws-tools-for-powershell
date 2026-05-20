@@ -35,18 +35,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     ///  
     /// <para>
     /// You must specify the KMS key in all requests. You can filter the grant list by grant
-    /// ID or grantee principal.
+    /// ID, grantee principal, or grantee service principal.
     /// </para><para>
     /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants
     /// in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
     /// of creating grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use
     /// CreateGrant with an Amazon Web Services SDK or CLI</a>. 
     /// </para><note><para>
-    /// The <c>GranteePrincipal</c> field in the <c>ListGrants</c> response usually contains
-    /// the user or role designated as the grantee principal in the grant. However, when the
-    /// grantee principal in the grant is an Amazon Web Services service, the <c>GranteePrincipal</c>
-    /// field contains the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
-    /// principal</a>, which might represent several different grantee principals.
+    /// When a grant is created with the <c>GranteePrincipal</c> field, the <c>ListGrants</c>
+    /// response usually contains the user or role designated as the grantee principal in
+    /// the grant. However, if the grantee principal is an Amazon Web Services service, the
+    /// <c>GranteePrincipal</c> field contains an Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
+    /// principal</a>, which might correspond to several different grantee principals, such
+    /// as an IAM user, IAM role, or Amazon Web Services account.
+    /// </para><para>
+    /// When a grant is created with the <c>GranteeServicePrincipal</c> field, the <c>ListGrants</c>
+    /// response always includes a <c>GranteeServicePrincipal</c> that indicates the grantee
+    /// is actually an Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
+    /// principal</a>.
     /// </para></note><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different
     /// Amazon Web Services account, specify the key ARN in the value of the <c>KeyId</c>
     /// parameter.
@@ -74,11 +80,25 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Returns only grants where the specified principal is the grantee principal for the
-        /// grant.</para>
+        /// grant.</para><para>You can specify either <c>GranteePrincipal</c> or <c>GranteeServicePrincipal</c>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String GranteePrincipal { get; set; }
+        #endregion
+        
+        #region Parameter GranteeServicePrincipal
+        /// <summary>
+        /// <para>
+        /// <para>Returns only grants where the specified Amazon Web Services service principal is the
+        /// grantee service principal for the grant. This filter is only usable by callers in
+        /// a service principal.</para><para>You can specify either <c>GranteePrincipal</c> or <c>GranteeServicePrincipal</c>,
+        /// but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GranteeServicePrincipal { get; set; }
         #endregion
         
         #region Parameter GrantId
@@ -187,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.GranteePrincipal = this.GranteePrincipal;
+            context.GranteeServicePrincipal = this.GranteeServicePrincipal;
             context.GrantId = this.GrantId;
             context.KeyId = this.KeyId;
             #if MODULAR
@@ -228,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.GranteePrincipal != null)
             {
                 request.GranteePrincipal = cmdletContext.GranteePrincipal;
+            }
+            if (cmdletContext.GranteeServicePrincipal != null)
+            {
+                request.GranteeServicePrincipal = cmdletContext.GranteeServicePrincipal;
             }
             if (cmdletContext.GrantId != null)
             {
@@ -299,6 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.GranteePrincipal != null)
             {
                 request.GranteePrincipal = cmdletContext.GranteePrincipal;
+            }
+            if (cmdletContext.GranteeServicePrincipal != null)
+            {
+                request.GranteeServicePrincipal = cmdletContext.GranteeServicePrincipal;
             }
             if (cmdletContext.GrantId != null)
             {
@@ -422,6 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String GranteePrincipal { get; set; }
+            public System.String GranteeServicePrincipal { get; set; }
             public System.String GrantId { get; set; }
             public System.String KeyId { get; set; }
             public int? Limit { get; set; }

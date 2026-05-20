@@ -63348,6 +63348,7 @@ $PAYCD_Completers = {
             ($_ -eq "New-PAYCDMacEmvPinChange/EmvCommon_MajorKeyDerivationMode") -Or
             ($_ -eq "New-PAYCDMac/EmvMac_MajorKeyDerivationMode") -Or
             ($_ -eq "Test-PAYCDMac/EmvMac_MajorKeyDerivationMode") -Or
+            ($_ -eq "New-PAYCDAuthRequestCryptogram/MajorKeyDerivationMode") -Or
             ($_ -eq "Test-PAYCDAuthRequestCryptogram/MajorKeyDerivationMode") -Or
             ($_ -eq "New-PAYCDMacEmvPinChange/Mastercard_MajorKeyDerivationMode") -Or
             ($_ -eq "New-PAYCDMacEmvPinChange/Visa_MajorKeyDerivationMode")
@@ -63399,6 +63400,13 @@ $PAYCD_Completers = {
         "New-PAYCDMacEmvPinChange/EmvCommon_PinBlockPaddingType"
         {
             $v = "ISO_IEC_7816_4","NO_PADDING"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.RandomKeyMaxLength
+        "New-PAYCDAs2805KekValidation/KekValidationType_KekValidationRequest_RandomKeyMaxLength"
+        {
+            $v = "BYTES_16","BYTES_24","BYTES_8"
             break
         }
 
@@ -63487,8 +63495,9 @@ $PAYCD_map = @{
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "KekValidationType_KekValidationRequest_DeriveKeyAlgorithm"=@("New-PAYCDAs2805KekValidation")
+    "KekValidationType_KekValidationRequest_RandomKeyMaxLength"=@("New-PAYCDAs2805KekValidation")
     "KeyCheckValueAlgorithm"=@("Convert-PAYCDKeyMaterial")
-    "MajorKeyDerivationMode"=@("Test-PAYCDAuthRequestCryptogram")
+    "MajorKeyDerivationMode"=@("New-PAYCDAuthRequestCryptogram","Test-PAYCDAuthRequestCryptogram")
     "Mastercard_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
     "OutgoingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
     "OutgoingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
@@ -63563,6 +63572,7 @@ $PAYCD_SelectMap = @{
     "Select"=@("Unprotect-PAYCDData",
                "Protect-PAYCDData",
                "New-PAYCDAs2805KekValidation",
+               "New-PAYCDAuthRequestCryptogram",
                "New-PAYCDCardValidationData",
                "New-PAYCDMac",
                "New-PAYCDMacEmvPinChange",

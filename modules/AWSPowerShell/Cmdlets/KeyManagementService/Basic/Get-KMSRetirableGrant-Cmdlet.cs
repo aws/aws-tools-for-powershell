@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Returns information about all grants in the Amazon Web Services account and Region
-    /// that have the specified retiring principal. 
+    /// that have the specified retiring principal or retiring service principal. 
     /// 
     ///  
     /// <para>
@@ -53,11 +53,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a>
     /// (IAM policy) in your Amazon Web Services account.
     /// </para><note><para>
-    /// KMS authorizes <c>ListRetirableGrants</c> requests by evaluating the caller account's
-    /// kms:ListRetirableGrants permissions. The authorized resource in <c>ListRetirableGrants</c>
-    /// calls is the retiring principal specified in the request. KMS does not evaluate the
-    /// caller's permissions to verify their access to any KMS keys or grants that might be
-    /// returned by the <c>ListRetirableGrants</c> call.
+    /// When listing retirable grants by <c>RetiringPrincipal</c>, KMS authorizes <c>ListRetirableGrants</c>
+    /// requests by evaluating the caller account's kms:ListRetirableGrants permissions. The
+    /// authorized resource in <c>ListRetirableGrants</c> calls is the retiring principal
+    /// specified in the request. KMS does not evaluate the caller's permissions to verify
+    /// their access to any KMS keys or grants that might be returned by the <c>ListRetirableGrants</c>
+    /// call.
+    /// </para><para>
+    /// The <c>RetiringServicePrincipal</c> filter is only usable by callers in a service
+    /// principal.
     /// </para></note><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>RevokeGrant</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
     /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
@@ -84,18 +88,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include
         /// Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role
         /// users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
-        /// ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para>
+        /// ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para><para>You must specify either <c>RetiringPrincipal</c> or <c>RetiringServicePrincipal</c>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RetiringPrincipal { get; set; }
+        #endregion
+        
+        #region Parameter RetiringServicePrincipal
+        /// <summary>
+        /// <para>
+        /// <para>The retiring service principal for which to list grants. This filter is only usable
+        /// by callers in a service principal.</para><para>You must specify either <c>RetiringPrincipal</c> or <c>RetiringServicePrincipal</c>,
+        /// but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetiringServicePrincipal { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -186,12 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             #endif
             context.Marker = this.Marker;
             context.RetiringPrincipal = this.RetiringPrincipal;
-            #if MODULAR
-            if (this.RetiringPrincipal == null && ParameterWasBound(nameof(this.RetiringPrincipal)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RetiringPrincipal which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.RetiringServicePrincipal = this.RetiringServicePrincipal;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -218,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.RetiringPrincipal != null)
             {
                 request.RetiringPrincipal = cmdletContext.RetiringPrincipal;
+            }
+            if (cmdletContext.RetiringServicePrincipal != null)
+            {
+                request.RetiringServicePrincipal = cmdletContext.RetiringServicePrincipal;
             }
             
             // Initialize loop variant and commence piping
@@ -277,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.RetiringPrincipal != null)
             {
                 request.RetiringPrincipal = cmdletContext.RetiringPrincipal;
+            }
+            if (cmdletContext.RetiringServicePrincipal != null)
+            {
+                request.RetiringServicePrincipal = cmdletContext.RetiringServicePrincipal;
             }
             
             // Initialize loop variants and commence piping
@@ -394,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public int? Limit { get; set; }
             public System.String Marker { get; set; }
             public System.String RetiringPrincipal { get; set; }
+            public System.String RetiringServicePrincipal { get; set; }
             public System.Func<Amazon.KeyManagementService.Model.ListRetirableGrantsResponse, GetKMSRetirableGrantCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Grants;
         }

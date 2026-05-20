@@ -75,8 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// Amazon Web Services Payment Cryptography currently supports ISO PIN block 4 translation
     /// for PIN block built using legacy PAN length. That is, PAN is the right most 12 digits
     /// excluding the check digits.
-    /// </para></note><para><b>Cross-account use</b>: This operation can't be used across different Amazon Web
-    /// Services accounts.
+    /// </para></note><para><b>Cross-account use</b>: This operation supports cross-account use when the key
+    /// has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based
+    /// policies</a>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>GeneratePinData</a></para></li><li><para><a>VerifyPinData</a></para></li></ul>
     /// </summary>
     [Cmdlet("Convert", "PAYCDPinData", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

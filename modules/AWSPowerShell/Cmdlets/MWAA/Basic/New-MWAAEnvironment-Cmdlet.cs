@@ -528,7 +528,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>Defines the access mode for the Apache Airflow <i>web server</i>. For more information,
         /// refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
-        /// Airflow access modes</a>.</para>
+        /// Airflow access modes</a>.</para><para>If set to <c>PUBLIC_AND_PRIVATE</c>, creates both a public network load balancer (NLB)
+        /// for browser access and a private VPC endpoint (VPCE) for worker-to-webserver communication.
+        /// This mode is only available for Apache Airflow version 3.2 and later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

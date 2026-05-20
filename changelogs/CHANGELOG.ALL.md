@@ -1,4 +1,21 @@
-﻿### 5.0.215 (2026-05-19 20:10Z)
+﻿### 5.0.216 (2026-05-20 20:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.252.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRModel: added parameter RequestMetadata.
+    * Modified cmdlet Invoke-BDRRModelWithResponseStream: added parameter RequestMetadata.
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet New-CPFRecommender: added parameter RecommenderConfig_ExcludedColumn.
+    * Modified cmdlet Update-CPFRecommender: added parameter RecommenderConfig_ExcludedColumn.
+  * Amazon Key Management Service
+    * Modified cmdlet Get-KMSGrantList: added parameter GranteeServicePrincipal.
+    * Modified cmdlet Get-KMSRetirableGrant: added parameter RetiringServicePrincipal.
+    * Modified cmdlet New-KMSGrant: added parameters Constraints_SourceArn, GranteeServicePrincipal and RetiringServicePrincipal.
+  * Amazon Payment Cryptography Data
+    * Added cmdlet New-PAYCDAuthRequestCryptogram leveraging the GenerateAuthRequestCryptogram service API.
+    * Modified cmdlet New-PAYCDAs2805KekValidation: added parameter KekValidationType_KekValidationRequest_RandomKeyMaxLength.
+  * Removed bundled log4net.dll from the AWSPowerShell module. This library is no longer used by AWSSDK.Core v4, which removed its internal log4net integration.
+
+### 5.0.215 (2026-05-19 20:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.251.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DevOps Agent Service
     * Modified cmdlet Add-DOPSService: added parameter Configuration_Mcpserversigv4_Tool.

@@ -41,6 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// used for temporary permissions because you can create one, use its permissions, and
     /// delete it without changing your key policies or IAM policies. 
     /// </para><para>
+    /// You can create a grant for an Amazon Web Services principal (IAM user, IAM role, or
+    /// Amazon Web Services account) by specifying the <c>GranteePrincipal</c> parameter.
+    /// You can also create a grant for an Amazon Web Services service principal by specifying
+    /// the <c>GranteeServicePrincipal</c> parameter.
+    /// </para><para>
     /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants
     /// in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
     /// of creating grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use
@@ -140,18 +145,26 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// Web Services principal. Valid principals include Amazon Web Services accounts, IAM
         /// users, IAM roles, federated users, and assumed role users. For help with the ARN syntax
         /// for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
-        /// ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para>
+        /// ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para><para>You must specify either <c>GranteePrincipal</c> or <c>GranteeServicePrincipal</c>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GranteePrincipal { get; set; }
+        #endregion
+        
+        #region Parameter GranteeServicePrincipal
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
+        /// principal</a> that gets the permissions specified in the grant. </para><para>When you specify a <c>GranteeServicePrincipal</c>, you must also specify a <c>SourceArn</c>
+        /// grant constraint. In addition, you must specify either a <c>RetiringPrincipal</c>
+        /// or a <c>RetiringServicePrincipal</c>. </para><para>You must specify either <c>GranteePrincipal</c> or <c>GranteeServicePrincipal</c>,
+        /// but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GranteeServicePrincipal { get; set; }
         #endregion
         
         #region Parameter GrantToken
@@ -246,11 +259,39 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
         /// ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para><para>The grant determines the retiring principal. Other principals might have permission
         /// to retire the grant or revoke the grant. For details, see <a>RevokeGrant</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring
-        /// and revoking grants</a> in the <i>Key Management Service Developer Guide</i>. </para>
+        /// and revoking grants</a> in the <i>Key Management Service Developer Guide</i>. </para><para>You can specify either <c>RetiringPrincipal</c> or <c>RetiringServicePrincipal</c>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RetiringPrincipal { get; set; }
+        #endregion
+        
+        #region Parameter RetiringServicePrincipal
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
+        /// principal</a> that has permission to use the <a>RetireGrant</a> operation to retire
+        /// the grant.</para><para>You can specify either <c>RetiringPrincipal</c> or <c>RetiringServicePrincipal</c>,
+        /// but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetiringServicePrincipal { get; set; }
+        #endregion
+        
+        #region Parameter Constraints_SourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+        /// Amazon Resource Name (ARN)</a> of an Amazon Web Services resource on behalf of which
+        /// the request is made. This is effectively the same as having the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a>
+        /// global condition key in the grant. The SourceArn constraint ensures that the principal
+        /// can use the KMS key only when the request is made on behalf of the specified resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Constraints_SourceArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -315,14 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     context.Constraints_EncryptionContextSubset.Add((String)hashKey, (System.String)(this.Constraints_EncryptionContextSubset[hashKey]));
                 }
             }
+            context.Constraints_SourceArn = this.Constraints_SourceArn;
             context.DryRun = this.DryRun;
             context.GranteePrincipal = this.GranteePrincipal;
-            #if MODULAR
-            if (this.GranteePrincipal == null && ParameterWasBound(nameof(this.GranteePrincipal)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GranteePrincipal which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.GranteeServicePrincipal = this.GranteeServicePrincipal;
             if (this.GrantToken != null)
             {
                 context.GrantToken = new List<System.String>(this.GrantToken);
@@ -346,6 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             #endif
             context.RetiringPrincipal = this.RetiringPrincipal;
+            context.RetiringServicePrincipal = this.RetiringServicePrincipal;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -386,6 +424,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 request.Constraints.EncryptionContextSubset = requestConstraints_constraints_EncryptionContextSubset;
                 requestConstraintsIsNull = false;
             }
+            System.String requestConstraints_constraints_SourceArn = null;
+            if (cmdletContext.Constraints_SourceArn != null)
+            {
+                requestConstraints_constraints_SourceArn = cmdletContext.Constraints_SourceArn;
+            }
+            if (requestConstraints_constraints_SourceArn != null)
+            {
+                request.Constraints.SourceArn = requestConstraints_constraints_SourceArn;
+                requestConstraintsIsNull = false;
+            }
              // determine if request.Constraints should be set to null
             if (requestConstraintsIsNull)
             {
@@ -398,6 +446,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.GranteePrincipal != null)
             {
                 request.GranteePrincipal = cmdletContext.GranteePrincipal;
+            }
+            if (cmdletContext.GranteeServicePrincipal != null)
+            {
+                request.GranteeServicePrincipal = cmdletContext.GranteeServicePrincipal;
             }
             if (cmdletContext.GrantToken != null)
             {
@@ -418,6 +470,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.RetiringPrincipal != null)
             {
                 request.RetiringPrincipal = cmdletContext.RetiringPrincipal;
+            }
+            if (cmdletContext.RetiringServicePrincipal != null)
+            {
+                request.RetiringServicePrincipal = cmdletContext.RetiringServicePrincipal;
             }
             
             CmdletOutput output;
@@ -476,13 +532,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             public Dictionary<System.String, System.String> Constraints_EncryptionContextEqual { get; set; }
             public Dictionary<System.String, System.String> Constraints_EncryptionContextSubset { get; set; }
+            public System.String Constraints_SourceArn { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.String GranteePrincipal { get; set; }
+            public System.String GranteeServicePrincipal { get; set; }
             public List<System.String> GrantToken { get; set; }
             public System.String KeyId { get; set; }
             public System.String Name { get; set; }
             public List<System.String> Operation { get; set; }
             public System.String RetiringPrincipal { get; set; }
+            public System.String RetiringServicePrincipal { get; set; }
             public System.Func<Amazon.KeyManagementService.Model.CreateGrantResponse, NewKMSGrantCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

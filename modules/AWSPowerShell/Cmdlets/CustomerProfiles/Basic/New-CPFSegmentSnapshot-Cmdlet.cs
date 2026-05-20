@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// <summary>
         /// <para>
         /// <para>The destination to which the segment will be exported. This field must be provided
-        /// if the request is not submitted from the Amazon Connect Admin Website.</para>
+        /// if the request is not submitted from the Connect Customer Admin Website.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

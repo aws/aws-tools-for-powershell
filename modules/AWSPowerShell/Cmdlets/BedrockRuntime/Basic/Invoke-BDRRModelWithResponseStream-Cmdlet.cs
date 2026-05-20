@@ -171,6 +171,16 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfigLatency { get; set; }
         #endregion
         
+        #region Parameter RequestMetadata
+        /// <summary>
+        /// <para>
+        /// <para>Key-value pairs that you can use to filter invocation logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RequestMetadata { get; set; }
+        #endregion
+        
         #region Parameter ServiceTier
         /// <summary>
         /// <para>
@@ -253,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             }
             #endif
             context.PerformanceConfigLatency = this.PerformanceConfigLatency;
+            context.RequestMetadata = this.RequestMetadata;
             context.ServiceTier = this.ServiceTier;
             context.Trace = this.Trace;
             
@@ -303,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 if (cmdletContext.PerformanceConfigLatency != null)
                 {
                     request.PerformanceConfigLatency = cmdletContext.PerformanceConfigLatency;
+                }
+                if (cmdletContext.RequestMetadata != null)
+                {
+                    request.RequestMetadata = cmdletContext.RequestMetadata;
                 }
                 if (cmdletContext.ServiceTier != null)
                 {
@@ -382,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public System.String GuardrailVersion { get; set; }
             public System.String ModelId { get; set; }
             public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfigLatency { get; set; }
+            public System.String RequestMetadata { get; set; }
             public Amazon.BedrockRuntime.ServiceTierType ServiceTier { get; set; }
             public Amazon.BedrockRuntime.Trace Trace { get; set; }
             public System.Func<Amazon.BedrockRuntime.Model.InvokeModelWithResponseStreamResponse, InvokeBDRRModelWithResponseStreamCmdlet, object> Select { get; set; } =
