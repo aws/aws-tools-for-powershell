@@ -23,52 +23,43 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.VerifiedPermissions;
-using Amazon.VerifiedPermissions.Model;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.AVP
+namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Deletes the specified policy store alias.
+    /// Publishes the current DRAFT as a new numbered version.
     /// 
     ///  
     /// <para>
-    /// This operation is idempotent. If you specify a policy store alias that does not exist,
-    /// the request response will still return a successful HTTP 200 status code.
-    /// </para><para>
-    /// By default, when a policy store alias is deleted, it enters the <c>PendingDeletion</c>
-    /// state. When a policy store alias is in the <c>PendingDeletion</c> state, new policy
-    /// store aliases cannot be created with the same name. If the policy store alias is used
-    /// in an API that has a <c>policyStoreId</c> field, the operation will fail with a <c>ResourceNotFound</c>
-    /// exception.
-    /// </para><para>
-    /// To immediately delete a policy store alias and bypass the <c>PendingDeletion</c> state,
-    /// set the <c>deletionMode</c> parameter to <c>HardDelete</c>.
-    /// </para><important><para>
-    /// Verified Permissions is eventually consistent. If you hard delete a policy store alias
-    /// and then immediately recreate it to be associated with a different policy store, requests
-    /// that reference this alias may continue to be evaluated against the previously associated
-    /// policy store for a short period of time.
-    /// </para></important>
+    /// Snapshots the DRAFT examples as the next version (1, 2, 3, ...). The DRAFT is preserved
+    /// and remains editable after publishing. Returns immediately with status UPDATING. Poll
+    /// GetDataset until status transitions to ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
+    /// </para><para><strong>State guard:</strong> Returns ConflictException (DATASET_NOT_READY) if status
+    /// is in {CREATING, UPDATING, DELETING}, or DATASET_IN_FAILED_STATE if status is in {CREATE_FAILED,
+    /// DELETE_FAILED}.
+    /// </para><para><strong>Quota:</strong> MAX_VERSIONS_PER_DATASET applies to published versions only
+    /// (not DRAFT).
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "AVPPolicyStoreAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Verified Permissions DeletePolicyStoreAlias API operation.", Operation = new[] {"DeletePolicyStoreAlias"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse))]
-    [AWSCmdletOutput("None or Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse) be returned by specifying '-Select *'."
+    [Cmdlet("New", "BACCDatasetVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateDatasetVersion API operation.", Operation = new[] {"CreateDatasetVersion"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionResponse object containing multiple properties."
     )]
-    public partial class RemoveAVPPolicyStoreAliasCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
+    public partial class NewBACCDatasetVersionCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AliasName
+        #region Parameter DatasetId
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the policy store alias that you want to delete.</para><note><para>The alias name must always be prefixed with <c>policy-store-alias/</c>.</para></note>
+        /// <para> The unique identifier of the dataset to publish a version for. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,26 +70,28 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AliasName { get; set; }
+        public System.String DatasetId { get; set; }
         #endregion
         
-        #region Parameter DeletionMode
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Specifies the deletion mode for the policy store alias. The valid values are:</para><ul><li><para><b>SoftDelete</b> – The policy store alias enters the <c>PendingDeletion</c> state.
-        /// This is the default behavior when no <c>deletionMode</c> is specified.</para></li><li><para><b>HardDelete</b> – The policy store alias is immediately deleted, bypassing the
-        /// <c>PendingDeletion</c> state.</para></li></ul>
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If you don't specify this field, a value is randomly generated for
+        /// you. If this token matches a previous request, the service ignores the request, but
+        /// doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.VerifiedPermissions.DeletionMode")]
-        public Amazon.VerifiedPermissions.DeletionMode DeletionMode { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AliasName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AVPPolicyStoreAlias (DeletePolicyStoreAlias)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DatasetId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BACCDatasetVersion (CreateDatasetVersion)"))
             {
                 return;
             }
@@ -137,17 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse, RemoveAVPPolicyStoreAliasCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionResponse, NewBACCDatasetVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AliasName = this.AliasName;
+            context.ClientToken = this.ClientToken;
+            context.DatasetId = this.DatasetId;
             #if MODULAR
-            if (this.AliasName == null && ParameterWasBound(nameof(this.AliasName)))
+            if (this.DatasetId == null && ParameterWasBound(nameof(this.DatasetId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AliasName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DatasetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DeletionMode = this.DeletionMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,15 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionRequest();
             
-            if (cmdletContext.AliasName != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.AliasName = cmdletContext.AliasName;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.DeletionMode != null)
+            if (cmdletContext.DatasetId != null)
             {
-                request.DeletionMode = cmdletContext.DeletionMode;
+                request.DatasetId = cmdletContext.DatasetId;
             }
             
             CmdletOutput output;
@@ -205,12 +198,12 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region AWS Service Operation Call
         
-        private Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "DeletePolicyStoreAlias");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateDatasetVersion");
             try
             {
-                return client.DeletePolicyStoreAliasAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CreateDatasetVersionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -227,10 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AliasName { get; set; }
-            public Amazon.VerifiedPermissions.DeletionMode DeletionMode { get; set; }
-            public System.Func<Amazon.VerifiedPermissions.Model.DeletePolicyStoreAliasResponse, RemoveAVPPolicyStoreAliasCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ClientToken { get; set; }
+            public System.String DatasetId { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateDatasetVersionResponse, NewBACCDatasetVersionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -187,6 +187,7 @@ $EVS_SelectMap = @{
                "Remove-EVSEnvironmentConnector",
                "Remove-EVSEnvironmentHost",
                "Unregister-EVSEipFromVlan",
+               "Get-EVSDepotUrl",
                "Get-EVSEnvironment",
                "Get-EVSVersion",
                "Get-EVSEnvironmentConnectorList",

@@ -144,6 +144,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.DatasetSchemaType
+        "New-BACCDataset/SchemaType"
+        {
+            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.DescriptorType
         {
             ($_ -eq "Get-BACCRegistryRecordList/DescriptorType") -Or
@@ -425,6 +432,7 @@ $BACC_map = @{
     "PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
+    "SchemaType"=@("New-BACCDataset")
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
@@ -485,13 +493,16 @@ $BACC_SelectCompleters = {
 }
 
 $BACC_SelectMap = @{
-    "Select"=@("New-BACCAgentRuntime",
+    "Select"=@("Add-BACCDatasetExample",
+               "New-BACCAgentRuntime",
                "New-BACCAgentRuntimeEndpoint",
                "New-BACCApiKeyCredentialProvider",
                "New-BACCBrowser",
                "New-BACCBrowserProfile",
                "New-BACCCodeInterpreter",
                "New-BACCConfigurationBundle",
+               "New-BACCDataset",
+               "New-BACCDatasetVersion",
                "New-BACCEvaluator",
                "New-BACCGateway",
                "New-BACCGatewayRule",
@@ -515,6 +526,8 @@ $BACC_SelectMap = @{
                "Remove-BACCBrowserProfile",
                "Remove-BACCCodeInterpreter",
                "Remove-BACCConfigurationBundle",
+               "Remove-BACCDataset",
+               "Remove-BACCDatasetExample",
                "Remove-BACCEvaluator",
                "Remove-BACCGateway",
                "Remove-BACCGatewayRule",
@@ -540,6 +553,7 @@ $BACC_SelectMap = @{
                "Get-BACCCodeInterpreter",
                "Get-BACCConfigurationBundle",
                "Get-BACCConfigurationBundleVersion",
+               "Get-BACCDataset",
                "Get-BACCEvaluator",
                "Get-BACCGateway",
                "Get-BACCGatewayRule",
@@ -571,6 +585,9 @@ $BACC_SelectMap = @{
                "Get-BACCCodeInterpreterList",
                "Get-BACCConfigurationBundleList",
                "Get-BACCConfigurationBundleVersionList",
+               "Get-BACCDatasetExampleList",
+               "Get-BACCDatasetList",
+               "Get-BACCDatasetVersionList",
                "Get-BACCEvaluatorList",
                "Get-BACCGatewayRuleList",
                "Get-BACCGatewayList",
@@ -604,6 +621,8 @@ $BACC_SelectMap = @{
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",
                "Update-BACCConfigurationBundle",
+               "Update-BACCDataset",
+               "Update-BACCDatasetExample",
                "Update-BACCEvaluator",
                "Update-BACCGateway",
                "Update-BACCGatewayRule",

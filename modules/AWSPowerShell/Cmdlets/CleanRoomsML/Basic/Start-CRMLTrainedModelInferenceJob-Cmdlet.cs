@@ -195,6 +195,16 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String DataSource_MlInputChannelArn { get; set; }
         #endregion
         
+        #region Parameter MlModelInferencePayerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the member that is responsible for paying for model inference costs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MlModelInferencePayerAccountId { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -338,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MlModelInferencePayerAccountId = this.MlModelInferencePayerAccountId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -453,6 +464,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (cmdletContext.MembershipIdentifier != null)
             {
                 request.MembershipIdentifier = cmdletContext.MembershipIdentifier;
+            }
+            if (cmdletContext.MlModelInferencePayerAccountId != null)
+            {
+                request.MlModelInferencePayerAccountId = cmdletContext.MlModelInferencePayerAccountId;
             }
             if (cmdletContext.Name != null)
             {
@@ -590,6 +605,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public Dictionary<System.String, System.String> Environment { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String MembershipIdentifier { get; set; }
+            public System.String MlModelInferencePayerAccountId { get; set; }
             public System.String Name { get; set; }
             public System.String OutputConfiguration_Accept { get; set; }
             public List<Amazon.CleanRoomsML.Model.InferenceReceiverMember> OutputConfiguration_Member { get; set; }

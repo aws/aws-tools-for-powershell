@@ -73,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String JobParameters_AnalysisTemplateArn { get; set; }
         #endregion
         
+        #region Parameter JobComputePayerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the member that pays for the job compute costs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JobComputePayerAccountId { get; set; }
+        #endregion
+        
         #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>
@@ -221,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 }
             }
             context.Worker_Type = this.Worker_Type;
+            context.JobComputePayerAccountId = this.JobComputePayerAccountId;
             context.JobParameters_AnalysisTemplateArn = this.JobParameters_AnalysisTemplateArn;
             #if MODULAR
             if (this.JobParameters_AnalysisTemplateArn == null && ParameterWasBound(nameof(this.JobParameters_AnalysisTemplateArn)))
@@ -335,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestComputeConfigurationIsNull)
             {
                 request.ComputeConfiguration = null;
+            }
+            if (cmdletContext.JobComputePayerAccountId != null)
+            {
+                request.JobComputePayerAccountId = cmdletContext.JobComputePayerAccountId;
             }
             
              // populate JobParameters
@@ -480,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.Int32? Worker_Number { get; set; }
             public Dictionary<System.String, System.String> ComputeConfiguration_Worker_Properties_Spark { get; set; }
             public Amazon.CleanRooms.ProtectedJobWorkerComputeType Worker_Type { get; set; }
+            public System.String JobComputePayerAccountId { get; set; }
             public System.String JobParameters_AnalysisTemplateArn { get; set; }
             public Dictionary<System.String, System.String> JobParameters_Parameter { get; set; }
             public System.String MembershipIdentifier { get; set; }

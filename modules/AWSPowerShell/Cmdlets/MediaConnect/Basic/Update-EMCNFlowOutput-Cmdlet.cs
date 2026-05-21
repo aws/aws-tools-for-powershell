@@ -174,6 +174,21 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.Int32? MinLatency { get; set; }
         #endregion
         
+        #region Parameter NdiOutputTimecodeSource
+        /// <summary>
+        /// <para>
+        /// <para>Controls how MediaConnect generates timecodes for NDI output frames. If you don't
+        /// specify this field, MediaConnect leaves the value unchanged.</para><ul><li><para><c>EMBEDDED_TIMECODE</c> - Preserves timecodes from the input transport stream. The
+        /// timecodes must be embedded in the video stream as SEI timing messages. If no embedded
+        /// timecode is detected, MediaConnect uses the UTC system time instead.</para></li><li><para><c>UTC_SYSTEM_TIME</c> - Generates timecodes based on the system clock time when
+        /// each frame is sent.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.NdiOutputTimecodeSource")]
+        public Amazon.MediaConnect.NdiOutputTimecodeSource NdiOutputTimecodeSource { get; set; }
+        #endregion
+        
         #region Parameter NdiProgramName
         /// <summary>
         /// <para>
@@ -407,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 context.MediaStreamOutputConfiguration = new List<Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest>(this.MediaStreamOutputConfiguration);
             }
             context.MinLatency = this.MinLatency;
+            context.NdiOutputTimecodeSource = this.NdiOutputTimecodeSource;
             context.NdiProgramName = this.NdiProgramName;
             context.NdiSpeedHqQuality = this.NdiSpeedHqQuality;
             context.OutputArn = this.OutputArn;
@@ -477,6 +493,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.MinLatency != null)
             {
                 request.MinLatency = cmdletContext.MinLatency.Value;
+            }
+            if (cmdletContext.NdiOutputTimecodeSource != null)
+            {
+                request.NdiOutputTimecodeSource = cmdletContext.NdiOutputTimecodeSource;
             }
             if (cmdletContext.NdiProgramName != null)
             {
@@ -687,6 +707,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? MaxLatency { get; set; }
             public List<Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest> MediaStreamOutputConfiguration { get; set; }
             public System.Int32? MinLatency { get; set; }
+            public Amazon.MediaConnect.NdiOutputTimecodeSource NdiOutputTimecodeSource { get; set; }
             public System.String NdiProgramName { get; set; }
             public System.Int32? NdiSpeedHqQuality { get; set; }
             public System.String OutputArn { get; set; }

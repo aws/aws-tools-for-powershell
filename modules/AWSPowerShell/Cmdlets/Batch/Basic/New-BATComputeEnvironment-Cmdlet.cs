@@ -81,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// of the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
         /// EC2 service limits</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation
         /// strategies</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
-        /// specify it.</para></note><dl><dt>BEST_FIT (default)</dt><dd><para>Batch selects an instance type that best fits the needs of the jobs with a preference
+        /// specify it.</para></note><note><para>This parameter is required for Amazon EKS compute environments. For Amazon ECS compute
+        /// environments, if this parameter isn't specified, the <c>BEST_FIT</c> allocation strategy
+        /// is used by default.</para></note><dl><dt>BEST_FIT (default)</dt><dd><para>Batch selects an instance type that best fits the needs of the jobs with a preference
         /// for the lowest-cost instance type. If additional instances of the selected instance
         /// type aren't available, Batch waits for the additional instances to be available. If
         /// there aren't enough instances available or the user is reaching <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
@@ -411,7 +413,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// service IAM role</a> in the <i>Batch User Guide</i>.</para><important><para>If your account already created the Batch service-linked role, that role is used by
         /// default for your compute environment unless you specify a different role here. If
         /// the Batch service-linked role doesn't exist in your account, and no role is specified
-        /// here, the service attempts to create the Batch service-linked role in your account.</para></important><para>If your specified role has a path other than <c>/</c>, then you must specify either
+        /// here, the service attempts to create the Batch service-linked role in your account.</para><para>This automatic service-linked role creation only applies to <c>MANAGED</c> compute
+        /// environments. For <c>UNMANAGED</c> compute environments, you must explicitly specify
+        /// a <c>serviceRole</c>.</para></important><para>If your specified role has a path other than <c>/</c>, then you must specify either
         /// the full role ARN (recommended) or prefix the role name with the path. For example,
         /// if a role with the name <c>bar</c> has a path of <c>/foo/</c>, specify <c>/foo/bar</c>
         /// as the role name. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
@@ -447,8 +451,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The state of the compute environment. If the state is <c>ENABLED</c>, then the compute
-        /// environment accepts jobs from a queue and can scale out automatically based on queues.</para><para>If the state is <c>ENABLED</c>, then the Batch scheduler can attempt to place jobs
+        /// <para>The state of the compute environment. A compute environment must be created in the
+        /// <c>ENABLED</c> state.</para><para>If the state is <c>ENABLED</c>, then the compute environment accepts jobs from a queue
+        /// and can scale out automatically based on queues.</para><para>If the state is <c>ENABLED</c>, then the Batch scheduler can attempt to place jobs
         /// from an associated job queue on the compute resources within the environment. If the
         /// compute environment is managed, then it can scale its instances out or in automatically,
         /// based on the job queue demand.</para><para>If the state is <c>DISABLED</c>, then the Batch scheduler doesn't attempt to place

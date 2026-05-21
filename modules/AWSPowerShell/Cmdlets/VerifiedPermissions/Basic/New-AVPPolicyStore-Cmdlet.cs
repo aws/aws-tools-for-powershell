@@ -33,9 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// Creates a policy store. A policy store is a container for policy resources.
     /// 
     ///  <note><para>
-    /// Although <a href="https://docs.cedarpolicy.com/schema/schema.html#namespace">Cedar
-    /// supports multiple namespaces</a>, Verified Permissions currently supports only one
-    /// namespace per policy store.
+    /// As of May 2026, Verified Permissions has aligned with Cedar and now supports multiple
+    /// namespaces.
     /// </para></note><note><para>
     /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
     /// consistent</a></i>. It can take a few seconds for a new or changed element to propagate

@@ -1,4 +1,36 @@
-﻿### 5.0.216 (2026-05-20 20:26Z)
+﻿### 5.0.217 (2026-05-21 22:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.253.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Add-BACCDatasetExample leveraging the AddDatasetExamples service API.
+    * Added cmdlet Get-BACCDataset leveraging the GetDataset service API.
+    * Added cmdlet Get-BACCDatasetExampleList leveraging the ListDatasetExamples service API.
+    * Added cmdlet Get-BACCDatasetList leveraging the ListDatasets service API.
+    * Added cmdlet Get-BACCDatasetVersionList leveraging the ListDatasetVersions service API.
+    * Added cmdlet New-BACCDataset leveraging the CreateDataset service API.
+    * Added cmdlet New-BACCDatasetVersion leveraging the CreateDatasetVersion service API.
+    * Added cmdlet Remove-BACCDataset leveraging the DeleteDataset service API.
+    * Added cmdlet Remove-BACCDatasetExample leveraging the DeleteDatasetExamples service API.
+    * Added cmdlet Update-BACCDataset leveraging the UpdateDataset service API.
+    * Added cmdlet Update-BACCDatasetExample leveraging the UpdateDatasetExamples service API.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Start-CRSProtectedJob: added parameter JobComputePayerAccountId.
+    * Modified cmdlet Start-CRSProtectedQuery: added parameter QueryComputePayerAccountId.
+    * Modified cmdlet Update-CRSMembership: added parameters MembershipPaymentConfiguration_JobCompute_IsResponsible, MembershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible, MembershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible, MembershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible and MembershipPaymentConfiguration_QueryCompute_IsResponsible.
+  * Amazon CleanRoomsML
+    * Modified cmdlet New-CRMLMLInputChannel: added parameters PayerConfiguration_ComputePayerAccountId and PayerConfiguration_SyntheticDataPayerAccountId.
+    * Modified cmdlet New-CRMLTrainedModel: added parameter MlModelTrainingPayerAccountId.
+    * Modified cmdlet Start-CRMLTrainedModelInferenceJob: added parameter MlModelInferencePayerAccountId.
+  * Amazon Elastic VMware Service
+    * Added cmdlet Get-EVSDepotUrl leveraging the GetDepotUrl service API.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet Update-EMCNFlowOutput: added parameter NdiOutputTimecodeSource.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter HomeEfsFileSystemCreation.
+    * Modified cmdlet Update-SMDomain: added parameter HomeEfsFileSystemCreation.
+  * Amazon Verified Permissions
+    * Modified cmdlet Remove-AVPPolicyStoreAlias: added parameter DeletionMode.
+
+### 5.0.216 (2026-05-20 20:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.252.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Runtime
     * Modified cmdlet Invoke-BDRRModel: added parameter RequestMetadata.

@@ -353,6 +353,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int64? CustomPosixUserConfig_Gid { get; set; }
         #endregion
         
+        #region Parameter HomeEfsFileSystemCreation
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to create a home EFS file system for the domain. You can change
+        /// from <c>Disabled</c> to <c>Enabled</c> to provision EFS on demand, but you cannot
+        /// change from <c>Enabled</c> to <c>Disabled</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.HomeEfsFileSystemCreation")]
+        public Amazon.SageMaker.HomeEfsFileSystemCreation HomeEfsFileSystemCreation { get; set; }
+        #endregion
+        
         #region Parameter IdleSettings_IdleTimeoutInMinute
         /// <summary>
         /// <para>
@@ -1132,6 +1145,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.UnifiedStudioSettings_ProjectS3Path = this.UnifiedStudioSettings_ProjectS3Path;
             context.UnifiedStudioSettings_SingleSignOnApplicationArn = this.UnifiedStudioSettings_SingleSignOnApplicationArn;
             context.UnifiedStudioSettings_StudioWebPortalAccess = this.UnifiedStudioSettings_StudioWebPortalAccess;
+            context.HomeEfsFileSystemCreation = this.HomeEfsFileSystemCreation;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -2108,6 +2122,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.DomainSettingsForUpdate = null;
             }
+            if (cmdletContext.HomeEfsFileSystemCreation != null)
+            {
+                request.HomeEfsFileSystemCreation = cmdletContext.HomeEfsFileSystemCreation;
+            }
             if (cmdletContext.SubnetId != null)
             {
                 request.SubnetIds = cmdletContext.SubnetId;
@@ -2244,6 +2262,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String UnifiedStudioSettings_ProjectS3Path { get; set; }
             public System.String UnifiedStudioSettings_SingleSignOnApplicationArn { get; set; }
             public Amazon.SageMaker.FeatureStatus UnifiedStudioSettings_StudioWebPortalAccess { get; set; }
+            public Amazon.SageMaker.HomeEfsFileSystemCreation HomeEfsFileSystemCreation { get; set; }
             public List<System.String> SubnetId { get; set; }
             public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
             public System.String VpcId { get; set; }

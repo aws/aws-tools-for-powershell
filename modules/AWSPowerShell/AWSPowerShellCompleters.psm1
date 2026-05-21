@@ -8454,6 +8454,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.DatasetSchemaType
+        "New-BACCDataset/SchemaType"
+        {
+            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.DescriptorType
         {
             ($_ -eq "Get-BACCRegistryRecordList/DescriptorType") -Or
@@ -8735,6 +8742,7 @@ $BACC_map = @{
     "PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
+    "SchemaType"=@("New-BACCDataset")
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
@@ -8795,13 +8803,16 @@ $BACC_SelectCompleters = {
 }
 
 $BACC_SelectMap = @{
-    "Select"=@("New-BACCAgentRuntime",
+    "Select"=@("Add-BACCDatasetExample",
+               "New-BACCAgentRuntime",
                "New-BACCAgentRuntimeEndpoint",
                "New-BACCApiKeyCredentialProvider",
                "New-BACCBrowser",
                "New-BACCBrowserProfile",
                "New-BACCCodeInterpreter",
                "New-BACCConfigurationBundle",
+               "New-BACCDataset",
+               "New-BACCDatasetVersion",
                "New-BACCEvaluator",
                "New-BACCGateway",
                "New-BACCGatewayRule",
@@ -8825,6 +8836,8 @@ $BACC_SelectMap = @{
                "Remove-BACCBrowserProfile",
                "Remove-BACCCodeInterpreter",
                "Remove-BACCConfigurationBundle",
+               "Remove-BACCDataset",
+               "Remove-BACCDatasetExample",
                "Remove-BACCEvaluator",
                "Remove-BACCGateway",
                "Remove-BACCGatewayRule",
@@ -8850,6 +8863,7 @@ $BACC_SelectMap = @{
                "Get-BACCCodeInterpreter",
                "Get-BACCConfigurationBundle",
                "Get-BACCConfigurationBundleVersion",
+               "Get-BACCDataset",
                "Get-BACCEvaluator",
                "Get-BACCGateway",
                "Get-BACCGatewayRule",
@@ -8881,6 +8895,9 @@ $BACC_SelectMap = @{
                "Get-BACCCodeInterpreterList",
                "Get-BACCConfigurationBundleList",
                "Get-BACCConfigurationBundleVersionList",
+               "Get-BACCDatasetExampleList",
+               "Get-BACCDatasetList",
+               "Get-BACCDatasetVersionList",
                "Get-BACCEvaluatorList",
                "Get-BACCGatewayRuleList",
                "Get-BACCGatewayList",
@@ -8914,6 +8931,8 @@ $BACC_SelectMap = @{
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",
                "Update-BACCConfigurationBundle",
+               "Update-BACCDataset",
+               "Update-BACCDatasetExample",
                "Update-BACCEvaluator",
                "Update-BACCGateway",
                "Update-BACCGatewayRule",
@@ -35273,6 +35292,7 @@ $EVS_SelectMap = @{
                "Remove-EVSEnvironmentConnector",
                "Remove-EVSEnvironmentHost",
                "Unregister-EVSEipFromVlan",
+               "Get-EVSDepotUrl",
                "Get-EVSEnvironment",
                "Get-EVSVersion",
                "Get-EVSEnvironmentConnectorList",
@@ -53416,6 +53436,13 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.NdiOutputTimecodeSource
+        "Update-EMCNFlowOutput/NdiOutputTimecodeSource"
+        {
+            $v = "EMBEDDED_TIMECODE","UTC_SYSTEM_TIME"
+            break
+        }
+
         # Amazon.MediaConnect.NdiState
         {
             ($_ -eq "New-EMCNFlow/NdiConfig_NdiState") -Or
@@ -53579,6 +53606,7 @@ $EMCN_map = @{
     "MediaLiveInput_MediaLivePipelineId"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
     "NdiConfig_NdiState"=@("New-EMCNFlow","Update-EMCNFlow")
+    "NdiOutputTimecodeSource"=@("Update-EMCNFlowOutput")
     "NetworkOutput_Protocol"=@("Update-EMCNBridgeOutput")
     "NetworkSource_Protocol"=@("Update-EMCNBridgeSource")
     "OutputStatus"=@("Update-EMCNFlowOutput")
@@ -75948,6 +75976,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.HomeEfsFileSystemCreation
+        {
+            ($_ -eq "New-SMDomain/HomeEfsFileSystemCreation") -Or
+            ($_ -eq "Update-SMDomain/HomeEfsFileSystemCreation")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.SageMaker.HubContentSortBy
         {
             ($_ -eq "Get-SMHubContentList/SortBy") -Or
@@ -77303,6 +77341,7 @@ $SM_map = @{
     "EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "FeatureGroupStatusEqual"=@("Get-SMFeatureGroupList")
+    "HomeEfsFileSystemCreation"=@("New-SMDomain","Update-SMDomain")
     "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","New-SMHubContentPresignedUrl","Remove-SMHubContent","Remove-SMHubContentReference","Update-SMHubContent","Update-SMHubContentReference")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
@@ -86259,6 +86298,13 @@ $AVP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.VerifiedPermissions.DeletionMode
+        "Remove-AVPPolicyStoreAlias/DeletionMode"
+        {
+            $v = "HardDelete","SoftDelete"
+            break
+        }
+
         # Amazon.VerifiedPermissions.DeletionProtection
         {
             ($_ -eq "New-AVPPolicyStore/DeletionProtection") -Or
@@ -86295,6 +86341,7 @@ $AVP_Completers = {
 }
 
 $AVP_map = @{
+    "DeletionMode"=@("Remove-AVPPolicyStoreAlias")
     "DeletionProtection"=@("New-AVPPolicyStore","Update-AVPPolicyStore")
     "Filter_PolicyType"=@("Get-AVPPolicyList")
     "ValidationSettings_Mode"=@("New-AVPPolicyStore","Update-AVPPolicyStore")

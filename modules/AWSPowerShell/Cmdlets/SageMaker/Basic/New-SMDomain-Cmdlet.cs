@@ -410,6 +410,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int64? CustomPosixUserConfig_Gid { get; set; }
         #endregion
         
+        #region Parameter HomeEfsFileSystemCreation
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to create a home EFS file system for the domain. Defaults to <c>Enabled</c>.
+        /// Set to <c>Disabled</c> to skip EFS creation and reduce domain creation time. You can
+        /// enable EFS later by calling <c>UpdateDomain</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.HomeEfsFileSystemCreation")]
+        public Amazon.SageMaker.HomeEfsFileSystemCreation HomeEfsFileSystemCreation { get; set; }
+        #endregion
+        
         #region Parameter IdleSettings_IdleTimeoutInMinute
         /// <summary>
         /// <para>
@@ -1240,6 +1253,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.UnifiedStudioSettings_ProjectS3Path = this.UnifiedStudioSettings_ProjectS3Path;
             context.UnifiedStudioSettings_SingleSignOnApplicationArn = this.UnifiedStudioSettings_SingleSignOnApplicationArn;
             context.UnifiedStudioSettings_StudioWebPortalAccess = this.UnifiedStudioSettings_StudioWebPortalAccess;
+            context.HomeEfsFileSystemCreation = this.HomeEfsFileSystemCreation;
             context.HomeEfsFileSystemKmsKeyId = this.HomeEfsFileSystemKmsKeyId;
             context.KmsKeyId = this.KmsKeyId;
             if (this.SubnetId != null)
@@ -2226,6 +2240,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.DomainSettings = null;
             }
+            if (cmdletContext.HomeEfsFileSystemCreation != null)
+            {
+                request.HomeEfsFileSystemCreation = cmdletContext.HomeEfsFileSystemCreation;
+            }
             if (cmdletContext.HomeEfsFileSystemKmsKeyId != null)
             {
                 request.HomeEfsFileSystemKmsKeyId = cmdletContext.HomeEfsFileSystemKmsKeyId;
@@ -2375,6 +2393,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String UnifiedStudioSettings_ProjectS3Path { get; set; }
             public System.String UnifiedStudioSettings_SingleSignOnApplicationArn { get; set; }
             public Amazon.SageMaker.FeatureStatus UnifiedStudioSettings_StudioWebPortalAccess { get; set; }
+            public Amazon.SageMaker.HomeEfsFileSystemCreation HomeEfsFileSystemCreation { get; set; }
             [System.ObsoleteAttribute]
             public System.String HomeEfsFileSystemKmsKeyId { get; set; }
             public System.String KmsKeyId { get; set; }

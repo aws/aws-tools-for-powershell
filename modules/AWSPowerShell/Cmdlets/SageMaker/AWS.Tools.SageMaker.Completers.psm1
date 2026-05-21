@@ -670,6 +670,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.HomeEfsFileSystemCreation
+        {
+            ($_ -eq "New-SMDomain/HomeEfsFileSystemCreation") -Or
+            ($_ -eq "Update-SMDomain/HomeEfsFileSystemCreation")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.SageMaker.HubContentSortBy
         {
             ($_ -eq "Get-SMHubContentList/SortBy") -Or
@@ -2025,6 +2035,7 @@ $SM_map = @{
     "EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "FeatureGroupStatusEqual"=@("Get-SMFeatureGroupList")
+    "HomeEfsFileSystemCreation"=@("New-SMDomain","Update-SMDomain")
     "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","New-SMHubContentPresignedUrl","Remove-SMHubContent","Remove-SMHubContentReference","Update-SMHubContent","Update-SMHubContentReference")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")

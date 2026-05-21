@@ -80,6 +80,13 @@ $AVP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.VerifiedPermissions.DeletionMode
+        "Remove-AVPPolicyStoreAlias/DeletionMode"
+        {
+            $v = "HardDelete","SoftDelete"
+            break
+        }
+
         # Amazon.VerifiedPermissions.DeletionProtection
         {
             ($_ -eq "New-AVPPolicyStore/DeletionProtection") -Or
@@ -116,6 +123,7 @@ $AVP_Completers = {
 }
 
 $AVP_map = @{
+    "DeletionMode"=@("Remove-AVPPolicyStoreAlias")
     "DeletionProtection"=@("New-AVPPolicyStore","Update-AVPPolicyStore")
     "Filter_PolicyType"=@("Get-AVPPolicyList")
     "ValidationSettings_Mode"=@("New-AVPPolicyStore","Update-AVPPolicyStore")

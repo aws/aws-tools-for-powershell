@@ -2903,6 +2903,8 @@ Set-Alias -Name AAB-UpdateKnowledgeBase -Value Update-AABKnowledgeBase
 Set-Alias -Name AAB-UpdatePrompt -Value Update-AABPrompt
 Set-Alias -Name Validate-AABFlowDefinition -Value Confirm-AABFlowDefinition
 Set-Alias -Name AAB-ValidateFlowDefinition -Value Confirm-AABFlowDefinition
+Set-Alias -Name Add-BACCDatasetExamples -Value Add-BACCDatasetExample
+Set-Alias -Name BACC-AddDatasetExamples -Value Add-BACCDatasetExample
 Set-Alias -Name Create-BACCAgentRuntime -Value New-BACCAgentRuntime
 Set-Alias -Name BACC-CreateAgentRuntime -Value New-BACCAgentRuntime
 Set-Alias -Name Create-BACCAgentRuntimeEndpoint -Value New-BACCAgentRuntimeEndpoint
@@ -2917,6 +2919,10 @@ Set-Alias -Name Create-BACCCodeInterpreter -Value New-BACCCodeInterpreter
 Set-Alias -Name BACC-CreateCodeInterpreter -Value New-BACCCodeInterpreter
 Set-Alias -Name Create-BACCConfigurationBundle -Value New-BACCConfigurationBundle
 Set-Alias -Name BACC-CreateConfigurationBundle -Value New-BACCConfigurationBundle
+Set-Alias -Name Create-BACCDataset -Value New-BACCDataset
+Set-Alias -Name BACC-CreateDataset -Value New-BACCDataset
+Set-Alias -Name Create-BACCDatasetVersion -Value New-BACCDatasetVersion
+Set-Alias -Name BACC-CreateDatasetVersion -Value New-BACCDatasetVersion
 Set-Alias -Name Create-BACCEvaluator -Value New-BACCEvaluator
 Set-Alias -Name BACC-CreateEvaluator -Value New-BACCEvaluator
 Set-Alias -Name Create-BACCGateway -Value New-BACCGateway
@@ -2963,6 +2969,11 @@ Set-Alias -Name Delete-BACCCodeInterpreter -Value Remove-BACCCodeInterpreter
 Set-Alias -Name BACC-DeleteCodeInterpreter -Value Remove-BACCCodeInterpreter
 Set-Alias -Name Delete-BACCConfigurationBundle -Value Remove-BACCConfigurationBundle
 Set-Alias -Name BACC-DeleteConfigurationBundle -Value Remove-BACCConfigurationBundle
+Set-Alias -Name Delete-BACCDataset -Value Remove-BACCDataset
+Set-Alias -Name BACC-DeleteDataset -Value Remove-BACCDataset
+Set-Alias -Name Delete-BACCDatasetExamples -Value Remove-BACCDatasetExample
+Set-Alias -Name Delete-BACCDatasetExample -Value Remove-BACCDatasetExample
+Set-Alias -Name BACC-DeleteDatasetExamples -Value Remove-BACCDatasetExample
 Set-Alias -Name Delete-BACCEvaluator -Value Remove-BACCEvaluator
 Set-Alias -Name BACC-DeleteEvaluator -Value Remove-BACCEvaluator
 Set-Alias -Name Delete-BACCGateway -Value Remove-BACCGateway
@@ -3005,6 +3016,7 @@ Set-Alias -Name BACC-GetBrowserProfile -Value Get-BACCBrowserProfile
 Set-Alias -Name BACC-GetCodeInterpreter -Value Get-BACCCodeInterpreter
 Set-Alias -Name BACC-GetConfigurationBundle -Value Get-BACCConfigurationBundle
 Set-Alias -Name BACC-GetConfigurationBundleVersion -Value Get-BACCConfigurationBundleVersion
+Set-Alias -Name BACC-GetDataset -Value Get-BACCDataset
 Set-Alias -Name BACC-GetEvaluator -Value Get-BACCEvaluator
 Set-Alias -Name BACC-GetGateway -Value Get-BACCGateway
 Set-Alias -Name BACC-GetGatewayRule -Value Get-BACCGatewayRule
@@ -3054,6 +3066,15 @@ Set-Alias -Name BACC-ListConfigurationBundles -Value Get-BACCConfigurationBundle
 Set-Alias -Name List-BACCConfigurationBundleVersions -Value Get-BACCConfigurationBundleVersionList
 Set-Alias -Name List-BACCConfigurationBundleVersionList -Value Get-BACCConfigurationBundleVersionList
 Set-Alias -Name BACC-ListConfigurationBundleVersions -Value Get-BACCConfigurationBundleVersionList
+Set-Alias -Name List-BACCDatasetExamples -Value Get-BACCDatasetExampleList
+Set-Alias -Name List-BACCDatasetExampleList -Value Get-BACCDatasetExampleList
+Set-Alias -Name BACC-ListDatasetExamples -Value Get-BACCDatasetExampleList
+Set-Alias -Name List-BACCDatasets -Value Get-BACCDatasetList
+Set-Alias -Name List-BACCDatasetList -Value Get-BACCDatasetList
+Set-Alias -Name BACC-ListDatasets -Value Get-BACCDatasetList
+Set-Alias -Name List-BACCDatasetVersions -Value Get-BACCDatasetVersionList
+Set-Alias -Name List-BACCDatasetVersionList -Value Get-BACCDatasetVersionList
+Set-Alias -Name BACC-ListDatasetVersions -Value Get-BACCDatasetVersionList
 Set-Alias -Name List-BACCEvaluators -Value Get-BACCEvaluatorList
 Set-Alias -Name List-BACCEvaluatorList -Value Get-BACCEvaluatorList
 Set-Alias -Name BACC-ListEvaluators -Value Get-BACCEvaluatorList
@@ -3132,6 +3153,9 @@ Set-Alias -Name BACC-UpdateAgentRuntime -Value Update-BACCAgentRuntime
 Set-Alias -Name BACC-UpdateAgentRuntimeEndpoint -Value Update-BACCAgentRuntimeEndpoint
 Set-Alias -Name BACC-UpdateApiKeyCredentialProvider -Value Update-BACCApiKeyCredentialProvider
 Set-Alias -Name BACC-UpdateConfigurationBundle -Value Update-BACCConfigurationBundle
+Set-Alias -Name BACC-UpdateDataset -Value Update-BACCDataset
+Set-Alias -Name Update-BACCDatasetExamples -Value Update-BACCDatasetExample
+Set-Alias -Name BACC-UpdateDatasetExamples -Value Update-BACCDatasetExample
 Set-Alias -Name BACC-UpdateEvaluator -Value Update-BACCEvaluator
 Set-Alias -Name BACC-UpdateGateway -Value Update-BACCGateway
 Set-Alias -Name BACC-UpdateGatewayRule -Value Update-BACCGatewayRule
@@ -14176,6 +14200,7 @@ Set-Alias -Name Delete-EVSEnvironmentHost -Value Remove-EVSEnvironmentHost
 Set-Alias -Name EVS-DeleteEnvironmentHost -Value Remove-EVSEnvironmentHost
 Set-Alias -Name Disassociate-EVSEipFromVlan -Value Unregister-EVSEipFromVlan
 Set-Alias -Name EVS-DisassociateEipFromVlan -Value Unregister-EVSEipFromVlan
+Set-Alias -Name EVS-GetDepotUrl -Value Get-EVSDepotUrl
 Set-Alias -Name EVS-GetEnvironment -Value Get-EVSEnvironment
 Set-Alias -Name Get-EVSVersions -Value Get-EVSVersion
 Set-Alias -Name EVS-GetVersions -Value Get-EVSVersion

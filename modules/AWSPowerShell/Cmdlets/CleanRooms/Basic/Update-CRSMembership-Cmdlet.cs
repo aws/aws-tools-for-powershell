@@ -67,6 +67,71 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String S3_Bucket { get; set; }
         #endregion
         
+        #region Parameter MembershipPaymentConfiguration_JobCompute_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration member has accepted to pay for job compute costs
+        /// (<c>TRUE</c>) or has not accepted to pay for query and job compute costs (<c>FALSE</c>).</para><para>There is only one member who pays for queries and jobs. </para><para>An error message is returned for the following reasons: </para><ul><li><para>If you set the value to <c>FALSE</c> but you are responsible to pay for query and
+        /// job compute costs. </para></li><li><para>If you set the value to <c>TRUE</c> but you are not responsible to pay for query and
+        /// job compute costs. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MembershipPaymentConfiguration_JobCompute_IsResponsible { get; set; }
+        #endregion
+        
+        #region Parameter MembershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration member has accepted to pay for model inference
+        /// costs (<c>TRUE</c>) or has not accepted to pay for model inference costs (<c>FALSE</c>).</para><para>If the collaboration creator has not specified anyone to pay for model inference costs,
+        /// then the member who can query is the default payer. </para><para>An error message is returned for the following reasons: </para><ul><li><para>If you set the value to <c>FALSE</c> but you are responsible to pay for model inference
+        /// costs. </para></li><li><para>If you set the value to <c>TRUE</c> but you are not responsible to pay for model inference
+        /// costs. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MembershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible { get; set; }
+        #endregion
+        
+        #region Parameter MembershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration member has accepted to pay for model training
+        /// costs (<c>TRUE</c>) or has not accepted to pay for model training costs (<c>FALSE</c>).</para><para>If the collaboration creator has not specified anyone to pay for model training costs,
+        /// then the member who can query is the default payer. </para><para>An error message is returned for the following reasons: </para><ul><li><para>If you set the value to <c>FALSE</c> but you are responsible to pay for model training
+        /// costs. </para></li><li><para>If you set the value to <c>TRUE</c> but you are not responsible to pay for model training
+        /// costs. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MembershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible { get; set; }
+        #endregion
+        
+        #region Parameter MembershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if this membership is responsible for paying for synthetic data generation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MembershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible { get; set; }
+        #endregion
+        
+        #region Parameter MembershipPaymentConfiguration_QueryCompute_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration member has accepted to pay for query compute costs
+        /// (<c>TRUE</c>) or has not accepted to pay for query compute costs (<c>FALSE</c>).</para><para>If the collaboration creator has not specified anyone to pay for query compute costs,
+        /// then the member who can query is the default payer. </para><para>An error message is returned for the following reasons: </para><ul><li><para>If you set the value to <c>FALSE</c> but you are responsible to pay for query compute
+        /// costs. </para></li><li><para>If you set the value to <c>TRUE</c> but you are not responsible to pay for query compute
+        /// costs. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MembershipPaymentConfiguration_QueryCompute_IsResponsible { get; set; }
+        #endregion
+        
         #region Parameter JobLogStatus
         /// <summary>
         /// <para>
@@ -240,6 +305,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MembershipPaymentConfiguration_JobCompute_IsResponsible = this.MembershipPaymentConfiguration_JobCompute_IsResponsible;
+            context.MembershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible = this.MembershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible;
+            context.MembershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible = this.MembershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible;
+            context.MembershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible = this.MembershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible;
+            context.MembershipPaymentConfiguration_QueryCompute_IsResponsible = this.MembershipPaymentConfiguration_QueryCompute_IsResponsible;
             context.QueryLogStatus = this.QueryLogStatus;
             
             // allow further manipulation of loaded context prior to processing
@@ -423,6 +493,155 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 request.MembershipIdentifier = cmdletContext.MembershipIdentifier;
             }
+            
+             // populate MembershipPaymentConfiguration
+            var requestMembershipPaymentConfigurationIsNull = true;
+            request.MembershipPaymentConfiguration = new Amazon.CleanRooms.Model.UpdateMembershipPaymentConfiguration();
+            Amazon.CleanRooms.Model.MembershipJobComputePaymentConfig requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute = null;
+            
+             // populate JobCompute
+            var requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobComputeIsNull = true;
+            requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute = new Amazon.CleanRooms.Model.MembershipJobComputePaymentConfig();
+            System.Boolean? requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute_membershipPaymentConfiguration_JobCompute_IsResponsible = null;
+            if (cmdletContext.MembershipPaymentConfiguration_JobCompute_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute_membershipPaymentConfiguration_JobCompute_IsResponsible = cmdletContext.MembershipPaymentConfiguration_JobCompute_IsResponsible.Value;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute_membershipPaymentConfiguration_JobCompute_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute.IsResponsible = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute_membershipPaymentConfiguration_JobCompute_IsResponsible.Value;
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobComputeIsNull = false;
+            }
+             // determine if requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute should be set to null
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobComputeIsNull)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute = null;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute != null)
+            {
+                request.MembershipPaymentConfiguration.JobCompute = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_JobCompute;
+                requestMembershipPaymentConfigurationIsNull = false;
+            }
+            Amazon.CleanRooms.Model.MembershipQueryComputePaymentConfig requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute = null;
+            
+             // populate QueryCompute
+            var requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryComputeIsNull = true;
+            requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute = new Amazon.CleanRooms.Model.MembershipQueryComputePaymentConfig();
+            System.Boolean? requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute_membershipPaymentConfiguration_QueryCompute_IsResponsible = null;
+            if (cmdletContext.MembershipPaymentConfiguration_QueryCompute_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute_membershipPaymentConfiguration_QueryCompute_IsResponsible = cmdletContext.MembershipPaymentConfiguration_QueryCompute_IsResponsible.Value;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute_membershipPaymentConfiguration_QueryCompute_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute.IsResponsible = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute_membershipPaymentConfiguration_QueryCompute_IsResponsible.Value;
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryComputeIsNull = false;
+            }
+             // determine if requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute should be set to null
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryComputeIsNull)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute = null;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute != null)
+            {
+                request.MembershipPaymentConfiguration.QueryCompute = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_QueryCompute;
+                requestMembershipPaymentConfigurationIsNull = false;
+            }
+            Amazon.CleanRooms.Model.MembershipMLPaymentConfig requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning = null;
+            
+             // populate MachineLearning
+            var requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearningIsNull = true;
+            requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning = new Amazon.CleanRooms.Model.MembershipMLPaymentConfig();
+            Amazon.CleanRooms.Model.MembershipModelInferencePaymentConfig requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference = null;
+            
+             // populate ModelInference
+            var requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInferenceIsNull = true;
+            requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference = new Amazon.CleanRooms.Model.MembershipModelInferencePaymentConfig();
+            System.Boolean? requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference_membershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible = null;
+            if (cmdletContext.MembershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference_membershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible = cmdletContext.MembershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible.Value;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference_membershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference.IsResponsible = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference_membershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible.Value;
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInferenceIsNull = false;
+            }
+             // determine if requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference should be set to null
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInferenceIsNull)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference = null;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning.ModelInference = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelInference;
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearningIsNull = false;
+            }
+            Amazon.CleanRooms.Model.MembershipModelTrainingPaymentConfig requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining = null;
+            
+             // populate ModelTraining
+            var requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTrainingIsNull = true;
+            requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining = new Amazon.CleanRooms.Model.MembershipModelTrainingPaymentConfig();
+            System.Boolean? requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining_membershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible = null;
+            if (cmdletContext.MembershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining_membershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible = cmdletContext.MembershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible.Value;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining_membershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining.IsResponsible = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining_membershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible.Value;
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTrainingIsNull = false;
+            }
+             // determine if requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining should be set to null
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTrainingIsNull)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining = null;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning.ModelTraining = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_ModelTraining;
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearningIsNull = false;
+            }
+            Amazon.CleanRooms.Model.MembershipSyntheticDataGenerationPaymentConfig requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration = null;
+            
+             // populate SyntheticDataGeneration
+            var requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGenerationIsNull = true;
+            requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration = new Amazon.CleanRooms.Model.MembershipSyntheticDataGenerationPaymentConfig();
+            System.Boolean? requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible = null;
+            if (cmdletContext.MembershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible = cmdletContext.MembershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible.Value;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration.IsResponsible = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible.Value;
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGenerationIsNull = false;
+            }
+             // determine if requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration should be set to null
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGenerationIsNull)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration = null;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration != null)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning.SyntheticDataGeneration = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning_membershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration;
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearningIsNull = false;
+            }
+             // determine if requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning should be set to null
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearningIsNull)
+            {
+                requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning = null;
+            }
+            if (requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning != null)
+            {
+                request.MembershipPaymentConfiguration.MachineLearning = requestMembershipPaymentConfiguration_membershipPaymentConfiguration_MachineLearning;
+                requestMembershipPaymentConfigurationIsNull = false;
+            }
+             // determine if request.MembershipPaymentConfiguration should be set to null
+            if (requestMembershipPaymentConfigurationIsNull)
+            {
+                request.MembershipPaymentConfiguration = null;
+            }
             if (cmdletContext.QueryLogStatus != null)
             {
                 request.QueryLogStatus = cmdletContext.QueryLogStatus;
@@ -492,6 +711,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String DefaultResultConfiguration_RoleArn { get; set; }
             public Amazon.CleanRooms.MembershipJobLogStatus JobLogStatus { get; set; }
             public System.String MembershipIdentifier { get; set; }
+            public System.Boolean? MembershipPaymentConfiguration_JobCompute_IsResponsible { get; set; }
+            public System.Boolean? MembershipPaymentConfiguration_MachineLearning_ModelInference_IsResponsible { get; set; }
+            public System.Boolean? MembershipPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible { get; set; }
+            public System.Boolean? MembershipPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible { get; set; }
+            public System.Boolean? MembershipPaymentConfiguration_QueryCompute_IsResponsible { get; set; }
             public Amazon.CleanRooms.MembershipQueryLogStatus QueryLogStatus { get; set; }
             public System.Func<Amazon.CleanRooms.Model.UpdateMembershipResponse, UpdateCRSMembershipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Membership;

@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The platform identifier of the notebook instance runtime environment. The default
-        /// value is <c>notebook-al2-v2</c>.</para>
+        /// value is <c>notebook-al2023-v1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

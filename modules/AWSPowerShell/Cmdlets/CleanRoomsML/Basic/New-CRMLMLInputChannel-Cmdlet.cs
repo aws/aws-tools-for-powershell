@@ -57,6 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String SqlParameters_AnalysisTemplateArn { get; set; }
         #endregion
         
+        #region Parameter PayerConfiguration_ComputePayerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the member that is responsible for paying compute costs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PayerConfiguration_ComputePayerAccountId { get; set; }
+        #endregion
+        
         #region Parameter ConfiguredModelAlgorithmAssociation
         /// <summary>
         /// <para>
@@ -238,6 +248,17 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.Collections.Hashtable InputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration_Worker_Properties_Spark { get; set; }
         #endregion
         
+        #region Parameter PayerConfiguration_SyntheticDataPayerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the member that is responsible for paying synthetic data generation
+        /// costs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PayerConfiguration_SyntheticDataPayerAccountId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -375,6 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PayerConfiguration_ComputePayerAccountId = this.PayerConfiguration_ComputePayerAccountId;
+            context.PayerConfiguration_SyntheticDataPayerAccountId = this.PayerConfiguration_SyntheticDataPayerAccountId;
             context.RetentionInDay = this.RetentionInDay;
             #if MODULAR
             if (this.RetentionInDay == null && ParameterWasBound(nameof(this.RetentionInDay)))
@@ -605,6 +628,35 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate PayerConfiguration
+            var requestPayerConfigurationIsNull = true;
+            request.PayerConfiguration = new Amazon.CleanRoomsML.Model.PayerConfiguration();
+            System.String requestPayerConfiguration_payerConfiguration_ComputePayerAccountId = null;
+            if (cmdletContext.PayerConfiguration_ComputePayerAccountId != null)
+            {
+                requestPayerConfiguration_payerConfiguration_ComputePayerAccountId = cmdletContext.PayerConfiguration_ComputePayerAccountId;
+            }
+            if (requestPayerConfiguration_payerConfiguration_ComputePayerAccountId != null)
+            {
+                request.PayerConfiguration.ComputePayerAccountId = requestPayerConfiguration_payerConfiguration_ComputePayerAccountId;
+                requestPayerConfigurationIsNull = false;
+            }
+            System.String requestPayerConfiguration_payerConfiguration_SyntheticDataPayerAccountId = null;
+            if (cmdletContext.PayerConfiguration_SyntheticDataPayerAccountId != null)
+            {
+                requestPayerConfiguration_payerConfiguration_SyntheticDataPayerAccountId = cmdletContext.PayerConfiguration_SyntheticDataPayerAccountId;
+            }
+            if (requestPayerConfiguration_payerConfiguration_SyntheticDataPayerAccountId != null)
+            {
+                request.PayerConfiguration.SyntheticDataPayerAccountId = requestPayerConfiguration_payerConfiguration_SyntheticDataPayerAccountId;
+                requestPayerConfigurationIsNull = false;
+            }
+             // determine if request.PayerConfiguration should be set to null
+            if (requestPayerConfigurationIsNull)
+            {
+                request.PayerConfiguration = null;
+            }
             if (cmdletContext.RetentionInDay != null)
             {
                 request.RetentionInDays = cmdletContext.RetentionInDay.Value;
@@ -681,6 +733,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public System.String KmsKeyArn { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.String Name { get; set; }
+            public System.String PayerConfiguration_ComputePayerAccountId { get; set; }
+            public System.String PayerConfiguration_SyntheticDataPayerAccountId { get; set; }
             public System.Int32? RetentionInDay { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CleanRoomsML.Model.CreateMLInputChannelResponse, NewCRMLMLInputChannelCmdlet, object> Select { get; set; } =

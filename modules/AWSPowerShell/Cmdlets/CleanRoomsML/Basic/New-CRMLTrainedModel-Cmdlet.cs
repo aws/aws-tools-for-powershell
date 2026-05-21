@@ -209,6 +209,16 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String MembershipIdentifier { get; set; }
         #endregion
         
+        #region Parameter MlModelTrainingPayerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the member that is responsible for paying for model training costs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MlModelTrainingPayerAccountId { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -375,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MlModelTrainingPayerAccountId = this.MlModelTrainingPayerAccountId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -454,6 +465,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (cmdletContext.MembershipIdentifier != null)
             {
                 request.MembershipIdentifier = cmdletContext.MembershipIdentifier;
+            }
+            if (cmdletContext.MlModelTrainingPayerAccountId != null)
+            {
+                request.MlModelTrainingPayerAccountId = cmdletContext.MlModelTrainingPayerAccountId;
             }
             if (cmdletContext.Name != null)
             {
@@ -588,6 +603,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public List<Amazon.CleanRoomsML.Model.IncrementalTrainingDataChannel> IncrementalTrainingDataChannel { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String MembershipIdentifier { get; set; }
+            public System.String MlModelTrainingPayerAccountId { get; set; }
             public System.String Name { get; set; }
             public System.Int32? ResourceConfig_InstanceCount { get; set; }
             public Amazon.CleanRoomsML.InstanceType ResourceConfig_InstanceType { get; set; }

@@ -247,6 +247,13 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.NdiOutputTimecodeSource
+        "Update-EMCNFlowOutput/NdiOutputTimecodeSource"
+        {
+            $v = "EMBEDDED_TIMECODE","UTC_SYSTEM_TIME"
+            break
+        }
+
         # Amazon.MediaConnect.NdiState
         {
             ($_ -eq "New-EMCNFlow/NdiConfig_NdiState") -Or
@@ -410,6 +417,7 @@ $EMCN_map = @{
     "MediaLiveInput_MediaLivePipelineId"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
     "NdiConfig_NdiState"=@("New-EMCNFlow","Update-EMCNFlow")
+    "NdiOutputTimecodeSource"=@("Update-EMCNFlowOutput")
     "NetworkOutput_Protocol"=@("Update-EMCNBridgeOutput")
     "NetworkSource_Protocol"=@("Update-EMCNBridgeSource")
     "OutputStatus"=@("Update-EMCNFlowOutput")

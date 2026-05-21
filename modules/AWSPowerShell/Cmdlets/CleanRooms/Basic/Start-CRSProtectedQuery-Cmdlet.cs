@@ -149,6 +149,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.Collections.Hashtable SqlParameters_Parameter { get; set; }
         #endregion
         
+        #region Parameter QueryComputePayerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the member that pays for the query compute costs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QueryComputePayerAccountId { get; set; }
+        #endregion
+        
         #region Parameter SqlParameters_QueryString
         /// <summary>
         /// <para>
@@ -295,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.QueryComputePayerAccountId = this.QueryComputePayerAccountId;
             if (this.Distribute_Location != null)
             {
                 context.Distribute_Location = new List<Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfigurationLocation>(this.Distribute_Location);
@@ -409,6 +420,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (cmdletContext.MembershipIdentifier != null)
             {
                 request.MembershipIdentifier = cmdletContext.MembershipIdentifier;
+            }
+            if (cmdletContext.QueryComputePayerAccountId != null)
+            {
+                request.QueryComputePayerAccountId = cmdletContext.QueryComputePayerAccountId;
             }
             
              // populate ResultConfiguration
@@ -641,6 +656,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public Dictionary<System.String, System.String> Properties_Spark { get; set; }
             public Amazon.CleanRooms.WorkerComputeType Worker_Type { get; set; }
             public System.String MembershipIdentifier { get; set; }
+            public System.String QueryComputePayerAccountId { get; set; }
             public List<Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfigurationLocation> Distribute_Location { get; set; }
             public System.String Member_AccountId { get; set; }
             public System.String S3_Bucket { get; set; }
