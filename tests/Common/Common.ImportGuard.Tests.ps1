@@ -80,6 +80,32 @@ Describe -Tag "Smoke" "Common.ImportGuard.VersionMismatchCheck" {
         }
     }
 
+    Context "Multiple module variants check" {
+
+        It "returns false when only one variant is installed" {
+            $null = New-Item -Path "$TestDrive/AWSPowerShell" -ItemType Directory -Force
+            Test-MultipleModuleVariantsInstalled @('AWSPowerShell', 'AWSPowerShell.NetCore', 'AWS.Tools.Common') | Should -Be $false
+        }
+
+        It "returns true when two variants are in the same directory" {
+            $null = New-Item -Path "$TestDrive/AWSPowerShell" -ItemType Directory -Force
+            $null = New-Item -Path "$TestDrive/AWS.Tools.Common" -ItemType Directory -Force
+            Test-MultipleModuleVariantsInstalled @('AWSPowerShell', 'AWSPowerShell.NetCore', 'AWS.Tools.Common') | Should -Be $true
+        }
+
+        It "returns true when two variants are in different PSModulePath entries" {
+            $secondPath = Join-Path $TestDrive 'second'
+            $null = New-Item -Path "$TestDrive/AWSPowerShell" -ItemType Directory -Force
+            $null = New-Item -Path "$secondPath/AWS.Tools.Common" -ItemType Directory -Force
+            $env:PSModulePath = "$TestDrive$([System.IO.Path]::PathSeparator)$secondPath"
+            Test-MultipleModuleVariantsInstalled @('AWSPowerShell', 'AWSPowerShell.NetCore', 'AWS.Tools.Common') | Should -Be $true
+        }
+
+        It "returns false when none are installed" {
+            Test-MultipleModuleVariantsInstalled @('AWSPowerShell', 'AWSPowerShell.NetCore', 'AWS.Tools.Common') | Should -Be $false
+        }
+    }
+
     Context "Edge cases" {
 
         It "returns false when PSModulePath is empty" {

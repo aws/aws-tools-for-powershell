@@ -15,9 +15,29 @@ function Get-VersionFromManifest {
                 if ([System.Version]::TryParse($Matches[1], [ref]$ver)) { return $ver }
             }
         }
-    } catch { }
+    } catch {
+        Write-Verbose "Failed to read manifest '$Path': $_"
+    }
     finally { if ($reader) { $reader.Dispose() } }
     return $null
+}
+
+function Test-MultipleModuleVariantsInstalled {
+    [OutputType([bool])]
+    param([string[]]$ModuleNames)
+
+    $found = @{}
+    foreach ($modulePath in ($env:PSModulePath -split [System.IO.Path]::PathSeparator)) {
+        if (-not [System.IO.Directory]::Exists($modulePath)) { continue }
+        foreach ($name in $ModuleNames) {
+            if (-not $found.ContainsKey($name) -and
+                [System.IO.Directory]::Exists([System.IO.Path]::Combine($modulePath, $name))) {
+                $found[$name] = $true
+                if ($found.Count -gt 1) { return $true }
+            }
+        }
+    }
+    return $false
 }
 
 function Test-AWSToolsVersionMismatch {
@@ -28,36 +48,49 @@ function Test-AWSToolsVersionMismatch {
     [System.Version]$maxVersion = $null
 
     foreach ($modulePath in ($env:PSModulePath -split [System.IO.Path]::PathSeparator)) {
-        if (-not (Test-Path $modulePath)) { continue }
+        if (-not [System.IO.Directory]::Exists($modulePath)) { continue }
 
-        $awsDirs = Get-ChildItem -Path $modulePath -Directory -Filter 'AWS.Tools.*' -ErrorAction SilentlyContinue
-        foreach ($dir in $awsDirs) {
-            if ($dir.Name -eq 'AWS.Tools.Installer') { continue }
+        try {
+            $awsDirs = [System.IO.Directory]::GetDirectories($modulePath, 'AWS.Tools.*')
+        } catch {
+            Write-Verbose "Skipping module path '$modulePath': $_"
+            continue
+        }
+
+        foreach ($dirPath in $awsDirs) {
+            $dirName = [System.IO.Path]::GetFileName($dirPath)
+            if ($dirName -eq 'AWS.Tools.Installer') { continue }
 
             # Flat layout: ModuleName/ModuleName.psd1
-            $flatPsd1 = Join-Path $dir.FullName "$($dir.Name).psd1"
-            if (Test-Path $flatPsd1) {
+            $flatPsd1 = [System.IO.Path]::Combine($dirPath, "$dirName.psd1")
+            if ([System.IO.File]::Exists($flatPsd1)) {
                 $ver = Get-VersionFromManifest $flatPsd1
                 if ($ver) {
-                    if (-not $moduleVersions.ContainsKey($dir.Name)) {
-                        $moduleVersions[$dir.Name] = [System.Collections.Generic.HashSet[System.Version]]::new()
+                    if (-not $moduleVersions.ContainsKey($dirName)) {
+                        $moduleVersions[$dirName] = [System.Collections.Generic.HashSet[System.Version]]::new()
                     }
-                    $null = $moduleVersions[$dir.Name].Add($ver)
+                    $null = $moduleVersions[$dirName].Add($ver)
                     if ($null -eq $maxVersion -or $ver -gt $maxVersion) { $maxVersion = $ver }
                 }
             }
 
             # Versioned layout: ModuleName/Version/ModuleName.psd1
-            $subDirs = Get-ChildItem -Path $dir.FullName -Directory -ErrorAction SilentlyContinue
-            foreach ($vDir in $subDirs) {
+            try {
+                $subDirs = [System.IO.Directory]::GetDirectories($dirPath)
+            } catch {
+                Write-Verbose "Skipping directory '$dirPath': $_"
+                continue
+            }
+
+            foreach ($subDirPath in $subDirs) {
                 $ver = $null
-                if ([System.Version]::TryParse($vDir.Name, [ref]$ver)) {
-                    $vPsd1 = Join-Path $vDir.FullName "$($dir.Name).psd1"
-                    if (Test-Path $vPsd1) {
-                        if (-not $moduleVersions.ContainsKey($dir.Name)) {
-                            $moduleVersions[$dir.Name] = [System.Collections.Generic.HashSet[System.Version]]::new()
+                if ([System.Version]::TryParse([System.IO.Path]::GetFileName($subDirPath), [ref]$ver)) {
+                    $vPsd1 = [System.IO.Path]::Combine($subDirPath, "$dirName.psd1")
+                    if ([System.IO.File]::Exists($vPsd1)) {
+                        if (-not $moduleVersions.ContainsKey($dirName)) {
+                            $moduleVersions[$dirName] = [System.Collections.Generic.HashSet[System.Version]]::new()
                         }
-                        $null = $moduleVersions[$dir.Name].Add($ver)
+                        $null = $moduleVersions[$dirName].Add($ver)
                         if ($null -eq $maxVersion -or $ver -gt $maxVersion) { $maxVersion = $ver }
                     }
                 }
@@ -109,8 +142,7 @@ function AWSToolsImportGuard() {
         Write-Verbose "ImportGuard version mismatch check failed: $_"
     }
 
-    [int]$installedModuleVariants = Microsoft.PowerShell.Core\Get-Module -Name $rootModules -ListAvailable | Group-Object -Property Name -NoElement | Measure-Object | Select-Object -ExpandProperty Count
-    if ($installedModuleVariants -gt 1) {
+    if (Test-MultipleModuleVariantsInstalled $rootModules) {
         Write-Warning 'Multiple variants of AWS Tools for PowerShell (AWSPowerShell, AWSPowerShell.NetCore or AWS.Tools) are currently installed. Please run ''Get-Module -Name AWSPowerShell,AWSPowerShell.NetCore,AWS.Tools.Common -ListAvailable'' for details. To avoid problems with cmdlet auto-importing, it is suggested to only install one variant.
 AWS.Tools is the new modularized version of AWS Tools for PowerShell, compatible with PowerShell Core 6+ and Windows Powershell 5.1+ (when .NET Framework 4.7.2+ is installed).
 AWSPowerShell.NetCore is the monolithic variant that supports all AWS services in a single large module, it is compatible with PowerShell Core 6+ and Windows Powershell 3+ (when .NET Framework 4.7.2+ is installed).
