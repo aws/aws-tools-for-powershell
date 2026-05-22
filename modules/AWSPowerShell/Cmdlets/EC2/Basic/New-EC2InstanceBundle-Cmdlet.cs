@@ -128,10 +128,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon
         /// S3 on your behalf.</para>
         /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Storage_S3_UploadPolicy")]
-        public System.String S3_UploadPolicy { get; set; }
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] S3_UploadPolicy { get; set; }
         #endregion
         
         #region Parameter S3_UploadPolicySignature
@@ -216,114 +218,127 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.EC2.Model.BundleInstanceRequest();
+            System.IO.MemoryStream _S3_UploadPolicyStream = null;
             
-            if (cmdletContext.DryRun != null)
-            {
-                request.DryRun = cmdletContext.DryRun.Value;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
-            }
-            
-             // populate Storage
-            var requestStorageIsNull = true;
-            request.Storage = new Amazon.EC2.Model.Storage();
-            Amazon.EC2.Model.S3Storage requestStorage_storage_S3 = null;
-            
-             // populate S3
-            var requestStorage_storage_S3IsNull = true;
-            requestStorage_storage_S3 = new Amazon.EC2.Model.S3Storage();
-            System.String requestStorage_storage_S3_s3_AWSAccessKeyId = null;
-            if (cmdletContext.S3_AWSAccessKeyId != null)
-            {
-                requestStorage_storage_S3_s3_AWSAccessKeyId = cmdletContext.S3_AWSAccessKeyId;
-            }
-            if (requestStorage_storage_S3_s3_AWSAccessKeyId != null)
-            {
-                requestStorage_storage_S3.AWSAccessKeyId = requestStorage_storage_S3_s3_AWSAccessKeyId;
-                requestStorage_storage_S3IsNull = false;
-            }
-            System.String requestStorage_storage_S3_s3_Bucket = null;
-            if (cmdletContext.S3_Bucket != null)
-            {
-                requestStorage_storage_S3_s3_Bucket = cmdletContext.S3_Bucket;
-            }
-            if (requestStorage_storage_S3_s3_Bucket != null)
-            {
-                requestStorage_storage_S3.Bucket = requestStorage_storage_S3_s3_Bucket;
-                requestStorage_storage_S3IsNull = false;
-            }
-            System.String requestStorage_storage_S3_s3_Prefix = null;
-            if (cmdletContext.S3_Prefix != null)
-            {
-                requestStorage_storage_S3_s3_Prefix = cmdletContext.S3_Prefix;
-            }
-            if (requestStorage_storage_S3_s3_Prefix != null)
-            {
-                requestStorage_storage_S3.Prefix = requestStorage_storage_S3_s3_Prefix;
-                requestStorage_storage_S3IsNull = false;
-            }
-            System.String requestStorage_storage_S3_s3_UploadPolicy = null;
-            if (cmdletContext.S3_UploadPolicy != null)
-            {
-                requestStorage_storage_S3_s3_UploadPolicy = cmdletContext.S3_UploadPolicy;
-            }
-            if (requestStorage_storage_S3_s3_UploadPolicy != null)
-            {
-                requestStorage_storage_S3.UploadPolicy = requestStorage_storage_S3_s3_UploadPolicy;
-                requestStorage_storage_S3IsNull = false;
-            }
-            System.String requestStorage_storage_S3_s3_UploadPolicySignature = null;
-            if (cmdletContext.S3_UploadPolicySignature != null)
-            {
-                requestStorage_storage_S3_s3_UploadPolicySignature = cmdletContext.S3_UploadPolicySignature;
-            }
-            if (requestStorage_storage_S3_s3_UploadPolicySignature != null)
-            {
-                requestStorage_storage_S3.UploadPolicySignature = requestStorage_storage_S3_s3_UploadPolicySignature;
-                requestStorage_storage_S3IsNull = false;
-            }
-             // determine if requestStorage_storage_S3 should be set to null
-            if (requestStorage_storage_S3IsNull)
-            {
-                requestStorage_storage_S3 = null;
-            }
-            if (requestStorage_storage_S3 != null)
-            {
-                request.Storage.S3 = requestStorage_storage_S3;
-                requestStorageIsNull = false;
-            }
-             // determine if request.Storage should be set to null
-            if (requestStorageIsNull)
-            {
-                request.Storage = null;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.EC2.Model.BundleInstanceRequest();
+                
+                if (cmdletContext.DryRun != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    request.DryRun = cmdletContext.DryRun.Value;
+                }
+                if (cmdletContext.InstanceId != null)
+                {
+                    request.InstanceId = cmdletContext.InstanceId;
+                }
+                
+                 // populate Storage
+                var requestStorageIsNull = true;
+                request.Storage = new Amazon.EC2.Model.Storage();
+                Amazon.EC2.Model.S3Storage requestStorage_storage_S3 = null;
+                
+                 // populate S3
+                var requestStorage_storage_S3IsNull = true;
+                requestStorage_storage_S3 = new Amazon.EC2.Model.S3Storage();
+                System.String requestStorage_storage_S3_s3_AWSAccessKeyId = null;
+                if (cmdletContext.S3_AWSAccessKeyId != null)
+                {
+                    requestStorage_storage_S3_s3_AWSAccessKeyId = cmdletContext.S3_AWSAccessKeyId;
+                }
+                if (requestStorage_storage_S3_s3_AWSAccessKeyId != null)
+                {
+                    requestStorage_storage_S3.AWSAccessKeyId = requestStorage_storage_S3_s3_AWSAccessKeyId;
+                    requestStorage_storage_S3IsNull = false;
+                }
+                System.String requestStorage_storage_S3_s3_Bucket = null;
+                if (cmdletContext.S3_Bucket != null)
+                {
+                    requestStorage_storage_S3_s3_Bucket = cmdletContext.S3_Bucket;
+                }
+                if (requestStorage_storage_S3_s3_Bucket != null)
+                {
+                    requestStorage_storage_S3.Bucket = requestStorage_storage_S3_s3_Bucket;
+                    requestStorage_storage_S3IsNull = false;
+                }
+                System.String requestStorage_storage_S3_s3_Prefix = null;
+                if (cmdletContext.S3_Prefix != null)
+                {
+                    requestStorage_storage_S3_s3_Prefix = cmdletContext.S3_Prefix;
+                }
+                if (requestStorage_storage_S3_s3_Prefix != null)
+                {
+                    requestStorage_storage_S3.Prefix = requestStorage_storage_S3_s3_Prefix;
+                    requestStorage_storage_S3IsNull = false;
+                }
+                System.IO.MemoryStream requestStorage_storage_S3_s3_UploadPolicy = null;
+                if (cmdletContext.S3_UploadPolicy != null)
+                {
+                    _S3_UploadPolicyStream = new System.IO.MemoryStream(cmdletContext.S3_UploadPolicy);
+                    requestStorage_storage_S3_s3_UploadPolicy = _S3_UploadPolicyStream;
+                }
+                if (requestStorage_storage_S3_s3_UploadPolicy != null)
+                {
+                    requestStorage_storage_S3.UploadPolicy = requestStorage_storage_S3_s3_UploadPolicy;
+                    requestStorage_storage_S3IsNull = false;
+                }
+                System.String requestStorage_storage_S3_s3_UploadPolicySignature = null;
+                if (cmdletContext.S3_UploadPolicySignature != null)
+                {
+                    requestStorage_storage_S3_s3_UploadPolicySignature = cmdletContext.S3_UploadPolicySignature;
+                }
+                if (requestStorage_storage_S3_s3_UploadPolicySignature != null)
+                {
+                    requestStorage_storage_S3.UploadPolicySignature = requestStorage_storage_S3_s3_UploadPolicySignature;
+                    requestStorage_storage_S3IsNull = false;
+                }
+                 // determine if requestStorage_storage_S3 should be set to null
+                if (requestStorage_storage_S3IsNull)
+                {
+                    requestStorage_storage_S3 = null;
+                }
+                if (requestStorage_storage_S3 != null)
+                {
+                    request.Storage.S3 = requestStorage_storage_S3;
+                    requestStorageIsNull = false;
+                }
+                 // determine if request.Storage should be set to null
+                if (requestStorageIsNull)
+                {
+                    request.Storage = null;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _S3_UploadPolicyStream != null)
+                {
+                    _S3_UploadPolicyStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -362,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String S3_AWSAccessKeyId { get; set; }
             public System.String S3_Bucket { get; set; }
             public System.String S3_Prefix { get; set; }
-            public System.String S3_UploadPolicy { get; set; }
+            public byte[] S3_UploadPolicy { get; set; }
             public System.String S3_UploadPolicySignature { get; set; }
             public System.Func<Amazon.EC2.Model.BundleInstanceResponse, NewEC2InstanceBundleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BundleTask;

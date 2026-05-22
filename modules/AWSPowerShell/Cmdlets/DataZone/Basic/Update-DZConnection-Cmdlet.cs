@@ -444,6 +444,31 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Credentials_SecretArn { get; set; }
         #endregion
         
+        #region Parameter Props_VpcProperties_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The security group ID of the VPC connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_VpcProperties_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter Props_VpcProperties_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The subnet IDs of the VPC connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_VpcProperties_SubnetIds")]
+        public System.String[] Props_VpcProperties_SubnetId { get; set; }
+        #endregion
+        
         #region Parameter MlflowProperties_TrackingServerArn
         /// <summary>
         /// <para>
@@ -486,6 +511,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_UserName")]
         public System.String BasicAuthenticationCredentials_UserName { get; set; }
+        #endregion
+        
+        #region Parameter Props_VpcProperties_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_VpcProperties_VpcId { get; set; }
         #endregion
         
         #region Parameter AthenaProperties_WorkgroupName
@@ -619,6 +654,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.SparkEmrProperties_PythonVirtualEnv = this.SparkEmrProperties_PythonVirtualEnv;
             context.SparkEmrProperties_RuntimeRole = this.SparkEmrProperties_RuntimeRole;
             context.SparkEmrProperties_TrustedCertificatesS3Uri = this.SparkEmrProperties_TrustedCertificatesS3Uri;
+            context.Props_VpcProperties_SecurityGroupId = this.Props_VpcProperties_SecurityGroupId;
+            if (this.Props_VpcProperties_SubnetId != null)
+            {
+                context.Props_VpcProperties_SubnetId = new List<System.String>(this.Props_VpcProperties_SubnetId);
+            }
+            context.Props_VpcProperties_VpcId = this.Props_VpcProperties_VpcId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1002,6 +1043,51 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_S3Properties != null)
             {
                 request.Props.S3Properties = requestProps_props_S3Properties;
+                requestPropsIsNull = false;
+            }
+            Amazon.DataZone.Model.VpcPropertiesPatch requestProps_props_VpcProperties = null;
+            
+             // populate VpcProperties
+            var requestProps_props_VpcPropertiesIsNull = true;
+            requestProps_props_VpcProperties = new Amazon.DataZone.Model.VpcPropertiesPatch();
+            System.String requestProps_props_VpcProperties_props_VpcProperties_SecurityGroupId = null;
+            if (cmdletContext.Props_VpcProperties_SecurityGroupId != null)
+            {
+                requestProps_props_VpcProperties_props_VpcProperties_SecurityGroupId = cmdletContext.Props_VpcProperties_SecurityGroupId;
+            }
+            if (requestProps_props_VpcProperties_props_VpcProperties_SecurityGroupId != null)
+            {
+                requestProps_props_VpcProperties.SecurityGroupId = requestProps_props_VpcProperties_props_VpcProperties_SecurityGroupId;
+                requestProps_props_VpcPropertiesIsNull = false;
+            }
+            List<System.String> requestProps_props_VpcProperties_props_VpcProperties_SubnetId = null;
+            if (cmdletContext.Props_VpcProperties_SubnetId != null)
+            {
+                requestProps_props_VpcProperties_props_VpcProperties_SubnetId = cmdletContext.Props_VpcProperties_SubnetId;
+            }
+            if (requestProps_props_VpcProperties_props_VpcProperties_SubnetId != null)
+            {
+                requestProps_props_VpcProperties.SubnetIds = requestProps_props_VpcProperties_props_VpcProperties_SubnetId;
+                requestProps_props_VpcPropertiesIsNull = false;
+            }
+            System.String requestProps_props_VpcProperties_props_VpcProperties_VpcId = null;
+            if (cmdletContext.Props_VpcProperties_VpcId != null)
+            {
+                requestProps_props_VpcProperties_props_VpcProperties_VpcId = cmdletContext.Props_VpcProperties_VpcId;
+            }
+            if (requestProps_props_VpcProperties_props_VpcProperties_VpcId != null)
+            {
+                requestProps_props_VpcProperties.VpcId = requestProps_props_VpcProperties_props_VpcProperties_VpcId;
+                requestProps_props_VpcPropertiesIsNull = false;
+            }
+             // determine if requestProps_props_VpcProperties should be set to null
+            if (requestProps_props_VpcPropertiesIsNull)
+            {
+                requestProps_props_VpcProperties = null;
+            }
+            if (requestProps_props_VpcProperties != null)
+            {
+                request.Props.VpcProperties = requestProps_props_VpcProperties;
                 requestPropsIsNull = false;
             }
             Amazon.DataZone.Model.RedshiftPropertiesPatch requestProps_props_RedshiftProperties = null;
@@ -1390,6 +1476,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String SparkEmrProperties_PythonVirtualEnv { get; set; }
             public System.String SparkEmrProperties_RuntimeRole { get; set; }
             public System.String SparkEmrProperties_TrustedCertificatesS3Uri { get; set; }
+            public System.String Props_VpcProperties_SecurityGroupId { get; set; }
+            public List<System.String> Props_VpcProperties_SubnetId { get; set; }
+            public System.String Props_VpcProperties_VpcId { get; set; }
             public System.Func<Amazon.DataZone.Model.UpdateConnectionResponse, UpdateDZConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

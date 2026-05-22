@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PIDimensionKeyDetail', 
         'Get-PIPerformanceAnalysisReport', 
         'Get-PIPerformanceAnalysisReportList', 
+        'Get-PIPerformanceAnalysisReportRecommendationList', 
         'Get-PIResourceMetadata', 
         'Get-PIResourceMetric', 
         'Get-PIResourceTag', 

@@ -25418,6 +25418,9 @@ Set-Alias -Name PI-ListAvailableResourceDimensions -Value Get-PIAvailableResourc
 Set-Alias -Name List-PIAvailableResourceMetrics -Value Get-PIAvailableResourceMetricList
 Set-Alias -Name List-PIAvailableResourceMetricList -Value Get-PIAvailableResourceMetricList
 Set-Alias -Name PI-ListAvailableResourceMetrics -Value Get-PIAvailableResourceMetricList
+Set-Alias -Name List-PIPerformanceAnalysisReportRecommendations -Value Get-PIPerformanceAnalysisReportRecommendationList
+Set-Alias -Name List-PIPerformanceAnalysisReportRecommendationList -Value Get-PIPerformanceAnalysisReportRecommendationList
+Set-Alias -Name PI-ListPerformanceAnalysisReportRecommendations -Value Get-PIPerformanceAnalysisReportRecommendationList
 Set-Alias -Name List-PIPerformanceAnalysisReports -Value Get-PIPerformanceAnalysisReportList
 Set-Alias -Name List-PIPerformanceAnalysisReportList -Value Get-PIPerformanceAnalysisReportList
 Set-Alias -Name PI-ListPerformanceAnalysisReports -Value Get-PIPerformanceAnalysisReportList

@@ -147,6 +147,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? EbsOptimized { get; set; }
         #endregion
         
+        #region Parameter EnclaveOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter
+        /// to <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnclaveOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter EnaSupport
         /// <summary>
         /// <para>
@@ -264,17 +275,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SriovNetSupport { get; set; }
         #endregion
         
-        #region Parameter UserData
+        #region Parameter UserData_Value
         /// <summary>
         /// <para>
-        /// <para>Changes the instance's user data to the specified value. User data must be base64-encoded.
-        /// Depending on the tool or SDK that you're using, the base64-encoding might be performed
-        /// for you. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html">Work
-        /// with instance user data</a>.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String UserData { get; set; }
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] UserData_Value { get; set; }
         #endregion
         
         #region Parameter Value
@@ -343,6 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DryRun = this.DryRun;
             context.EbsOptimized = this.EbsOptimized;
             context.EnaSupport = this.EnaSupport;
+            context.EnclaveOptions_Enabled = this.EnclaveOptions_Enabled;
             if (this.Group != null)
             {
                 context.Group = new List<System.String>(this.Group);
@@ -360,7 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Ramdisk = this.Ramdisk;
             context.SourceDestCheck = this.SourceDestCheck;
             context.SriovNetSupport = this.SriovNetSupport;
-            context.UserData = this.UserData;
+            context.UserData_Value = this.UserData_Value;
             context.Value = this.Value;
             
             // allow further manipulation of loaded context prior to processing
@@ -374,100 +385,147 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.EC2.Model.ModifyInstanceAttributeRequest();
+            System.IO.MemoryStream _UserData_ValueStream = null;
             
-            if (cmdletContext.Attribute != null)
-            {
-                request.Attribute = cmdletContext.Attribute;
-            }
-            if (cmdletContext.BlockDeviceMapping != null)
-            {
-                request.BlockDeviceMappings = cmdletContext.BlockDeviceMapping;
-            }
-            if (cmdletContext.DisableApiStop != null)
-            {
-                request.DisableApiStop = cmdletContext.DisableApiStop.Value;
-            }
-            if (cmdletContext.DisableApiTermination != null)
-            {
-                request.DisableApiTermination = cmdletContext.DisableApiTermination.Value;
-            }
-            if (cmdletContext.DryRun != null)
-            {
-                request.DryRun = cmdletContext.DryRun.Value;
-            }
-            if (cmdletContext.EbsOptimized != null)
-            {
-                request.EbsOptimized = cmdletContext.EbsOptimized.Value;
-            }
-            if (cmdletContext.EnaSupport != null)
-            {
-                request.EnaSupport = cmdletContext.EnaSupport.Value;
-            }
-            if (cmdletContext.Group != null)
-            {
-                request.Groups = cmdletContext.Group;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.InstanceInitiatedShutdownBehavior != null)
-            {
-                request.InstanceInitiatedShutdownBehavior = cmdletContext.InstanceInitiatedShutdownBehavior;
-            }
-            if (cmdletContext.InstanceType != null)
-            {
-                request.InstanceType = cmdletContext.InstanceType;
-            }
-            if (cmdletContext.Kernel != null)
-            {
-                request.Kernel = cmdletContext.Kernel;
-            }
-            if (cmdletContext.Ramdisk != null)
-            {
-                request.Ramdisk = cmdletContext.Ramdisk;
-            }
-            if (cmdletContext.SourceDestCheck != null)
-            {
-                request.SourceDestCheck = cmdletContext.SourceDestCheck.Value;
-            }
-            if (cmdletContext.SriovNetSupport != null)
-            {
-                request.SriovNetSupport = cmdletContext.SriovNetSupport;
-            }
-            if (cmdletContext.UserData != null)
-            {
-                request.UserData = cmdletContext.UserData;
-            }
-            if (cmdletContext.Value != null)
-            {
-                request.Value = cmdletContext.Value;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.EC2.Model.ModifyInstanceAttributeRequest();
+                
+                if (cmdletContext.Attribute != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    request.Attribute = cmdletContext.Attribute;
+                }
+                if (cmdletContext.BlockDeviceMapping != null)
+                {
+                    request.BlockDeviceMappings = cmdletContext.BlockDeviceMapping;
+                }
+                if (cmdletContext.DisableApiStop != null)
+                {
+                    request.DisableApiStop = cmdletContext.DisableApiStop.Value;
+                }
+                if (cmdletContext.DisableApiTermination != null)
+                {
+                    request.DisableApiTermination = cmdletContext.DisableApiTermination.Value;
+                }
+                if (cmdletContext.DryRun != null)
+                {
+                    request.DryRun = cmdletContext.DryRun.Value;
+                }
+                if (cmdletContext.EbsOptimized != null)
+                {
+                    request.EbsOptimized = cmdletContext.EbsOptimized.Value;
+                }
+                if (cmdletContext.EnaSupport != null)
+                {
+                    request.EnaSupport = cmdletContext.EnaSupport.Value;
+                }
+                
+                 // populate EnclaveOptions
+                var requestEnclaveOptionsIsNull = true;
+                request.EnclaveOptions = new Amazon.EC2.Model.EnclaveOptionsRequest();
+                System.Boolean? requestEnclaveOptions_enclaveOptions_Enabled = null;
+                if (cmdletContext.EnclaveOptions_Enabled != null)
+                {
+                    requestEnclaveOptions_enclaveOptions_Enabled = cmdletContext.EnclaveOptions_Enabled.Value;
+                }
+                if (requestEnclaveOptions_enclaveOptions_Enabled != null)
+                {
+                    request.EnclaveOptions.Enabled = requestEnclaveOptions_enclaveOptions_Enabled.Value;
+                    requestEnclaveOptionsIsNull = false;
+                }
+                 // determine if request.EnclaveOptions should be set to null
+                if (requestEnclaveOptionsIsNull)
+                {
+                    request.EnclaveOptions = null;
+                }
+                if (cmdletContext.Group != null)
+                {
+                    request.Groups = cmdletContext.Group;
+                }
+                if (cmdletContext.InstanceId != null)
+                {
+                    request.InstanceId = cmdletContext.InstanceId;
+                }
+                if (cmdletContext.InstanceInitiatedShutdownBehavior != null)
+                {
+                    request.InstanceInitiatedShutdownBehavior = cmdletContext.InstanceInitiatedShutdownBehavior;
+                }
+                if (cmdletContext.InstanceType != null)
+                {
+                    request.InstanceType = cmdletContext.InstanceType;
+                }
+                if (cmdletContext.Kernel != null)
+                {
+                    request.Kernel = cmdletContext.Kernel;
+                }
+                if (cmdletContext.Ramdisk != null)
+                {
+                    request.Ramdisk = cmdletContext.Ramdisk;
+                }
+                if (cmdletContext.SourceDestCheck != null)
+                {
+                    request.SourceDestCheck = cmdletContext.SourceDestCheck.Value;
+                }
+                if (cmdletContext.SriovNetSupport != null)
+                {
+                    request.SriovNetSupport = cmdletContext.SriovNetSupport;
+                }
+                
+                 // populate UserData
+                var requestUserDataIsNull = true;
+                request.UserData = new Amazon.EC2.Model.SecureBlobAttributeValue();
+                System.IO.MemoryStream requestUserData_userData_Value = null;
+                if (cmdletContext.UserData_Value != null)
+                {
+                    _UserData_ValueStream = new System.IO.MemoryStream(cmdletContext.UserData_Value);
+                    requestUserData_userData_Value = _UserData_ValueStream;
+                }
+                if (requestUserData_userData_Value != null)
+                {
+                    request.UserData.Value = requestUserData_userData_Value;
+                    requestUserDataIsNull = false;
+                }
+                 // determine if request.UserData should be set to null
+                if (requestUserDataIsNull)
+                {
+                    request.UserData = null;
+                }
+                if (cmdletContext.Value != null)
+                {
+                    request.Value = cmdletContext.Value;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _UserData_ValueStream != null)
+                {
+                    _UserData_ValueStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -508,6 +566,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? DryRun { get; set; }
             public System.Boolean? EbsOptimized { get; set; }
             public System.Boolean? EnaSupport { get; set; }
+            public System.Boolean? EnclaveOptions_Enabled { get; set; }
             public List<System.String> Group { get; set; }
             public System.String InstanceId { get; set; }
             public System.String InstanceInitiatedShutdownBehavior { get; set; }
@@ -516,7 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Ramdisk { get; set; }
             public System.Boolean? SourceDestCheck { get; set; }
             public System.String SriovNetSupport { get; set; }
-            public System.String UserData { get; set; }
+            public byte[] UserData_Value { get; set; }
             public System.String Value { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyInstanceAttributeResponse, EditEC2InstanceAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

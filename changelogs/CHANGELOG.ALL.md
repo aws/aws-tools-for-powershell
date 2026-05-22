@@ -1,4 +1,22 @@
-﻿### 5.0.217 (2026-05-21 22:12Z)
+﻿### 5.0.218 (2026-05-22 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.254.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameters Props_VpcProperties_SecurityGroupId, Props_VpcProperties_SubnetId and Props_VpcProperties_VpcId.
+    * Modified cmdlet Update-DZConnection: added parameters Props_VpcProperties_SecurityGroupId, Props_VpcProperties_SubnetId and Props_VpcProperties_VpcId.
+  * Amazon Elastic Compute Cloud
+    * [Breaking Change] Modified cmdlet Edit-EC2InstanceAttribute: removed parameter UserData; added parameters EnclaveOptions_Enabled and UserData_Value.
+    * [Breaking Change] Modified cmdlet New-EC2InstanceBundle: the type of parameter S3_UploadPolicy changed from System.String to System.Byte[].
+  * Amazon Invoicing
+    * Modified cmdlet New-INVInvoiceUnit: added parameter ClientToken.
+    * Modified cmdlet Remove-INVInvoiceUnit: added parameter ClientToken.
+    * Modified cmdlet Remove-INVProcurementPortalPreference: added parameter ClientToken.
+    * Modified cmdlet Update-INVInvoiceUnit: added parameter ClientToken.
+    * Modified cmdlet Update-INVProcurementPortalPreferenceStatus: added parameter ClientToken.
+    * Modified cmdlet Write-INVProcurementPortalPreference: added parameter ClientToken.
+  * Amazon Performance Insights
+    * Added cmdlet Get-PIPerformanceAnalysisReportRecommendationList leveraging the ListPerformanceAnalysisReportRecommendations service API.
+
+### 5.0.217 (2026-05-21 22:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.253.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Add-BACCDatasetExample leveraging the AddDatasetExamples service API.

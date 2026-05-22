@@ -71,10 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>Locations of log files that your content generates during a stream session. Enter
-        /// path values that are relative to the <c>ApplicationSourceUri</c> location. You can
-        /// specify up to 10 log paths. Amazon GameLift Streams uploads designated log files to
-        /// the Amazon S3 bucket that you specify in <c>ApplicationLogOutputUri</c> at the end
-        /// of a stream session. To retrieve stored log files, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>
+        /// path values that are relative to the <c>ApplicationSourceUri</c> location, or relative
+        /// to the user's home directory when using a supported path variable. You can specify
+        /// up to 10 log paths. Each individual log file cannot exceed 50 MB in size.</para><para>Each path can be a directory or an exact file path. When you specify a directory,
+        /// Amazon GameLift Streams collects only files with the following extensions: <c>.txt</c>,
+        /// <c>.log</c>, and <c>.utrace</c>. To collect files with other extensions, specify the
+        /// exact file path. The copy operation is not performed recursively in subfolders.</para><para>The following path variables are recognized when they appear as the first component
+        /// of a path: <c>%USERPROFILE%</c> (Windows and Proton), <c>$HOME</c> or <c>~</c> (Linux).
+        /// Use a path variable when your application writes logs outside of the application directory.</para><para>Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that
+        /// you specify in <c>ApplicationLogOutputUri</c> at the end of a stream session. To retrieve
+        /// stored log files, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>
         /// and get the <c>LogFileLocationUri</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

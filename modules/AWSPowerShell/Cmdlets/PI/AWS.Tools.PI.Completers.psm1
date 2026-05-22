@@ -103,6 +103,7 @@ $PI_Completers = {
             ($_ -eq "Get-PIDimensionKeyDetail/ServiceType") -Or
             ($_ -eq "Get-PIPerformanceAnalysisReport/ServiceType") -Or
             ($_ -eq "Get-PIPerformanceAnalysisReportList/ServiceType") -Or
+            ($_ -eq "Get-PIPerformanceAnalysisReportRecommendationList/ServiceType") -Or
             ($_ -eq "Get-PIResourceMetadata/ServiceType") -Or
             ($_ -eq "Get-PIResourceMetric/ServiceType") -Or
             ($_ -eq "Get-PIResourceTag/ServiceType") -Or
@@ -133,7 +134,7 @@ $PI_Completers = {
 $PI_map = @{
     "AcceptLanguage"=@("Get-PIPerformanceAnalysisReport")
     "PeriodAlignment"=@("Get-PIResourceMetric")
-    "ServiceType"=@("Add-PIResourceTag","Get-PIAvailableResourceDimensionList","Get-PIAvailableResourceMetricList","Get-PIDimensionKey","Get-PIDimensionKeyDetail","Get-PIPerformanceAnalysisReport","Get-PIPerformanceAnalysisReportList","Get-PIResourceMetadata","Get-PIResourceMetric","Get-PIResourceTag","New-PIPerformanceAnalysisReport","Remove-PIPerformanceAnalysisReport","Remove-PIResourceTag")
+    "ServiceType"=@("Add-PIResourceTag","Get-PIAvailableResourceDimensionList","Get-PIAvailableResourceMetricList","Get-PIDimensionKey","Get-PIDimensionKeyDetail","Get-PIPerformanceAnalysisReport","Get-PIPerformanceAnalysisReportList","Get-PIPerformanceAnalysisReportRecommendationList","Get-PIResourceMetadata","Get-PIResourceMetric","Get-PIResourceTag","New-PIPerformanceAnalysisReport","Remove-PIPerformanceAnalysisReport","Remove-PIResourceTag")
     "TextFormat"=@("Get-PIPerformanceAnalysisReport")
 }
 
@@ -196,6 +197,7 @@ $PI_SelectMap = @{
                "Get-PIResourceMetric",
                "Get-PIAvailableResourceDimensionList",
                "Get-PIAvailableResourceMetricList",
+               "Get-PIPerformanceAnalysisReportRecommendationList",
                "Get-PIPerformanceAnalysisReportList",
                "Get-PIResourceTag",
                "Add-PIResourceTag",

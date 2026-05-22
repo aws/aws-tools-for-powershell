@@ -170,8 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next set of results. Amazon Web Services provides the token
-        /// when the response from a previous call has more results than the maximum page size.</para>
+        /// <para>The token for the next set of results. (You received this token from a previous call.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

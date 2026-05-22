@@ -783,6 +783,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Credentials_SecretArn { get; set; }
         #endregion
         
+        #region Parameter Props_VpcProperties_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The security group ID of the VPC connection. Must match the pattern <c>^sg-[a-z0-9]+$</c>.
+        /// Maximum length of 32.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_VpcProperties_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter PhysicalConnectionRequirements_SecurityGroupIdList
         /// <summary>
         /// <para>
@@ -837,6 +848,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Props_GlueProperties_GlueConnectionInput_PhysicalConnectionRequirements_SubnetIdList")]
         public System.String[] PhysicalConnectionRequirements_SubnetIdList { get; set; }
+        #endregion
+        
+        #region Parameter Props_VpcProperties_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The subnet IDs of the VPC connection. You can specify between 1 and 16 subnet IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_VpcProperties_SubnetIds")]
+        public System.String[] Props_VpcProperties_SubnetId { get; set; }
         #endregion
         
         #region Parameter OAuth2Properties_TokenUrl
@@ -956,6 +982,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Props_GlueProperties_GlueConnectionInput_ValidateForComputeEnvironments")]
         public System.String[] GlueConnectionInput_ValidateForComputeEnvironment { get; set; }
+        #endregion
+        
+        #region Parameter Props_VpcProperties_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the VPC. Must match the pattern <c>^vpc-[a-z0-9]+$</c>. Maximum
+        /// length of 32.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_VpcProperties_VpcId { get; set; }
         #endregion
         
         #region Parameter SparkGlueProperties_WorkerType
@@ -1208,6 +1245,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.SparkGlueProperties_NumberOfWorker = this.SparkGlueProperties_NumberOfWorker;
             context.SparkGlueProperties_PythonVirtualEnv = this.SparkGlueProperties_PythonVirtualEnv;
             context.SparkGlueProperties_WorkerType = this.SparkGlueProperties_WorkerType;
+            context.Props_VpcProperties_SecurityGroupId = this.Props_VpcProperties_SecurityGroupId;
+            if (this.Props_VpcProperties_SubnetId != null)
+            {
+                context.Props_VpcProperties_SubnetId = new List<System.String>(this.Props_VpcProperties_SubnetId);
+            }
+            context.Props_VpcProperties_VpcId = this.Props_VpcProperties_VpcId;
             context.Props_WorkflowsMwaaProperties_MwaaEnvironmentName = this.Props_WorkflowsMwaaProperties_MwaaEnvironmentName;
             context.Props_WorkflowsServerlessProperty = this.Props_WorkflowsServerlessProperty;
             context.Scope = this.Scope;
@@ -2003,6 +2046,51 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 request.Props.S3Properties = requestProps_props_S3Properties;
                 requestPropsIsNull = false;
             }
+            Amazon.DataZone.Model.VpcPropertiesInput requestProps_props_VpcProperties = null;
+            
+             // populate VpcProperties
+            var requestProps_props_VpcPropertiesIsNull = true;
+            requestProps_props_VpcProperties = new Amazon.DataZone.Model.VpcPropertiesInput();
+            System.String requestProps_props_VpcProperties_props_VpcProperties_SecurityGroupId = null;
+            if (cmdletContext.Props_VpcProperties_SecurityGroupId != null)
+            {
+                requestProps_props_VpcProperties_props_VpcProperties_SecurityGroupId = cmdletContext.Props_VpcProperties_SecurityGroupId;
+            }
+            if (requestProps_props_VpcProperties_props_VpcProperties_SecurityGroupId != null)
+            {
+                requestProps_props_VpcProperties.SecurityGroupId = requestProps_props_VpcProperties_props_VpcProperties_SecurityGroupId;
+                requestProps_props_VpcPropertiesIsNull = false;
+            }
+            List<System.String> requestProps_props_VpcProperties_props_VpcProperties_SubnetId = null;
+            if (cmdletContext.Props_VpcProperties_SubnetId != null)
+            {
+                requestProps_props_VpcProperties_props_VpcProperties_SubnetId = cmdletContext.Props_VpcProperties_SubnetId;
+            }
+            if (requestProps_props_VpcProperties_props_VpcProperties_SubnetId != null)
+            {
+                requestProps_props_VpcProperties.SubnetIds = requestProps_props_VpcProperties_props_VpcProperties_SubnetId;
+                requestProps_props_VpcPropertiesIsNull = false;
+            }
+            System.String requestProps_props_VpcProperties_props_VpcProperties_VpcId = null;
+            if (cmdletContext.Props_VpcProperties_VpcId != null)
+            {
+                requestProps_props_VpcProperties_props_VpcProperties_VpcId = cmdletContext.Props_VpcProperties_VpcId;
+            }
+            if (requestProps_props_VpcProperties_props_VpcProperties_VpcId != null)
+            {
+                requestProps_props_VpcProperties.VpcId = requestProps_props_VpcProperties_props_VpcProperties_VpcId;
+                requestProps_props_VpcPropertiesIsNull = false;
+            }
+             // determine if requestProps_props_VpcProperties should be set to null
+            if (requestProps_props_VpcPropertiesIsNull)
+            {
+                requestProps_props_VpcProperties = null;
+            }
+            if (requestProps_props_VpcProperties != null)
+            {
+                request.Props.VpcProperties = requestProps_props_VpcProperties;
+                requestPropsIsNull = false;
+            }
             Amazon.DataZone.Model.RedshiftPropertiesInput requestProps_props_RedshiftProperties = null;
             
              // populate RedshiftProperties
@@ -2552,6 +2640,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.Int32? SparkGlueProperties_NumberOfWorker { get; set; }
             public System.String SparkGlueProperties_PythonVirtualEnv { get; set; }
             public System.String SparkGlueProperties_WorkerType { get; set; }
+            public System.String Props_VpcProperties_SecurityGroupId { get; set; }
+            public List<System.String> Props_VpcProperties_SubnetId { get; set; }
+            public System.String Props_VpcProperties_VpcId { get; set; }
             public System.String Props_WorkflowsMwaaProperties_MwaaEnvironmentName { get; set; }
             public Amazon.DataZone.Model.WorkflowsServerlessPropertiesInput Props_WorkflowsServerlessProperty { get; set; }
             public Amazon.DataZone.ConnectionScope Scope { get; set; }

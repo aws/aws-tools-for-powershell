@@ -316,6 +316,17 @@ namespace Amazon.PowerShell.Cmdlets.INV
         public System.String TestEnvPreference_SupplierIdentifier { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure idempotency of the
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ProcurementPortalPreferenceArn'.
@@ -362,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
                 context.Select = CreateSelectDelegate<Amazon.Invoicing.Model.PutProcurementPortalPreferenceResponse, WriteINVProcurementPortalPreferenceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             if (this.Contact != null)
             {
                 context.Contact = new List<Amazon.Invoicing.Model.Contact>(this.Contact);
@@ -440,6 +452,10 @@ namespace Amazon.PowerShell.Cmdlets.INV
             // create request
             var request = new Amazon.Invoicing.Model.PutProcurementPortalPreferenceRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Contact != null)
             {
                 request.Contacts = cmdletContext.Contact;
@@ -686,6 +702,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public List<Amazon.Invoicing.Model.Contact> Contact { get; set; }
             public System.Boolean? EinvoiceDeliveryEnabled { get; set; }
             public Amazon.Invoicing.ConnectionTestingMethod EinvoiceDeliveryPreference_ConnectionTestingMethod { get; set; }

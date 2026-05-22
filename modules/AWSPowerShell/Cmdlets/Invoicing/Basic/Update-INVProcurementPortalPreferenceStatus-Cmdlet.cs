@@ -111,6 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.INV
         public System.String PurchaseOrderRetrievalPreferenceStatusReason { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure idempotency of the
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ProcurementPortalPreferenceArn'.
@@ -157,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
                 context.Select = CreateSelectDelegate<Amazon.Invoicing.Model.UpdateProcurementPortalPreferenceStatusResponse, UpdateINVProcurementPortalPreferenceStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.EinvoiceDeliveryPreferenceStatus = this.EinvoiceDeliveryPreferenceStatus;
             context.EinvoiceDeliveryPreferenceStatusReason = this.EinvoiceDeliveryPreferenceStatusReason;
             context.ProcurementPortalPreferenceArn = this.ProcurementPortalPreferenceArn;
@@ -184,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.INV
             // create request
             var request = new Amazon.Invoicing.Model.UpdateProcurementPortalPreferenceStatusRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.EinvoiceDeliveryPreferenceStatus != null)
             {
                 request.EinvoiceDeliveryPreferenceStatus = cmdletContext.EinvoiceDeliveryPreferenceStatus;
@@ -259,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public Amazon.Invoicing.ProcurementPortalPreferenceStatus EinvoiceDeliveryPreferenceStatus { get; set; }
             public System.String EinvoiceDeliveryPreferenceStatusReason { get; set; }
             public System.String ProcurementPortalPreferenceArn { get; set; }

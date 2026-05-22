@@ -55,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPerformanceAnalysisReportRecommendations" OutputProperty="Recommendations" Verb="Get" Noun="PerformanceAnalysisReportRecommendationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPerformanceAnalysisReports" OutputProperty="AnalysisReports" Verb="Get" Noun="PerformanceAnalysisReportList" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
