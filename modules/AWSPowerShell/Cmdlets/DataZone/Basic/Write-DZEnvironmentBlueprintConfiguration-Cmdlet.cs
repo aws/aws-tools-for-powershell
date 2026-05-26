@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AllowUserProvidedConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether user-provided resource configurations are allowed for the environment
+        /// blueprint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowUserProvidedConfigurations")]
+        public System.Boolean? AllowUserProvidedConfiguration { get; set; }
+        #endregion
+        
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
@@ -175,6 +187,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.Collections.Hashtable RegionalParameter { get; set; }
         #endregion
         
+        #region Parameter ResourceConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The resource configurations of the environment blueprint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfigurations")]
+        public Amazon.DataZone.Model.PutResourceConfiguration[] ResourceConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -221,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = CreateSelectDelegate<Amazon.DataZone.Model.PutEnvironmentBlueprintConfigurationResponse, WriteDZEnvironmentBlueprintConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AllowUserProvidedConfiguration = this.AllowUserProvidedConfiguration;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
             if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
@@ -268,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                     context.RegionalParameter.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.RegionalParameter[hashKey]));
                 }
             }
+            if (this.ResourceConfiguration != null)
+            {
+                context.ResourceConfiguration = new List<Amazon.DataZone.Model.PutResourceConfiguration>(this.ResourceConfiguration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -284,6 +316,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.PutEnvironmentBlueprintConfigurationRequest();
             
+            if (cmdletContext.AllowUserProvidedConfiguration != null)
+            {
+                request.AllowUserProvidedConfigurations = cmdletContext.AllowUserProvidedConfiguration.Value;
+            }
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
@@ -319,6 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.RegionalParameter != null)
             {
                 request.RegionalParameters = cmdletContext.RegionalParameter;
+            }
+            if (cmdletContext.ResourceConfiguration != null)
+            {
+                request.ResourceConfigurations = cmdletContext.ResourceConfiguration;
             }
             
             CmdletOutput output;
@@ -375,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowUserProvidedConfiguration { get; set; }
             public System.String DomainIdentifier { get; set; }
             public List<System.String> EnabledRegion { get; set; }
             public System.String EnvironmentBlueprintIdentifier { get; set; }
@@ -384,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<Amazon.DataZone.Model.ProvisioningConfiguration> ProvisioningConfiguration { get; set; }
             public System.String ProvisioningRoleArn { get; set; }
             public Dictionary<System.String, Dictionary<System.String, System.String>> RegionalParameter { get; set; }
+            public List<Amazon.DataZone.Model.PutResourceConfiguration> ResourceConfiguration { get; set; }
             public System.Func<Amazon.DataZone.Model.PutEnvironmentBlueprintConfigurationResponse, WriteDZEnvironmentBlueprintConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

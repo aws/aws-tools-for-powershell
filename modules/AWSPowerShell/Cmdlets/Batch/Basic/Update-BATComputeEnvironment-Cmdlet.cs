@@ -262,7 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>Specifies the job timeout (in minutes) when the compute environment infrastructure
-        /// is updated. The default value is 30.</para>
+        /// is updated. The default value is 30. The maximum value is 7200.</para><note><para>Increasing <c>jobExecutionTimeoutMinutes</c> during infrastructure updates delays
+        /// the replacement of instances with new instances that include updates such as security
+        /// patches, but provides more time for jobs to execute. Consider the security implications
+        /// of this tradeoff when setting timeout values.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

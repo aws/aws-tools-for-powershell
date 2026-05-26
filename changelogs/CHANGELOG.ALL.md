@@ -1,4 +1,14 @@
-﻿### 5.0.218 (2026-05-22 20:21Z)
+﻿### 5.0.219 (2026-05-26 20:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.255.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Added cmdlet Get-BAKPITRMalwareScanResult leveraging the GetPITRMalwareScanResults service API.
+    * Modified cmdlet Start-BAKScanJob: added parameter ContinuousScanEndTime.
+  * Amazon DataZone
+    * Modified cmdlet Write-DZEnvironmentBlueprintConfiguration: added parameters AllowUserProvidedConfiguration and ResourceConfiguration.
+  * Amazon GuardDuty
+    * Modified cmdlet Start-GDMalwareScan: added parameters ScanConfiguration_RecoveryPoint_ContinuousScanDetails_EndTime and ScanConfiguration_RecoveryPoint_ContinuousScanDetails_StartTime.
+
+### 5.0.218 (2026-05-22 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.254.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Modified cmdlet New-DZConnection: added parameters Props_VpcProperties_SecurityGroupId, Props_VpcProperties_SubnetId and Props_VpcProperties_VpcId.

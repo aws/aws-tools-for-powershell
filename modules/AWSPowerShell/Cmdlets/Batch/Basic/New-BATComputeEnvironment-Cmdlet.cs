@@ -230,17 +230,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The instances types that can be launched. You can specify instance families to launch
         /// any instance type within those families (for example, <c>c5</c> or <c>p3</c>), or
-        /// you can specify specific sizes within a family (such as <c>c5.8xlarge</c>). </para><para>Batch can select the instance type for you if you choose one of the following:</para><ul><li><para><c>optimal</c> to select instance types (from the <c>c4</c>, <c>m4</c>, <c>r4</c>,
-        /// <c>c5</c>, <c>m5</c>, and <c>r5</c> instance families) that match the demand of your
-        /// job queues. </para></li><li><para><c>default_x86_64</c> to choose x86 based instance types (from the <c>m6i</c>, <c>c6i</c>,
+        /// you can specify specific sizes within a family (such as <c>c5.8xlarge</c>).</para><para>Batch can select the instance type for you if you choose one of the following:</para><ul><li><para><c>default_x86_64</c> to choose x86 based instance types (from the <c>m6i</c>, <c>c6i</c>,
         /// <c>r6i</c>, and <c>c7i</c> instance families) that matches the resource demands of
         /// the job queue.</para></li><li><para><c>default_arm64</c> to choose ARM based instance types (from the <c>m6g</c>, <c>c6g</c>,
         /// <c>r6g</c>, and <c>c7g</c> instance families) that matches the resource demands of
-        /// the job queue.</para></li></ul><note><para>Starting on 11/01/2025 the behavior of <c>optimal</c> is going to be changed to match
-        /// <c>default_x86_64</c>. During the change your instance families could be updated to
-        /// a newer generation. You do not need to perform any actions for the upgrade to happen.
-        /// For more information about change, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html">Optimal
-        /// instance type configuration to receive automatic instance family updates</a>.</para></note><note><para>Instance family availability varies by Amazon Web Services Region. For example, some
+        /// the job queue.</para></li><li><para><c>optimal</c> Semantically equivalent to <c>default_x86_64</c>, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html">Optimal
+        /// instance type configuration to receive automatic instance family updates</a> for details.</para></li></ul><note><para>Instance family availability varies by Amazon Web Services Region. For example, some
         /// Amazon Web Services Regions may not have any fourth generation instance families but
         /// have fifth and sixth generation instance families.</para><para>When using <c>default_x86_64</c> or <c>default_arm64</c> instance bundles, Batch selects
         /// instance families based on a balance of cost-effectiveness and performance. While

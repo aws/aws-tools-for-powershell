@@ -2347,6 +2347,8 @@ Set-Alias -Name BAK-GetBackupVaultAccessPolicy -Value Get-BAKBackupVaultAccessPo
 Set-Alias -Name Get-BAKBackupVaultNotifications -Value Get-BAKBackupVaultNotification
 Set-Alias -Name BAK-GetBackupVaultNotifications -Value Get-BAKBackupVaultNotification
 Set-Alias -Name BAK-GetLegalHold -Value Get-BAKLegalHold
+Set-Alias -Name Get-BAKPITRMalwareScanResults -Value Get-BAKPITRMalwareScanResult
+Set-Alias -Name BAK-GetPITRMalwareScanResults -Value Get-BAKPITRMalwareScanResult
 Set-Alias -Name Get-BAKRecoveryPointIndexDetails -Value Get-BAKRecoveryPointIndexDetail
 Set-Alias -Name BAK-GetRecoveryPointIndexDetails -Value Get-BAKRecoveryPointIndexDetail
 Set-Alias -Name BAK-GetRecoveryPointRestoreMetadata -Value Get-BAKRecoveryPointRestoreMetadata

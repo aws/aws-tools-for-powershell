@@ -114,6 +114,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BAKIndexedRecoveryPointList', 
         'Get-BAKLegalHold', 
         'Get-BAKLegalHoldList', 
+        'Get-BAKPITRMalwareScanResult', 
         'Get-BAKProtectedResource', 
         'Get-BAKProtectedResourceList', 
         'Get-BAKProtectedResourcesByBackupVaultList', 

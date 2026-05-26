@@ -151,6 +151,7 @@ $BAK_Completers = {
         # Amazon.Backup.MalwareScanner
         {
             ($_ -eq "Get-BAKScanJobList/ByMalwareScanner") -Or
+            ($_ -eq "Get-BAKPITRMalwareScanResult/MalwareScanner") -Or
             ($_ -eq "Get-BAKScanJobSummaryList/MalwareScanner") -Or
             ($_ -eq "Start-BAKScanJob/MalwareScanner")
         }
@@ -220,7 +221,7 @@ $BAK_Completers = {
             ($_ -eq "Get-BAKScanJobSummaryList/ScanResultStatus")
         }
         {
-            $v = "NO_THREATS_FOUND","THREATS_FOUND"
+            $v = "NO_THREATS_FOUND","THREATS_FOUND","UNKNOWN"
             break
         }
 
@@ -257,7 +258,7 @@ $BAK_map = @{
     "Index"=@("Start-BAKBackupJob","Update-BAKRecoveryPointIndexSetting")
     "IndexStatus"=@("Get-BAKIndexedRecoveryPointList")
     "Lifecycle_DeleteAfterEvent"=@("Start-BAKBackupJob","Start-BAKCopyJob","Update-BAKRecoveryPointLifecycle")
-    "MalwareScanner"=@("Get-BAKScanJobSummaryList","Start-BAKScanJob")
+    "MalwareScanner"=@("Get-BAKPITRMalwareScanResult","Get-BAKScanJobSummaryList","Start-BAKScanJob")
     "RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
     "ScanMode"=@("Start-BAKScanJob")
     "ScanResultStatus"=@("Get-BAKScanJobSummaryList")
@@ -363,6 +364,7 @@ $BAK_SelectMap = @{
                "Get-BAKBackupVaultAccessPolicy",
                "Get-BAKBackupVaultNotification",
                "Get-BAKLegalHold",
+               "Get-BAKPITRMalwareScanResult",
                "Get-BAKRecoveryPointIndexDetail",
                "Get-BAKRecoveryPointRestoreMetadata",
                "Get-BAKRestoreJobMetadata",
