@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource whose tags you want to query. </para>
+        /// <para>The ARN of the resource whose tags you want to query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

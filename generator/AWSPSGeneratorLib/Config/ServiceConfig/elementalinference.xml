@@ -6,6 +6,7 @@
     <AssemblyName>ElementalInference</AssemblyName>
     <ServiceNounPrefix>EMI</ServiceNounPrefix>
     <ServiceName>AWS Elemental Inference</ServiceName>
+    <ServiceId />
     <ServiceClientInterface>IAmazonElementalInference</ServiceClientInterface>
     <ServiceClient>AmazonElementalInferenceClient</ServiceClient>
     <ServiceModuleGuid>f8f2069e-6977-4bd4-b540-f0420ab33597</ServiceModuleGuid>
@@ -22,7 +23,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDictionary" OutputProperty="*" Verb="New" Noun="Dictionary" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFeed" OutputProperty="*" Verb="New" Noun="Feed" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDictionary" OutputProperty="*" Verb="Remove" Noun="Dictionary" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -34,7 +43,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExportDictionaryEntries" OutputProperty="Entries" Verb="Export" Noun="DictionaryEntry" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDictionary" OutputProperty="*" Verb="Get" Noun="Dictionary" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFeed" OutputProperty="*" Verb="Get" Noun="Feed" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDictionaries" OutputProperty="Dictionaries" Verb="Get" Noun="DictionaryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -51,6 +72,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDictionary" OutputProperty="*" Verb="Update" Noun="Dictionary" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

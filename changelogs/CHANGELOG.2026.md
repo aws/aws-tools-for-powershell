@@ -1,4 +1,23 @@
-﻿### 5.0.219 (2026-05-26 20:23Z)
+﻿### 5.0.220 (2026-05-27 19:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.256.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Data Automation for Amazon Bedrock
+    * Modified cmdlet New-BDADataAutomationProject: added parameter CustomOutputConfiguration_Document_FallbackBlueprint.
+    * Modified cmdlet Update-BDADataAutomationProject: added parameter CustomOutputConfiguration_Document_FallbackBlueprint.
+  * Amazon Elemental Inference
+    * Added cmdlet Export-EMIDictionaryEntry leveraging the ExportDictionaryEntries service API.
+    * Added cmdlet Get-EMIDictionary leveraging the GetDictionary service API.
+    * Added cmdlet Get-EMIDictionaryList leveraging the ListDictionaries service API.
+    * Added cmdlet New-EMIDictionary leveraging the CreateDictionary service API.
+    * Added cmdlet Remove-EMIDictionary leveraging the DeleteDictionary service API.
+    * Added cmdlet Update-EMIDictionary leveraging the UpdateDictionary service API.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLChannel: added parameter InferenceSettings_AudioFeedInput.
+    * Modified cmdlet Update-EMLChannel: added parameter InferenceSettings_AudioFeedInput.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMCluster: added parameters RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput, RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB and RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy.
+    * Modified cmdlet Update-SMCluster: added parameters RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput, RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB and RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy.
+
+### 5.0.219 (2026-05-26 20:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.255.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Added cmdlet Get-BAKPITRMalwareScanResult leveraging the GetPITRMalwareScanResults service API.

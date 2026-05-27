@@ -84,6 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// on using CloudTrail with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html">Logging
     /// and monitoring in Organizations</a> in the <i>Organizations User Guide</i>.
     /// </para></li></ul><para>
+    /// Additionally, the <c>AccountJoinedOrganization</c> event is logged in CloudTrail and
+    /// is available only in the management account's event history only for the linked commercial
+    /// account. This event includes <c>joinedMethod:Created</c> and <c>joinedTime</c> fields
+    /// to provide context on how and when the account joined the organization.
+    /// </para><para>
     /// When you call the <c>CreateGovCloudAccount</c> action, you create two accounts: a
     /// standalone account in the Amazon Web Services GovCloud (US) Region and an associated
     /// account in the commercial Region for billing and support purposes. The account in

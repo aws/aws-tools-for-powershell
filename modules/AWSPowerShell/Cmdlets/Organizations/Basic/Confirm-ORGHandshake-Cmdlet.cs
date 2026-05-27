@@ -52,6 +52,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_accept-decline-invite.html">Responding
     /// to invitations</a> and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/manage-begin-all-features-standard-migration.html#manage-approve-all-features-invite">Enabling
     /// all features</a> in the <i>Organizations User Guide</i>.
+    /// </para><para>
+    /// When a handshake is accepted, Organizations logs membership events in CloudTrail,
+    /// available only in the management account's event history. If the account was standalone
+    /// and joined a new organization, an <c>AccountJoinedOrganization</c> event is logged
+    /// with <c>joinedMethod:Invited</c> and <c>joinedTime</c> fields. If the account departed
+    /// one organization and joined another, both an <c>AccountDepartedOrganization</c> event
+    /// with <c>departedMethod:Left</c> and <c>departedTime</c> and an <c>AccountJoinedOrganization</c>
+    /// event with <c>joinedMethod:Invited</c> and <c>joinedTime</c> are logged in their respective
+    /// management accounts.
     /// </para>
     /// </summary>
     [Cmdlet("Confirm", "ORGHandshake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -33750,6 +33750,35 @@ _awsArgumentCompleterRegistration $EMR_SelectCompleters $EMR_SelectMap
 # Argument completions for service AWS Elemental Inference
 
 
+$EMI_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ElementalInference.DictionaryLanguage
+        {
+            ($_ -eq "New-EMIDictionary/Language") -Or
+            ($_ -eq "Update-EMIDictionary/Language")
+        }
+        {
+            $v = "deu","eng","fra","ita","por","spa"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMI_map = @{
+    "Language"=@("New-EMIDictionary","Update-EMIDictionary")
+}
+
+_awsArgumentCompleterRegistration $EMI_Completers $EMI_map
+
 $EMI_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -33799,14 +33828,20 @@ $EMI_SelectCompleters = {
 
 $EMI_SelectMap = @{
     "Select"=@("Add-EMIFeed",
+               "New-EMIDictionary",
                "New-EMIFeed",
+               "Remove-EMIDictionary",
                "Remove-EMIFeed",
                "Unregister-EMIFeed",
+               "Export-EMIDictionaryEntry",
+               "Get-EMIDictionary",
                "Get-EMIFeed",
+               "Get-EMIDictionaryList",
                "Get-EMIFeedList",
                "Get-EMIResourceTag",
                "Add-EMIResourceTag",
                "Remove-EMIResourceTag",
+               "Update-EMIDictionary",
                "Update-EMIFeed")
 }
 
@@ -75722,6 +75757,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ClusterFSxLustreDeletionPolicy
+        {
+            ($_ -eq "New-SMCluster/RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy") -Or
+            ($_ -eq "Update-SMCluster/RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy")
+        }
+        {
+            $v = "DeleteIfNotUsed","Keep"
+            break
+        }
+
         # Amazon.SageMaker.ClusterNodeProvisioningMode
         {
             ($_ -eq "New-SMCluster/NodeProvisioningMode") -Or
@@ -77388,6 +77433,7 @@ $SM_map = @{
     "ResourceSharingConfig_Strategy"=@("New-SMComputeQuota","Update-SMComputeQuota")
     "ResourceSpec_InstanceType"=@("New-SMApp")
     "ResourceType"=@("Get-SMClusterEventList")
+    "RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy"=@("New-SMCluster","Update-SMCluster")
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
     "RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMClusterSoftware","Update-SMEndpoint","Update-SMInferenceComponent")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")

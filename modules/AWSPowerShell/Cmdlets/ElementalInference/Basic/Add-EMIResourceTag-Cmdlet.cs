@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource where you want to add tags. </para>
+        /// <para>The ARN of the resource where you want to add tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

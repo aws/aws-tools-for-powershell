@@ -412,6 +412,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ClusterFSxLustreDeletionPolicy
+        {
+            ($_ -eq "New-SMCluster/RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy") -Or
+            ($_ -eq "Update-SMCluster/RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy")
+        }
+        {
+            $v = "DeleteIfNotUsed","Keep"
+            break
+        }
+
         # Amazon.SageMaker.ClusterNodeProvisioningMode
         {
             ($_ -eq "New-SMCluster/NodeProvisioningMode") -Or
@@ -2078,6 +2088,7 @@ $SM_map = @{
     "ResourceSharingConfig_Strategy"=@("New-SMComputeQuota","Update-SMComputeQuota")
     "ResourceSpec_InstanceType"=@("New-SMApp")
     "ResourceType"=@("Get-SMClusterEventList")
+    "RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy"=@("New-SMCluster","Update-SMCluster")
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
     "RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMClusterSoftware","Update-SMEndpoint","Update-SMInferenceComponent")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")

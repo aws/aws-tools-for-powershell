@@ -72,7 +72,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// To learn important pre-closure details, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html">
     /// Closing an Amazon Web Services GovCloud (US) account</a> in the <i> Amazon Web Services
     /// GovCloud User Guide</i>.
-    /// </para></li></ul></note>
+    /// </para></li></ul></note><para>
+    /// After the permanent termination of the account after the 90-day waiting period, Organizations
+    /// logs a membership event in CloudTrail. The event is an <c>AccountDepartedOrganization</c>
+    /// event with <c>departedMethod:Cleaned</c> and <c>departedTime</c>. This event is available
+    /// only in the management account's event history.
+    /// </para>
     /// </summary>
     [Cmdlet("Close", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

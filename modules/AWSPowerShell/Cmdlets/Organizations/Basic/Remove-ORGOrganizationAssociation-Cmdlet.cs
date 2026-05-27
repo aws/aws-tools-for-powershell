@@ -37,6 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     ///  
     /// <para>
     /// You can only call from operation from a member account.
+    /// </para><para>
+    /// When an account leaves an organization, Organizations logs a membership event in CloudTrail.
+    /// The event is an <c>AccountDepartedOrganization</c> event with <c>departedMethod:Left</c>
+    /// and <c>departedTime</c>. This event is available only in the management account's
+    /// event history.
     /// </para><important><ul><li><para>
     /// The management account in an organization with all features enabled can set service
     /// control policies (SCPs) that can restrict what administrators of member accounts can

@@ -30,16 +30,16 @@ using Amazon.ElementalInference.Model;
 namespace Amazon.PowerShell.Cmdlets.EMI
 {
     /// <summary>
-    /// Displays a list of feeds that belong to this AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the dictionaries in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EMIFeedList")]
-    [OutputType("Amazon.ElementalInference.Model.FeedSummary")]
-    [AWSCmdlet("Calls the AWS Elemental Inference ListFeeds API operation.", Operation = new[] {"ListFeeds"}, SelectReturnType = typeof(Amazon.ElementalInference.Model.ListFeedsResponse))]
-    [AWSCmdletOutput("Amazon.ElementalInference.Model.FeedSummary or Amazon.ElementalInference.Model.ListFeedsResponse",
-        "This cmdlet returns a collection of Amazon.ElementalInference.Model.FeedSummary objects.",
-        "The service call response (type Amazon.ElementalInference.Model.ListFeedsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EMIDictionaryList")]
+    [OutputType("Amazon.ElementalInference.Model.DictionarySummary")]
+    [AWSCmdlet("Calls the AWS Elemental Inference ListDictionaries API operation.", Operation = new[] {"ListDictionaries"}, SelectReturnType = typeof(Amazon.ElementalInference.Model.ListDictionariesResponse))]
+    [AWSCmdletOutput("Amazon.ElementalInference.Model.DictionarySummary or Amazon.ElementalInference.Model.ListDictionariesResponse",
+        "This cmdlet returns a collection of Amazon.ElementalInference.Model.DictionarySummary objects.",
+        "The service call response (type Amazon.ElementalInference.Model.ListDictionariesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEMIFeedListCmdlet : AmazonElementalInferenceClientCmdlet, IExecutor
+    public partial class GetEMIDictionaryListCmdlet : AmazonElementalInferenceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -48,12 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per API request.</para><para>For example, you submit a list request with MaxResults set at 5. Although 20 items
-        /// match your request, the service returns no more than the first 5 items. (The service
-        /// also returns a NextToken value that you can use to fetch the next batch of results.)
-        /// </para><para>The service might return fewer results than the MaxResults value. If MaxResults is
-        /// not included in the request, the service defaults to pagination with a maximum of
-        /// 10 results per page. </para><para>Valid Range: Minimum value of 1. Maximum value of 1000.</para>
+        /// <para>The maximum number of results to return per API request. Valid range: 1 to 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -69,10 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token that identifies the batch of results that you want to see.</para><para>For example, you submit a ListFeeds request with MaxResults set at 5. The service
-        /// returns the first batch of results (up to 5) and a NextToken value. To see the next
-        /// batch of results, you can submit the ListFeeds request a second time and specify the
-        /// NextToken value. </para>
+        /// <para>The token that identifies the next batch of results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -85,13 +77,13 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Feeds'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElementalInference.Model.ListFeedsResponse).
-        /// Specifying the name of a property of type Amazon.ElementalInference.Model.ListFeedsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Dictionaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElementalInference.Model.ListDictionariesResponse).
+        /// Specifying the name of a property of type Amazon.ElementalInference.Model.ListDictionariesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Feeds";
+        public string Select { get; set; } = "Dictionaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -120,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElementalInference.Model.ListFeedsResponse, GetEMIFeedListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElementalInference.Model.ListDictionariesResponse, GetEMIDictionaryListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -150,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.ElementalInference.Model.ListFeedsRequest();
+            var request = new Amazon.ElementalInference.Model.ListDictionariesRequest();
             
             if (cmdletContext.MaxResult != null)
             {
@@ -213,12 +205,12 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         
         #region AWS Service Operation Call
         
-        private Amazon.ElementalInference.Model.ListFeedsResponse CallAWSServiceOperation(IAmazonElementalInference client, Amazon.ElementalInference.Model.ListFeedsRequest request)
+        private Amazon.ElementalInference.Model.ListDictionariesResponse CallAWSServiceOperation(IAmazonElementalInference client, Amazon.ElementalInference.Model.ListDictionariesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental Inference", "ListFeeds");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental Inference", "ListDictionaries");
             try
             {
-                return client.ListFeedsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListDictionariesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -237,8 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.ElementalInference.Model.ListFeedsResponse, GetEMIFeedListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Feeds;
+            public System.Func<Amazon.ElementalInference.Model.ListDictionariesResponse, GetEMIDictionaryListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Dictionaries;
         }
         
     }

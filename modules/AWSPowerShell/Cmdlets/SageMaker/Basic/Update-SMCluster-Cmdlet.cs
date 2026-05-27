@@ -95,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClusterRole { get; set; }
         #endregion
         
+        #region Parameter RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The deletion policy for the Amazon FSx for Lustre file system in the shared environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterFSxLustreDeletionPolicy")]
+        public Amazon.SageMaker.ClusterFSxLustreDeletionPolicy RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy { get; set; }
+        #endregion
+        
         #region Parameter InstanceGroup
         /// <summary>
         /// <para>
@@ -188,6 +199,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
         #endregion
         
+        #region Parameter RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput
+        /// <summary>
+        /// <para>
+        /// <para>The throughput capacity of the Amazon FSx for Lustre file system, measured in MB/s
+        /// per TiB of storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput { get; set; }
+        #endregion
+        
         #region Parameter RestrictedInstanceGroup
         /// <summary>
         /// <para>
@@ -202,6 +224,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RestrictedInstanceGroups")]
         public Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification[] RestrictedInstanceGroup { get; set; }
+        #endregion
+        
+        #region Parameter RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB
+        /// <summary>
+        /// <para>
+        /// <para>The storage capacity of the Amazon FSx for Lustre file system, specified in gibibytes
+        /// (GiB).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB { get; set; }
         #endregion
         
         #region Parameter Orchestrator_Slurm_SlurmConfigStrategy
@@ -288,6 +321,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.RestrictedInstanceGroup = new List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification>(this.RestrictedInstanceGroup);
             }
+            context.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput = this.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput;
+            context.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB = this.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB;
+            context.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy = this.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy;
             context.TieredStorageConfig_InstanceMemoryAllocationPercentage = this.TieredStorageConfig_InstanceMemoryAllocationPercentage;
             context.TieredStorageConfig_Mode = this.TieredStorageConfig_Mode;
             
@@ -423,6 +459,75 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.RestrictedInstanceGroups = cmdletContext.RestrictedInstanceGroup;
             }
             
+             // populate RestrictedInstanceGroupsConfig
+            var requestRestrictedInstanceGroupsConfigIsNull = true;
+            request.RestrictedInstanceGroupsConfig = new Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupsConfig();
+            Amazon.SageMaker.Model.ClusterSharedEnvironmentConfig requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig = null;
+            
+             // populate SharedEnvironmentConfig
+            var requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfigIsNull = true;
+            requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig = new Amazon.SageMaker.Model.ClusterSharedEnvironmentConfig();
+            Amazon.SageMaker.ClusterFSxLustreDeletionPolicy requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy = null;
+            if (cmdletContext.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy != null)
+            {
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy = cmdletContext.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy;
+            }
+            if (requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy != null)
+            {
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig.FSxLustreDeletionPolicy = requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy;
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.FSxLustreConfig requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig = null;
+            
+             // populate FSxLustreConfig
+            var requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfigIsNull = true;
+            requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig = new Amazon.SageMaker.Model.FSxLustreConfig();
+            System.Int32? requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput = null;
+            if (cmdletContext.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput != null)
+            {
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput = cmdletContext.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput.Value;
+            }
+            if (requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput != null)
+            {
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig.PerUnitStorageThroughput = requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput.Value;
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfigIsNull = false;
+            }
+            System.Int32? requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB = null;
+            if (cmdletContext.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB != null)
+            {
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB = cmdletContext.RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB.Value;
+            }
+            if (requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB != null)
+            {
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig.SizeInGiB = requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB.Value;
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfigIsNull = false;
+            }
+             // determine if requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig should be set to null
+            if (requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfigIsNull)
+            {
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig = null;
+            }
+            if (requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig != null)
+            {
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig.FSxLustreConfig = requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig;
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfigIsNull = false;
+            }
+             // determine if requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig should be set to null
+            if (requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfigIsNull)
+            {
+                requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig = null;
+            }
+            if (requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig != null)
+            {
+                request.RestrictedInstanceGroupsConfig.SharedEnvironmentConfig = requestRestrictedInstanceGroupsConfig_restrictedInstanceGroupsConfig_SharedEnvironmentConfig;
+                requestRestrictedInstanceGroupsConfigIsNull = false;
+            }
+             // determine if request.RestrictedInstanceGroupsConfig should be set to null
+            if (requestRestrictedInstanceGroupsConfigIsNull)
+            {
+                request.RestrictedInstanceGroupsConfig = null;
+            }
+            
              // populate TieredStorageConfig
             var requestTieredStorageConfigIsNull = true;
             request.TieredStorageConfig = new Amazon.SageMaker.Model.ClusterTieredStorageConfig();
@@ -517,6 +622,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String Orchestrator_Eks_ClusterArn { get; set; }
             public Amazon.SageMaker.ClusterSlurmConfigStrategy Orchestrator_Slurm_SlurmConfigStrategy { get; set; }
             public List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification> RestrictedInstanceGroup { get; set; }
+            public System.Int32? RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput { get; set; }
+            public System.Int32? RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_SizeInGiB { get; set; }
+            public Amazon.SageMaker.ClusterFSxLustreDeletionPolicy RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy { get; set; }
             public System.Int32? TieredStorageConfig_InstanceMemoryAllocationPercentage { get; set; }
             public Amazon.SageMaker.ClusterConfigMode TieredStorageConfig_Mode { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateClusterResponse, UpdateSMClusterCmdlet, object> Select { get; set; } =

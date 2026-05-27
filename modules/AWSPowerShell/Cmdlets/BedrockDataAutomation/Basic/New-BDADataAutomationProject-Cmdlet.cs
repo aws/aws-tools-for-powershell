@@ -159,6 +159,21 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public System.String[] OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope { get; set; }
         #endregion
         
+        #region Parameter CustomOutputConfiguration_Document_FallbackBlueprint
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomOutputConfiguration_Document_FallbackBlueprints")]
+        public Amazon.BedrockDataAutomation.Model.BlueprintItem[] CustomOutputConfiguration_Document_FallbackBlueprint { get; set; }
+        #endregion
+        
         #region Parameter LanguageConfiguration_GenerativeOutputLanguage
         /// <summary>
         /// <para>
@@ -825,6 +840,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             {
                 context.CustomOutputConfiguration_Blueprint = new List<Amazon.BedrockDataAutomation.Model.BlueprintItem>(this.CustomOutputConfiguration_Blueprint);
             }
+            if (this.CustomOutputConfiguration_Document_FallbackBlueprint != null)
+            {
+                context.CustomOutputConfiguration_Document_FallbackBlueprint = new List<Amazon.BedrockDataAutomation.Model.BlueprintItem>(this.CustomOutputConfiguration_Document_FallbackBlueprint);
+            }
             if (this.DataAutomationLibraryConfiguration_Library != null)
             {
                 context.DataAutomationLibraryConfiguration_Library = new List<Amazon.BedrockDataAutomation.Model.DataAutomationLibraryItem>(this.DataAutomationLibraryConfiguration_Library);
@@ -984,6 +1003,31 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestCustomOutputConfiguration_customOutputConfiguration_Blueprint != null)
             {
                 request.CustomOutputConfiguration.Blueprints = requestCustomOutputConfiguration_customOutputConfiguration_Blueprint;
+                requestCustomOutputConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.DocumentCustomOutputConfiguration requestCustomOutputConfiguration_customOutputConfiguration_Document = null;
+            
+             // populate Document
+            var requestCustomOutputConfiguration_customOutputConfiguration_DocumentIsNull = true;
+            requestCustomOutputConfiguration_customOutputConfiguration_Document = new Amazon.BedrockDataAutomation.Model.DocumentCustomOutputConfiguration();
+            List<Amazon.BedrockDataAutomation.Model.BlueprintItem> requestCustomOutputConfiguration_customOutputConfiguration_Document_customOutputConfiguration_Document_FallbackBlueprint = null;
+            if (cmdletContext.CustomOutputConfiguration_Document_FallbackBlueprint != null)
+            {
+                requestCustomOutputConfiguration_customOutputConfiguration_Document_customOutputConfiguration_Document_FallbackBlueprint = cmdletContext.CustomOutputConfiguration_Document_FallbackBlueprint;
+            }
+            if (requestCustomOutputConfiguration_customOutputConfiguration_Document_customOutputConfiguration_Document_FallbackBlueprint != null)
+            {
+                requestCustomOutputConfiguration_customOutputConfiguration_Document.FallbackBlueprints = requestCustomOutputConfiguration_customOutputConfiguration_Document_customOutputConfiguration_Document_FallbackBlueprint;
+                requestCustomOutputConfiguration_customOutputConfiguration_DocumentIsNull = false;
+            }
+             // determine if requestCustomOutputConfiguration_customOutputConfiguration_Document should be set to null
+            if (requestCustomOutputConfiguration_customOutputConfiguration_DocumentIsNull)
+            {
+                requestCustomOutputConfiguration_customOutputConfiguration_Document = null;
+            }
+            if (requestCustomOutputConfiguration_customOutputConfiguration_Document != null)
+            {
+                request.CustomOutputConfiguration.Document = requestCustomOutputConfiguration_customOutputConfiguration_Document;
                 requestCustomOutputConfigurationIsNull = false;
             }
              // determine if request.CustomOutputConfiguration should be set to null
@@ -2299,6 +2343,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         {
             public System.String ClientToken { get; set; }
             public List<Amazon.BedrockDataAutomation.Model.BlueprintItem> CustomOutputConfiguration_Blueprint { get; set; }
+            public List<Amazon.BedrockDataAutomation.Model.BlueprintItem> CustomOutputConfiguration_Document_FallbackBlueprint { get; set; }
             public List<Amazon.BedrockDataAutomation.Model.DataAutomationLibraryItem> DataAutomationLibraryConfiguration_Library { get; set; }
             public Dictionary<System.String, System.String> EncryptionConfiguration_KmsEncryptionContext { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }

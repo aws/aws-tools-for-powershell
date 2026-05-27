@@ -30,43 +30,41 @@ using Amazon.ElementalInference.Model;
 namespace Amazon.PowerShell.Cmdlets.EMI
 {
     /// <summary>
-    /// Updates the name and/or outputs in a feed. 
-    /// 
-    ///  
-    /// <para>
-    /// UpdateFeed is a PUT operation, which means that the payload that you specify completely
-    /// overwrites the existing payload. 
-    /// </para><para>
-    /// This means that if you want to touch the array of outputs, you must pass in the full
-    /// new list. So you must omit outputs you want to delete, and include outputs you want
-    /// to add or modify. 
-    /// </para><para>
-    /// If you want to patch the array of outputs to make selective additions, use AssociateFeed.
-    /// 
-    /// </para>
+    /// Updates the specified dictionary.
     /// </summary>
-    [Cmdlet("Update", "EMIFeed", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElementalInference.Model.UpdateFeedResponse")]
-    [AWSCmdlet("Calls the AWS Elemental Inference UpdateFeed API operation.", Operation = new[] {"UpdateFeed"}, SelectReturnType = typeof(Amazon.ElementalInference.Model.UpdateFeedResponse))]
-    [AWSCmdletOutput("Amazon.ElementalInference.Model.UpdateFeedResponse",
-        "This cmdlet returns an Amazon.ElementalInference.Model.UpdateFeedResponse object containing multiple properties."
+    [Cmdlet("Update", "EMIDictionary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElementalInference.Model.UpdateDictionaryResponse")]
+    [AWSCmdlet("Calls the AWS Elemental Inference UpdateDictionary API operation.", Operation = new[] {"UpdateDictionary"}, SelectReturnType = typeof(Amazon.ElementalInference.Model.UpdateDictionaryResponse))]
+    [AWSCmdletOutput("Amazon.ElementalInference.Model.UpdateDictionaryResponse",
+        "This cmdlet returns an Amazon.ElementalInference.Model.UpdateDictionaryResponse object containing multiple properties."
     )]
-    public partial class UpdateEMIFeedCmdlet : AmazonElementalInferenceClientCmdlet, IExecutor
+    public partial class UpdateEMIDictionaryCmdlet : AmazonElementalInferenceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Entry
+        /// <summary>
+        /// <para>
+        /// <para>New dictionary entries. If not specified, the entries are not changed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Entries")]
+        public System.String Entry { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the feed to update.</para>
+        /// <para>The ID of the dictionary to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -74,52 +72,32 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter Language
+        /// <summary>
+        /// <para>
+        /// <para>A new language for the dictionary. If not specified, the language is not changed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElementalInference.DictionaryLanguage")]
+        public Amazon.ElementalInference.DictionaryLanguage Language { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Required. You can specify the existing name (to leave it unchanged) or a new name.
-        /// </para>
+        /// <para>A new name for the dictionary. If not specified, the name is not changed.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Output
-        /// <summary>
-        /// <para>
-        /// <para>Required. You can specify the existing array of outputs (to leave outputs unchanged)
-        /// or you can specify a new array. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Outputs")]
-        public Amazon.ElementalInference.Model.UpdateOutput[] Output { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElementalInference.Model.UpdateFeedResponse).
-        /// Specifying the name of a property of type Amazon.ElementalInference.Model.UpdateFeedResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElementalInference.Model.UpdateDictionaryResponse).
+        /// Specifying the name of a property of type Amazon.ElementalInference.Model.UpdateDictionaryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,13 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         {
             base.ProcessRecord();
             
-            var targetParameterNames = new string[]
-            {
-                nameof(this.Id),
-                nameof(this.Name)
-            };
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EMIFeed (UpdateFeed)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EMIDictionary (UpdateDictionary)"))
             {
                 return;
             }
@@ -163,9 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.EMI
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElementalInference.Model.UpdateFeedResponse, UpdateEMIFeedCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElementalInference.Model.UpdateDictionaryResponse, UpdateEMIDictionaryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Entry = this.Entry;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -173,23 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.EMI
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Language = this.Language;
             context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Output != null)
-            {
-                context.Output = new List<Amazon.ElementalInference.Model.UpdateOutput>(this.Output);
-            }
-            #if MODULAR
-            if (this.Output == null && ParameterWasBound(nameof(this.Output)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Output which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -204,19 +163,23 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElementalInference.Model.UpdateFeedRequest();
+            var request = new Amazon.ElementalInference.Model.UpdateDictionaryRequest();
             
+            if (cmdletContext.Entry != null)
+            {
+                request.Entries = cmdletContext.Entry;
+            }
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
             }
+            if (cmdletContext.Language != null)
+            {
+                request.Language = cmdletContext.Language;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Output != null)
-            {
-                request.Outputs = cmdletContext.Output;
             }
             
             CmdletOutput output;
@@ -251,12 +214,12 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         
         #region AWS Service Operation Call
         
-        private Amazon.ElementalInference.Model.UpdateFeedResponse CallAWSServiceOperation(IAmazonElementalInference client, Amazon.ElementalInference.Model.UpdateFeedRequest request)
+        private Amazon.ElementalInference.Model.UpdateDictionaryResponse CallAWSServiceOperation(IAmazonElementalInference client, Amazon.ElementalInference.Model.UpdateDictionaryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental Inference", "UpdateFeed");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental Inference", "UpdateDictionary");
             try
             {
-                return client.UpdateFeedAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateDictionaryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -273,10 +236,11 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Entry { get; set; }
             public System.String Id { get; set; }
+            public Amazon.ElementalInference.DictionaryLanguage Language { get; set; }
             public System.String Name { get; set; }
-            public List<Amazon.ElementalInference.Model.UpdateOutput> Output { get; set; }
-            public System.Func<Amazon.ElementalInference.Model.UpdateFeedResponse, UpdateEMIFeedCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ElementalInference.Model.UpdateDictionaryResponse, UpdateEMIDictionaryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

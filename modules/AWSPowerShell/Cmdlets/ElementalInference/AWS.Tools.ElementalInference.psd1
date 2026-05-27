@@ -89,13 +89,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-EMIFeed', 
         'Add-EMIResourceTag', 
+        'Export-EMIDictionaryEntry', 
+        'Get-EMIDictionary', 
+        'Get-EMIDictionaryList', 
         'Get-EMIFeed', 
         'Get-EMIFeedList', 
         'Get-EMIResourceTag', 
+        'New-EMIDictionary', 
         'New-EMIFeed', 
+        'Remove-EMIDictionary', 
         'Remove-EMIFeed', 
         'Remove-EMIResourceTag', 
         'Unregister-EMIFeed', 
+        'Update-EMIDictionary', 
         'Update-EMIFeed')
 
     # Variables to export from this module

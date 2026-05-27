@@ -30,47 +30,24 @@ using Amazon.ElementalInference.Model;
 namespace Amazon.PowerShell.Cmdlets.EMI
 {
     /// <summary>
-    /// Releases the resource (the source media) that is associated with this feed. The outputs
-    /// in the feed become DISABLED.
+    /// Retrieves information about the specified dictionary.
     /// </summary>
-    [Cmdlet("Unregister", "EMIFeed", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElementalInference.Model.DisassociateFeedResponse")]
-    [AWSCmdlet("Calls the AWS Elemental Inference DisassociateFeed API operation.", Operation = new[] {"DisassociateFeed"}, SelectReturnType = typeof(Amazon.ElementalInference.Model.DisassociateFeedResponse))]
-    [AWSCmdletOutput("Amazon.ElementalInference.Model.DisassociateFeedResponse",
-        "This cmdlet returns an Amazon.ElementalInference.Model.DisassociateFeedResponse object containing multiple properties."
+    [Cmdlet("Get", "EMIDictionary")]
+    [OutputType("Amazon.ElementalInference.Model.GetDictionaryResponse")]
+    [AWSCmdlet("Calls the AWS Elemental Inference GetDictionary API operation.", Operation = new[] {"GetDictionary"}, SelectReturnType = typeof(Amazon.ElementalInference.Model.GetDictionaryResponse))]
+    [AWSCmdletOutput("Amazon.ElementalInference.Model.GetDictionaryResponse",
+        "This cmdlet returns an Amazon.ElementalInference.Model.GetDictionaryResponse object containing multiple properties."
     )]
-    public partial class UnregisterEMIFeedCmdlet : AmazonElementalInferenceClientCmdlet, IExecutor
+    public partial class GetEMIDictionaryCmdlet : AmazonElementalInferenceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AssociatedResourceName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the resource currently associated with the feed.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AssociatedResourceName { get; set; }
-        #endregion
-        
-        #region Parameter DryRun
-        /// <summary>
-        /// <para>
-        /// <para>Set to true if you want to do a dry run of the disassociate action.</para><para>Elemental Inference will validate that the real request would succeed without actually
-        /// making any changes. A dry run catches errors such as missing IAM permissions. If the
-        /// dry run fails, the action returns a 4xx error code. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DryRun { get; set; }
-        #endregion
-        
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the feed where you want to release the resource.</para>
+        /// <para>The ID of the dictionary to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,22 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElementalInference.Model.DisassociateFeedResponse).
-        /// Specifying the name of a property of type Amazon.ElementalInference.Model.DisassociateFeedResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElementalInference.Model.GetDictionaryResponse).
+        /// Specifying the name of a property of type Amazon.ElementalInference.Model.GetDictionaryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -114,12 +81,6 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-EMIFeed (DisassociateFeed)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -127,11 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EMI
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElementalInference.Model.DisassociateFeedResponse, UnregisterEMIFeedCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElementalInference.Model.GetDictionaryResponse, GetEMIDictionaryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AssociatedResourceName = this.AssociatedResourceName;
-            context.DryRun = this.DryRun;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -153,16 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElementalInference.Model.DisassociateFeedRequest();
+            var request = new Amazon.ElementalInference.Model.GetDictionaryRequest();
             
-            if (cmdletContext.AssociatedResourceName != null)
-            {
-                request.AssociatedResourceName = cmdletContext.AssociatedResourceName;
-            }
-            if (cmdletContext.DryRun != null)
-            {
-                request.DryRun = cmdletContext.DryRun.Value;
-            }
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
@@ -200,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         
         #region AWS Service Operation Call
         
-        private Amazon.ElementalInference.Model.DisassociateFeedResponse CallAWSServiceOperation(IAmazonElementalInference client, Amazon.ElementalInference.Model.DisassociateFeedRequest request)
+        private Amazon.ElementalInference.Model.GetDictionaryResponse CallAWSServiceOperation(IAmazonElementalInference client, Amazon.ElementalInference.Model.GetDictionaryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental Inference", "DisassociateFeed");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental Inference", "GetDictionary");
             try
             {
-                return client.DisassociateFeedAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetDictionaryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -222,10 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AssociatedResourceName { get; set; }
-            public System.Boolean? DryRun { get; set; }
             public System.String Id { get; set; }
-            public System.Func<Amazon.ElementalInference.Model.DisassociateFeedResponse, UnregisterEMIFeedCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ElementalInference.Model.GetDictionaryResponse, GetEMIDictionaryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

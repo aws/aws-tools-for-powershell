@@ -45,6 +45,23 @@ namespace Amazon.PowerShell.Cmdlets.EML
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter InferenceSettings_AudioFeedInput
+        /// <summary>
+        /// <para>
+        /// A list of audio feed inputs that map audio
+        /// selectors in the channel to feed inputs on the associated Elemental Inference feed.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceSettings_AudioFeedInputs")]
+        public Amazon.MediaLive.Model.AudioFeedInput[] InferenceSettings_AudioFeedInput { get; set; }
+        #endregion
+        
         #region Parameter ChannelClass
         /// <summary>
         /// <para>
@@ -454,6 +471,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             context.DryRun = this.DryRun;
             context.EncoderSetting = this.EncoderSetting;
+            if (this.InferenceSettings_AudioFeedInput != null)
+            {
+                context.InferenceSettings_AudioFeedInput = new List<Amazon.MediaLive.Model.AudioFeedInput>(this.InferenceSettings_AudioFeedInput);
+            }
             context.InferenceSettings_FeedArn = this.InferenceSettings_FeedArn;
             if (this.InputAttachment != null)
             {
@@ -599,6 +620,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
              // populate InferenceSettings
             var requestInferenceSettingsIsNull = true;
             request.InferenceSettings = new Amazon.MediaLive.Model.InferenceSettings();
+            List<Amazon.MediaLive.Model.AudioFeedInput> requestInferenceSettings_inferenceSettings_AudioFeedInput = null;
+            if (cmdletContext.InferenceSettings_AudioFeedInput != null)
+            {
+                requestInferenceSettings_inferenceSettings_AudioFeedInput = cmdletContext.InferenceSettings_AudioFeedInput;
+            }
+            if (requestInferenceSettings_inferenceSettings_AudioFeedInput != null)
+            {
+                request.InferenceSettings.AudioFeedInputs = requestInferenceSettings_inferenceSettings_AudioFeedInput;
+                requestInferenceSettingsIsNull = false;
+            }
             System.String requestInferenceSettings_inferenceSettings_FeedArn = null;
             if (cmdletContext.InferenceSettings_FeedArn != null)
             {
@@ -882,6 +913,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public List<Amazon.MediaLive.Model.OutputDestination> Destination { get; set; }
             public System.Boolean? DryRun { get; set; }
             public Amazon.MediaLive.Model.EncoderSettings EncoderSetting { get; set; }
+            public List<Amazon.MediaLive.Model.AudioFeedInput> InferenceSettings_AudioFeedInput { get; set; }
             public System.String InferenceSettings_FeedArn { get; set; }
             public List<Amazon.MediaLive.Model.InputAttachment> InputAttachment { get; set; }
             public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }
