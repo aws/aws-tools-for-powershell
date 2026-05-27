@@ -49,3 +49,7 @@ PSGalleryDownloads
 
 codesign-zip
 *.binlog
+
+modules/AWSPowerShell/cmdlet-metadata.json
+modules/AWSPowerShell/constant-classes.json
+modules/AWSPowerShell/cmdlet-examples.json

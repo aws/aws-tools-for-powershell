@@ -138,6 +138,66 @@ namespace AWSPowerShellGenerator.Generators
             LoadExamplesCache(servicePrefix);
             LoadLinksCache(servicePrefix);
             DocumentationUtils.CacheMemberDocumentationSummary(AssemblyDocumentation);
+
+            if (servicePrefix == null)
+            {
+                WriteCmdletExamplesJson();
+            }
+        }
+
+        private void WriteCmdletExamplesJson()
+        {
+            var examples = new SortedDictionary<string, object>();
+
+            foreach (var entry in ExamplesCache)
+            {
+                var cmdletName = entry.Key;
+                var exampleList = new List<object>();
+
+                var exampleNodes = entry.Value.SelectNodes("//example");
+                if (exampleNodes == null)
+                    continue;
+
+                foreach (XmlNode example in exampleNodes)
+                {
+                    var code = example.SelectSingleNode("code")?.InnerText;
+                    var description = example.SelectSingleNode("description")?.InnerText;
+
+                    if (string.IsNullOrEmpty(code))
+                        continue;
+
+                    exampleList.Add(new Dictionary<string, string>
+                    {
+                        ["description"] = description?.Trim(),
+                        ["code"] = code.Trim()
+                    });
+                }
+
+                if (exampleList.Count > 0)
+                    examples[cmdletName] = exampleList;
+            }
+
+            var version = Options.VersionNumber ?? "0.0.0.0";
+            var versionInfoPath = Path.Combine(Options.RootPath, "modules", "AWSPowerShell", "awspowershell_versioninfo.json");
+            if (version == "0.0.0.0" && File.Exists(versionInfoPath))
+            {
+                using var doc = System.Text.Json.JsonDocument.Parse(File.ReadAllText(versionInfoPath));
+                version = doc.RootElement.GetProperty("awspowershell.netcore").GetProperty("latest").GetString() ?? version;
+            }
+
+            var root = new Dictionary<string, object>
+            {
+                ["version"] = version,
+                ["examples"] = examples
+            };
+
+            var json = System.Text.Json.JsonSerializer.Serialize(root, new System.Text.Json.JsonSerializerOptions
+            {
+                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            });
+
+            var outputPath = Path.Combine(Options.RootPath, "modules", "AWSPowerShell", "cmdlet-examples.json");
+            File.WriteAllText(outputPath, json);
         }
 
         private string GetServicePrefixFromCmdletAssembly()

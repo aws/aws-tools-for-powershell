@@ -71,6 +71,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 cmdletInfo.OperationNames.AddRange(operationNames);
                             }
 
+                            var isDeprecated = attributes.Any(attr =>
+                            {
+                                var name = GetAttributeName(attr);
+                                return name == "Obsolete" || name == "ObsoleteAttribute";
+                            });
+                            cmdletInfo.IsDeprecated = isDeprecated;
+
+                            ExtractParameterMetadata(cls, cmdletInfo);
+
                             if (argumentCompleters != null)
                             {
                                 foreach (var prop in cls.Members.OfType<PropertyDeclarationSyntax>())
@@ -102,6 +111,62 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             catch (Exception e)
             {
                 throw new InvalidDataException($"Error parsing advanced cmdlet file {sourceFile}", e);
+            }
+        }
+
+        private void ExtractParameterMetadata(ClassDeclarationSyntax cls, AdvancedCmdletInfo cmdletInfo)
+        {
+            foreach (var prop in cls.Members.OfType<PropertyDeclarationSyntax>())
+            {
+                var propertyAttributes = prop.AttributeLists.SelectMany(al => al.Attributes).ToArray();
+                var parameterAttribute = propertyAttributes.FirstOrDefault(attr => GetAttributeName(attr) == "Parameter");
+                if (parameterAttribute == null)
+                    continue;
+
+                var paramInfo = new AdvancedParameterInfo
+                {
+                    Name = prop.Identifier.ValueText,
+                    Type = prop.Type.ToString()
+                };
+
+                if (parameterAttribute.ArgumentList != null)
+                {
+                    foreach (var arg in parameterAttribute.ArgumentList.Arguments)
+                    {
+                        var argName = arg.NameEquals?.Name.Identifier.ValueText;
+                        if (argName == "Mandatory" && arg.Expression.ToString() == "true")
+                        {
+                            paramInfo.Mandatory = true;
+                        }
+                    }
+                }
+
+                var aliasAttribute = propertyAttributes.FirstOrDefault(attr => GetAttributeName(attr) == "Alias");
+                if (aliasAttribute?.ArgumentList != null)
+                {
+                    foreach (var arg in aliasAttribute.ArgumentList.Arguments)
+                    {
+                        if (arg.Expression is LiteralExpressionSyntax literal)
+                        {
+                            paramInfo.Aliases.Add(literal.Token.ValueText);
+                        }
+                    }
+                }
+
+                var awsConstantClassSourceAttribute = propertyAttributes.FirstOrDefault(attr => GetAttributeName(attr) == "AWSConstantClassSource");
+                if (awsConstantClassSourceAttribute != null)
+                {
+                    paramInfo.ConstantClass = (awsConstantClassSourceAttribute.ArgumentList.Arguments[0].Expression as LiteralExpressionSyntax)?.Token.ValueText;
+                }
+
+                var isDeprecated = propertyAttributes.Any(attr =>
+                {
+                    var name = GetAttributeName(attr);
+                    return name == "Obsolete" || name == "ObsoleteAttribute";
+                });
+                paramInfo.Deprecated = isDeprecated;
+
+                cmdletInfo.Parameters.Add(paramInfo);
             }
         }
 

@@ -325,6 +325,11 @@
         <!-- emit the version data into a json file that gets uploaded to S3. EC2 then
              reads this to know if it needs to update EC2 images during image prep. -->
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/awspowershell_versioninfo.json" DestinationFolder="$(RootPath)/Deployment" />
+
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/cmdlet-metadata.json" DestinationFolder="$(RootPath)/Deployment" Condition="Exists('$(AWSPowerShellSourceFolder)/cmdlet-metadata.json')" />
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/constant-classes.json" DestinationFolder="$(RootPath)/Deployment" Condition="Exists('$(AWSPowerShellSourceFolder)/constant-classes.json')" />
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/cmdlet-examples.json" DestinationFolder="$(RootPath)/Deployment" Condition="Exists('$(AWSPowerShellSourceFolder)/cmdlet-examples.json')" />
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/cmdlet-aliases.json" DestinationFolder="$(RootPath)/Deployment" Condition="Exists('$(AWSPowerShellSourceFolder)/cmdlet-aliases.json')" />
     </Target>
 
     <Target Name="sign-script-artifacts" Condition="'$(SignModules)'=='true'" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
@@ -453,6 +458,7 @@
             <PrivateKeyException Include=".doc_gen\metadata\iam_Get-IAMServerCertificate_metadata.yaml" />
             <PrivateKeyException Include=".doc_gen\metadata\iam_Get-IAMSigningCertificate_metadata.yaml" />
             <PrivateKeyException Include=".doc_gen\metadata\iam_Publish-IAMSigningCertificate_metadata.yaml" />
+            <PrivateKeyException Include="Deployment\cmdlet-examples.json" />
             <PrivateKeyException Include="Deployment\AWSPowerShell\AWSPowerShell.dll-Help.xml" />
             <PrivateKeyException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.NetCore.dll-Help.xml" />
             <PrivateKeyException Include="Deployment\AWS.Tools\AWS.Tools.EC2\AWS.Tools.EC2.dll-Help.xml" />

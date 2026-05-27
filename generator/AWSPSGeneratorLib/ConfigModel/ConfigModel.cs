@@ -900,6 +900,18 @@ namespace AWSPowerShellGenerator.ServiceConfig
     public class AdvancedCmdletInfo
     {
         public List<string> OperationNames = new List<string>();
+        public List<AdvancedParameterInfo> Parameters { get; set; } = new List<AdvancedParameterInfo>();
+        public bool IsDeprecated { get; set; }
+    }
+
+    public class AdvancedParameterInfo
+    {
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public bool Mandatory { get; set; }
+        public string ConstantClass { get; set; }
+        public bool Deprecated { get; set; }
+        public List<string> Aliases { get; set; } = new List<string>();
     }
 
     /// <summary>

@@ -332,6 +332,11 @@ namespace AWSPowerShellGenerator.Generators
                 SourceArtifacts.WriteCopyModularArtifactsScript(ModelCollection.ConfigModels.Values);
 
                 SourceArtifacts.WriteCmdletsList(ModelCollection.ConfigModels.Values);
+                var commonFolder = Path.Combine(OutputFolder, "Common");
+                var commonParameters = CommonParameterScanner.ScanFolder(commonFolder);
+                SourceArtifacts.WriteCmdletMetadata(ModelCollection.ConfigModels.Values, CommonAdvancedCmdlets, commonParameters);
+                SourceArtifacts.WriteConstantClasses(ModelCollection.ConfigModels.Values);
+                SourceArtifacts.WriteCmdletAliases();
                 SourceArtifacts.WriteCommonModule(CommonAdvancedCmdlets.Keys, ModelCollection.CommonModuleAliases);
                 SourceArtifacts.WriteCommonProjectFile();
                 SourceArtifacts.WriteLegacyAliasesFileForCommonModule(ModelCollection.CommonModuleAliases);

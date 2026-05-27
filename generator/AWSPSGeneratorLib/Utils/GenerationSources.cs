@@ -10,6 +10,7 @@ using System.Xml;
 using AWSPowerShellGenerator.Analysis;
 using AWSPowerShellGenerator.Generators;
 using AWSPowerShellGenerator.ServiceConfig;
+using AWSPowerShellGenerator.Writers;
 using AWSPowerShellGenerator.Writers.SourceCode;
 using Newtonsoft.Json.Linq;
 
@@ -270,6 +271,26 @@ namespace AWSPowerShellGenerator.Utils
             {
                 textStream.CopyTo(gzipFileStream);
             }
+        }
+
+        public void WriteCmdletMetadata(IEnumerable<ConfigModel> services, Dictionary<string, AdvancedCmdletInfo> commonAdvancedCmdlets, List<Analysis.CommonParameterInfo> commonParameters)
+        {
+            var metadataFile = Path.Combine(AwsPowerShellModuleFolder, "cmdlet-metadata.json");
+            MetadataWriter.WriteCmdletMetadata(services, commonAdvancedCmdlets, metadataFile, ModuleVersionNumber, commonParameters);
+        }
+
+        public void WriteCmdletAliases()
+        {
+            var aliasesFile = Path.Combine(AwsPowerShellModuleFolder, AdditionalAliasesFilename);
+            var legacyAliasesFile = Path.Combine(AwsPowerShellModuleFolder, "AWSPowerShellLegacyAliases.psm1");
+            var outputFile = Path.Combine(AwsPowerShellModuleFolder, "cmdlet-aliases.json");
+            MetadataWriter.WriteCmdletAliases(aliasesFile, legacyAliasesFile, outputFile, ModuleVersionNumber);
+        }
+
+        public void WriteConstantClasses(IEnumerable<ConfigModel> services)
+        {
+            var constantsFile = Path.Combine(AwsPowerShellModuleFolder, "constant-classes.json");
+            MetadataWriter.WriteConstantClasses(services, constantsFile, ModuleVersionNumber);
         }
 
         public void WriteCommonModule(IEnumerable<string> commonAdvancedCmdlets, Dictionary<string, HashSet<string>> commonLegacyAliases)
