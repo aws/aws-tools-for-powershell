@@ -210,7 +210,6 @@
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShellLegacyAliases.psm1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
         <Copy SourceFiles="$(DesktopBuildFolder)/AWSPowerShell.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(DesktopBuildFolder)/AWSPowerShell.XML" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <!-- clone the generated file from coreclr -->
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFiles="$(DesktopDeploymentArtifacts)/AWSPowerShell.Format.ps1xml" />
 
@@ -254,7 +253,6 @@
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShellLegacyAliases.psm1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.XML" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFolder="$(NetCoreDeploymentArtifacts)" />
 
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(NetCoreDeploymentArtifacts)/CHANGELOG.txt"/>
