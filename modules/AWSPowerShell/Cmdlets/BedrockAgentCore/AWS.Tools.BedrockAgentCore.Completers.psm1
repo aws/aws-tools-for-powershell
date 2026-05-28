@@ -143,6 +143,20 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.HarnessBedrockApiFormat
+        "Invoke-BACHarness/Model_BedrockModelConfig_ApiFormat"
+        {
+            $v = "chat_completions","converse_stream","responses"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.HarnessOpenAiApiFormat
+        "Invoke-BACHarness/Model_OpenAiModelConfig_ApiFormat"
+        {
+            $v = "chat_completions","responses"
+            break
+        }
+
         # Amazon.BedrockAgentCore.InstrumentBalanceToken
         "Get-BACPaymentInstrumentBalance/Token"
         {
@@ -250,6 +264,8 @@ $BAC_map = @{
     "Filter_EventFilter"=@("Get-BACSessionList")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Limits_MaxSpendAmount_Currency"=@("New-BACPaymentSession")
+    "Model_BedrockModelConfig_ApiFormat"=@("Invoke-BACHarness")
+    "Model_OpenAiModelConfig_ApiFormat"=@("Invoke-BACHarness")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
     "PaymentInstrumentDetails_EmbeddedCryptoWallet_Network"=@("New-BACPaymentInstrument")

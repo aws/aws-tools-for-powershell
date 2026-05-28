@@ -107,6 +107,16 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.DeletionProtection
+        {
+            ($_ -eq "New-OSSCollection/DeletionProtection") -Or
+            ($_ -eq "Update-OSSCollection/DeletionProtection")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute
         {
             ($_ -eq "New-OSSSecurityConfig/IamIdentityCenterOptions_GroupAttribute") -Or
@@ -162,6 +172,13 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.ServerlessGeneration
+        "New-OSSCollectionGroup/Generation"
+        {
+            $v = "CLASSIC","NEXTGEN"
+            break
+        }
+
         # Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus
         {
             ($_ -eq "New-OSSCollection/VectorOptions_ServerlessVectorAcceleration") -Or
@@ -199,6 +216,8 @@ $OSS_Completers = {
 
 $OSS_map = @{
     "CollectionFilters_Status"=@("Get-OSSCollectionList")
+    "DeletionProtection"=@("New-OSSCollection","Update-OSSCollection")
+    "Generation"=@("New-OSSCollectionGroup")
     "IamIdentityCenterOptions_GroupAttribute"=@("New-OSSSecurityConfig")
     "IamIdentityCenterOptions_UserAttribute"=@("New-OSSSecurityConfig")
     "IamIdentityCenterOptionsUpdates_GroupAttribute"=@("Update-OSSSecurityConfig")

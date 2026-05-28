@@ -113,6 +113,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.Model.GeoLocationTarget[] Filter_GeoLocation { get; set; }
         #endregion
         
+        #region Parameter ThingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation
+        /// <summary>
+        /// <para>
+        /// <para>A list of fleet indexing APIs for which to enable socket information retrieval. Currently,
+        /// the only supported value is <c>GET_THING_CONNECTIVITY_DATA</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ThingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation { get; set; }
+        #endregion
+        
         #region Parameter ThingGroupIndexingConfiguration_ManagedField
         /// <summary>
         /// <para>
@@ -271,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.ThingIndexingConfiguration_CustomField = new List<Amazon.IoT.Model.Field>(this.ThingIndexingConfiguration_CustomField);
             }
             context.ThingIndexingConfiguration_DeviceDefenderIndexingMode = this.ThingIndexingConfiguration_DeviceDefenderIndexingMode;
+            if (this.ThingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation != null)
+            {
+                context.ThingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation = new List<System.String>(this.ThingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation);
+            }
             if (this.Filter_GeoLocation != null)
             {
                 context.Filter_GeoLocation = new List<Amazon.IoT.Model.GeoLocationTarget>(this.Filter_GeoLocation);
@@ -430,6 +449,31 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestThingIndexingConfiguration_thingIndexingConfiguration_Filter.NamedShadowNames = requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_NamedShadowName;
                 requestThingIndexingConfiguration_thingIndexingConfiguration_FilterIsNull = false;
             }
+            Amazon.IoT.Model.ConnectivityFilter requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity = null;
+            
+             // populate Connectivity
+            var requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_ConnectivityIsNull = true;
+            requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity = new Amazon.IoT.Model.ConnectivityFilter();
+            List<System.String> requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity_thingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation = null;
+            if (cmdletContext.ThingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity_thingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation = cmdletContext.ThingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity_thingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity.IncludeSocketInformation = requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity_thingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation;
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_ConnectivityIsNull = false;
+            }
+             // determine if requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity should be set to null
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_ConnectivityIsNull)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity = null;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter.Connectivity = requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_thingIndexingConfiguration_Filter_Connectivity;
+                requestThingIndexingConfiguration_thingIndexingConfiguration_FilterIsNull = false;
+            }
              // determine if requestThingIndexingConfiguration_thingIndexingConfiguration_Filter should be set to null
             if (requestThingIndexingConfiguration_thingIndexingConfiguration_FilterIsNull)
             {
@@ -505,6 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.ThingGroupIndexingMode ThingGroupIndexingConfiguration_ThingGroupIndexingMode { get; set; }
             public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_CustomField { get; set; }
             public Amazon.IoT.DeviceDefenderIndexingMode ThingIndexingConfiguration_DeviceDefenderIndexingMode { get; set; }
+            public List<System.String> ThingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation { get; set; }
             public List<Amazon.IoT.Model.GeoLocationTarget> Filter_GeoLocation { get; set; }
             public List<System.String> Filter_NamedShadowName { get; set; }
             public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_ManagedField { get; set; }

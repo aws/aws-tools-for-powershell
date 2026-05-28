@@ -30,7 +30,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Lists all advanced prompt optimization jobs for the account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the advanced prompt optimization jobs in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BDRAdvancedPromptOptimizationJobList")]
     [OutputType("Amazon.Bedrock.Model.AdvancedPromptOptimizationJobSummary")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Field to sort by in the returned list of jobs.</para>
+        /// <para>The field to sort the results by.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>Sort order for the results.</para>
+        /// <para>The sort order for the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return.</para>
+        /// <para>The maximum number of results to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -86,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token for the next page of results.</para>
+        /// <para>If the total number of results is greater than the <c>maxResults</c> value provided
+        /// in the request, use this token in a subsequent request to get the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

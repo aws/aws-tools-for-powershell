@@ -30,7 +30,8 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Creates an asynchronous batch job for advanced prompt optimization.
+    /// Creates an advanced prompt optimization job. The job optimizes your prompt templates
+    /// for specific models using your evaluation dataset and criteria.
     /// </summary>
     [Cmdlet("New", "BDRAdvancedPromptOptimizationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter EncryptionKeyArn
         /// <summary>
         /// <para>
-        /// <para>KMS key ARN for encrypting output data.</para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key used for encrypting the output data.
+        /// If not specified, the output is encrypted with an Amazon-owned KMS key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobDescription
         /// <summary>
         /// <para>
-        /// <para>Description of the advanced prompt optimization job.</para>
+        /// <para>A description of the advanced prompt optimization job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>Name of the advanced prompt optimization job.</para>
+        /// <para>A name for the advanced prompt optimization job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter ModelConfiguration
         /// <summary>
         /// <para>
-        /// <para>Model configurations for advanced prompt optimization.</para><para />
+        /// <para>A list of model configurations specifying the target models for prompt optimization.
+        /// You can specify up to 5 models.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -107,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter InputConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 URI of the input JSONL file.</para>
+        /// <para>The S3 URI of the JSONL input file containing prompt templates and evaluation samples.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter OutputConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 URI prefix for the output location.</para>
+        /// <para>The S3 URI prefix where the optimization results will be written.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to associate with the job.</para><para />
+        /// <para>Tags to associate with the advanced prompt optimization job.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -156,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for the request.</para>
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
+        /// request but does not return an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Batch delete the specified advanced prompt optimization jobs.
+    /// Deletes one or more advanced prompt optimization jobs.
     /// </summary>
     [Cmdlet("Remove", "BDRAdvancedPromptOptimizationJobBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Bedrock.Model.BatchDeleteAdvancedPromptOptimizationJobResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobIdentifier
         /// <summary>
         /// <para>
-        /// <para>List of advanced prompt optimization job identifiers to delete.</para><para />
+        /// <para>A list of advanced prompt optimization job identifiers (ARNs or IDs) to delete.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

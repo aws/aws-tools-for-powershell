@@ -382,6 +382,7 @@ $CPF_SelectMap = @{
     "Select"=@("Add-CPFProfileKey",
                "Get-CPFGetCalculatedAttributeForProfile",
                "Get-CPFGetProfile",
+               "Write-CPFProfileObjectBatch",
                "New-CPFCalculatedAttributeDefinition",
                "New-CPFDomain",
                "New-CPFDomainLayout",

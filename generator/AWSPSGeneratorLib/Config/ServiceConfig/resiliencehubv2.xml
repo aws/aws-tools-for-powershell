@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>resiliencehubv2</C2jFilename>
+    <AssemblyName>Resiliencehubv2</AssemblyName>
+    <ServiceNounPrefix>RH2</ServiceNounPrefix>
+    <ServiceName>AWS Resilience Hub V2</ServiceName>
+    <ServiceId>resiliencehubv2</ServiceId>
+    <ServiceClientInterface>IAmazonResiliencehubv2</ServiceClientInterface>
+    <ServiceClient>AmazonResiliencehubv2Client</ServiceClient>
+    <ServiceModuleGuid>ae22292e-63e4-470e-829c-75c18ed212d8</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAssertion" OutputProperty="Assertion" Verb="New" Noun="Assertion" ShouldProcessTarget="ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInputSource" OutputProperty="*" Verb="New" Noun="InputSource" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicy" OutputProperty="Policy" Verb="New" Noun="Policy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReport" OutputProperty="ReportGenerationResult" Verb="New" Noun="Report" ShouldProcessTarget="ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateService" OutputProperty="Service" Verb="New" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceFunction" OutputProperty="ServiceFunction" Verb="New" Noun="ServiceFunction" ShouldProcessTarget="Name,ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceFunctionResources" OutputProperty="*" Verb="New" Noun="ServiceFunctionResource" ShouldProcessTarget="ServiceFunctionId,ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSystem" OutputProperty="System" Verb="New" Noun="System" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserJourney" OutputProperty="UserJourney" Verb="New" Noun="UserJourney" ShouldProcessTarget="Name,SystemArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssertion" OutputProperty="AssertionId" Verb="Remove" Noun="Assertion" ShouldProcessTarget="AssertionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInputSource" OutputProperty="*" Verb="Remove" Noun="InputSource" ShouldProcessTarget="InputSourceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicy" OutputProperty="PolicyArn" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteService" OutputProperty="ServiceArn" Verb="Remove" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceFunction" OutputProperty="ServiceFunctionId" Verb="Remove" Noun="ServiceFunction" ShouldProcessTarget="ServiceFunctionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceFunctionResources" OutputProperty="*" Verb="Remove" Noun="ServiceFunctionResource" ShouldProcessTarget="ServiceFunctionId,ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSystem" OutputProperty="SystemArn" Verb="Remove" Noun="System" ShouldProcessTarget="SystemArn" PipelineParameter="SystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserJourney" OutputProperty="UserJourneyId" Verb="Remove" Noun="UserJourney" ShouldProcessTarget="UserJourneyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFailureModeFinding" OutputProperty="Finding" Verb="Get" Noun="FailureModeFinding" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="Policy" Verb="Get" Noun="Policy" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetService" OutputProperty="Service" Verb="Get" Noun="Service" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSystem" OutputProperty="System" Verb="Get" Noun="System" PipelineParameter="SystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserJourney" OutputProperty="UserJourney" Verb="Get" Noun="UserJourney" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportApp" OutputProperty="Service" Verb="Import" Noun="App" ShouldProcessTarget="V1AppArn" PipelineParameter="V1AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportPolicy" OutputProperty="Policy" Verb="Import" Noun="Policy" ShouldProcessTarget="V1PolicyArn" PipelineParameter="V1PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssertions" OutputProperty="Assertions" Verb="Get" Noun="AssertionList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDependencies" OutputProperty="DependencySummaries" Verb="Get" Noun="DependencyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFailureModeAssessments" OutputProperty="AssessmentSummaries" Verb="Get" Noun="FailureModeAssessmentList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFailureModeFindings" OutputProperty="FindingsSummary" Verb="Get" Noun="FailureModeFindingList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInputSources" OutputProperty="InputSourceSummaries" Verb="Get" Noun="InputSourceList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="PolicySummaries" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReports" OutputProperty="ReportGenerationResults" Verb="Get" Noun="ReportList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResources" OutputProperty="*" Verb="Get" Noun="ResourceList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceEvents" OutputProperty="Events" Verb="Get" Noun="ServiceEventList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceFunctions" OutputProperty="ServiceFunctions" Verb="Get" Noun="ServiceFunctionList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServices" OutputProperty="ServiceSummaries" Verb="Get" Noun="ServiceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceTopologyEdges" OutputProperty="ServiceTopologyEdgeSummaries" Verb="Get" Noun="ServiceTopologyEdgeList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSystemEvents" OutputProperty="Events" Verb="Get" Noun="SystemEventList" PipelineParameter="SystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSystems" OutputProperty="SystemSummaries" Verb="Get" Noun="SystemList" PipelineParameter="OuId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserJourneys" OutputProperty="UserJourneySummaries" Verb="Get" Noun="UserJourneyList" PipelineParameter="SystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFailureModeAssessment" OutputProperty="*" Verb="Start" Noun="FailureModeAssessment" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssertion" OutputProperty="Assertion" Verb="Update" Noun="Assertion" ShouldProcessTarget="AssertionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDependency" OutputProperty="*" Verb="Update" Noun="Dependency" ShouldProcessTarget="DependencyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFailureModeFinding" OutputProperty="Finding" Verb="Update" Noun="FailureModeFinding" ShouldProcessTarget="FindingId,ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePolicy" OutputProperty="Policy" Verb="Update" Noun="Policy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateService" OutputProperty="Service" Verb="Update" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceFunction" OutputProperty="ServiceFunction" Verb="Update" Noun="ServiceFunction" ShouldProcessTarget="ServiceFunctionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSystem" OutputProperty="System" Verb="Update" Noun="System" ShouldProcessTarget="SystemArn" PipelineParameter="SystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserJourney" OutputProperty="UserJourney" Verb="Update" Noun="UserJourney" ShouldProcessTarget="UserJourneyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

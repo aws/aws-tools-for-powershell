@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutProfileObject" OutputProperty="*" Verb="Write" Noun="ProfileObjectBatch" ShouldProcessTarget="DomainName,ObjectTypeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCalculatedAttributeDefinition" OutputProperty="*" Verb="New" Noun="CalculatedAttributeDefinition" AnonymousShouldProcessTarget="true" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Conditions_Range_TimestampFormat" NewName="Range_TimestampFormat" />

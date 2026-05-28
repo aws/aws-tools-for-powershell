@@ -48,6 +48,21 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Filter_GovernedProvider
+        /// <summary>
+        /// <para>
+        /// <para>A filter that narrows the results to controls that govern a specific provider's resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_GovernedProviders")]
+        public System.String[] Filter_GovernedProvider { get; set; }
+        #endregion
+        
         #region Parameter Implementations_Identifier
         /// <summary>
         /// <para>
@@ -147,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
                 context.Select = CreateSelectDelegate<Amazon.ControlCatalog.Model.ListControlsResponse, GetCLCATControlListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Filter_GovernedProvider != null)
+            {
+                context.Filter_GovernedProvider = new List<System.String>(this.Filter_GovernedProvider);
+            }
             if (this.Implementations_Identifier != null)
             {
                 context.Implementations_Identifier = new List<System.String>(this.Implementations_Identifier);
@@ -179,6 +198,16 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.ControlCatalog.Model.ControlFilter();
+            List<System.String> requestFilter_filter_GovernedProvider = null;
+            if (cmdletContext.Filter_GovernedProvider != null)
+            {
+                requestFilter_filter_GovernedProvider = cmdletContext.Filter_GovernedProvider;
+            }
+            if (requestFilter_filter_GovernedProvider != null)
+            {
+                request.Filter.GovernedProviders = requestFilter_filter_GovernedProvider;
+                requestFilterIsNull = false;
+            }
             Amazon.ControlCatalog.Model.ImplementationFilter requestFilter_filter_Implementations = null;
             
              // populate Implementations
@@ -302,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Filter_GovernedProvider { get; set; }
             public List<System.String> Implementations_Identifier { get; set; }
             public List<System.String> Implementations_Type { get; set; }
             public System.Int32? MaxResult { get; set; }

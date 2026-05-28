@@ -1,4 +1,37 @@
-﻿### 5.0.220 (2026-05-27 19:57Z)
+﻿### 5.0.221 (2026-05-28 20:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.257.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Modified cmdlet New-APSImportedImage: added parameter WorkspaceImageId.
+  * Amazon AWSDeadlineCloud
+    * Added cmdlet Get-ADCVolume leveraging the GetVolume service API.
+    * Added cmdlet Get-ADCVolumeList leveraging the ListVolumes service API.
+    * Added cmdlet Remove-ADCVolume leveraging the DeleteVolume service API.
+    * Modified cmdlet New-ADCFleet: added parameters Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops, Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour, Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath, Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB and Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB.
+    * Modified cmdlet Update-ADCFleet: added parameters Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops, Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour, Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath, Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB and Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDRCustomModel: added parameter CustomModelDataSource_ModelPackageArnDataSource_ModelPackageArn.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCHarness: added parameters Model_BedrockModelConfig_AdditionalParam, Model_BedrockModelConfig_ApiFormat, Model_LiteLlmModelConfig_AdditionalParam, Model_LiteLlmModelConfig_ApiBase, Model_LiteLlmModelConfig_ApiKeyArn, Model_LiteLlmModelConfig_MaxToken, Model_LiteLlmModelConfig_ModelId, Model_LiteLlmModelConfig_Temperature, Model_LiteLlmModelConfig_TopP, Model_OpenAiModelConfig_AdditionalParam and Model_OpenAiModelConfig_ApiFormat.
+    * Modified cmdlet Update-BACCHarness: added parameters Model_BedrockModelConfig_AdditionalParam, Model_BedrockModelConfig_ApiFormat, Model_LiteLlmModelConfig_AdditionalParam, Model_LiteLlmModelConfig_ApiBase, Model_LiteLlmModelConfig_ApiKeyArn, Model_LiteLlmModelConfig_MaxToken, Model_LiteLlmModelConfig_ModelId, Model_LiteLlmModelConfig_Temperature, Model_LiteLlmModelConfig_TopP, Model_OpenAiModelConfig_AdditionalParam and Model_OpenAiModelConfig_ApiFormat.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Invoke-BACHarness: added parameters Model_BedrockModelConfig_AdditionalParam, Model_BedrockModelConfig_ApiFormat, Model_LiteLlmModelConfig_AdditionalParam, Model_LiteLlmModelConfig_ApiBase, Model_LiteLlmModelConfig_ApiKeyArn, Model_LiteLlmModelConfig_MaxToken, Model_LiteLlmModelConfig_ModelId, Model_LiteLlmModelConfig_Temperature, Model_LiteLlmModelConfig_TopP, Model_OpenAiModelConfig_AdditionalParam, Model_OpenAiModelConfig_ApiFormat and RuntimeUserId.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Write-CPFProfileObjectBatch leveraging the BatchPutProfileObject service API.
+  * Amazon Control Catalog
+    * Modified cmdlet Get-CLCATControlList: added parameter Filter_GovernedProvider.
+  * Amazon IoT
+    * Modified cmdlet Get-IOTThingConnectivityData: added parameter IncludeSocketInformation.
+    * Modified cmdlet Update-IOTIndexingConfiguration: added parameter ThingIndexingConfiguration_Filter_Connectivity_IncludeSocketInformation.
+  * Amazon OpenSearch Serverless
+    * Modified cmdlet New-OSSCollection: added parameter DeletionProtection.
+    * Modified cmdlet New-OSSCollectionGroup: added parameter Generation.
+    * Modified cmdlet Update-OSSCollection: added parameter DeletionProtection.
+  * Amazon Parallel Computing Service
+    * Modified cmdlet New-PCSComputeNodeGroup: added parameter SlurmConfiguration_ScaleDownIdleTimeInSecond.
+    * Modified cmdlet Update-PCSComputeNodeGroup: added parameter SlurmConfiguration_ScaleDownIdleTimeInSecond.
+  * Amazon Resilience Hub V2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix RH2 and can be listed using the command 'Get-AWSCmdletName -Service RH2'.
+
+### 5.0.220 (2026-05-27 19:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.256.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Data Automation for Amazon Bedrock
     * Modified cmdlet New-BDADataAutomationProject: added parameter CustomOutputConfiguration_Document_FallbackBlueprint.

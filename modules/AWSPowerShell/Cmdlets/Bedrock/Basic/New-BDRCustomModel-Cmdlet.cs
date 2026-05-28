@@ -35,6 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// 
     ///  
     /// <para>
+    /// You can provide the model data source in one of the following ways:
+    /// </para><ul><li><para><c>customModelDataSource</c> — Specify a SageMaker AI model package ARN. Amazon Bedrock
+    /// resolves the model package to retrieve the model artifacts. This is the preferred
+    /// method for new SageMaker AI training outputs.
+    /// </para></li><li><para><c>modelSourceConfig</c> — Specify an Amazon S3 URI pointing to the Amazon-managed
+    /// Amazon S3 bucket containing your model artifacts.
+    /// </para></li></ul><para>
     /// To use the model for inference, you must purchase Provisioned Throughput for it. You
     /// can't use On-demand inference with these custom models. For more information about
     /// Provisioned Throughput, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned
@@ -105,6 +112,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String ModelName { get; set; }
         #endregion
         
+        #region Parameter CustomModelDataSource_ModelPackageArnDataSource_ModelPackageArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the SageMaker AI model package. The ARN must be
+        /// for a model package of <c>restricted</c> type.</para><para>To use a model package ARN, you must have the <c>sagemaker:DescribeModelPackage</c>
+        /// and <c>sagemaker:AccessModelPackageData</c> permissions on the model package resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomModelDataSource_ModelPackageArnDataSource_ModelPackageArn { get; set; }
+        #endregion
+        
         #region Parameter ModelTag
         /// <summary>
         /// <para>
@@ -130,7 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// to perform tasks on your behalf. This role must have permissions to access the Amazon
         /// S3 bucket containing your model artifacts and the KMS key (if specified). For more
         /// information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-import-iam-role.html">Setting
-        /// up an IAM service role for importing models</a> in the Amazon Bedrock User Guide.</para>
+        /// up an IAM service role for importing models</a> in the Amazon Bedrock User Guide.</para><para>This field is required when you use <c>modelSourceConfig</c> with an Amazon S3 data
+        /// source. It is not required when you use <c>customModelDataSource</c> with a model
+        /// package ARN, because Amazon Bedrock uses its own credentials to access the model artifacts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientRequestToken = this.ClientRequestToken;
+            context.CustomModelDataSource_ModelPackageArnDataSource_ModelPackageArn = this.CustomModelDataSource_ModelPackageArnDataSource_ModelPackageArn;
             context.ModelKmsKeyArn = this.ModelKmsKeyArn;
             context.ModelName = this.ModelName;
             #if MODULAR
@@ -228,6 +250,40 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate CustomModelDataSource
+            var requestCustomModelDataSourceIsNull = true;
+            request.CustomModelDataSource = new Amazon.Bedrock.Model.CustomModelDataSource();
+            Amazon.Bedrock.Model.ModelPackageArnDataSource requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource = null;
+            
+             // populate ModelPackageArnDataSource
+            var requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSourceIsNull = true;
+            requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource = new Amazon.Bedrock.Model.ModelPackageArnDataSource();
+            System.String requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource_customModelDataSource_ModelPackageArnDataSource_ModelPackageArn = null;
+            if (cmdletContext.CustomModelDataSource_ModelPackageArnDataSource_ModelPackageArn != null)
+            {
+                requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource_customModelDataSource_ModelPackageArnDataSource_ModelPackageArn = cmdletContext.CustomModelDataSource_ModelPackageArnDataSource_ModelPackageArn;
+            }
+            if (requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource_customModelDataSource_ModelPackageArnDataSource_ModelPackageArn != null)
+            {
+                requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource.ModelPackageArn = requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource_customModelDataSource_ModelPackageArnDataSource_ModelPackageArn;
+                requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSourceIsNull = false;
+            }
+             // determine if requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource should be set to null
+            if (requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSourceIsNull)
+            {
+                requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource = null;
+            }
+            if (requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource != null)
+            {
+                request.CustomModelDataSource.ModelPackageArnDataSource = requestCustomModelDataSource_customModelDataSource_ModelPackageArnDataSource;
+                requestCustomModelDataSourceIsNull = false;
+            }
+             // determine if request.CustomModelDataSource should be set to null
+            if (requestCustomModelDataSourceIsNull)
+            {
+                request.CustomModelDataSource = null;
             }
             if (cmdletContext.ModelKmsKeyArn != null)
             {
@@ -335,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.String CustomModelDataSource_ModelPackageArnDataSource_ModelPackageArn { get; set; }
             public System.String ModelKmsKeyArn { get; set; }
             public System.String ModelName { get; set; }
             public System.String S3DataSource_S3Uri { get; set; }

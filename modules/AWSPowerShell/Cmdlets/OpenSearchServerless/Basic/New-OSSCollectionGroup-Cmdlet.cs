@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Generation
+        /// <summary>
+        /// <para>
+        /// <para>The generation of Amazon OpenSearch Serverless for the collection group. Valid values
+        /// are <c>CLASSIC</c> and <c>NEXTGEN</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchServerless.ServerlessGeneration")]
+        public Amazon.OpenSearchServerless.ServerlessGeneration Generation { get; set; }
+        #endregion
+        
         #region Parameter CapacityLimits_MaxIndexingCapacityInOCU
         /// <summary>
         /// <para>
@@ -216,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             context.CapacityLimits_MinSearchCapacityInOCU = this.CapacityLimits_MinSearchCapacityInOCU;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.Generation = this.Generation;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -307,6 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.Generation != null)
+            {
+                request.Generation = cmdletContext.Generation;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -380,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             public System.Single? CapacityLimits_MinSearchCapacityInOCU { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public Amazon.OpenSearchServerless.ServerlessGeneration Generation { get; set; }
             public System.String Name { get; set; }
             public Amazon.OpenSearchServerless.StandbyReplicas StandbyReplica { get; set; }
             public List<Amazon.OpenSearchServerless.Model.Tag> Tag { get; set; }

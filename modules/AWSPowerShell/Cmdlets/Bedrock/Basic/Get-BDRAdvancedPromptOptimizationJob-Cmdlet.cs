@@ -30,7 +30,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Retrieves the details and status of an advanced prompt optimization job.
+    /// Gets information about an advanced prompt optimization job.
     /// </summary>
     [Cmdlet("Get", "BDRAdvancedPromptOptimizationJob")]
     [OutputType("Amazon.Bedrock.Model.GetAdvancedPromptOptimizationJobResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobIdentifier
         /// <summary>
         /// <para>
-        /// <para>ARN or ID of the advanced prompt optimization job.</para>
+        /// <para>The ARN or ID of the advanced prompt optimization job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

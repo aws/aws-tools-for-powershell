@@ -117,14 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// trust relationship allowing appstream.amazonaws.com to assume the role.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IamRoleArn { get; set; }
         #endregion
         
@@ -160,18 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter SourceAmiId
         /// <summary>
         /// <para>
-        /// <para>The ID of the EC2 AMI to import. The AMI must meet specific requirements including
-        /// Windows Server 2022 Full Base, UEFI boot mode, TPM 2.0 support, and proper drivers.</para>
+        /// <para>The ID of the EC2 AMI to import.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceAmiId { get; set; }
         #endregion
         
@@ -189,6 +174,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter WorkspaceImageId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Workspaces Image to import.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceImageId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -252,12 +247,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             context.DisplayName = this.DisplayName;
             context.DryRun = this.DryRun;
             context.IamRoleArn = this.IamRoleArn;
-            #if MODULAR
-            if (this.IamRoleArn == null && ParameterWasBound(nameof(this.IamRoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IamRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -267,12 +256,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             #endif
             context.RuntimeValidationConfig_IntendedInstanceType = this.RuntimeValidationConfig_IntendedInstanceType;
             context.SourceAmiId = this.SourceAmiId;
-            #if MODULAR
-            if (this.SourceAmiId == null && ParameterWasBound(nameof(this.SourceAmiId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceAmiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -281,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.WorkspaceImageId = this.WorkspaceImageId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -352,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.WorkspaceImageId != null)
+            {
+                request.WorkspaceImageId = cmdletContext.WorkspaceImageId;
+            }
             
             CmdletOutput output;
             
@@ -417,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String RuntimeValidationConfig_IntendedInstanceType { get; set; }
             public System.String SourceAmiId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String WorkspaceImageId { get; set; }
             public System.Func<Amazon.AppStream.Model.CreateImportedImageResponse, NewAPSImportedImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Image;
         }

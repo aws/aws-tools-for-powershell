@@ -1051,6 +1051,9 @@
     <Reference Include="AWSSDK.ResilienceHub">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ResilienceHub.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Resiliencehubv2">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Resiliencehubv2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ResourceExplorer2">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ResourceExplorer2.dll</HintPath>
     </Reference>
@@ -2322,6 +2325,9 @@
     </Reference>
     <Reference Include="AWSSDK.ResilienceHub">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ResilienceHub.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Resiliencehubv2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Resiliencehubv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ResourceExplorer2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ResourceExplorer2.dll</HintPath>

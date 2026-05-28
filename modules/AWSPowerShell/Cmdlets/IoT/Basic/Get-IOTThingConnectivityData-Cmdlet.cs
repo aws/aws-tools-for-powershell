@@ -44,6 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter IncludeSocketInformation
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if socket information (sourcePort, targetPort, sourceIp, targetIp, vpcEndpointId)
+        /// should be included in the GetThingConnectivityData response. Set to <c>true</c> to
+        /// include socket information. Set to <c>false</c> to omit socket information. By default,
+        /// this is set to <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeSocketInformation { get; set; }
+        #endregion
+        
         #region Parameter ThingName
         /// <summary>
         /// <para>
@@ -91,6 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = CreateSelectDelegate<Amazon.IoT.Model.GetThingConnectivityDataResponse, GetIOTThingConnectivityDataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IncludeSocketInformation = this.IncludeSocketInformation;
             context.ThingName = this.ThingName;
             #if MODULAR
             if (this.ThingName == null && ParameterWasBound(nameof(this.ThingName)))
@@ -114,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.GetThingConnectivityDataRequest();
             
+            if (cmdletContext.IncludeSocketInformation != null)
+            {
+                request.IncludeSocketInformation = cmdletContext.IncludeSocketInformation.Value;
+            }
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
@@ -173,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeSocketInformation { get; set; }
             public System.String ThingName { get; set; }
             public System.Func<Amazon.IoT.Model.GetThingConnectivityDataResponse, GetIOTThingConnectivityDataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

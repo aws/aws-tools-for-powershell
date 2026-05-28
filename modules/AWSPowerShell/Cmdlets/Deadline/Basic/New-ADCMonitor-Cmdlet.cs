@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityCenterRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS Region where IAM Identity Center is enabled. Required when IAM Identity Center
+        /// <para>The Region where IAM Identity Center is enabled. Required when IAM Identity Center
         /// is in a different Region than the monitor.</para>
         /// </para>
         /// </summary>

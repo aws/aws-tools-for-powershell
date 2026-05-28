@@ -229,6 +229,20 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public Amazon.PCS.PurchaseOption PurchaseOption { get; set; }
         #endregion
         
+        #region Parameter SlurmConfiguration_ScaleDownIdleTimeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level
+        /// setting applies. This overrides the cluster-level <c>scaleDownIdleTimeInSeconds</c>
+        /// setting. A value of <c>-1</c> removes the override and applies the cluster-level setting
+        /// to this compute node group. Requires Slurm version 25.11 or later.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_ScaleDownIdleTimeInSeconds")]
+        public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
+        #endregion
+        
         #region Parameter SlurmConfiguration_SlurmCustomSetting
         /// <summary>
         /// <para>
@@ -423,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter ScalingConfiguration_MinInstanceCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SlurmConfiguration_ScaleDownIdleTimeInSecond = this.SlurmConfiguration_ScaleDownIdleTimeInSecond;
             if (this.SlurmConfiguration_SlurmCustomSetting != null)
             {
                 context.SlurmConfiguration_SlurmCustomSetting = new List<Amazon.PCS.Model.SlurmCustomSetting>(this.SlurmConfiguration_SlurmCustomSetting);
@@ -552,6 +567,16 @@ namespace Amazon.PowerShell.Cmdlets.PCS
              // populate SlurmConfiguration
             var requestSlurmConfigurationIsNull = true;
             request.SlurmConfiguration = new Amazon.PCS.Model.ComputeNodeGroupSlurmConfigurationRequest();
+            System.Int32? requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond = null;
+            if (cmdletContext.SlurmConfiguration_ScaleDownIdleTimeInSecond != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond = cmdletContext.SlurmConfiguration_ScaleDownIdleTimeInSecond.Value;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond != null)
+            {
+                request.SlurmConfiguration.ScaleDownIdleTimeInSeconds = requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond.Value;
+                requestSlurmConfigurationIsNull = false;
+            }
             List<Amazon.PCS.Model.SlurmCustomSetting> requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting = null;
             if (cmdletContext.SlurmConfiguration_SlurmCustomSetting != null)
             {
@@ -660,6 +685,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public Amazon.PCS.PurchaseOption PurchaseOption { get; set; }
             public System.Int32? ScalingConfiguration_MaxInstanceCount { get; set; }
             public System.Int32? ScalingConfiguration_MinInstanceCount { get; set; }
+            public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
             public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
             public Amazon.PCS.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }
             public List<System.String> SubnetId { get; set; }

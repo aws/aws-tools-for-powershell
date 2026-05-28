@@ -192,6 +192,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CPFDomainObjectType', 
         'Write-CPFIntegration', 
         'Write-CPFProfileObject', 
+        'Write-CPFProfileObjectBatch', 
         'Write-CPFProfileObjectType')
 
     # Variables to export from this module

@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable or disable deletion protection for the collection. When
+        /// set to <c>ENABLED</c>, the collection cannot be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchServerless.DeletionProtection")]
+        public Amazon.OpenSearchServerless.DeletionProtection DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -140,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.DeletionProtection = this.DeletionProtection;
             context.Description = this.Description;
             context.Id = this.Id;
             #if MODULAR
@@ -168,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection;
             }
             if (cmdletContext.Description != null)
             {
@@ -252,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public Amazon.OpenSearchServerless.DeletionProtection DeletionProtection { get; set; }
             public System.String Description { get; set; }
             public System.String Id { get; set; }
             public Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus VectorOptions_ServerlessVectorAcceleration { get; set; }

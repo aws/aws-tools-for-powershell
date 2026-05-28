@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public System.String CollectionGroupName { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable deletion protection for the collection. When set to <c>ENABLED</c>,
+        /// the collection cannot be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchServerless.DeletionProtection")]
+        public Amazon.OpenSearchServerless.DeletionProtection DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -212,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             }
             context.ClientToken = this.ClientToken;
             context.CollectionGroupName = this.CollectionGroupName;
+            context.DeletionProtection = this.DeletionProtection;
             context.Description = this.Description;
             context.EncryptionConfig_AWSOwnedKey = this.EncryptionConfig_AWSOwnedKey;
             context.EncryptionConfig_KmsKeyArn = this.EncryptionConfig_KmsKeyArn;
@@ -252,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             if (cmdletContext.CollectionGroupName != null)
             {
                 request.CollectionGroupName = cmdletContext.CollectionGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection;
             }
             if (cmdletContext.Description != null)
             {
@@ -378,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         {
             public System.String ClientToken { get; set; }
             public System.String CollectionGroupName { get; set; }
+            public Amazon.OpenSearchServerless.DeletionProtection DeletionProtection { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? EncryptionConfig_AWSOwnedKey { get; set; }
             public System.String EncryptionConfig_KmsKeyArn { get; set; }

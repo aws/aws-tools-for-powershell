@@ -241,6 +241,28 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.Int32? RootEbsVolume_Iops { get; set; }
         #endregion
         
+        #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops
+        /// <summary>
+        /// <para>
+        /// <para>The IOPS per persistent volume. The default is 3000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour
+        /// <summary>
+        /// <para>
+        /// <para>The number of hours a persistent volume can remain unused before it is deleted. The
+        /// default is 168 (7 days).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHours")]
+        public System.Int32? Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour { get; set; }
+        #endregion
+        
         #region Parameter AcceleratorCount_Max
         /// <summary>
         /// <para>
@@ -432,6 +454,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public Amazon.Deadline.AutoScalingMode CustomerManaged_Mode { get; set; }
         #endregion
         
+        #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath
+        /// <summary>
+        /// <para>
+        /// <para>The file system path where the persistent volume is mounted on the worker instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath { get; set; }
+        #endregion
+        
         #region Parameter WorkerCapabilities_OsFamily
         /// <summary>
         /// <para>
@@ -561,6 +593,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.Int32? RootEbsVolume_SizeGiB { get; set; }
         #endregion
         
+        #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB
+        /// <summary>
+        /// <para>
+        /// <para>The persistent volume size in GiB. The default is 250.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB { get; set; }
+        #endregion
+        
         #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount
         /// <summary>
         /// <para>
@@ -626,6 +668,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_ServiceManagedEc2_InstanceCapabilities_RootEbsVolume_ThroughputMiB")]
         public System.Int32? RootEbsVolume_ThroughputMiB { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB
+        /// <summary>
+        /// <para>
+        /// <para>The throughput per persistent volume in MiB. The default is 125.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB { get; set; }
         #endregion
         
         #region Parameter InstanceMarketOptions_Type
@@ -783,6 +835,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max = this.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max;
             context.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min = this.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min;
             context.InstanceMarketOptions_Type = this.InstanceMarketOptions_Type;
+            context.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops = this.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops;
+            context.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour = this.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour;
+            context.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath = this.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath;
+            context.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB = this.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB;
+            context.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB = this.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB;
             context.ServiceManagedEc2_StorageProfileId = this.ServiceManagedEc2_StorageProfileId;
             if (this.VpcConfiguration_ResourceConfigurationArn != null)
             {
@@ -1238,6 +1295,71 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 requestConfiguration_configuration_ServiceManagedEc2.AutoScalingConfiguration = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_AutoScalingConfiguration;
                 requestConfiguration_configuration_ServiceManagedEc2IsNull = false;
             }
+            Amazon.Deadline.Model.PersistentVolumeConfiguration requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration = null;
+            
+             // populate PersistentVolumeConfiguration
+            var requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfigurationIsNull = true;
+            requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration = new Amazon.Deadline.Model.PersistentVolumeConfiguration();
+            System.Int32? requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops = null;
+            if (cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops = cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops.Value;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration.Iops = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops.Value;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour = null;
+            if (cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour = cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour.Value;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration.LastUsedTtlHours = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour.Value;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath = null;
+            if (cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath = cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration.MountPath = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB = null;
+            if (cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB = cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB.Value;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration.SizeGiB = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB.Value;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB = null;
+            if (cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB = cmdletContext.Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB.Value;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration.ThroughputMiB = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB.Value;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration should be set to null
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfigurationIsNull)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration = null;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2.PersistentVolumeConfiguration = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_PersistentVolumeConfiguration;
+                requestConfiguration_configuration_ServiceManagedEc2IsNull = false;
+            }
             Amazon.Deadline.Model.ServiceManagedEc2InstanceCapabilities requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities = null;
             
              // populate InstanceCapabilities
@@ -1655,6 +1777,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.Int32? Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max { get; set; }
             public System.Int32? Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min { get; set; }
             public Amazon.Deadline.Ec2MarketType InstanceMarketOptions_Type { get; set; }
+            public System.Int32? Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops { get; set; }
+            public System.Int32? Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour { get; set; }
+            public System.String Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath { get; set; }
+            public System.Int32? Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB { get; set; }
+            public System.Int32? Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB { get; set; }
             public System.String ServiceManagedEc2_StorageProfileId { get; set; }
             public List<System.String> VpcConfiguration_ResourceConfigurationArn { get; set; }
             public System.String Description { get; set; }

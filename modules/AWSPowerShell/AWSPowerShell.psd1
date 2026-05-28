@@ -383,6 +383,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Rekognition.dll',
         'AWSSDK.Repostspace.dll',
         'AWSSDK.ResilienceHub.dll',
+        'AWSSDK.Resiliencehubv2.dll',
         'AWSSDK.ResourceExplorer2.dll',
         'AWSSDK.ResourceGroups.dll',
         'AWSSDK.ResourceGroupsTaggingAPI.dll',

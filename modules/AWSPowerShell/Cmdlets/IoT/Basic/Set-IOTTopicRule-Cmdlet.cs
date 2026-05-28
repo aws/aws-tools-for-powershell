@@ -101,7 +101,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>Whether to allow batching messages from different MQTT topics into a single HTTP request.
         /// By default, only messages from the same topic are batched together. The default value
-        /// is <c>false</c>.</para>
+        /// is <c>false</c>.</para><note><para>When <c>batchAcrossTopics</c> is enabled, the error payload format changes: the <c>topic</c>
+        /// field moves from the top level to inside each entry in the <c>payloadsWithMetadata</c>
+        /// array, since each message in the batch may originate from a different topic.</para></note><note><para>Messages are always batched within the scope of the same account, rule name, target
+        /// HTTP endpoint URL, and billing group. Messages that differ in any of these attributes
+        /// are never combined into the same batch, regardless of the <c>batchAcrossTopics</c>
+        /// setting.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

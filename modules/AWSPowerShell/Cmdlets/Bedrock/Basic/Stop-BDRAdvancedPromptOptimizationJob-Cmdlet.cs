@@ -30,7 +30,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Stops an in-progress advanced prompt optimization job.
+    /// Stops an advanced prompt optimization job that is in progress.
     /// </summary>
     [Cmdlet("Stop", "BDRAdvancedPromptOptimizationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobIdentifier
         /// <summary>
         /// <para>
-        /// <para>ARN or ID of the advanced prompt optimization job to stop.</para>
+        /// <para>The ARN or ID of the advanced prompt optimization job to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

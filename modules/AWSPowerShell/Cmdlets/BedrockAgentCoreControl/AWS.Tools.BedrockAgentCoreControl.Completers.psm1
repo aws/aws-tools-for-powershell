@@ -224,6 +224,26 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.HarnessBedrockApiFormat
+        {
+            ($_ -eq "New-BACCHarness/Model_BedrockModelConfig_ApiFormat") -Or
+            ($_ -eq "Update-BACCHarness/Model_BedrockModelConfig_ApiFormat")
+        }
+        {
+            $v = "chat_completions","converse_stream","responses"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.HarnessOpenAiApiFormat
+        {
+            ($_ -eq "New-BACCHarness/Model_OpenAiModelConfig_ApiFormat") -Or
+            ($_ -eq "Update-BACCHarness/Model_OpenAiModelConfig_ApiFormat")
+        }
+        {
+            $v = "chat_completions","responses"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.HarnessTruncationStrategy
         {
             ($_ -eq "New-BACCHarness/Truncation_Strategy") -Or
@@ -423,6 +443,8 @@ $BACC_map = @{
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
     "Level"=@("New-BACCEvaluator","Update-BACCEvaluator")
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
+    "Model_BedrockModelConfig_ApiFormat"=@("New-BACCHarness","Update-BACCHarness")
+    "Model_OpenAiModelConfig_ApiFormat"=@("New-BACCHarness","Update-BACCHarness")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")

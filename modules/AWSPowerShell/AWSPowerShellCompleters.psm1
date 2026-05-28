@@ -8536,6 +8536,26 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.HarnessBedrockApiFormat
+        {
+            ($_ -eq "New-BACCHarness/Model_BedrockModelConfig_ApiFormat") -Or
+            ($_ -eq "Update-BACCHarness/Model_BedrockModelConfig_ApiFormat")
+        }
+        {
+            $v = "chat_completions","converse_stream","responses"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.HarnessOpenAiApiFormat
+        {
+            ($_ -eq "New-BACCHarness/Model_OpenAiModelConfig_ApiFormat") -Or
+            ($_ -eq "Update-BACCHarness/Model_OpenAiModelConfig_ApiFormat")
+        }
+        {
+            $v = "chat_completions","responses"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.HarnessTruncationStrategy
         {
             ($_ -eq "New-BACCHarness/Truncation_Strategy") -Or
@@ -8735,6 +8755,8 @@ $BACC_map = @{
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
     "Level"=@("New-BACCEvaluator","Update-BACCEvaluator")
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
+    "Model_BedrockModelConfig_ApiFormat"=@("New-BACCHarness","Update-BACCHarness")
+    "Model_OpenAiModelConfig_ApiFormat"=@("New-BACCHarness","Update-BACCHarness")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
@@ -9026,6 +9048,20 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.HarnessBedrockApiFormat
+        "Invoke-BACHarness/Model_BedrockModelConfig_ApiFormat"
+        {
+            $v = "chat_completions","converse_stream","responses"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.HarnessOpenAiApiFormat
+        "Invoke-BACHarness/Model_OpenAiModelConfig_ApiFormat"
+        {
+            $v = "chat_completions","responses"
+            break
+        }
+
         # Amazon.BedrockAgentCore.InstrumentBalanceToken
         "Get-BACPaymentInstrumentBalance/Token"
         {
@@ -9133,6 +9169,8 @@ $BAC_map = @{
     "Filter_EventFilter"=@("Get-BACSessionList")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Limits_MaxSpendAmount_Currency"=@("New-BACPaymentSession")
+    "Model_BedrockModelConfig_ApiFormat"=@("Invoke-BACHarness")
+    "Model_OpenAiModelConfig_ApiFormat"=@("Invoke-BACHarness")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
     "PaymentInstrumentDetails_EmbeddedCryptoWallet_Network"=@("New-BACPaymentInstrument")
@@ -22872,6 +22910,7 @@ $CPF_SelectMap = @{
     "Select"=@("Add-CPFProfileKey",
                "Get-CPFGetCalculatedAttributeForProfile",
                "Get-CPFGetProfile",
+               "Write-CPFProfileObjectBatch",
                "New-CPFCalculatedAttributeDefinition",
                "New-CPFDomain",
                "New-CPFDomainLayout",
@@ -25191,6 +25230,7 @@ $ADC_SelectMap = @{
                "Remove-ADCQueueFleetAssociation",
                "Remove-ADCQueueLimitAssociation",
                "Remove-ADCStorageProfile",
+               "Remove-ADCVolume",
                "Remove-ADCWorker",
                "Remove-ADCMemberFromFarm",
                "Remove-ADCMemberFromFleet",
@@ -25215,6 +25255,7 @@ $ADC_SelectMap = @{
                "Get-ADCStorageProfile",
                "Get-ADCStorageProfileForQueue",
                "Get-ADCTask",
+               "Get-ADCVolume",
                "Get-ADCWorker",
                "Get-ADCAvailableMeteredProductList",
                "Get-ADCBudgetList",
@@ -25244,6 +25285,7 @@ $ADC_SelectMap = @{
                "Get-ADCStorageProfilesForQueueList",
                "Get-ADCResourceTag",
                "Get-ADCTaskList",
+               "Get-ADCVolumeList",
                "Get-ADCWorkerList",
                "Write-ADCMeteredProduct",
                "Search-ADCJob",
@@ -61361,6 +61403,16 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.DeletionProtection
+        {
+            ($_ -eq "New-OSSCollection/DeletionProtection") -Or
+            ($_ -eq "Update-OSSCollection/DeletionProtection")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute
         {
             ($_ -eq "New-OSSSecurityConfig/IamIdentityCenterOptions_GroupAttribute") -Or
@@ -61416,6 +61468,13 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.ServerlessGeneration
+        "New-OSSCollectionGroup/Generation"
+        {
+            $v = "CLASSIC","NEXTGEN"
+            break
+        }
+
         # Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus
         {
             ($_ -eq "New-OSSCollection/VectorOptions_ServerlessVectorAcceleration") -Or
@@ -61453,6 +61512,8 @@ $OSS_Completers = {
 
 $OSS_map = @{
     "CollectionFilters_Status"=@("Get-OSSCollectionList")
+    "DeletionProtection"=@("New-OSSCollection","Update-OSSCollection")
+    "Generation"=@("New-OSSCollectionGroup")
     "IamIdentityCenterOptions_GroupAttribute"=@("New-OSSSecurityConfig")
     "IamIdentityCenterOptions_UserAttribute"=@("New-OSSSecurityConfig")
     "IamIdentityCenterOptionsUpdates_GroupAttribute"=@("Update-OSSSecurityConfig")
@@ -71253,6 +71314,254 @@ $RESH_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $RESH_SelectCompleters $RESH_SelectMap
+# Argument completions for service AWS Resilience Hub V2
+
+
+$RH2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Resiliencehubv2.AssertionSource
+        "Get-RH2AssertionList/Source"
+        {
+            $v = "AI_GENERATED","USER"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.AssessmentStatus
+        "Get-RH2ServiceList/AssessmentStatus"
+        {
+            $v = "FAILED","IN_PROGRESS","NOT_STARTED","PENDING","SUCCESS"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.DependencyCriticality
+        "Update-RH2Dependency/Criticality"
+        {
+            $v = "HARD","SOFT","UNKNOWN"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.DependencyDiscoveryInput
+        {
+            ($_ -eq "New-RH2Service/DependencyDiscovery") -Or
+            ($_ -eq "Update-RH2Service/DependencyDiscovery")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.FailureCategory
+        "Get-RH2FailureModeFindingList/FailureCategory"
+        {
+            $v = "EXCESSIVE_LATENCY","EXCESSIVE_LOAD","MISCONFIGURATION_AND_BUGS","SHARED_FATE","SINGLE_POINT_OF_FAILURE"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.FindingSeverity
+        "Get-RH2FailureModeFindingList/Severity"
+        {
+            $v = "HIGH","LOW","MEDIUM"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.FindingStatus
+        {
+            ($_ -eq "Get-RH2FailureModeFindingList/Status") -Or
+            ($_ -eq "Update-RH2FailureModeFinding/Status")
+        }
+        {
+            $v = "IRRELEVANT","OPEN","RESOLVED"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.InputSourceType
+        "Get-RH2InputSourceList/Type"
+        {
+            $v = "CFN_STACK","DESIGN_FILE","EKS","MONITORING","TAGS","TERRAFORM"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.MultiAzDisasterRecoveryApproach
+        {
+            ($_ -eq "New-RH2Policy/MultiAz_DisasterRecoveryApproach") -Or
+            ($_ -eq "Update-RH2Policy/MultiAz_DisasterRecoveryApproach") -Or
+            ($_ -eq "Import-RH2Policy/MultiAzDisasterRecoveryApproach")
+        }
+        {
+            $v = "ACTIVE_ACTIVE","BACKUP_AND_RESTORE","HOT_STANDBY","PILOT_LIGHT","WARM_STANDBY"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.MultiRegionDisasterRecoveryApproach
+        {
+            ($_ -eq "New-RH2Policy/MultiRegion_DisasterRecoveryApproach") -Or
+            ($_ -eq "Update-RH2Policy/MultiRegion_DisasterRecoveryApproach") -Or
+            ($_ -eq "Import-RH2Policy/MultiRegionDisasterRecoveryApproach")
+        }
+        {
+            $v = "ACTIVE_ACTIVE","BACKUP_AND_RESTORE","HOT_STANDBY","PILOT_LIGHT","WARM_STANDBY"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.QueryGranularity
+        "Get-RH2DependencyList/QueryRangeGranularity"
+        {
+            $v = "DAILY","HOURLY"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.ReportType
+        {
+            ($_ -eq "Get-RH2ReportList/ReportType") -Or
+            ($_ -eq "New-RH2Report/ReportType")
+        }
+        {
+            $v = "FAILURE_MODE"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.ServiceFunctionCriticality
+        {
+            ($_ -eq "New-RH2ServiceFunction/Criticality") -Or
+            ($_ -eq "Update-RH2ServiceFunction/Criticality")
+        }
+        {
+            $v = "PRIMARY","SUPPLEMENTAL"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RH2_map = @{
+    "AssessmentStatus"=@("Get-RH2ServiceList")
+    "Criticality"=@("New-RH2ServiceFunction","Update-RH2Dependency","Update-RH2ServiceFunction")
+    "DependencyDiscovery"=@("New-RH2Service","Update-RH2Service")
+    "FailureCategory"=@("Get-RH2FailureModeFindingList")
+    "MultiAz_DisasterRecoveryApproach"=@("New-RH2Policy","Update-RH2Policy")
+    "MultiAzDisasterRecoveryApproach"=@("Import-RH2Policy")
+    "MultiRegion_DisasterRecoveryApproach"=@("New-RH2Policy","Update-RH2Policy")
+    "MultiRegionDisasterRecoveryApproach"=@("Import-RH2Policy")
+    "QueryRangeGranularity"=@("Get-RH2DependencyList")
+    "ReportType"=@("Get-RH2ReportList","New-RH2Report")
+    "Severity"=@("Get-RH2FailureModeFindingList")
+    "Source"=@("Get-RH2AssertionList")
+    "Status"=@("Get-RH2FailureModeFindingList","Update-RH2FailureModeFinding")
+    "Type"=@("Get-RH2InputSourceList")
+}
+
+_awsArgumentCompleterRegistration $RH2_Completers $RH2_map
+
+$RH2_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.RH2.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RH2_SelectMap = @{
+    "Select"=@("New-RH2Assertion",
+               "New-RH2InputSource",
+               "New-RH2Policy",
+               "New-RH2Report",
+               "New-RH2Service",
+               "New-RH2ServiceFunction",
+               "New-RH2ServiceFunctionResource",
+               "New-RH2System",
+               "New-RH2UserJourney",
+               "Remove-RH2Assertion",
+               "Remove-RH2InputSource",
+               "Remove-RH2Policy",
+               "Remove-RH2Service",
+               "Remove-RH2ServiceFunction",
+               "Remove-RH2ServiceFunctionResource",
+               "Remove-RH2System",
+               "Remove-RH2UserJourney",
+               "Get-RH2FailureModeFinding",
+               "Get-RH2Policy",
+               "Get-RH2Service",
+               "Get-RH2System",
+               "Get-RH2UserJourney",
+               "Import-RH2App",
+               "Import-RH2Policy",
+               "Get-RH2AssertionList",
+               "Get-RH2DependencyList",
+               "Get-RH2FailureModeAssessmentList",
+               "Get-RH2FailureModeFindingList",
+               "Get-RH2InputSourceList",
+               "Get-RH2PolicyList",
+               "Get-RH2ReportList",
+               "Get-RH2ResourceList",
+               "Get-RH2ServiceEventList",
+               "Get-RH2ServiceFunctionList",
+               "Get-RH2ServiceList",
+               "Get-RH2ServiceTopologyEdgeList",
+               "Get-RH2SystemEventList",
+               "Get-RH2SystemList",
+               "Get-RH2ResourceTag",
+               "Get-RH2UserJourneyList",
+               "Start-RH2FailureModeAssessment",
+               "Add-RH2ResourceTag",
+               "Remove-RH2ResourceTag",
+               "Update-RH2Assertion",
+               "Update-RH2Dependency",
+               "Update-RH2FailureModeFinding",
+               "Update-RH2Policy",
+               "Update-RH2Service",
+               "Update-RH2ServiceFunction",
+               "Update-RH2System",
+               "Update-RH2UserJourney")
+}
+
+_awsArgumentCompleterRegistration $RH2_SelectCompleters $RH2_SelectMap
 # Argument completions for service AWS Resource Explorer
 
 
