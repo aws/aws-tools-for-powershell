@@ -133,6 +133,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String ConfigurationName { get; set; }
         #endregion
         
+        #region Parameter EngineSetting
+        /// <summary>
+        /// <para>
+        /// <para>Engine-specific settings for the workflow run. Use this field to specify configuration
+        /// options that are specific to the workflow engine (for example, Nextflow profiles).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EngineSettings")]
+        public System.Management.Automation.PSObject EngineSetting { get; set; }
+        #endregion
+        
         #region Parameter LogLevel
         /// <summary>
         /// <para>
@@ -426,6 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.CacheBehavior = this.CacheBehavior;
             context.CacheId = this.CacheId;
             context.ConfigurationName = this.ConfigurationName;
+            context.EngineSetting = this.EngineSetting;
             context.LogLevel = this.LogLevel;
             context.Name = this.Name;
             context.NetworkingMode = this.NetworkingMode;
@@ -490,6 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.ConfigurationName != null)
             {
                 request.ConfigurationName = cmdletContext.ConfigurationName;
+            }
+            if (cmdletContext.EngineSetting != null)
+            {
+                request.EngineSettings = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.EngineSetting);
             }
             if (cmdletContext.LogLevel != null)
             {
@@ -621,6 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public Amazon.Omics.CacheBehavior CacheBehavior { get; set; }
             public System.String CacheId { get; set; }
             public System.String ConfigurationName { get; set; }
+            public System.Management.Automation.PSObject EngineSetting { get; set; }
             public Amazon.Omics.RunLogLevel LogLevel { get; set; }
             public System.String Name { get; set; }
             public Amazon.Omics.NetworkingMode NetworkingMode { get; set; }

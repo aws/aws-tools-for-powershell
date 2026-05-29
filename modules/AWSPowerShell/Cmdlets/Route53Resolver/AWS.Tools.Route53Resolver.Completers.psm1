@@ -121,7 +121,9 @@ $R53R_Completers = {
         # Amazon.Route53Resolver.ConfidenceThreshold
         {
             ($_ -eq "Edit-R53RFirewallRule/ConfidenceThreshold") -Or
-            ($_ -eq "New-R53RFirewallRule/ConfidenceThreshold")
+            ($_ -eq "New-R53RFirewallRule/ConfidenceThreshold") -Or
+            ($_ -eq "Edit-R53RFirewallRule/FirewallRuleType_DnsThreatProtection_ConfidenceThreshold") -Or
+            ($_ -eq "New-R53RFirewallRule/FirewallRuleType_DnsThreatProtection_ConfidenceThreshold")
         }
         {
             $v = "HIGH","LOW","MEDIUM"
@@ -245,6 +247,7 @@ $R53R_map = @{
     "DnsThreatProtection"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallDomainRedirectionAction"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallFailOpen"=@("Edit-R53RFirewallConfig")
+    "FirewallRuleType_DnsThreatProtection_ConfidenceThreshold"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "MutationProtection"=@("Edit-R53RFirewallRuleGroupAssociation","New-R53RFirewallRuleGroupAssociation")
     "Operation"=@("Edit-R53RFirewallDomain","Import-R53RFirewallDomainList")
     "ResolverEndpointType"=@("New-R53RResolverEndpoint","Update-R53RResolverEndpoint")
@@ -308,6 +311,9 @@ $R53R_SelectMap = @{
                "Add-R53RResolverEndpointIpAddressAssociation",
                "Add-R53RResolverQueryLogConfigAssociation",
                "Add-R53RResolverRuleAssociation",
+               "New-R53RFirewallRuleBatch",
+               "Remove-R53RFirewallRuleBatch",
+               "Update-R53RFirewallRuleBatch",
                "New-R53RFirewallDomainList",
                "New-R53RFirewallRule",
                "New-R53RFirewallRuleGroup",
@@ -348,6 +354,7 @@ $R53R_SelectMap = @{
                "Get-R53RFirewallRuleGroupAssociationList",
                "Get-R53RFirewallRuleGroupList",
                "Get-R53RFirewallRuleList",
+               "Get-R53RFirewallRuleTypeList",
                "Get-R53ROutpostResolverList",
                "Get-R53RResolverConfigList",
                "Get-R53RResolverDnssecConfigList",

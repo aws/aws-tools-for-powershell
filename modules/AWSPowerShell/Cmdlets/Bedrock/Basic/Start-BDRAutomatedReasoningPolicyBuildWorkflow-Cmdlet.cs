@@ -123,6 +123,33 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument[] SourceContent_WorkflowContent_GenerateFidelityReportContent_Document { get; set; }
         #endregion
         
+        #region Parameter SourceContent_WorkflowContent_IterativeRefinementContent_Document
+        /// <summary>
+        /// <para>
+        /// <para>Source documents used for iterative policy refinement. These documents provide context
+        /// for refining the policy definition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceContent_WorkflowContent_IterativeRefinementContent_Documents")]
+        public Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument[] SourceContent_WorkflowContent_IterativeRefinementContent_Document { get; set; }
+        #endregion
+        
+        #region Parameter SourceContent_WorkflowContent_IterativeRefinementContent_Feedback
+        /// <summary>
+        /// <para>
+        /// <para>Optional feedback to guide the iterative refinement workflow. Provide specific instructions
+        /// or constraints for policy refinement.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceContent_WorkflowContent_IterativeRefinementContent_Feedback { get; set; }
+        #endregion
+        
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
@@ -283,6 +310,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.SourceContent_WorkflowContent_GenerateFidelityReportContent_Document = new List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument>(this.SourceContent_WorkflowContent_GenerateFidelityReportContent_Document);
             }
+            if (this.SourceContent_WorkflowContent_IterativeRefinementContent_Document != null)
+            {
+                context.SourceContent_WorkflowContent_IterativeRefinementContent_Document = new List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument>(this.SourceContent_WorkflowContent_IterativeRefinementContent_Document);
+            }
+            context.SourceContent_WorkflowContent_IterativeRefinementContent_Feedback = this.SourceContent_WorkflowContent_IterativeRefinementContent_Feedback;
             if (this.PolicyRepairAssets_Annotation != null)
             {
                 context.PolicyRepairAssets_Annotation = new List<Amazon.Bedrock.Model.AutomatedReasoningPolicyAnnotation>(this.PolicyRepairAssets_Annotation);
@@ -319,6 +351,61 @@ namespace Amazon.PowerShell.Cmdlets.BDR
              // populate SourceContent
             var requestSourceContentIsNull = true;
             request.SourceContent = new Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowSource();
+            Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinition requestSourceContent_sourceContent_PolicyDefinition = null;
+            
+             // populate PolicyDefinition
+            var requestSourceContent_sourceContent_PolicyDefinitionIsNull = true;
+            requestSourceContent_sourceContent_PolicyDefinition = new Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinition();
+            List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionRule> requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Rule = null;
+            if (cmdletContext.PolicyDefinition_Rule != null)
+            {
+                requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Rule = cmdletContext.PolicyDefinition_Rule;
+            }
+            if (requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Rule != null)
+            {
+                requestSourceContent_sourceContent_PolicyDefinition.Rules = requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Rule;
+                requestSourceContent_sourceContent_PolicyDefinitionIsNull = false;
+            }
+            List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionType> requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Type = null;
+            if (cmdletContext.PolicyDefinition_Type != null)
+            {
+                requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Type = cmdletContext.PolicyDefinition_Type;
+            }
+            if (requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Type != null)
+            {
+                requestSourceContent_sourceContent_PolicyDefinition.Types = requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Type;
+                requestSourceContent_sourceContent_PolicyDefinitionIsNull = false;
+            }
+            List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionVariable> requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Variable = null;
+            if (cmdletContext.PolicyDefinition_Variable != null)
+            {
+                requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Variable = cmdletContext.PolicyDefinition_Variable;
+            }
+            if (requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Variable != null)
+            {
+                requestSourceContent_sourceContent_PolicyDefinition.Variables = requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Variable;
+                requestSourceContent_sourceContent_PolicyDefinitionIsNull = false;
+            }
+            System.String requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Version = null;
+            if (cmdletContext.PolicyDefinition_Version != null)
+            {
+                requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Version = cmdletContext.PolicyDefinition_Version;
+            }
+            if (requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Version != null)
+            {
+                requestSourceContent_sourceContent_PolicyDefinition.Version = requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Version;
+                requestSourceContent_sourceContent_PolicyDefinitionIsNull = false;
+            }
+             // determine if requestSourceContent_sourceContent_PolicyDefinition should be set to null
+            if (requestSourceContent_sourceContent_PolicyDefinitionIsNull)
+            {
+                requestSourceContent_sourceContent_PolicyDefinition = null;
+            }
+            if (requestSourceContent_sourceContent_PolicyDefinition != null)
+            {
+                request.SourceContent.PolicyDefinition = requestSourceContent_sourceContent_PolicyDefinition;
+                requestSourceContentIsNull = false;
+            }
             Amazon.Bedrock.Model.AutomatedReasoningPolicyWorkflowTypeContent requestSourceContent_sourceContent_WorkflowContent = null;
             
              // populate WorkflowContent
@@ -384,6 +471,41 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 requestSourceContent_sourceContent_WorkflowContent.PolicyRepairAssets = requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_PolicyRepairAssets;
                 requestSourceContent_sourceContent_WorkflowContentIsNull = false;
             }
+            Amazon.Bedrock.Model.AutomatedReasoningPolicyIterativeRefinementContent requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent = null;
+            
+             // populate IterativeRefinementContent
+            var requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContentIsNull = true;
+            requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent = new Amazon.Bedrock.Model.AutomatedReasoningPolicyIterativeRefinementContent();
+            List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument> requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent_sourceContent_WorkflowContent_IterativeRefinementContent_Document = null;
+            if (cmdletContext.SourceContent_WorkflowContent_IterativeRefinementContent_Document != null)
+            {
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent_sourceContent_WorkflowContent_IterativeRefinementContent_Document = cmdletContext.SourceContent_WorkflowContent_IterativeRefinementContent_Document;
+            }
+            if (requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent_sourceContent_WorkflowContent_IterativeRefinementContent_Document != null)
+            {
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent.Documents = requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent_sourceContent_WorkflowContent_IterativeRefinementContent_Document;
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContentIsNull = false;
+            }
+            System.String requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent_sourceContent_WorkflowContent_IterativeRefinementContent_Feedback = null;
+            if (cmdletContext.SourceContent_WorkflowContent_IterativeRefinementContent_Feedback != null)
+            {
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent_sourceContent_WorkflowContent_IterativeRefinementContent_Feedback = cmdletContext.SourceContent_WorkflowContent_IterativeRefinementContent_Feedback;
+            }
+            if (requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent_sourceContent_WorkflowContent_IterativeRefinementContent_Feedback != null)
+            {
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent.Feedback = requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent_sourceContent_WorkflowContent_IterativeRefinementContent_Feedback;
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContentIsNull = false;
+            }
+             // determine if requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent should be set to null
+            if (requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContentIsNull)
+            {
+                requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent = null;
+            }
+            if (requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent != null)
+            {
+                requestSourceContent_sourceContent_WorkflowContent.IterativeRefinementContent = requestSourceContent_sourceContent_WorkflowContent_sourceContent_WorkflowContent_IterativeRefinementContent;
+                requestSourceContent_sourceContent_WorkflowContentIsNull = false;
+            }
              // determine if requestSourceContent_sourceContent_WorkflowContent should be set to null
             if (requestSourceContent_sourceContent_WorkflowContentIsNull)
             {
@@ -392,61 +514,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestSourceContent_sourceContent_WorkflowContent != null)
             {
                 request.SourceContent.WorkflowContent = requestSourceContent_sourceContent_WorkflowContent;
-                requestSourceContentIsNull = false;
-            }
-            Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinition requestSourceContent_sourceContent_PolicyDefinition = null;
-            
-             // populate PolicyDefinition
-            var requestSourceContent_sourceContent_PolicyDefinitionIsNull = true;
-            requestSourceContent_sourceContent_PolicyDefinition = new Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinition();
-            List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionRule> requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Rule = null;
-            if (cmdletContext.PolicyDefinition_Rule != null)
-            {
-                requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Rule = cmdletContext.PolicyDefinition_Rule;
-            }
-            if (requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Rule != null)
-            {
-                requestSourceContent_sourceContent_PolicyDefinition.Rules = requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Rule;
-                requestSourceContent_sourceContent_PolicyDefinitionIsNull = false;
-            }
-            List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionType> requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Type = null;
-            if (cmdletContext.PolicyDefinition_Type != null)
-            {
-                requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Type = cmdletContext.PolicyDefinition_Type;
-            }
-            if (requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Type != null)
-            {
-                requestSourceContent_sourceContent_PolicyDefinition.Types = requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Type;
-                requestSourceContent_sourceContent_PolicyDefinitionIsNull = false;
-            }
-            List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionVariable> requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Variable = null;
-            if (cmdletContext.PolicyDefinition_Variable != null)
-            {
-                requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Variable = cmdletContext.PolicyDefinition_Variable;
-            }
-            if (requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Variable != null)
-            {
-                requestSourceContent_sourceContent_PolicyDefinition.Variables = requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Variable;
-                requestSourceContent_sourceContent_PolicyDefinitionIsNull = false;
-            }
-            System.String requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Version = null;
-            if (cmdletContext.PolicyDefinition_Version != null)
-            {
-                requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Version = cmdletContext.PolicyDefinition_Version;
-            }
-            if (requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Version != null)
-            {
-                requestSourceContent_sourceContent_PolicyDefinition.Version = requestSourceContent_sourceContent_PolicyDefinition_policyDefinition_Version;
-                requestSourceContent_sourceContent_PolicyDefinitionIsNull = false;
-            }
-             // determine if requestSourceContent_sourceContent_PolicyDefinition should be set to null
-            if (requestSourceContent_sourceContent_PolicyDefinitionIsNull)
-            {
-                requestSourceContent_sourceContent_PolicyDefinition = null;
-            }
-            if (requestSourceContent_sourceContent_PolicyDefinition != null)
-            {
-                request.SourceContent.PolicyDefinition = requestSourceContent_sourceContent_PolicyDefinition;
                 requestSourceContentIsNull = false;
             }
              // determine if request.SourceContent should be set to null
@@ -518,6 +585,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String PolicyDefinition_Version { get; set; }
             public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument> WorkflowContent_Document { get; set; }
             public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument> SourceContent_WorkflowContent_GenerateFidelityReportContent_Document { get; set; }
+            public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowDocument> SourceContent_WorkflowContent_IterativeRefinementContent_Document { get; set; }
+            public System.String SourceContent_WorkflowContent_IterativeRefinementContent_Feedback { get; set; }
             public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyAnnotation> PolicyRepairAssets_Annotation { get; set; }
             public System.Func<Amazon.Bedrock.Model.StartAutomatedReasoningPolicyBuildWorkflowResponse, StartBDRAutomatedReasoningPolicyBuildWorkflowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

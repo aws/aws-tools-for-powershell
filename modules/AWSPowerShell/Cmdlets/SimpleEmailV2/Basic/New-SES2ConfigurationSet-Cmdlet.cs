@@ -211,9 +211,12 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>A list that contains the reasons that email addresses are automatically added to the
-        /// suppression list for your account. This list can contain any or all of the following:</para><ul><li><para><c>COMPLAINT</c> – Amazon SES adds an email address to the suppression list for your
-        /// account when a message sent to that address results in a complaint.</para></li><li><para><c>BOUNCE</c> – Amazon SES adds an email address to the suppression list for your
-        /// account when a message sent to that address results in a hard bounce.</para></li></ul><para />
+        /// suppression list for your account or for a specific tenant. This list can contain
+        /// any or all of the following:</para><ul><li><para><c>COMPLAINT</c> – Amazon SES adds an email address to the suppression list for your
+        /// account or for a specific tenant when a message sent to that address results in a
+        /// complaint.</para></li><li><para><c>BOUNCE</c> – Amazon SES adds an email address to the suppression list for your
+        /// account or for a specific tenant when a message sent to that address results in a
+        /// hard bounce.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -223,6 +226,19 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SuppressionOptions_SuppressedReasons")]
         public System.String[] SuppressionOptions_SuppressedReason { get; set; }
+        #endregion
+        
+        #region Parameter SuppressionOptions_SuppressionScope
+        /// <summary>
+        /// <para>
+        /// <para>The suppression scope for the configuration set. This overrides the tenant or account
+        /// suppression scope for emails sent using this configuration set. Can be one of the
+        /// following:</para><ul><li><para><c>TENANT</c> – Use the tenant's suppression list.</para></li><li><para><c>ACCOUNT</c> – Use the account-level suppression list.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.SuppressionListScope")]
+        public Amazon.SimpleEmailV2.SuppressionListScope SuppressionOptions_SuppressionScope { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -318,6 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             {
                 context.SuppressionOptions_SuppressedReason = new List<System.String>(this.SuppressionOptions_SuppressedReason);
             }
+            context.SuppressionOptions_SuppressionScope = this.SuppressionOptions_SuppressionScope;
             context.SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled = this.SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled;
             context.SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold = this.SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold;
             if (this.Tag != null)
@@ -466,6 +483,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestSuppressionOptions_suppressionOptions_SuppressedReason != null)
             {
                 request.SuppressionOptions.SuppressedReasons = requestSuppressionOptions_suppressionOptions_SuppressedReason;
+                requestSuppressionOptionsIsNull = false;
+            }
+            Amazon.SimpleEmailV2.SuppressionListScope requestSuppressionOptions_suppressionOptions_SuppressionScope = null;
+            if (cmdletContext.SuppressionOptions_SuppressionScope != null)
+            {
+                requestSuppressionOptions_suppressionOptions_SuppressionScope = cmdletContext.SuppressionOptions_SuppressionScope;
+            }
+            if (requestSuppressionOptions_suppressionOptions_SuppressionScope != null)
+            {
+                request.SuppressionOptions.SuppressionScope = requestSuppressionOptions_suppressionOptions_SuppressionScope;
                 requestSuppressionOptionsIsNull = false;
             }
             Amazon.SimpleEmailV2.Model.SuppressionValidationOptions requestSuppressionOptions_suppressionOptions_ValidationOptions = null;
@@ -694,6 +721,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.Boolean? ReputationOptions_ReputationMetricsEnabled { get; set; }
             public System.Boolean? SendingOptions_SendingEnabled { get; set; }
             public List<System.String> SuppressionOptions_SuppressedReason { get; set; }
+            public Amazon.SimpleEmailV2.SuppressionListScope SuppressionOptions_SuppressionScope { get; set; }
             public Amazon.SimpleEmailV2.FeatureStatus SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled { get; set; }
             public Amazon.SimpleEmailV2.SuppressionConfidenceVerdictThreshold SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }

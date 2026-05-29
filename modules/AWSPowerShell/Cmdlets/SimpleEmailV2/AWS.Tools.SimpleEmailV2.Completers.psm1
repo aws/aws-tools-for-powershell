@@ -255,6 +255,18 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.SuppressionListScope
+        {
+            ($_ -eq "New-SES2Tenant/SuppressionAttributes_SuppressionScope") -Or
+            ($_ -eq "New-SES2ConfigurationSet/SuppressionOptions_SuppressionScope") -Or
+            ($_ -eq "Write-SES2ConfigurationSetSuppressionOption/SuppressionScope") -Or
+            ($_ -eq "Write-SES2TenantSuppressionAttribute/SuppressionScope")
+        }
+        {
+            $v = "ACCOUNT","TENANT"
+            break
+        }
+
         # Amazon.SimpleEmailV2.TlsPolicy
         {
             ($_ -eq "New-SES2ConfigurationSet/DeliveryOptions_TlsPolicy") -Or
@@ -300,9 +312,12 @@ $SES2_map = @{
     "SigningAttributes_DomainSigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
+    "SuppressionAttributes_SuppressionScope"=@("New-SES2Tenant")
     "SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
+    "SuppressionOptions_SuppressionScope"=@("New-SES2ConfigurationSet")
     "SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled"=@("New-SES2ConfigurationSet")
     "SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold"=@("New-SES2ConfigurationSet")
+    "SuppressionScope"=@("Write-SES2ConfigurationSetSuppressionOption","Write-SES2TenantSuppressionAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
     "TrackingOptions_HttpsPolicy"=@("New-SES2ConfigurationSet")
     "ValidationAttributes_ConditionThreshold_ConditionThresholdEnabled"=@("Write-SES2AccountSuppressionAttribute")
@@ -458,6 +473,7 @@ $SES2_SelectMap = @{
                "Write-SES2EmailIdentityFeedbackAttribute",
                "Write-SES2EmailIdentityMailFromAttribute",
                "Write-SES2SuppressedDestination",
+               "Write-SES2TenantSuppressionAttribute",
                "Send-SES2BulkEmail",
                "Send-SES2CustomVerificationEmail",
                "Send-SES2Email",

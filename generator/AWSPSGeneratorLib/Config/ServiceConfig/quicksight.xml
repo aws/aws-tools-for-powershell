@@ -321,6 +321,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateOAuthClientApplication" OutputProperty="*" Verb="New" Noun="OAuthClientApplication" ShouldProcessTarget="OAuthClientApplicationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRefreshSchedule" OutputProperty="*" Verb="New" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Schedule_ScheduleFrequency_Interval" NewName="ScheduleFrequency_Interval" />
@@ -549,6 +553,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOAuthClientApplication" OutputProperty="*" Verb="Remove" Noun="OAuthClientApplication" ShouldProcessTarget="OAuthClientApplicationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="RefreshSchedule" ShouldProcessTarget="ScheduleId" PipelineParameter="ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -750,6 +758,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeNamespace" OutputProperty="Namespace" Verb="Get" Noun="Namespace" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOAuthClientApplication" OutputProperty="OAuthClientApplication" Verb="Get" Noun="OAuthClientApplicationDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -997,6 +1009,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNamespaces" OutputProperty="Namespaces" Verb="Get" Noun="NamespaceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOAuthClientApplications" OutputProperty="OAuthClientApplications" Verb="Get" Noun="OAuthClientApplicationList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1495,6 +1511,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKeyRegistration" OutputProperty="*" Verb="Update" Noun="KeyRegistration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOAuthClientApplication" OutputProperty="*" Verb="Update" Noun="OAuthClientApplication" ShouldProcessTarget="OAuthClientApplicationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

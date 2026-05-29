@@ -401,6 +401,42 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.SecretSourceType
+        {
+            ($_ -eq "New-BACCApiKeyCredentialProvider/ApiKeySecretSource") -Or
+            ($_ -eq "Update-BACCApiKeyCredentialProvider/ApiKeySecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCPaymentCredentialProvider/ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecretSource") -Or
+            ($_ -eq "Update-BACCPaymentCredentialProvider/ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecretSource") -Or
+            ($_ -eq "New-BACCPaymentCredentialProvider/ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretSource") -Or
+            ($_ -eq "Update-BACCPaymentCredentialProvider/ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretSource") -Or
+            ($_ -eq "New-BACCPaymentCredentialProvider/ProviderConfigurationInput_StripePrivyConfiguration_AppSecretSource") -Or
+            ($_ -eq "Update-BACCPaymentCredentialProvider/ProviderConfigurationInput_StripePrivyConfiguration_AppSecretSource") -Or
+            ($_ -eq "New-BACCPaymentCredentialProvider/ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeySource") -Or
+            ($_ -eq "Update-BACCPaymentCredentialProvider/ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeySource")
+        }
+        {
+            $v = "EXTERNAL","MANAGED"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.ServerProtocol
         {
             ($_ -eq "New-BACCAgentRuntime/ProtocolConfiguration_ServerProtocol") -Or
@@ -430,6 +466,7 @@ $BACC_Completers = {
 }
 
 $BACC_map = @{
+    "ApiKeySecretSource"=@("New-BACCApiKeyCredentialProvider","Update-BACCApiKeyCredentialProvider")
     "AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCAgentRuntime","New-BACCGateway","New-BACCHarness","New-BACCPaymentManager","New-BACCRegistry","Update-BACCAgentRuntime","Update-BACCGateway","Update-BACCPaymentManager")
     "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
     "AuthorizerType"=@("Get-BACCRegistryList","New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
@@ -446,14 +483,27 @@ $BACC_map = @{
     "Model_BedrockModelConfig_ApiFormat"=@("New-BACCHarness","Update-BACCHarness")
     "Model_OpenAiModelConfig_ApiFormat"=@("New-BACCHarness","Update-BACCHarness")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
+    "Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
     "PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
+    "ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
+    "ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
+    "ProviderConfigurationInput_StripePrivyConfiguration_AppSecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
+    "ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeySource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
     "SchemaType"=@("New-BACCDataset")
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")

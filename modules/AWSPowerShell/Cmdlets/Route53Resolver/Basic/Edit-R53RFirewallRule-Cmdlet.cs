@@ -110,6 +110,28 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public Amazon.Route53Resolver.BlockResponse BlockResponse { get; set; }
         #endregion
         
+        #region Parameter FirewallRuleType_FirewallAdvancedContentCategory_Category
+        /// <summary>
+        /// <para>
+        /// <para>The content category identifier. To retrieve the list of available content categories,
+        /// call <a>ListFirewallRuleTypes</a> with <c>RuleType</c> set to <c>FirewallAdvancedContentCategory</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallRuleType_FirewallAdvancedContentCategory_Category { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleType_FirewallAdvancedThreatCategory_Category
+        /// <summary>
+        /// <para>
+        /// <para>The threat category identifier. To retrieve the list of available threat categories,
+        /// call <a>ListFirewallRuleTypes</a> with <c>RuleType</c> set to <c>FirewallAdvancedThreatCategory</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallRuleType_FirewallAdvancedThreatCategory_Category { get; set; }
+        #endregion
+        
         #region Parameter ConfidenceThreshold
         /// <summary>
         /// <para>
@@ -122,6 +144,20 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Route53Resolver.ConfidenceThreshold")]
         public Amazon.Route53Resolver.ConfidenceThreshold ConfidenceThreshold { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleType_DnsThreatProtection_ConfidenceThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The confidence threshold for DNS Firewall Advanced. You must provide this value when
+        /// you create or update a DNS Firewall Advanced rule. The confidence level values mean:</para><ul><li><para><c>LOW</c>: Provides the highest detection rate for threats, but also increases false
+        /// positives.</para></li><li><para><c>MEDIUM</c>: Provides a balance between detecting threats and false positives.</para></li><li><para><c>HIGH</c>: Detects only the most well corroborated threats with a low rate of false
+        /// positives.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Resolver.ConfidenceThreshold")]
+        public Amazon.Route53Resolver.ConfidenceThreshold FirewallRuleType_DnsThreatProtection_ConfidenceThreshold { get; set; }
         #endregion
         
         #region Parameter DnsThreatProtection
@@ -220,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para> The DNS query type you want the rule to evaluate. Allowed values are; </para><ul><li><para> A: Returns an IPv4 address.</para></li><li><para>AAAA: Returns an Ipv6 address.</para></li><li><para>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</para></li><li><para>CNAME: Returns another domain name.</para></li><li><para>DS: Record that identifies the DNSSEC signing key of a delegated zone.</para></li><li><para>MX: Specifies mail servers.</para></li><li><para>NAPTR: Regular-expression-based rewriting of domain names.</para></li><li><para>NS: Authoritative name servers.</para></li><li><para>PTR: Maps an IP address to a domain name.</para></li><li><para>SOA: Start of authority record for the zone.</para></li><li><para>SPF: Lists the servers authorized to send emails from a domain.</para></li><li><para>SRV: Application specific values that identify servers.</para></li><li><para>TXT: Verifies email senders and application-specific values.</para></li><li><para>A query type you define by using the DNS type ID, for example 28 for AAAA. The values
-        /// must be defined as TYPENUMBER, where the NUMBER can be 1-65334, for example, TYPE28.
+        /// must be defined as TYPENUMBER, where the NUMBER can be 1-65534, for example, TYPE28.
         /// For more information, see <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List
         /// of DNS record types</a>.</para><note><para>If you set up a firewall BLOCK rule with action NXDOMAIN on query type equals AAAA,
         /// this action will not be applied to synthetic IPv6 addresses generated when DNS64 is
@@ -229,6 +265,21 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Qtype { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleType_DnsThreatProtection_Value
+        /// <summary>
+        /// <para>
+        /// <para>The type of DNS threat protection. Valid values are:</para><ul><li><para><c>DGA</c>: Domain generation algorithms detection. DGAs are used by attackers to
+        /// generate a large number of domains to launch malware attacks.</para></li><li><para><c>DNS_TUNNELING</c>: DNS tunneling detection. DNS tunneling is used by attackers
+        /// to exfiltrate data from the client by using the DNS tunnel without making a network
+        /// connection to the client.</para></li><li><para><c>DICT_DGA</c>: Dictionary-based domain generation algorithms detection. Dictionary
+        /// DGAs use wordlists to generate domains that appear more legitimate, making them harder
+        /// to detect than traditional DGAs.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallRuleType_DnsThreatProtection_Value { get; set; }
         #endregion
         
         #region Parameter Select
@@ -293,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter FirewallRuleGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FirewallRuleType_DnsThreatProtection_ConfidenceThreshold = this.FirewallRuleType_DnsThreatProtection_ConfidenceThreshold;
+            context.FirewallRuleType_DnsThreatProtection_Value = this.FirewallRuleType_DnsThreatProtection_Value;
+            context.FirewallRuleType_FirewallAdvancedContentCategory_Category = this.FirewallRuleType_FirewallAdvancedContentCategory_Category;
+            context.FirewallRuleType_FirewallAdvancedThreatCategory_Category = this.FirewallRuleType_FirewallAdvancedThreatCategory_Category;
             context.FirewallThreatProtectionId = this.FirewallThreatProtectionId;
             context.Name = this.Name;
             context.Priority = this.Priority;
@@ -352,6 +407,100 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.FirewallRuleGroupId != null)
             {
                 request.FirewallRuleGroupId = cmdletContext.FirewallRuleGroupId;
+            }
+            
+             // populate FirewallRuleType
+            var requestFirewallRuleTypeIsNull = true;
+            request.FirewallRuleType = new Amazon.Route53Resolver.Model.FirewallRuleType();
+            Amazon.Route53Resolver.Model.FirewallAdvancedContentCategoryConfig requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory = null;
+            
+             // populate FirewallAdvancedContentCategory
+            var requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategoryIsNull = true;
+            requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory = new Amazon.Route53Resolver.Model.FirewallAdvancedContentCategoryConfig();
+            System.String requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory_firewallRuleType_FirewallAdvancedContentCategory_Category = null;
+            if (cmdletContext.FirewallRuleType_FirewallAdvancedContentCategory_Category != null)
+            {
+                requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory_firewallRuleType_FirewallAdvancedContentCategory_Category = cmdletContext.FirewallRuleType_FirewallAdvancedContentCategory_Category;
+            }
+            if (requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory_firewallRuleType_FirewallAdvancedContentCategory_Category != null)
+            {
+                requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory.Category = requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory_firewallRuleType_FirewallAdvancedContentCategory_Category;
+                requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategoryIsNull = false;
+            }
+             // determine if requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory should be set to null
+            if (requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategoryIsNull)
+            {
+                requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory = null;
+            }
+            if (requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory != null)
+            {
+                request.FirewallRuleType.FirewallAdvancedContentCategory = requestFirewallRuleType_firewallRuleType_FirewallAdvancedContentCategory;
+                requestFirewallRuleTypeIsNull = false;
+            }
+            Amazon.Route53Resolver.Model.FirewallAdvancedThreatCategoryConfig requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory = null;
+            
+             // populate FirewallAdvancedThreatCategory
+            var requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategoryIsNull = true;
+            requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory = new Amazon.Route53Resolver.Model.FirewallAdvancedThreatCategoryConfig();
+            System.String requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory_firewallRuleType_FirewallAdvancedThreatCategory_Category = null;
+            if (cmdletContext.FirewallRuleType_FirewallAdvancedThreatCategory_Category != null)
+            {
+                requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory_firewallRuleType_FirewallAdvancedThreatCategory_Category = cmdletContext.FirewallRuleType_FirewallAdvancedThreatCategory_Category;
+            }
+            if (requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory_firewallRuleType_FirewallAdvancedThreatCategory_Category != null)
+            {
+                requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory.Category = requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory_firewallRuleType_FirewallAdvancedThreatCategory_Category;
+                requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategoryIsNull = false;
+            }
+             // determine if requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory should be set to null
+            if (requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategoryIsNull)
+            {
+                requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory = null;
+            }
+            if (requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory != null)
+            {
+                request.FirewallRuleType.FirewallAdvancedThreatCategory = requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory;
+                requestFirewallRuleTypeIsNull = false;
+            }
+            Amazon.Route53Resolver.Model.DnsThreatProtectionRuleTypeConfig requestFirewallRuleType_firewallRuleType_DnsThreatProtection = null;
+            
+             // populate DnsThreatProtection
+            var requestFirewallRuleType_firewallRuleType_DnsThreatProtectionIsNull = true;
+            requestFirewallRuleType_firewallRuleType_DnsThreatProtection = new Amazon.Route53Resolver.Model.DnsThreatProtectionRuleTypeConfig();
+            Amazon.Route53Resolver.ConfidenceThreshold requestFirewallRuleType_firewallRuleType_DnsThreatProtection_firewallRuleType_DnsThreatProtection_ConfidenceThreshold = null;
+            if (cmdletContext.FirewallRuleType_DnsThreatProtection_ConfidenceThreshold != null)
+            {
+                requestFirewallRuleType_firewallRuleType_DnsThreatProtection_firewallRuleType_DnsThreatProtection_ConfidenceThreshold = cmdletContext.FirewallRuleType_DnsThreatProtection_ConfidenceThreshold;
+            }
+            if (requestFirewallRuleType_firewallRuleType_DnsThreatProtection_firewallRuleType_DnsThreatProtection_ConfidenceThreshold != null)
+            {
+                requestFirewallRuleType_firewallRuleType_DnsThreatProtection.ConfidenceThreshold = requestFirewallRuleType_firewallRuleType_DnsThreatProtection_firewallRuleType_DnsThreatProtection_ConfidenceThreshold;
+                requestFirewallRuleType_firewallRuleType_DnsThreatProtectionIsNull = false;
+            }
+            System.String requestFirewallRuleType_firewallRuleType_DnsThreatProtection_firewallRuleType_DnsThreatProtection_Value = null;
+            if (cmdletContext.FirewallRuleType_DnsThreatProtection_Value != null)
+            {
+                requestFirewallRuleType_firewallRuleType_DnsThreatProtection_firewallRuleType_DnsThreatProtection_Value = cmdletContext.FirewallRuleType_DnsThreatProtection_Value;
+            }
+            if (requestFirewallRuleType_firewallRuleType_DnsThreatProtection_firewallRuleType_DnsThreatProtection_Value != null)
+            {
+                requestFirewallRuleType_firewallRuleType_DnsThreatProtection.Value = requestFirewallRuleType_firewallRuleType_DnsThreatProtection_firewallRuleType_DnsThreatProtection_Value;
+                requestFirewallRuleType_firewallRuleType_DnsThreatProtectionIsNull = false;
+            }
+             // determine if requestFirewallRuleType_firewallRuleType_DnsThreatProtection should be set to null
+            if (requestFirewallRuleType_firewallRuleType_DnsThreatProtectionIsNull)
+            {
+                requestFirewallRuleType_firewallRuleType_DnsThreatProtection = null;
+            }
+            if (requestFirewallRuleType_firewallRuleType_DnsThreatProtection != null)
+            {
+                request.FirewallRuleType.DnsThreatProtection = requestFirewallRuleType_firewallRuleType_DnsThreatProtection;
+                requestFirewallRuleTypeIsNull = false;
+            }
+             // determine if request.FirewallRuleType should be set to null
+            if (requestFirewallRuleTypeIsNull)
+            {
+                request.FirewallRuleType = null;
             }
             if (cmdletContext.FirewallThreatProtectionId != null)
             {
@@ -434,6 +583,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public System.String FirewallDomainListId { get; set; }
             public Amazon.Route53Resolver.FirewallDomainRedirectionAction FirewallDomainRedirectionAction { get; set; }
             public System.String FirewallRuleGroupId { get; set; }
+            public Amazon.Route53Resolver.ConfidenceThreshold FirewallRuleType_DnsThreatProtection_ConfidenceThreshold { get; set; }
+            public System.String FirewallRuleType_DnsThreatProtection_Value { get; set; }
+            public System.String FirewallRuleType_FirewallAdvancedContentCategory_Category { get; set; }
+            public System.String FirewallRuleType_FirewallAdvancedThreatCategory_Category { get; set; }
             public System.String FirewallThreatProtectionId { get; set; }
             public System.String Name { get; set; }
             public System.Int32? Priority { get; set; }

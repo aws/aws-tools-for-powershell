@@ -308,6 +308,123 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String SlackOauth2ProviderConfig_ClientSecret { get; set; }
         #endregion
         
+        #region Parameter Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the client secret for the Atlassian OAuth2 provider. Use <c>MANAGED</c>
+        /// if the secret is managed by the service, or <c>EXTERNAL</c> if you manage the secret
+        /// yourself in AWS Secrets Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
+        /// Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
+        /// Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
+        /// Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
+        /// Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
+        /// Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
+        /// Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
+        /// Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
+        /// Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource { get; set; }
+        #endregion
+        
         #region Parameter CredentialProviderVendor
         /// <summary>
         /// <para>
@@ -382,6 +499,96 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String IncludedOauth2ProviderConfig_Issuer { get; set; }
         #endregion
         
+        #region Parameter Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -450,6 +657,96 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
         #endregion
         
         #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_SecurityGroupId
@@ -639,9 +936,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             #endif
             context.AtlassianOauth2ProviderConfig_ClientId = this.AtlassianOauth2ProviderConfig_ClientId;
             context.AtlassianOauth2ProviderConfig_ClientSecret = this.AtlassianOauth2ProviderConfig_ClientSecret;
+            context.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            context.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            context.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource;
             context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod = this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod;
             context.CustomOauth2ProviderConfig_ClientId = this.CustomOauth2ProviderConfig_ClientId;
             context.CustomOauth2ProviderConfig_ClientSecret = this.CustomOauth2ProviderConfig_ClientSecret;
+            context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource;
             context.AuthorizationServerMetadata_AuthorizationEndpoint = this.AuthorizationServerMetadata_AuthorizationEndpoint;
             context.AuthorizationServerMetadata_Issuer = this.AuthorizationServerMetadata_Issuer;
             if (this.AuthorizationServerMetadata_ResponseType != null)
@@ -686,22 +989,43 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             context.GithubOauth2ProviderConfig_ClientId = this.GithubOauth2ProviderConfig_ClientId;
             context.GithubOauth2ProviderConfig_ClientSecret = this.GithubOauth2ProviderConfig_ClientSecret;
+            context.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            context.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            context.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource;
             context.GoogleOauth2ProviderConfig_ClientId = this.GoogleOauth2ProviderConfig_ClientId;
             context.GoogleOauth2ProviderConfig_ClientSecret = this.GoogleOauth2ProviderConfig_ClientSecret;
+            context.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            context.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            context.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource;
             context.IncludedOauth2ProviderConfig_AuthorizationEndpoint = this.IncludedOauth2ProviderConfig_AuthorizationEndpoint;
             context.IncludedOauth2ProviderConfig_ClientId = this.IncludedOauth2ProviderConfig_ClientId;
             context.IncludedOauth2ProviderConfig_ClientSecret = this.IncludedOauth2ProviderConfig_ClientSecret;
+            context.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            context.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            context.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource;
             context.IncludedOauth2ProviderConfig_Issuer = this.IncludedOauth2ProviderConfig_Issuer;
             context.IncludedOauth2ProviderConfig_TokenEndpoint = this.IncludedOauth2ProviderConfig_TokenEndpoint;
             context.LinkedinOauth2ProviderConfig_ClientId = this.LinkedinOauth2ProviderConfig_ClientId;
             context.LinkedinOauth2ProviderConfig_ClientSecret = this.LinkedinOauth2ProviderConfig_ClientSecret;
+            context.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            context.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            context.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource;
             context.MicrosoftOauth2ProviderConfig_ClientId = this.MicrosoftOauth2ProviderConfig_ClientId;
             context.MicrosoftOauth2ProviderConfig_ClientSecret = this.MicrosoftOauth2ProviderConfig_ClientSecret;
+            context.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            context.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            context.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource;
             context.MicrosoftOauth2ProviderConfig_TenantId = this.MicrosoftOauth2ProviderConfig_TenantId;
             context.SalesforceOauth2ProviderConfig_ClientId = this.SalesforceOauth2ProviderConfig_ClientId;
             context.SalesforceOauth2ProviderConfig_ClientSecret = this.SalesforceOauth2ProviderConfig_ClientSecret;
+            context.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            context.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            context.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource;
             context.SlackOauth2ProviderConfig_ClientId = this.SlackOauth2ProviderConfig_ClientId;
             context.SlackOauth2ProviderConfig_ClientSecret = this.SlackOauth2ProviderConfig_ClientSecret;
+            context.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            context.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            context.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -763,6 +1087,51 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_atlassianOauth2ProviderConfig_ClientSecret;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfigIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.SecretSourceType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource = cmdletContext.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig.ClientSecretSource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.SecretReference requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig = null;
+            
+             // populate ClientSecretConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey = cmdletContext.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig.JsonKey = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId = cmdletContext.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig.SecretId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig.ClientSecretConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfigIsNull = false;
+            }
              // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig should be set to null
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_AtlassianOauth2ProviderConfigIsNull)
             {
@@ -796,6 +1165,51 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_githubOauth2ProviderConfig_ClientSecret != null)
             {
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_githubOauth2ProviderConfig_ClientSecret;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.SecretSourceType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource = cmdletContext.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig.ClientSecretSource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.SecretReference requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig = null;
+            
+             // populate ClientSecretConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey = cmdletContext.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig.JsonKey = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId = cmdletContext.Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig.SecretId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig.ClientSecretConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfigIsNull = false;
             }
              // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig should be set to null
@@ -833,6 +1247,51 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_googleOauth2ProviderConfig_ClientSecret;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfigIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.SecretSourceType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource = cmdletContext.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig.ClientSecretSource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.SecretReference requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig = null;
+            
+             // populate ClientSecretConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey = cmdletContext.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig.JsonKey = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId = cmdletContext.Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig.SecretId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig.ClientSecretConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfigIsNull = false;
+            }
              // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig should be set to null
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfigIsNull)
             {
@@ -866,6 +1325,51 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_linkedinOauth2ProviderConfig_ClientSecret != null)
             {
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_linkedinOauth2ProviderConfig_ClientSecret;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.SecretSourceType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource = cmdletContext.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig.ClientSecretSource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.SecretReference requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig = null;
+            
+             // populate ClientSecretConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey = cmdletContext.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig.JsonKey = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId = cmdletContext.Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig.SecretId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig.ClientSecretConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfigIsNull = false;
             }
              // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig should be set to null
@@ -903,6 +1407,51 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_salesforceOauth2ProviderConfig_ClientSecret;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfigIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.SecretSourceType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource = cmdletContext.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig.ClientSecretSource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.SecretReference requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig = null;
+            
+             // populate ClientSecretConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey = cmdletContext.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig.JsonKey = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId = cmdletContext.Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig.SecretId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig.ClientSecretConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfigIsNull = false;
+            }
              // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig should be set to null
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfigIsNull)
             {
@@ -936,6 +1485,51 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_slackOauth2ProviderConfig_ClientSecret != null)
             {
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_slackOauth2ProviderConfig_ClientSecret;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.SecretSourceType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource = cmdletContext.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig.ClientSecretSource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.SecretReference requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig = null;
+            
+             // populate ClientSecretConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey = cmdletContext.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig.JsonKey = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId = cmdletContext.Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig.SecretId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig.ClientSecretConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfigIsNull = false;
             }
              // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig should be set to null
@@ -973,6 +1567,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_ClientSecret;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.SecretSourceType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource = cmdletContext.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.ClientSecretSource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
+            }
             System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId = null;
             if (cmdletContext.MicrosoftOauth2ProviderConfig_TenantId != null)
             {
@@ -981,6 +1585,41 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId != null)
             {
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.TenantId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_microsoftOauth2ProviderConfig_TenantId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.SecretReference requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig = null;
+            
+             // populate ClientSecretConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey = cmdletContext.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig.JsonKey = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId = cmdletContext.Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig.SecretId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig.ClientSecretConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfigIsNull = false;
             }
              // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig should be set to null
@@ -1028,6 +1667,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_includedOauth2ProviderConfig_ClientSecret;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfigIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.SecretSourceType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource = cmdletContext.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig.ClientSecretSource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfigIsNull = false;
+            }
             System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_includedOauth2ProviderConfig_Issuer = null;
             if (cmdletContext.IncludedOauth2ProviderConfig_Issuer != null)
             {
@@ -1046,6 +1695,41 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_includedOauth2ProviderConfig_TokenEndpoint != null)
             {
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig.TokenEndpoint = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_includedOauth2ProviderConfig_TokenEndpoint;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.SecretReference requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig = null;
+            
+             // populate ClientSecretConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey = cmdletContext.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig.JsonKey = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId = cmdletContext.Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig.SecretId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig.ClientSecretConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfigIsNull = false;
             }
              // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_IncludedOauth2ProviderConfig should be set to null
@@ -1093,6 +1777,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig.ClientSecret = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_customOauth2ProviderConfig_ClientSecret;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.SecretSourceType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig.ClientSecretSource = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = false;
+            }
             List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride = null;
             if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride != null)
             {
@@ -1101,6 +1795,41 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride != null)
             {
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig.PrivateEndpointOverrides = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.SecretReference requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig = null;
+            
+             // populate ClientSecretConfig
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfigIsNull = true;
+            requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig.JsonKey = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+            System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig.SecretId = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfigIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfigIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig = null;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig.ClientSecretConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig;
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.Oauth2Discovery requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery = null;
@@ -1446,9 +2175,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Name { get; set; }
             public System.String AtlassianOauth2ProviderConfig_ClientId { get; set; }
             public System.String AtlassianOauth2ProviderConfig_ClientSecret { get; set; }
+            public System.String Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+            public System.String Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource { get; set; }
             public Amazon.BedrockAgentCoreControl.ClientAuthenticationMethodType Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod { get; set; }
             public System.String CustomOauth2ProviderConfig_ClientId { get; set; }
             public System.String CustomOauth2ProviderConfig_ClientSecret { get; set; }
+            public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+            public System.String Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource { get; set; }
             public System.String AuthorizationServerMetadata_AuthorizationEndpoint { get; set; }
             public System.String AuthorizationServerMetadata_Issuer { get; set; }
             public List<System.String> AuthorizationServerMetadata_ResponseType { get; set; }
@@ -1468,22 +2203,43 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpointOverride { get; set; }
             public System.String GithubOauth2ProviderConfig_ClientId { get; set; }
             public System.String GithubOauth2ProviderConfig_ClientSecret { get; set; }
+            public System.String Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+            public System.String Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource { get; set; }
             public System.String GoogleOauth2ProviderConfig_ClientId { get; set; }
             public System.String GoogleOauth2ProviderConfig_ClientSecret { get; set; }
+            public System.String Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+            public System.String Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource { get; set; }
             public System.String IncludedOauth2ProviderConfig_AuthorizationEndpoint { get; set; }
             public System.String IncludedOauth2ProviderConfig_ClientId { get; set; }
             public System.String IncludedOauth2ProviderConfig_ClientSecret { get; set; }
+            public System.String Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+            public System.String Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource { get; set; }
             public System.String IncludedOauth2ProviderConfig_Issuer { get; set; }
             public System.String IncludedOauth2ProviderConfig_TokenEndpoint { get; set; }
             public System.String LinkedinOauth2ProviderConfig_ClientId { get; set; }
             public System.String LinkedinOauth2ProviderConfig_ClientSecret { get; set; }
+            public System.String Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+            public System.String Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource { get; set; }
             public System.String MicrosoftOauth2ProviderConfig_ClientId { get; set; }
             public System.String MicrosoftOauth2ProviderConfig_ClientSecret { get; set; }
+            public System.String Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+            public System.String Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource { get; set; }
             public System.String MicrosoftOauth2ProviderConfig_TenantId { get; set; }
             public System.String SalesforceOauth2ProviderConfig_ClientId { get; set; }
             public System.String SalesforceOauth2ProviderConfig_ClientSecret { get; set; }
+            public System.String Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+            public System.String Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource { get; set; }
             public System.String SlackOauth2ProviderConfig_ClientId { get; set; }
             public System.String SlackOauth2ProviderConfig_ClientSecret { get; set; }
+            public System.String Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
+            public System.String Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateOauth2CredentialProviderResponse, NewBACCOauth2CredentialProviderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -50,15 +50,31 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>The API key to use for authentication. This value is encrypted and stored securely.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ApiKey { get; set; }
+        #endregion
+        
+        #region Parameter ApiKeySecretSource
+        /// <summary>
+        /// <para>
+        /// <para>The source type of the API key secret. Use <c>MANAGED</c> if the secret is managed
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
+        /// Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.SecretSourceType")]
+        public Amazon.BedrockAgentCoreControl.SecretSourceType ApiKeySecretSource { get; set; }
+        #endregion
+        
+        #region Parameter ApiKeySecretConfig_JsonKey
+        /// <summary>
+        /// <para>
+        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ApiKeySecretConfig_JsonKey { get; set; }
         #endregion
         
         #region Parameter Name
@@ -76,6 +92,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ApiKeySecretConfig_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ApiKeySecretConfig_SecretId { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -142,12 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ApiKey = this.ApiKey;
-            #if MODULAR
-            if (this.ApiKey == null && ParameterWasBound(nameof(this.ApiKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ApiKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ApiKeySecretConfig_JsonKey = this.ApiKeySecretConfig_JsonKey;
+            context.ApiKeySecretConfig_SecretId = this.ApiKeySecretConfig_SecretId;
+            context.ApiKeySecretSource = this.ApiKeySecretSource;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -182,6 +205,39 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.ApiKey != null)
             {
                 request.ApiKey = cmdletContext.ApiKey;
+            }
+            
+             // populate ApiKeySecretConfig
+            var requestApiKeySecretConfigIsNull = true;
+            request.ApiKeySecretConfig = new Amazon.BedrockAgentCoreControl.Model.SecretReference();
+            System.String requestApiKeySecretConfig_apiKeySecretConfig_JsonKey = null;
+            if (cmdletContext.ApiKeySecretConfig_JsonKey != null)
+            {
+                requestApiKeySecretConfig_apiKeySecretConfig_JsonKey = cmdletContext.ApiKeySecretConfig_JsonKey;
+            }
+            if (requestApiKeySecretConfig_apiKeySecretConfig_JsonKey != null)
+            {
+                request.ApiKeySecretConfig.JsonKey = requestApiKeySecretConfig_apiKeySecretConfig_JsonKey;
+                requestApiKeySecretConfigIsNull = false;
+            }
+            System.String requestApiKeySecretConfig_apiKeySecretConfig_SecretId = null;
+            if (cmdletContext.ApiKeySecretConfig_SecretId != null)
+            {
+                requestApiKeySecretConfig_apiKeySecretConfig_SecretId = cmdletContext.ApiKeySecretConfig_SecretId;
+            }
+            if (requestApiKeySecretConfig_apiKeySecretConfig_SecretId != null)
+            {
+                request.ApiKeySecretConfig.SecretId = requestApiKeySecretConfig_apiKeySecretConfig_SecretId;
+                requestApiKeySecretConfigIsNull = false;
+            }
+             // determine if request.ApiKeySecretConfig should be set to null
+            if (requestApiKeySecretConfigIsNull)
+            {
+                request.ApiKeySecretConfig = null;
+            }
+            if (cmdletContext.ApiKeySecretSource != null)
+            {
+                request.ApiKeySecretSource = cmdletContext.ApiKeySecretSource;
             }
             if (cmdletContext.Name != null)
             {
@@ -247,6 +303,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApiKey { get; set; }
+            public System.String ApiKeySecretConfig_JsonKey { get; set; }
+            public System.String ApiKeySecretConfig_SecretId { get; set; }
+            public Amazon.BedrockAgentCoreControl.SecretSourceType ApiKeySecretSource { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateApiKeyCredentialProviderResponse, NewBACCApiKeyCredentialProviderCmdlet, object> Select { get; set; } =

@@ -30,7 +30,10 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Retrieves a list of email addresses that are on the suppression list for your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of email addresses that are on the suppression list for your account
+    /// or for a specific tenant. To target a tenant's suppression list, specify the <c>TenantName</c>
+    /// parameter. If you omit <c>TenantName</c>, the operation targets the account-level
+    /// suppression list.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SES2SuppressedDestinationList")]
     [OutputType("Amazon.SimpleEmailV2.Model.SuppressedDestinationSummary")]
@@ -59,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>The factors that caused the email address to be added to .</para><para />
+        /// <para>The factors that caused the email address to be added to the suppression list for
+        /// your account or for a specific tenant.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -80,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? StartDate { get; set; }
+        #endregion
+        
+        #region Parameter TenantName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the tenant whose suppression list you want to retrieve. If you omit this
+        /// parameter, the operation targets the account-level suppression list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TenantName { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -158,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Reason = new List<System.String>(this.Reason);
             }
             context.StartDate = this.StartDate;
+            context.TenantName = this.TenantName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (cmdletContext.StartDate != null)
             {
                 request.StartDate = cmdletContext.StartDate.Value;
+            }
+            if (cmdletContext.TenantName != null)
+            {
+                request.TenantName = cmdletContext.TenantName;
             }
             
             // Initialize loop variant and commence piping
@@ -276,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.Int32? PageSize { get; set; }
             public List<System.String> Reason { get; set; }
             public System.DateTime? StartDate { get; set; }
+            public System.String TenantName { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.ListSuppressedDestinationsResponse, GetSES2SuppressedDestinationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SuppressedDestinationSummaries;
         }

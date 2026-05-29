@@ -38,6 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// sets, and templates, along with reputation metrics and sending status. This helps
     /// isolate and manage email sending for different customers or business units within
     /// your Amazon SES API v2 account.
+    /// </para><para>
+    /// You can optionally specify <c>SuppressionAttributes</c> to configure tenant-level
+    /// suppression at creation time. When tenant-level suppression is enabled, Amazon SES
+    /// maintains a separate suppression list for the tenant instead of using the account-level
+    /// suppression list.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SES2Tenant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,6 +56,36 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter SuppressionAttributes_SuppressedReason
+        /// <summary>
+        /// <para>
+        /// <para>A list that contains the reasons that email addresses are automatically added to the
+        /// suppression list for the tenant. This list can contain any or all of the following:</para><ul><li><para><c>COMPLAINT</c> – Amazon SES adds an email address to the suppression list when
+        /// a message sent to that address results in a complaint.</para></li><li><para><c>BOUNCE</c> – Amazon SES adds an email address to the suppression list when a message
+        /// sent to that address results in a hard bounce.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SuppressionAttributes_SuppressedReasons")]
+        public System.String[] SuppressionAttributes_SuppressedReason { get; set; }
+        #endregion
+        
+        #region Parameter SuppressionAttributes_SuppressionScope
+        /// <summary>
+        /// <para>
+        /// <para>The suppression scope for the tenant. Can be one of the following:</para><ul><li><para><c>TENANT</c> – The tenant uses its own suppression list.</para></li><li><para><c>ACCOUNT</c> – The tenant uses the account-level suppression list.</para></li></ul><note><para>If you don't specify a suppression scope, the tenant defaults to <c>ACCOUNT</c> scope
+        /// and uses the account-level suppression list.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.SuppressionListScope")]
+        public Amazon.SimpleEmailV2.SuppressionListScope SuppressionAttributes_SuppressionScope { get; set; }
+        #endregion
         
         #region Parameter Tag
         /// <summary>
@@ -131,6 +166,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.CreateTenantResponse, NewSES2TenantCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.SuppressionAttributes_SuppressedReason != null)
+            {
+                context.SuppressionAttributes_SuppressedReason = new List<System.String>(this.SuppressionAttributes_SuppressedReason);
+            }
+            context.SuppressionAttributes_SuppressionScope = this.SuppressionAttributes_SuppressionScope;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SimpleEmailV2.Model.Tag>(this.Tag);
@@ -158,6 +198,35 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             // create request
             var request = new Amazon.SimpleEmailV2.Model.CreateTenantRequest();
             
+            
+             // populate SuppressionAttributes
+            var requestSuppressionAttributesIsNull = true;
+            request.SuppressionAttributes = new Amazon.SimpleEmailV2.Model.TenantSuppressionAttributes();
+            List<System.String> requestSuppressionAttributes_suppressionAttributes_SuppressedReason = null;
+            if (cmdletContext.SuppressionAttributes_SuppressedReason != null)
+            {
+                requestSuppressionAttributes_suppressionAttributes_SuppressedReason = cmdletContext.SuppressionAttributes_SuppressedReason;
+            }
+            if (requestSuppressionAttributes_suppressionAttributes_SuppressedReason != null)
+            {
+                request.SuppressionAttributes.SuppressedReasons = requestSuppressionAttributes_suppressionAttributes_SuppressedReason;
+                requestSuppressionAttributesIsNull = false;
+            }
+            Amazon.SimpleEmailV2.SuppressionListScope requestSuppressionAttributes_suppressionAttributes_SuppressionScope = null;
+            if (cmdletContext.SuppressionAttributes_SuppressionScope != null)
+            {
+                requestSuppressionAttributes_suppressionAttributes_SuppressionScope = cmdletContext.SuppressionAttributes_SuppressionScope;
+            }
+            if (requestSuppressionAttributes_suppressionAttributes_SuppressionScope != null)
+            {
+                request.SuppressionAttributes.SuppressionScope = requestSuppressionAttributes_suppressionAttributes_SuppressionScope;
+                requestSuppressionAttributesIsNull = false;
+            }
+             // determine if request.SuppressionAttributes should be set to null
+            if (requestSuppressionAttributesIsNull)
+            {
+                request.SuppressionAttributes = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -221,6 +290,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> SuppressionAttributes_SuppressedReason { get; set; }
+            public Amazon.SimpleEmailV2.SuppressionListScope SuppressionAttributes_SuppressionScope { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }
             public System.String TenantName { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.CreateTenantResponse, NewSES2TenantCmdlet, object> Select { get; set; } =

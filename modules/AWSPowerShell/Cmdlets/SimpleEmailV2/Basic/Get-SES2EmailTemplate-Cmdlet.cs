@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// 
     ///  
     /// <para>
-    /// You can execute this operation no more than once per second.
+    /// You can execute this operation no more than 50 times per second.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SES2EmailTemplate")]

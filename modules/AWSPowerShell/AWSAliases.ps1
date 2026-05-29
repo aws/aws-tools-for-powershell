@@ -26632,6 +26632,8 @@ Set-Alias -Name Create-QSIngestion -Value New-QSIngestion
 Set-Alias -Name QS-CreateIngestion -Value New-QSIngestion
 Set-Alias -Name Create-QSNamespace -Value New-QSNamespace
 Set-Alias -Name QS-CreateNamespace -Value New-QSNamespace
+Set-Alias -Name Create-QSOAuthClientApplication -Value New-QSOAuthClientApplication
+Set-Alias -Name QS-CreateOAuthClientApplication -Value New-QSOAuthClientApplication
 Set-Alias -Name Create-QSRefreshSchedule -Value New-QSRefreshSchedule
 Set-Alias -Name QS-CreateRefreshSchedule -Value New-QSRefreshSchedule
 Set-Alias -Name Create-QSRoleMembership -Value New-QSRoleMembership
@@ -26692,6 +26694,8 @@ Set-Alias -Name Delete-QSIdentityPropagationConfig -Value Remove-QSIdentityPropa
 Set-Alias -Name QS-DeleteIdentityPropagationConfig -Value Remove-QSIdentityPropagationConfig
 Set-Alias -Name Delete-QSNamespace -Value Remove-QSNamespace
 Set-Alias -Name QS-DeleteNamespace -Value Remove-QSNamespace
+Set-Alias -Name Delete-QSOAuthClientApplication -Value Remove-QSOAuthClientApplication
+Set-Alias -Name QS-DeleteOAuthClientApplication -Value Remove-QSOAuthClientApplication
 Set-Alias -Name Delete-QSRefreshSchedule -Value Remove-QSRefreshSchedule
 Set-Alias -Name QS-DeleteRefreshSchedule -Value Remove-QSRefreshSchedule
 Set-Alias -Name Delete-QSRoleCustomPermission -Value Remove-QSRoleCustomPermission
@@ -26805,6 +26809,9 @@ Set-Alias -Name Describe-QSKeyRegistration -Value Get-QSKeyRegistration
 Set-Alias -Name QS-DescribeKeyRegistration -Value Get-QSKeyRegistration
 Set-Alias -Name Describe-QSNamespace -Value Get-QSNamespace
 Set-Alias -Name QS-DescribeNamespace -Value Get-QSNamespace
+Set-Alias -Name Describe-QSOAuthClientApplication -Value Get-QSOAuthClientApplicationDetail
+Set-Alias -Name Describe-QSOAuthClientApplicationDetail -Value Get-QSOAuthClientApplicationDetail
+Set-Alias -Name QS-DescribeOAuthClientApplication -Value Get-QSOAuthClientApplicationDetail
 Set-Alias -Name Describe-QSQPersonalizationConfiguration -Value Get-QSQPersonalizationConfiguration
 Set-Alias -Name QS-DescribeQPersonalizationConfiguration -Value Get-QSQPersonalizationConfiguration
 Set-Alias -Name Describe-QSQuickSightQSearchConfiguration -Value Get-QSQuickSightQSearchConfiguration
@@ -26920,6 +26927,9 @@ Set-Alias -Name QS-ListIngestions -Value Get-QSIngestionList
 Set-Alias -Name List-QSNamespaces -Value Get-QSNamespaceList
 Set-Alias -Name List-QSNamespaceList -Value Get-QSNamespaceList
 Set-Alias -Name QS-ListNamespaces -Value Get-QSNamespaceList
+Set-Alias -Name List-QSOAuthClientApplications -Value Get-QSOAuthClientApplicationList
+Set-Alias -Name List-QSOAuthClientApplicationList -Value Get-QSOAuthClientApplicationList
+Set-Alias -Name QS-ListOAuthClientApplications -Value Get-QSOAuthClientApplicationList
 Set-Alias -Name List-QSRefreshSchedules -Value Get-QSRefreshScheduleList
 Set-Alias -Name List-QSRefreshScheduleList -Value Get-QSRefreshScheduleList
 Set-Alias -Name QS-ListRefreshSchedules -Value Get-QSRefreshScheduleList
@@ -27040,6 +27050,7 @@ Set-Alias -Name QS-UpdateIAMPolicyAssignment -Value Update-QSIAMPolicyAssignment
 Set-Alias -Name QS-UpdateIdentityPropagationConfig -Value Update-QSIdentityPropagationConfig
 Set-Alias -Name QS-UpdateIpRestriction -Value Update-QSIpRestriction
 Set-Alias -Name QS-UpdateKeyRegistration -Value Update-QSKeyRegistration
+Set-Alias -Name QS-UpdateOAuthClientApplication -Value Update-QSOAuthClientApplication
 Set-Alias -Name Update-QSPublicSharingSettings -Value Update-QSPublicSharingSetting
 Set-Alias -Name QS-UpdatePublicSharingSettings -Value Update-QSPublicSharingSetting
 Set-Alias -Name QS-UpdateQPersonalizationConfiguration -Value Update-QSQPersonalizationConfiguration
@@ -28612,6 +28623,14 @@ Set-Alias -Name R53R-AssociateResolverQueryLogConfig -Value Add-R53RResolverQuer
 Set-Alias -Name Associate-R53RResolverRule -Value Add-R53RResolverRuleAssociation
 Set-Alias -Name Associate-R53RResolverRuleAssociation -Value Add-R53RResolverRuleAssociation
 Set-Alias -Name R53R-AssociateResolverRule -Value Add-R53RResolverRuleAssociation
+Set-Alias -Name Create-R53RFirewallRule -Value New-R53RFirewallRuleBatch
+Set-Alias -Name Create-R53RFirewallRuleBatch -Value New-R53RFirewallRuleBatch
+Set-Alias -Name R53R-BatchCreateFirewallRule -Value New-R53RFirewallRuleBatch
+Set-Alias -Name Delete-R53RFirewallRule -Value Remove-R53RFirewallRuleBatch
+Set-Alias -Name Delete-R53RFirewallRuleBatch -Value Remove-R53RFirewallRuleBatch
+Set-Alias -Name R53R-BatchDeleteFirewallRule -Value Remove-R53RFirewallRuleBatch
+Set-Alias -Name Update-R53RFirewallRule -Value Update-R53RFirewallRuleBatch
+Set-Alias -Name R53R-BatchUpdateFirewallRule -Value Update-R53RFirewallRuleBatch
 Set-Alias -Name Create-R53RFirewallDomainList -Value New-R53RFirewallDomainList
 Set-Alias -Name R53R-CreateFirewallDomainList -Value New-R53RFirewallDomainList
 Set-Alias -Name Create-R53RFirewallRule -Value New-R53RFirewallRule
@@ -28687,6 +28706,9 @@ Set-Alias -Name R53R-ListFirewallRuleGroups -Value Get-R53RFirewallRuleGroupList
 Set-Alias -Name List-R53RFirewallRules -Value Get-R53RFirewallRuleList
 Set-Alias -Name List-R53RFirewallRuleList -Value Get-R53RFirewallRuleList
 Set-Alias -Name R53R-ListFirewallRules -Value Get-R53RFirewallRuleList
+Set-Alias -Name List-R53RFirewallRuleTypes -Value Get-R53RFirewallRuleTypeList
+Set-Alias -Name List-R53RFirewallRuleTypeList -Value Get-R53RFirewallRuleTypeList
+Set-Alias -Name R53R-ListFirewallRuleTypes -Value Get-R53RFirewallRuleTypeList
 Set-Alias -Name List-R53ROutpostResolvers -Value Get-R53ROutpostResolverList
 Set-Alias -Name List-R53ROutpostResolverList -Value Get-R53ROutpostResolverList
 Set-Alias -Name R53R-ListOutpostResolvers -Value Get-R53ROutpostResolverList
@@ -31673,6 +31695,9 @@ Set-Alias -Name Put-SES2EmailIdentityMailFromAttribute -Value Write-SES2EmailIde
 Set-Alias -Name SES2-PutEmailIdentityMailFromAttributes -Value Write-SES2EmailIdentityMailFromAttribute
 Set-Alias -Name Put-SES2SuppressedDestination -Value Write-SES2SuppressedDestination
 Set-Alias -Name SES2-PutSuppressedDestination -Value Write-SES2SuppressedDestination
+Set-Alias -Name Put-SES2TenantSuppressionAttributes -Value Write-SES2TenantSuppressionAttribute
+Set-Alias -Name Put-SES2TenantSuppressionAttribute -Value Write-SES2TenantSuppressionAttribute
+Set-Alias -Name SES2-PutTenantSuppressionAttributes -Value Write-SES2TenantSuppressionAttribute
 Set-Alias -Name SES2-SendBulkEmail -Value Send-SES2BulkEmail
 Set-Alias -Name SES2-SendCustomVerificationEmail -Value Send-SES2CustomVerificationEmail
 Set-Alias -Name SES2-SendEmail -Value Send-SES2Email

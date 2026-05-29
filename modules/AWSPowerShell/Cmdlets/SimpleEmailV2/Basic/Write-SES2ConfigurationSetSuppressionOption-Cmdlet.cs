@@ -30,7 +30,9 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Specify the account suppression list preferences for a configuration set.
+    /// Specify the suppression list preferences for a configuration set. You can also use
+    /// this operation to specify a <c>SuppressionScope</c> to override the suppression scope
+    /// of the tenant or account for emails sent using this configuration set.
     /// </summary>
     [Cmdlet("Write", "SES2ConfigurationSetSuppressionOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -89,9 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>A list that contains the reasons that email addresses are automatically added to the
-        /// suppression list for your account. This list can contain any or all of the following:</para><ul><li><para><c>COMPLAINT</c> – Amazon SES adds an email address to the suppression list for your
-        /// account when a message sent to that address results in a complaint.</para></li><li><para><c>BOUNCE</c> – Amazon SES adds an email address to the suppression list for your
-        /// account when a message sent to that address results in a hard bounce.</para></li></ul><para />
+        /// suppression list for your account or for a specific tenant. This list can contain
+        /// any or all of the following:</para><ul><li><para><c>COMPLAINT</c> – Amazon SES adds an email address to the suppression list for your
+        /// account or for a specific tenant when a message sent to that address results in a
+        /// complaint.</para></li><li><para><c>BOUNCE</c> – Amazon SES adds an email address to the suppression list for your
+        /// account or for a specific tenant when a message sent to that address results in a
+        /// hard bounce.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -101,6 +106,19 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SuppressedReasons")]
         public System.String[] SuppressedReason { get; set; }
+        #endregion
+        
+        #region Parameter SuppressionScope
+        /// <summary>
+        /// <para>
+        /// <para>The suppression scope for the configuration set. This overrides the tenant or account
+        /// suppression scope for emails sent using this configuration set. Can be one of the
+        /// following:</para><ul><li><para><c>TENANT</c> – Use the tenant's suppression list.</para></li><li><para><c>ACCOUNT</c> – Use the account-level suppression list.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.SuppressionListScope")]
+        public Amazon.SimpleEmailV2.SuppressionListScope SuppressionScope { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             {
                 context.SuppressedReason = new List<System.String>(this.SuppressedReason);
             }
+            context.SuppressionScope = this.SuppressionScope;
             context.ValidationOptions_ConditionThreshold_ConditionThresholdEnabled = this.ValidationOptions_ConditionThreshold_ConditionThresholdEnabled;
             context.ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold = this.ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold;
             
@@ -184,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (cmdletContext.SuppressedReason != null)
             {
                 request.SuppressedReasons = cmdletContext.SuppressedReason;
+            }
+            if (cmdletContext.SuppressionScope != null)
+            {
+                request.SuppressionScope = cmdletContext.SuppressionScope;
             }
             
              // populate ValidationOptions
@@ -301,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             public System.String ConfigurationSetName { get; set; }
             public List<System.String> SuppressedReason { get; set; }
+            public Amazon.SimpleEmailV2.SuppressionListScope SuppressionScope { get; set; }
             public Amazon.SimpleEmailV2.FeatureStatus ValidationOptions_ConditionThreshold_ConditionThresholdEnabled { get; set; }
             public Amazon.SimpleEmailV2.SuppressionConfidenceVerdictThreshold ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.PutConfigurationSetSuppressionOptionsResponse, WriteSES2ConfigurationSetSuppressionOptionCmdlet, object> Select { get; set; } =

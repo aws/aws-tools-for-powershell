@@ -175,7 +175,13 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         /// <para>
         /// <para>The ARN of the secret that enables access to the DB cluster. Enter the database user
         /// name and password for the credentials in the secret.</para><para>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create
-        /// a database secret</a>.</para>
+        /// a database secret</a>.</para><note><para>When you use the CLI on Linux to reference a secret created in the RDS console, the
+        /// ARN might include special characters like <c>rds!cluster</c>. If you enclose the ARN
+        /// in double quotes, the <c>!</c> character might trigger a shell expansion error, such
+        /// as <c>-bash: !cluster: event not found</c>. To avoid this, escape the exclamation
+        /// mark (\!) in the ARN or enclose the entire ARN in single quotes (') instead of double
+        /// quotes.</para><para>Alternatively, disable shell history expansion by running <c>set +H</c> before you
+        /// execute the command.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

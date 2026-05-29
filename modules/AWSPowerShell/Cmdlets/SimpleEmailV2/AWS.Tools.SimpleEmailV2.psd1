@@ -196,7 +196,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-SES2EmailIdentityDkimSigningAttribute', 
         'Write-SES2EmailIdentityFeedbackAttribute', 
         'Write-SES2EmailIdentityMailFromAttribute', 
-        'Write-SES2SuppressedDestination')
+        'Write-SES2SuppressedDestination', 
+        'Write-SES2TenantSuppressionAttribute')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
     /// Get information about a specific tenant, including the tenant's name, ID, ARN, creation
-    /// timestamp, tags, and sending status.
+    /// timestamp, tags, sending status, and suppression attributes.
     /// </summary>
     [Cmdlet("Get", "SES2Tenant")]
     [OutputType("Amazon.SimpleEmailV2.Model.Tenant")]

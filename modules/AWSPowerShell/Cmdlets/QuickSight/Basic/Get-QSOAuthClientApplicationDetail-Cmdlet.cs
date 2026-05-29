@@ -23,69 +23,71 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.SimpleEmailV2;
-using Amazon.SimpleEmailV2.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SES2
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Retrieves information about a specific email address that's on the suppression list
-    /// for your account or for a specific tenant. To target a tenant's suppression list,
-    /// specify the <c>TenantName</c> parameter. If you omit <c>TenantName</c>, the operation
-    /// targets the account-level suppression list.
+    /// Describes an OAuthClientApplication.
     /// </summary>
-    [Cmdlet("Get", "SES2SuppressedDestination")]
-    [OutputType("Amazon.SimpleEmailV2.Model.SuppressedDestination")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetSuppressedDestination API operation.", Operation = new[] {"GetSuppressedDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse))]
-    [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.SuppressedDestination or Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse",
-        "This cmdlet returns an Amazon.SimpleEmailV2.Model.SuppressedDestination object.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "QSOAuthClientApplicationDetail")]
+    [OutputType("Amazon.QuickSight.Model.OAuthClientApplication")]
+    [AWSCmdlet("Calls the Amazon QuickSight DescribeOAuthClientApplication API operation.", Operation = new[] {"DescribeOAuthClientApplication"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeOAuthClientApplicationResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.OAuthClientApplication or Amazon.QuickSight.Model.DescribeOAuthClientApplicationResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.OAuthClientApplication object.",
+        "The service call response (type Amazon.QuickSight.Model.DescribeOAuthClientApplicationResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSES2SuppressedDestinationCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
+    public partial class GetQSOAuthClientApplicationDetailCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EmailAddress
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The email address that's on the suppression list for your account or for the specified
-        /// tenant.</para>
+        /// <para>The Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EmailAddress { get; set; }
+        public System.String AwsAccountId { get; set; }
         #endregion
         
-        #region Parameter TenantName
+        #region Parameter OAuthClientApplicationId
         /// <summary>
         /// <para>
-        /// <para>The name of the tenant whose suppression list you want to query. If you omit this
-        /// parameter, the operation targets the account-level suppression list.</para>
+        /// <para>The ID of the OAuthClientApplication that you want to describe.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TenantName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OAuthClientApplicationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SuppressedDestination'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse).
-        /// Specifying the name of a property of type Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OAuthClientApplication'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DescribeOAuthClientApplicationResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.DescribeOAuthClientApplicationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SuppressedDestination";
+        public string Select { get; set; } = "OAuthClientApplication";
         #endregion
         
         protected override void StopProcessing()
@@ -104,17 +106,23 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse, GetSES2SuppressedDestinationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DescribeOAuthClientApplicationResponse, GetQSOAuthClientApplicationDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EmailAddress = this.EmailAddress;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.EmailAddress == null && ParameterWasBound(nameof(this.EmailAddress)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter EmailAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TenantName = this.TenantName;
+            context.OAuthClientApplicationId = this.OAuthClientApplicationId;
+            #if MODULAR
+            if (this.OAuthClientApplicationId == null && ParameterWasBound(nameof(this.OAuthClientApplicationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OAuthClientApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,15 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmailV2.Model.GetSuppressedDestinationRequest();
+            var request = new Amazon.QuickSight.Model.DescribeOAuthClientApplicationRequest();
             
-            if (cmdletContext.EmailAddress != null)
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.EmailAddress = cmdletContext.EmailAddress;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
             }
-            if (cmdletContext.TenantName != null)
+            if (cmdletContext.OAuthClientApplicationId != null)
             {
-                request.TenantName = cmdletContext.TenantName;
+                request.OAuthClientApplicationId = cmdletContext.OAuthClientApplicationId;
             }
             
             CmdletOutput output;
@@ -172,12 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetSuppressedDestinationRequest request)
+        private Amazon.QuickSight.Model.DescribeOAuthClientApplicationResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DescribeOAuthClientApplicationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetSuppressedDestination");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DescribeOAuthClientApplication");
             try
             {
-                return client.GetSuppressedDestinationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeOAuthClientApplicationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -194,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EmailAddress { get; set; }
-            public System.String TenantName { get; set; }
-            public System.Func<Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse, GetSES2SuppressedDestinationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SuppressedDestination;
+            public System.String AwsAccountId { get; set; }
+            public System.String OAuthClientApplicationId { get; set; }
+            public System.Func<Amazon.QuickSight.Model.DescribeOAuthClientApplicationResponse, GetQSOAuthClientApplicationDetailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OAuthClientApplication;
         }
         
     }

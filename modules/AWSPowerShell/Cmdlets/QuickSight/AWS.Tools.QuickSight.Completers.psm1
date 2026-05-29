@@ -696,7 +696,11 @@ $QS_Completers = {
         }
 
         # Amazon.QuickSight.DataSourceType
-        "New-QSDataSource/Type"
+        {
+            ($_ -eq "New-QSOAuthClientApplication/DataSourceType") -Or
+            ($_ -eq "Update-QSOAuthClientApplication/DataSourceType") -Or
+            ($_ -eq "New-QSDataSource/Type")
+        }
         {
             $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","BIGQUERY","CONFLUENCE","DATABRICKS","EXASOL","GITHUB","GOOGLESHEETS","GOOGLE_DRIVE","JIRA","MARIADB","MYSQL","ONE_DRIVE","ORACLE","POSTGRESQL","PRESTO","QBUSINESS","REDSHIFT","S3","S3_KNOWLEDGE_BASE","S3_TABLES","SALESFORCE","SERVICENOW","SHAREPOINT","SNOWFLAKE","SPARK","SQLSERVER","STARBURST","TERADATA","TIMESTREAM","TRINO","TWITTER","WEB_CRAWLER"
             break
@@ -893,6 +897,13 @@ $QS_Completers = {
         }
         {
             $v = "ANALYSIS","DASHBOARD","DATASET","DATASOURCE","TOPIC"
+            break
+        }
+
+        # Amazon.QuickSight.OAuthClientAuthenticationType
+        "New-QSOAuthClientApplication/OAuthClientAuthenticationType"
+        {
+            $v = "TOKEN"
             break
         }
 
@@ -1492,6 +1503,7 @@ $QS_map = @{
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataQAEnabledOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataSourceType"=@("New-QSOAuthClientApplication","Update-QSOAuthClientApplication")
     "DataStoriesSharingOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
@@ -1517,6 +1529,7 @@ $QS_map = @{
     "LegendValueFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
+    "OAuthClientAuthenticationType"=@("New-QSOAuthClientApplication")
     "Options_QBusinessInsightsStatus"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
@@ -1627,6 +1640,7 @@ $QS_SelectMap = @{
                "New-QSIAMPolicyAssignment",
                "New-QSIngestion",
                "New-QSNamespace",
+               "New-QSOAuthClientApplication",
                "New-QSRefreshSchedule",
                "New-QSRoleMembership",
                "New-QSTemplate",
@@ -1656,6 +1670,7 @@ $QS_SelectMap = @{
                "Remove-QSIAMPolicyAssignment",
                "Remove-QSIdentityPropagationConfig",
                "Remove-QSNamespace",
+               "Remove-QSOAuthClientApplication",
                "Remove-QSRefreshSchedule",
                "Remove-QSRoleCustomPermission",
                "Remove-QSRoleMembership",
@@ -1707,6 +1722,7 @@ $QS_SelectMap = @{
                "Get-QSIpRestriction",
                "Get-QSKeyRegistration",
                "Get-QSNamespace",
+               "Get-QSOAuthClientApplicationDetail",
                "Get-QSQPersonalizationConfiguration",
                "Get-QSQuickSightQSearchConfiguration",
                "Get-QSRefreshSchedule",
@@ -1754,6 +1770,7 @@ $QS_SelectMap = @{
                "Get-QSIdentityPropagationConfigList",
                "Get-QSIngestionList",
                "Get-QSNamespaceList",
+               "Get-QSOAuthClientApplicationList",
                "Get-QSRefreshScheduleList",
                "Get-QSRoleMembershipList",
                "Get-QSSelfUpgradeList",
@@ -1820,6 +1837,7 @@ $QS_SelectMap = @{
                "Update-QSIdentityPropagationConfig",
                "Update-QSIpRestriction",
                "Update-QSKeyRegistration",
+               "Update-QSOAuthClientApplication",
                "Update-QSPublicSharingSetting",
                "Update-QSQPersonalizationConfiguration",
                "Update-QSQuickSightQSearchConfiguration",

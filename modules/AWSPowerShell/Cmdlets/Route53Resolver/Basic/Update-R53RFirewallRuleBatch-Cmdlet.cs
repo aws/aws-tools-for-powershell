@@ -23,65 +23,54 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.SimpleEmailV2;
-using Amazon.SimpleEmailV2.Model;
+using Amazon.Route53Resolver;
+using Amazon.Route53Resolver.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SES2
+namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Removes an email address from the suppression list for your account or for a specific
-    /// tenant. To target a tenant's suppression list, specify the <c>TenantName</c> parameter.
-    /// If you omit <c>TenantName</c>, the address is removed from the account-level suppression
-    /// list.
+    /// Updates multiple DNS Firewall rules in the specified rule group.
     /// </summary>
-    [Cmdlet("Remove", "SES2SuppressedDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteSuppressedDestination API operation.", Operation = new[] {"DeleteSuppressedDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Update", "R53RFirewallRuleBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleResponse")]
+    [AWSCmdlet("Calls the Amazon Route 53 Resolver BatchUpdateFirewallRule API operation.", Operation = new[] {"BatchUpdateFirewallRule"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleResponse))]
+    [AWSCmdletOutput("Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleResponse",
+        "This cmdlet returns an Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleResponse object containing multiple properties."
     )]
-    public partial class RemoveSES2SuppressedDestinationCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
+    public partial class UpdateR53RFirewallRuleBatchCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EmailAddress
+        #region Parameter UpdateFirewallRuleEntry
         /// <summary>
         /// <para>
-        /// <para>The suppressed email destination to remove from the suppression list for your account
-        /// or for the specified tenant.</para>
+        /// <para>The list of firewall rules to update.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EmailAddress { get; set; }
-        #endregion
-        
-        #region Parameter TenantName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the tenant whose suppression list you want to remove the address from.
-        /// If you omit this parameter, the address is removed from the account-level suppression
-        /// list.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TenantName { get; set; }
+        [Alias("UpdateFirewallRuleEntries")]
+        public Amazon.Route53Resolver.Model.UpdateFirewallRuleEntry[] UpdateFirewallRuleEntry { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleResponse).
+        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EmailAddress), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SES2SuppressedDestination (DeleteSuppressedDestination)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-R53RFirewallRuleBatch (BatchUpdateFirewallRule)"))
             {
                 return;
             }
@@ -120,17 +109,19 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse, RemoveSES2SuppressedDestinationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleResponse, UpdateR53RFirewallRuleBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EmailAddress = this.EmailAddress;
-            #if MODULAR
-            if (this.EmailAddress == null && ParameterWasBound(nameof(this.EmailAddress)))
+            if (this.UpdateFirewallRuleEntry != null)
             {
-                WriteWarning("You are passing $null as a value for parameter EmailAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.UpdateFirewallRuleEntry = new List<Amazon.Route53Resolver.Model.UpdateFirewallRuleEntry>(this.UpdateFirewallRuleEntry);
+            }
+            #if MODULAR
+            if (this.UpdateFirewallRuleEntry == null && ParameterWasBound(nameof(this.UpdateFirewallRuleEntry)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UpdateFirewallRuleEntry which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TenantName = this.TenantName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -145,15 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationRequest();
+            var request = new Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleRequest();
             
-            if (cmdletContext.EmailAddress != null)
+            if (cmdletContext.UpdateFirewallRuleEntry != null)
             {
-                request.EmailAddress = cmdletContext.EmailAddress;
-            }
-            if (cmdletContext.TenantName != null)
-            {
-                request.TenantName = cmdletContext.TenantName;
+                request.UpdateFirewallRuleEntries = cmdletContext.UpdateFirewallRuleEntry;
             }
             
             CmdletOutput output;
@@ -188,12 +175,12 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationRequest request)
+        private Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DeleteSuppressedDestination");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "BatchUpdateFirewallRule");
             try
             {
-                return client.DeleteSuppressedDestinationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.BatchUpdateFirewallRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -210,10 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EmailAddress { get; set; }
-            public System.String TenantName { get; set; }
-            public System.Func<Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse, RemoveSES2SuppressedDestinationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<Amazon.Route53Resolver.Model.UpdateFirewallRuleEntry> UpdateFirewallRuleEntry { get; set; }
+            public System.Func<Amazon.Route53Resolver.Model.BatchUpdateFirewallRuleResponse, UpdateR53RFirewallRuleBatchCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

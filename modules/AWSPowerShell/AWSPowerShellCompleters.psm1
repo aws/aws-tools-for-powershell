@@ -8713,6 +8713,42 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.SecretSourceType
+        {
+            ($_ -eq "New-BACCApiKeyCredentialProvider/ApiKeySecretSource") -Or
+            ($_ -eq "Update-BACCApiKeyCredentialProvider/ApiKeySecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource") -Or
+            ($_ -eq "New-BACCPaymentCredentialProvider/ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecretSource") -Or
+            ($_ -eq "Update-BACCPaymentCredentialProvider/ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecretSource") -Or
+            ($_ -eq "New-BACCPaymentCredentialProvider/ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretSource") -Or
+            ($_ -eq "Update-BACCPaymentCredentialProvider/ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretSource") -Or
+            ($_ -eq "New-BACCPaymentCredentialProvider/ProviderConfigurationInput_StripePrivyConfiguration_AppSecretSource") -Or
+            ($_ -eq "Update-BACCPaymentCredentialProvider/ProviderConfigurationInput_StripePrivyConfiguration_AppSecretSource") -Or
+            ($_ -eq "New-BACCPaymentCredentialProvider/ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeySource") -Or
+            ($_ -eq "Update-BACCPaymentCredentialProvider/ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeySource")
+        }
+        {
+            $v = "EXTERNAL","MANAGED"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.ServerProtocol
         {
             ($_ -eq "New-BACCAgentRuntime/ProtocolConfiguration_ServerProtocol") -Or
@@ -8742,6 +8778,7 @@ $BACC_Completers = {
 }
 
 $BACC_map = @{
+    "ApiKeySecretSource"=@("New-BACCApiKeyCredentialProvider","Update-BACCApiKeyCredentialProvider")
     "AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCAgentRuntime","New-BACCGateway","New-BACCHarness","New-BACCPaymentManager","New-BACCRegistry","Update-BACCAgentRuntime","Update-BACCGateway","Update-BACCPaymentManager")
     "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
     "AuthorizerType"=@("Get-BACCRegistryList","New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
@@ -8758,14 +8795,27 @@ $BACC_map = @{
     "Model_BedrockModelConfig_ApiFormat"=@("New-BACCHarness","Update-BACCHarness")
     "Model_OpenAiModelConfig_ApiFormat"=@("New-BACCHarness","Update-BACCHarness")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
+    "Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
     "PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
+    "ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
+    "ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
+    "ProviderConfigurationInput_StripePrivyConfiguration_AppSecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
+    "ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeySource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
     "SchemaType"=@("New-BACCDataset")
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")
@@ -9948,7 +9998,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.AutomatedReasoningPolicyBuildWorkflowType
         "Start-BDRAutomatedReasoningPolicyBuildWorkflow/BuildWorkflowType"
         {
-            $v = "GENERATE_FIDELITY_REPORT","GENERATE_POLICY_SCENARIOS","IMPORT_POLICY","INGEST_CONTENT","REFINE_POLICY"
+            $v = "GENERATE_FIDELITY_REPORT","GENERATE_POLICY_SCENARIOS","IMPORT_POLICY","INGEST_CONTENT","ITERATIVELY_REFINE_POLICY","REFINE_POLICY","RESOLVE_POLICY_AMBIGUITIES"
             break
         }
 
@@ -68145,7 +68195,11 @@ $QS_Completers = {
         }
 
         # Amazon.QuickSight.DataSourceType
-        "New-QSDataSource/Type"
+        {
+            ($_ -eq "New-QSOAuthClientApplication/DataSourceType") -Or
+            ($_ -eq "Update-QSOAuthClientApplication/DataSourceType") -Or
+            ($_ -eq "New-QSDataSource/Type")
+        }
         {
             $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","BIGQUERY","CONFLUENCE","DATABRICKS","EXASOL","GITHUB","GOOGLESHEETS","GOOGLE_DRIVE","JIRA","MARIADB","MYSQL","ONE_DRIVE","ORACLE","POSTGRESQL","PRESTO","QBUSINESS","REDSHIFT","S3","S3_KNOWLEDGE_BASE","S3_TABLES","SALESFORCE","SERVICENOW","SHAREPOINT","SNOWFLAKE","SPARK","SQLSERVER","STARBURST","TERADATA","TIMESTREAM","TRINO","TWITTER","WEB_CRAWLER"
             break
@@ -68342,6 +68396,13 @@ $QS_Completers = {
         }
         {
             $v = "ANALYSIS","DASHBOARD","DATASET","DATASOURCE","TOPIC"
+            break
+        }
+
+        # Amazon.QuickSight.OAuthClientAuthenticationType
+        "New-QSOAuthClientApplication/OAuthClientAuthenticationType"
+        {
+            $v = "TOKEN"
             break
         }
 
@@ -68941,6 +69002,7 @@ $QS_map = @{
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataQAEnabledOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataSourceType"=@("New-QSOAuthClientApplication","Update-QSOAuthClientApplication")
     "DataStoriesSharingOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
@@ -68966,6 +69028,7 @@ $QS_map = @{
     "LegendValueFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
+    "OAuthClientAuthenticationType"=@("New-QSOAuthClientApplication")
     "Options_QBusinessInsightsStatus"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
@@ -69076,6 +69139,7 @@ $QS_SelectMap = @{
                "New-QSIAMPolicyAssignment",
                "New-QSIngestion",
                "New-QSNamespace",
+               "New-QSOAuthClientApplication",
                "New-QSRefreshSchedule",
                "New-QSRoleMembership",
                "New-QSTemplate",
@@ -69105,6 +69169,7 @@ $QS_SelectMap = @{
                "Remove-QSIAMPolicyAssignment",
                "Remove-QSIdentityPropagationConfig",
                "Remove-QSNamespace",
+               "Remove-QSOAuthClientApplication",
                "Remove-QSRefreshSchedule",
                "Remove-QSRoleCustomPermission",
                "Remove-QSRoleMembership",
@@ -69156,6 +69221,7 @@ $QS_SelectMap = @{
                "Get-QSIpRestriction",
                "Get-QSKeyRegistration",
                "Get-QSNamespace",
+               "Get-QSOAuthClientApplicationDetail",
                "Get-QSQPersonalizationConfiguration",
                "Get-QSQuickSightQSearchConfiguration",
                "Get-QSRefreshSchedule",
@@ -69203,6 +69269,7 @@ $QS_SelectMap = @{
                "Get-QSIdentityPropagationConfigList",
                "Get-QSIngestionList",
                "Get-QSNamespaceList",
+               "Get-QSOAuthClientApplicationList",
                "Get-QSRefreshScheduleList",
                "Get-QSRoleMembershipList",
                "Get-QSSelfUpgradeList",
@@ -69269,6 +69336,7 @@ $QS_SelectMap = @{
                "Update-QSIdentityPropagationConfig",
                "Update-QSIpRestriction",
                "Update-QSKeyRegistration",
+               "Update-QSOAuthClientApplication",
                "Update-QSPublicSharingSetting",
                "Update-QSQPersonalizationConfiguration",
                "Update-QSQuickSightQSearchConfiguration",
@@ -72220,7 +72288,9 @@ $R53R_Completers = {
         # Amazon.Route53Resolver.ConfidenceThreshold
         {
             ($_ -eq "Edit-R53RFirewallRule/ConfidenceThreshold") -Or
-            ($_ -eq "New-R53RFirewallRule/ConfidenceThreshold")
+            ($_ -eq "New-R53RFirewallRule/ConfidenceThreshold") -Or
+            ($_ -eq "Edit-R53RFirewallRule/FirewallRuleType_DnsThreatProtection_ConfidenceThreshold") -Or
+            ($_ -eq "New-R53RFirewallRule/FirewallRuleType_DnsThreatProtection_ConfidenceThreshold")
         }
         {
             $v = "HIGH","LOW","MEDIUM"
@@ -72344,6 +72414,7 @@ $R53R_map = @{
     "DnsThreatProtection"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallDomainRedirectionAction"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallFailOpen"=@("Edit-R53RFirewallConfig")
+    "FirewallRuleType_DnsThreatProtection_ConfidenceThreshold"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "MutationProtection"=@("Edit-R53RFirewallRuleGroupAssociation","New-R53RFirewallRuleGroupAssociation")
     "Operation"=@("Edit-R53RFirewallDomain","Import-R53RFirewallDomainList")
     "ResolverEndpointType"=@("New-R53RResolverEndpoint","Update-R53RResolverEndpoint")
@@ -72407,6 +72478,9 @@ $R53R_SelectMap = @{
                "Add-R53RResolverEndpointIpAddressAssociation",
                "Add-R53RResolverQueryLogConfigAssociation",
                "Add-R53RResolverRuleAssociation",
+               "New-R53RFirewallRuleBatch",
+               "Remove-R53RFirewallRuleBatch",
+               "Update-R53RFirewallRuleBatch",
                "New-R53RFirewallDomainList",
                "New-R53RFirewallRule",
                "New-R53RFirewallRuleGroup",
@@ -72447,6 +72521,7 @@ $R53R_SelectMap = @{
                "Get-R53RFirewallRuleGroupAssociationList",
                "Get-R53RFirewallRuleGroupList",
                "Get-R53RFirewallRuleList",
+               "Get-R53RFirewallRuleTypeList",
                "Get-R53ROutpostResolverList",
                "Get-R53RResolverConfigList",
                "Get-R53RResolverDnssecConfigList",
@@ -80542,6 +80617,18 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.SuppressionListScope
+        {
+            ($_ -eq "New-SES2Tenant/SuppressionAttributes_SuppressionScope") -Or
+            ($_ -eq "New-SES2ConfigurationSet/SuppressionOptions_SuppressionScope") -Or
+            ($_ -eq "Write-SES2ConfigurationSetSuppressionOption/SuppressionScope") -Or
+            ($_ -eq "Write-SES2TenantSuppressionAttribute/SuppressionScope")
+        }
+        {
+            $v = "ACCOUNT","TENANT"
+            break
+        }
+
         # Amazon.SimpleEmailV2.TlsPolicy
         {
             ($_ -eq "New-SES2ConfigurationSet/DeliveryOptions_TlsPolicy") -Or
@@ -80587,9 +80674,12 @@ $SES2_map = @{
     "SigningAttributes_DomainSigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
+    "SuppressionAttributes_SuppressionScope"=@("New-SES2Tenant")
     "SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
+    "SuppressionOptions_SuppressionScope"=@("New-SES2ConfigurationSet")
     "SuppressionOptions_ValidationOptions_ConditionThreshold_ConditionThresholdEnabled"=@("New-SES2ConfigurationSet")
     "SuppressionOptions_ValidationOptions_ConditionThreshold_OverallConfidenceThreshold_ConfidenceVerdictThreshold"=@("New-SES2ConfigurationSet")
+    "SuppressionScope"=@("Write-SES2ConfigurationSetSuppressionOption","Write-SES2TenantSuppressionAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
     "TrackingOptions_HttpsPolicy"=@("New-SES2ConfigurationSet")
     "ValidationAttributes_ConditionThreshold_ConditionThresholdEnabled"=@("Write-SES2AccountSuppressionAttribute")
@@ -80745,6 +80835,7 @@ $SES2_SelectMap = @{
                "Write-SES2EmailIdentityFeedbackAttribute",
                "Write-SES2EmailIdentityMailFromAttribute",
                "Write-SES2SuppressedDestination",
+               "Write-SES2TenantSuppressionAttribute",
                "Send-SES2BulkEmail",
                "Send-SES2CustomVerificationEmail",
                "Send-SES2Email",

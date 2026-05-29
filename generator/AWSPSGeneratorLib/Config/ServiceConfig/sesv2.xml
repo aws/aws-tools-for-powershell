@@ -466,6 +466,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutTenantSuppressionAttributes" Verb="Write" Noun="TenantSuppressionAttribute" ShouldProcessTarget="TenantName" PipelineParameter="TenantName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendBulkEmail" OutputProperty="BulkEmailEntryResults" Verb="Send" Noun="BulkEmail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DefaultContent_Template_Attachments" NewName="Template_Attachment" />
