@@ -1,4 +1,4 @@
-> **IMPORTANT:** AWS Tools for PowerShell v4 is in maintenance mode as of March 1st, 2026, with only critical bugs and security issues addressed until end of support on June 1st, 2026. See the [migration guide](https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html) to upgrade to v5.
+> **IMPORTANT:** AWS Tools for PowerShell v4 reached end of support as of June 1st, 2026 and no longer receives updates, including security fixes. See the [migration guide](https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html) to upgrade to v5.
 
 ## AWS Tools for PowerShell
 
