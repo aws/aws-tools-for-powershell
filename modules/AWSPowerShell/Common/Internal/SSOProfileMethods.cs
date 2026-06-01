@@ -37,6 +37,8 @@ namespace Amazon.PowerShell.Utils
 
         private const string SsoSessionProfilePrefix = "sso-session";
 
+        private const string DefaultProfileName = "default";
+
         /// <summary>
         /// Regex:
         /// - Starts with "sso-session"
@@ -94,11 +96,11 @@ namespace Amazon.PowerShell.Utils
         /// Returns a ProfileIniFile of the shared config file.
         /// </summary>
         /// <param name="this">The SharedCredentialsFile to retrieve the config file for.</param>
+        /// <param name="isDefaultProfile">When true, opens the file in permissive mode so bare [default] section headers are recognized.</param>
         /// <returns>A ProfileIniFile instance of the config file.</returns>
-        private static ProfileIniFile GetSharedConfigFile(this SharedCredentialsFile @this)
+        private static ProfileIniFile GetSharedConfigFile(this SharedCredentialsFile @this, bool isDefaultProfile = false)
         {
-            // Second parameter profileMarkerRequired is required to be true for config files, but not for general ini files.
-            return new ProfileIniFile(@this.GetSharedConfigFilePath(), true);
+            return new ProfileIniFile(@this.GetSharedConfigFilePath(), !isDefaultProfile);
         }
 
         private static void ThrowOnNullOrWhiteSpace(string name, string value)
@@ -191,8 +193,11 @@ namespace Amazon.PowerShell.Utils
                 profileProperties.Add(_regionPropertyName, profile.Region.SystemName);
             }
 
-            var configFile = sharedCredentialsFile.GetSharedConfigFile();
-            configFile.EnsureSectionExists(SSOProfileMethods.CreateProfileName(profile.Name));
+            var isDefaultProfile = profile.Name == DefaultProfileName;
+            var profileSectionName = isDefaultProfile ? DefaultProfileName : SSOProfileMethods.CreateProfileName(profile.Name);
+
+            var configFile = sharedCredentialsFile.GetSharedConfigFile(isDefaultProfile);
+            configFile.EnsureSectionExists(profileSectionName);
             configFile.EnsureSectionExists(SSOProfileMethods.CreateSsoSessionProfileName(options.SsoSession));
 
             configFile.EditSection(profile.Name, false, profileProperties); // Section must already exist to edit sso-session
