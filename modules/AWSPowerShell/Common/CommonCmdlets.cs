@@ -496,7 +496,7 @@ namespace Amazon.PowerShell.Common
                 sw.WriteLine(sdkInfo.LegalCopyright);
                 sw.WriteLine();
 
-                sw.WriteLine("Release notes: {0}", "https://github.com/aws/aws-tools-for-powershell/blob/main/changelogs/CHANGELOG.ALL.md");
+                sw.WriteLine("Release notes: {0}", "https://github.com/aws/aws-tools-for-powershell/tree/main/changelogs");
                 sw.WriteLine();
 
                 WriteObject(sw.ToString());
