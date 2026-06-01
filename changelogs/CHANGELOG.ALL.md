@@ -1,4 +1,39 @@
-﻿### 5.0.222 (2026-05-29 20:20Z)
+﻿### 5.0.223 (2026-06-01 20:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.259.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPUserPoolReplicaList leveraging the ListUserPoolReplicas service API.
+    * Added cmdlet New-CGIPUserPoolReplica leveraging the CreateUserPoolReplica service API.
+    * Added cmdlet Remove-CGIPUserPoolReplica leveraging the DeleteUserPoolReplica service API.
+    * Added cmdlet Update-CGIPUserPoolReplica leveraging the UpdateUserPoolReplica service API.
+    * Modified cmdlet New-CGIPUserPool: added parameters IssuerConfiguration_Type, KeyConfiguration_KeyType and KeyConfiguration_KmsKeyArn.
+    * Modified cmdlet New-CGIPUserPoolDomain: added parameters Routing_Failover_PrimaryRoute53HealthCheckId and Routing_Failover_SecondaryRegion.
+    * Modified cmdlet Update-CGIPUserPool: added parameters IssuerConfiguration_Type, KeyConfiguration_KeyType and KeyConfiguration_KmsKeyArn.
+    * Modified cmdlet Update-CGIPUserPoolDomain: added parameters Routing_Failover_PrimaryRoute53HealthCheckId and Routing_Failover_SecondaryRegion.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSAgentDetail leveraging the DescribeAgent service API.
+    * Added cmdlet Get-QSAgentList leveraging the ListAgents service API.
+    * Added cmdlet Get-QSAgentPermissionDetail leveraging the DescribeAgentPermissions service API.
+    * Added cmdlet Get-QSFlowDetail leveraging the DescribeFlow service API.
+    * Added cmdlet Get-QSSpaceDetail leveraging the DescribeSpace service API.
+    * Added cmdlet Get-QSSpaceList leveraging the ListSpaces service API.
+    * Added cmdlet Get-QSSpacePermissionDetail leveraging the DescribeSpacePermissions service API.
+    * Added cmdlet Get-QSSpaceResourceList leveraging the ListSpaceResources service API.
+    * Added cmdlet New-QSAgent leveraging the CreateAgent service API.
+    * Added cmdlet New-QSFlow leveraging the CreateFlow service API.
+    * Added cmdlet New-QSSpace leveraging the CreateSpace service API.
+    * Added cmdlet Remove-QSAgent leveraging the DeleteAgent service API.
+    * Added cmdlet Remove-QSFlow leveraging the DeleteFlow service API.
+    * Added cmdlet Remove-QSSpace leveraging the DeleteSpace service API.
+    * Added cmdlet Search-QSAgent leveraging the SearchAgents service API.
+    * Added cmdlet Search-QSSpace leveraging the SearchSpaces service API.
+    * Added cmdlet Update-QSAgent leveraging the UpdateAgent service API.
+    * Added cmdlet Update-QSAgentPermission leveraging the UpdateAgentPermissions service API.
+    * Added cmdlet Update-QSFlow leveraging the UpdateFlow service API.
+    * Added cmdlet Update-QSSpace leveraging the UpdateSpace service API.
+    * Added cmdlet Update-QSSpacePermission leveraging the UpdateSpacePermissions service API.
+    * Added cmdlet Update-QSSpaceResource leveraging the UpdateSpaceResources service API.
+
+### 5.0.222 (2026-05-29 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.258.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Modified cmdlet Start-BDRAutomatedReasoningPolicyBuildWorkflow: added parameters SourceContent_WorkflowContent_IterativeRefinementContent_Document and SourceContent_WorkflowContent_IterativeRefinementContent_Feedback.

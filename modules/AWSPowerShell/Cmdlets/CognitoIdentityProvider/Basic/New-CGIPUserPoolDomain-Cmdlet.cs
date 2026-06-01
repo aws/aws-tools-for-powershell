@@ -110,6 +110,29 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Int32? ManagedLoginVersion { get; set; }
         #endregion
         
+        #region Parameter Routing_Failover_PrimaryRoute53HealthCheckId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services Route53 healthcheck that controls routing. If the
+        /// healthcheck is healthy, traffic will be routed to the primary replica, and if the
+        /// healthcheck is unhealthy, traffic will be routed to the secondary region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Routing_Failover_PrimaryRoute53HealthCheckId { get; set; }
+        #endregion
+        
+        #region Parameter Routing_Failover_SecondaryRegion
+        /// <summary>
+        /// <para>
+        /// <para>The secondary Amazon Web Services Region to use for failover when the primary region
+        /// becomes unavailable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Routing_Failover_SecondaryRegion { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
@@ -182,6 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             #endif
             context.ManagedLoginVersion = this.ManagedLoginVersion;
+            context.Routing_Failover_PrimaryRoute53HealthCheckId = this.Routing_Failover_PrimaryRoute53HealthCheckId;
+            context.Routing_Failover_SecondaryRegion = this.Routing_Failover_SecondaryRegion;
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
@@ -231,6 +256,50 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.ManagedLoginVersion != null)
             {
                 request.ManagedLoginVersion = cmdletContext.ManagedLoginVersion.Value;
+            }
+            
+             // populate Routing
+            var requestRoutingIsNull = true;
+            request.Routing = new Amazon.CognitoIdentityProvider.Model.RoutingType();
+            Amazon.CognitoIdentityProvider.Model.FailoverType requestRouting_routing_Failover = null;
+            
+             // populate Failover
+            var requestRouting_routing_FailoverIsNull = true;
+            requestRouting_routing_Failover = new Amazon.CognitoIdentityProvider.Model.FailoverType();
+            System.String requestRouting_routing_Failover_routing_Failover_PrimaryRoute53HealthCheckId = null;
+            if (cmdletContext.Routing_Failover_PrimaryRoute53HealthCheckId != null)
+            {
+                requestRouting_routing_Failover_routing_Failover_PrimaryRoute53HealthCheckId = cmdletContext.Routing_Failover_PrimaryRoute53HealthCheckId;
+            }
+            if (requestRouting_routing_Failover_routing_Failover_PrimaryRoute53HealthCheckId != null)
+            {
+                requestRouting_routing_Failover.PrimaryRoute53HealthCheckId = requestRouting_routing_Failover_routing_Failover_PrimaryRoute53HealthCheckId;
+                requestRouting_routing_FailoverIsNull = false;
+            }
+            System.String requestRouting_routing_Failover_routing_Failover_SecondaryRegion = null;
+            if (cmdletContext.Routing_Failover_SecondaryRegion != null)
+            {
+                requestRouting_routing_Failover_routing_Failover_SecondaryRegion = cmdletContext.Routing_Failover_SecondaryRegion;
+            }
+            if (requestRouting_routing_Failover_routing_Failover_SecondaryRegion != null)
+            {
+                requestRouting_routing_Failover.SecondaryRegion = requestRouting_routing_Failover_routing_Failover_SecondaryRegion;
+                requestRouting_routing_FailoverIsNull = false;
+            }
+             // determine if requestRouting_routing_Failover should be set to null
+            if (requestRouting_routing_FailoverIsNull)
+            {
+                requestRouting_routing_Failover = null;
+            }
+            if (requestRouting_routing_Failover != null)
+            {
+                request.Routing.Failover = requestRouting_routing_Failover;
+                requestRoutingIsNull = false;
+            }
+             // determine if request.Routing should be set to null
+            if (requestRoutingIsNull)
+            {
+                request.Routing = null;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -294,6 +363,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String CustomDomainConfig_CertificateArn { get; set; }
             public System.String Domain { get; set; }
             public System.Int32? ManagedLoginVersion { get; set; }
+            public System.String Routing_Failover_PrimaryRoute53HealthCheckId { get; set; }
+            public System.String Routing_Failover_SecondaryRegion { get; set; }
             public System.String UserPoolId { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.CreateUserPoolDomainResponse, NewCGIPUserPoolDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CloudFrontDomain;

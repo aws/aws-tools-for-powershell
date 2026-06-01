@@ -35,9 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// pool, modified to include the changes that you want to make.
     /// 
     ///  <important><para>
-    /// With the exception of <c>UserPoolTier</c>, if you don't provide a value for an attribute,
-    /// Amazon Cognito sets it to its default value.
-    /// </para></important><note><para>
+    /// If you don't provide a value for an attribute, Amazon Cognito sets it to its default
+    /// value.
+    /// </para></important><para>
+    /// In secondary regions for user pools with multi-region replication, regional configurations
+    /// for email, SMS, Lambda functions, and tags can be updated. Both global and regional
+    /// settings must be provided as inputs, with global settings required to match existing
+    /// values to maintain consistency across replicas.
+    /// </para><note><para>
     /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
     /// carriers require you to register an origination phone number before you can send SMS
     /// messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you
@@ -441,6 +446,29 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EmailConfiguration_From { get; set; }
+        #endregion
+        
+        #region Parameter KeyConfiguration_KeyType
+        /// <summary>
+        /// <para>
+        /// <para>The type of encryption key used for the user pool.</para><dl><dt>AWS_OWNED_KEY</dt><dd><para>A key owned by Amazon Web Services in Key Management Service.</para></dd><dt>CUSTOMER_MANAGED_KEY</dt><dd><para>A key managed by the customer in Key Management Service. You must use a multi-region
+        /// key to enable multi-region replication for a user pool.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.EncryptionKeyType")]
+        public Amazon.CognitoIdentityProvider.EncryptionKeyType KeyConfiguration_KeyType { get; set; }
+        #endregion
+        
+        #region Parameter KeyConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key used for encryption. If not specified,
+        /// Amazon Web Services managed keys are used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KeyConfiguration_KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter LambdaConfig_KMSKeyID
@@ -849,6 +877,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Int32? PasswordPolicy_TemporaryPasswordValidityDay { get; set; }
         #endregion
         
+        #region Parameter IssuerConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of issuer configuration. Determines the token issuing behavior for the user
+        /// pool.</para><dl><dt>ORIGINAL</dt><dd><para>The original issuer configuration for user pools. The issuer URL is hosted in the
+        /// user pool’s region and provides OIDC endpoints specific to that region.</para><para>Original issuers have the format of <c>https://cognito-idp.[region].amazonaws.com/[userPoolId]</c></para></dd><dt>UPDATED</dt><dd><para>Recommended for all user pools, including for multi-Region replication. Updated issuers
+        /// host the same JWKS content in multiple regions, resulting in improved resilience and
+        /// efficiency.</para><para>Updated issuers have the format of <c>https://issuer-cognito-idp.[region].amazonaws.com/[userPoolId]</c>,
+        /// where region is the primary Amazon Web Services Region of your user pool.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.IssuerType")]
+        public Amazon.CognitoIdentityProvider.IssuerType IssuerConfiguration_Type { get; set; }
+        #endregion
+        
         #region Parameter AdminCreateUserConfig_UnusedAccountValidityDay
         /// <summary>
         /// <para>
@@ -1004,6 +1048,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.EmailConfiguration_SourceArn = this.EmailConfiguration_SourceArn;
             context.EmailVerificationMessage = this.EmailVerificationMessage;
             context.EmailVerificationSubject = this.EmailVerificationSubject;
+            context.IssuerConfiguration_Type = this.IssuerConfiguration_Type;
+            context.KeyConfiguration_KeyType = this.KeyConfiguration_KeyType;
+            context.KeyConfiguration_KmsKeyArn = this.KeyConfiguration_KmsKeyArn;
             context.LambdaConfig_CreateAuthChallenge = this.LambdaConfig_CreateAuthChallenge;
             context.CustomEmailSender_LambdaArn = this.CustomEmailSender_LambdaArn;
             context.CustomEmailSender_LambdaVersion = this.CustomEmailSender_LambdaVersion;
@@ -1281,6 +1328,54 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.EmailVerificationSubject != null)
             {
                 request.EmailVerificationSubject = cmdletContext.EmailVerificationSubject;
+            }
+            
+             // populate IssuerConfiguration
+            var requestIssuerConfigurationIsNull = true;
+            request.IssuerConfiguration = new Amazon.CognitoIdentityProvider.Model.IssuerConfigurationType();
+            Amazon.CognitoIdentityProvider.IssuerType requestIssuerConfiguration_issuerConfiguration_Type = null;
+            if (cmdletContext.IssuerConfiguration_Type != null)
+            {
+                requestIssuerConfiguration_issuerConfiguration_Type = cmdletContext.IssuerConfiguration_Type;
+            }
+            if (requestIssuerConfiguration_issuerConfiguration_Type != null)
+            {
+                request.IssuerConfiguration.Type = requestIssuerConfiguration_issuerConfiguration_Type;
+                requestIssuerConfigurationIsNull = false;
+            }
+             // determine if request.IssuerConfiguration should be set to null
+            if (requestIssuerConfigurationIsNull)
+            {
+                request.IssuerConfiguration = null;
+            }
+            
+             // populate KeyConfiguration
+            var requestKeyConfigurationIsNull = true;
+            request.KeyConfiguration = new Amazon.CognitoIdentityProvider.Model.KeyConfigurationType();
+            Amazon.CognitoIdentityProvider.EncryptionKeyType requestKeyConfiguration_keyConfiguration_KeyType = null;
+            if (cmdletContext.KeyConfiguration_KeyType != null)
+            {
+                requestKeyConfiguration_keyConfiguration_KeyType = cmdletContext.KeyConfiguration_KeyType;
+            }
+            if (requestKeyConfiguration_keyConfiguration_KeyType != null)
+            {
+                request.KeyConfiguration.KeyType = requestKeyConfiguration_keyConfiguration_KeyType;
+                requestKeyConfigurationIsNull = false;
+            }
+            System.String requestKeyConfiguration_keyConfiguration_KmsKeyArn = null;
+            if (cmdletContext.KeyConfiguration_KmsKeyArn != null)
+            {
+                requestKeyConfiguration_keyConfiguration_KmsKeyArn = cmdletContext.KeyConfiguration_KmsKeyArn;
+            }
+            if (requestKeyConfiguration_keyConfiguration_KmsKeyArn != null)
+            {
+                request.KeyConfiguration.KmsKeyArn = requestKeyConfiguration_keyConfiguration_KmsKeyArn;
+                requestKeyConfigurationIsNull = false;
+            }
+             // determine if request.KeyConfiguration should be set to null
+            if (requestKeyConfigurationIsNull)
+            {
+                request.KeyConfiguration = null;
             }
             
              // populate LambdaConfig
@@ -1931,6 +2026,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String EmailConfiguration_SourceArn { get; set; }
             public System.String EmailVerificationMessage { get; set; }
             public System.String EmailVerificationSubject { get; set; }
+            public Amazon.CognitoIdentityProvider.IssuerType IssuerConfiguration_Type { get; set; }
+            public Amazon.CognitoIdentityProvider.EncryptionKeyType KeyConfiguration_KeyType { get; set; }
+            public System.String KeyConfiguration_KmsKeyArn { get; set; }
             public System.String LambdaConfig_CreateAuthChallenge { get; set; }
             public System.String CustomEmailSender_LambdaArn { get; set; }
             public Amazon.CognitoIdentityProvider.CustomEmailSenderLambdaVersionType CustomEmailSender_LambdaVersion { get; set; }

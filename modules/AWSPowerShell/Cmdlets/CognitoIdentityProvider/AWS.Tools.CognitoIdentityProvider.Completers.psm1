@@ -198,6 +198,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.EncryptionKeyType
+        {
+            ($_ -eq "New-CGIPUserPool/KeyConfiguration_KeyType") -Or
+            ($_ -eq "Update-CGIPUserPool/KeyConfiguration_KeyType")
+        }
+        {
+            $v = "AWS_OWNED_KEY","CUSTOMER_MANAGED_KEY"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.FeatureType
         {
             ($_ -eq "New-CGIPUserPoolClient/RefreshTokenRotation_Feature") -Or
@@ -232,6 +242,16 @@ $CGIP_Completers = {
         }
         {
             $v = "V1_0"
+            break
+        }
+
+        # Amazon.CognitoIdentityProvider.IssuerType
+        {
+            ($_ -eq "New-CGIPUserPool/IssuerConfiguration_Type") -Or
+            ($_ -eq "Update-CGIPUserPool/IssuerConfiguration_Type")
+        }
+        {
+            $v = "ORIGINAL","UPDATED"
             break
         }
 
@@ -296,6 +316,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.UpdateReplicaStatusType
+        "Update-CGIPUserPoolReplica/Status"
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.UserPoolMfaType
         {
             ($_ -eq "New-CGIPUserPool/MfaConfiguration") -Or
@@ -352,6 +379,8 @@ $CGIP_map = @{
     "Enforcement"=@("New-CGIPTerm","Update-CGIPTerm")
     "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")
     "HighAction_EventAction"=@("Set-CGIPRiskConfiguration")
+    "IssuerConfiguration_Type"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "KeyConfiguration_KeyType"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "LambdaConfig_InboundFederation_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "LowAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MediumAction_EventAction"=@("Set-CGIPRiskConfiguration")
@@ -361,6 +390,7 @@ $CGIP_map = @{
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
     "RefreshTokenRotation_Feature"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
+    "Status"=@("Update-CGIPUserPoolReplica")
     "TermsSource"=@("New-CGIPTerm","Update-CGIPTerm")
     "TokenValidityUnits_AccessToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_IdToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
@@ -465,6 +495,7 @@ $CGIP_SelectMap = @{
                "New-CGIPUserPool",
                "New-CGIPUserPoolClient",
                "New-CGIPUserPoolDomain",
+               "New-CGIPUserPoolReplica",
                "Remove-CGIPGroup",
                "Remove-CGIPIdentityProvider",
                "Remove-CGIPManagedLoginBranding",
@@ -476,6 +507,7 @@ $CGIP_SelectMap = @{
                "Remove-CGIPUserPoolClient",
                "Remove-CGIPUserPoolClientSecret",
                "Remove-CGIPUserPoolDomain",
+               "Remove-CGIPUserPoolReplica",
                "Remove-CGIPWebAuthnCredential",
                "Get-CGIPIdentityProvider",
                "Get-CGIPManagedLoginBranding",
@@ -512,6 +544,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPUserImportJobList",
                "Get-CGIPUserPoolClientList",
                "Get-CGIPUserPoolClientSecretList",
+               "Get-CGIPUserPoolReplicaList",
                "Get-CGIPUserPoolList",
                "Get-CGIPUserList",
                "Get-CGIPUsersInGroup",
@@ -542,6 +575,7 @@ $CGIP_SelectMap = @{
                "Update-CGIPUserPool",
                "Update-CGIPUserPoolClient",
                "Update-CGIPUserPoolDomain",
+               "Update-CGIPUserPoolReplica",
                "Test-CGIPSoftwareToken",
                "Test-CGIPUserAttribute")
 }

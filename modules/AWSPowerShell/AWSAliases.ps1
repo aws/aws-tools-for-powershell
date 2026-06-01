@@ -6572,6 +6572,8 @@ Set-Alias -Name Create-CGIPUserPoolClient -Value New-CGIPUserPoolClient
 Set-Alias -Name CGIP-CreateUserPoolClient -Value New-CGIPUserPoolClient
 Set-Alias -Name Create-CGIPUserPoolDomain -Value New-CGIPUserPoolDomain
 Set-Alias -Name CGIP-CreateUserPoolDomain -Value New-CGIPUserPoolDomain
+Set-Alias -Name Create-CGIPUserPoolReplica -Value New-CGIPUserPoolReplica
+Set-Alias -Name CGIP-CreateUserPoolReplica -Value New-CGIPUserPoolReplica
 Set-Alias -Name Delete-CGIPGroup -Value Remove-CGIPGroup
 Set-Alias -Name CGIP-DeleteGroup -Value Remove-CGIPGroup
 Set-Alias -Name Delete-CGIPIdentityProvider -Value Remove-CGIPIdentityProvider
@@ -6596,6 +6598,8 @@ Set-Alias -Name Delete-CGIPUserPoolClientSecret -Value Remove-CGIPUserPoolClient
 Set-Alias -Name CGIP-DeleteUserPoolClientSecret -Value Remove-CGIPUserPoolClientSecret
 Set-Alias -Name Delete-CGIPUserPoolDomain -Value Remove-CGIPUserPoolDomain
 Set-Alias -Name CGIP-DeleteUserPoolDomain -Value Remove-CGIPUserPoolDomain
+Set-Alias -Name Delete-CGIPUserPoolReplica -Value Remove-CGIPUserPoolReplica
+Set-Alias -Name CGIP-DeleteUserPoolReplica -Value Remove-CGIPUserPoolReplica
 Set-Alias -Name Delete-CGIPWebAuthnCredential -Value Remove-CGIPWebAuthnCredential
 Set-Alias -Name CGIP-DeleteWebAuthnCredential -Value Remove-CGIPWebAuthnCredential
 Set-Alias -Name Describe-CGIPIdentityProvider -Value Get-CGIPIdentityProvider
@@ -6668,6 +6672,9 @@ Set-Alias -Name CGIP-ListUserPoolClients -Value Get-CGIPUserPoolClientList
 Set-Alias -Name List-CGIPUserPoolClientSecrets -Value Get-CGIPUserPoolClientSecretList
 Set-Alias -Name List-CGIPUserPoolClientSecretList -Value Get-CGIPUserPoolClientSecretList
 Set-Alias -Name CGIP-ListUserPoolClientSecrets -Value Get-CGIPUserPoolClientSecretList
+Set-Alias -Name List-CGIPUserPoolReplicas -Value Get-CGIPUserPoolReplicaList
+Set-Alias -Name List-CGIPUserPoolReplicaList -Value Get-CGIPUserPoolReplicaList
+Set-Alias -Name CGIP-ListUserPoolReplicas -Value Get-CGIPUserPoolReplicaList
 Set-Alias -Name List-CGIPUserPools -Value Get-CGIPUserPoolList
 Set-Alias -Name List-CGIPUserPoolList -Value Get-CGIPUserPoolList
 Set-Alias -Name CGIP-ListUserPools -Value Get-CGIPUserPoolList
@@ -6714,6 +6721,7 @@ Set-Alias -Name CGIP-UpdateUserAttributes -Value Update-CGIPUserAttribute
 Set-Alias -Name CGIP-UpdateUserPool -Value Update-CGIPUserPool
 Set-Alias -Name CGIP-UpdateUserPoolClient -Value Update-CGIPUserPoolClient
 Set-Alias -Name CGIP-UpdateUserPoolDomain -Value Update-CGIPUserPoolDomain
+Set-Alias -Name CGIP-UpdateUserPoolReplica -Value Update-CGIPUserPoolReplica
 Set-Alias -Name Verify-CGIPSoftwareToken -Value Test-CGIPSoftwareToken
 Set-Alias -Name CGIP-VerifySoftwareToken -Value Test-CGIPSoftwareToken
 Set-Alias -Name Verify-CGIPUserAttribute -Value Test-CGIPUserAttribute
@@ -26605,6 +26613,8 @@ Set-Alias -Name Create-QSAccountSubscription -Value New-QSAccountSubscription
 Set-Alias -Name QS-CreateAccountSubscription -Value New-QSAccountSubscription
 Set-Alias -Name Create-QSActionConnector -Value New-QSActionConnector
 Set-Alias -Name QS-CreateActionConnector -Value New-QSActionConnector
+Set-Alias -Name Create-QSAgent -Value New-QSAgent
+Set-Alias -Name QS-CreateAgent -Value New-QSAgent
 Set-Alias -Name Create-QSAnalysis -Value New-QSAnalysis
 Set-Alias -Name QS-CreateAnalysis -Value New-QSAnalysis
 Set-Alias -Name Create-QSBrand -Value New-QSBrand
@@ -26618,6 +26628,8 @@ Set-Alias -Name Create-QSDataSet -Value New-QSDataSet
 Set-Alias -Name QS-CreateDataSet -Value New-QSDataSet
 Set-Alias -Name Create-QSDataSource -Value New-QSDataSource
 Set-Alias -Name QS-CreateDataSource -Value New-QSDataSource
+Set-Alias -Name Create-QSFlow -Value New-QSFlow
+Set-Alias -Name QS-CreateFlow -Value New-QSFlow
 Set-Alias -Name Create-QSFolder -Value New-QSFolder
 Set-Alias -Name QS-CreateFolder -Value New-QSFolder
 Set-Alias -Name Create-QSFolderMembership -Value New-QSFolderMembership
@@ -26638,6 +26650,8 @@ Set-Alias -Name Create-QSRefreshSchedule -Value New-QSRefreshSchedule
 Set-Alias -Name QS-CreateRefreshSchedule -Value New-QSRefreshSchedule
 Set-Alias -Name Create-QSRoleMembership -Value New-QSRoleMembership
 Set-Alias -Name QS-CreateRoleMembership -Value New-QSRoleMembership
+Set-Alias -Name Create-QSSpace -Value New-QSSpace
+Set-Alias -Name QS-CreateSpace -Value New-QSSpace
 Set-Alias -Name Create-QSTemplateAlias -Value New-QSTemplateAlias
 Set-Alias -Name QS-CreateTemplateAlias -Value New-QSTemplateAlias
 Set-Alias -Name Create-QSTemplate -Value New-QSTemplate
@@ -26660,6 +26674,8 @@ Set-Alias -Name Delete-QSAccountSubscription -Value Remove-QSAccountSubscription
 Set-Alias -Name QS-DeleteAccountSubscription -Value Remove-QSAccountSubscription
 Set-Alias -Name Delete-QSActionConnector -Value Remove-QSActionConnector
 Set-Alias -Name QS-DeleteActionConnector -Value Remove-QSActionConnector
+Set-Alias -Name Delete-QSAgent -Value Remove-QSAgent
+Set-Alias -Name QS-DeleteAgent -Value Remove-QSAgent
 Set-Alias -Name Delete-QSAnalysis -Value Remove-QSAnalysis
 Set-Alias -Name QS-DeleteAnalysis -Value Remove-QSAnalysis
 Set-Alias -Name Delete-QSBrandAssignment -Value Remove-QSBrandAssignment
@@ -26680,6 +26696,8 @@ Set-Alias -Name Delete-QSDataSource -Value Remove-QSDataSource
 Set-Alias -Name QS-DeleteDataSource -Value Remove-QSDataSource
 Set-Alias -Name Delete-QSDefaultQBusinessApplication -Value Remove-QSDefaultQBusinessApplication
 Set-Alias -Name QS-DeleteDefaultQBusinessApplication -Value Remove-QSDefaultQBusinessApplication
+Set-Alias -Name Delete-QSFlow -Value Remove-QSFlow
+Set-Alias -Name QS-DeleteFlow -Value Remove-QSFlow
 Set-Alias -Name Delete-QSFolder -Value Remove-QSFolder
 Set-Alias -Name QS-DeleteFolder -Value Remove-QSFolder
 Set-Alias -Name Delete-QSFolderMembership -Value Remove-QSFolderMembership
@@ -26702,6 +26720,8 @@ Set-Alias -Name Delete-QSRoleCustomPermission -Value Remove-QSRoleCustomPermissi
 Set-Alias -Name QS-DeleteRoleCustomPermission -Value Remove-QSRoleCustomPermission
 Set-Alias -Name Delete-QSRoleMembership -Value Remove-QSRoleMembership
 Set-Alias -Name QS-DeleteRoleMembership -Value Remove-QSRoleMembership
+Set-Alias -Name Delete-QSSpace -Value Remove-QSSpace
+Set-Alias -Name QS-DeleteSpace -Value Remove-QSSpace
 Set-Alias -Name Delete-QSTemplateAlias -Value Remove-QSTemplateAlias
 Set-Alias -Name QS-DeleteTemplateAlias -Value Remove-QSTemplateAlias
 Set-Alias -Name Delete-QSTemplate -Value Remove-QSTemplate
@@ -26736,6 +26756,12 @@ Set-Alias -Name QS-DescribeActionConnector -Value Get-QSActionConnector
 Set-Alias -Name Describe-QSActionConnectorPermissions -Value Get-QSActionConnectorPermission
 Set-Alias -Name Describe-QSActionConnectorPermission -Value Get-QSActionConnectorPermission
 Set-Alias -Name QS-DescribeActionConnectorPermissions -Value Get-QSActionConnectorPermission
+Set-Alias -Name Describe-QSAgent -Value Get-QSAgentDetail
+Set-Alias -Name Describe-QSAgentDetail -Value Get-QSAgentDetail
+Set-Alias -Name QS-DescribeAgent -Value Get-QSAgentDetail
+Set-Alias -Name Describe-QSAgentPermissions -Value Get-QSAgentPermissionDetail
+Set-Alias -Name Describe-QSAgentPermissionDetail -Value Get-QSAgentPermissionDetail
+Set-Alias -Name QS-DescribeAgentPermissions -Value Get-QSAgentPermissionDetail
 Set-Alias -Name Describe-QSAnalysis -Value Get-QSAnalysis
 Set-Alias -Name QS-DescribeAnalysis -Value Get-QSAnalysis
 Set-Alias -Name Describe-QSAnalysisDefinition -Value Get-QSAnalysisDefinition
@@ -26787,6 +26813,9 @@ Set-Alias -Name Describe-QSDataSourcePermission -Value Get-QSDataSourcePermissio
 Set-Alias -Name QS-DescribeDataSourcePermissions -Value Get-QSDataSourcePermission
 Set-Alias -Name Describe-QSDefaultQBusinessApplication -Value Get-QSDefaultQBusinessApplication
 Set-Alias -Name QS-DescribeDefaultQBusinessApplication -Value Get-QSDefaultQBusinessApplication
+Set-Alias -Name Describe-QSFlow -Value Get-QSFlowDetail
+Set-Alias -Name Describe-QSFlowDetail -Value Get-QSFlowDetail
+Set-Alias -Name QS-DescribeFlow -Value Get-QSFlowDetail
 Set-Alias -Name Describe-QSFolder -Value Get-QSFolder
 Set-Alias -Name QS-DescribeFolder -Value Get-QSFolder
 Set-Alias -Name Describe-QSFolderPermissions -Value Get-QSFolderPermission
@@ -26823,6 +26852,12 @@ Set-Alias -Name QS-DescribeRoleCustomPermission -Value Get-QSRoleCustomPermissio
 Set-Alias -Name Describe-QSSelfUpgradeConfiguration -Value Get-QSSelfUpgradeConfigurationDetail
 Set-Alias -Name Describe-QSSelfUpgradeConfigurationDetail -Value Get-QSSelfUpgradeConfigurationDetail
 Set-Alias -Name QS-DescribeSelfUpgradeConfiguration -Value Get-QSSelfUpgradeConfigurationDetail
+Set-Alias -Name Describe-QSSpace -Value Get-QSSpaceDetail
+Set-Alias -Name Describe-QSSpaceDetail -Value Get-QSSpaceDetail
+Set-Alias -Name QS-DescribeSpace -Value Get-QSSpaceDetail
+Set-Alias -Name Describe-QSSpacePermissions -Value Get-QSSpacePermissionDetail
+Set-Alias -Name Describe-QSSpacePermissionDetail -Value Get-QSSpacePermissionDetail
+Set-Alias -Name QS-DescribeSpacePermissions -Value Get-QSSpacePermissionDetail
 Set-Alias -Name Describe-QSTemplateAlias -Value Get-QSTemplateAlias
 Set-Alias -Name QS-DescribeTemplateAlias -Value Get-QSTemplateAlias
 Set-Alias -Name Describe-QSTemplate -Value Get-QSTemplate
@@ -26867,6 +26902,9 @@ Set-Alias -Name QS-GetSessionEmbedUrl -Value Get-QSSessionEmbedUrl
 Set-Alias -Name List-QSActionConnectors -Value Get-QSActionConnectorList
 Set-Alias -Name List-QSActionConnectorList -Value Get-QSActionConnectorList
 Set-Alias -Name QS-ListActionConnectors -Value Get-QSActionConnectorList
+Set-Alias -Name List-QSAgents -Value Get-QSAgentList
+Set-Alias -Name List-QSAgentList -Value Get-QSAgentList
+Set-Alias -Name QS-ListAgents -Value Get-QSAgentList
 Set-Alias -Name List-QSAnalyses -Value Get-QSAnalysisList
 Set-Alias -Name List-QSAnalysisList -Value Get-QSAnalysisList
 Set-Alias -Name QS-ListAnalyses -Value Get-QSAnalysisList
@@ -26939,6 +26977,12 @@ Set-Alias -Name QS-ListRoleMemberships -Value Get-QSRoleMembershipList
 Set-Alias -Name List-QSSelfUpgrades -Value Get-QSSelfUpgradeList
 Set-Alias -Name List-QSSelfUpgradeList -Value Get-QSSelfUpgradeList
 Set-Alias -Name QS-ListSelfUpgrades -Value Get-QSSelfUpgradeList
+Set-Alias -Name List-QSSpaceResources -Value Get-QSSpaceResourceList
+Set-Alias -Name List-QSSpaceResourceList -Value Get-QSSpaceResourceList
+Set-Alias -Name QS-ListSpaceResources -Value Get-QSSpaceResourceList
+Set-Alias -Name List-QSSpaces -Value Get-QSSpaceList
+Set-Alias -Name List-QSSpaceList -Value Get-QSSpaceList
+Set-Alias -Name QS-ListSpaces -Value Get-QSSpaceList
 Set-Alias -Name QS-ListTagsForResource -Value Get-QSResourceTag
 Set-Alias -Name List-QSTemplateAliases -Value Get-QSTemplateAliasList
 Set-Alias -Name List-QSTemplateAliasList -Value Get-QSTemplateAliasList
@@ -26986,6 +27030,8 @@ Set-Alias -Name QS-RegisterUser -Value Register-QSUser
 Set-Alias -Name QS-RestoreAnalysis -Value Restore-QSAnalysis
 Set-Alias -Name Search-QSActionConnectors -Value Search-QSActionConnector
 Set-Alias -Name QS-SearchActionConnectors -Value Search-QSActionConnector
+Set-Alias -Name Search-QSAgents -Value Search-QSAgent
+Set-Alias -Name QS-SearchAgents -Value Search-QSAgent
 Set-Alias -Name Search-QSAnalyses -Value Search-QSAnalysis
 Set-Alias -Name QS-SearchAnalyses -Value Search-QSAnalysis
 Set-Alias -Name Search-QSDashboards -Value Search-QSDashboard
@@ -27001,6 +27047,8 @@ Set-Alias -Name QS-SearchFolders -Value Search-QSFolder
 Set-Alias -Name Search-QSGroups -Value Find-QSGroup
 Set-Alias -Name Search-QSGroup -Value Find-QSGroup
 Set-Alias -Name QS-SearchGroups -Value Find-QSGroup
+Set-Alias -Name Search-QSSpaces -Value Search-QSSpace
+Set-Alias -Name QS-SearchSpaces -Value Search-QSSpace
 Set-Alias -Name Search-QSTopics -Value Search-QSTopic
 Set-Alias -Name QS-SearchTopics -Value Search-QSTopic
 Set-Alias -Name QS-StartAssetBundleExportJob -Value Start-QSAssetBundleExportJob
@@ -27017,6 +27065,9 @@ Set-Alias -Name QS-UpdateAccountSettings -Value Update-QSAccountSetting
 Set-Alias -Name QS-UpdateActionConnector -Value Update-QSActionConnector
 Set-Alias -Name Update-QSActionConnectorPermissions -Value Update-QSActionConnectorPermission
 Set-Alias -Name QS-UpdateActionConnectorPermissions -Value Update-QSActionConnectorPermission
+Set-Alias -Name QS-UpdateAgent -Value Update-QSAgent
+Set-Alias -Name Update-QSAgentPermissions -Value Update-QSAgentPermission
+Set-Alias -Name QS-UpdateAgentPermissions -Value Update-QSAgentPermission
 Set-Alias -Name QS-UpdateAnalysis -Value Update-QSAnalysis
 Set-Alias -Name Update-QSAnalysisPermissions -Value Update-QSAnalysisPermission
 Set-Alias -Name QS-UpdateAnalysisPermissions -Value Update-QSAnalysisPermission
@@ -27040,6 +27091,7 @@ Set-Alias -Name QS-UpdateDataSource -Value Update-QSDataSource
 Set-Alias -Name Update-QSDataSourcePermissions -Value Update-QSDataSourcePermission
 Set-Alias -Name QS-UpdateDataSourcePermissions -Value Update-QSDataSourcePermission
 Set-Alias -Name QS-UpdateDefaultQBusinessApplication -Value Update-QSDefaultQBusinessApplication
+Set-Alias -Name QS-UpdateFlow -Value Update-QSFlow
 Set-Alias -Name Update-QSFlowPermissions -Value Update-QSFlowPermission
 Set-Alias -Name QS-UpdateFlowPermissions -Value Update-QSFlowPermission
 Set-Alias -Name QS-UpdateFolder -Value Update-QSFolder
@@ -27059,6 +27111,11 @@ Set-Alias -Name QS-UpdateRefreshSchedule -Value Update-QSRefreshSchedule
 Set-Alias -Name QS-UpdateRoleCustomPermission -Value Update-QSRoleCustomPermission
 Set-Alias -Name QS-UpdateSelfUpgrade -Value Update-QSSelfUpgrade
 Set-Alias -Name QS-UpdateSelfUpgradeConfiguration -Value Update-QSSelfUpgradeConfiguration
+Set-Alias -Name QS-UpdateSpace -Value Update-QSSpace
+Set-Alias -Name Update-QSSpacePermissions -Value Update-QSSpacePermission
+Set-Alias -Name QS-UpdateSpacePermissions -Value Update-QSSpacePermission
+Set-Alias -Name Update-QSSpaceResources -Value Update-QSSpaceResource
+Set-Alias -Name QS-UpdateSpaceResources -Value Update-QSSpaceResource
 Set-Alias -Name QS-UpdateSPICECapacityConfiguration -Value Update-QSSPICECapacityConfiguration
 Set-Alias -Name QS-UpdateTemplateAlias -Value Update-QSTemplateAlias
 Set-Alias -Name QS-UpdateTemplate -Value Update-QSTemplate

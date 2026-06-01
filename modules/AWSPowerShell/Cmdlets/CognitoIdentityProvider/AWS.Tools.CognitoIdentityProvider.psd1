@@ -143,6 +143,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CGIPUserPoolDomain', 
         'Get-CGIPUserPoolList', 
         'Get-CGIPUserPoolMfaConfig', 
+        'Get-CGIPUserPoolReplicaList', 
         'Get-CGIPUsersInGroup', 
         'Get-CGIPWebAuthnCredentialList', 
         'New-CGIPGroup', 
@@ -155,6 +156,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CGIPUserPool', 
         'New-CGIPUserPoolClient', 
         'New-CGIPUserPoolDomain', 
+        'New-CGIPUserPoolReplica', 
         'Register-CGIPUserInPool', 
         'Remove-CGIPGroup', 
         'Remove-CGIPIdentityProvider', 
@@ -171,6 +173,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CGIPUserPoolClient', 
         'Remove-CGIPUserPoolClientSecret', 
         'Remove-CGIPUserPoolDomain', 
+        'Remove-CGIPUserPoolReplica', 
         'Remove-CGIPWebAuthnCredential', 
         'Reset-CGIPForgottenPassword', 
         'Reset-CGIPUserPasswordAdmin', 
@@ -208,7 +211,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CGIPUserAttributeAdmin', 
         'Update-CGIPUserPool', 
         'Update-CGIPUserPoolClient', 
-        'Update-CGIPUserPoolDomain')
+        'Update-CGIPUserPoolDomain', 
+        'Update-CGIPUserPoolReplica')
 
     # Variables to export from this module
     VariablesToExport = '*'

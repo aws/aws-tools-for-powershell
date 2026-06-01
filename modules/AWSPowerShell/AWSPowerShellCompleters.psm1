@@ -18526,6 +18526,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.EncryptionKeyType
+        {
+            ($_ -eq "New-CGIPUserPool/KeyConfiguration_KeyType") -Or
+            ($_ -eq "Update-CGIPUserPool/KeyConfiguration_KeyType")
+        }
+        {
+            $v = "AWS_OWNED_KEY","CUSTOMER_MANAGED_KEY"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.FeatureType
         {
             ($_ -eq "New-CGIPUserPoolClient/RefreshTokenRotation_Feature") -Or
@@ -18560,6 +18570,16 @@ $CGIP_Completers = {
         }
         {
             $v = "V1_0"
+            break
+        }
+
+        # Amazon.CognitoIdentityProvider.IssuerType
+        {
+            ($_ -eq "New-CGIPUserPool/IssuerConfiguration_Type") -Or
+            ($_ -eq "Update-CGIPUserPool/IssuerConfiguration_Type")
+        }
+        {
+            $v = "ORIGINAL","UPDATED"
             break
         }
 
@@ -18624,6 +18644,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.UpdateReplicaStatusType
+        "Update-CGIPUserPoolReplica/Status"
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.UserPoolMfaType
         {
             ($_ -eq "New-CGIPUserPool/MfaConfiguration") -Or
@@ -18680,6 +18707,8 @@ $CGIP_map = @{
     "Enforcement"=@("New-CGIPTerm","Update-CGIPTerm")
     "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")
     "HighAction_EventAction"=@("Set-CGIPRiskConfiguration")
+    "IssuerConfiguration_Type"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "KeyConfiguration_KeyType"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "LambdaConfig_InboundFederation_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "LowAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MediumAction_EventAction"=@("Set-CGIPRiskConfiguration")
@@ -18689,6 +18718,7 @@ $CGIP_map = @{
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
     "RefreshTokenRotation_Feature"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
+    "Status"=@("Update-CGIPUserPoolReplica")
     "TermsSource"=@("New-CGIPTerm","Update-CGIPTerm")
     "TokenValidityUnits_AccessToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_IdToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
@@ -18793,6 +18823,7 @@ $CGIP_SelectMap = @{
                "New-CGIPUserPool",
                "New-CGIPUserPoolClient",
                "New-CGIPUserPoolDomain",
+               "New-CGIPUserPoolReplica",
                "Remove-CGIPGroup",
                "Remove-CGIPIdentityProvider",
                "Remove-CGIPManagedLoginBranding",
@@ -18804,6 +18835,7 @@ $CGIP_SelectMap = @{
                "Remove-CGIPUserPoolClient",
                "Remove-CGIPUserPoolClientSecret",
                "Remove-CGIPUserPoolDomain",
+               "Remove-CGIPUserPoolReplica",
                "Remove-CGIPWebAuthnCredential",
                "Get-CGIPIdentityProvider",
                "Get-CGIPManagedLoginBranding",
@@ -18840,6 +18872,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPUserImportJobList",
                "Get-CGIPUserPoolClientList",
                "Get-CGIPUserPoolClientSecretList",
+               "Get-CGIPUserPoolReplicaList",
                "Get-CGIPUserPoolList",
                "Get-CGIPUserList",
                "Get-CGIPUsersInGroup",
@@ -18870,6 +18903,7 @@ $CGIP_SelectMap = @{
                "Update-CGIPUserPool",
                "Update-CGIPUserPoolClient",
                "Update-CGIPUserPoolDomain",
+               "Update-CGIPUserPoolReplica",
                "Test-CGIPSoftwareToken",
                "Test-CGIPUserAttribute")
 }
@@ -67586,6 +67620,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.AgentLifecycle
+        "New-QSAgent/AgentLifecycle"
+        {
+            $v = "PREVIEW","PUBLISHED"
+            break
+        }
+
         # Amazon.QuickSight.AssetBundleExportFormat
         "Start-QSAssetBundleExportJob/ExportFormat"
         {
@@ -68243,6 +68284,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.FlowPublishState
+        "Get-QSFlowDetail/PublishState"
+        {
+            $v = "DRAFT","PENDING_APPROVAL","PUBLISHED"
+            break
+        }
+
         # Amazon.QuickSight.FolderType
         "New-QSFolder/FolderType"
         {
@@ -68735,6 +68783,7 @@ $QS_Completers = {
 $QS_map = @{
     "Action"=@("Update-QSSelfUpgrade")
     "AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "AgentLifecycle"=@("New-QSAgent")
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationConfig_AuthenticationType"=@("New-QSActionConnector","Update-QSActionConnector")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
@@ -69034,6 +69083,7 @@ $QS_map = @{
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PersonalizationMode"=@("Update-QSQPersonalizationConfiguration")
+    "PublishState"=@("Get-QSFlowDetail")
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
     "QSearchStatus"=@("Update-QSQuickSightQSearchConfiguration")
     "QueryExecutionOptions_QueryExecutionMode"=@("New-QSAnalysis","New-QSTemplate","Update-QSAnalysis","Update-QSTemplate")
@@ -69126,12 +69176,14 @@ $QS_SelectMap = @{
                "New-QSAccountCustomization",
                "New-QSAccountSubscription",
                "New-QSActionConnector",
+               "New-QSAgent",
                "New-QSAnalysis",
                "New-QSBrand",
                "New-QSCustomPermission",
                "New-QSDashboard",
                "New-QSDataSet",
                "New-QSDataSource",
+               "New-QSFlow",
                "New-QSFolder",
                "New-QSFolderMembership",
                "New-QSGroup",
@@ -69142,6 +69194,7 @@ $QS_SelectMap = @{
                "New-QSOAuthClientApplication",
                "New-QSRefreshSchedule",
                "New-QSRoleMembership",
+               "New-QSSpace",
                "New-QSTemplate",
                "New-QSTemplateAlias",
                "New-QSTheme",
@@ -69153,6 +69206,7 @@ $QS_SelectMap = @{
                "Remove-QSAccountCustomPermission",
                "Remove-QSAccountSubscription",
                "Remove-QSActionConnector",
+               "Remove-QSAgent",
                "Remove-QSAnalysis",
                "Remove-QSBrand",
                "Remove-QSBrandAssignment",
@@ -69162,6 +69216,7 @@ $QS_SelectMap = @{
                "Remove-QSDataSetRefreshProperty",
                "Remove-QSDataSource",
                "Remove-QSDefaultQBusinessApplication",
+               "Remove-QSFlow",
                "Remove-QSFolder",
                "Remove-QSFolderMembership",
                "Remove-QSGroup",
@@ -69173,6 +69228,7 @@ $QS_SelectMap = @{
                "Remove-QSRefreshSchedule",
                "Remove-QSRoleCustomPermission",
                "Remove-QSRoleMembership",
+               "Remove-QSSpace",
                "Remove-QSTemplate",
                "Remove-QSTemplateAlias",
                "Remove-QSTheme",
@@ -69189,6 +69245,8 @@ $QS_SelectMap = @{
                "Get-QSAccountSubscription",
                "Get-QSActionConnector",
                "Get-QSActionConnectorPermission",
+               "Get-QSAgentDetail",
+               "Get-QSAgentPermissionDetail",
                "Get-QSAnalysis",
                "Get-QSAnalysisDefinition",
                "Get-QSAnalysisPermission",
@@ -69211,6 +69269,7 @@ $QS_SelectMap = @{
                "Get-QSDataSource",
                "Get-QSDataSourcePermission",
                "Get-QSDefaultQBusinessApplication",
+               "Get-QSFlowDetail",
                "Get-QSFolder",
                "Get-QSFolderPermission",
                "Get-QSFolderResolvedPermission",
@@ -69227,6 +69286,8 @@ $QS_SelectMap = @{
                "Get-QSRefreshSchedule",
                "Get-QSRoleCustomPermission",
                "Get-QSSelfUpgradeConfigurationDetail",
+               "Get-QSSpaceDetail",
+               "Get-QSSpacePermissionDetail",
                "Get-QSTemplate",
                "Get-QSTemplateAlias",
                "Get-QSTemplateDefinition",
@@ -69249,6 +69310,7 @@ $QS_SelectMap = @{
                "Get-QSIdentityContext",
                "Get-QSSessionEmbedUrl",
                "Get-QSActionConnectorList",
+               "Get-QSAgentList",
                "Get-QSAnalysisList",
                "Get-QSAssetBundleExportJobList",
                "Get-QSAssetBundleImportJobList",
@@ -69273,6 +69335,8 @@ $QS_SelectMap = @{
                "Get-QSRefreshScheduleList",
                "Get-QSRoleMembershipList",
                "Get-QSSelfUpgradeList",
+               "Get-QSSpaceResourceList",
+               "Get-QSSpaceList",
                "Get-QSResourceTag",
                "Get-QSTemplateAliasList",
                "Get-QSTemplateList",
@@ -69291,6 +69355,7 @@ $QS_SelectMap = @{
                "Register-QSUser",
                "Restore-QSAnalysis",
                "Search-QSActionConnector",
+               "Search-QSAgent",
                "Search-QSAnalysis",
                "Search-QSDashboard",
                "Search-QSDataSet",
@@ -69298,6 +69363,7 @@ $QS_SelectMap = @{
                "Search-QSFlow",
                "Search-QSFolder",
                "Find-QSGroup",
+               "Search-QSSpace",
                "Search-QSTopic",
                "Start-QSAssetBundleExportJob",
                "Start-QSAssetBundleImportJob",
@@ -69311,6 +69377,8 @@ $QS_SelectMap = @{
                "Update-QSAccountSetting",
                "Update-QSActionConnector",
                "Update-QSActionConnectorPermission",
+               "Update-QSAgent",
+               "Update-QSAgentPermission",
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
                "Update-QSApplicationWithTokenExchangeGrant",
@@ -69328,6 +69396,7 @@ $QS_SelectMap = @{
                "Update-QSDataSource",
                "Update-QSDataSourcePermission",
                "Update-QSDefaultQBusinessApplication",
+               "Update-QSFlow",
                "Update-QSFlowPermission",
                "Update-QSFolder",
                "Update-QSFolderPermission",
@@ -69344,6 +69413,9 @@ $QS_SelectMap = @{
                "Update-QSRoleCustomPermission",
                "Update-QSSelfUpgrade",
                "Update-QSSelfUpgradeConfiguration",
+               "Update-QSSpace",
+               "Update-QSSpacePermission",
+               "Update-QSSpaceResource",
                "Update-QSSPICECapacityConfiguration",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",

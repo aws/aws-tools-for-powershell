@@ -49,6 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// of <c>UserPoolAddOns</c> in an <c>UpdateUserPool</c> request. To activate this setting,
     /// your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
     /// Plus tier</a>.
+    /// </para><para>
+    /// In secondary regions for user pools with multi-region replication, only the <c>SourceARN</c>
+    /// and <c>From</c> attributes of <c>NotifyConfiguration</c> can be modified to configure
+    /// region-specific SES integration. All other risk configuration settings must match
+    /// the existing values to maintain consistency across replicas.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "CGIPRiskConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

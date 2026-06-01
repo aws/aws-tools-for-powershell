@@ -87,6 +87,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.AgentLifecycle
+        "New-QSAgent/AgentLifecycle"
+        {
+            $v = "PREVIEW","PUBLISHED"
+            break
+        }
+
         # Amazon.QuickSight.AssetBundleExportFormat
         "Start-QSAssetBundleExportJob/ExportFormat"
         {
@@ -744,6 +751,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.FlowPublishState
+        "Get-QSFlowDetail/PublishState"
+        {
+            $v = "DRAFT","PENDING_APPROVAL","PUBLISHED"
+            break
+        }
+
         # Amazon.QuickSight.FolderType
         "New-QSFolder/FolderType"
         {
@@ -1236,6 +1250,7 @@ $QS_Completers = {
 $QS_map = @{
     "Action"=@("Update-QSSelfUpgrade")
     "AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "AgentLifecycle"=@("New-QSAgent")
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationConfig_AuthenticationType"=@("New-QSActionConnector","Update-QSActionConnector")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
@@ -1535,6 +1550,7 @@ $QS_map = @{
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PersonalizationMode"=@("Update-QSQPersonalizationConfiguration")
+    "PublishState"=@("Get-QSFlowDetail")
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
     "QSearchStatus"=@("Update-QSQuickSightQSearchConfiguration")
     "QueryExecutionOptions_QueryExecutionMode"=@("New-QSAnalysis","New-QSTemplate","Update-QSAnalysis","Update-QSTemplate")
@@ -1627,12 +1643,14 @@ $QS_SelectMap = @{
                "New-QSAccountCustomization",
                "New-QSAccountSubscription",
                "New-QSActionConnector",
+               "New-QSAgent",
                "New-QSAnalysis",
                "New-QSBrand",
                "New-QSCustomPermission",
                "New-QSDashboard",
                "New-QSDataSet",
                "New-QSDataSource",
+               "New-QSFlow",
                "New-QSFolder",
                "New-QSFolderMembership",
                "New-QSGroup",
@@ -1643,6 +1661,7 @@ $QS_SelectMap = @{
                "New-QSOAuthClientApplication",
                "New-QSRefreshSchedule",
                "New-QSRoleMembership",
+               "New-QSSpace",
                "New-QSTemplate",
                "New-QSTemplateAlias",
                "New-QSTheme",
@@ -1654,6 +1673,7 @@ $QS_SelectMap = @{
                "Remove-QSAccountCustomPermission",
                "Remove-QSAccountSubscription",
                "Remove-QSActionConnector",
+               "Remove-QSAgent",
                "Remove-QSAnalysis",
                "Remove-QSBrand",
                "Remove-QSBrandAssignment",
@@ -1663,6 +1683,7 @@ $QS_SelectMap = @{
                "Remove-QSDataSetRefreshProperty",
                "Remove-QSDataSource",
                "Remove-QSDefaultQBusinessApplication",
+               "Remove-QSFlow",
                "Remove-QSFolder",
                "Remove-QSFolderMembership",
                "Remove-QSGroup",
@@ -1674,6 +1695,7 @@ $QS_SelectMap = @{
                "Remove-QSRefreshSchedule",
                "Remove-QSRoleCustomPermission",
                "Remove-QSRoleMembership",
+               "Remove-QSSpace",
                "Remove-QSTemplate",
                "Remove-QSTemplateAlias",
                "Remove-QSTheme",
@@ -1690,6 +1712,8 @@ $QS_SelectMap = @{
                "Get-QSAccountSubscription",
                "Get-QSActionConnector",
                "Get-QSActionConnectorPermission",
+               "Get-QSAgentDetail",
+               "Get-QSAgentPermissionDetail",
                "Get-QSAnalysis",
                "Get-QSAnalysisDefinition",
                "Get-QSAnalysisPermission",
@@ -1712,6 +1736,7 @@ $QS_SelectMap = @{
                "Get-QSDataSource",
                "Get-QSDataSourcePermission",
                "Get-QSDefaultQBusinessApplication",
+               "Get-QSFlowDetail",
                "Get-QSFolder",
                "Get-QSFolderPermission",
                "Get-QSFolderResolvedPermission",
@@ -1728,6 +1753,8 @@ $QS_SelectMap = @{
                "Get-QSRefreshSchedule",
                "Get-QSRoleCustomPermission",
                "Get-QSSelfUpgradeConfigurationDetail",
+               "Get-QSSpaceDetail",
+               "Get-QSSpacePermissionDetail",
                "Get-QSTemplate",
                "Get-QSTemplateAlias",
                "Get-QSTemplateDefinition",
@@ -1750,6 +1777,7 @@ $QS_SelectMap = @{
                "Get-QSIdentityContext",
                "Get-QSSessionEmbedUrl",
                "Get-QSActionConnectorList",
+               "Get-QSAgentList",
                "Get-QSAnalysisList",
                "Get-QSAssetBundleExportJobList",
                "Get-QSAssetBundleImportJobList",
@@ -1774,6 +1802,8 @@ $QS_SelectMap = @{
                "Get-QSRefreshScheduleList",
                "Get-QSRoleMembershipList",
                "Get-QSSelfUpgradeList",
+               "Get-QSSpaceResourceList",
+               "Get-QSSpaceList",
                "Get-QSResourceTag",
                "Get-QSTemplateAliasList",
                "Get-QSTemplateList",
@@ -1792,6 +1822,7 @@ $QS_SelectMap = @{
                "Register-QSUser",
                "Restore-QSAnalysis",
                "Search-QSActionConnector",
+               "Search-QSAgent",
                "Search-QSAnalysis",
                "Search-QSDashboard",
                "Search-QSDataSet",
@@ -1799,6 +1830,7 @@ $QS_SelectMap = @{
                "Search-QSFlow",
                "Search-QSFolder",
                "Find-QSGroup",
+               "Search-QSSpace",
                "Search-QSTopic",
                "Start-QSAssetBundleExportJob",
                "Start-QSAssetBundleImportJob",
@@ -1812,6 +1844,8 @@ $QS_SelectMap = @{
                "Update-QSAccountSetting",
                "Update-QSActionConnector",
                "Update-QSActionConnectorPermission",
+               "Update-QSAgent",
+               "Update-QSAgentPermission",
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
                "Update-QSApplicationWithTokenExchangeGrant",
@@ -1829,6 +1863,7 @@ $QS_SelectMap = @{
                "Update-QSDataSource",
                "Update-QSDataSourcePermission",
                "Update-QSDefaultQBusinessApplication",
+               "Update-QSFlow",
                "Update-QSFlowPermission",
                "Update-QSFolder",
                "Update-QSFolderPermission",
@@ -1845,6 +1880,9 @@ $QS_SelectMap = @{
                "Update-QSRoleCustomPermission",
                "Update-QSSelfUpgrade",
                "Update-QSSelfUpgradeConfiguration",
+               "Update-QSSpace",
+               "Update-QSSpacePermission",
+               "Update-QSSpaceResource",
                "Update-QSSPICECapacityConfiguration",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
