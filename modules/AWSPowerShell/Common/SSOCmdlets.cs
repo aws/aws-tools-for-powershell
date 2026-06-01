@@ -37,6 +37,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq.Expressions;
 using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
+using SSOEndpointResolver = Amazon.PowerShell.Common.Internal.SSOEndpointResolver;
 
 namespace Amazon.PowerShell.Common
 {
@@ -479,7 +480,17 @@ namespace Amazon.PowerShell.Common
 
             if (SSORegion == null)
             {
-                SSORegion = PromptForSSORegion(existingProfile?.Options?.SsoRegion);
+                // Attempt to auto-detect region from the start URL (works for new portal formats and vanity domains that redirect to them)
+                var detectedRegion = SSOEndpointResolver.ResolveRegionAsync(StartUrl, null).GetAwaiter().GetResult();
+                if (!string.IsNullOrEmpty(detectedRegion))
+                {
+                    SSORegion = detectedRegion;
+                    Console.WriteLine($"SSO region auto-detected from start URL: {SSORegion}");
+                }
+                else
+                {
+                    SSORegion = PromptForSSORegion(existingProfile?.Options?.SsoRegion);
+                }
             }
 
             if (IsInteractiveMode() && RegistrationScopes == null)
@@ -830,9 +841,10 @@ namespace Amazon.PowerShell.Common
         public string StartUrl { get; set; }
 
         /// <summary>
-        /// <para>AWS Region that contains the AWS access portal host. This is separate from, and can be a different Region than, the profile region parameter.</para>
+        /// <para>AWS Region that contains the AWS access portal host. This is separate from, and can be a different Region than, the profile region parameter.
+        /// When the start URL contains region information (new portal formats or vanity domains that redirect to them), this parameter is optional and acts as an override.</para>
         /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         public string SSORegion { get; set; }
 
         /// <summary>
@@ -863,8 +875,21 @@ namespace Amazon.PowerShell.Common
                     new ArgumentException($"StartUrl {StartUrl} is not valid."),
                     "ArgumentException", ErrorCategory.InvalidArgument, this.StartUrl));
             }
-            // ensure StartUrl ends with "/" for consistency
-            if (!StartUrl.EndsWith("/")) StartUrl = StartUrl.TrimEnd('/');
+            // Remove trailing slash for consistency
+            if (StartUrl.EndsWith("/")) StartUrl = StartUrl.TrimEnd('/');
+
+            // Auto-detect region from start URL if not explicitly provided
+            if (string.IsNullOrEmpty(SSORegion))
+            {
+                SSORegion = SSOEndpointResolver.ResolveRegionAsync(StartUrl, null).GetAwaiter().GetResult();
+                if (string.IsNullOrEmpty(SSORegion))
+                {
+                    this.ThrowTerminatingError(new ErrorRecord(
+                        new ArgumentException("SSORegion is required. The region could not be determined from the start URL. " +
+                            "Please provide the -SSORegion parameter."),
+                        "ArgumentException", ErrorCategory.InvalidArgument, this.StartUrl));
+                }
+            }
 
             var profileOptions = new CredentialProfileOptions
             {

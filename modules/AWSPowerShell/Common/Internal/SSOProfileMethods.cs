@@ -124,16 +124,19 @@ namespace Amazon.PowerShell.Utils
             }
 
             ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoSession), profileOptions.SsoSession);
-            ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoRegion), profileOptions.SsoRegion);
             ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoStartUrl), profileOptions.SsoStartUrl);
 
             // Only sso_start_url and sso_region supported in sso-session sections for IAM Identity Center
             // Legacy profiles don't support sso_session sections, all Sso* keys defined directly in profile.
             var ssoSessionProperties = new SortedDictionary<string, string>()
         {
-            { _ssoRegionPropertyName, profileOptions.SsoRegion },
             { _ssoStartUrlPropertyName, profileOptions.SsoStartUrl },
         };
+
+            if (!string.IsNullOrWhiteSpace(profileOptions.SsoRegion))
+            {
+                ssoSessionProperties.Add(_ssoRegionPropertyName, profileOptions.SsoRegion);
+            }
 
             if (!string.IsNullOrWhiteSpace(profileOptions.SsoRegistrationScopes))
             {
@@ -163,7 +166,6 @@ namespace Amazon.PowerShell.Utils
             var options = profile.Options;
 
             ThrowOnNullOrWhiteSpace(nameof(options.SsoSession), options.SsoSession);
-            ThrowOnNullOrWhiteSpace(nameof(options.SsoRegion), options.SsoRegion);
             ThrowOnNullOrWhiteSpace(nameof(options.SsoStartUrl), options.SsoStartUrl);
             ThrowOnNullOrWhiteSpace(nameof(options.SsoAccountId), options.SsoAccountId);
             ThrowOnNullOrWhiteSpace(nameof(options.SsoRoleName), options.SsoRoleName);
@@ -172,9 +174,13 @@ namespace Amazon.PowerShell.Utils
             // Legacy profiles don't support sso_session sections, all Sso* keys defined directly in profile.
             var ssoSessionProperties = new SortedDictionary<string, string>()
         {
-            { _ssoRegionPropertyName, options.SsoRegion },
             { _ssoStartUrlPropertyName, options.SsoStartUrl },
         };
+
+            if (!string.IsNullOrWhiteSpace(options.SsoRegion))
+            {
+                ssoSessionProperties.Add(_ssoRegionPropertyName, options.SsoRegion);
+            }
 
             var profileProperties = new SortedDictionary<string, string>()
         {
