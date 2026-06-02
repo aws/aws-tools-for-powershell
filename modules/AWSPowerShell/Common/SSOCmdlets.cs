@@ -478,21 +478,6 @@ namespace Amazon.PowerShell.Common
                 StartUrl = PromptForStartUrl(existingProfile?.Options?.SsoStartUrl);
             }
 
-            if (SSORegion == null)
-            {
-                // Attempt to auto-detect region from the start URL (works for new portal formats and vanity domains that redirect to them)
-                var detectedRegion = SSOEndpointResolver.ResolveRegionAsync(StartUrl, null).GetAwaiter().GetResult();
-                if (!string.IsNullOrEmpty(detectedRegion))
-                {
-                    SSORegion = detectedRegion;
-                    Console.WriteLine($"SSO region auto-detected from start URL: {SSORegion}");
-                }
-                else
-                {
-                    SSORegion = PromptForSSORegion(existingProfile?.Options?.SsoRegion);
-                }
-            }
-
             if (IsInteractiveMode() && RegistrationScopes == null)
             {
                 RegistrationScopes = PromptForRegistrationScopes();
@@ -509,6 +494,39 @@ namespace Amazon.PowerShell.Common
             }
             // Remove trailing slash "/" for consistency
             if (StartUrl.EndsWith("/")) StartUrl = StartUrl.TrimEnd('/');
+
+            #endregion
+
+            #region Resolve StartUrl to Issuer URL and Region
+
+            // Resolve the provided URL (which may be a vanity domain, portal URL, or issuer URL)
+            // into the canonical issuer URL and region in a single resolution pass.
+            SSOResolvedEndpoint resolvedEndpoint;
+            try
+            {
+                resolvedEndpoint = SSOEndpointResolver.ResolveAsync(StartUrl, SSORegion).GetAwaiter().GetResult();
+            }
+            catch (ArgumentException ex)
+            {
+                this.ThrowTerminatingError(new ErrorRecord(
+                    ex, "ArgumentException", ErrorCategory.InvalidArgument, this.StartUrl));
+                return;
+            }
+
+            var issuerUrl = resolvedEndpoint.IssuerUrl;
+
+            if (SSORegion == null)
+            {
+                if (!string.IsNullOrEmpty(resolvedEndpoint.Region))
+                {
+                    SSORegion = resolvedEndpoint.Region;
+                    Console.WriteLine($"SSO region auto-detected from start URL: {SSORegion}");
+                }
+                else
+                {
+                    SSORegion = PromptForSSORegion(existingProfile?.Options?.SsoRegion);
+                }
+            }
 
             #endregion
 
@@ -555,7 +573,7 @@ namespace Amazon.PowerShell.Common
             {
                 SsoRegistrationScopes = registrationScopesString,
                 SsoSession = SessionName,
-                SsoStartUrl = StartUrl,
+                SsoStartUrl = issuerUrl,
                 SsoRegion = SSORegion
             };
 
@@ -878,11 +896,26 @@ namespace Amazon.PowerShell.Common
             // Remove trailing slash for consistency
             if (StartUrl.EndsWith("/")) StartUrl = StartUrl.TrimEnd('/');
 
-            // Auto-detect region from start URL if not explicitly provided
+            // Resolve the provided URL into the canonical issuer URL and region in a single pass
+            SSOResolvedEndpoint resolvedEndpoint;
+            try
+            {
+                resolvedEndpoint = SSOEndpointResolver.ResolveAsync(StartUrl, SSORegion).GetAwaiter().GetResult();
+            }
+            catch (ArgumentException ex)
+            {
+                this.ThrowTerminatingError(new ErrorRecord(
+                    ex, "ArgumentException", ErrorCategory.InvalidArgument, this.StartUrl));
+                return;
+            }
+
             if (string.IsNullOrEmpty(SSORegion))
             {
-                SSORegion = SSOEndpointResolver.ResolveRegionAsync(StartUrl, null).GetAwaiter().GetResult();
-                if (string.IsNullOrEmpty(SSORegion))
+                if (!string.IsNullOrEmpty(resolvedEndpoint.Region))
+                {
+                    SSORegion = resolvedEndpoint.Region;
+                }
+                else
                 {
                     this.ThrowTerminatingError(new ErrorRecord(
                         new ArgumentException("SSORegion is required. The region could not be determined from the start URL. " +
@@ -895,7 +928,7 @@ namespace Amazon.PowerShell.Common
             {
                 SsoRegistrationScopes = registrationScopesString,
                 SsoSession = SessionName,
-                SsoStartUrl = StartUrl,
+                SsoStartUrl = resolvedEndpoint.IssuerUrl,
                 SsoRegion = SSORegion
             };
 

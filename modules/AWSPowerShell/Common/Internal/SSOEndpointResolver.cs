@@ -46,6 +46,27 @@ namespace Amazon.PowerShell.Common.Internal
         private static readonly TimeSpan HttpTimeout = TimeSpan.FromSeconds(5);
 
         /// <summary>
+        /// Resolves a customer-provided SSO endpoint into both the canonical issuer URL and region
+        /// in a single resolution pass (one HTTP redirect at most).
+        /// If regionOverride is provided, it takes precedence over URL-derived region.
+        /// Throws ArgumentException if the URL cannot be resolved to an AWS-generated domain.
+        /// </summary>
+        internal static async Task<SSOResolvedEndpoint> ResolveAsync(string startUrl, string regionOverride)
+        {
+            var resolvedUrl = await ResolveToAwsGeneratedDomainAsync(startUrl).ConfigureAwait(false);
+            if (resolvedUrl == null)
+            {
+                throw new ArgumentException(
+                    $"Unable to resolve Identity Center instance from URL: {startUrl}. " +
+                    "The URL must be an AWS-generated domain or a vanity domain that redirects to one.");
+            }
+            var parts = ParseUrl(resolvedUrl, startUrl);
+            var issuerUrl = $"https://identitycenter.amazonaws.com/{parts.InstanceId}";
+            var region = !string.IsNullOrEmpty(regionOverride) ? regionOverride : parts.Region;
+            return new SSOResolvedEndpoint(issuerUrl, region);
+        }
+
+        /// <summary>
         /// Resolves an SSO start URL into the canonical Identity Center issuer URL.
         /// Format: https://identitycenter.amazonaws.com/{idcInstanceId}
         /// </summary>
@@ -264,6 +285,28 @@ namespace Amazon.PowerShell.Common.Internal
                 InstanceId = instanceId;
                 Region = region;
             }
+        }
+    }
+
+    /// <summary>
+    /// Contains the resolved issuer URL and region from an SSO endpoint resolution.
+    /// </summary>
+    internal readonly struct SSOResolvedEndpoint
+    {
+        /// <summary>
+        /// The canonical Identity Center issuer URL (https://identitycenter.amazonaws.com/{idcInstanceId}).
+        /// </summary>
+        internal string IssuerUrl { get; }
+
+        /// <summary>
+        /// The AWS region, or null if not determinable from the URL (legacy/issuer formats without override).
+        /// </summary>
+        internal string Region { get; }
+
+        internal SSOResolvedEndpoint(string issuerUrl, string region)
+        {
+            IssuerUrl = issuerUrl;
+            Region = region;
         }
     }
 }

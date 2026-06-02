@@ -241,22 +241,13 @@ namespace Amazon.PowerShell.Common.Internal
 
         /// <summary>
         /// Builds SSOTokenManagerGetTokenOptions using CredentialProfileOptions.
-        /// Resolves vanity domains and extracts region from the endpoint URL when not explicitly provided.
         /// </summary>
         internal static SSOTokenManagerGetTokenOptions BuildSSOTokenManagerGetTokenOptions(CredentialProfileOptions profileOptions, bool supportsGettingNewToken, Action<SsoVerificationArguments> ssoVerificationCallback)
         {
-            var resolvedRegion = SSOEndpointResolver.ResolveRegionAsync(profileOptions.SsoStartUrl, profileOptions.SsoRegion).GetAwaiter().GetResult();
-            if (string.IsNullOrEmpty(resolvedRegion))
-            {
-                throw new ArgumentException(
-                    $"Unable to determine AWS region from URL: {profileOptions.SsoStartUrl}. " +
-                    "Please set sso_region in your profile configuration.");
-            }
-
             return new SSOTokenManagerGetTokenOptions()
             {
                 ClientName = clientName,
-                Region = resolvedRegion,
+                Region = profileOptions.SsoRegion,
                 StartUrl = profileOptions.SsoStartUrl,
                 Session = profileOptions.SsoSession,
                 Scopes = profileOptions.SsoRegistrationScopes?.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList(),
@@ -284,22 +275,13 @@ namespace Amazon.PowerShell.Common.Internal
 
         /// <summary>
         /// Builds SSOTokenManagerGetTokenOptions using SSOAWSCredentials.
-        /// Resolves vanity domains and extracts region from the endpoint URL when not explicitly provided.
         /// </summary>
         internal static SSOTokenManagerGetTokenOptions BuildSSOTokenManagerGetTokenOptions(SSOAWSCredentials ssoAwsCredentials, bool supportsGettingNewToken, Action<SsoVerificationArguments> ssoVerificationCallback)
         {
-            var resolvedRegion = SSOEndpointResolver.ResolveRegionAsync(ssoAwsCredentials.StartUrl, ssoAwsCredentials.Region).GetAwaiter().GetResult();
-            if (string.IsNullOrEmpty(resolvedRegion))
-            {
-                throw new ArgumentException(
-                    $"Unable to determine AWS region from URL: {ssoAwsCredentials.StartUrl}. " +
-                    "Please set sso_region in your profile configuration.");
-            }
-
             return new SSOTokenManagerGetTokenOptions()
             {
                 ClientName = clientName,
-                Region = resolvedRegion,
+                Region = ssoAwsCredentials.Region,
                 StartUrl = ssoAwsCredentials.StartUrl,
                 Session = ssoAwsCredentials.Options.SessionName,
                 Scopes = ssoAwsCredentials.Options.Scopes,
@@ -333,12 +315,7 @@ namespace Amazon.PowerShell.Common.Internal
             }
             if (string.IsNullOrEmpty(options?.SsoRegion))
             {
-                // Region is only required if it cannot be resolved from the start URL
-                var resolvedRegion = SSOEndpointResolver.ResolveRegionAsync(options?.SsoStartUrl, null).GetAwaiter().GetResult();
-                if (string.IsNullOrEmpty(resolvedRegion))
-                {
-                    missingProperties.Add("sso_region");
-                }
+                missingProperties.Add("sso_region");
             }
             if (string.IsNullOrEmpty(options?.SsoRegistrationScopes))
             {
