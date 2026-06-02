@@ -406,6 +406,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.SagemakerEdgeManager.dll',
         'AWSSDK.SageMakerFeatureStoreRuntime.dll',
         'AWSSDK.SageMakerGeospatial.dll',
+        'AWSSDK.SagemakerJobRuntime.dll',
         'AWSSDK.SageMakerMetrics.dll',
         'AWSSDK.SageMakerRuntime.dll',
         'AWSSDK.SavingsPlans.dll',

@@ -120,6 +120,16 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.Durability
+        {
+            ($_ -eq "Edit-ECReplicationGroup/Durability") -Or
+            ($_ -eq "New-ECReplicationGroup/Durability")
+        }
+        {
+            $v = "async","default","disabled","sync"
+            break
+        }
+
         # Amazon.ElastiCache.InputAuthenticationType
         {
             ($_ -eq "Edit-ECUser/AuthenticationMode_Type") -Or
@@ -191,6 +201,7 @@ $EC_map = @{
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
     "ClusterMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
     "DataStorage_Unit"=@("Edit-ECServerlessCache","New-ECServerlessCache")
+    "Durability"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
     "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup","New-ECServerlessCache")
     "OutpostMode"=@("New-ECCacheCluster")

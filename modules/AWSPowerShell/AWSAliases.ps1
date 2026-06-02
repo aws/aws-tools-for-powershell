@@ -10985,6 +10985,8 @@ Set-Alias -Name Create-EC2CapacityReservation -Value Add-EC2CapacityReservation
 Set-Alias -Name EC2-CreateCapacityReservation -Value Add-EC2CapacityReservation
 Set-Alias -Name Create-EC2CapacityReservationBySplitting -Value New-EC2CapacityReservationBySplitting
 Set-Alias -Name EC2-CreateCapacityReservationBySplitting -Value New-EC2CapacityReservationBySplitting
+Set-Alias -Name Create-EC2CapacityReservationCancellationQuote -Value New-EC2CapacityReservationCancellationQuote
+Set-Alias -Name EC2-CreateCapacityReservationCancellationQuote -Value New-EC2CapacityReservationCancellationQuote
 Set-Alias -Name Create-EC2CapacityReservationFleet -Value New-EC2CapacityReservationFleet
 Set-Alias -Name EC2-CreateCapacityReservationFleet -Value New-EC2CapacityReservationFleet
 Set-Alias -Name Create-EC2CarrierGateway -Value New-EC2CarrierGateway
@@ -11449,6 +11451,9 @@ Set-Alias -Name EC2-DescribeCapacityManagerDataExports -Value Get-EC2CapacityMan
 Set-Alias -Name Describe-EC2CapacityReservationBillingRequests -Value Get-EC2CapacityReservationBillingRequest
 Set-Alias -Name Describe-EC2CapacityReservationBillingRequest -Value Get-EC2CapacityReservationBillingRequest
 Set-Alias -Name EC2-DescribeCapacityReservationBillingRequests -Value Get-EC2CapacityReservationBillingRequest
+Set-Alias -Name Describe-EC2CapacityReservationCancellationQuotes -Value Get-EC2CapacityReservationCancellationQuoteDetail
+Set-Alias -Name Describe-EC2CapacityReservationCancellationQuoteDetail -Value Get-EC2CapacityReservationCancellationQuoteDetail
+Set-Alias -Name EC2-DescribeCapacityReservationCancellationQuotes -Value Get-EC2CapacityReservationCancellationQuoteDetail
 Set-Alias -Name Describe-EC2CapacityReservationFleets -Value Get-EC2CapacityReservationFleet
 Set-Alias -Name Describe-EC2CapacityReservationFleet -Value Get-EC2CapacityReservationFleet
 Set-Alias -Name EC2-DescribeCapacityReservationFleets -Value Get-EC2CapacityReservationFleet
@@ -29906,6 +29911,8 @@ Set-Alias -Name Create-SMInferenceExperiment -Value New-SMInferenceExperiment
 Set-Alias -Name SM-CreateInferenceExperiment -Value New-SMInferenceExperiment
 Set-Alias -Name Create-SMInferenceRecommendationsJob -Value New-SMInferenceRecommendationsJob
 Set-Alias -Name SM-CreateInferenceRecommendationsJob -Value New-SMInferenceRecommendationsJob
+Set-Alias -Name Create-SMJob -Value New-SMJob
+Set-Alias -Name SM-CreateJob -Value New-SMJob
 Set-Alias -Name Create-SMLabelingJob -Value New-SMLabelingJob
 Set-Alias -Name SM-CreateLabelingJob -Value New-SMLabelingJob
 Set-Alias -Name Create-SMMlflowApp -Value New-SMMlflowApp
@@ -30042,6 +30049,8 @@ Set-Alias -Name Delete-SMInferenceComponent -Value Remove-SMInferenceComponent
 Set-Alias -Name SM-DeleteInferenceComponent -Value Remove-SMInferenceComponent
 Set-Alias -Name Delete-SMInferenceExperiment -Value Remove-SMInferenceExperiment
 Set-Alias -Name SM-DeleteInferenceExperiment -Value Remove-SMInferenceExperiment
+Set-Alias -Name Delete-SMJob -Value Remove-SMJob
+Set-Alias -Name SM-DeleteJob -Value Remove-SMJob
 Set-Alias -Name Delete-SMMlflowApp -Value Remove-SMMlflowApp
 Set-Alias -Name SM-DeleteMlflowApp -Value Remove-SMMlflowApp
 Set-Alias -Name Delete-SMMlflowTrackingServer -Value Remove-SMMlflowTrackingServer
@@ -30181,6 +30190,12 @@ Set-Alias -Name Describe-SMInferenceExperiment -Value Get-SMInferenceExperiment
 Set-Alias -Name SM-DescribeInferenceExperiment -Value Get-SMInferenceExperiment
 Set-Alias -Name Describe-SMInferenceRecommendationsJob -Value Get-SMInferenceRecommendationsJob
 Set-Alias -Name SM-DescribeInferenceRecommendationsJob -Value Get-SMInferenceRecommendationsJob
+Set-Alias -Name Describe-SMJob -Value Get-SMJobDetail
+Set-Alias -Name Describe-SMJobDetail -Value Get-SMJobDetail
+Set-Alias -Name SM-DescribeJob -Value Get-SMJobDetail
+Set-Alias -Name Describe-SMJobSchemaVersion -Value Get-SMJobSchemaVersionDetail
+Set-Alias -Name Describe-SMJobSchemaVersionDetail -Value Get-SMJobSchemaVersionDetail
+Set-Alias -Name SM-DescribeJobSchemaVersion -Value Get-SMJobSchemaVersionDetail
 Set-Alias -Name Describe-SMLabelingJob -Value Get-SMLabelingJob
 Set-Alias -Name SM-DescribeLabelingJob -Value Get-SMLabelingJob
 Set-Alias -Name Describe-SMLineageGroup -Value Get-SMLineageGroup
@@ -30396,6 +30411,12 @@ Set-Alias -Name SM-ListInferenceRecommendationsJobs -Value Get-SMInferenceRecomm
 Set-Alias -Name List-SMInferenceRecommendationsJobSteps -Value Get-SMInferenceRecommendationsJobStepList
 Set-Alias -Name List-SMInferenceRecommendationsJobStepList -Value Get-SMInferenceRecommendationsJobStepList
 Set-Alias -Name SM-ListInferenceRecommendationsJobSteps -Value Get-SMInferenceRecommendationsJobStepList
+Set-Alias -Name List-SMJobs -Value Get-SMJobList
+Set-Alias -Name List-SMJobList -Value Get-SMJobList
+Set-Alias -Name SM-ListJobs -Value Get-SMJobList
+Set-Alias -Name List-SMJobSchemaVersions -Value Get-SMJobSchemaVersionList
+Set-Alias -Name List-SMJobSchemaVersionList -Value Get-SMJobSchemaVersionList
+Set-Alias -Name SM-ListJobSchemaVersions -Value Get-SMJobSchemaVersionList
 Set-Alias -Name List-SMLabelingJobs -Value Get-SMLabelingJobList
 Set-Alias -Name List-SMLabelingJobList -Value Get-SMLabelingJobList
 Set-Alias -Name SM-ListLabelingJobs -Value Get-SMLabelingJobList
@@ -30567,6 +30588,7 @@ Set-Alias -Name SM-StopEdgePackagingJob -Value Stop-SMEdgePackagingJob
 Set-Alias -Name SM-StopHyperParameterTuningJob -Value Stop-SMHyperParameterTuningJob
 Set-Alias -Name SM-StopInferenceExperiment -Value Stop-SMInferenceExperiment
 Set-Alias -Name SM-StopInferenceRecommendationsJob -Value Stop-SMInferenceRecommendationsJob
+Set-Alias -Name SM-StopJob -Value Stop-SMJob
 Set-Alias -Name SM-StopLabelingJob -Value Stop-SMLabelingJob
 Set-Alias -Name SM-StopMlflowTrackingServer -Value Stop-SMMlflowTrackingServer
 Set-Alias -Name SM-StopMonitoringSchedule -Value Stop-SMMonitoringSchedule
@@ -30623,6 +30645,14 @@ Set-Alias -Name SM-UpdateTrialComponent -Value Update-SMTrialComponent
 Set-Alias -Name SM-UpdateUserProfile -Value Update-SMUserProfile
 Set-Alias -Name SM-UpdateWorkforce -Value Update-SMWorkforce
 Set-Alias -Name SM-UpdateWorkteam -Value Update-SMWorkteam
+Set-Alias -Name SMJR-CompleteRollout -Value Complete-SMJRRollout
+Set-Alias -Name Sample-SMJR -Value Invoke-SMJRSample
+Set-Alias -Name Sample-SMJRSample -Value Invoke-SMJRSample
+Set-Alias -Name SMJR-Sample -Value Invoke-SMJRSample
+Set-Alias -Name Sample-SMJRWithResponseStream -Value Invoke-SMJRSampleWithResponseStream
+Set-Alias -Name Sample-SMJRSampleWithResponseStream -Value Invoke-SMJRSampleWithResponseStream
+Set-Alias -Name SMJR-SampleWithResponseStream -Value Invoke-SMJRSampleWithResponseStream
+Set-Alias -Name SMJR-UpdateReward -Value Update-SMJRReward
 Set-Alias -Name Create-SPSavingsPlan -Value New-SPSavingsPlan
 Set-Alias -Name SP-CreateSavingsPlan -Value New-SPSavingsPlan
 Set-Alias -Name Delete-SPQueuedSavingsPlan -Value Remove-SPQueuedSavingsPlan

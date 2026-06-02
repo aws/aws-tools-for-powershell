@@ -301,8 +301,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds.
-        /// Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000
-        /// seconds.</para>
+        /// Max: 432000 seconds (5 days). Default: 350 seconds for Nitro v6 instance types (excluding
+        /// P6e-GB200); 432000 seconds for all other instance types (including P6e-GB200). Recommended:
+        /// Less than 432000 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

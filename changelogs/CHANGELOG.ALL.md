@@ -1,4 +1,28 @@
-﻿### 5.0.223 (2026-06-01 20:08Z)
+﻿### 5.0.224 (2026-06-02 20:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.260.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Get-EC2CapacityReservationCancellationQuoteDetail leveraging the DescribeCapacityReservationCancellationQuotes service API.
+    * Added cmdlet New-EC2CapacityReservationCancellationQuote leveraging the CreateCapacityReservationCancellationQuote service API.
+    * Modified cmdlet Remove-EC2CapacityReservation: added parameters ApplyCancellationCharge and QuoteId.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECReplicationGroup: added parameter Durability.
+    * Modified cmdlet New-ECReplicationGroup: added parameter Durability.
+  * Amazon Lambda
+    * Modified cmdlet New-LMCapacityProvider: added parameters PropagateTags_ExplicitTag and PropagateTags_Mode.
+    * Modified cmdlet Update-LMCapacityProvider: added parameters PropagateTags_ExplicitTag and PropagateTags_Mode.
+  * Amazon Location Service Routes V2
+    * Modified cmdlet Get-GEORRoute: added parameters TravelModeOptions_Intermodal_AccessibilityAttribute, TravelModeOptions_Intermodal_MaxTransfer, TravelModeOptions_Intermodal_Pedestrian_MaxDistance, TravelModeOptions_Intermodal_Pedestrian_Speed, TravelModeOptions_Intermodal_Rental_AllowedMode, TravelModeOptions_Intermodal_Rental_EnabledFor, TravelModeOptions_Intermodal_Rental_ExcludedMode, TravelModeOptions_Intermodal_Taxi_AllowedMode, TravelModeOptions_Intermodal_Taxi_EnabledFor, TravelModeOptions_Intermodal_Taxi_ExcludedMode, TravelModeOptions_Intermodal_Transit_AllowedMode, TravelModeOptions_Intermodal_Transit_EnabledFor, TravelModeOptions_Intermodal_Transit_ExcludedMode, TravelModeOptions_Intermodal_Vehicle_AllowedMode, TravelModeOptions_Intermodal_Vehicle_EnabledFor, TravelModeOptions_Intermodal_Vehicle_ExcludedMode, TravelModeOptions_Transit_AccessibilityAttribute, TravelModeOptions_Transit_AllowedMode, TravelModeOptions_Transit_ExcludedMode, TravelModeOptions_Transit_MaxTransfer, TravelModeOptions_Transit_Pedestrian_MaxDistance and TravelModeOptions_Transit_Pedestrian_Speed.
+  * Amazon Sagemaker Job Runtime Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SMJR and can be listed using the command 'Get-AWSCmdletName -Service SMJR'.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMJobDetail leveraging the DescribeJob service API.
+    * Added cmdlet Get-SMJobList leveraging the ListJobs service API.
+    * Added cmdlet Get-SMJobSchemaVersionDetail leveraging the DescribeJobSchemaVersion service API.
+    * Added cmdlet Get-SMJobSchemaVersionList leveraging the ListJobSchemaVersions service API.
+    * Added cmdlet New-SMJob leveraging the CreateJob service API.
+    * Added cmdlet Remove-SMJob leveraging the DeleteJob service API.
+    * Added cmdlet Stop-SMJob leveraging the StopJob service API.
+
+### 5.0.223 (2026-06-01 20:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.259.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity Provider
     * Added cmdlet Get-CGIPUserPoolReplicaList leveraging the ListUserPoolReplicas service API.

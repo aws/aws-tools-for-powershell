@@ -23,65 +23,74 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Retrieves the live connectivity status per device. If a device has never connected
-    /// to IoT Core or was disconnected for more than 1 hour before fleet indexing's <c>thingConnectivityIndexingMode</c>
-    /// was enabled, the response will have the <c>connected</c> field set to <c>false</c>
-    /// with no additional session details.
+    /// Returns detailed information about a job, including its current status, secondary
+    /// status, configuration, and timestamps. Use <c>SecondaryStatus</c> for granular progress
+    /// tracking and <c>SecondaryStatusTransitions</c> to see the full history of status changes
+    /// with timestamps.
+    /// 
+    ///  
+    /// <para>
+    /// The following operations are related to <c>DescribeJob</c>:
+    /// </para><ul><li><para><c>CreateJob</c></para></li><li><para><c>ListJobs</c></para></li><li><para><c>StopJob</c></para></li><li><para><c>DeleteJob</c></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "IOTThingConnectivityData")]
-    [OutputType("Amazon.IoT.Model.GetThingConnectivityDataResponse")]
-    [AWSCmdlet("Calls the AWS IoT GetThingConnectivityData API operation.", Operation = new[] {"GetThingConnectivityData"}, SelectReturnType = typeof(Amazon.IoT.Model.GetThingConnectivityDataResponse))]
-    [AWSCmdletOutput("Amazon.IoT.Model.GetThingConnectivityDataResponse",
-        "This cmdlet returns an Amazon.IoT.Model.GetThingConnectivityDataResponse object containing multiple properties."
+    [Cmdlet("Get", "SMJobDetail")]
+    [OutputType("Amazon.SageMaker.Model.DescribeJobResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeJob API operation.", Operation = new[] {"DescribeJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeJobResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeJobResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeJobResponse object containing multiple properties."
     )]
-    public partial class GetIOTThingConnectivityDataCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetSMJobDetailCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter IncludeSocketInformation
+        #region Parameter JobCategory
         /// <summary>
         /// <para>
-        /// <para>Specifies if socket information (sourcePort, targetPort, sourceIp, targetIp, vpcEndpointId)
-        /// should be included in the GetThingConnectivityData response. Set to <c>true</c> to
-        /// include socket information. Set to <c>false</c> to omit socket information. By default,
-        /// this is set to <c>false</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? IncludeSocketInformation { get; set; }
-        #endregion
-        
-        #region Parameter ThingName
-        /// <summary>
-        /// <para>
-        /// <para>The name of your IoT thing.</para>
+        /// <para>The category of the job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.SageMaker.JobCategory")]
+        public Amazon.SageMaker.JobCategory JobCategory { get; set; }
+        #endregion
+        
+        #region Parameter JobName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the job to describe.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ThingName { get; set; }
+        public System.String JobName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.GetThingConnectivityDataResponse).
-        /// Specifying the name of a property of type Amazon.IoT.Model.GetThingConnectivityDataResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeJobResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,15 +113,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.GetThingConnectivityDataResponse, GetIOTThingConnectivityDataCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeJobResponse, GetSMJobDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.IncludeSocketInformation = this.IncludeSocketInformation;
-            context.ThingName = this.ThingName;
+            context.JobCategory = this.JobCategory;
             #if MODULAR
-            if (this.ThingName == null && ParameterWasBound(nameof(this.ThingName)))
+            if (this.JobCategory == null && ParameterWasBound(nameof(this.JobCategory)))
             {
-                WriteWarning("You are passing $null as a value for parameter ThingName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobCategory which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.JobName = this.JobName;
+            #if MODULAR
+            if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter JobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -129,15 +144,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.GetThingConnectivityDataRequest();
+            var request = new Amazon.SageMaker.Model.DescribeJobRequest();
             
-            if (cmdletContext.IncludeSocketInformation != null)
+            if (cmdletContext.JobCategory != null)
             {
-                request.IncludeSocketInformation = cmdletContext.IncludeSocketInformation.Value;
+                request.JobCategory = cmdletContext.JobCategory;
             }
-            if (cmdletContext.ThingName != null)
+            if (cmdletContext.JobName != null)
             {
-                request.ThingName = cmdletContext.ThingName;
+                request.JobName = cmdletContext.JobName;
             }
             
             CmdletOutput output;
@@ -172,12 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.GetThingConnectivityDataResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetThingConnectivityDataRequest request)
+        private Amazon.SageMaker.Model.DescribeJobResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "GetThingConnectivityData");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeJob");
             try
             {
-                return client.GetThingConnectivityDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -194,9 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? IncludeSocketInformation { get; set; }
-            public System.String ThingName { get; set; }
-            public System.Func<Amazon.IoT.Model.GetThingConnectivityDataResponse, GetIOTThingConnectivityDataCmdlet, object> Select { get; set; } =
+            public Amazon.SageMaker.JobCategory JobCategory { get; set; }
+            public System.String JobName { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DescribeJobResponse, GetSMJobDetailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

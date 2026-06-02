@@ -131,6 +131,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ApplyCancellationCharges
+        "Remove-EC2CapacityReservation/ApplyCancellationCharge"
+        {
+            $v = "commitment-wind-down"
+            break
+        }
+
         # Amazon.EC2.ArchitectureValues
         "Register-EC2Image/Architecture"
         {
@@ -1492,6 +1499,7 @@ $EC2_map = @{
     "AddressFamily"=@("New-EC2IpamPool","New-EC2IpamPrefixListResolver")
     "Affinity"=@("Edit-EC2InstancePlacement")
     "AllowedImagesSettingsState"=@("Enable-EC2AllowedImagesSetting")
+    "ApplyCancellationCharge"=@("Remove-EC2CapacityReservation")
     "Architecture"=@("Register-EC2Image")
     "AttachmentType"=@("New-EC2VerifiedAccessEndpoint")
     "Attribute"=@("Edit-EC2FpgaImageAttribute","Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2AddressesAttribute","Get-EC2FpgaImageAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2AddressAttribute","Reset-EC2FpgaImageAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
@@ -1787,6 +1795,7 @@ $EC2_SelectMap = @{
                "New-EC2CapacityManagerDataExport",
                "Add-EC2CapacityReservation",
                "New-EC2CapacityReservationBySplitting",
+               "New-EC2CapacityReservationCancellationQuote",
                "New-EC2CapacityReservationFleet",
                "New-EC2CarrierGateway",
                "New-EC2ClientVpnEndpoint",
@@ -2005,6 +2014,7 @@ $EC2_SelectMap = @{
                "Get-EC2CapacityBlockStatus",
                "Get-EC2CapacityManagerDataExport",
                "Get-EC2CapacityReservationBillingRequest",
+               "Get-EC2CapacityReservationCancellationQuoteDetail",
                "Get-EC2CapacityReservationFleet",
                "Get-EC2CapacityReservation",
                "Get-EC2CapacityReservationTopology",

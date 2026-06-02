@@ -51,6 +51,116 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter TravelModeOptions_Intermodal_AccessibilityAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Accessibility attributes to consider when calculating the route.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_AccessibilityAttributes")]
+        public System.String[] TravelModeOptions_Intermodal_AccessibilityAttribute { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Transit_AccessibilityAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Accessibility attributes to consider when calculating the route.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Transit_AccessibilityAttributes")]
+        public System.String[] TravelModeOptions_Transit_AccessibilityAttribute { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Rental_AllowedMode
+        /// <summary>
+        /// <para>
+        /// <para>Allowed rental transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>ExcludedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_Rental_AllowedModes")]
+        public System.String[] TravelModeOptions_Intermodal_Rental_AllowedMode { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Taxi_AllowedMode
+        /// <summary>
+        /// <para>
+        /// <para>Allowed taxi transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>ExcludedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_Taxi_AllowedModes")]
+        public System.String[] TravelModeOptions_Intermodal_Taxi_AllowedMode { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Transit_AllowedMode
+        /// <summary>
+        /// <para>
+        /// <para>Allowed transit transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>ExcludedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_Transit_AllowedModes")]
+        public System.String[] TravelModeOptions_Intermodal_Transit_AllowedMode { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Vehicle_AllowedMode
+        /// <summary>
+        /// <para>
+        /// <para>Allowed vehicle transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>ExcludedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_Vehicle_AllowedModes")]
+        public System.String[] TravelModeOptions_Intermodal_Vehicle_AllowedMode { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Transit_AllowedMode
+        /// <summary>
+        /// <para>
+        /// <para>Allowed transit transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>ExcludedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Transit_AllowedModes")]
+        public System.String[] TravelModeOptions_Transit_AllowedMode { get; set; }
+        #endregion
+        
         #region Parameter Tolls_AllTransponder
         /// <summary>
         /// <para>
@@ -289,6 +399,66 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         public System.Boolean? Avoid_DirtRoad { get; set; }
         #endregion
         
+        #region Parameter TravelModeOptions_Intermodal_Rental_EnabledFor
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the portion of the route for which this leg type is enabled. By default,
+        /// the leg type is enabled for all legs. Valid values:</para><ul><li><para><c>FirstLeg</c> - Enable this leg type for the first non-pedestrian leg of the route.</para></li><li><para><c>LastLeg</c> - Enable this leg type for the last non-pedestrian leg of the route.</para></li><li><para><c>EntireRoute</c> - Enable this leg type for the entire route.</para></li><li><para><c>None</c> - Disable this leg type entirely.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] TravelModeOptions_Intermodal_Rental_EnabledFor { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Taxi_EnabledFor
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the portion of the route for which this leg type is enabled. By default,
+        /// the leg type is enabled for all legs. Valid values:</para><ul><li><para><c>FirstLeg</c> - Enable this leg type for the first non-pedestrian leg of the route.</para></li><li><para><c>LastLeg</c> - Enable this leg type for the last non-pedestrian leg of the route.</para></li><li><para><c>EntireRoute</c> - Enable this leg type for the entire route.</para></li><li><para><c>None</c> - Disable this leg type entirely.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] TravelModeOptions_Intermodal_Taxi_EnabledFor { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Transit_EnabledFor
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the portion of the route for which this leg type is enabled. By default,
+        /// the leg type is enabled for all legs. Valid values:</para><ul><li><para><c>FirstLeg</c> - Enable this leg type for the first non-pedestrian leg of the route.</para></li><li><para><c>LastLeg</c> - Enable this leg type for the last non-pedestrian leg of the route.</para></li><li><para><c>EntireRoute</c> - Enable this leg type for the entire route.</para></li><li><para><c>None</c> - Disable this leg type entirely.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] TravelModeOptions_Intermodal_Transit_EnabledFor { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Vehicle_EnabledFor
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the portion of the route for which this leg type is enabled. By default,
+        /// the leg type is enabled for all legs. Valid values:</para><ul><li><para><c>FirstLeg</c> - Enable this leg type for the first non-pedestrian leg of the route.</para></li><li><para><c>LastLeg</c> - Enable this leg type for the last non-pedestrian leg of the route.</para></li><li><para><c>EntireRoute</c> - Enable this leg type for the entire route.</para></li><li><para><c>None</c> - Disable this leg type entirely.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] TravelModeOptions_Intermodal_Vehicle_EnabledFor { get; set; }
+        #endregion
+        
         #region Parameter Car_EngineType
         /// <summary>
         /// <para>
@@ -327,6 +497,86 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         [Alias("TravelModeOptions_Truck_EngineType")]
         [AWSConstantClassSource("Amazon.GeoRoutes.RouteEngineType")]
         public Amazon.GeoRoutes.RouteEngineType Truck_EngineType { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Rental_ExcludedMode
+        /// <summary>
+        /// <para>
+        /// <para>Excluded rental transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>AllowedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_Rental_ExcludedModes")]
+        public System.String[] TravelModeOptions_Intermodal_Rental_ExcludedMode { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Taxi_ExcludedMode
+        /// <summary>
+        /// <para>
+        /// <para>Excluded taxi transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>AllowedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_Taxi_ExcludedModes")]
+        public System.String[] TravelModeOptions_Intermodal_Taxi_ExcludedMode { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Transit_ExcludedMode
+        /// <summary>
+        /// <para>
+        /// <para>Excluded transit transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>AllowedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_Transit_ExcludedModes")]
+        public System.String[] TravelModeOptions_Intermodal_Transit_ExcludedMode { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_Vehicle_ExcludedMode
+        /// <summary>
+        /// <para>
+        /// <para>Excluded vehicle transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>AllowedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_Vehicle_ExcludedModes")]
+        public System.String[] TravelModeOptions_Intermodal_Vehicle_ExcludedMode { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Transit_ExcludedMode
+        /// <summary>
+        /// <para>
+        /// <para>Excluded transit transport modes when calculating the route. By default, all transport
+        /// modes are allowed. Cannot be used together with <c>AllowedModes</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Transit_ExcludedModes")]
+        public System.String[] TravelModeOptions_Transit_ExcludedMode { get; set; }
         #endregion
         
         #region Parameter Avoid_Ferry
@@ -581,6 +831,26 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         public System.Int32? MaxAlternative { get; set; }
         #endregion
         
+        #region Parameter TravelModeOptions_Intermodal_Pedestrian_MaxDistance
+        /// <summary>
+        /// <para>
+        /// <para>Maximum walking distance allowed.</para><para><b>Unit</b>: <c>meters</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? TravelModeOptions_Intermodal_Pedestrian_MaxDistance { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Transit_Pedestrian_MaxDistance
+        /// <summary>
+        /// <para>
+        /// <para>Maximum walking distance allowed.</para><para><b>Unit</b>: <c>meters</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? TravelModeOptions_Transit_Pedestrian_MaxDistance { get; set; }
+        #endregion
+        
         #region Parameter Car_MaxSpeed
         /// <summary>
         /// <para>
@@ -616,6 +886,28 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TravelModeOptions_Truck_MaxSpeed")]
         public System.Double? Truck_MaxSpeed { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Intermodal_MaxTransfer
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of transfers allowed when calculating the route.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Intermodal_MaxTransfers")]
+        public System.Int32? TravelModeOptions_Intermodal_MaxTransfer { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Transit_MaxTransfer
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of transfers allowed when calculating the route.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModeOptions_Transit_MaxTransfers")]
+        public System.Int32? TravelModeOptions_Transit_MaxTransfer { get; set; }
         #endregion
         
         #region Parameter DestinationOptions_Matching_NameHint
@@ -871,6 +1163,16 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         public System.String[] SpanAdditionalFeature { get; set; }
         #endregion
         
+        #region Parameter TravelModeOptions_Intermodal_Pedestrian_Speed
+        /// <summary>
+        /// <para>
+        /// <para>Walking speed.</para><para><b>Unit</b>: <c>kilometers per hour</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? TravelModeOptions_Intermodal_Pedestrian_Speed { get; set; }
+        #endregion
+        
         #region Parameter Pedestrian_Speed
         /// <summary>
         /// <para>
@@ -880,6 +1182,16 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TravelModeOptions_Pedestrian_Speed")]
         public System.Double? Pedestrian_Speed { get; set; }
+        #endregion
+        
+        #region Parameter TravelModeOptions_Transit_Pedestrian_Speed
+        /// <summary>
+        /// <para>
+        /// <para>Walking speed.</para><para><b>Unit</b>: <c>kilometers per hour</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? TravelModeOptions_Transit_Pedestrian_Speed { get; set; }
         #endregion
         
         #region Parameter DestinationOptions_StopDuration
@@ -1340,11 +1652,81 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             context.TravelModeOptions_Car_LicensePlate_LastCharacter = this.TravelModeOptions_Car_LicensePlate_LastCharacter;
             context.Car_MaxSpeed = this.Car_MaxSpeed;
             context.Car_Occupancy = this.Car_Occupancy;
+            if (this.TravelModeOptions_Intermodal_AccessibilityAttribute != null)
+            {
+                context.TravelModeOptions_Intermodal_AccessibilityAttribute = new List<System.String>(this.TravelModeOptions_Intermodal_AccessibilityAttribute);
+            }
+            context.TravelModeOptions_Intermodal_MaxTransfer = this.TravelModeOptions_Intermodal_MaxTransfer;
+            context.TravelModeOptions_Intermodal_Pedestrian_MaxDistance = this.TravelModeOptions_Intermodal_Pedestrian_MaxDistance;
+            context.TravelModeOptions_Intermodal_Pedestrian_Speed = this.TravelModeOptions_Intermodal_Pedestrian_Speed;
+            if (this.TravelModeOptions_Intermodal_Rental_AllowedMode != null)
+            {
+                context.TravelModeOptions_Intermodal_Rental_AllowedMode = new List<System.String>(this.TravelModeOptions_Intermodal_Rental_AllowedMode);
+            }
+            if (this.TravelModeOptions_Intermodal_Rental_EnabledFor != null)
+            {
+                context.TravelModeOptions_Intermodal_Rental_EnabledFor = new List<System.String>(this.TravelModeOptions_Intermodal_Rental_EnabledFor);
+            }
+            if (this.TravelModeOptions_Intermodal_Rental_ExcludedMode != null)
+            {
+                context.TravelModeOptions_Intermodal_Rental_ExcludedMode = new List<System.String>(this.TravelModeOptions_Intermodal_Rental_ExcludedMode);
+            }
+            if (this.TravelModeOptions_Intermodal_Taxi_AllowedMode != null)
+            {
+                context.TravelModeOptions_Intermodal_Taxi_AllowedMode = new List<System.String>(this.TravelModeOptions_Intermodal_Taxi_AllowedMode);
+            }
+            if (this.TravelModeOptions_Intermodal_Taxi_EnabledFor != null)
+            {
+                context.TravelModeOptions_Intermodal_Taxi_EnabledFor = new List<System.String>(this.TravelModeOptions_Intermodal_Taxi_EnabledFor);
+            }
+            if (this.TravelModeOptions_Intermodal_Taxi_ExcludedMode != null)
+            {
+                context.TravelModeOptions_Intermodal_Taxi_ExcludedMode = new List<System.String>(this.TravelModeOptions_Intermodal_Taxi_ExcludedMode);
+            }
+            if (this.TravelModeOptions_Intermodal_Transit_AllowedMode != null)
+            {
+                context.TravelModeOptions_Intermodal_Transit_AllowedMode = new List<System.String>(this.TravelModeOptions_Intermodal_Transit_AllowedMode);
+            }
+            if (this.TravelModeOptions_Intermodal_Transit_EnabledFor != null)
+            {
+                context.TravelModeOptions_Intermodal_Transit_EnabledFor = new List<System.String>(this.TravelModeOptions_Intermodal_Transit_EnabledFor);
+            }
+            if (this.TravelModeOptions_Intermodal_Transit_ExcludedMode != null)
+            {
+                context.TravelModeOptions_Intermodal_Transit_ExcludedMode = new List<System.String>(this.TravelModeOptions_Intermodal_Transit_ExcludedMode);
+            }
+            if (this.TravelModeOptions_Intermodal_Vehicle_AllowedMode != null)
+            {
+                context.TravelModeOptions_Intermodal_Vehicle_AllowedMode = new List<System.String>(this.TravelModeOptions_Intermodal_Vehicle_AllowedMode);
+            }
+            if (this.TravelModeOptions_Intermodal_Vehicle_EnabledFor != null)
+            {
+                context.TravelModeOptions_Intermodal_Vehicle_EnabledFor = new List<System.String>(this.TravelModeOptions_Intermodal_Vehicle_EnabledFor);
+            }
+            if (this.TravelModeOptions_Intermodal_Vehicle_ExcludedMode != null)
+            {
+                context.TravelModeOptions_Intermodal_Vehicle_ExcludedMode = new List<System.String>(this.TravelModeOptions_Intermodal_Vehicle_ExcludedMode);
+            }
             context.Pedestrian_Speed = this.Pedestrian_Speed;
             context.Scooter_EngineType = this.Scooter_EngineType;
             context.TravelModeOptions_Scooter_LicensePlate_LastCharacter = this.TravelModeOptions_Scooter_LicensePlate_LastCharacter;
             context.Scooter_MaxSpeed = this.Scooter_MaxSpeed;
             context.Scooter_Occupancy = this.Scooter_Occupancy;
+            if (this.TravelModeOptions_Transit_AccessibilityAttribute != null)
+            {
+                context.TravelModeOptions_Transit_AccessibilityAttribute = new List<System.String>(this.TravelModeOptions_Transit_AccessibilityAttribute);
+            }
+            if (this.TravelModeOptions_Transit_AllowedMode != null)
+            {
+                context.TravelModeOptions_Transit_AllowedMode = new List<System.String>(this.TravelModeOptions_Transit_AllowedMode);
+            }
+            if (this.TravelModeOptions_Transit_ExcludedMode != null)
+            {
+                context.TravelModeOptions_Transit_ExcludedMode = new List<System.String>(this.TravelModeOptions_Transit_ExcludedMode);
+            }
+            context.TravelModeOptions_Transit_MaxTransfer = this.TravelModeOptions_Transit_MaxTransfer;
+            context.TravelModeOptions_Transit_Pedestrian_MaxDistance = this.TravelModeOptions_Transit_Pedestrian_MaxDistance;
+            context.TravelModeOptions_Transit_Pedestrian_Speed = this.TravelModeOptions_Transit_Pedestrian_Speed;
             context.Truck_AxleCount = this.Truck_AxleCount;
             context.Truck_EngineType = this.Truck_EngineType;
             context.Truck_GrossWeight = this.Truck_GrossWeight;
@@ -2195,6 +2577,346 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
                 request.TravelModeOptions.Scooter = requestTravelModeOptions_travelModeOptions_Scooter;
                 requestTravelModeOptionsIsNull = false;
             }
+            Amazon.GeoRoutes.Model.RouteTransitOptions requestTravelModeOptions_travelModeOptions_Transit = null;
+            
+             // populate Transit
+            var requestTravelModeOptions_travelModeOptions_TransitIsNull = true;
+            requestTravelModeOptions_travelModeOptions_Transit = new Amazon.GeoRoutes.Model.RouteTransitOptions();
+            List<System.String> requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_AccessibilityAttribute = null;
+            if (cmdletContext.TravelModeOptions_Transit_AccessibilityAttribute != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_AccessibilityAttribute = cmdletContext.TravelModeOptions_Transit_AccessibilityAttribute;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_AccessibilityAttribute != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit.AccessibilityAttributes = requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_AccessibilityAttribute;
+                requestTravelModeOptions_travelModeOptions_TransitIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_AllowedMode = null;
+            if (cmdletContext.TravelModeOptions_Transit_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_AllowedMode = cmdletContext.TravelModeOptions_Transit_AllowedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit.AllowedModes = requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_AllowedMode;
+                requestTravelModeOptions_travelModeOptions_TransitIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_ExcludedMode = null;
+            if (cmdletContext.TravelModeOptions_Transit_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_ExcludedMode = cmdletContext.TravelModeOptions_Transit_ExcludedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit.ExcludedModes = requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_ExcludedMode;
+                requestTravelModeOptions_travelModeOptions_TransitIsNull = false;
+            }
+            System.Int32? requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_MaxTransfer = null;
+            if (cmdletContext.TravelModeOptions_Transit_MaxTransfer != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_MaxTransfer = cmdletContext.TravelModeOptions_Transit_MaxTransfer.Value;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_MaxTransfer != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit.MaxTransfers = requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_MaxTransfer.Value;
+                requestTravelModeOptions_travelModeOptions_TransitIsNull = false;
+            }
+            Amazon.GeoRoutes.Model.RouteTransitPedestrianOptions requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian = null;
+            
+             // populate Pedestrian
+            var requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_PedestrianIsNull = true;
+            requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian = new Amazon.GeoRoutes.Model.RouteTransitPedestrianOptions();
+            System.Int64? requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian_travelModeOptions_Transit_Pedestrian_MaxDistance = null;
+            if (cmdletContext.TravelModeOptions_Transit_Pedestrian_MaxDistance != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian_travelModeOptions_Transit_Pedestrian_MaxDistance = cmdletContext.TravelModeOptions_Transit_Pedestrian_MaxDistance.Value;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian_travelModeOptions_Transit_Pedestrian_MaxDistance != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian.MaxDistance = requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian_travelModeOptions_Transit_Pedestrian_MaxDistance.Value;
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_PedestrianIsNull = false;
+            }
+            System.Double? requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian_travelModeOptions_Transit_Pedestrian_Speed = null;
+            if (cmdletContext.TravelModeOptions_Transit_Pedestrian_Speed != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian_travelModeOptions_Transit_Pedestrian_Speed = cmdletContext.TravelModeOptions_Transit_Pedestrian_Speed.Value;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian_travelModeOptions_Transit_Pedestrian_Speed != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian.Speed = requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian_travelModeOptions_Transit_Pedestrian_Speed.Value;
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_PedestrianIsNull = false;
+            }
+             // determine if requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian should be set to null
+            if (requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_PedestrianIsNull)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian = null;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit.Pedestrian = requestTravelModeOptions_travelModeOptions_Transit_travelModeOptions_Transit_Pedestrian;
+                requestTravelModeOptions_travelModeOptions_TransitIsNull = false;
+            }
+             // determine if requestTravelModeOptions_travelModeOptions_Transit should be set to null
+            if (requestTravelModeOptions_travelModeOptions_TransitIsNull)
+            {
+                requestTravelModeOptions_travelModeOptions_Transit = null;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Transit != null)
+            {
+                request.TravelModeOptions.Transit = requestTravelModeOptions_travelModeOptions_Transit;
+                requestTravelModeOptionsIsNull = false;
+            }
+            Amazon.GeoRoutes.Model.RouteIntermodalOptions requestTravelModeOptions_travelModeOptions_Intermodal = null;
+            
+             // populate Intermodal
+            var requestTravelModeOptions_travelModeOptions_IntermodalIsNull = true;
+            requestTravelModeOptions_travelModeOptions_Intermodal = new Amazon.GeoRoutes.Model.RouteIntermodalOptions();
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_AccessibilityAttribute = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_AccessibilityAttribute != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_AccessibilityAttribute = cmdletContext.TravelModeOptions_Intermodal_AccessibilityAttribute;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_AccessibilityAttribute != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal.AccessibilityAttributes = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_AccessibilityAttribute;
+                requestTravelModeOptions_travelModeOptions_IntermodalIsNull = false;
+            }
+            System.Int32? requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_MaxTransfer = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_MaxTransfer != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_MaxTransfer = cmdletContext.TravelModeOptions_Intermodal_MaxTransfer.Value;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_MaxTransfer != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal.MaxTransfers = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_MaxTransfer.Value;
+                requestTravelModeOptions_travelModeOptions_IntermodalIsNull = false;
+            }
+            Amazon.GeoRoutes.Model.RouteIntermodalPedestrianOptions requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian = null;
+            
+             // populate Pedestrian
+            var requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_PedestrianIsNull = true;
+            requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian = new Amazon.GeoRoutes.Model.RouteIntermodalPedestrianOptions();
+            System.Int64? requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian_travelModeOptions_Intermodal_Pedestrian_MaxDistance = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Pedestrian_MaxDistance != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian_travelModeOptions_Intermodal_Pedestrian_MaxDistance = cmdletContext.TravelModeOptions_Intermodal_Pedestrian_MaxDistance.Value;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian_travelModeOptions_Intermodal_Pedestrian_MaxDistance != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian.MaxDistance = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian_travelModeOptions_Intermodal_Pedestrian_MaxDistance.Value;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_PedestrianIsNull = false;
+            }
+            System.Double? requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian_travelModeOptions_Intermodal_Pedestrian_Speed = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Pedestrian_Speed != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian_travelModeOptions_Intermodal_Pedestrian_Speed = cmdletContext.TravelModeOptions_Intermodal_Pedestrian_Speed.Value;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian_travelModeOptions_Intermodal_Pedestrian_Speed != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian.Speed = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian_travelModeOptions_Intermodal_Pedestrian_Speed.Value;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_PedestrianIsNull = false;
+            }
+             // determine if requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian should be set to null
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_PedestrianIsNull)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian = null;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal.Pedestrian = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Pedestrian;
+                requestTravelModeOptions_travelModeOptions_IntermodalIsNull = false;
+            }
+            Amazon.GeoRoutes.Model.RouteIntermodalRentalOptions requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental = null;
+            
+             // populate Rental
+            var requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_RentalIsNull = true;
+            requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental = new Amazon.GeoRoutes.Model.RouteIntermodalRentalOptions();
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_AllowedMode = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Rental_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_AllowedMode = cmdletContext.TravelModeOptions_Intermodal_Rental_AllowedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental.AllowedModes = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_AllowedMode;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_RentalIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_EnabledFor = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Rental_EnabledFor != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_EnabledFor = cmdletContext.TravelModeOptions_Intermodal_Rental_EnabledFor;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_EnabledFor != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental.EnabledFor = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_EnabledFor;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_RentalIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_ExcludedMode = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Rental_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_ExcludedMode = cmdletContext.TravelModeOptions_Intermodal_Rental_ExcludedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental.ExcludedModes = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental_travelModeOptions_Intermodal_Rental_ExcludedMode;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_RentalIsNull = false;
+            }
+             // determine if requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental should be set to null
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_RentalIsNull)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental = null;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal.Rental = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Rental;
+                requestTravelModeOptions_travelModeOptions_IntermodalIsNull = false;
+            }
+            Amazon.GeoRoutes.Model.RouteIntermodalTaxiOptions requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi = null;
+            
+             // populate Taxi
+            var requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TaxiIsNull = true;
+            requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi = new Amazon.GeoRoutes.Model.RouteIntermodalTaxiOptions();
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_AllowedMode = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Taxi_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_AllowedMode = cmdletContext.TravelModeOptions_Intermodal_Taxi_AllowedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi.AllowedModes = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_AllowedMode;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TaxiIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_EnabledFor = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Taxi_EnabledFor != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_EnabledFor = cmdletContext.TravelModeOptions_Intermodal_Taxi_EnabledFor;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_EnabledFor != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi.EnabledFor = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_EnabledFor;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TaxiIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_ExcludedMode = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Taxi_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_ExcludedMode = cmdletContext.TravelModeOptions_Intermodal_Taxi_ExcludedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi.ExcludedModes = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi_travelModeOptions_Intermodal_Taxi_ExcludedMode;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TaxiIsNull = false;
+            }
+             // determine if requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi should be set to null
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TaxiIsNull)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi = null;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal.Taxi = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Taxi;
+                requestTravelModeOptions_travelModeOptions_IntermodalIsNull = false;
+            }
+            Amazon.GeoRoutes.Model.RouteIntermodalTransitOptions requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit = null;
+            
+             // populate Transit
+            var requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TransitIsNull = true;
+            requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit = new Amazon.GeoRoutes.Model.RouteIntermodalTransitOptions();
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_AllowedMode = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Transit_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_AllowedMode = cmdletContext.TravelModeOptions_Intermodal_Transit_AllowedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit.AllowedModes = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_AllowedMode;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TransitIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_EnabledFor = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Transit_EnabledFor != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_EnabledFor = cmdletContext.TravelModeOptions_Intermodal_Transit_EnabledFor;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_EnabledFor != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit.EnabledFor = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_EnabledFor;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TransitIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_ExcludedMode = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Transit_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_ExcludedMode = cmdletContext.TravelModeOptions_Intermodal_Transit_ExcludedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit.ExcludedModes = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit_travelModeOptions_Intermodal_Transit_ExcludedMode;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TransitIsNull = false;
+            }
+             // determine if requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit should be set to null
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_TransitIsNull)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit = null;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal.Transit = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Transit;
+                requestTravelModeOptions_travelModeOptions_IntermodalIsNull = false;
+            }
+            Amazon.GeoRoutes.Model.RouteIntermodalVehicleOptions requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle = null;
+            
+             // populate Vehicle
+            var requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_VehicleIsNull = true;
+            requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle = new Amazon.GeoRoutes.Model.RouteIntermodalVehicleOptions();
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_AllowedMode = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Vehicle_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_AllowedMode = cmdletContext.TravelModeOptions_Intermodal_Vehicle_AllowedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_AllowedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle.AllowedModes = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_AllowedMode;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_VehicleIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_EnabledFor = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Vehicle_EnabledFor != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_EnabledFor = cmdletContext.TravelModeOptions_Intermodal_Vehicle_EnabledFor;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_EnabledFor != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle.EnabledFor = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_EnabledFor;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_VehicleIsNull = false;
+            }
+            List<System.String> requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_ExcludedMode = null;
+            if (cmdletContext.TravelModeOptions_Intermodal_Vehicle_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_ExcludedMode = cmdletContext.TravelModeOptions_Intermodal_Vehicle_ExcludedMode;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_ExcludedMode != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle.ExcludedModes = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle_travelModeOptions_Intermodal_Vehicle_ExcludedMode;
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_VehicleIsNull = false;
+            }
+             // determine if requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle should be set to null
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_VehicleIsNull)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle = null;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle != null)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal.Vehicle = requestTravelModeOptions_travelModeOptions_Intermodal_travelModeOptions_Intermodal_Vehicle;
+                requestTravelModeOptions_travelModeOptions_IntermodalIsNull = false;
+            }
+             // determine if requestTravelModeOptions_travelModeOptions_Intermodal should be set to null
+            if (requestTravelModeOptions_travelModeOptions_IntermodalIsNull)
+            {
+                requestTravelModeOptions_travelModeOptions_Intermodal = null;
+            }
+            if (requestTravelModeOptions_travelModeOptions_Intermodal != null)
+            {
+                request.TravelModeOptions.Intermodal = requestTravelModeOptions_travelModeOptions_Intermodal;
+                requestTravelModeOptionsIsNull = false;
+            }
             Amazon.GeoRoutes.Model.RouteTruckOptions requestTravelModeOptions_travelModeOptions_Truck = null;
             
              // populate Truck
@@ -2624,11 +3346,33 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             public System.String TravelModeOptions_Car_LicensePlate_LastCharacter { get; set; }
             public System.Double? Car_MaxSpeed { get; set; }
             public System.Int32? Car_Occupancy { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_AccessibilityAttribute { get; set; }
+            public System.Int32? TravelModeOptions_Intermodal_MaxTransfer { get; set; }
+            public System.Int64? TravelModeOptions_Intermodal_Pedestrian_MaxDistance { get; set; }
+            public System.Double? TravelModeOptions_Intermodal_Pedestrian_Speed { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Rental_AllowedMode { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Rental_EnabledFor { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Rental_ExcludedMode { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Taxi_AllowedMode { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Taxi_EnabledFor { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Taxi_ExcludedMode { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Transit_AllowedMode { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Transit_EnabledFor { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Transit_ExcludedMode { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Vehicle_AllowedMode { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Vehicle_EnabledFor { get; set; }
+            public List<System.String> TravelModeOptions_Intermodal_Vehicle_ExcludedMode { get; set; }
             public System.Double? Pedestrian_Speed { get; set; }
             public Amazon.GeoRoutes.RouteEngineType Scooter_EngineType { get; set; }
             public System.String TravelModeOptions_Scooter_LicensePlate_LastCharacter { get; set; }
             public System.Double? Scooter_MaxSpeed { get; set; }
             public System.Int32? Scooter_Occupancy { get; set; }
+            public List<System.String> TravelModeOptions_Transit_AccessibilityAttribute { get; set; }
+            public List<System.String> TravelModeOptions_Transit_AllowedMode { get; set; }
+            public List<System.String> TravelModeOptions_Transit_ExcludedMode { get; set; }
+            public System.Int32? TravelModeOptions_Transit_MaxTransfer { get; set; }
+            public System.Int64? TravelModeOptions_Transit_Pedestrian_MaxDistance { get; set; }
+            public System.Double? TravelModeOptions_Transit_Pedestrian_Speed { get; set; }
             public System.Int32? Truck_AxleCount { get; set; }
             public Amazon.GeoRoutes.RouteEngineType Truck_EngineType { get; set; }
             public System.Int64? Truck_GrossWeight { get; set; }

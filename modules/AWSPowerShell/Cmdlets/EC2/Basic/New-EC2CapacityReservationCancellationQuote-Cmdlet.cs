@@ -30,69 +30,34 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels the specified Capacity Reservation, releases the reserved capacity, and changes
-    /// the Capacity Reservation's state to <c>cancelled</c>.
-    /// 
-    ///  
-    /// <para>
-    /// You can cancel a Capacity Reservation that is in the following states:
-    /// </para><ul><li><para><c>assessing</c></para></li><li><para><c>scheduled</c></para></li><li><para><c>active</c> and there is no commitment duration or the commitment duration has
-    /// elapsed.
-    /// </para></li><li><para><c>active</c> during the commitment duration, if you provide a cancellation quote
-    /// ID and accept the cancellation charges. Use <c>CreateCapacityReservationCancellationQuote</c>
-    /// to generate a quote. The Capacity Reservation transitions to <c>cancelling</c> while
-    /// charges are applied.
-    /// </para></li></ul><note><para>
-    /// You can't modify or cancel a Capacity Block. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html">Capacity
-    /// Blocks for ML</a>.
-    /// </para></note><para>
-    /// If a future-dated Capacity Reservation enters the <c>delayed</c> state, the commitment
-    /// duration is waived, and you can cancel it as soon as it enters the <c>active</c> state.
-    /// </para><para>
-    /// Instances running in the reserved capacity continue running until you stop them. Stopped
-    /// instances that target the Capacity Reservation can no longer launch. Modify these
-    /// instances to either target a different Capacity Reservation, launch On-Demand Instance
-    /// capacity, or run in any open Capacity Reservation that has matching attributes and
-    /// sufficient capacity.
-    /// </para>
+    /// Generates a cancellation quote for a future-dated Capacity Reservation that is within
+    /// its commitment duration. The quote includes the cancellation terms and a quote ID
+    /// that you can pass to the <c>CancelCapacityReservation</c> action. Cancellation quotes
+    /// are valid for 24 hours.
     /// </summary>
-    [Cmdlet("Remove", "EC2CapacityReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CancelCapacityReservation API operation.", Operation = new[] {"CancelCapacityReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelCapacityReservationResponse))]
-    [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.CancelCapacityReservationResponse",
-        "This cmdlet returns a collection of System.Boolean objects.",
-        "The service call response (type Amazon.EC2.Model.CancelCapacityReservationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("New", "EC2CapacityReservationCancellationQuote", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.CapacityReservationCancellationQuote")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCapacityReservationCancellationQuote API operation.", Operation = new[] {"CreateCapacityReservationCancellationQuote"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.CapacityReservationCancellationQuote or Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse",
+        "This cmdlet returns an Amazon.EC2.Model.CapacityReservationCancellationQuote object.",
+        "The service call response (type Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveEC2CapacityReservationCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class NewEC2CapacityReservationCancellationQuoteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ApplyCancellationCharge
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the cancellation charge type to apply when cancelling a future-dated Capacity
-        /// Reservation during its commitment duration. Possible values include <c>commitment-wind-down</c>,
-        /// which continues billing for the remaining commitment duration without delivering capacity.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ApplyCancellationCharges")]
-        [AWSConstantClassSource("Amazon.EC2.ApplyCancellationCharges")]
-        public Amazon.EC2.ApplyCancellationCharges ApplyCancellationCharge { get; set; }
-        #endregion
-        
         #region Parameter CapacityReservationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Capacity Reservation to be cancelled.</para>
+        /// <para>The ID of the Capacity Reservation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -112,27 +77,42 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DryRun { get; set; }
         #endregion
         
-        #region Parameter QuoteId
+        #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The ID of the cancellation quote to use for the cancellation. You can generate a cancellation
-        /// quote by using the <c>CreateCapacityReservationCancellationQuote</c> action. The cancellation
-        /// quote must be in an <c>active</c> state.</para>
+        /// <para>The tags to apply to the cancellation quote.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String QuoteId { get; set; }
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure
+        /// Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Return'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CancelCapacityReservationResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.CancelCapacityReservationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CapacityReservationCancellationQuote'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Return";
+        public string Select { get; set; } = "CapacityReservationCancellationQuote";
         #endregion
         
         #region Parameter Force
@@ -154,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CapacityReservationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2CapacityReservation (CancelCapacityReservation)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2CapacityReservationCancellationQuote (CreateCapacityReservationCancellationQuote)"))
             {
                 return;
             }
@@ -167,10 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CancelCapacityReservationResponse, RemoveEC2CapacityReservationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse, NewEC2CapacityReservationCancellationQuoteCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ApplyCancellationCharge = this.ApplyCancellationCharge;
             context.CapacityReservationId = this.CapacityReservationId;
             #if MODULAR
             if (this.CapacityReservationId == null && ParameterWasBound(nameof(this.CapacityReservationId)))
@@ -178,8 +157,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter CapacityReservationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientToken = this.ClientToken;
             context.DryRun = this.DryRun;
-            context.QuoteId = this.QuoteId;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -194,23 +177,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CancelCapacityReservationRequest();
+            var request = new Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteRequest();
             
-            if (cmdletContext.ApplyCancellationCharge != null)
-            {
-                request.ApplyCancellationCharges = cmdletContext.ApplyCancellationCharge;
-            }
             if (cmdletContext.CapacityReservationId != null)
             {
                 request.CapacityReservationId = cmdletContext.CapacityReservationId;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.QuoteId != null)
+            if (cmdletContext.TagSpecification != null)
             {
-                request.QuoteId = cmdletContext.QuoteId;
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -245,12 +228,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.CancelCapacityReservationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelCapacityReservationRequest request)
+        private Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CancelCapacityReservation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateCapacityReservationCancellationQuote");
             try
             {
-                return client.CancelCapacityReservationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CreateCapacityReservationCancellationQuoteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -267,12 +250,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.EC2.ApplyCancellationCharges ApplyCancellationCharge { get; set; }
             public System.String CapacityReservationId { get; set; }
+            public System.String ClientToken { get; set; }
             public System.Boolean? DryRun { get; set; }
-            public System.String QuoteId { get; set; }
-            public System.Func<Amazon.EC2.Model.CancelCapacityReservationResponse, RemoveEC2CapacityReservationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Return;
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public System.Func<Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse, NewEC2CapacityReservationCancellationQuoteCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CapacityReservationCancellationQuote;
         }
         
     }

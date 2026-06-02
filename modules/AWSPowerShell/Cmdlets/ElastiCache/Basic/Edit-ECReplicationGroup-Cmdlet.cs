@@ -169,6 +169,19 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public Amazon.ElastiCache.ClusterMode ClusterMode { get; set; }
         #endregion
         
+        #region Parameter Durability
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the durability setting for the replication group. Use this parameter to
+        /// change the durability mode of an existing replication group, for example from <c>sync</c>
+        /// to <c>async</c> or vice versa. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.Durability")]
+        public Amazon.ElastiCache.Durability Durability { get; set; }
+        #endregion
+        
         #region Parameter Engine
         /// <summary>
         /// <para>
@@ -500,6 +513,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.CacheSecurityGroupName = new List<System.String>(this.CacheSecurityGroupName);
             }
             context.ClusterMode = this.ClusterMode;
+            context.Durability = this.Durability;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             context.IpDiscovery = this.IpDiscovery;
@@ -590,6 +604,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.ClusterMode != null)
             {
                 request.ClusterMode = cmdletContext.ClusterMode;
+            }
+            if (cmdletContext.Durability != null)
+            {
+                request.Durability = cmdletContext.Durability;
             }
             if (cmdletContext.Engine != null)
             {
@@ -739,6 +757,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupName { get; set; }
             public Amazon.ElastiCache.ClusterMode ClusterMode { get; set; }
+            public Amazon.ElastiCache.Durability Durability { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public Amazon.ElastiCache.IpDiscovery IpDiscovery { get; set; }

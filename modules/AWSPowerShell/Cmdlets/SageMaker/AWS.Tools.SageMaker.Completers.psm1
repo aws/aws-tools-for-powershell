@@ -904,6 +904,28 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.JobCategory
+        {
+            ($_ -eq "Get-SMJobDetail/JobCategory") -Or
+            ($_ -eq "Get-SMJobList/JobCategory") -Or
+            ($_ -eq "Get-SMJobSchemaVersionDetail/JobCategory") -Or
+            ($_ -eq "Get-SMJobSchemaVersionList/JobCategory") -Or
+            ($_ -eq "New-SMJob/JobCategory") -Or
+            ($_ -eq "Remove-SMJob/JobCategory") -Or
+            ($_ -eq "Stop-SMJob/JobCategory")
+        }
+        {
+            $v = "AgentRFT","AgentRFTEvaluation"
+            break
+        }
+
+        # Amazon.SageMaker.JobStatus
+        "Get-SMJobList/StatusEqual"
+        {
+            $v = "Completed","DeleteFailed","Deleting","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+
         # Amazon.SageMaker.JobType
         {
             ($_ -eq "New-SMImageVersion/JobType") -Or
@@ -1583,6 +1605,7 @@ $SM_Completers = {
 
         # Amazon.SageMaker.SortBy
         {
+            ($_ -eq "Get-SMJobList/SortBy") -Or
             ($_ -eq "Get-SMLabelingJobList/SortBy") -Or
             ($_ -eq "Get-SMProcessingJobList/SortBy") -Or
             ($_ -eq "Get-SMTrainingJobList/SortBy") -Or
@@ -1666,6 +1689,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMHyperParameterTuningJobList/SortOrder") -Or
             ($_ -eq "Get-SMInferenceExperimentList/SortOrder") -Or
             ($_ -eq "Get-SMInferenceRecommendationsJobList/SortOrder") -Or
+            ($_ -eq "Get-SMJobList/SortOrder") -Or
             ($_ -eq "Get-SMLabelingJobList/SortOrder") -Or
             ($_ -eq "Get-SMLabelingJobListForWorkteam/SortOrder") -Or
             ($_ -eq "Get-SMLineageGroupList/SortOrder") -Or
@@ -2061,6 +2085,7 @@ $SM_map = @{
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InstanceType"=@("New-SMNotebookInstance","Search-SMTrainingPlanOffering","Update-SMNotebookInstance")
     "IpAddressType"=@("New-SMNotebookInstance","New-SMWorkforce","Update-SMNotebookInstance","Update-SMWorkforce")
+    "JobCategory"=@("Get-SMJobDetail","Get-SMJobList","Get-SMJobSchemaVersionDetail","Get-SMJobSchemaVersionList","New-SMJob","Remove-SMJob","Stop-SMJob")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "ManagedConfiguration_ManagedStorageType"=@("New-SMModelPackageGroup")
@@ -2101,8 +2126,8 @@ $SM_map = @{
     "ServerlessJobConfig_JobType"=@("New-SMTrainingJob")
     "ServerlessJobConfig_Peft"=@("New-SMTrainingJob")
     "SkipModelValidation"=@("New-SMModelPackage")
-    "SortBy"=@("Get-SMActionList","Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAIWorkloadConfigList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMActionList","Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAIWorkloadConfigList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMPipelineVersionList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
+    "SortBy"=@("Get-SMActionList","Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAIWorkloadConfigList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMActionList","Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAIWorkloadConfigList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMPipelineVersionList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "SpaceSettings_AppType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
@@ -2116,7 +2141,7 @@ $SM_map = @{
     "Specification_SchedulingConfig_PlacementStrategy"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","Get-SMMlflowAppList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
-    "StatusEqual"=@("Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "StatusEqual"=@("Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
     "StoppingConditions_FlatInvocation"=@("New-SMInferenceRecommendationsJob")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
@@ -2245,6 +2270,7 @@ $SM_SelectMap = @{
                "New-SMInferenceComponent",
                "New-SMInferenceExperiment",
                "New-SMInferenceRecommendationsJob",
+               "New-SMJob",
                "New-SMLabelingJob",
                "New-SMMlflowApp",
                "New-SMMlflowTrackingServer",
@@ -2313,6 +2339,7 @@ $SM_SelectMap = @{
                "Remove-SMImageVersion",
                "Remove-SMInferenceComponent",
                "Remove-SMInferenceExperiment",
+               "Remove-SMJob",
                "Remove-SMMlflowApp",
                "Remove-SMMlflowTrackingServer",
                "Remove-SMModel",
@@ -2380,6 +2407,8 @@ $SM_SelectMap = @{
                "Get-SMInferenceComponent",
                "Get-SMInferenceExperiment",
                "Get-SMInferenceRecommendationsJob",
+               "Get-SMJobDetail",
+               "Get-SMJobSchemaVersionDetail",
                "Get-SMLabelingJob",
                "Get-SMLineageGroup",
                "Get-SMMlflowAppDetail",
@@ -2469,6 +2498,8 @@ $SM_SelectMap = @{
                "Get-SMInferenceExperimentList",
                "Get-SMInferenceRecommendationsJobList",
                "Get-SMInferenceRecommendationsJobStepList",
+               "Get-SMJobList",
+               "Get-SMJobSchemaVersionList",
                "Get-SMLabelingJobList",
                "Get-SMLabelingJobListForWorkteam",
                "Get-SMLineageGroupList",
@@ -2541,6 +2572,7 @@ $SM_SelectMap = @{
                "Stop-SMHyperParameterTuningJob",
                "Stop-SMInferenceExperiment",
                "Stop-SMInferenceRecommendationsJob",
+               "Stop-SMJob",
                "Stop-SMLabelingJob",
                "Stop-SMMlflowTrackingServer",
                "Stop-SMMonitoringSchedule",

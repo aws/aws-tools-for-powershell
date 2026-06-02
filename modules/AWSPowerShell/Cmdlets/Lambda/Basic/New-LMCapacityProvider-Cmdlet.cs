@@ -128,6 +128,22 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String[] InstanceRequirements_ExcludedInstanceType { get; set; }
         #endregion
         
+        #region Parameter PropagateTags_ExplicitTag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to apply to managed resources when <c>Mode</c> is set to <c>Explicit</c>.
+        /// You can specify up to 40 tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PropagateTags_ExplicitTags")]
+        public System.Collections.Hashtable PropagateTags_ExplicitTag { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
@@ -147,6 +163,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? CapacityProviderScalingConfig_MaxVCpuCount { get; set; }
+        #endregion
+        
+        #region Parameter PropagateTags_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The tag propagation mode. Set to <c>Explicit</c> to propagate the tags specified in
+        /// <c>ExplicitTags</c> to managed resources. Set to <c>None</c> to disable tag propagation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.PropagateTagsMode")]
+        public Amazon.Lambda.PropagateTagsMode PropagateTags_Mode { get; set; }
         #endregion
         
         #region Parameter CapacityProviderScalingConfig_ScalingMode
@@ -316,6 +344,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 WriteWarning("You are passing $null as a value for parameter PermissionsConfig_CapacityProviderOperatorRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PropagateTags_ExplicitTag != null)
+            {
+                context.PropagateTags_ExplicitTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PropagateTags_ExplicitTag.Keys)
+                {
+                    context.PropagateTags_ExplicitTag.Add((String)hashKey, (System.String)(this.PropagateTags_ExplicitTag[hashKey]));
+                }
+            }
+            context.PropagateTags_Mode = this.PropagateTags_Mode;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -465,6 +502,35 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.PermissionsConfig = null;
             }
+            
+             // populate PropagateTags
+            var requestPropagateTagsIsNull = true;
+            request.PropagateTags = new Amazon.Lambda.Model.PropagateTags();
+            Dictionary<System.String, System.String> requestPropagateTags_propagateTags_ExplicitTag = null;
+            if (cmdletContext.PropagateTags_ExplicitTag != null)
+            {
+                requestPropagateTags_propagateTags_ExplicitTag = cmdletContext.PropagateTags_ExplicitTag;
+            }
+            if (requestPropagateTags_propagateTags_ExplicitTag != null)
+            {
+                request.PropagateTags.ExplicitTags = requestPropagateTags_propagateTags_ExplicitTag;
+                requestPropagateTagsIsNull = false;
+            }
+            Amazon.Lambda.PropagateTagsMode requestPropagateTags_propagateTags_Mode = null;
+            if (cmdletContext.PropagateTags_Mode != null)
+            {
+                requestPropagateTags_propagateTags_Mode = cmdletContext.PropagateTags_Mode;
+            }
+            if (requestPropagateTags_propagateTags_Mode != null)
+            {
+                request.PropagateTags.Mode = requestPropagateTags_propagateTags_Mode;
+                requestPropagateTagsIsNull = false;
+            }
+             // determine if request.PropagateTags should be set to null
+            if (requestPropagateTagsIsNull)
+            {
+                request.PropagateTags = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -562,6 +628,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public List<System.String> InstanceRequirements_ExcludedInstanceType { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String PermissionsConfig_CapacityProviderOperatorRoleArn { get; set; }
+            public Dictionary<System.String, System.String> PropagateTags_ExplicitTag { get; set; }
+            public Amazon.Lambda.PropagateTagsMode PropagateTags_Mode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemakerjobruntime</C2jFilename>
+    <AssemblyName>SagemakerJobRuntime</AssemblyName>
+    <ServiceNounPrefix>SMJR</ServiceNounPrefix>
+    <ServiceName>Sagemaker Job Runtime Service</ServiceName>
+    <ServiceId>SagemakerJobRuntime</ServiceId>
+    <ServiceClientInterface>IAmazonSagemakerJobRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonSagemakerJobRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>899a5eac-ae51-40aa-9655-bef05749f6e4</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CompleteRollout" Verb="Complete" Noun="Rollout" ShouldProcessTarget="TrajectoryId,JobArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Sample" OutputProperty="*" Verb="Invoke" Noun="Sample" ShouldProcessTarget="JobArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SampleWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="SampleWithResponseStream" ShouldProcessTarget="JobArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReward" Verb="Update" Noun="Reward" ShouldProcessTarget="TrajectoryId,JobArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

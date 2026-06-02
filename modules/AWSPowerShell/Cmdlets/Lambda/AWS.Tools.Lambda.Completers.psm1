@@ -227,6 +227,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.PropagateTagsMode
+        {
+            ($_ -eq "New-LMCapacityProvider/PropagateTags_Mode") -Or
+            ($_ -eq "Update-LMCapacityProvider/PropagateTags_Mode")
+        }
+        {
+            $v = "Explicit","None"
+            break
+        }
+
         # Amazon.Lambda.RecursiveLoop
         "Write-LMFunctionRecursionConfig/RecursiveLoop"
         {
@@ -334,6 +344,7 @@ $LM_map = @{
     "LoggingConfig_SystemLogLevel"=@("New-LMEventSourceMapping","Publish-LMFunction","Update-LMEventSourceMapping","Update-LMFunctionConfiguration")
     "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
+    "PropagateTags_Mode"=@("New-LMCapacityProvider","Update-LMCapacityProvider")
     "PublishTo"=@("Publish-LMFunction","Publish-LMVersion","Update-LMFunctionCode")
     "RecursiveLoop"=@("Write-LMFunctionRecursionConfig")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")

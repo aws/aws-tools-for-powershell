@@ -514,6 +514,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateJob" OutputProperty="JobArn" Verb="New" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLabelingJob" OutputProperty="LabelingJobArn" Verb="New" Noun="LabelingJob" ShouldProcessTarget="LabelingJobName" PipelineParameter="LabelingJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HumanTaskConfig_AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn" NewName="AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn" />
@@ -999,6 +1003,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMlflowApp" OutputProperty="Arn" Verb="Remove" Noun="MlflowApp" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1264,6 +1272,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInferenceRecommendationsJob" OutputProperty="*" Verb="Get" Noun="InferenceRecommendationsJob" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="JobDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobSchemaVersion" OutputProperty="*" Verb="Get" Noun="JobSchemaVersionDetail" PipelineParameter="JobCategory" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1625,6 +1641,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaries" Verb="Get" Noun="JobList" PipelineParameter="JobCategory" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobSchemaVersions" OutputProperty="JobConfigSchemas" Verb="Get" Noun="JobSchemaVersionList" PipelineParameter="JobCategory" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLabelingJobs" OutputProperty="LabelingJobSummaryList" Verb="Get" Noun="LabelingJobList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1910,6 +1934,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopInferenceRecommendationsJob" Verb="Stop" Noun="InferenceRecommendationsJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopJob" Verb="Stop" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

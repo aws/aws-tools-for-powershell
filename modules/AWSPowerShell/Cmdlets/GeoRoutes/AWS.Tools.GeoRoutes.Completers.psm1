@@ -194,7 +194,7 @@ $GEOR_Completers = {
         # Amazon.GeoRoutes.RouteTravelMode
         "Get-GEORRoute/TravelMode"
         {
-            $v = "Car","Pedestrian","Scooter","Truck"
+            $v = "Car","Intermodal","Pedestrian","Scooter","Transit","Truck"
             break
         }
 

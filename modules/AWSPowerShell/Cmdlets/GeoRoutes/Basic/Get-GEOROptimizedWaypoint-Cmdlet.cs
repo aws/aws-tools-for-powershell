@@ -547,7 +547,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Waypoint
         /// <summary>
         /// <para>
-        /// <para>List of waypoints between the <c>Origin</c> and <c>Destination</c>.</para><para />
+        /// <para>List of waypoints between the <c>Origin</c> and <c>Destination</c>, in World Geodetic
+        /// System (WGS 84) format: [longitude, latitude].</para><para>The maximum number of waypoints allowed per request:</para><ul><li><para>Maximum 50 waypoints per request</para></li><li><para>Maximum 20 waypoints when using constraints (<c>AccessHours</c>, <c>AppointmentTime</c>,
+        /// <c>ServiceDuration</c>, <c>Heading</c>, <c>SideOfStreet</c>, <c>Before</c>)</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

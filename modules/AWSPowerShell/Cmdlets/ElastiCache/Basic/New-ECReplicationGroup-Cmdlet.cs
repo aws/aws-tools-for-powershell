@@ -85,12 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AtRestEncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>A flag that enables encryption at rest when set to <c>true</c>.</para><para>You cannot modify the value of <c>AtRestEncryptionEnabled</c> after the replication
-        /// group is created. To enable encryption at rest on a replication group you must set
-        /// <c>AtRestEncryptionEnabled</c> to <c>true</c> when you create the replication group.
-        /// </para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
-        /// using Valkey <c>7.2</c> and later, Redis OSS version <c>3.2.6</c>, or Redis OSS <c>4.x</c>
-        /// and later.</para><para>Default: <c>true</c> when using Valkey, <c>false</c> when using Redis OSS</para>
+        /// <para>A flag that enables encryption at-rest on the replication group when set to <c>true</c>.
+        /// In some cases, encryption at-rest may be enabled even when this value is false. Use
+        /// <c>StorageEncryptionType</c> to view the effective encryption state of a cluster.</para><para>You cannot modify the value of <c>AtRestEncryptionEnabled</c> after the replication
+        /// group is created.</para><para>Default: <c>true</c> when using Valkey, <c>false</c> when using Redis OSS</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,6 +235,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DataTieringEnabled { get; set; }
+        #endregion
+        
+        #region Parameter Durability
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the durability setting for the replication group. When set to <c>default</c>,
+        /// the service determines the effective durability based on the engine version, cluster
+        /// mode, and other parameters. The resolved setting is reflected in the <c>EffectiveDurability</c>
+        /// property of the replication group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.Durability")]
+        public Amazon.ElastiCache.Durability Durability { get; set; }
         #endregion
         
         #region Parameter Engine
@@ -707,6 +719,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheSubnetGroupName = this.CacheSubnetGroupName;
             context.ClusterMode = this.ClusterMode;
             context.DataTieringEnabled = this.DataTieringEnabled;
+            context.Durability = this.Durability;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             context.GlobalReplicationGroupId = this.GlobalReplicationGroupId;
@@ -824,6 +837,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.DataTieringEnabled != null)
             {
                 request.DataTieringEnabled = cmdletContext.DataTieringEnabled.Value;
+            }
+            if (cmdletContext.Durability != null)
+            {
+                request.Durability = cmdletContext.Durability;
             }
             if (cmdletContext.Engine != null)
             {
@@ -1006,6 +1023,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheSubnetGroupName { get; set; }
             public Amazon.ElastiCache.ClusterMode ClusterMode { get; set; }
             public System.Boolean? DataTieringEnabled { get; set; }
+            public Amazon.ElastiCache.Durability Durability { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String GlobalReplicationGroupId { get; set; }
