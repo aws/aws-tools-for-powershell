@@ -1,4 +1,7 @@
-﻿### 5.0.224 (2026-06-02 20:29Z)
+﻿### 5.0.225 (2026-06-03 07:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.261.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 5.0.224 (2026-06-02 20:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.260.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud
     * Added cmdlet Get-EC2CapacityReservationCancellationQuoteDetail leveraging the DescribeCapacityReservationCancellationQuotes service API.
