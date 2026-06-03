@@ -101,7 +101,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.AnalysisType
         "Start-CECommitmentPurchaseAnalysis/SavingsPlansPurchaseAnalysisConfiguration_AnalysisType"
         {
-            $v = "CUSTOM_COMMITMENT","MAX_SAVINGS"
+            $v = "CUSTOM_COMMITMENT","MAX_SAVINGS","TARGET_AVERAGE_COVERAGE"
             break
         }
 

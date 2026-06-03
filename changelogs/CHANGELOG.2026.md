@@ -1,4 +1,24 @@
-﻿### 5.0.225 (2026-06-03 07:36Z)
+﻿### 5.0.226 (2026-06-03 20:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.262.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Modified cmdlet Search-CONNContact: added parameter SearchCriteria_AiAgents_Criterion.
+  * Amazon Cost Explorer
+    * Modified cmdlet Start-CECommitmentPurchaseAnalysis: added parameter CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage.
+  * Amazon End User Messaging Social
+    * Added cmdlet Disable-SOCIALWhatsAppFlow leveraging the DeprecateWhatsAppFlow service API.
+    * Added cmdlet Get-SOCIALWhatsAppFlow leveraging the GetWhatsAppFlow service API.
+    * Added cmdlet Get-SOCIALWhatsAppFlowAssetList leveraging the ListWhatsAppFlowAssets service API.
+    * Added cmdlet Get-SOCIALWhatsAppFlowList leveraging the ListWhatsAppFlows service API.
+    * Added cmdlet Get-SOCIALWhatsAppFlowPreview leveraging the GetWhatsAppFlowPreview service API.
+    * Added cmdlet New-SOCIALWhatsAppFlow leveraging the CreateWhatsAppFlow service API.
+    * Added cmdlet Publish-SOCIALWhatsAppFlow leveraging the PublishWhatsAppFlow service API.
+    * Added cmdlet Remove-SOCIALWhatsAppFlow leveraging the DeleteWhatsAppFlow service API.
+    * Added cmdlet Update-SOCIALWhatsAppFlow leveraging the UpdateWhatsAppFlow service API.
+    * Added cmdlet Update-SOCIALWhatsAppFlowAsset leveraging the UpdateWhatsAppFlowAssets service API.
+  * Amazon Inspector2
+    * Modified cmdlet Update-INS2Configuration: added parameter Ec2Configuration_ActivateVMScanner.
+
+### 5.0.225 (2026-06-03 07:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.261.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.224 (2026-06-02 20:29Z)

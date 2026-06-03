@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Ec2Configuration_ActivateVMScanner
+        /// <summary>
+        /// <para>
+        /// <para>Whether to activate Amazon Inspector VM scanner for Amazon EC2 scanning.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Ec2Configuration_ActivateVMScanner { get; set; }
+        #endregion
+        
         #region Parameter EcrConfiguration_PullDateRescanDuration
         /// <summary>
         /// <para>
@@ -136,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateConfigurationResponse, UpdateINS2ConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Ec2Configuration_ActivateVMScanner = this.Ec2Configuration_ActivateVMScanner;
             context.Ec2Configuration_ScanMode = this.Ec2Configuration_ScanMode;
             context.EcrConfiguration_PullDateRescanDuration = this.EcrConfiguration_PullDateRescanDuration;
             context.EcrConfiguration_PullDateRescanMode = this.EcrConfiguration_PullDateRescanMode;
@@ -160,6 +171,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
              // populate Ec2Configuration
             var requestEc2ConfigurationIsNull = true;
             request.Ec2Configuration = new Amazon.Inspector2.Model.Ec2Configuration();
+            System.Boolean? requestEc2Configuration_ec2Configuration_ActivateVMScanner = null;
+            if (cmdletContext.Ec2Configuration_ActivateVMScanner != null)
+            {
+                requestEc2Configuration_ec2Configuration_ActivateVMScanner = cmdletContext.Ec2Configuration_ActivateVMScanner.Value;
+            }
+            if (requestEc2Configuration_ec2Configuration_ActivateVMScanner != null)
+            {
+                request.Ec2Configuration.ActivateVMScanner = requestEc2Configuration_ec2Configuration_ActivateVMScanner.Value;
+                requestEc2ConfigurationIsNull = false;
+            }
             Amazon.Inspector2.Ec2ScanMode requestEc2Configuration_ec2Configuration_ScanMode = null;
             if (cmdletContext.Ec2Configuration_ScanMode != null)
             {
@@ -269,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Ec2Configuration_ActivateVMScanner { get; set; }
             public Amazon.Inspector2.Ec2ScanMode Ec2Configuration_ScanMode { get; set; }
             public Amazon.Inspector2.EcrPullDateRescanDuration EcrConfiguration_PullDateRescanDuration { get; set; }
             public Amazon.Inspector2.EcrPullDateRescanMode EcrConfiguration_PullDateRescanMode { get; set; }

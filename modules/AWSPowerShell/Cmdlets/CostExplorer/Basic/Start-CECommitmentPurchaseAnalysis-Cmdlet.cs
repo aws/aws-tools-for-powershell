@@ -92,6 +92,19 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public Amazon.CostExplorer.Model.DateInterval SavingsPlansPurchaseAnalysisConfiguration_LookBackTimePeriod { get; set; }
         #endregion
         
+        #region Parameter CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the target Savings Plans coverage as a percentage from <c>10</c> to <c>100</c>.
+        /// This field is required when <c>AnalysisType</c> is <c>TARGET_AVERAGE_COVERAGE</c>.
+        /// It defines the target average hourly coverage that the recommended Savings Plans commitment
+        /// should achieve over the lookback period.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage { get; set; }
+        #endregion
+        
         #region Parameter SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToAdd
         /// <summary>
         /// <para>
@@ -172,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             context.SavingsPlansPurchaseAnalysisConfiguration_AccountScope = this.SavingsPlansPurchaseAnalysisConfiguration_AccountScope;
             context.SavingsPlansPurchaseAnalysisConfiguration_AnalysisType = this.SavingsPlansPurchaseAnalysisConfiguration_AnalysisType;
             context.SavingsPlansPurchaseAnalysisConfiguration_LookBackTimePeriod = this.SavingsPlansPurchaseAnalysisConfiguration_LookBackTimePeriod;
+            context.CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage = this.CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage;
             if (this.SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToAdd != null)
             {
                 context.SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToAdd = new List<Amazon.CostExplorer.Model.SavingsPlans>(this.SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToAdd);
@@ -243,6 +257,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_savingsPlansPurchaseAnalysisConfiguration_LookBackTimePeriod != null)
             {
                 requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration.LookBackTimePeriod = requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_savingsPlansPurchaseAnalysisConfiguration_LookBackTimePeriod;
+                requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfigurationIsNull = false;
+            }
+            System.Int32? requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage = null;
+            if (cmdletContext.CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage != null)
+            {
+                requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage = cmdletContext.CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage.Value;
+            }
+            if (requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage != null)
+            {
+                requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration.SavingsPlansTargetCoverage = requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage.Value;
                 requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfigurationIsNull = false;
             }
             List<Amazon.CostExplorer.Model.SavingsPlans> requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_savingsPlansPurchaseAnalysisConfiguration_SavingsPlansToAdd = null;
@@ -339,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             public Amazon.CostExplorer.AccountScope SavingsPlansPurchaseAnalysisConfiguration_AccountScope { get; set; }
             public Amazon.CostExplorer.AnalysisType SavingsPlansPurchaseAnalysisConfiguration_AnalysisType { get; set; }
             public Amazon.CostExplorer.Model.DateInterval SavingsPlansPurchaseAnalysisConfiguration_LookBackTimePeriod { get; set; }
+            public System.Int32? CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansTargetCoverage { get; set; }
             public List<Amazon.CostExplorer.Model.SavingsPlans> SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToAdd { get; set; }
             public List<System.String> SavingsPlansPurchaseAnalysisConfiguration_SavingsPlansToExclude { get; set; }
             public System.Func<Amazon.CostExplorer.Model.StartCommitmentPurchaseAnalysisResponse, StartCECommitmentPurchaseAnalysisCmdlet, object> Select { get; set; } =

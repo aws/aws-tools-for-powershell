@@ -11091,7 +11091,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.AnalysisType
         "Start-CECommitmentPurchaseAnalysis/SavingsPlansPurchaseAnalysisConfiguration_AnalysisType"
         {
-            $v = "CUSTOM_COMMITMENT","MAX_SAVINGS"
+            $v = "CUSTOM_COMMITMENT","MAX_SAVINGS","TARGET_AVERAGE_COVERAGE"
             break
         }
 
@@ -81981,25 +81981,35 @@ $SOCIAL_SelectCompleters = {
 
 $SOCIAL_SelectMap = @{
     "Select"=@("Connect-SOCIALWhatsAppBusinessAccount",
+               "New-SOCIALWhatsAppFlow",
                "New-SOCIALWhatsAppMessageTemplate",
                "New-SOCIALWhatsAppMessageTemplateFromLibrary",
                "New-SOCIALWhatsAppMessageTemplateMedia",
+               "Remove-SOCIALWhatsAppFlow",
                "Remove-SOCIALWhatsAppMessageMedia",
                "Remove-SOCIALWhatsAppMessageTemplate",
+               "Disable-SOCIALWhatsAppFlow",
                "Disconnect-SOCIALWhatsAppBusinessAccount",
                "Get-SOCIALLinkedWhatsAppBusinessAccount",
                "Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber",
+               "Get-SOCIALWhatsAppFlow",
+               "Get-SOCIALWhatsAppFlowPreview",
                "Get-SOCIALWhatsAppMessageMedia",
                "Get-SOCIALWhatsAppMessageTemplate",
                "Get-SOCIALLinkedWhatsAppBusinessAccountList",
                "Get-SOCIALResourceTag",
+               "Get-SOCIALWhatsAppFlowAssetList",
+               "Get-SOCIALWhatsAppFlowList",
                "Get-SOCIALWhatsAppMessageTemplateList",
                "Get-SOCIALWhatsAppTemplateLibraryList",
                "Send-SOCIALWhatsAppMessageMedia",
+               "Publish-SOCIALWhatsAppFlow",
                "Write-SOCIALWhatsAppBusinessAccountEventDestination",
                "Send-SOCIALWhatsAppMessage",
                "Add-SOCIALResourceTag",
                "Remove-SOCIALResourceTag",
+               "Update-SOCIALWhatsAppFlow",
+               "Update-SOCIALWhatsAppFlowAsset",
                "Update-SOCIALWhatsAppMessageTemplate")
 }
 

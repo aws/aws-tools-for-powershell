@@ -119,6 +119,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.SearchContactsAdditionalTimeRangeCriteria[] AdditionalTimeRange_Criterion { get; set; }
         #endregion
         
+        #region Parameter SearchCriteria_AiAgents_Criterion
+        /// <summary>
+        /// <para>
+        /// <para>The list of criteria based on AI Agent metadata.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_AiAgents_Criteria")]
+        public Amazon.Connect.Model.AiAgentSearchCriteria[] SearchCriteria_AiAgents_Criterion { get; set; }
+        #endregion
+        
         #region Parameter Transcript_Criterion
         /// <summary>
         /// <para>
@@ -609,6 +624,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 context.SearchCriteria_AgentId = new List<System.String>(this.SearchCriteria_AgentId);
             }
+            if (this.SearchCriteria_AiAgents_Criterion != null)
+            {
+                context.SearchCriteria_AiAgents_Criterion = new List<Amazon.Connect.Model.AiAgentSearchCriteria>(this.SearchCriteria_AiAgents_Criterion);
+            }
             if (this.SearchCriteria_Channel != null)
             {
                 context.SearchCriteria_Channel = new List<System.String>(this.SearchCriteria_Channel);
@@ -760,6 +779,31 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestSearchCriteria_searchCriteria_QueueId != null)
             {
                 request.SearchCriteria.QueueIds = requestSearchCriteria_searchCriteria_QueueId;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.Connect.Model.AiAgentsCriteria requestSearchCriteria_searchCriteria_AiAgents = null;
+            
+             // populate AiAgents
+            var requestSearchCriteria_searchCriteria_AiAgentsIsNull = true;
+            requestSearchCriteria_searchCriteria_AiAgents = new Amazon.Connect.Model.AiAgentsCriteria();
+            List<Amazon.Connect.Model.AiAgentSearchCriteria> requestSearchCriteria_searchCriteria_AiAgents_searchCriteria_AiAgents_Criterion = null;
+            if (cmdletContext.SearchCriteria_AiAgents_Criterion != null)
+            {
+                requestSearchCriteria_searchCriteria_AiAgents_searchCriteria_AiAgents_Criterion = cmdletContext.SearchCriteria_AiAgents_Criterion;
+            }
+            if (requestSearchCriteria_searchCriteria_AiAgents_searchCriteria_AiAgents_Criterion != null)
+            {
+                requestSearchCriteria_searchCriteria_AiAgents.Criteria = requestSearchCriteria_searchCriteria_AiAgents_searchCriteria_AiAgents_Criterion;
+                requestSearchCriteria_searchCriteria_AiAgentsIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_AiAgents should be set to null
+            if (requestSearchCriteria_searchCriteria_AiAgentsIsNull)
+            {
+                requestSearchCriteria_searchCriteria_AiAgents = null;
+            }
+            if (requestSearchCriteria_searchCriteria_AiAgents != null)
+            {
+                request.SearchCriteria.AiAgents = requestSearchCriteria_searchCriteria_AiAgents;
                 requestSearchCriteriaIsNull = false;
             }
             Amazon.Connect.Model.ContactAnalysis requestSearchCriteria_searchCriteria_ContactAnalysis = null;
@@ -1276,6 +1320,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<System.String> AgentHierarchyGroups_L4Id { get; set; }
             public List<System.String> AgentHierarchyGroups_L5Id { get; set; }
             public List<System.String> SearchCriteria_AgentId { get; set; }
+            public List<Amazon.Connect.Model.AiAgentSearchCriteria> SearchCriteria_AiAgents_Criterion { get; set; }
             public List<System.String> SearchCriteria_Channel { get; set; }
             public List<Amazon.Connect.Model.TranscriptCriteria> Transcript_Criterion { get; set; }
             public Amazon.Connect.SearchContactsMatchType Transcript_MatchType { get; set; }

@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of objects that you want to return with this call.</para>
+        /// <para>The maximum number of results to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

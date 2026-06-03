@@ -305,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are
-        /// <c>EC2_SSM_AGENT_BASED</c> and <c>EC2_AGENTLESS</c>.</para><para />
+        /// <c>EC2_SSM_AGENT_BASED</c>, <c>EC2_AGENTLESS</c>, and <c>EC2_INSPECTOR_AGENT_BASED</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

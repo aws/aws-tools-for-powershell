@@ -27,6 +27,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWhatsAppFlow" OutputProperty="*" Verb="New" Noun="WhatsAppFlow" ShouldProcessTarget="Id,FlowName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWhatsAppMessageTemplate" OutputProperty="*" Verb="New" Noun="WhatsAppMessageTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -45,11 +49,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWhatsAppFlow" Verb="Remove" Noun="WhatsAppFlow" ShouldProcessTarget="FlowId,Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteWhatsAppMessageMedia" OutputProperty="Success" Verb="Remove" Noun="WhatsAppMessageMedia" ShouldProcessTarget="OriginationPhoneNumberId" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteWhatsAppMessageTemplate" Verb="Remove" Noun="WhatsAppMessageTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeprecateWhatsAppFlow" Verb="Disable" Noun="WhatsAppFlow" ShouldProcessTarget="FlowId,Id" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -62,6 +74,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetLinkedWhatsAppBusinessAccountPhoneNumber" OutputProperty="*" Verb="Get" Noun="LinkedWhatsAppBusinessAccountPhoneNumber" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWhatsAppFlow" OutputProperty="*" Verb="Get" Noun="WhatsAppFlow" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWhatsAppFlowPreview" OutputProperty="*" Verb="Get" Noun="WhatsAppFlowPreview" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -81,6 +101,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListWhatsAppFlowAssets" OutputProperty="FlowAssets" Verb="Get" Noun="WhatsAppFlowAssetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWhatsAppFlows" OutputProperty="Flows" Verb="Get" Noun="WhatsAppFlowList" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListWhatsAppMessageTemplates" OutputProperty="Templates" Verb="Get" Noun="WhatsAppMessageTemplateList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -90,6 +118,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PostWhatsAppMessageMedia" OutputProperty="MediaId" Verb="Send" Noun="WhatsAppMessageMedia" ShouldProcessTarget="OriginationPhoneNumberId" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PublishWhatsAppFlow" Verb="Publish" Noun="WhatsAppFlow" ShouldProcessTarget="FlowId,Id" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -106,6 +138,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" OutputProperty="StatusCode" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWhatsAppFlow" Verb="Update" Noun="WhatsAppFlow" ShouldProcessTarget="FlowId,Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWhatsAppFlowAssets" OutputProperty="ValidationErrors" Verb="Update" Noun="WhatsAppFlowAsset" ShouldProcessTarget="FlowId,Id" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

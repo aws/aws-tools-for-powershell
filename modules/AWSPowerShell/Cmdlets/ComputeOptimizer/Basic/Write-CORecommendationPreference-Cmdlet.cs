@@ -87,9 +87,16 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para> The preference to control the number of days the utilization metrics of the Amazon
         /// Web Services resource are analyzed. When this preference isn't specified, we use the
-        /// default value <c>DAYS_14</c>. </para><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
-        /// resource types. </para><note><ul><li><para>Amazon EC2 instance lookback preferences can be set at the organization, account,
-        /// and resource levels.</para></li><li><para>Auto Scaling group lookback preferences can only be set at the resource level.</para></li></ul></note>
+        /// default value <c>DAYS_14</c>. </para><para>You can only set this preference for the Amazon EC2 instance, Auto Scaling group,
+        /// Amazon EBS volume, Amazon ECS service on Fargate, Amazon RDS DB instance, and Aurora
+        /// DB cluster storage resource types. </para><note><ul><li><para>Lookback period preferences for Amazon EC2 instances, Amazon EBS volumes, Amazon ECS
+        /// services, Amazon RDS DB instances, and Aurora DB cluster storage resource types can
+        /// be set at the organization, account, and resource levels.</para></li><li><para>Auto Scaling group lookback preferences can only be set at the resource level.</para></li><li><para>Amazon EBS volume lookback preferences can be set at the organization, account, and
+        /// resource levels.</para></li><li><para>Amazon ECS service on Fargate lookback preferences can be set at the organization,
+        /// account, and resource levels.</para></li><li><para>Amazon RDS DB instance lookback preferences can be set at the organization, account,
+        /// and resource levels.</para></li><li><para>Aurora DB cluster storage lookback preferences can be set at the organization, account,
+        /// and resource levels.</para></li><li><para>Changing the lookback period for Amazon EBS volumes to 14 days does not affect the
+        /// 32-day lookback period used to determine whether an Amazon EBS volume is unattached.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para> The preference to control which resource type values are considered when generating
         /// rightsizing recommendations. You can specify this preference as a combination of include
         /// and exclude lists. You must specify either an <c>includeList</c> or <c>excludeList</c>.
-        /// If the preference is an empty set of resource type values, an error occurs. </para><note><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
-        /// resource types.</para></note><para />
+        /// If the preference is an empty set of resource type values, an error occurs. </para><note><para>You can only set this preference for the Amazon EC2 instance, Auto Scaling group,
+        /// Amazon EBS volume, Amazon ECS service, Amazon RDS DB instance, and Aurora DB cluster
+        /// storage resource types.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
