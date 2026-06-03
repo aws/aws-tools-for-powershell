@@ -573,7 +573,8 @@ namespace Amazon.PowerShell.Common
             {
                 SsoRegistrationScopes = registrationScopesString,
                 SsoSession = SessionName,
-                SsoStartUrl = issuerUrl,
+                // Store original URL; to switch to issuer URL, replace StartUrl with resolvedEndpoint.IssuerUrl
+                SsoStartUrl = StartUrl,
                 SsoRegion = SSORegion
             };
 
@@ -928,7 +929,8 @@ namespace Amazon.PowerShell.Common
             {
                 SsoRegistrationScopes = registrationScopesString,
                 SsoSession = SessionName,
-                SsoStartUrl = resolvedEndpoint.IssuerUrl,
+                // Store original URL; to switch to issuer URL, replace StartUrl with resolvedEndpoint.IssuerUrl
+                SsoStartUrl = StartUrl,
                 SsoRegion = SSORegion
             };
 
