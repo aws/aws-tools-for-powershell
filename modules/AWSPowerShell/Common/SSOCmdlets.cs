@@ -161,6 +161,28 @@ namespace Amazon.PowerShell.Common
                 }
             }
 
+            // Re-resolve the start URL to detect region changes (e.g., vanity domain failover).
+            // When the resolved region differs from stored sso_region, update the config.
+            // If the URL is a vanity domain and resolution fails, raise an error.
+            WriteVerbose($"Resolving start URL: {profileOptions.SsoStartUrl}");
+            try
+            {
+                var resolved = SSOEndpointResolver.ResolveAsync(profileOptions.SsoStartUrl, null).GetAwaiter().GetResult();
+                WriteVerbose($"Start URL '{resolved.StartUrl}' resolved to '{resolved.ResolvedUrl}'");
+                WriteVerbose($"Resolved region: {resolved.Region ?? "(not available from URL)"}, configured sso_region: {profileOptions.SsoRegion}");
+                if (!string.IsNullOrEmpty(resolved.Region) && !string.Equals(resolved.Region, profileOptions.SsoRegion, StringComparison.OrdinalIgnoreCase))
+                {
+                    WriteVerbose($"Resolved region '{resolved.Region}' differs from configured sso_region '{profileOptions.SsoRegion}'. Updating configuration.");
+                    profileOptions.SsoRegion = resolved.Region;
+                    profileOptions.RegisterSsoSession();
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                this.ThrowTerminatingError(new ErrorRecord(
+                    ex, "ArgumentException", ErrorCategory.InvalidArgument, profileOptions.SsoStartUrl));
+            }
+
             if (Force.IsPresent)
             {
                 // Logoff
@@ -501,6 +523,7 @@ namespace Amazon.PowerShell.Common
 
             // Resolve the provided URL (which may be a vanity domain, portal URL, or issuer URL)
             // into the canonical issuer URL and region in a single resolution pass.
+            WriteVerbose($"Resolving start URL: {StartUrl}");
             SSOResolvedEndpoint resolvedEndpoint;
             try
             {
@@ -513,19 +536,22 @@ namespace Amazon.PowerShell.Common
                 return;
             }
 
-            var issuerUrl = resolvedEndpoint.IssuerUrl;
+            WriteVerbose($"Start URL '{resolvedEndpoint.StartUrl}' resolved to '{resolvedEndpoint.ResolvedUrl}'");
+            WriteVerbose($"Resolved region: {resolvedEndpoint.Region ?? "(not available from URL)"}");
 
-            if (SSORegion == null)
+            // When the URL carries region, it takes precedence (user-provided SSORegion is ignored).
+            // Only prompt/use user-provided value for region-less URL forms.
+            if (!string.IsNullOrEmpty(resolvedEndpoint.Region))
             {
-                if (!string.IsNullOrEmpty(resolvedEndpoint.Region))
+                if (SSORegion != null && !string.Equals(SSORegion, resolvedEndpoint.Region, StringComparison.OrdinalIgnoreCase))
                 {
-                    SSORegion = resolvedEndpoint.Region;
-                    Console.WriteLine($"SSO region auto-detected from start URL: {SSORegion}");
+                    Console.WriteLine($"Note: SSO region from URL ({resolvedEndpoint.Region}) takes precedence over provided region ({SSORegion}).");
                 }
-                else
-                {
-                    SSORegion = PromptForSSORegion(existingProfile?.Options?.SsoRegion);
-                }
+                SSORegion = resolvedEndpoint.Region;
+            }
+            else if (SSORegion == null)
+            {
+                SSORegion = PromptForSSORegion(existingProfile?.Options?.SsoRegion);
             }
 
             #endregion
@@ -861,7 +887,8 @@ namespace Amazon.PowerShell.Common
 
         /// <summary>
         /// <para>AWS Region that contains the AWS access portal host. This is separate from, and can be a different Region than, the profile region parameter.
-        /// When the start URL contains region information (new portal formats or vanity domains that redirect to them), this parameter is optional and acts as an override.</para>
+        /// When the start URL contains region information (new portal formats or vanity domains that redirect to them), this parameter is optional.
+        /// The region derived from the URL takes precedence; this parameter is only used for URL forms that do not carry region (e.g., awsapps.com, issuer URL).</para>
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public string SSORegion { get; set; }
@@ -898,6 +925,7 @@ namespace Amazon.PowerShell.Common
             if (StartUrl.EndsWith("/")) StartUrl = StartUrl.TrimEnd('/');
 
             // Resolve the provided URL into the canonical issuer URL and region in a single pass
+            WriteVerbose($"Resolving start URL: {StartUrl}");
             SSOResolvedEndpoint resolvedEndpoint;
             try
             {
@@ -910,19 +938,25 @@ namespace Amazon.PowerShell.Common
                 return;
             }
 
-            if (string.IsNullOrEmpty(SSORegion))
+            WriteVerbose($"Start URL '{resolvedEndpoint.StartUrl}' resolved to '{resolvedEndpoint.ResolvedUrl}'");
+            WriteVerbose($"Resolved region: {resolvedEndpoint.Region ?? "(not available from URL)"}");
+
+            // When the URL carries region, it takes precedence (user-provided SSORegion is ignored).
+            // Only use user-provided value for region-less URL forms.
+            if (!string.IsNullOrEmpty(resolvedEndpoint.Region))
             {
-                if (!string.IsNullOrEmpty(resolvedEndpoint.Region))
+                if (!string.IsNullOrEmpty(SSORegion) && !string.Equals(SSORegion, resolvedEndpoint.Region, StringComparison.OrdinalIgnoreCase))
                 {
-                    SSORegion = resolvedEndpoint.Region;
+                    WriteVerbose($"SSO region from URL ({resolvedEndpoint.Region}) takes precedence over provided region ({SSORegion}).");
                 }
-                else
-                {
-                    this.ThrowTerminatingError(new ErrorRecord(
-                        new ArgumentException("SSORegion is required. The region could not be determined from the start URL. " +
-                            "Please provide the -SSORegion parameter."),
-                        "ArgumentException", ErrorCategory.InvalidArgument, this.StartUrl));
-                }
+                SSORegion = resolvedEndpoint.Region;
+            }
+            else if (string.IsNullOrEmpty(SSORegion))
+            {
+                this.ThrowTerminatingError(new ErrorRecord(
+                    new ArgumentException("SSORegion is required. The region could not be determined from the start URL. " +
+                        "Please provide the -SSORegion parameter."),
+                    "ArgumentException", ErrorCategory.InvalidArgument, this.StartUrl));
             }
 
             var profileOptions = new CredentialProfileOptions

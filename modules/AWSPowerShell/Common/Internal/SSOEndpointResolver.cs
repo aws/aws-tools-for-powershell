@@ -20,6 +20,7 @@ using System;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Amazon;
 
 namespace Amazon.PowerShell.Common.Internal
 {
@@ -29,18 +30,23 @@ namespace Amazon.PowerShell.Common.Internal
     /// </summary>
     internal static class SSOEndpointResolver
     {
-        private static readonly string[] AwsDomains = { ".app.aws", ".portal.amazonaws.com", ".awsapps.com", "identitycenter.amazonaws.com" };
+        // AWS-owned domain suffixes for label-boundary matching.
+        // Each entry is matched as a suffix on a DNS label boundary (preceded by '.' or equal to the full hostname).
+        private static readonly string[] AwsDomainSuffixes = { ".app.aws", ".portal.amazonaws.com", ".awsapps.com" };
+
+        // identitycenter.amazonaws.com is matched as an exact hostname (not a suffix).
+        private const string IdentityCenterDomain = "identitycenter.amazonaws.com";
 
         private static readonly Regex[] UrlPatterns =
         {
             // New portal, DualStack: https://ssoins-72238f444baccc75.portal.us-west-2.app.aws
-            new Regex(@"^(https?://)?(?<id>[^.]+)\.portal\.(?<region>[^./]+)\.app\.aws", RegexOptions.Compiled, TimeSpan.FromSeconds(1)),
+            new Regex(@"^(https?://)?(?<id>[^.]+)\.portal\.(?<region>[^./]+)\.app\.aws", RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(1)),
             // New portal, IPv4-only: https://ssoins-72238f444baccc75.us-west-2.portal.amazonaws.com
-            new Regex(@"^(https?://)?(?<id>[^.]+)\.(?<region>[^.]+)\.portal\.amazonaws\.com", RegexOptions.Compiled, TimeSpan.FromSeconds(1)),
+            new Regex(@"^(https?://)?(?<id>[^.]+)\.(?<region>[^.]+)\.portal\.amazonaws\.com", RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(1)),
             // Legacy portal: https://d-90670a2e75.awsapps.com
-            new Regex(@"^(https?://)?(?<id>[^.]+)\.awsapps\.com", RegexOptions.Compiled, TimeSpan.FromSeconds(1)),
+            new Regex(@"^(https?://)?(?<id>[^.]+)\.awsapps\.com", RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(1)),
             // Issuer URL: https://identitycenter.amazonaws.com/ssoins-72238f444baccc75
-            new Regex(@"^(https?://)?identitycenter\.amazonaws\.com/(?<id>[^/]+)", RegexOptions.Compiled, TimeSpan.FromSeconds(1)),
+            new Regex(@"^(https?://)?identitycenter\.amazonaws\.com/(?<id>[^/]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(1)),
         };
 
         private static readonly TimeSpan HttpTimeout = TimeSpan.FromSeconds(5);
@@ -48,11 +54,22 @@ namespace Amazon.PowerShell.Common.Internal
         /// <summary>
         /// Resolves a customer-provided SSO endpoint into both the canonical issuer URL and region
         /// in a single resolution pass (one HTTP redirect at most).
-        /// If regionOverride is provided, it takes precedence over URL-derived region.
+        /// When the URL carries region information, the URL-derived region is used and regionOverride is ignored.
+        /// regionOverride is only used as a fallback for region-less URL forms (awsapps.com, issuer URL).
         /// Throws ArgumentException if the URL cannot be resolved to an AWS-generated domain.
         /// </summary>
         internal static async Task<SSOResolvedEndpoint> ResolveAsync(string startUrl, string regionOverride)
         {
+            // Determine if the original URL is a vanity domain (not AWS-owned) before resolution.
+            var normalizedUrl = startUrl;
+            if (!string.IsNullOrEmpty(normalizedUrl) &&
+                !normalizedUrl.StartsWith("http://", StringComparison.OrdinalIgnoreCase) &&
+                !normalizedUrl.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            {
+                normalizedUrl = "https://" + normalizedUrl;
+            }
+            var isVanityUrl = !string.IsNullOrEmpty(normalizedUrl) && !IsAwsDomain(normalizedUrl);
+
             var resolvedUrl = await ResolveToAwsGeneratedDomainAsync(startUrl).ConfigureAwait(false);
             if (resolvedUrl == null)
             {
@@ -62,60 +79,19 @@ namespace Amazon.PowerShell.Common.Internal
             }
             var parts = ParseUrl(resolvedUrl, startUrl);
             var issuerUrl = $"https://identitycenter.amazonaws.com/{parts.InstanceId}";
-            var region = !string.IsNullOrEmpty(regionOverride) ? regionOverride : parts.Region;
-            return new SSOResolvedEndpoint(issuerUrl, region);
-        }
+            // When the URL carries region information, use it (sso_region is ignored).
+            // Only fall back to regionOverride when the URL does not carry region (awsapps.com, issuer URL).
+            var region = !string.IsNullOrEmpty(parts.Region) ? parts.Region : regionOverride;
 
-        /// <summary>
-        /// Resolves an SSO start URL into the canonical Identity Center issuer URL.
-        /// Format: https://identitycenter.amazonaws.com/{idcInstanceId}
-        /// </summary>
-        internal static async Task<string> ResolveIssuerUrlAsync(string startUrl)
-        {
-            var resolvedUrl = await ResolveToAwsGeneratedDomainAsync(startUrl).ConfigureAwait(false);
-            if (resolvedUrl == null)
+            // Validate the region parsed from the URL against known AWS region codes.
+            // MUST NOT silently fall back to sso_region if the parsed region is invalid.
+            if (!string.IsNullOrEmpty(parts.Region) && !IsKnownRegion(parts.Region))
             {
                 throw new ArgumentException(
-                    $"Unable to resolve Identity Center instance from URL: {startUrl}. " +
-                    "The URL must be an AWS-generated domain or a vanity domain that redirects to one.");
-            }
-            var parts = ParseUrl(resolvedUrl, startUrl);
-            return $"https://identitycenter.amazonaws.com/{parts.InstanceId}";
-        }
-
-        /// <summary>
-        /// Resolves the AWS region from a customer-provided SSO endpoint.
-        /// If regionOverride is provided, it takes precedence.
-        /// Returns null if region cannot be determined (caller must handle).
-        /// </summary>
-        internal static async Task<string> ResolveRegionAsync(string startUrl, string regionOverride)
-        {
-            if (!string.IsNullOrEmpty(regionOverride))
-            {
-                return regionOverride;
+                    $"Region '{parts.Region}' extracted from URL '{startUrl}' is not a known AWS region.");
             }
 
-            if (string.IsNullOrEmpty(startUrl))
-            {
-                return null;
-            }
-
-            var resolvedUrl = await ResolveToAwsGeneratedDomainAsync(startUrl).ConfigureAwait(false);
-            if (resolvedUrl == null)
-            {
-                return null;
-            }
-
-            foreach (var pattern in UrlPatterns)
-            {
-                var match = pattern.Match(resolvedUrl);
-                if (match.Success && match.Groups["region"].Success)
-                {
-                    return match.Groups["region"].Value;
-                }
-            }
-
-            return null;
+            return new SSOResolvedEndpoint(issuerUrl, region, isVanityUrl, startUrl, resolvedUrl);
         }
 
         /// <summary>
@@ -132,6 +108,7 @@ namespace Amazon.PowerShell.Common.Internal
         /// Checks if the URL is an AWS-generated domain. If not, follows the redirect chain
         /// up to maxRedirects hops, then checks if the final location is an AWS-generated domain.
         /// Returns the AWS-generated URL if found, or null otherwise.
+        /// Enforces HTTPS: both the initial URL and redirect targets must use HTTPS.
         /// </summary>
         private static async Task<string> ResolveToAwsGeneratedDomainAsync(string url, int maxRedirects)
         {
@@ -140,10 +117,18 @@ namespace Amazon.PowerShell.Common.Internal
                 return null;
             }
 
+            // If no scheme is provided, default to https
             if (!url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) &&
                 !url.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
             {
                 url = "https://" + url;
+            }
+
+            // sso_start_url MUST use the https scheme
+            if (!url.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new ArgumentException(
+                    $"The sso_start_url must use HTTPS: {url}");
             }
 
             if (IsAwsDomain(url))
@@ -161,6 +146,14 @@ namespace Amazon.PowerShell.Common.Internal
                     {
                         break;
                     }
+
+                    // Every redirect target MUST use https
+                    if (!redirectLocation.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+                    {
+                        throw new ArgumentException(
+                            $"Redirect target must use HTTPS. Got: {redirectLocation}");
+                    }
+
                     currentUrl = redirectLocation;
                 }
 
@@ -168,6 +161,10 @@ namespace Amazon.PowerShell.Common.Internal
                 {
                     return currentUrl;
                 }
+            }
+            catch (ArgumentException)
+            {
+                throw;
             }
             catch
             {
@@ -178,37 +175,22 @@ namespace Amazon.PowerShell.Common.Internal
         }
 
         /// <summary>
-        /// Attempts to follow a single HTTP redirect from the given URL.
-        /// Tries HEAD first since only the Location header is needed.
-        /// Falls back to GET if the server rejects HEAD (e.g. 405 Method Not Allowed),
-        /// since not all servers/load balancers support HEAD requests.
+        /// Issues an HTTP GET request with auto-redirect disabled and returns the redirect
+        /// Location if the response is a redirect (301-308).
+        /// Uses GET (not HEAD).
         /// Returns the redirect target URL, or null if no redirect occurred.
         /// </summary>
         private static async Task<string> FollowSingleRedirectAsync(string url)
         {
-            var location = await TrySendRequestAsync(url, HttpMethod.Head).ConfigureAwait(false);
-            if (location != null)
-            {
-                return location;
-            }
-            return await TrySendRequestAsync(url, HttpMethod.Get).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Sends an HTTP request with auto-redirect disabled and returns the Location header
-        /// value if the response is a redirect (301-308). Returns null for non-redirect responses.
-        /// Resolves relative Location URIs against the request URL.
-        /// </summary>
-        private static async Task<string> TrySendRequestAsync(string url, HttpMethod method)
-        {
             using (var handler = new HttpClientHandler { AllowAutoRedirect = false })
             using (var client = new HttpClient(handler) { Timeout = HttpTimeout })
-            using (var request = new HttpRequestMessage(method, url))
+            using (var request = new HttpRequestMessage(HttpMethod.Get, url))
+            using (var response = await client.SendAsync(request).ConfigureAwait(false))
             {
-                var response = await client.SendAsync(request).ConfigureAwait(false);
                 var statusCode = (int)response.StatusCode;
 
-                if (statusCode >= 301 && statusCode <= 308 && response.Headers.Location != null)
+                if ((statusCode == 301 || statusCode == 302 || statusCode == 303 ||
+                     statusCode == 307 || statusCode == 308) && response.Headers.Location != null)
                 {
                     var location = response.Headers.Location;
                     if (location.IsAbsoluteUri)
@@ -227,17 +209,33 @@ namespace Amazon.PowerShell.Common.Internal
 
         /// <summary>
         /// Checks if a URL belongs to a known AWS-generated Identity Center domain.
-        /// Matches against: .app.aws, .portal.amazonaws.com, .awsapps.com, identitycenter.amazonaws.com.
+        /// Uses case-insensitive, label-boundary suffix matching per RFC 4343.
+        /// A hostname matches if it ends with one of the AWS suffixes on a DNS label boundary
+        /// (i.e., preceded by '.') or is exactly equal to the suffix without the leading dot.
+        /// This prevents look-alike domains like "awsapps.com.evil.net" from matching.
         /// </summary>
         private static bool IsAwsDomain(string url)
         {
             try
             {
-                var hostname = new Uri(url).Host;
-                foreach (var domain in AwsDomains)
+                var hostname = new Uri(url).Host.ToLowerInvariant();
+
+                // Check exact match for identitycenter.amazonaws.com
+                if (hostname.Equals(IdentityCenterDomain, StringComparison.Ordinal))
                 {
-                    if (hostname.EndsWith(domain, StringComparison.OrdinalIgnoreCase) ||
-                        hostname.Equals(domain.TrimStart('.'), StringComparison.OrdinalIgnoreCase))
+                    return true;
+                }
+
+                // Check label-boundary suffix match for other domains
+                foreach (var suffix in AwsDomainSuffixes)
+                {
+                    if (hostname.EndsWith(suffix, StringComparison.Ordinal))
+                    {
+                        return true;
+                    }
+                    // Also match if hostname equals the suffix without leading dot (e.g., "awsapps.com")
+                    var bareHostname = suffix.TrimStart('.');
+                    if (hostname.Equals(bareHostname, StringComparison.Ordinal))
                     {
                         return true;
                     }
@@ -247,6 +245,23 @@ namespace Amazon.PowerShell.Common.Internal
             {
             }
             return false;
+        }
+
+        /// <summary>
+        /// Validates that the region string is a known AWS region code.
+        /// Uses the same check as the SDK's endpoint resolver.
+        /// </summary>
+        private static bool IsKnownRegion(string region)
+        {
+            try
+            {
+                return !string.IsNullOrEmpty(region) &&
+                       RegionEndpoint.GetBySystemName(region).DisplayName != "Unknown";
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -303,10 +318,30 @@ namespace Amazon.PowerShell.Common.Internal
         /// </summary>
         internal string Region { get; }
 
-        internal SSOResolvedEndpoint(string issuerUrl, string region)
+        /// <summary>
+        /// True if the original sso_start_url was a customer vanity URL (not an AWS-owned domain)
+        /// that was resolved to an AWS endpoint. Can be used to set SSO_LOGIN_VANITY_URL feature ID
+        /// on SSO-OIDC requests.
+        /// </summary>
+        internal bool IsVanityUrl { get; }
+
+        /// <summary>
+        /// The original start URL provided by the user (before resolution).
+        /// </summary>
+        internal string StartUrl { get; }
+
+        /// <summary>
+        /// The AWS-owned URL that the start URL resolved to (after following redirects if needed).
+        /// </summary>
+        internal string ResolvedUrl { get; }
+
+        internal SSOResolvedEndpoint(string issuerUrl, string region, bool isVanityUrl, string startUrl, string resolvedUrl)
         {
             IssuerUrl = issuerUrl;
             Region = region;
+            IsVanityUrl = isVanityUrl;
+            StartUrl = startUrl;
+            ResolvedUrl = resolvedUrl;
         }
     }
 }

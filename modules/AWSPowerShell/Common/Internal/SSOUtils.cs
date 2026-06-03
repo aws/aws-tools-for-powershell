@@ -292,7 +292,6 @@ namespace Amazon.PowerShell.Common.Internal
 
         /// <summary>
         /// Gets list of required properties that are missing from an existing SSO profile options.
-        /// Region is not required if it can be resolved from the start URL.
         /// </summary>
         internal static List<string> GetSSOMissingProperties(CredentialProfileOptions options)
         {
