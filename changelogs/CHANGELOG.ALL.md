@@ -1,4 +1,31 @@
-﻿### 5.0.226 (2026-06-03 20:05Z)
+﻿### 5.0.227 (2026-06-04 20:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.263.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Config
+    * Modified cmdlet Get-CFGConfigRule: added parameter Filters_RuleEvaluationVisibility.
+    * Modified cmdlet Write-CFGConfigRule: added parameters ConfigRule_RuleEvaluationVisibility and ConfigRule_Scope_ServicePrincipal.
+  * Amazon Elastic MapReduce
+    * Added cmdlet Get-EMRSession leveraging the GetSession service API.
+    * Added cmdlet Get-EMRSessionEndpoint leveraging the GetSessionEndpoint service API.
+    * Added cmdlet Get-EMRSessionList leveraging the ListSessions service API.
+    * Added cmdlet Start-EMRSession leveraging the StartSession service API.
+    * Added cmdlet Stop-EMRSession leveraging the TerminateSession service API.
+    * Modified cmdlet Add-EMRResourceTag: added parameter ClusterId.
+    * Modified cmdlet Remove-EMRResourceTag: added parameter ClusterId.
+    * Modified cmdlet Start-EMRJobFlow: added parameter SessionEnabled.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEDashboardUrl leveraging the GetDashboardUrl service API.
+    * Added cmdlet Get-GLUESessionEndpoint leveraging the GetSessionEndpoint service API.
+    * Modified cmdlet New-GLUESession: added parameter SessionType.
+  * Amazon Interactive Video Service
+    * Added cmdlet Update-IVSAdConfiguration leveraging the UpdateAdConfiguration service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet Get-SMModelCard: added parameter IncludedData.
+    * Modified cmdlet Get-SMModelPackage: added parameter IncludedData.
+  * Amazon Wickr Admin API
+    * Modified cmdlet Update-WICNetworkSetting: added parameters Settings_ConsentPopup_CloseButtonLabel, Settings_ConsentPopup_Content, Settings_ConsentPopup_Enabled and Settings_ConsentPopup_Header.
+    * Modified cmdlet Update-WICSecurityGroup: added parameter SecurityGroupSettings_MaxNonSsoSessionMinute.
+
+### 5.0.226 (2026-06-03 20:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.262.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Modified cmdlet Search-CONNContact: added parameter SearchCriteria_AiAgents_Criterion.

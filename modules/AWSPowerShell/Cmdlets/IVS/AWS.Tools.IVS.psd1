@@ -124,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-IVSStartViewerSessionRevocation', 
         'Start-IVSViewerSessionRevocation', 
         'Stop-IVSStream', 
+        'Update-IVSAdConfiguration', 
         'Update-IVSChannel', 
         'Update-IVSPlaybackRestrictionPolicy', 
         'Write-IVSMetadata')

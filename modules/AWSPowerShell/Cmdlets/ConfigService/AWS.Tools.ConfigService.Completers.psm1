@@ -233,6 +233,16 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.RuleEvaluationVisibility
+        {
+            ($_ -eq "Write-CFGConfigRule/ConfigRule_RuleEvaluationVisibility") -Or
+            ($_ -eq "Get-CFGConfigRule/Filters_RuleEvaluationVisibility")
+        }
+        {
+            $v = "EXTERNAL","INTERNAL"
+            break
+        }
+
         # Amazon.ConfigService.SortBy
         "Get-CFGConformancePackComplianceScoreList/SortBy"
         {
@@ -260,6 +270,7 @@ $CFG_map = @{
     "ComplianceType"=@("Get-CFGAggregateComplianceDetailsByConfigRule")
     "ConfigRule_ConfigRuleState"=@("Write-CFGConfigRule")
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
+    "ConfigRule_RuleEvaluationVisibility"=@("Write-CFGConfigRule")
     "ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
     "ConfigurationRecorder_RecordingScope"=@("Write-CFGConfigurationRecorder")
     "EvaluationMode"=@("Start-CFGResourceEvaluation")
@@ -268,6 +279,7 @@ $CFG_map = @{
     "Filters_EvaluationMode"=@("Get-CFGConfigRule","Get-CFGResourceEvaluationList")
     "Filters_MemberAccountRuleStatus"=@("Get-CFGOrganizationConfigRuleDetailedStatus")
     "Filters_ResourceType"=@("Get-CFGAggregateDiscoveredResourceCount")
+    "Filters_RuleEvaluationVisibility"=@("Get-CFGConfigRule")
     "Filters_Status"=@("Get-CFGOrganizationConformancePackDetailedStatus")
     "GroupByKey"=@("Get-CFGAggregateConfigRuleComplianceSummary","Get-CFGAggregateConformancePackComplianceSummary","Get-CFGAggregateDiscoveredResourceCount")
     "OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")

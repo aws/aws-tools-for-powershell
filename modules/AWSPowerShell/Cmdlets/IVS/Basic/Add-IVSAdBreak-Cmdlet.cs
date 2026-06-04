@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter DurationSecond
         /// <summary>
         /// <para>
-        /// <para>Maximum duration of the ad break, in seconds.</para>
+        /// <para>Duration of the ad break, in seconds.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

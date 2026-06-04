@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public Amazon.ConfigService.EvaluationMode Filters_EvaluationMode { get; set; }
         #endregion
         
+        #region Parameter Filters_RuleEvaluationVisibility
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results by <c>RuleEvaluationVisibility</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConfigService.RuleEvaluationVisibility")]
+        public Amazon.ConfigService.RuleEvaluationVisibility Filters_RuleEvaluationVisibility { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -132,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 context.ConfigRuleName = new List<System.String>(this.ConfigRuleName);
             }
             context.Filters_EvaluationMode = this.Filters_EvaluationMode;
+            context.Filters_RuleEvaluationVisibility = this.Filters_RuleEvaluationVisibility;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -167,6 +179,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestFilters_filters_EvaluationMode != null)
             {
                 request.Filters.EvaluationMode = requestFilters_filters_EvaluationMode;
+                requestFiltersIsNull = false;
+            }
+            Amazon.ConfigService.RuleEvaluationVisibility requestFilters_filters_RuleEvaluationVisibility = null;
+            if (cmdletContext.Filters_RuleEvaluationVisibility != null)
+            {
+                requestFilters_filters_RuleEvaluationVisibility = cmdletContext.Filters_RuleEvaluationVisibility;
+            }
+            if (requestFilters_filters_RuleEvaluationVisibility != null)
+            {
+                request.Filters.RuleEvaluationVisibility = requestFilters_filters_RuleEvaluationVisibility;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -255,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             public List<System.String> ConfigRuleName { get; set; }
             public Amazon.ConfigService.EvaluationMode Filters_EvaluationMode { get; set; }
+            public Amazon.ConfigService.RuleEvaluationVisibility Filters_RuleEvaluationVisibility { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ConfigService.Model.DescribeConfigRulesResponse, GetCFGConfigRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConfigRules;

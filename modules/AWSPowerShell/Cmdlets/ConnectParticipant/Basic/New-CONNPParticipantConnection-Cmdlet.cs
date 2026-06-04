@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// 
     ///  
     /// <para>
-    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a>. 
+    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect
+    /// Customer Chat security best practices</a>. 
     /// </para><para>
-    /// For WebRTC security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security">Amazon
-    /// Connect WebRTC security best practices</a>. 
+    /// For WebRTC security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security">Connect
+    /// Customer WebRTC security best practices</a>. 
     /// </para><note><para><c>ParticipantToken</c> is used for invoking this API instead of <c>ConnectionToken</c>.
     /// </para></note><para>
     /// The participant token is valid for the lifetime of the participant – until they are

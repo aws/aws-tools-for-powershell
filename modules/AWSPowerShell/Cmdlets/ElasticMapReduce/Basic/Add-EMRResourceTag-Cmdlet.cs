@@ -48,6 +48,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ClusterId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the cluster that scopes the tag operation. Required when the resource being
+        /// tagged is a session-scoped resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClusterId { get; set; }
+        #endregion
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>
@@ -135,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.Select = CreateSelectDelegate<Amazon.ElasticMapReduce.Model.AddTagsResponse, AddEMRResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClusterId = this.ClusterId;
             context.ResourceId = this.ResourceId;
             #if MODULAR
             if (this.ResourceId == null && ParameterWasBound(nameof(this.ResourceId)))
@@ -168,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             // create request
             var request = new Amazon.ElasticMapReduce.Model.AddTagsRequest();
             
+            if (cmdletContext.ClusterId != null)
+            {
+                request.ClusterId = cmdletContext.ClusterId;
+            }
             if (cmdletContext.ResourceId != null)
             {
                 request.ResourceId = cmdletContext.ResourceId;
@@ -231,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClusterId { get; set; }
             public System.String ResourceId { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ElasticMapReduce.Model.AddTagsResponse, AddEMRResourceTagCmdlet, object> Select { get; set; } =

@@ -13501,6 +13501,8 @@ Set-Alias -Name EMR-GetClusterSessionCredentials -Value Get-EMRClusterSessionCre
 Set-Alias -Name EMR-GetManagedScalingPolicy -Value Get-EMRManagedScalingPolicy
 Set-Alias -Name EMR-GetOnClusterAppUIPresignedURL -Value Get-EMROnClusterAppUIPresignedURL
 Set-Alias -Name EMR-GetPersistentAppUIPresignedURL -Value Get-EMRPersistentAppUIPresignedURL
+Set-Alias -Name EMR-GetSession -Value Get-EMRSession
+Set-Alias -Name EMR-GetSessionEndpoint -Value Get-EMRSessionEndpoint
 Set-Alias -Name EMR-GetStudioSessionMapping -Value Get-EMRStudioSessionMapping
 Set-Alias -Name List-EMRBootstrapActions -Value Get-EMRBootstrapActionList
 Set-Alias -Name List-EMRBootstrapActionList -Value Get-EMRBootstrapActionList
@@ -13526,6 +13528,9 @@ Set-Alias -Name EMR-ListReleaseLabels -Value Find-EMRReleaseLabel
 Set-Alias -Name List-EMRSecurityConfigurations -Value Get-EMRSecurityConfigurationList
 Set-Alias -Name List-EMRSecurityConfigurationList -Value Get-EMRSecurityConfigurationList
 Set-Alias -Name EMR-ListSecurityConfigurations -Value Get-EMRSecurityConfigurationList
+Set-Alias -Name List-EMRSessions -Value Get-EMRSessionList
+Set-Alias -Name List-EMRSessionList -Value Get-EMRSessionList
+Set-Alias -Name EMR-ListSessions -Value Get-EMRSessionList
 Set-Alias -Name List-EMRSteps -Value Get-EMRStepList
 Set-Alias -Name List-EMRStepList -Value Get-EMRStepList
 Set-Alias -Name EMR-ListSteps -Value Get-EMRStepList
@@ -13567,10 +13572,13 @@ Set-Alias -Name EMR-SetUnhealthyNodeReplacement -Value Set-EMRUnhealthyNodeRepla
 Set-Alias -Name Set-EMRVisibleToAllUsers -Value Set-EMRVisibleToAllUser
 Set-Alias -Name EMR-SetVisibleToAllUsers -Value Set-EMRVisibleToAllUser
 Set-Alias -Name EMR-StartNotebookExecution -Value Start-EMRNotebookExecution
+Set-Alias -Name EMR-StartSession -Value Start-EMRSession
 Set-Alias -Name EMR-StopNotebookExecution -Value Stop-EMRNotebookExecution
 Set-Alias -Name Terminate-EMRJobFlows -Value Stop-EMRJobFlow
 Set-Alias -Name Terminate-EMRJobFlow -Value Stop-EMRJobFlow
 Set-Alias -Name EMR-TerminateJobFlows -Value Stop-EMRJobFlow
+Set-Alias -Name Terminate-EMRSession -Value Stop-EMRSession
+Set-Alias -Name EMR-TerminateSession -Value Stop-EMRSession
 Set-Alias -Name EMR-UpdateStudio -Value Update-EMRStudio
 Set-Alias -Name EMR-UpdateStudioSessionMapping -Value Update-EMRStudioSessionMapping
 Set-Alias -Name Associate-EMIFeed -Value Add-EMIFeed
@@ -15652,6 +15660,7 @@ Set-Alias -Name GLUE-GetCrawlerMetrics -Value Get-GLUECrawlerMetricList
 Set-Alias -Name Get-GLUECrawlers -Value Get-GLUECrawlerList
 Set-Alias -Name GLUE-GetCrawlers -Value Get-GLUECrawlerList
 Set-Alias -Name GLUE-GetCustomEntityType -Value Get-GLUECustomEntityType
+Set-Alias -Name GLUE-GetDashboardUrl -Value Get-GLUEDashboardUrl
 Set-Alias -Name GLUE-GetDatabase -Value Get-GLUEDatabase
 Set-Alias -Name Get-GLUEDatabases -Value Get-GLUEDatabaseList
 Set-Alias -Name GLUE-GetDatabases -Value Get-GLUEDatabaseList
@@ -15706,6 +15715,7 @@ Set-Alias -Name GLUE-GetSecurityConfiguration -Value Get-GLUESecurityConfigurati
 Set-Alias -Name Get-GLUESecurityConfigurations -Value Get-GLUESecurityConfigurationList
 Set-Alias -Name GLUE-GetSecurityConfigurations -Value Get-GLUESecurityConfigurationList
 Set-Alias -Name GLUE-GetSession -Value Get-GLUESession
+Set-Alias -Name GLUE-GetSessionEndpoint -Value Get-GLUESessionEndpoint
 Set-Alias -Name GLUE-GetStatement -Value Get-GLUEStatement
 Set-Alias -Name GLUE-GetTable -Value Get-GLUETable
 Set-Alias -Name GLUE-GetTableOptimizer -Value Get-GLUETableOptimizer
@@ -18931,6 +18941,7 @@ Set-Alias -Name IVS-StartViewerSessionRevocation -Value Start-IVSViewerSessionRe
 Set-Alias -Name IVS-StopStream -Value Stop-IVSStream
 Set-Alias -Name IVS-TagResource -Value Add-IVSResourceTag
 Set-Alias -Name IVS-UntagResource -Value Remove-IVSResourceTag
+Set-Alias -Name IVS-UpdateAdConfiguration -Value Update-IVSAdConfiguration
 Set-Alias -Name IVS-UpdateChannel -Value Update-IVSChannel
 Set-Alias -Name IVS-UpdatePlaybackRestrictionPolicy -Value Update-IVSPlaybackRestrictionPolicy
 Set-Alias -Name Create-IVSCChatToken -Value New-IVSCChatToken

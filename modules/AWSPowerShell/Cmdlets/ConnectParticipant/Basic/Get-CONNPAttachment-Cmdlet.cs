@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// 
     ///  
     /// <para>
-    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a>. 
+    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect
+    /// Customer Chat security best practices</a>. 
     /// </para><note><ul><li><para>
     /// The participant role <c>CUSTOM_BOT</c> is not permitted to access attachments customers
     /// may upload. An <c>AccessDeniedException</c> can indicate that the participant may

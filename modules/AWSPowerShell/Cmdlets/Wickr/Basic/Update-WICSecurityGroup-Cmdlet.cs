@@ -286,8 +286,8 @@ namespace Amazon.PowerShell.Cmdlets.WIC
         #region Parameter SecurityGroupSettings_Shredder_Intensity
         /// <summary>
         /// <para>
-        /// <para>Prevents Wickr data from being recovered by overwriting deleted Wickr data. Valid
-        /// Values: Must be one of [0, 20, 60, 100]</para>
+        /// <para>Controls the rate (MB/minute) at which the shredder function runs on clients. Valid
+        /// Values: Must be one of [0, 20, 60, 100].</para><note><para>A higher intensity setting could lead to higher battery usage on mobile devices.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -379,6 +379,18 @@ namespace Amazon.PowerShell.Cmdlets.WIC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? SecurityGroupSettings_MaxBor { get; set; }
+        #endregion
+        
+        #region Parameter SecurityGroupSettings_MaxNonSsoSessionMinute
+        /// <summary>
+        /// <para>
+        /// <para>Maximum session duration in minutes for non-SSO users. Set to 0 to disable. Valid
+        /// range is 60 to 525600 (1 hour to 365 days).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SecurityGroupSettings_MaxNonSsoSessionMinutes")]
+        public System.Int32? SecurityGroupSettings_MaxNonSsoSessionMinute { get; set; }
         #endregion
         
         #region Parameter SecurityGroupSettings_MaxTtl
@@ -665,6 +677,7 @@ namespace Amazon.PowerShell.Cmdlets.WIC
             context.SecurityGroupSettings_LockoutThreshold = this.SecurityGroupSettings_LockoutThreshold;
             context.SecurityGroupSettings_MaxAutoDownloadSize = this.SecurityGroupSettings_MaxAutoDownloadSize;
             context.SecurityGroupSettings_MaxBor = this.SecurityGroupSettings_MaxBor;
+            context.SecurityGroupSettings_MaxNonSsoSessionMinute = this.SecurityGroupSettings_MaxNonSsoSessionMinute;
             context.SecurityGroupSettings_MaxTtl = this.SecurityGroupSettings_MaxTtl;
             context.SecurityGroupSettings_MessageForwardingEnabled = this.SecurityGroupSettings_MessageForwardingEnabled;
             context.SecurityGroupSettings_PasswordRequirements_Lowercase = this.SecurityGroupSettings_PasswordRequirements_Lowercase;
@@ -953,6 +966,16 @@ namespace Amazon.PowerShell.Cmdlets.WIC
             if (requestSecurityGroupSettings_securityGroupSettings_MaxBor != null)
             {
                 request.SecurityGroupSettings.MaxBor = requestSecurityGroupSettings_securityGroupSettings_MaxBor.Value;
+                requestSecurityGroupSettingsIsNull = false;
+            }
+            System.Int32? requestSecurityGroupSettings_securityGroupSettings_MaxNonSsoSessionMinute = null;
+            if (cmdletContext.SecurityGroupSettings_MaxNonSsoSessionMinute != null)
+            {
+                requestSecurityGroupSettings_securityGroupSettings_MaxNonSsoSessionMinute = cmdletContext.SecurityGroupSettings_MaxNonSsoSessionMinute.Value;
+            }
+            if (requestSecurityGroupSettings_securityGroupSettings_MaxNonSsoSessionMinute != null)
+            {
+                request.SecurityGroupSettings.MaxNonSsoSessionMinutes = requestSecurityGroupSettings_securityGroupSettings_MaxNonSsoSessionMinute.Value;
                 requestSecurityGroupSettingsIsNull = false;
             }
             System.Int64? requestSecurityGroupSettings_securityGroupSettings_MaxTtl = null;
@@ -1279,6 +1302,7 @@ namespace Amazon.PowerShell.Cmdlets.WIC
             public System.Int32? SecurityGroupSettings_LockoutThreshold { get; set; }
             public System.Int64? SecurityGroupSettings_MaxAutoDownloadSize { get; set; }
             public System.Int32? SecurityGroupSettings_MaxBor { get; set; }
+            public System.Int32? SecurityGroupSettings_MaxNonSsoSessionMinute { get; set; }
             public System.Int64? SecurityGroupSettings_MaxTtl { get; set; }
             public System.Boolean? SecurityGroupSettings_MessageForwardingEnabled { get; set; }
             public System.Int32? SecurityGroupSettings_PasswordRequirements_Lowercase { get; set; }

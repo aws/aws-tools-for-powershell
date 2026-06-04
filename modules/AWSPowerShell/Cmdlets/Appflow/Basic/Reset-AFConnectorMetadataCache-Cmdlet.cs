@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para>The name of the connector profile that you want to reset cached metadata for.</para><para>You can omit this parameter if you're resetting the cache for any of the following
-        /// connectors: Amazon Connect, Amazon EventBridge, Amazon Lookout for Metrics, Amazon
+        /// connectors: Connect Customer, Amazon EventBridge, Amazon Lookout for Metrics, Amazon
         /// S3, or Upsolver. If you're resetting the cache for any other connector, you must include
         /// this parameter in your request.</para>
         /// </para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para>The type of connector to reset cached metadata for.</para><para>You must include this parameter in your request if you're resetting the cache for
-        /// any of the following connectors: Amazon Connect, Amazon EventBridge, Amazon Lookout
+        /// any of the following connectors: Connect Customer, Amazon EventBridge, Amazon Lookout
         /// for Metrics, Amazon S3, or Upsolver. If you're resetting the cache for any other connector,
         /// you can omit this parameter from your request. </para>
         /// </para>

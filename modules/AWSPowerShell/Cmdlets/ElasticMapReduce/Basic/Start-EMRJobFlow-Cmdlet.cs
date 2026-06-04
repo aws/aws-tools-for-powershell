@@ -552,12 +552,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>A map that specifies the upload policy for each log type. The key is the log type,
-        /// and the value is the upload policy.</para><para>Valid log types:</para><ul><li><para><c>system-logs</c>: System-level logs including daemon logs, bootstrap logs, and
-        /// other infrastructure logs.</para></li><li><para><c>application-logs</c>: Application-level logs from frameworks like Hadoop, Spark,
-        /// Hive, etc.</para></li><li><para><c>persistent-ui-logs</c>: Logs for persistent application UIs like Spark History
-        /// Server.</para></li></ul><para>Valid upload policies:</para><ul><li><para><c>emr-managed</c>: Logs are uploaded to both the EMR-managed S3 bucket and the customer-specified
-        /// S3 bucket (if LogUri is provided).</para></li><li><para><c>on-customer-s3only</c>: Logs are uploaded only to the customer-specified S3 bucket.
-        /// Requires LogUri to be specified in the cluster configuration.</para></li><li><para><c>disabled</c>: Log upload is disabled for this log type.</para></li></ul><para />
+        /// and the value is the upload policy.</para><para>Valid log types:</para><ul><li><para><c>system-logs</c>: EMR Daemon logs.</para></li><li><para><c>application-logs</c>: Framework logs from Hadoop, Spark, Hive and other applications
+        /// running on the cluster.</para></li><li><para><c>persistent-ui-logs</c>: Logs required for persistent application UIs such as Spark
+        /// History Server and Tez UI.</para></li></ul><para>Valid upload policies:</para><ul><li><para><c>emr-managed</c>: Standard behavior. Logs are uploaded to S3 bucket as configured
+        /// in your LogUri, with certain logs retained by the service for operational support
+        /// and troubleshooting purposes.</para></li><li><para><c>on-customer-s3only</c>: Logs are uploaded only to the customer-specified S3 bucket.
+        /// This requires you to specify a LogUri when creating the cluster. Persistent-ui-logs
+        /// cannot have on-customer-s3only policy. Allowed policies for persistent-ui-logs are
+        /// emr-managed and disabled.</para></li><li><para><c>disabled</c>: No S3 upload for this log type.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -815,6 +817,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceRole { get; set; }
+        #endregion
+        
+        #region Parameter SessionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether Spark Connect sessions are enabled on the cluster. When set to <c>true</c>,
+        /// you can start Spark Connect sessions using the <c>StartSession</c> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SessionEnabled { get; set; }
         #endregion
         
         #region Parameter Instances_SlaveInstanceType
@@ -1140,6 +1153,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.ScaleDownBehavior = this.ScaleDownBehavior;
             context.SecurityConfiguration = this.SecurityConfiguration;
             context.ServiceRole = this.ServiceRole;
+            context.SessionEnabled = this.SessionEnabled;
             context.StepConcurrencyLevel = this.StepConcurrencyLevel;
             context.StepExecutionRoleArn = this.StepExecutionRoleArn;
             if (this.Step != null)
@@ -1748,6 +1762,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.ServiceRole = cmdletContext.ServiceRole;
             }
+            if (cmdletContext.SessionEnabled != null)
+            {
+                request.SessionEnabled = cmdletContext.SessionEnabled.Value;
+            }
             if (cmdletContext.StepConcurrencyLevel != null)
             {
                 request.StepConcurrencyLevel = cmdletContext.StepConcurrencyLevel.Value;
@@ -1888,6 +1906,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public Amazon.ElasticMapReduce.ScaleDownBehavior ScaleDownBehavior { get; set; }
             public System.String SecurityConfiguration { get; set; }
             public System.String ServiceRole { get; set; }
+            public System.Boolean? SessionEnabled { get; set; }
             public System.Int32? StepConcurrencyLevel { get; set; }
             public System.String StepExecutionRoleArn { get; set; }
             public List<Amazon.ElasticMapReduce.Model.StepConfig> Step { get; set; }

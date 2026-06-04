@@ -293,6 +293,36 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String CustomPolicyDetails_PolicyText { get; set; }
         #endregion
         
+        #region Parameter ConfigRule_RuleEvaluationVisibility
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether you can get <a>Evaluation</a>s for the Config rule. You can get
+        /// <a>Evaluation</a>s for the Amazon Web Services Config rule if this value is <c>EXTERNAL</c>.
+        /// You cannot get <a>Evaluation</a>s for the Amazon Web Services Config rule if this
+        /// value is <c>INTERNAL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConfigService.RuleEvaluationVisibility")]
+        public Amazon.ConfigService.RuleEvaluationVisibility ConfigRule_RuleEvaluationVisibility { get; set; }
+        #endregion
+        
+        #region Parameter ConfigRule_Scope_ServicePrincipal
+        /// <summary>
+        /// <para>
+        /// <para>The service principals of the Amazon Web Services services for the rule.</para><note><para>The field is populated only if the service-linked rule is created by a service. The
+        /// field is empty if you create your own rule.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigRule_Scope_ServicePrincipals")]
+        public System.String[] ConfigRule_Scope_ServicePrincipal { get; set; }
+        #endregion
+        
         #region Parameter Source_SourceDetail
         /// <summary>
         /// <para>
@@ -422,10 +452,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             context.ConfigRule_InputParameter = this.ConfigRule_InputParameter;
             context.ConfigRule_MaximumExecutionFrequency = this.ConfigRule_MaximumExecutionFrequency;
+            context.ConfigRule_RuleEvaluationVisibility = this.ConfigRule_RuleEvaluationVisibility;
             context.Scope_ComplianceResourceId = this.Scope_ComplianceResourceId;
             if (this.Scope_ComplianceResourceType != null)
             {
                 context.Scope_ComplianceResourceType = new List<System.String>(this.Scope_ComplianceResourceType);
+            }
+            if (this.ConfigRule_Scope_ServicePrincipal != null)
+            {
+                context.ConfigRule_Scope_ServicePrincipal = new List<System.String>(this.ConfigRule_Scope_ServicePrincipal);
             }
             context.Scope_TagKey = this.Scope_TagKey;
             context.Scope_TagValue = this.Scope_TagValue;
@@ -558,59 +593,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.MaximumExecutionFrequency = requestConfigRule_configRule_MaximumExecutionFrequency;
                 requestConfigRuleIsNull = false;
             }
-            Amazon.ConfigService.Model.Scope requestConfigRule_configRule_Scope = null;
-            
-             // populate Scope
-            var requestConfigRule_configRule_ScopeIsNull = true;
-            requestConfigRule_configRule_Scope = new Amazon.ConfigService.Model.Scope();
-            System.String requestConfigRule_configRule_Scope_scope_ComplianceResourceId = null;
-            if (cmdletContext.Scope_ComplianceResourceId != null)
+            Amazon.ConfigService.RuleEvaluationVisibility requestConfigRule_configRule_RuleEvaluationVisibility = null;
+            if (cmdletContext.ConfigRule_RuleEvaluationVisibility != null)
             {
-                requestConfigRule_configRule_Scope_scope_ComplianceResourceId = cmdletContext.Scope_ComplianceResourceId;
+                requestConfigRule_configRule_RuleEvaluationVisibility = cmdletContext.ConfigRule_RuleEvaluationVisibility;
             }
-            if (requestConfigRule_configRule_Scope_scope_ComplianceResourceId != null)
+            if (requestConfigRule_configRule_RuleEvaluationVisibility != null)
             {
-                requestConfigRule_configRule_Scope.ComplianceResourceId = requestConfigRule_configRule_Scope_scope_ComplianceResourceId;
-                requestConfigRule_configRule_ScopeIsNull = false;
-            }
-            List<System.String> requestConfigRule_configRule_Scope_scope_ComplianceResourceType = null;
-            if (cmdletContext.Scope_ComplianceResourceType != null)
-            {
-                requestConfigRule_configRule_Scope_scope_ComplianceResourceType = cmdletContext.Scope_ComplianceResourceType;
-            }
-            if (requestConfigRule_configRule_Scope_scope_ComplianceResourceType != null)
-            {
-                requestConfigRule_configRule_Scope.ComplianceResourceTypes = requestConfigRule_configRule_Scope_scope_ComplianceResourceType;
-                requestConfigRule_configRule_ScopeIsNull = false;
-            }
-            System.String requestConfigRule_configRule_Scope_scope_TagKey = null;
-            if (cmdletContext.Scope_TagKey != null)
-            {
-                requestConfigRule_configRule_Scope_scope_TagKey = cmdletContext.Scope_TagKey;
-            }
-            if (requestConfigRule_configRule_Scope_scope_TagKey != null)
-            {
-                requestConfigRule_configRule_Scope.TagKey = requestConfigRule_configRule_Scope_scope_TagKey;
-                requestConfigRule_configRule_ScopeIsNull = false;
-            }
-            System.String requestConfigRule_configRule_Scope_scope_TagValue = null;
-            if (cmdletContext.Scope_TagValue != null)
-            {
-                requestConfigRule_configRule_Scope_scope_TagValue = cmdletContext.Scope_TagValue;
-            }
-            if (requestConfigRule_configRule_Scope_scope_TagValue != null)
-            {
-                requestConfigRule_configRule_Scope.TagValue = requestConfigRule_configRule_Scope_scope_TagValue;
-                requestConfigRule_configRule_ScopeIsNull = false;
-            }
-             // determine if requestConfigRule_configRule_Scope should be set to null
-            if (requestConfigRule_configRule_ScopeIsNull)
-            {
-                requestConfigRule_configRule_Scope = null;
-            }
-            if (requestConfigRule_configRule_Scope != null)
-            {
-                request.ConfigRule.Scope = requestConfigRule_configRule_Scope;
+                request.ConfigRule.RuleEvaluationVisibility = requestConfigRule_configRule_RuleEvaluationVisibility;
                 requestConfigRuleIsNull = false;
             }
             Amazon.ConfigService.Model.Source requestConfigRule_configRule_Source = null;
@@ -703,6 +693,71 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.Source = requestConfigRule_configRule_Source;
                 requestConfigRuleIsNull = false;
             }
+            Amazon.ConfigService.Model.Scope requestConfigRule_configRule_Scope = null;
+            
+             // populate Scope
+            var requestConfigRule_configRule_ScopeIsNull = true;
+            requestConfigRule_configRule_Scope = new Amazon.ConfigService.Model.Scope();
+            System.String requestConfigRule_configRule_Scope_scope_ComplianceResourceId = null;
+            if (cmdletContext.Scope_ComplianceResourceId != null)
+            {
+                requestConfigRule_configRule_Scope_scope_ComplianceResourceId = cmdletContext.Scope_ComplianceResourceId;
+            }
+            if (requestConfigRule_configRule_Scope_scope_ComplianceResourceId != null)
+            {
+                requestConfigRule_configRule_Scope.ComplianceResourceId = requestConfigRule_configRule_Scope_scope_ComplianceResourceId;
+                requestConfigRule_configRule_ScopeIsNull = false;
+            }
+            List<System.String> requestConfigRule_configRule_Scope_scope_ComplianceResourceType = null;
+            if (cmdletContext.Scope_ComplianceResourceType != null)
+            {
+                requestConfigRule_configRule_Scope_scope_ComplianceResourceType = cmdletContext.Scope_ComplianceResourceType;
+            }
+            if (requestConfigRule_configRule_Scope_scope_ComplianceResourceType != null)
+            {
+                requestConfigRule_configRule_Scope.ComplianceResourceTypes = requestConfigRule_configRule_Scope_scope_ComplianceResourceType;
+                requestConfigRule_configRule_ScopeIsNull = false;
+            }
+            List<System.String> requestConfigRule_configRule_Scope_configRule_Scope_ServicePrincipal = null;
+            if (cmdletContext.ConfigRule_Scope_ServicePrincipal != null)
+            {
+                requestConfigRule_configRule_Scope_configRule_Scope_ServicePrincipal = cmdletContext.ConfigRule_Scope_ServicePrincipal;
+            }
+            if (requestConfigRule_configRule_Scope_configRule_Scope_ServicePrincipal != null)
+            {
+                requestConfigRule_configRule_Scope.ServicePrincipals = requestConfigRule_configRule_Scope_configRule_Scope_ServicePrincipal;
+                requestConfigRule_configRule_ScopeIsNull = false;
+            }
+            System.String requestConfigRule_configRule_Scope_scope_TagKey = null;
+            if (cmdletContext.Scope_TagKey != null)
+            {
+                requestConfigRule_configRule_Scope_scope_TagKey = cmdletContext.Scope_TagKey;
+            }
+            if (requestConfigRule_configRule_Scope_scope_TagKey != null)
+            {
+                requestConfigRule_configRule_Scope.TagKey = requestConfigRule_configRule_Scope_scope_TagKey;
+                requestConfigRule_configRule_ScopeIsNull = false;
+            }
+            System.String requestConfigRule_configRule_Scope_scope_TagValue = null;
+            if (cmdletContext.Scope_TagValue != null)
+            {
+                requestConfigRule_configRule_Scope_scope_TagValue = cmdletContext.Scope_TagValue;
+            }
+            if (requestConfigRule_configRule_Scope_scope_TagValue != null)
+            {
+                requestConfigRule_configRule_Scope.TagValue = requestConfigRule_configRule_Scope_scope_TagValue;
+                requestConfigRule_configRule_ScopeIsNull = false;
+            }
+             // determine if requestConfigRule_configRule_Scope should be set to null
+            if (requestConfigRule_configRule_ScopeIsNull)
+            {
+                requestConfigRule_configRule_Scope = null;
+            }
+            if (requestConfigRule_configRule_Scope != null)
+            {
+                request.ConfigRule.Scope = requestConfigRule_configRule_Scope;
+                requestConfigRuleIsNull = false;
+            }
              // determine if request.ConfigRule should be set to null
             if (requestConfigRuleIsNull)
             {
@@ -776,8 +831,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public List<Amazon.ConfigService.Model.EvaluationModeConfiguration> ConfigRule_EvaluationMode { get; set; }
             public System.String ConfigRule_InputParameter { get; set; }
             public Amazon.ConfigService.MaximumExecutionFrequency ConfigRule_MaximumExecutionFrequency { get; set; }
+            public Amazon.ConfigService.RuleEvaluationVisibility ConfigRule_RuleEvaluationVisibility { get; set; }
             public System.String Scope_ComplianceResourceId { get; set; }
             public List<System.String> Scope_ComplianceResourceType { get; set; }
+            public List<System.String> ConfigRule_Scope_ServicePrincipal { get; set; }
             public System.String Scope_TagKey { get; set; }
             public System.String Scope_TagValue { get; set; }
             public System.Boolean? CustomPolicyDetails_EnableDebugLogDelivery { get; set; }

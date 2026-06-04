@@ -36,7 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     ///  <important><para>
     /// If you provided a KMS Key ID when you created your model package, you will see the
     /// <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html">KMS
-    /// Decrypt</a> API call in your CloudTrail logs when you use this API.
+    /// Decrypt</a> API call in your CloudTrail logs when you use this API. To call this operation
+    /// without requiring <c>kms:Decrypt</c> permission on the customer-managed key, set <c>IncludedData</c>
+    /// to <c>MetadataOnly</c>; the response is returned with the embedded <c>ModelCard.ModelCardContent</c>
+    /// field sanitized.
     /// </para></important><para>
     /// To create models in SageMaker, buyers can subscribe to model packages listed on Amazon
     /// Web Services Marketplace.
@@ -53,6 +56,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter IncludedData
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the level of model package data to include in the response. Use this parameter
+        /// to call <c>DescribeModelPackage</c> on a model package that has an associated model
+        /// card without requiring <c>kms:Decrypt</c> permission on the customer-managed KMS key
+        /// associated with the embedded model card.</para><ul><li><para><c>AllData</c>: Returns the full model package response, including the unredacted
+        /// <c>ModelCard.ModelCardContent</c>. This option requires <c>kms:Decrypt</c> permission
+        /// on the customer-managed key, if one is associated with the embedded model card. This
+        /// is the default.</para></li><li><para><c>MetadataOnly</c>: Returns the full model package response, but with the embedded
+        /// <c>ModelCard.ModelCardContent</c> sanitized to include only a small set of unencrypted
+        /// metadata fields. This option does not require <c>kms:Decrypt</c> permission. All other
+        /// top-level response fields, including <c>InferenceSpecification</c>, <c>ModelMetrics</c>,
+        /// <c>DriftCheckBaselines</c>, and <c>SecurityConfig</c>, are returned unchanged. For
+        /// the list of fields preserved within <c>ModelCardContent</c>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelPackage.html#sagemaker-DescribeModelPackage-response-ModelCard">ModelCard</a>.</para></li></ul><para>If you don't specify a value, SageMaker returns <c>AllData</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.IncludedData")]
+        public Amazon.SageMaker.IncludedData IncludedData { get; set; }
+        #endregion
         
         #region Parameter ModelPackageName
         /// <summary>
@@ -102,6 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeModelPackageResponse, GetSMModelPackageCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IncludedData = this.IncludedData;
             context.ModelPackageName = this.ModelPackageName;
             #if MODULAR
             if (this.ModelPackageName == null && ParameterWasBound(nameof(this.ModelPackageName)))
@@ -125,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.DescribeModelPackageRequest();
             
+            if (cmdletContext.IncludedData != null)
+            {
+                request.IncludedData = cmdletContext.IncludedData;
+            }
             if (cmdletContext.ModelPackageName != null)
             {
                 request.ModelPackageName = cmdletContext.ModelPackageName;
@@ -184,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMaker.IncludedData IncludedData { get; set; }
             public System.String ModelPackageName { get; set; }
             public System.Func<Amazon.SageMaker.Model.DescribeModelPackageResponse, GetSMModelPackageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

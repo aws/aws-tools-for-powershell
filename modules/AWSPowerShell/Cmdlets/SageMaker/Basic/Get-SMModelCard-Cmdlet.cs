@@ -32,6 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Describes the content, creation time, and security configuration of an Amazon SageMaker
     /// Model Card.
+    /// 
+    ///  <important><para>
+    /// To retrieve only metadata about a model card without requiring <c>kms:Decrypt</c>
+    /// permission on the associated customer-managed Amazon Web Services KMS key, set <c>IncludedData</c>
+    /// to <c>MetadataOnly</c>. The default is <c>AllData</c>, which returns the full model
+    /// card <c>Content</c> and requires <c>kms:Decrypt</c> permission when a customer-managed
+    /// key is configured.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "SMModelCard")]
     [OutputType("Amazon.SageMaker.Model.DescribeModelCardResponse")]
@@ -44,6 +52,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter IncludedData
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the level of model card data to include in the response. Use this parameter
+        /// to call <c>DescribeModelCard</c> without requiring <c>kms:Decrypt</c> permission on
+        /// the customer-managed Amazon Web Services KMS key.</para><ul><li><para><c>AllData</c>: Returns the full model card <c>Content</c>. This option requires
+        /// <c>kms:Decrypt</c> permission on the customer-managed key, if one is associated with
+        /// the model card. This is the default.</para></li><li><para><c>MetadataOnly</c>: Returns the model card with sanitized <c>Content</c> that includes
+        /// only a small set of unencrypted metadata fields. This option does not require <c>kms:Decrypt</c>
+        /// permission. For the list of fields preserved in the response, see <c>Content</c>.</para></li></ul><para>If you don't specify a value, SageMaker returns <c>AllData</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.IncludedData")]
+        public Amazon.SageMaker.IncludedData IncludedData { get; set; }
+        #endregion
         
         #region Parameter ModelCardName
         /// <summary>
@@ -103,6 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeModelCardResponse, GetSMModelCardCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IncludedData = this.IncludedData;
             context.ModelCardName = this.ModelCardName;
             #if MODULAR
             if (this.ModelCardName == null && ParameterWasBound(nameof(this.ModelCardName)))
@@ -127,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.DescribeModelCardRequest();
             
+            if (cmdletContext.IncludedData != null)
+            {
+                request.IncludedData = cmdletContext.IncludedData;
+            }
             if (cmdletContext.ModelCardName != null)
             {
                 request.ModelCardName = cmdletContext.ModelCardName;
@@ -190,6 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMaker.IncludedData IncludedData { get; set; }
             public System.String ModelCardName { get; set; }
             public System.Int32? ModelCardVersion { get; set; }
             public System.Func<Amazon.SageMaker.Model.DescribeModelCardResponse, GetSMModelCardCmdlet, object> Select { get; set; } =

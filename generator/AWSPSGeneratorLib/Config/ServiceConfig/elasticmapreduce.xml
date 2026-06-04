@@ -148,6 +148,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSessionEndpoint" OutputProperty="*" Verb="Get" Noun="SessionEndpoint" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetStudioSessionMapping" OutputProperty="SessionMapping" Verb="Get" Noun="StudioSessionMapping" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -181,6 +189,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -300,11 +312,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartSession" OutputProperty="*" Verb="Start" Noun="Session" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopNotebookExecution" Verb="Stop" Noun="NotebookExecution" ShouldProcessTarget="NotebookExecutionId" PipelineParameter="NotebookExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TerminateJobFlows" Verb="Stop" Noun="JobFlow" ShouldProcessTarget="JobFlowIds" PipelineParameter="JobFlowIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateSession" OutputProperty="*" Verb="Stop" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -23,80 +23,67 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.ElasticFileSystem;
-using Amazon.ElasticFileSystem.Model;
+using Amazon.ElasticMapReduce;
+using Amazon.ElasticMapReduce.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EFS
+namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Updates the throughput mode or the amount of provisioned throughput of an existing
-    /// file system.
+    /// Terminates an active session. After you call this operation, the session enters the
+    /// <c>TERMINATING</c> state and then transitions to <c>TERMINATED</c>.
     /// </summary>
-    [Cmdlet("Update", "EFSFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticFileSystem.Model.UpdateFileSystemResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic File System UpdateFileSystem API operation.", Operation = new[] {"UpdateFileSystem"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.UpdateFileSystemResponse))]
-    [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.UpdateFileSystemResponse",
-        "This cmdlet returns an Amazon.ElasticFileSystem.Model.UpdateFileSystemResponse object containing multiple properties."
+    [Cmdlet("Stop", "EMRSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElasticMapReduce.Model.TerminateSessionResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce TerminateSession API operation.", Operation = new[] {"TerminateSession"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.TerminateSessionResponse))]
+    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.TerminateSessionResponse",
+        "This cmdlet returns an Amazon.ElasticMapReduce.Model.TerminateSessionResponse object containing multiple properties."
     )]
-    public partial class UpdateEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
+    public partial class StopEMRSessionCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter FileSystemId
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The ID of the file system that you want to update.</para>
+        /// <para>The ID of the cluster that the session belongs to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FileSystemId { get; set; }
+        public System.String ClusterId { get; set; }
         #endregion
         
-        #region Parameter ProvisionedThroughputInMibp
+        #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>(Optional) The throughput, measured in mebibytes per second (MiBps), that you want
-        /// to provision for a file system that you're creating. Required if <c>ThroughputMode</c>
-        /// is set to <c>provisioned</c>. Valid values are 1-3414 MiBps, with the upper limit
-        /// depending on Region. To increase this limit, contact Amazon Web Services Support.
-        /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
-        /// EFS quotas that you can increase</a> in the <i>Amazon EFS User Guide</i>.</para>
+        /// <para>The ID of the session to terminate.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ProvisionedThroughputInMibps")]
-        public System.Double? ProvisionedThroughputInMibp { get; set; }
-        #endregion
-        
-        #region Parameter ThroughputMode
-        /// <summary>
-        /// <para>
-        /// <para>(Optional) Updates the file system's throughput mode. If you're not updating your
-        /// throughput mode, you don't need to provide this value in your request. If you are
-        /// changing the <c>ThroughputMode</c> to <c>provisioned</c>, you must also set a value
-        /// for <c>ProvisionedThroughputInMibps</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ElasticFileSystem.ThroughputMode")]
-        public Amazon.ElasticFileSystem.ThroughputMode ThroughputMode { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SessionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticFileSystem.Model.UpdateFileSystemResponse).
-        /// Specifying the name of a property of type Amazon.ElasticFileSystem.Model.UpdateFileSystemResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticMapReduce.Model.TerminateSessionResponse).
+        /// Specifying the name of a property of type Amazon.ElasticMapReduce.Model.TerminateSessionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileSystemId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EFSFileSystem (UpdateFileSystem)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SessionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EMRSession (TerminateSession)"))
             {
                 return;
             }
@@ -135,18 +122,23 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElasticFileSystem.Model.UpdateFileSystemResponse, UpdateEFSFileSystemCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElasticMapReduce.Model.TerminateSessionResponse, StopEMRSessionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.FileSystemId = this.FileSystemId;
+            context.ClusterId = this.ClusterId;
             #if MODULAR
-            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
+            if (this.ClusterId == null && ParameterWasBound(nameof(this.ClusterId)))
             {
-                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ProvisionedThroughputInMibp = this.ProvisionedThroughputInMibp;
-            context.ThroughputMode = this.ThroughputMode;
+            context.SessionId = this.SessionId;
+            #if MODULAR
+            if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,19 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticFileSystem.Model.UpdateFileSystemRequest();
+            var request = new Amazon.ElasticMapReduce.Model.TerminateSessionRequest();
             
-            if (cmdletContext.FileSystemId != null)
+            if (cmdletContext.ClusterId != null)
             {
-                request.FileSystemId = cmdletContext.FileSystemId;
+                request.ClusterId = cmdletContext.ClusterId;
             }
-            if (cmdletContext.ProvisionedThroughputInMibp != null)
+            if (cmdletContext.SessionId != null)
             {
-                request.ProvisionedThroughputInMibps = cmdletContext.ProvisionedThroughputInMibp.Value;
-            }
-            if (cmdletContext.ThroughputMode != null)
-            {
-                request.ThroughputMode = cmdletContext.ThroughputMode;
+                request.SessionId = cmdletContext.SessionId;
             }
             
             CmdletOutput output;
@@ -208,12 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticFileSystem.Model.UpdateFileSystemResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.UpdateFileSystemRequest request)
+        private Amazon.ElasticMapReduce.Model.TerminateSessionResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.TerminateSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic File System", "UpdateFileSystem");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "TerminateSession");
             try
             {
-                return client.UpdateFileSystemAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.TerminateSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -230,10 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FileSystemId { get; set; }
-            public System.Double? ProvisionedThroughputInMibp { get; set; }
-            public Amazon.ElasticFileSystem.ThroughputMode ThroughputMode { get; set; }
-            public System.Func<Amazon.ElasticFileSystem.Model.UpdateFileSystemResponse, UpdateEFSFileSystemCmdlet, object> Select { get; set; } =
+            public System.String ClusterId { get; set; }
+            public System.String SessionId { get; set; }
+            public System.Func<Amazon.ElasticMapReduce.Model.TerminateSessionResponse, StopEMRSessionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

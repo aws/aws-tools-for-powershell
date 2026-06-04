@@ -277,6 +277,7 @@ $IVS_SelectMap = @{
                "Stop-IVSStream",
                "Add-IVSResourceTag",
                "Remove-IVSResourceTag",
+               "Update-IVSAdConfiguration",
                "Update-IVSChannel",
                "Update-IVSPlaybackRestrictionPolicy")
 }

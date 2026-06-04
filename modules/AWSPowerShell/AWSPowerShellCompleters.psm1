@@ -20000,6 +20000,16 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.RuleEvaluationVisibility
+        {
+            ($_ -eq "Write-CFGConfigRule/ConfigRule_RuleEvaluationVisibility") -Or
+            ($_ -eq "Get-CFGConfigRule/Filters_RuleEvaluationVisibility")
+        }
+        {
+            $v = "EXTERNAL","INTERNAL"
+            break
+        }
+
         # Amazon.ConfigService.SortBy
         "Get-CFGConformancePackComplianceScoreList/SortBy"
         {
@@ -20027,6 +20037,7 @@ $CFG_map = @{
     "ComplianceType"=@("Get-CFGAggregateComplianceDetailsByConfigRule")
     "ConfigRule_ConfigRuleState"=@("Write-CFGConfigRule")
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
+    "ConfigRule_RuleEvaluationVisibility"=@("Write-CFGConfigRule")
     "ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
     "ConfigurationRecorder_RecordingScope"=@("Write-CFGConfigurationRecorder")
     "EvaluationMode"=@("Start-CFGResourceEvaluation")
@@ -20035,6 +20046,7 @@ $CFG_map = @{
     "Filters_EvaluationMode"=@("Get-CFGConfigRule","Get-CFGResourceEvaluationList")
     "Filters_MemberAccountRuleStatus"=@("Get-CFGOrganizationConfigRuleDetailedStatus")
     "Filters_ResourceType"=@("Get-CFGAggregateDiscoveredResourceCount")
+    "Filters_RuleEvaluationVisibility"=@("Get-CFGConfigRule")
     "Filters_Status"=@("Get-CFGOrganizationConformancePackDetailedStatus")
     "GroupByKey"=@("Get-CFGAggregateConfigRuleComplianceSummary","Get-CFGAggregateConformancePackComplianceSummary","Get-CFGAggregateDiscoveredResourceCount")
     "OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
@@ -33857,6 +33869,8 @@ $EMR_SelectMap = @{
                "Get-EMRManagedScalingPolicy",
                "Get-EMROnClusterAppUIPresignedURL",
                "Get-EMRPersistentAppUIPresignedURL",
+               "Get-EMRSession",
+               "Get-EMRSessionEndpoint",
                "Get-EMRStudioSessionMapping",
                "Get-EMRBootstrapActionList",
                "Get-EMRClusterList",
@@ -33866,6 +33880,7 @@ $EMR_SelectMap = @{
                "Get-EMRNotebookExecutionList",
                "Find-EMRReleaseLabel",
                "Get-EMRSecurityConfigurationList",
+               "Get-EMRSessionList",
                "Get-EMRStepList",
                "Get-EMRStudioList",
                "Get-EMRStudioSessionMappingList",
@@ -33887,8 +33902,10 @@ $EMR_SelectMap = @{
                "Set-EMRUnhealthyNodeReplacement",
                "Set-EMRVisibleToAllUser",
                "Start-EMRNotebookExecution",
+               "Start-EMRSession",
                "Stop-EMRNotebookExecution",
                "Stop-EMRJobFlow",
+               "Stop-EMRSession",
                "Update-EMRStudio",
                "Update-EMRStudioSessionMapping")
 }
@@ -39153,6 +39170,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.GlueResourceType
+        "Get-GLUEDashboardUrl/ResourceType"
+        {
+            $v = "JOB","SESSION"
+            break
+        }
+
         # Amazon.Glue.HTTPMethod
         {
             ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RequestMethod") -Or
@@ -39324,6 +39348,13 @@ $GLUE_Completers = {
         "Get-GLUESchemaVersionsDiff/SchemaDiffType"
         {
             $v = "SYNTAX_DIFF"
+            break
+        }
+
+        # Amazon.Glue.SessionType
+        "New-GLUESession/SessionType"
+        {
+            $v = "LIVY","SPARK_CONNECT"
             break
         }
 
@@ -39555,6 +39586,7 @@ $GLUE_map = @{
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
+    "ResourceType"=@("Get-GLUEDashboardUrl")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
@@ -39567,6 +39599,7 @@ $GLUE_map = @{
     "RestConfiguration_ValidationEndpointConfiguration_RequestMethod"=@("Register-GLUEConnectionType")
     "Schema_Type"=@("New-GLUETable")
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
+    "SessionType"=@("New-GLUESession")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
@@ -39738,6 +39771,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlerMetricList",
                "Get-GLUECrawlerList",
                "Get-GLUECustomEntityType",
+               "Get-GLUEDashboardUrl",
                "Get-GLUEDatabase",
                "Get-GLUEDatabaseList",
                "Get-GLUEDataCatalogEncryptionSetting",
@@ -39779,6 +39813,7 @@ $GLUE_SelectMap = @{
                "Get-GLUESecurityConfiguration",
                "Get-GLUESecurityConfigurationList",
                "Get-GLUESession",
+               "Get-GLUESessionEndpoint",
                "Get-GLUEStatement",
                "Get-GLUETable",
                "Get-GLUETableOptimizer",
@@ -46700,6 +46735,7 @@ $IVS_SelectMap = @{
                "Stop-IVSStream",
                "Add-IVSResourceTag",
                "Remove-IVSResourceTag",
+               "Update-IVSAdConfiguration",
                "Update-IVSChannel",
                "Update-IVSPlaybackRestrictionPolicy")
 }
@@ -76650,6 +76686,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.IncludedData
+        {
+            ($_ -eq "Get-SMModelCard/IncludedData") -Or
+            ($_ -eq "Get-SMModelPackage/IncludedData")
+        }
+        {
+            $v = "AllData","MetadataOnly"
+            break
+        }
+
         # Amazon.SageMaker.InferenceComponentCapacitySizeType
         {
             ($_ -eq "Update-SMInferenceComponent/MaximumBatchSize_Type") -Or
@@ -77342,7 +77388,7 @@ $SM_Completers = {
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","Image","ImageVersion","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","PipelineVersion","Project","TrainingJob"
+            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","Image","ImageVersion","Job","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","PipelineVersion","Project","TrainingJob"
             break
         }
 
@@ -77913,6 +77959,7 @@ $SM_map = @{
     "IamPolicyConstraints_SourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
     "IamPolicyConstraints_VpcSourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
     "IdleSettings_LifecycleManagement"=@("New-SMDomain","Update-SMDomain")
+    "IncludedData"=@("Get-SMModelCard","Get-SMModelPackage")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InferenceSpecification_Framework"=@("New-SMAIRecommendationJob")
     "InputConfig_Framework"=@("New-SMCompilationJob")

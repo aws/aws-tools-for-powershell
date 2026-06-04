@@ -23,38 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.ConnectParticipant;
-using Amazon.ConnectParticipant.Model;
+using Amazon.ElasticMapReduce;
+using Amazon.ElasticMapReduce.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CONNP
+namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Retrieves the view for the specified view token.
-    /// 
-    ///  
-    /// <para>
-    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect
-    /// Customer Chat security best practices</a>. 
-    /// </para>
+    /// Returns detailed information about a session.
     /// </summary>
-    [Cmdlet("Get", "CONNPView")]
-    [OutputType("Amazon.ConnectParticipant.Model.View")]
-    [AWSCmdlet("Calls the Amazon Connect Participant Service DescribeView API operation.", Operation = new[] {"DescribeView"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.DescribeViewResponse))]
-    [AWSCmdletOutput("Amazon.ConnectParticipant.Model.View or Amazon.ConnectParticipant.Model.DescribeViewResponse",
-        "This cmdlet returns an Amazon.ConnectParticipant.Model.View object.",
-        "The service call response (type Amazon.ConnectParticipant.Model.DescribeViewResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EMRSession")]
+    [OutputType("Amazon.ElasticMapReduce.Model.Session")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce GetSession API operation.", Operation = new[] {"GetSession"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.GetSessionResponse))]
+    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.Session or Amazon.ElasticMapReduce.Model.GetSessionResponse",
+        "This cmdlet returns an Amazon.ElasticMapReduce.Model.Session object.",
+        "The service call response (type Amazon.ElasticMapReduce.Model.GetSessionResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCONNPViewCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
+    public partial class GetEMRSessionCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ConnectionToken
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The connection token.</para>
+        /// <para>The ID of the cluster that the session belongs to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,36 +59,35 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionToken { get; set; }
+        public System.String ClusterId { get; set; }
         #endregion
         
-        #region Parameter ViewToken
+        #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>An encrypted token originating from the interactive message of a ShowView block operation.
-        /// Represents the desired view.</para>
+        /// <para>The ID of the session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ViewToken { get; set; }
+        public System.String SessionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'View'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectParticipant.Model.DescribeViewResponse).
-        /// Specifying the name of a property of type Amazon.ConnectParticipant.Model.DescribeViewResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Session'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticMapReduce.Model.GetSessionResponse).
+        /// Specifying the name of a property of type Amazon.ElasticMapReduce.Model.GetSessionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "View";
+        public string Select { get; set; } = "Session";
         #endregion
         
         protected override void StopProcessing()
@@ -113,21 +106,21 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectParticipant.Model.DescribeViewResponse, GetCONNPViewCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElasticMapReduce.Model.GetSessionResponse, GetEMRSessionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ConnectionToken = this.ConnectionToken;
+            context.ClusterId = this.ClusterId;
             #if MODULAR
-            if (this.ConnectionToken == null && ParameterWasBound(nameof(this.ConnectionToken)))
+            if (this.ClusterId == null && ParameterWasBound(nameof(this.ClusterId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ViewToken = this.ViewToken;
+            context.SessionId = this.SessionId;
             #if MODULAR
-            if (this.ViewToken == null && ParameterWasBound(nameof(this.ViewToken)))
+            if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ViewToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -144,15 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectParticipant.Model.DescribeViewRequest();
+            var request = new Amazon.ElasticMapReduce.Model.GetSessionRequest();
             
-            if (cmdletContext.ConnectionToken != null)
+            if (cmdletContext.ClusterId != null)
             {
-                request.ConnectionToken = cmdletContext.ConnectionToken;
+                request.ClusterId = cmdletContext.ClusterId;
             }
-            if (cmdletContext.ViewToken != null)
+            if (cmdletContext.SessionId != null)
             {
-                request.ViewToken = cmdletContext.ViewToken;
+                request.SessionId = cmdletContext.SessionId;
             }
             
             CmdletOutput output;
@@ -187,12 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectParticipant.Model.DescribeViewResponse CallAWSServiceOperation(IAmazonConnectParticipant client, Amazon.ConnectParticipant.Model.DescribeViewRequest request)
+        private Amazon.ElasticMapReduce.Model.GetSessionResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.GetSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Participant Service", "DescribeView");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "GetSession");
             try
             {
-                return client.DescribeViewAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -209,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionToken { get; set; }
-            public System.String ViewToken { get; set; }
-            public System.Func<Amazon.ConnectParticipant.Model.DescribeViewResponse, GetCONNPViewCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.View;
+            public System.String ClusterId { get; set; }
+            public System.String SessionId { get; set; }
+            public System.Func<Amazon.ElasticMapReduce.Model.GetSessionResponse, GetEMRSessionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Session;
         }
         
     }

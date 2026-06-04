@@ -817,6 +817,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.IncludedData
+        {
+            ($_ -eq "Get-SMModelCard/IncludedData") -Or
+            ($_ -eq "Get-SMModelPackage/IncludedData")
+        }
+        {
+            $v = "AllData","MetadataOnly"
+            break
+        }
+
         # Amazon.SageMaker.InferenceComponentCapacitySizeType
         {
             ($_ -eq "Update-SMInferenceComponent/MaximumBatchSize_Type") -Or
@@ -1509,7 +1519,7 @@ $SM_Completers = {
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","Image","ImageVersion","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","PipelineVersion","Project","TrainingJob"
+            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","Image","ImageVersion","Job","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","PipelineVersion","Project","TrainingJob"
             break
         }
 
@@ -2080,6 +2090,7 @@ $SM_map = @{
     "IamPolicyConstraints_SourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
     "IamPolicyConstraints_VpcSourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
     "IdleSettings_LifecycleManagement"=@("New-SMDomain","Update-SMDomain")
+    "IncludedData"=@("Get-SMModelCard","Get-SMModelPackage")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InferenceSpecification_Framework"=@("New-SMAIRecommendationJob")
     "InputConfig_Framework"=@("New-SMCompilationJob")

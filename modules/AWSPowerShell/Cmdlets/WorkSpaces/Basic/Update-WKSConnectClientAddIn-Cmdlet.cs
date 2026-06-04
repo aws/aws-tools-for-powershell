@@ -30,8 +30,8 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Updates a Amazon Connect client add-in. Use this action to update the name and endpoint
-    /// URL of a Amazon Connect client add-in.
+    /// Updates a Connect Customer client add-in. Use this action to update the name and endpoint
+    /// URL of a Connect Customer client add-in.
     /// </summary>
     [Cmdlet("Update", "WKSConnectClientAddIn", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter URL
         /// <summary>
         /// <para>
-        /// <para>The endpoint URL of the Amazon Connect client add-in.</para>
+        /// <para>The endpoint URL of the Connect Customer client add-in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

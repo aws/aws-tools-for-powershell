@@ -48,7 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter MediaTailorPlaybackConfiguration
         /// <summary>
         /// <para>
-        /// <para>List of integration configurations with media tailor resources.</para><para />
+        /// <para>List of integration configurations with MediaTailor resources. The first item in the
+        /// list is the default playback configuration used for the ad configuration. To select
+        /// a different configuration per viewing session, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels-generate-tokens.html">Generate
+        /// and Sign IVS Playback Tokens</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

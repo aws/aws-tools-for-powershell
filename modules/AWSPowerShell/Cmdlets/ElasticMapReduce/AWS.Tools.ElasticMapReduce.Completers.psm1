@@ -363,6 +363,8 @@ $EMR_SelectMap = @{
                "Get-EMRManagedScalingPolicy",
                "Get-EMROnClusterAppUIPresignedURL",
                "Get-EMRPersistentAppUIPresignedURL",
+               "Get-EMRSession",
+               "Get-EMRSessionEndpoint",
                "Get-EMRStudioSessionMapping",
                "Get-EMRBootstrapActionList",
                "Get-EMRClusterList",
@@ -372,6 +374,7 @@ $EMR_SelectMap = @{
                "Get-EMRNotebookExecutionList",
                "Find-EMRReleaseLabel",
                "Get-EMRSecurityConfigurationList",
+               "Get-EMRSessionList",
                "Get-EMRStepList",
                "Get-EMRStudioList",
                "Get-EMRStudioSessionMappingList",
@@ -393,8 +396,10 @@ $EMR_SelectMap = @{
                "Set-EMRUnhealthyNodeReplacement",
                "Set-EMRVisibleToAllUser",
                "Start-EMRNotebookExecution",
+               "Start-EMRSession",
                "Stop-EMRNotebookExecution",
                "Stop-EMRJobFlow",
+               "Stop-EMRSession",
                "Update-EMRStudio",
                "Update-EMRStudioSessionMapping")
 }

@@ -23,32 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.WorkSpaces;
-using Amazon.WorkSpaces.Model;
+using Amazon.ElasticMapReduce;
+using Amazon.ElasticMapReduce.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.WKS
+namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Retrieves a list of Connect Customer client add-ins that have been created.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the sessions on a cluster. You can filter the results by session state. Newer
+    /// sessions are returned first.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "WKSConnectClientAddIn")]
-    [OutputType("Amazon.WorkSpaces.Model.ConnectClientAddIn")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces DescribeConnectClientAddIns API operation.", Operation = new[] {"DescribeConnectClientAddIns"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DescribeConnectClientAddInsResponse))]
-    [AWSCmdletOutput("Amazon.WorkSpaces.Model.ConnectClientAddIn or Amazon.WorkSpaces.Model.DescribeConnectClientAddInsResponse",
-        "This cmdlet returns a collection of Amazon.WorkSpaces.Model.ConnectClientAddIn objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.DescribeConnectClientAddInsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EMRSessionList")]
+    [OutputType("Amazon.ElasticMapReduce.Model.Session")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce ListSessions API operation.", Operation = new[] {"ListSessions"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.ListSessionsResponse))]
+    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.Session or Amazon.ElasticMapReduce.Model.ListSessionsResponse",
+        "This cmdlet returns a collection of Amazon.ElasticMapReduce.Model.Session objects.",
+        "The service call response (type Amazon.ElasticMapReduce.Model.ListSessionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetWKSConnectClientAddInCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetEMRSessionListCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceId
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The directory identifier for which the client add-in is configured.</para>
+        /// <para>The ID of the cluster to list sessions for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,13 +60,27 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceId { get; set; }
+        public System.String ClusterId { get; set; }
+        #endregion
+        
+        #region Parameter SessionStates
+        /// <summary>
+        /// <para>
+        /// <para>An optional filter that limits the results to sessions in the specified states.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] SessionStates { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return.</para>
+        /// <para>The maximum number of sessions to return in each page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you received a <c>NextToken</c> from a previous call that was paginated, provide
-        /// this token to receive the next set of results.</para>
+        /// <para>The pagination token returned by a previous <c>ListSessions</c> call. Use it to retrieve
+        /// the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -90,13 +105,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AddIns'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpaces.Model.DescribeConnectClientAddInsResponse).
-        /// Specifying the name of a property of type Amazon.WorkSpaces.Model.DescribeConnectClientAddInsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Sessions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticMapReduce.Model.ListSessionsResponse).
+        /// Specifying the name of a property of type Amazon.ElasticMapReduce.Model.ListSessionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AddIns";
+        public string Select { get; set; } = "Sessions";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -125,18 +140,22 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WorkSpaces.Model.DescribeConnectClientAddInsResponse, GetWKSConnectClientAddInCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElasticMapReduce.Model.ListSessionsResponse, GetEMRSessionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.ResourceId = this.ResourceId;
+            context.ClusterId = this.ClusterId;
             #if MODULAR
-            if (this.ResourceId == null && ParameterWasBound(nameof(this.ResourceId)))
+            if (this.ClusterId == null && ParameterWasBound(nameof(this.ClusterId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            if (this.SessionStates != null)
+            {
+                context.SessionStates = new List<System.String>(this.SessionStates);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,15 +172,19 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.WorkSpaces.Model.DescribeConnectClientAddInsRequest();
+            var request = new Amazon.ElasticMapReduce.Model.ListSessionsRequest();
             
+            if (cmdletContext.ClusterId != null)
+            {
+                request.ClusterId = cmdletContext.ClusterId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.SessionStates != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.SessionStates = cmdletContext.SessionStates;
             }
             
             // Initialize loop variant and commence piping
@@ -220,12 +243,12 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpaces.Model.DescribeConnectClientAddInsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeConnectClientAddInsRequest request)
+        private Amazon.ElasticMapReduce.Model.ListSessionsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListSessionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DescribeConnectClientAddIns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "ListSessions");
             try
             {
-                return client.DescribeConnectClientAddInsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListSessionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -242,11 +265,12 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClusterId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceId { get; set; }
-            public System.Func<Amazon.WorkSpaces.Model.DescribeConnectClientAddInsResponse, GetWKSConnectClientAddInCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AddIns;
+            public List<System.String> SessionStates { get; set; }
+            public System.Func<Amazon.ElasticMapReduce.Model.ListSessionsResponse, GetEMRSessionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Sessions;
         }
         
     }

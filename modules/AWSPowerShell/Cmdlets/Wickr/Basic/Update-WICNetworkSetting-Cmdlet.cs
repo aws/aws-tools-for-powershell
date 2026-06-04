@@ -46,6 +46,27 @@ namespace Amazon.PowerShell.Cmdlets.WIC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Settings_ConsentPopup_CloseButtonLabel
+        /// <summary>
+        /// <para>
+        /// <para>Label for the close button on the consent popup. Maximum 20 characters. Defaults to
+        /// "Acknowledge" if not provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Settings_ConsentPopup_CloseButtonLabel { get; set; }
+        #endregion
+        
+        #region Parameter Settings_ConsentPopup_Content
+        /// <summary>
+        /// <para>
+        /// <para>Body content of the consent popup in Markdown format. Maximum 5000 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Settings_ConsentPopup_Content { get; set; }
+        #endregion
+        
         #region Parameter Settings_DataRetention
         /// <summary>
         /// <para>
@@ -69,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.WIC
         public System.Boolean? Settings_EnableClientMetric { get; set; }
         #endregion
         
+        #region Parameter Settings_ConsentPopup_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether the consent popup is enabled. When set to true, the popup is displayed to
+        /// users on login.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Settings_ConsentPopup_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Settings_EnableTrustedDataFormat
         /// <summary>
         /// <para>
@@ -78,6 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.WIC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Settings_EnableTrustedDataFormat { get; set; }
+        #endregion
+        
+        #region Parameter Settings_ConsentPopup_Header
+        /// <summary>
+        /// <para>
+        /// <para>Header text displayed at the top of the consent popup. Maximum 100 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Settings_ConsentPopup_Header { get; set; }
         #endregion
         
         #region Parameter NetworkId
@@ -161,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.WIC
                 WriteWarning("You are passing $null as a value for parameter NetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Settings_ConsentPopup_CloseButtonLabel = this.Settings_ConsentPopup_CloseButtonLabel;
+            context.Settings_ConsentPopup_Content = this.Settings_ConsentPopup_Content;
+            context.Settings_ConsentPopup_Enabled = this.Settings_ConsentPopup_Enabled;
+            context.Settings_ConsentPopup_Header = this.Settings_ConsentPopup_Header;
             context.Settings_DataRetention = this.Settings_DataRetention;
             context.Settings_EnableClientMetric = this.Settings_EnableClientMetric;
             context.Settings_EnableTrustedDataFormat = this.Settings_EnableTrustedDataFormat;
@@ -244,6 +290,61 @@ namespace Amazon.PowerShell.Cmdlets.WIC
                 request.Settings.ReadReceiptConfig = requestSettings_settings_ReadReceiptConfig;
                 requestSettingsIsNull = false;
             }
+            Amazon.Wickr.Model.ConsentPopupConfig requestSettings_settings_ConsentPopup = null;
+            
+             // populate ConsentPopup
+            var requestSettings_settings_ConsentPopupIsNull = true;
+            requestSettings_settings_ConsentPopup = new Amazon.Wickr.Model.ConsentPopupConfig();
+            System.String requestSettings_settings_ConsentPopup_settings_ConsentPopup_CloseButtonLabel = null;
+            if (cmdletContext.Settings_ConsentPopup_CloseButtonLabel != null)
+            {
+                requestSettings_settings_ConsentPopup_settings_ConsentPopup_CloseButtonLabel = cmdletContext.Settings_ConsentPopup_CloseButtonLabel;
+            }
+            if (requestSettings_settings_ConsentPopup_settings_ConsentPopup_CloseButtonLabel != null)
+            {
+                requestSettings_settings_ConsentPopup.CloseButtonLabel = requestSettings_settings_ConsentPopup_settings_ConsentPopup_CloseButtonLabel;
+                requestSettings_settings_ConsentPopupIsNull = false;
+            }
+            System.String requestSettings_settings_ConsentPopup_settings_ConsentPopup_Content = null;
+            if (cmdletContext.Settings_ConsentPopup_Content != null)
+            {
+                requestSettings_settings_ConsentPopup_settings_ConsentPopup_Content = cmdletContext.Settings_ConsentPopup_Content;
+            }
+            if (requestSettings_settings_ConsentPopup_settings_ConsentPopup_Content != null)
+            {
+                requestSettings_settings_ConsentPopup.Content = requestSettings_settings_ConsentPopup_settings_ConsentPopup_Content;
+                requestSettings_settings_ConsentPopupIsNull = false;
+            }
+            System.Boolean? requestSettings_settings_ConsentPopup_settings_ConsentPopup_Enabled = null;
+            if (cmdletContext.Settings_ConsentPopup_Enabled != null)
+            {
+                requestSettings_settings_ConsentPopup_settings_ConsentPopup_Enabled = cmdletContext.Settings_ConsentPopup_Enabled.Value;
+            }
+            if (requestSettings_settings_ConsentPopup_settings_ConsentPopup_Enabled != null)
+            {
+                requestSettings_settings_ConsentPopup.Enabled = requestSettings_settings_ConsentPopup_settings_ConsentPopup_Enabled.Value;
+                requestSettings_settings_ConsentPopupIsNull = false;
+            }
+            System.String requestSettings_settings_ConsentPopup_settings_ConsentPopup_Header = null;
+            if (cmdletContext.Settings_ConsentPopup_Header != null)
+            {
+                requestSettings_settings_ConsentPopup_settings_ConsentPopup_Header = cmdletContext.Settings_ConsentPopup_Header;
+            }
+            if (requestSettings_settings_ConsentPopup_settings_ConsentPopup_Header != null)
+            {
+                requestSettings_settings_ConsentPopup.Header = requestSettings_settings_ConsentPopup_settings_ConsentPopup_Header;
+                requestSettings_settings_ConsentPopupIsNull = false;
+            }
+             // determine if requestSettings_settings_ConsentPopup should be set to null
+            if (requestSettings_settings_ConsentPopupIsNull)
+            {
+                requestSettings_settings_ConsentPopup = null;
+            }
+            if (requestSettings_settings_ConsentPopup != null)
+            {
+                request.Settings.ConsentPopup = requestSettings_settings_ConsentPopup;
+                requestSettingsIsNull = false;
+            }
              // determine if request.Settings should be set to null
             if (requestSettingsIsNull)
             {
@@ -305,6 +406,10 @@ namespace Amazon.PowerShell.Cmdlets.WIC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String NetworkId { get; set; }
+            public System.String Settings_ConsentPopup_CloseButtonLabel { get; set; }
+            public System.String Settings_ConsentPopup_Content { get; set; }
+            public System.Boolean? Settings_ConsentPopup_Enabled { get; set; }
+            public System.String Settings_ConsentPopup_Header { get; set; }
             public System.Boolean? Settings_DataRetention { get; set; }
             public System.Boolean? Settings_EnableClientMetric { get; set; }
             public System.Boolean? Settings_EnableTrustedDataFormat { get; set; }

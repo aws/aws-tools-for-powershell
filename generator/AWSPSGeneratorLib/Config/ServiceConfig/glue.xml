@@ -513,6 +513,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDashboardUrl" OutputProperty="Url" Verb="Get" Noun="DashboardUrl" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDatabase" OutputProperty="Database" Verb="Get" Noun="Database" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -674,6 +678,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSessionEndpoint" OutputProperty="SparkConnect" Verb="Get" Noun="SessionEndpoint" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

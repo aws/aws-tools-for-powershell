@@ -205,6 +205,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String SecurityConfiguration { get; set; }
         #endregion
         
+        #region Parameter SessionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of session to create.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.SessionType")]
+        public Amazon.Glue.SessionType SessionType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -343,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.SecurityConfiguration = this.SecurityConfiguration;
+            context.SessionType = this.SessionType;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -457,6 +469,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
             }
+            if (cmdletContext.SessionType != null)
+            {
+                request.SessionType = cmdletContext.SessionType;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -537,6 +553,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String RequestOrigin { get; set; }
             public System.String Role { get; set; }
             public System.String SecurityConfiguration { get; set; }
+            public Amazon.Glue.SessionType SessionType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Int32? Timeout { get; set; }
             public Amazon.Glue.WorkerType WorkerType { get; set; }

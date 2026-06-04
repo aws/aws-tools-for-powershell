@@ -30,12 +30,12 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Creates a client-add-in for Amazon Connect within a directory. You can create only
-    /// one Amazon Connect client add-in within a directory.
+    /// Creates a client-add-in for Connect Customer within a directory. You can create only
+    /// one Connect Customer client add-in within a directory.
     /// 
     ///  
     /// <para>
-    /// This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.
+    /// This client add-in allows WorkSpaces users to seamlessly connect to Connect Customer.
     /// </para>
     /// </summary>
     [Cmdlet("New", "WKSConnectClientAddIn", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter URL
         /// <summary>
         /// <para>
-        /// <para>The endpoint URL of the Amazon Connect client add-in.</para>
+        /// <para>The endpoint URL of the Connect Customer client add-in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

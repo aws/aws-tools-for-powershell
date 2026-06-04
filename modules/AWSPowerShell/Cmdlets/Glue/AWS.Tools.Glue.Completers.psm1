@@ -248,6 +248,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.GlueResourceType
+        "Get-GLUEDashboardUrl/ResourceType"
+        {
+            $v = "JOB","SESSION"
+            break
+        }
+
         # Amazon.Glue.HTTPMethod
         {
             ($_ -eq "Register-GLUEConnectionType/ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RequestMethod") -Or
@@ -419,6 +426,13 @@ $GLUE_Completers = {
         "Get-GLUESchemaVersionsDiff/SchemaDiffType"
         {
             $v = "SYNTAX_DIFF"
+            break
+        }
+
+        # Amazon.Glue.SessionType
+        "New-GLUESession/SessionType"
+        {
+            $v = "LIVY","SPARK_CONNECT"
             break
         }
 
@@ -650,6 +664,7 @@ $GLUE_map = @{
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
+    "ResourceType"=@("Get-GLUEDashboardUrl")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
@@ -662,6 +677,7 @@ $GLUE_map = @{
     "RestConfiguration_ValidationEndpointConfiguration_RequestMethod"=@("Register-GLUEConnectionType")
     "Schema_Type"=@("New-GLUETable")
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
+    "SessionType"=@("New-GLUESession")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
@@ -833,6 +849,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlerMetricList",
                "Get-GLUECrawlerList",
                "Get-GLUECustomEntityType",
+               "Get-GLUEDashboardUrl",
                "Get-GLUEDatabase",
                "Get-GLUEDatabaseList",
                "Get-GLUEDataCatalogEncryptionSetting",
@@ -874,6 +891,7 @@ $GLUE_SelectMap = @{
                "Get-GLUESecurityConfiguration",
                "Get-GLUESecurityConfigurationList",
                "Get-GLUESession",
+               "Get-GLUESessionEndpoint",
                "Get-GLUEStatement",
                "Get-GLUETable",
                "Get-GLUETableOptimizer",

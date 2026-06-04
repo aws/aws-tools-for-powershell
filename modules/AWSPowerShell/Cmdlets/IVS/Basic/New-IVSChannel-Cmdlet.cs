@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <para>
         /// <para>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed
         /// the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i>
-        /// Default: <c>STANDARD</c>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
+        /// Default: <c>STANDARD</c>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html">Channel
         /// Types</a>.</para>
         /// </para>
         /// </summary>
