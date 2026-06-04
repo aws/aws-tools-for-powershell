@@ -37,7 +37,6 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq.Expressions;
 using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
-using SSOEndpointResolver = Amazon.PowerShell.Common.Internal.SSOEndpointResolver;
 
 namespace Amazon.PowerShell.Common
 {
@@ -164,16 +163,17 @@ namespace Amazon.PowerShell.Common
             // Re-resolve the start URL to detect region changes (e.g., vanity domain failover).
             // When the resolved region differs from stored sso_region, update the config.
             // If the URL is a vanity domain and resolution fails, raise an error.
+            SSOResolvedEndpoint resolvedEndpoint;
             WriteVerbose($"Resolving start URL: {profileOptions.SsoStartUrl}");
             try
             {
-                var resolved = SSOEndpointResolver.ResolveAsync(profileOptions.SsoStartUrl, null).GetAwaiter().GetResult();
-                WriteVerbose($"Start URL '{resolved.StartUrl}' resolved to '{resolved.ResolvedUrl}'");
-                WriteVerbose($"Resolved region: {resolved.Region ?? "(not available from URL)"}, configured sso_region: {profileOptions.SsoRegion}");
-                if (!string.IsNullOrEmpty(resolved.Region) && !string.Equals(resolved.Region, profileOptions.SsoRegion, StringComparison.OrdinalIgnoreCase))
+                resolvedEndpoint = SSOEndpointResolver.ResolveAsync(profileOptions.SsoStartUrl, null).GetAwaiter().GetResult();
+                WriteVerbose($"Start URL '{resolvedEndpoint.StartUrl}' resolved to '{resolvedEndpoint.ResolvedUrl}'");
+                WriteVerbose($"Resolved region: {resolvedEndpoint.Region ?? "(not available from URL)"}, configured sso_region: {profileOptions.SsoRegion}");
+                if (!string.IsNullOrEmpty(resolvedEndpoint.Region) && !string.Equals(resolvedEndpoint.Region, profileOptions.SsoRegion, StringComparison.OrdinalIgnoreCase))
                 {
-                    WriteVerbose($"Resolved region '{resolved.Region}' differs from configured sso_region '{profileOptions.SsoRegion}'. Updating configuration.");
-                    profileOptions.SsoRegion = resolved.Region;
+                    WriteVerbose($"Resolved region '{resolvedEndpoint.Region}' differs from configured sso_region '{profileOptions.SsoRegion}'. Updating configuration.");
+                    profileOptions.SsoRegion = resolvedEndpoint.Region;
                     profileOptions.RegisterSsoSession();
                 }
             }
@@ -181,6 +181,7 @@ namespace Amazon.PowerShell.Common
             {
                 this.ThrowTerminatingError(new ErrorRecord(
                     ex, "ArgumentException", ErrorCategory.InvalidArgument, profileOptions.SsoStartUrl));
+                return;
             }
 
             if (Force.IsPresent)
@@ -210,11 +211,11 @@ namespace Amazon.PowerShell.Common
             SsoToken ssoToken;
             if (useAuthCodeFlow)
             {
-                ssoToken = ProcessAuthCodeFlowAsync(profileOptions).GetAwaiter().GetResult();
+                ssoToken = ProcessAuthCodeFlowAsync(profileOptions, resolvedEndpoint).GetAwaiter().GetResult();
             }
             else
             {
-                ssoToken = ProcessDeviceCodeFlow(profileOptions);
+                ssoToken = ProcessDeviceCodeFlow(profileOptions, resolvedEndpoint);
             }
 
             if (ssoToken != null)
@@ -225,7 +226,7 @@ namespace Amazon.PowerShell.Common
             }
         }
 
-        private SsoToken ProcessDeviceCodeFlow(CredentialProfileOptions profileOptions)
+        private SsoToken ProcessDeviceCodeFlow(CredentialProfileOptions profileOptions, SSOResolvedEndpoint resolvedEndpoint)
         {
             Action<SsoVerificationArguments> ssoVerificationCallback = args =>
             {
@@ -243,11 +244,10 @@ namespace Amazon.PowerShell.Common
                     _logger.Error(ex, "Unable to open browser.");
                 }
             };
-
-            return SSOUtils.LoginAsync(profileOptions, ssoVerificationCallback, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            return SSOUtils.LoginAsync(profileOptions, resolvedEndpoint, ssoVerificationCallback, _cancellationTokenSource.Token).GetAwaiter().GetResult();
         }
 
-        private async Task<SsoToken> ProcessAuthCodeFlowAsync(CredentialProfileOptions profileOptions)
+        private async Task<SsoToken> ProcessAuthCodeFlowAsync(CredentialProfileOptions profileOptions, SSOResolvedEndpoint resolvedEndpoint)
         {
             HttpListenerResult httpListenerResult;
             try
@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Common
                     }
                 };
 
-                return await SSOUtils.LoginWithPkceAsync(profileOptions, pkceFlowOptions, _cancellationTokenSource.Token).ConfigureAwait(false);
+                return await SSOUtils.LoginWithPkceAsync(profileOptions, resolvedEndpoint, pkceFlowOptions, _cancellationTokenSource.Token).ConfigureAwait(false);
             }
         }
 
