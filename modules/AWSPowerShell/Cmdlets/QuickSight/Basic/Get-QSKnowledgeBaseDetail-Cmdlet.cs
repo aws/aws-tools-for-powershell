@@ -23,83 +23,71 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.MediaConvert;
-using Amazon.MediaConvert.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EMC
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Remove tags from a MediaConvert queue, preset, job, or job template. For information
-    /// about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-mediaconvert-resources.html.
+    /// Describes a knowledge base.
     /// </summary>
-    [Cmdlet("Remove", "EMCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Elemental MediaConvert UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.MediaConvert.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaConvert.Model.UntagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "QSKnowledgeBaseDetail")]
+    [OutputType("Amazon.QuickSight.Model.KnowledgeBase")]
+    [AWSCmdlet("Calls the Amazon QuickSight DescribeKnowledgeBase API operation.", Operation = new[] {"DescribeKnowledgeBase"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeKnowledgeBaseResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.KnowledgeBase or Amazon.QuickSight.Model.DescribeKnowledgeBaseResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.KnowledgeBase object.",
+        "The service call response (type Amazon.QuickSight.Model.DescribeKnowledgeBaseResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveEMCResourceTagCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
+    public partial class GetQSKnowledgeBaseDetailCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Arn
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the resource that
-        /// you want to remove tags from. To get the ARN, send a GET request with the resource
-        /// name.
+        /// <para>The ID of the Amazon Web Services account that contains the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Arn { get; set; }
+        public System.String AwsAccountId { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The keys of the tags that you want to remove from
-        /// the resource.
-        /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The unique identifier for the knowledge base.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String KnowledgeBaseId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaConvert.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'KnowledgeBase'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DescribeKnowledgeBaseResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.DescribeKnowledgeBaseResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "KnowledgeBase";
         #endregion
         
         protected override void StopProcessing()
@@ -111,12 +99,6 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EMCResourceTag (UntagResource)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -124,20 +106,23 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MediaConvert.Model.UntagResourceResponse, RemoveEMCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DescribeKnowledgeBaseResponse, GetQSKnowledgeBaseDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Arn = this.Arn;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
+            context.KnowledgeBaseId = this.KnowledgeBaseId;
+            #if MODULAR
+            if (this.KnowledgeBaseId == null && ParameterWasBound(nameof(this.KnowledgeBaseId)))
             {
-                context.TagKey = new List<System.String>(this.TagKey);
+                WriteWarning("You are passing $null as a value for parameter KnowledgeBaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,15 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MediaConvert.Model.UntagResourceRequest();
+            var request = new Amazon.QuickSight.Model.DescribeKnowledgeBaseRequest();
             
-            if (cmdletContext.Arn != null)
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.Arn = cmdletContext.Arn;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.KnowledgeBaseId != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.KnowledgeBaseId = cmdletContext.KnowledgeBaseId;
             }
             
             CmdletOutput output;
@@ -195,12 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         
         #region AWS Service Operation Call
         
-        private Amazon.MediaConvert.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonMediaConvert client, Amazon.MediaConvert.Model.UntagResourceRequest request)
+        private Amazon.QuickSight.Model.DescribeKnowledgeBaseResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DescribeKnowledgeBaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaConvert", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DescribeKnowledgeBase");
             try
             {
-                return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeKnowledgeBaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -217,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Arn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.MediaConvert.Model.UntagResourceResponse, RemoveEMCResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String AwsAccountId { get; set; }
+            public System.String KnowledgeBaseId { get; set; }
+            public System.Func<Amazon.QuickSight.Model.DescribeKnowledgeBaseResponse, GetQSKnowledgeBaseDetailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.KnowledgeBase;
         }
         
     }

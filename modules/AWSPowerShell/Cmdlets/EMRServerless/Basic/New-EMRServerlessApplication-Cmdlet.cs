@@ -44,6 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ImageConfiguration_ApplicationLevelDigestResolution
+        /// <summary>
+        /// <para>
+        /// <para>Boolean value indicating if the digest resolution is application level or workload
+        /// level. If true, a custom image URI is resolved at application start time and all workloads
+        /// submitted will use that image digest. If false, the custom image URI is resolved at
+        /// the workload submission time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ImageConfiguration_ApplicationLevelDigestResolution { get; set; }
+        #endregion
+        
         #region Parameter Architecture
         /// <summary>
         /// <para>
@@ -582,6 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             context.DiskEncryptionConfiguration_EncryptionKeyArn = this.DiskEncryptionConfiguration_EncryptionKeyArn;
             context.IdentityCenterConfiguration_IdentityCenterInstanceArn = this.IdentityCenterConfiguration_IdentityCenterInstanceArn;
             context.IdentityCenterConfiguration_UserBackgroundSessionsEnabled = this.IdentityCenterConfiguration_UserBackgroundSessionsEnabled;
+            context.ImageConfiguration_ApplicationLevelDigestResolution = this.ImageConfiguration_ApplicationLevelDigestResolution;
             context.ImageConfiguration_ImageUri = this.ImageConfiguration_ImageUri;
             if (this.InitialCapacity != null)
             {
@@ -806,6 +820,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
              // populate ImageConfiguration
             var requestImageConfigurationIsNull = true;
             request.ImageConfiguration = new Amazon.EMRServerless.Model.ImageConfigurationInput();
+            System.Boolean? requestImageConfiguration_imageConfiguration_ApplicationLevelDigestResolution = null;
+            if (cmdletContext.ImageConfiguration_ApplicationLevelDigestResolution != null)
+            {
+                requestImageConfiguration_imageConfiguration_ApplicationLevelDigestResolution = cmdletContext.ImageConfiguration_ApplicationLevelDigestResolution.Value;
+            }
+            if (requestImageConfiguration_imageConfiguration_ApplicationLevelDigestResolution != null)
+            {
+                request.ImageConfiguration.ApplicationLevelDigestResolution = requestImageConfiguration_imageConfiguration_ApplicationLevelDigestResolution.Value;
+                requestImageConfigurationIsNull = false;
+            }
             System.String requestImageConfiguration_imageConfiguration_ImageUri = null;
             if (cmdletContext.ImageConfiguration_ImageUri != null)
             {
@@ -1237,6 +1261,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.String DiskEncryptionConfiguration_EncryptionKeyArn { get; set; }
             public System.String IdentityCenterConfiguration_IdentityCenterInstanceArn { get; set; }
             public System.Boolean? IdentityCenterConfiguration_UserBackgroundSessionsEnabled { get; set; }
+            public System.Boolean? ImageConfiguration_ApplicationLevelDigestResolution { get; set; }
             public System.String ImageConfiguration_ImageUri { get; set; }
             public Dictionary<System.String, Amazon.EMRServerless.Model.InitialCapacityConfig> InitialCapacity { get; set; }
             public System.Boolean? InteractiveConfiguration_LivyEndpointEnabled { get; set; }

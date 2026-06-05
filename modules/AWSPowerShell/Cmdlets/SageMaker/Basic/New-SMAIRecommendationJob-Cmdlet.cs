@@ -144,6 +144,36 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] ComputeSpec_InstanceType { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_MlflowConfig_MlflowExperimentName
+        /// <summary>
+        /// <para>
+        /// <para>The MLflow experiment name used for tracking.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_MlflowConfig_MlflowExperimentName { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_MlflowConfig_MlflowResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the SageMaker managed MLflow resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_MlflowConfig_MlflowResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_MlflowConfig_MlflowRunName
+        /// <summary>
+        /// <para>
+        /// <para>The MLflow run name used for tracking.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_MlflowConfig_MlflowRunName { get; set; }
+        #endregion
+        
         #region Parameter ComputeSpec_CapacityReservationConfig_MlReservationArn
         /// <summary>
         /// <para>
@@ -307,6 +337,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.InferenceSpecification_Framework = this.InferenceSpecification_Framework;
             context.ModelSource_S3_S3Uri = this.ModelSource_S3_S3Uri;
             context.OptimizeModel = this.OptimizeModel;
+            context.OutputConfig_MlflowConfig_MlflowExperimentName = this.OutputConfig_MlflowConfig_MlflowExperimentName;
+            context.OutputConfig_MlflowConfig_MlflowResourceArn = this.OutputConfig_MlflowConfig_MlflowResourceArn;
+            context.OutputConfig_MlflowConfig_MlflowRunName = this.OutputConfig_MlflowConfig_MlflowRunName;
             context.OutputConfig_ModelPackageGroupIdentifier = this.OutputConfig_ModelPackageGroupIdentifier;
             context.OutputConfig_S3OutputLocation = this.OutputConfig_S3OutputLocation;
             if (this.PerformanceTarget_Constraint != null)
@@ -489,6 +522,51 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.OutputConfig.S3OutputLocation = requestOutputConfig_outputConfig_S3OutputLocation;
                 requestOutputConfigIsNull = false;
             }
+            Amazon.SageMaker.Model.AIMlflowConfig requestOutputConfig_outputConfig_MlflowConfig = null;
+            
+             // populate MlflowConfig
+            var requestOutputConfig_outputConfig_MlflowConfigIsNull = true;
+            requestOutputConfig_outputConfig_MlflowConfig = new Amazon.SageMaker.Model.AIMlflowConfig();
+            System.String requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowExperimentName = null;
+            if (cmdletContext.OutputConfig_MlflowConfig_MlflowExperimentName != null)
+            {
+                requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowExperimentName = cmdletContext.OutputConfig_MlflowConfig_MlflowExperimentName;
+            }
+            if (requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowExperimentName != null)
+            {
+                requestOutputConfig_outputConfig_MlflowConfig.MlflowExperimentName = requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowExperimentName;
+                requestOutputConfig_outputConfig_MlflowConfigIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowResourceArn = null;
+            if (cmdletContext.OutputConfig_MlflowConfig_MlflowResourceArn != null)
+            {
+                requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowResourceArn = cmdletContext.OutputConfig_MlflowConfig_MlflowResourceArn;
+            }
+            if (requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowResourceArn != null)
+            {
+                requestOutputConfig_outputConfig_MlflowConfig.MlflowResourceArn = requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowResourceArn;
+                requestOutputConfig_outputConfig_MlflowConfigIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowRunName = null;
+            if (cmdletContext.OutputConfig_MlflowConfig_MlflowRunName != null)
+            {
+                requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowRunName = cmdletContext.OutputConfig_MlflowConfig_MlflowRunName;
+            }
+            if (requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowRunName != null)
+            {
+                requestOutputConfig_outputConfig_MlflowConfig.MlflowRunName = requestOutputConfig_outputConfig_MlflowConfig_outputConfig_MlflowConfig_MlflowRunName;
+                requestOutputConfig_outputConfig_MlflowConfigIsNull = false;
+            }
+             // determine if requestOutputConfig_outputConfig_MlflowConfig should be set to null
+            if (requestOutputConfig_outputConfig_MlflowConfigIsNull)
+            {
+                requestOutputConfig_outputConfig_MlflowConfig = null;
+            }
+            if (requestOutputConfig_outputConfig_MlflowConfig != null)
+            {
+                request.OutputConfig.MlflowConfig = requestOutputConfig_outputConfig_MlflowConfig;
+                requestOutputConfigIsNull = false;
+            }
              // determine if request.OutputConfig should be set to null
             if (requestOutputConfigIsNull)
             {
@@ -584,6 +662,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.AIRecommendationInferenceFramework InferenceSpecification_Framework { get; set; }
             public System.String ModelSource_S3_S3Uri { get; set; }
             public System.Boolean? OptimizeModel { get; set; }
+            public System.String OutputConfig_MlflowConfig_MlflowExperimentName { get; set; }
+            public System.String OutputConfig_MlflowConfig_MlflowResourceArn { get; set; }
+            public System.String OutputConfig_MlflowConfig_MlflowRunName { get; set; }
             public System.String OutputConfig_ModelPackageGroupIdentifier { get; set; }
             public System.String OutputConfig_S3OutputLocation { get; set; }
             public List<Amazon.SageMaker.Model.AIRecommendationConstraint> PerformanceTarget_Constraint { get; set; }

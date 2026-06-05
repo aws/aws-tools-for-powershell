@@ -26618,6 +26618,9 @@ Set-Alias -Name QC-UpdateSessionData -Value Update-QCSessionData
 Set-Alias -Name Create-QSTopicReviewedAnswer -Value Set-QSBatchCreateTopicReviewedAnswer
 Set-Alias -Name Create-QSBatchCreateTopicReviewedAnswer -Value Set-QSBatchCreateTopicReviewedAnswer
 Set-Alias -Name QS-BatchCreateTopicReviewedAnswer -Value Set-QSBatchCreateTopicReviewedAnswer
+Set-Alias -Name Delete-QSKnowledgeBase -Value Remove-QSKnowledgeBaseBatch
+Set-Alias -Name Delete-QSKnowledgeBaseBatch -Value Remove-QSKnowledgeBaseBatch
+Set-Alias -Name QS-BatchDeleteKnowledgeBase -Value Remove-QSKnowledgeBaseBatch
 Set-Alias -Name Delete-QSTopicReviewedAnswer -Value Set-QSBatchDeleteTopicReviewedAnswer
 Set-Alias -Name Delete-QSBatchDeleteTopicReviewedAnswer -Value Set-QSBatchDeleteTopicReviewedAnswer
 Set-Alias -Name QS-BatchDeleteTopicReviewedAnswer -Value Set-QSBatchDeleteTopicReviewedAnswer
@@ -26726,6 +26729,8 @@ Set-Alias -Name Delete-QSIAMPolicyAssignment -Value Remove-QSIAMPolicyAssignment
 Set-Alias -Name QS-DeleteIAMPolicyAssignment -Value Remove-QSIAMPolicyAssignment
 Set-Alias -Name Delete-QSIdentityPropagationConfig -Value Remove-QSIdentityPropagationConfig
 Set-Alias -Name QS-DeleteIdentityPropagationConfig -Value Remove-QSIdentityPropagationConfig
+Set-Alias -Name Delete-QSKnowledgeBase -Value Remove-QSKnowledgeBase
+Set-Alias -Name QS-DeleteKnowledgeBase -Value Remove-QSKnowledgeBase
 Set-Alias -Name Delete-QSNamespace -Value Remove-QSNamespace
 Set-Alias -Name QS-DeleteNamespace -Value Remove-QSNamespace
 Set-Alias -Name Delete-QSOAuthClientApplication -Value Remove-QSOAuthClientApplication
@@ -26852,6 +26857,12 @@ Set-Alias -Name Describe-QSIpRestriction -Value Get-QSIpRestriction
 Set-Alias -Name QS-DescribeIpRestriction -Value Get-QSIpRestriction
 Set-Alias -Name Describe-QSKeyRegistration -Value Get-QSKeyRegistration
 Set-Alias -Name QS-DescribeKeyRegistration -Value Get-QSKeyRegistration
+Set-Alias -Name Describe-QSKnowledgeBase -Value Get-QSKnowledgeBaseDetail
+Set-Alias -Name Describe-QSKnowledgeBaseDetail -Value Get-QSKnowledgeBaseDetail
+Set-Alias -Name QS-DescribeKnowledgeBase -Value Get-QSKnowledgeBaseDetail
+Set-Alias -Name Describe-QSKnowledgeBasePermissions -Value Get-QSKnowledgeBasePermissionDetail
+Set-Alias -Name Describe-QSKnowledgeBasePermissionDetail -Value Get-QSKnowledgeBasePermissionDetail
+Set-Alias -Name QS-DescribeKnowledgeBasePermissions -Value Get-QSKnowledgeBasePermissionDetail
 Set-Alias -Name Describe-QSNamespace -Value Get-QSNamespace
 Set-Alias -Name QS-DescribeNamespace -Value Get-QSNamespace
 Set-Alias -Name Describe-QSOAuthClientApplication -Value Get-QSOAuthClientApplicationDetail
@@ -26978,6 +26989,9 @@ Set-Alias -Name QS-ListIdentityPropagationConfigs -Value Get-QSIdentityPropagati
 Set-Alias -Name List-QSIngestions -Value Get-QSIngestionList
 Set-Alias -Name List-QSIngestionList -Value Get-QSIngestionList
 Set-Alias -Name QS-ListIngestions -Value Get-QSIngestionList
+Set-Alias -Name List-QSKnowledgeBases -Value Get-QSKnowledgeBasisList
+Set-Alias -Name List-QSKnowledgeBasisList -Value Get-QSKnowledgeBasisList
+Set-Alias -Name QS-ListKnowledgeBases -Value Get-QSKnowledgeBasisList
 Set-Alias -Name List-QSNamespaces -Value Get-QSNamespaceList
 Set-Alias -Name List-QSNamespaceList -Value Get-QSNamespaceList
 Set-Alias -Name QS-ListNamespaces -Value Get-QSNamespaceList
@@ -27033,6 +27047,9 @@ Set-Alias -Name QS-ListUserGroups -Value Get-QSUserGroupList
 Set-Alias -Name List-QSUsers -Value Get-QSUserList
 Set-Alias -Name List-QSUserList -Value Get-QSUserList
 Set-Alias -Name QS-ListUsers -Value Get-QSUserList
+Set-Alias -Name List-QSUsersIndexCapacity -Value Get-QSUsersIndexCapacityList
+Set-Alias -Name List-QSUsersIndexCapacityList -Value Get-QSUsersIndexCapacityList
+Set-Alias -Name QS-ListUsersIndexCapacity -Value Get-QSUsersIndexCapacityList
 Set-Alias -Name List-QSVPCConnections -Value Get-QSVPCConnectionList
 Set-Alias -Name List-QSVPCConnectionList -Value Get-QSVPCConnectionList
 Set-Alias -Name QS-ListVPCConnections -Value Get-QSVPCConnectionList
@@ -27063,6 +27080,8 @@ Set-Alias -Name QS-SearchFolders -Value Search-QSFolder
 Set-Alias -Name Search-QSGroups -Value Find-QSGroup
 Set-Alias -Name Search-QSGroup -Value Find-QSGroup
 Set-Alias -Name QS-SearchGroups -Value Find-QSGroup
+Set-Alias -Name Search-QSKnowledgeBases -Value Search-QSKnowledgeBasis
+Set-Alias -Name QS-SearchKnowledgeBases -Value Search-QSKnowledgeBasis
 Set-Alias -Name Search-QSSpaces -Value Search-QSSpace
 Set-Alias -Name QS-SearchSpaces -Value Search-QSSpace
 Set-Alias -Name Search-QSTopics -Value Search-QSTopic
@@ -27118,6 +27137,8 @@ Set-Alias -Name QS-UpdateIAMPolicyAssignment -Value Update-QSIAMPolicyAssignment
 Set-Alias -Name QS-UpdateIdentityPropagationConfig -Value Update-QSIdentityPropagationConfig
 Set-Alias -Name QS-UpdateIpRestriction -Value Update-QSIpRestriction
 Set-Alias -Name QS-UpdateKeyRegistration -Value Update-QSKeyRegistration
+Set-Alias -Name Update-QSKnowledgeBasePermissions -Value Update-QSKnowledgeBasePermission
+Set-Alias -Name QS-UpdateKnowledgeBasePermissions -Value Update-QSKnowledgeBasePermission
 Set-Alias -Name QS-UpdateOAuthClientApplication -Value Update-QSOAuthClientApplication
 Set-Alias -Name Update-QSPublicSharingSettings -Value Update-QSPublicSharingSetting
 Set-Alias -Name QS-UpdatePublicSharingSettings -Value Update-QSPublicSharingSetting

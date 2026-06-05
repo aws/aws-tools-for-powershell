@@ -1,4 +1,22 @@
-﻿### 5.0.227 (2026-06-04 20:12Z)
+﻿### 5.0.228 (2026-06-05 20:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.264.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameter ImageConfiguration_ApplicationLevelDigestResolution.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameter ImageConfiguration_ApplicationLevelDigestResolution.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSKnowledgeBaseDetail leveraging the DescribeKnowledgeBase service API.
+    * Added cmdlet Get-QSKnowledgeBasePermissionDetail leveraging the DescribeKnowledgeBasePermissions service API.
+    * Added cmdlet Get-QSKnowledgeBasisList leveraging the ListKnowledgeBases service API.
+    * Added cmdlet Get-QSUsersIndexCapacityList leveraging the ListUsersIndexCapacity service API.
+    * Added cmdlet Remove-QSKnowledgeBase leveraging the DeleteKnowledgeBase service API.
+    * Added cmdlet Remove-QSKnowledgeBaseBatch leveraging the BatchDeleteKnowledgeBase service API.
+    * Added cmdlet Search-QSKnowledgeBasis leveraging the SearchKnowledgeBases service API.
+    * Added cmdlet Update-QSKnowledgeBasePermission leveraging the UpdateKnowledgeBasePermissions service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAIBenchmarkJob: added parameters OutputConfig_MlflowConfig_MlflowExperimentName, OutputConfig_MlflowConfig_MlflowResourceArn and OutputConfig_MlflowConfig_MlflowRunName.
+    * Modified cmdlet New-SMAIRecommendationJob: added parameters OutputConfig_MlflowConfig_MlflowExperimentName, OutputConfig_MlflowConfig_MlflowResourceArn and OutputConfig_MlflowConfig_MlflowRunName.
+
+### 5.0.227 (2026-06-04 20:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.263.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Config
     * Modified cmdlet Get-CFGConfigRule: added parameter Filters_RuleEvaluationVisibility.

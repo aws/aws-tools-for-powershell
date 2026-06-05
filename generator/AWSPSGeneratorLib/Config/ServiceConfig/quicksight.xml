@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteKnowledgeBase" OutputProperty="*" Verb="Remove" Noun="KnowledgeBaseBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteTopicReviewedAnswer" OutputProperty="*" Verb="Set" Noun="BatchDeleteTopicReviewedAnswer" IgnoreSupportsShouldProcess="true" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -569,6 +573,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKnowledgeBase" OutputProperty="*" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNamespace" OutputProperty="*" Verb="Remove" Noun="Namespace" ShouldProcessTarget="AwsAccountId" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -790,6 +798,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeKeyRegistration" OutputProperty="*" Verb="Get" Noun="KeyRegistration" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Get" Noun="KnowledgeBaseDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKnowledgeBasePermissions" OutputProperty="*" Verb="Get" Noun="KnowledgeBasePermissionDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1056,6 +1072,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListNamespaces" OutputProperty="Namespaces" Verb="Get" Noun="NamespaceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1132,6 +1152,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListUsersIndexCapacity" OutputProperty="Users" Verb="Get" Noun="UsersIndexCapacityList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListVPCConnections" OutputProperty="VPCConnectionSummaries" Verb="Get" Noun="VPCConnectionList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1190,6 +1214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchGroups" OutputProperty="GroupList" Verb="Find" Noun="Group" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Search" Noun="KnowledgeBasis" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1587,6 +1615,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKeyRegistration" OutputProperty="*" Verb="Update" Noun="KeyRegistration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKnowledgeBasePermissions" OutputProperty="*" Verb="Update" Noun="KnowledgeBasePermission" ShouldProcessTarget="AwsAccountId,KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

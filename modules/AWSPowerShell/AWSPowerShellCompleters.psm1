@@ -68498,6 +68498,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.KnowledgeBaseSortByField
+        "Search-QSKnowledgeBasis/SortBy_SortByField"
+        {
+            $v = "CREATED_AT","KNOWLEDGE_BASE_SIZE_BYTES"
+            break
+        }
+
         # Amazon.QuickSight.LookbackWindowSizeUnit
         "Write-QSDataSetRefreshProperty/LookbackWindow_SizeUnit"
         {
@@ -68731,6 +68738,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.SortOrder
+        "Search-QSKnowledgeBasis/SortBy_SortOrder"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
         # Amazon.QuickSight.StarburstProductType
         {
             ($_ -eq "New-QSDataSource/StarburstParameters_ProductType") -Or
@@ -68789,6 +68803,20 @@ $QS_Completers = {
         }
         {
             $v = "LEGACY","NEW_READER_EXPERIENCE"
+            break
+        }
+
+        # Amazon.QuickSight.UserIndexCapacitySortBy
+        "Get-QSUsersIndexCapacityList/SortBy"
+        {
+            $v = "TOTAL_CAPACITY_BYTES"
+            break
+        }
+
+        # Amazon.QuickSight.UserIndexCapacitySortOrder
+        "Get-QSUsersIndexCapacityList/SortOrder"
+        {
+            $v = "ASC","DESC"
             break
         }
 
@@ -69172,6 +69200,10 @@ $QS_map = @{
     "SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
     "SheetLayoutElementMaximizationOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "SnowflakeParameters_AuthenticationType"=@("New-QSDataSource","Update-QSDataSource")
+    "SortBy"=@("Get-QSUsersIndexCapacityList")
+    "SortBy_SortByField"=@("Search-QSKnowledgeBasis")
+    "SortBy_SortOrder"=@("Search-QSKnowledgeBasis")
+    "SortOrder"=@("Get-QSUsersIndexCapacityList")
     "StarburstParameters_AuthenticationType"=@("New-QSDataSource","Update-QSDataSource")
     "StarburstParameters_ProductType"=@("New-QSDataSource","Update-QSDataSource")
     "Topic_UserExperienceVersion"=@("New-QSTopic","Update-QSTopic")
@@ -69239,6 +69271,7 @@ $QS_SelectCompleters = {
 
 $QS_SelectMap = @{
     "Select"=@("Set-QSBatchCreateTopicReviewedAnswer",
+               "Remove-QSKnowledgeBaseBatch",
                "Set-QSBatchDeleteTopicReviewedAnswer",
                "Stop-QSIngestion",
                "New-QSAccountCustomization",
@@ -69291,6 +69324,7 @@ $QS_SelectMap = @{
                "Remove-QSGroupMembership",
                "Remove-QSIAMPolicyAssignment",
                "Remove-QSIdentityPropagationConfig",
+               "Remove-QSKnowledgeBase",
                "Remove-QSNamespace",
                "Remove-QSOAuthClientApplication",
                "Remove-QSRefreshSchedule",
@@ -69347,6 +69381,8 @@ $QS_SelectMap = @{
                "Get-QSIngestion",
                "Get-QSIpRestriction",
                "Get-QSKeyRegistration",
+               "Get-QSKnowledgeBaseDetail",
+               "Get-QSKnowledgeBasePermissionDetail",
                "Get-QSNamespace",
                "Get-QSOAuthClientApplicationDetail",
                "Get-QSQPersonalizationConfiguration",
@@ -69398,6 +69434,7 @@ $QS_SelectMap = @{
                "Get-QSIAMPolicyAssignmentsForUserList",
                "Get-QSIdentityPropagationConfigList",
                "Get-QSIngestionList",
+               "Get-QSKnowledgeBasisList",
                "Get-QSNamespaceList",
                "Get-QSOAuthClientApplicationList",
                "Get-QSRefreshScheduleList",
@@ -69417,6 +69454,7 @@ $QS_SelectMap = @{
                "Get-QSTopicList",
                "Get-QSUserGroupList",
                "Get-QSUserList",
+               "Get-QSUsersIndexCapacityList",
                "Get-QSVPCConnectionList",
                "Search-QSQAResult",
                "Write-QSDataSetRefreshProperty",
@@ -69431,6 +69469,7 @@ $QS_SelectMap = @{
                "Search-QSFlow",
                "Search-QSFolder",
                "Find-QSGroup",
+               "Search-QSKnowledgeBasis",
                "Search-QSSpace",
                "Search-QSTopic",
                "Start-QSAssetBundleExportJob",
@@ -69473,6 +69512,7 @@ $QS_SelectMap = @{
                "Update-QSIdentityPropagationConfig",
                "Update-QSIpRestriction",
                "Update-QSKeyRegistration",
+               "Update-QSKnowledgeBasePermission",
                "Update-QSOAuthClientApplication",
                "Update-QSPublicSharingSetting",
                "Update-QSQPersonalizationConfiguration",

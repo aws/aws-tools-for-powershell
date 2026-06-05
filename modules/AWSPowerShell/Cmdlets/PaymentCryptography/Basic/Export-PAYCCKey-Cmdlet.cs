@@ -454,7 +454,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// export only.</para><para>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero,
         /// with the key to be checked and retaining the 3 highest order bytes of the encrypted
         /// result. For AES keys, the KCV is computed using a CMAC algorithm where the input data
-        /// is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</para>
+        /// is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        /// For HMAC keys, the KCV is computed using the hash selected at key creation on a zero-length
+        /// message, taking the leftmost 3 bytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
