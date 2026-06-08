@@ -1,4 +1,37 @@
-﻿### 5.0.228 (2026-06-05 20:23Z)
+﻿### 5.0.229 (2026-06-08 20:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.265.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet Add-ADCMemberToFarm: added parameter IdentityCenterRegion.
+    * Modified cmdlet Add-ADCMemberToFleet: added parameter IdentityCenterRegion.
+    * Modified cmdlet Add-ADCMemberToJob: added parameter IdentityCenterRegion.
+    * Modified cmdlet Add-ADCMemberToQueue: added parameter IdentityCenterRegion.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNCentralizationRuleForOrganization: added parameters Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region and Rule_Source_SourceMetricsConfiguration_MetricsSelectionCriterion.
+    * Modified cmdlet Update-CWOADMNCentralizationRuleForOrganization: added parameters Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region and Rule_Source_SourceMetricsConfiguration_MetricsSelectionCriterion.
+  * Amazon DevOps Agent Service
+    * Added cmdlet Get-DOPSAsset leveraging the GetAsset service API.
+    * Added cmdlet Get-DOPSAssetContent leveraging the GetAssetContent service API.
+    * Added cmdlet Get-DOPSAssetFile leveraging the GetAssetFile service API.
+    * Added cmdlet Get-DOPSAssetFileList leveraging the ListAssetFiles service API.
+    * Added cmdlet Get-DOPSAssetList leveraging the ListAssets service API.
+    * Added cmdlet Get-DOPSAssetTypeList leveraging the ListAssetTypes service API.
+    * Added cmdlet Get-DOPSAssetVersionList leveraging the ListAssetVersions service API.
+    * Added cmdlet New-DOPSAsset leveraging the CreateAsset service API.
+    * Added cmdlet New-DOPSAssetFile leveraging the CreateAssetFile service API.
+    * Added cmdlet Remove-DOPSAsset leveraging the DeleteAsset service API.
+    * Added cmdlet Remove-DOPSAssetFile leveraging the DeleteAssetFile service API.
+    * Added cmdlet Update-DOPSAsset leveraging the UpdateAsset service API.
+    * Added cmdlet Update-DOPSAssetFile leveraging the UpdateAssetFile service API.
+    * Modified cmdlet New-DOPSPrivateConnection: added parameter Mode_ServiceManaged_DnsResolution.
+    * Modified cmdlet Register-DOPSService: added parameters ExchangeUrlPrivateConnectionName, ServiceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn and TargetUrlPrivateConnectionName.
+    * Modified cmdlet Send-DOPSMessage: added parameter AssetId.
+  * Amazon Omics
+    * Modified cmdlet Start-OMICSRunBatch: added parameter DefaultRunSetting_EngineSetting.
+  * Amazon Tax Settings
+    * Modified cmdlet Write-TSATaxRegistration: added parameters TaxRegistrationEntry_AdditionalTaxInformation_BelgiumAdditionalInfo_IsMercuriusBoxEnabled, TaxRegistrationEntry_AdditionalTaxInformation_BelgiumAdditionalInfo_PeppolId, TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_BusinessActivity, TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType, TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_SirenNumber, TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CustomerType, TaxRegistrationEntry_AdditionalTaxInformation_PhilippinesAdditionalInfo_IsVatRegistered and TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType.
+    * Modified cmdlet Write-TSATaxRegistrationBatch: added parameters TaxRegistrationEntry_AdditionalTaxInformation_BelgiumAdditionalInfo_IsMercuriusBoxEnabled, TaxRegistrationEntry_AdditionalTaxInformation_BelgiumAdditionalInfo_PeppolId, TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_BusinessActivity, TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType, TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_SirenNumber, TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CustomerType, TaxRegistrationEntry_AdditionalTaxInformation_PhilippinesAdditionalInfo_IsVatRegistered and TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType.
+
+### 5.0.228 (2026-06-05 20:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.264.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Serverless
     * Modified cmdlet New-EMRServerlessApplication: added parameter ImageConfiguration_ApplicationLevelDigestResolution.

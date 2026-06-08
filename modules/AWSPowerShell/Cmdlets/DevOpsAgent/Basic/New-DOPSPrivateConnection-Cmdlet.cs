@@ -64,6 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Mode_ServiceManaged_Certificate { get; set; }
         #endregion
         
+        #region Parameter Mode_ServiceManaged_DnsResolution
+        /// <summary>
+        /// <para>
+        /// <para>DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.ResourceConfigDnsResolution")]
+        public Amazon.DevOpsAgent.ResourceConfigDnsResolution Mode_ServiceManaged_DnsResolution { get; set; }
+        #endregion
+        
         #region Parameter Mode_ServiceManaged_HostAddress
         /// <summary>
         /// <para>
@@ -242,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Mode_SelfManaged_Certificate = this.Mode_SelfManaged_Certificate;
             context.Mode_SelfManaged_ResourceConfigurationId = this.Mode_SelfManaged_ResourceConfigurationId;
             context.Mode_ServiceManaged_Certificate = this.Mode_ServiceManaged_Certificate;
+            context.Mode_ServiceManaged_DnsResolution = this.Mode_ServiceManaged_DnsResolution;
             context.Mode_ServiceManaged_HostAddress = this.Mode_ServiceManaged_HostAddress;
             context.Mode_ServiceManaged_IpAddressType = this.Mode_ServiceManaged_IpAddressType;
             context.Mode_ServiceManaged_Ipv4AddressesPerEni = this.Mode_ServiceManaged_Ipv4AddressesPerEni;
@@ -341,6 +353,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestMode_mode_ServiceManaged_mode_ServiceManaged_Certificate != null)
             {
                 requestMode_mode_ServiceManaged.Certificate = requestMode_mode_ServiceManaged_mode_ServiceManaged_Certificate;
+                requestMode_mode_ServiceManagedIsNull = false;
+            }
+            Amazon.DevOpsAgent.ResourceConfigDnsResolution requestMode_mode_ServiceManaged_mode_ServiceManaged_DnsResolution = null;
+            if (cmdletContext.Mode_ServiceManaged_DnsResolution != null)
+            {
+                requestMode_mode_ServiceManaged_mode_ServiceManaged_DnsResolution = cmdletContext.Mode_ServiceManaged_DnsResolution;
+            }
+            if (requestMode_mode_ServiceManaged_mode_ServiceManaged_DnsResolution != null)
+            {
+                requestMode_mode_ServiceManaged.DnsResolution = requestMode_mode_ServiceManaged_mode_ServiceManaged_DnsResolution;
                 requestMode_mode_ServiceManagedIsNull = false;
             }
             System.String requestMode_mode_ServiceManaged_mode_ServiceManaged_HostAddress = null;
@@ -494,6 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String Mode_SelfManaged_Certificate { get; set; }
             public System.String Mode_SelfManaged_ResourceConfigurationId { get; set; }
             public System.String Mode_ServiceManaged_Certificate { get; set; }
+            public Amazon.DevOpsAgent.ResourceConfigDnsResolution Mode_ServiceManaged_DnsResolution { get; set; }
             public System.String Mode_ServiceManaged_HostAddress { get; set; }
             public Amazon.DevOpsAgent.IpAddressType Mode_ServiceManaged_IpAddressType { get; set; }
             public System.Int32? Mode_ServiceManaged_Ipv4AddressesPerEni { get; set; }

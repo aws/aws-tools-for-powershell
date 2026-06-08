@@ -80,6 +80,26 @@ $TSA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TaxSettings.ChileDocumentType
+        {
+            ($_ -eq "Write-TSATaxRegistration/TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType")
+        }
+        {
+            $v = "Invoice","Receipt"
+            break
+        }
+
+        # Amazon.TaxSettings.CustomerType
+        {
+            ($_ -eq "Write-TSATaxRegistration/TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CustomerType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CustomerType")
+        }
+        {
+            $v = "Business","Individual"
+            break
+        }
+
         # Amazon.TaxSettings.HeritageStatus
         "Write-TSATaxInheritance/HeritageStatus"
         {
@@ -139,6 +159,16 @@ $TSA_Completers = {
             break
         }
 
+        # Amazon.TaxSettings.PolandTaxRegistrationNumberType
+        {
+            ($_ -eq "Write-TSATaxRegistration/TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType")
+        }
+        {
+            $v = "EUTaxRegistrationNumber","LocalRegistrationNumber","LocalTaxRegistrationNumber"
+            break
+        }
+
         # Amazon.TaxSettings.RegistrationType
         {
             ($_ -eq "Write-TSATaxRegistration/SpainAdditionalInfo_RegistrationType") -Or
@@ -192,7 +222,7 @@ $TSA_Completers = {
             ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_RegistrationType")
         }
         {
-            $v = "CNPJ","CPF","GST","NRIC","SST","TIN","VAT"
+            $v = "CNPJ","CPF","GST","NIP","NRIC","PAN","SST","TIN","VAT"
             break
         }
 
@@ -234,6 +264,9 @@ $TSA_map = @{
     "RomaniaAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "SaudiArabiaAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "SpainAdditionalInfo_RegistrationType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CustomerType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_RegistrationType"=@("Write-TSASupplementalTaxRegistration","Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_Sector"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TurkeyAdditionalInfo_Industry"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")

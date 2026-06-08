@@ -865,6 +865,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl { get; set; }
         #endregion
         
+        #region Parameter ExchangeUrlPrivateConnectionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the private connection to use for OAuth token exchange requests only.
+        /// Cannot be specified when privateConnectionName is provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExchangeUrlPrivateConnectionName { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Gitlab_GroupId
         /// <summary>
         /// <para>
@@ -894,6 +905,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>IAM role ARN to assume for SigV4 signing. Optional — when omitted, credentials are
+        /// resolved at runtime via a monitor account association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn { get; set; }
         #endregion
         
         #region Parameter Name
@@ -1055,16 +1077,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_ReturnToEndpoint { get; set; }
-        #endregion
-        
-        #region Parameter ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn
-        /// <summary>
-        /// <para>
-        /// <para>IAM role ARN to assume for SigV4 signing.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_Scope
@@ -1257,6 +1269,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Gitlab_TargetUrl { get; set; }
         #endregion
         
+        #region Parameter TargetUrlPrivateConnectionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the private connection to use for API calls (target URL) only. Cannot
+        /// be specified when privateConnectionName is provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetUrlPrivateConnectionName { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Azureidentity_TenantId
         /// <summary>
         /// <para>
@@ -1384,6 +1407,18 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String[] ServiceDetails_Azureidentity_WebIdentityTokenAudience { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Deprecated — use mcpRoleArn instead. IAM role ARN to assume for SigV4 signing.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use mcpRoleArn instead.")]
+        public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -1430,6 +1465,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 context.Select = CreateSelectDelegate<Amazon.DevOpsAgent.Model.RegisterServiceResponse, RegisterDOPSServiceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ExchangeUrlPrivateConnectionName = this.ExchangeUrlPrivateConnectionName;
             context.KmsKeyArn = this.KmsKeyArn;
             context.Name = this.Name;
             context.PrivateConnectionName = this.PrivateConnectionName;
@@ -1581,6 +1617,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                     context.ServiceDetails_Mcpserversigv4_AuthorizationConfig_CustomHeader.Add((String)hashKey, (System.String)(this.ServiceDetails_Mcpserversigv4_AuthorizationConfig_CustomHeader[hashKey]));
                 }
             }
+            context.ServiceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn = this.ServiceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn;
             context.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region = this.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region;
             context.ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn = this.ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn;
             context.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service = this.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service;
@@ -1667,6 +1704,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.TargetUrlPrivateConnectionName = this.TargetUrlPrivateConnectionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1683,6 +1721,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             // create request
             var request = new Amazon.DevOpsAgent.Model.RegisterServiceRequest();
             
+            if (cmdletContext.ExchangeUrlPrivateConnectionName != null)
+            {
+                request.ExchangeUrlPrivateConnectionName = cmdletContext.ExchangeUrlPrivateConnectionName;
+            }
             if (cmdletContext.KmsKeyArn != null)
             {
                 request.KmsKeyArn = cmdletContext.KmsKeyArn;
@@ -3073,6 +3115,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig.CustomHeaders = requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_CustomHeader;
                 requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfigIsNull = false;
             }
+            System.String requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn = null;
+            if (cmdletContext.ServiceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn = cmdletContext.ServiceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn;
+            }
+            if (requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig.McpRoleArn = requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn;
+                requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfigIsNull = false;
+            }
             System.String requestServiceDetails_serviceDetails_Mcpserversigv4_serviceDetails_Mcpserversigv4_AuthorizationConfig_serviceDetails_Mcpserversigv4_AuthorizationConfig_Region = null;
             if (cmdletContext.ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region != null)
             {
@@ -3487,6 +3539,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TargetUrlPrivateConnectionName != null)
+            {
+                request.TargetUrlPrivateConnectionName = cmdletContext.TargetUrlPrivateConnectionName;
+            }
             
             CmdletOutput output;
             
@@ -3542,6 +3598,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ExchangeUrlPrivateConnectionName { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public System.String PrivateConnectionName { get; set; }
@@ -3621,7 +3678,9 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public List<System.String> ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_EntityGuid { get; set; }
             public Amazon.DevOpsAgent.NewRelicRegion ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_Region { get; set; }
             public Dictionary<System.String, System.String> ServiceDetails_Mcpserversigv4_AuthorizationConfig_CustomHeader { get; set; }
+            public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_McpRoleArn { get; set; }
             public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region { get; set; }
+            [System.ObsoleteAttribute]
             public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_RoleArn { get; set; }
             public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service { get; set; }
             public System.String ServiceDetails_Mcpserversigv4_Description { get; set; }
@@ -3663,6 +3722,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public Dictionary<System.String, System.String> ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter { get; set; }
             public System.String ServiceDetails_Servicenow_InstanceUrl { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String TargetUrlPrivateConnectionName { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.RegisterServiceResponse, RegisterDOPSServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

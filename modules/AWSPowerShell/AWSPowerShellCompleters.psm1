@@ -25895,6 +25895,13 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.ResourceConfigDnsResolution
+        "New-DOPSPrivateConnection/Mode_ServiceManaged_DnsResolution"
+        {
+            $v = "IN_VPC","PUBLIC"
+            break
+        }
+
         # Amazon.DevOpsAgent.SchedulerState
         "Update-DOPSGoal/EvaluationSchedule_State"
         {
@@ -25936,7 +25943,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.TaskStatus
         "Update-DOPSBacklogTask/TaskStatus"
         {
-            $v = "CANCELED","COMPLETED","FAILED","IN_PROGRESS","LINKED","PENDING_CUSTOMER_APPROVAL","PENDING_START","PENDING_TRIAGE","TIMED_OUT"
+            $v = "CANCELED","COMPLETED","FAILED","IN_PROGRESS","LINKED","PENDING_CUSTOMER_APPROVAL","PENDING_START","PENDING_TRIAGE","SKIPPED","TIMED_OUT"
             break
         }
 
@@ -25970,6 +25977,7 @@ $DOPS_map = @{
     "EvaluationSchedule_State"=@("Update-DOPSGoal")
     "FilterServiceType"=@("Get-DOPSServiceList")
     "GoalType"=@("Get-DOPSGoalList")
+    "Mode_ServiceManaged_DnsResolution"=@("New-DOPSPrivateConnection")
     "Mode_ServiceManaged_IpAddressType"=@("New-DOPSPrivateConnection")
     "Order"=@("Get-DOPSBacklogTaskList","Get-DOPSJournalRecordList")
     "Priority"=@("Get-DOPSRecommendationList","New-DOPSBacklogTask")
@@ -26036,10 +26044,14 @@ $DOPS_SelectCompleters = {
 $DOPS_SelectMap = @{
     "Select"=@("Add-DOPSService",
                "New-DOPSAgentSpace",
+               "New-DOPSAsset",
+               "New-DOPSAssetFile",
                "New-DOPSBacklogTask",
                "New-DOPSChat",
                "New-DOPSPrivateConnection",
                "Remove-DOPSAgentSpace",
+               "Remove-DOPSAsset",
+               "Remove-DOPSAssetFile",
                "Remove-DOPSPrivateConnection",
                "Unregister-DOPSService",
                "Get-DOPSPrivateConnectionDetail",
@@ -26048,12 +26060,19 @@ $DOPS_SelectMap = @{
                "Enable-DOPSOperatorApp",
                "Get-DOPSAccountUsage",
                "Get-DOPSAgentSpace",
+               "Get-DOPSAsset",
+               "Get-DOPSAssetContent",
+               "Get-DOPSAssetFile",
                "Get-DOPSAssociation",
                "Get-DOPSBacklogTask",
                "Get-DOPSOperatorApp",
                "Get-DOPSRecommendation",
                "Get-DOPSService",
                "Get-DOPSAgentSpaceList",
+               "Get-DOPSAssetFileList",
+               "Get-DOPSAssetList",
+               "Get-DOPSAssetTypeList",
+               "Get-DOPSAssetVersionList",
                "Get-DOPSAssociationList",
                "Get-DOPSBacklogTaskList",
                "Get-DOPSChatList",
@@ -26071,6 +26090,8 @@ $DOPS_SelectMap = @{
                "Add-DOPSResourceTag",
                "Remove-DOPSResourceTag",
                "Update-DOPSAgentSpace",
+               "Update-DOPSAsset",
+               "Update-DOPSAssetFile",
                "Update-DOPSAssociation",
                "Update-DOPSBacklogTask",
                "Update-DOPSGoal",
@@ -84868,6 +84889,26 @@ $TSA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TaxSettings.ChileDocumentType
+        {
+            ($_ -eq "Write-TSATaxRegistration/TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType")
+        }
+        {
+            $v = "Invoice","Receipt"
+            break
+        }
+
+        # Amazon.TaxSettings.CustomerType
+        {
+            ($_ -eq "Write-TSATaxRegistration/TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CustomerType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CustomerType")
+        }
+        {
+            $v = "Business","Individual"
+            break
+        }
+
         # Amazon.TaxSettings.HeritageStatus
         "Write-TSATaxInheritance/HeritageStatus"
         {
@@ -84927,6 +84968,16 @@ $TSA_Completers = {
             break
         }
 
+        # Amazon.TaxSettings.PolandTaxRegistrationNumberType
+        {
+            ($_ -eq "Write-TSATaxRegistration/TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType")
+        }
+        {
+            $v = "EUTaxRegistrationNumber","LocalRegistrationNumber","LocalTaxRegistrationNumber"
+            break
+        }
+
         # Amazon.TaxSettings.RegistrationType
         {
             ($_ -eq "Write-TSATaxRegistration/SpainAdditionalInfo_RegistrationType") -Or
@@ -84980,7 +85031,7 @@ $TSA_Completers = {
             ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_RegistrationType")
         }
         {
-            $v = "CNPJ","CPF","GST","NRIC","SST","TIN","VAT"
+            $v = "CNPJ","CPF","GST","NIP","NRIC","PAN","SST","TIN","VAT"
             break
         }
 
@@ -85022,6 +85073,9 @@ $TSA_map = @{
     "RomaniaAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "SaudiArabiaAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "SpainAdditionalInfo_RegistrationType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CustomerType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_RegistrationType"=@("Write-TSASupplementalTaxRegistration","Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_Sector"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TurkeyAdditionalInfo_Industry"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")

@@ -95,6 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String DefaultRunSetting_ConfigurationName { get; set; }
         #endregion
         
+        #region Parameter DefaultRunSetting_EngineSetting
+        /// <summary>
+        /// <para>
+        /// <para>Engine-specific settings for the workflow run. Use this field to specify configuration
+        /// options that are specific to the workflow engine (for example, Nextflow profiles).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultRunSetting_EngineSettings")]
+        public System.Management.Automation.PSObject DefaultRunSetting_EngineSetting { get; set; }
+        #endregion
+        
         #region Parameter BatchRunSettings_InlineSetting
         /// <summary>
         /// <para>
@@ -415,6 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.DefaultRunSetting_CacheBehavior = this.DefaultRunSetting_CacheBehavior;
             context.DefaultRunSetting_CacheId = this.DefaultRunSetting_CacheId;
             context.DefaultRunSetting_ConfigurationName = this.DefaultRunSetting_ConfigurationName;
+            context.DefaultRunSetting_EngineSetting = this.DefaultRunSetting_EngineSetting;
             context.DefaultRunSetting_LogLevel = this.DefaultRunSetting_LogLevel;
             context.DefaultRunSetting_Name = this.DefaultRunSetting_Name;
             context.DefaultRunSetting_NetworkingMode = this.DefaultRunSetting_NetworkingMode;
@@ -541,6 +554,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (requestDefaultRunSetting_defaultRunSetting_ConfigurationName != null)
             {
                 request.DefaultRunSetting.ConfigurationName = requestDefaultRunSetting_defaultRunSetting_ConfigurationName;
+                requestDefaultRunSettingIsNull = false;
+            }
+            Amazon.Runtime.Documents.Document? requestDefaultRunSetting_defaultRunSetting_EngineSetting = null;
+            if (cmdletContext.DefaultRunSetting_EngineSetting != null)
+            {
+                requestDefaultRunSetting_defaultRunSetting_EngineSetting = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.DefaultRunSetting_EngineSetting);
+            }
+            if (requestDefaultRunSetting_defaultRunSetting_EngineSetting != null)
+            {
+                request.DefaultRunSetting.EngineSettings = requestDefaultRunSetting_defaultRunSetting_EngineSetting.Value;
                 requestDefaultRunSettingIsNull = false;
             }
             Amazon.Omics.RunLogLevel requestDefaultRunSetting_defaultRunSetting_LogLevel = null;
@@ -787,6 +810,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public Amazon.Omics.CacheBehavior DefaultRunSetting_CacheBehavior { get; set; }
             public System.String DefaultRunSetting_CacheId { get; set; }
             public System.String DefaultRunSetting_ConfigurationName { get; set; }
+            public System.Management.Automation.PSObject DefaultRunSetting_EngineSetting { get; set; }
             public Amazon.Omics.RunLogLevel DefaultRunSetting_LogLevel { get; set; }
             public System.String DefaultRunSetting_Name { get; set; }
             public Amazon.Omics.NetworkingMode DefaultRunSetting_NetworkingMode { get; set; }

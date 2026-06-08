@@ -62,6 +62,21 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter AssetId
+        /// <summary>
+        /// <para>
+        /// <para>Optional list of asset identifiers to attach to the message</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssetIds")]
+        public System.String[] AssetId { get; set; }
+        #endregion
+        
         #region Parameter Content
         /// <summary>
         /// <para>
@@ -198,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.AssetId != null)
+            {
+                context.AssetId = new List<System.String>(this.AssetId);
+            }
             context.Content = this.Content;
             #if MODULAR
             if (this.Content == null && ParameterWasBound(nameof(this.Content)))
@@ -235,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (cmdletContext.AgentSpaceId != null)
             {
                 request.AgentSpaceId = cmdletContext.AgentSpaceId;
+            }
+            if (cmdletContext.AssetId != null)
+            {
+                request.AssetIds = cmdletContext.AssetId;
             }
             if (cmdletContext.Content != null)
             {
@@ -343,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentSpaceId { get; set; }
+            public List<System.String> AssetId { get; set; }
             public System.String Content { get; set; }
             public System.String Context_CurrentPage { get; set; }
             public System.String Context_LastMessage { get; set; }

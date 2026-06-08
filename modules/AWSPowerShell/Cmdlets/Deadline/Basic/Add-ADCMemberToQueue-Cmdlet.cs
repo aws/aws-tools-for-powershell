@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String FarmId { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterRegion
+        /// <summary>
+        /// <para>
+        /// <para>The Region of the IAM Identity Center instance. If not provided, the service defaults
+        /// to the Region of the farm.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterRegion { get; set; }
+        #endregion
+        
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
@@ -199,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 WriteWarning("You are passing $null as a value for parameter FarmId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdentityCenterRegion = this.IdentityCenterRegion;
             context.IdentityStoreId = this.IdentityStoreId;
             #if MODULAR
             if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
@@ -253,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (cmdletContext.FarmId != null)
             {
                 request.FarmId = cmdletContext.FarmId;
+            }
+            if (cmdletContext.IdentityCenterRegion != null)
+            {
+                request.IdentityCenterRegion = cmdletContext.IdentityCenterRegion;
             }
             if (cmdletContext.IdentityStoreId != null)
             {
@@ -330,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FarmId { get; set; }
+            public System.String IdentityCenterRegion { get; set; }
             public System.String IdentityStoreId { get; set; }
             public Amazon.Deadline.MembershipLevel MembershipLevel { get; set; }
             public System.String PrincipalId { get; set; }

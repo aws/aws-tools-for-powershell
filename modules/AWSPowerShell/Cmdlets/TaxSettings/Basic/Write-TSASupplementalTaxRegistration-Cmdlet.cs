@@ -50,14 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         /// <para>The first line of the address. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("TaxRegistrationEntry_Address_AddressLine1")]
         public System.String Address_AddressLine1 { get; set; }
         #endregion
@@ -93,14 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         /// <para>The city that the address is in. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("TaxRegistrationEntry_Address_City")]
         public System.String Address_City { get; set; }
         #endregion
@@ -265,21 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Address_AddressLine1 = this.Address_AddressLine1;
-            #if MODULAR
-            if (this.Address_AddressLine1 == null && ParameterWasBound(nameof(this.Address_AddressLine1)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Address_AddressLine1 which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Address_AddressLine2 = this.Address_AddressLine2;
             context.Address_AddressLine3 = this.Address_AddressLine3;
             context.Address_City = this.Address_City;
-            #if MODULAR
-            if (this.Address_City == null && ParameterWasBound(nameof(this.Address_City)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Address_City which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Address_CountryCode = this.Address_CountryCode;
             #if MODULAR
             if (this.Address_CountryCode == null && ParameterWasBound(nameof(this.Address_CountryCode)))

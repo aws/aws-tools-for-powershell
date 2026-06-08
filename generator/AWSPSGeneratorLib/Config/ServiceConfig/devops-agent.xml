@@ -27,6 +27,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAsset" OutputProperty="Asset" Verb="New" Noun="Asset" ShouldProcessTarget="AgentSpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssetFile" OutputProperty="File" Verb="New" Noun="AssetFile" ShouldProcessTarget="AgentSpaceId,AssetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBacklogTask" OutputProperty="Task" Verb="New" Noun="BacklogTask" ShouldProcessTarget="AgentSpaceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -40,6 +48,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAgentSpace" Verb="Remove" Noun="AgentSpace" ShouldProcessTarget="AgentSpaceId" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAsset" Verb="Remove" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssetFile" Verb="Remove" Noun="AssetFile" ShouldProcessTarget="AgentSpaceId,AssetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,6 +91,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAsset" OutputProperty="Asset" Verb="Get" Noun="Asset" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssetContent" OutputProperty="*" Verb="Get" Noun="AssetContent" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssetFile" OutputProperty="File" Verb="Get" Noun="AssetFile" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAssociation" OutputProperty="Association" Verb="Get" Noun="Association" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -96,6 +124,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAgentSpaces" OutputProperty="AgentSpaces" Verb="Get" Noun="AgentSpaceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetFiles" OutputProperty="Items" Verb="Get" Noun="AssetFileList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssets" OutputProperty="Items" Verb="Get" Noun="AssetList" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetTypes" OutputProperty="Items" Verb="Get" Noun="AssetTypeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetVersions" OutputProperty="Items" Verb="Get" Noun="AssetVersionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,6 +208,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentSpace" OutputProperty="AgentSpace" Verb="Update" Noun="AgentSpace" ShouldProcessTarget="AgentSpaceId" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAsset" OutputProperty="Asset" Verb="Update" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssetFile" OutputProperty="File" Verb="Update" Noun="AssetFile" ShouldProcessTarget="AgentSpaceId,AssetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
