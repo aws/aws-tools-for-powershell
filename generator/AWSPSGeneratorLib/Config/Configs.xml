@@ -363,6 +363,11 @@
         <Mapping Verb="Get" Weight="2" />
       </Mappings>
     </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Disallow">
+      <Mappings>
+        <Mapping Verb="Disable" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
     <ServiceOperationVerb Name="Disassociate">
       <Mappings>
         <Mapping Verb="Remove" Weight="84" />
