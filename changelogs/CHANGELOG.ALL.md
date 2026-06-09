@@ -1,4 +1,47 @@
-﻿### 5.0.229 (2026-06-08 20:08Z)
+﻿### 5.0.230 (2026-06-09 19:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.266.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRAccountDataRetention leveraging the GetAccountDataRetention service API.
+    * Added cmdlet Write-BDRAccountDataRetention leveraging the PutAccountDataRetention service API.
+  * Amazon CloudWatch
+    * Added cmdlet Add-CWDatasetKmsKey leveraging the AssociateDatasetKmsKey service API.
+    * Added cmdlet Get-CWDataset leveraging the GetDataset service API.
+    * Added cmdlet Remove-CWDatasetKmsKey leveraging the DisassociateDatasetKmsKey service API.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2FlowLog: added parameter TagFieldSpecification.
+  * Amazon Oracle Database@Amazon Web Services
+    * Added cmdlet Get-ODBAutonomousDatabase leveraging the GetAutonomousDatabase service API.
+    * Added cmdlet Get-ODBAutonomousDatabaseBackup leveraging the GetAutonomousDatabaseBackup service API.
+    * Added cmdlet Get-ODBAutonomousDatabaseBackupList leveraging the ListAutonomousDatabaseBackups service API.
+    * Added cmdlet Get-ODBAutonomousDatabaseCharacterSetList leveraging the ListAutonomousDatabaseCharacterSets service API.
+    * Added cmdlet Get-ODBAutonomousDatabaseCloneList leveraging the ListAutonomousDatabaseClones service API.
+    * Added cmdlet Get-ODBAutonomousDatabaseList leveraging the ListAutonomousDatabases service API.
+    * Added cmdlet Get-ODBAutonomousDatabasePeerList leveraging the ListAutonomousDatabasePeers service API.
+    * Added cmdlet Get-ODBAutonomousDatabaseVersionList leveraging the ListAutonomousDatabaseVersions service API.
+    * Added cmdlet Get-ODBAutonomousDatabaseWalletDetail leveraging the GetAutonomousDatabaseWalletDetails service API.
+    * Added cmdlet Invoke-ODBAutonomousDatabaseShrink leveraging the ShrinkAutonomousDatabase service API.
+    * Added cmdlet New-ODBAutonomousDatabase leveraging the CreateAutonomousDatabase service API.
+    * Added cmdlet New-ODBAutonomousDatabaseBackup leveraging the CreateAutonomousDatabaseBackup service API.
+    * Added cmdlet New-ODBAutonomousDatabaseWallet leveraging the CreateAutonomousDatabaseWallet service API.
+    * Added cmdlet Remove-ODBAutonomousDatabase leveraging the DeleteAutonomousDatabase service API.
+    * Added cmdlet Remove-ODBAutonomousDatabaseBackup leveraging the DeleteAutonomousDatabaseBackup service API.
+    * Added cmdlet Restart-ODBAutonomousDatabase leveraging the RebootAutonomousDatabase service API.
+    * Added cmdlet Restore-ODBAutonomousDatabase leveraging the RestoreAutonomousDatabase service API.
+    * Added cmdlet Start-ODBAutonomousDatabase leveraging the StartAutonomousDatabase service API.
+    * Added cmdlet Start-ODBAutonomousDatabaseFailover leveraging the FailoverAutonomousDatabase service API.
+    * Added cmdlet Start-ODBAutonomousDatabaseSwitchover leveraging the SwitchoverAutonomousDatabase service API.
+    * Added cmdlet Stop-ODBAutonomousDatabase leveraging the StopAutonomousDatabase service API.
+    * Added cmdlet Update-ODBAutonomousDatabase leveraging the UpdateAutonomousDatabase service API.
+    * Added cmdlet Update-ODBAutonomousDatabaseBackup leveraging the UpdateAutonomousDatabaseBackup service API.
+  * Amazon Outposts
+    * Added cmdlet Get-OUTPOrderableInstanceTypeList leveraging the ListOrderableInstanceTypes service API.
+    * Added cmdlet Get-OUTPQuote leveraging the GetQuote service API.
+    * Added cmdlet Get-OUTPQuoteList leveraging the ListQuotes service API.
+    * Added cmdlet New-OUTPQuote leveraging the CreateQuote service API.
+    * Added cmdlet Remove-OUTPQuote leveraging the DeleteQuote service API.
+    * Added cmdlet Update-OUTPQuote leveraging the UpdateQuote service API.
+
+### 5.0.229 (2026-06-08 20:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.265.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet Add-ADCMemberToFarm: added parameter IdentityCenterRegion.

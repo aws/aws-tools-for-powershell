@@ -111,14 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("InstanceTypeSpecifications")]
         public Amazon.EC2.Model.ReservationFleetInstanceSpecification[] InstanceTypeSpecification { get; set; }
         #endregion
@@ -242,12 +235,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.InstanceTypeSpecification = new List<Amazon.EC2.Model.ReservationFleetInstanceSpecification>(this.InstanceTypeSpecification);
             }
-            #if MODULAR
-            if (this.InstanceTypeSpecification == null && ParameterWasBound(nameof(this.InstanceTypeSpecification)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceTypeSpecification which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);

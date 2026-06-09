@@ -234,6 +234,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
         #endregion
         
+        #region Parameter TagFieldSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields
+        /// in your custom log format.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagFieldSpecifications")]
+        public Amazon.EC2.Model.TagFieldSpecificationRequest[] TagFieldSpecification { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -349,6 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagFieldSpecification != null)
+            {
+                context.TagFieldSpecification = new List<Amazon.EC2.Model.TagFieldSpecificationRequest>(this.TagFieldSpecification);
+            }
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -453,6 +473,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ResourceType = cmdletContext.ResourceType;
             }
+            if (cmdletContext.TagFieldSpecification != null)
+            {
+                request.TagFieldSpecifications = cmdletContext.TagFieldSpecification;
+            }
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
@@ -530,6 +554,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? MaxAggregationInterval { get; set; }
             public List<System.String> ResourceId { get; set; }
             public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
+            public List<Amazon.EC2.Model.TagFieldSpecificationRequest> TagFieldSpecification { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.TrafficType TrafficType { get; set; }
             public System.Func<Amazon.EC2.Model.CreateFlowLogsResponse, NewEC2FlowLogCmdlet, object> Select { get; set; } =

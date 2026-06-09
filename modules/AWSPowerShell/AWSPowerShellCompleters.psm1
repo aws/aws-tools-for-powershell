@@ -10023,6 +10023,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.DataRetentionMode
+        "Write-BDRAccountDataRetention/Mode"
+        {
+            $v = "default","inherit","none","provider_data_share"
+            break
+        }
+
         # Amazon.Bedrock.EvaluationJobStatus
         "Get-BDREvaluationJobList/StatusEqual"
         {
@@ -10238,6 +10245,7 @@ $BDR_map = @{
     "GuardrailInferenceConfig_SelectiveContentGuarding_Message"=@("Write-BDREnforcedGuardrailConfiguration")
     "GuardrailInferenceConfig_SelectiveContentGuarding_System"=@("Write-BDREnforcedGuardrailConfiguration")
     "HyperParameters_ReasoningEffort"=@("New-BDRModelCustomizationJob")
+    "Mode"=@("Write-BDRAccountDataRetention")
     "ModelInvocationType"=@("New-BDRModelInvocationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
@@ -10338,6 +10346,7 @@ $BDR_SelectMap = @{
                "Remove-BDRResourcePolicy",
                "Unregister-BDRMarketplaceModelEndpoint",
                "Export-BDRAutomatedReasoningPolicyVersion",
+               "Get-BDRAccountDataRetention",
                "Get-BDRAdvancedPromptOptimizationJob",
                "Get-BDRAutomatedReasoningPolicy",
                "Get-BDRAutomatedReasoningPolicyAnnotation",
@@ -10386,6 +10395,7 @@ $BDR_SelectMap = @{
                "Get-BDRPromptRouterList",
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
+               "Write-BDRAccountDataRetention",
                "Write-BDREnforcedGuardrailConfiguration",
                "Write-BDRModelInvocationLoggingConfiguration",
                "Write-BDRResourcePolicy",
@@ -57792,7 +57802,8 @@ $CW_SelectCompleters = {
 }
 
 $CW_SelectMap = @{
-    "Select"=@("Remove-CWAlarmMuteRule",
+    "Select"=@("Add-CWDatasetKmsKey",
+               "Remove-CWAlarmMuteRule",
                "Remove-CWAlarm",
                "Remove-CWAnomalyDetector",
                "Remove-CWDashboard",
@@ -57806,10 +57817,12 @@ $CW_SelectMap = @{
                "Get-CWInsightRule",
                "Disable-CWAlarmAction",
                "Disable-CWInsightRule",
+               "Remove-CWDatasetKmsKey",
                "Enable-CWAlarmAction",
                "Enable-CWInsightRule",
                "Get-CWAlarmMuteRule",
                "Get-CWDashboard",
+               "Get-CWDataset",
                "Get-CWInsightRuleReport",
                "Get-CWMetricData",
                "Get-CWMetricStatistic",
@@ -60478,13 +60491,116 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.AutonomousDatabaseBackupStatus
+        "Get-ODBAutonomousDatabaseBackupList/Status"
+        {
+            $v = "ACTIVE","CREATING","DELETING","FAILED","UPDATING"
+            break
+        }
+
+        # Amazon.Odb.AutonomousDatabaseBackupType
+        "Get-ODBAutonomousDatabaseBackupList/Type"
+        {
+            $v = "CUMULATIVE_INCREMENTAL","FULL","INCREMENTAL","LONGTERM","ROLL_FORWARD_IMAGE_COPY","VIRTUAL_FULL"
+            break
+        }
+
+        # Amazon.Odb.AutonomousMaintenanceScheduleType
+        {
+            ($_ -eq "New-ODBAutonomousDatabase/AutonomousMaintenanceScheduleType") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/AutonomousMaintenanceScheduleType")
+        }
+        {
+            $v = "EARLY","REGULAR"
+            break
+        }
+
+        # Amazon.Odb.CharacterSetType
+        "Get-ODBAutonomousDatabaseCharacterSetList/CharacterSetType"
+        {
+            $v = "DATABASE","NATIONAL"
+            break
+        }
+
+        # Amazon.Odb.CloneType
+        {
+            ($_ -eq "New-ODBAutonomousDatabase/SourceConfiguration_CloneToRefreshable_CloneType") -Or
+            ($_ -eq "New-ODBAutonomousDatabase/SourceConfiguration_DatabaseClone_CloneType") -Or
+            ($_ -eq "New-ODBAutonomousDatabase/SourceConfiguration_PointInTimeRestore_CloneType") -Or
+            ($_ -eq "New-ODBAutonomousDatabase/SourceConfiguration_RestoreFromBackup_CloneType")
+        }
+        {
+            $v = "FULL","METADATA","PARTIAL"
+            break
+        }
+
+        # Amazon.Odb.DatabaseEdition
+        {
+            ($_ -eq "New-ODBAutonomousDatabase/DatabaseEdition") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/DatabaseEdition")
+        }
+        {
+            $v = "ENTERPRISE_EDITION","STANDARD_EDITION"
+            break
+        }
+
+        # Amazon.Odb.DbWorkload
+        {
+            ($_ -eq "Get-ODBAutonomousDatabaseVersionList/DbWorkload") -Or
+            ($_ -eq "New-ODBAutonomousDatabase/DbWorkload") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/DbWorkload")
+        }
+        {
+            $v = "AJD","APEX","LH","OLTP"
+            break
+        }
+
+        # Amazon.Odb.DisasterRecoveryType
+        "New-ODBAutonomousDatabase/SourceConfiguration_CrossRegionDisasterRecovery_RemoteDisasterRecoveryType"
+        {
+            $v = "ADG","BACKUP_BASED"
+            break
+        }
+
+        # Amazon.Odb.EncryptionKeyProviderInput
+        {
+            ($_ -eq "New-ODBAutonomousDatabase/EncryptionKeyProvider") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/EncryptionKeyProvider")
+        }
+        {
+            $v = "AWS_KMS","ORACLE_MANAGED"
+            break
+        }
+
+        # Amazon.Odb.ExternalIdType
+        {
+            ($_ -eq "New-ODBAutonomousDatabase/EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType")
+        }
+        {
+            $v = "compartment_ocid","database_ocid","tenant_ocid"
+            break
+        }
+
         # Amazon.Odb.LicenseModel
         {
+            ($_ -eq "New-ODBAutonomousDatabase/LicenseModel") -Or
             ($_ -eq "New-ODBCloudAutonomousVmCluster/LicenseModel") -Or
-            ($_ -eq "New-ODBCloudVmCluster/LicenseModel")
+            ($_ -eq "New-ODBCloudVmCluster/LicenseModel") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/LicenseModel")
         }
         {
             $v = "BRING_YOUR_OWN_LICENSE","LICENSE_INCLUDED"
+            break
+        }
+
+        # Amazon.Odb.OpenMode
+        {
+            ($_ -eq "Update-ODBAutonomousDatabase/OpenMode") -Or
+            ($_ -eq "New-ODBAutonomousDatabase/SourceConfiguration_CloneToRefreshable_OpenMode")
+        }
+        {
+            $v = "READ_ONLY","READ_WRITE"
             break
         }
 
@@ -60499,6 +60615,13 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.PermissionLevel
+        "Update-ODBAutonomousDatabase/PermissionLevel"
+        {
+            $v = "RESTRICTED","UNRESTRICTED"
+            break
+        }
+
         # Amazon.Odb.PreferenceType
         {
             ($_ -eq "New-ODBCloudAutonomousVmCluster/MaintenanceWindow_Preference") -Or
@@ -60507,6 +60630,40 @@ $ODB_Completers = {
         }
         {
             $v = "CUSTOM_PREFERENCE","NO_PREFERENCE"
+            break
+        }
+
+        # Amazon.Odb.RefreshableMode
+        {
+            ($_ -eq "Update-ODBAutonomousDatabase/RefreshableMode") -Or
+            ($_ -eq "New-ODBAutonomousDatabase/SourceConfiguration_CloneToRefreshable_RefreshableMode")
+        }
+        {
+            $v = "AUTOMATIC","MANUAL"
+            break
+        }
+
+        # Amazon.Odb.RepeatCadence
+        "Update-ODBAutonomousDatabase/LongTermBackupSchedule_RepeatCadence"
+        {
+            $v = "MONTHLY","ONE_TIME","WEEKLY","YEARLY"
+            break
+        }
+
+        # Amazon.Odb.SourceType
+        "New-ODBAutonomousDatabase/Source"
+        {
+            $v = "BACKUP_FROM_ID","BACKUP_FROM_TIMESTAMP","CLONE_TO_REFRESHABLE","CROSS_REGION_DATAGUARD","CROSS_REGION_DISASTER_RECOVERY","DATABASE","NONE"
+            break
+        }
+
+        # Amazon.Odb.StandbyAllowlistedIpsSource
+        {
+            ($_ -eq "New-ODBAutonomousDatabase/StandbyAllowlistedIpsSource") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/StandbyAllowlistedIpsSource")
+        }
+        {
+            $v = "NOT_APPLICABLE","PRIMARY","SEPARATE"
             break
         }
 
@@ -60520,6 +60677,13 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.WalletType
+        "New-ODBAutonomousDatabaseWallet/WalletType"
+        {
+            $v = "INSTANCE","REGIONAL"
+            break
+        }
+
 
     }
 
@@ -60529,13 +60693,35 @@ $ODB_Completers = {
 }
 
 $ODB_map = @{
+    "AutonomousMaintenanceScheduleType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "AwsIntegration"=@("Add-ODBIamRoleToResource","Remove-ODBIamRoleFromResource")
+    "CharacterSetType"=@("Get-ODBAutonomousDatabaseCharacterSetList")
+    "DatabaseEdition"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
+    "DbWorkload"=@("Get-ODBAutonomousDatabaseVersionList","New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
+    "EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
+    "EncryptionKeyProvider"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "KmsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
-    "LicenseModel"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster")
+    "LicenseModel"=@("New-ODBAutonomousDatabase","New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster","Update-ODBAutonomousDatabase")
+    "LongTermBackupSchedule_RepeatCadence"=@("Update-ODBAutonomousDatabase")
     "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
     "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
+    "OpenMode"=@("Update-ODBAutonomousDatabase")
+    "PermissionLevel"=@("Update-ODBAutonomousDatabase")
+    "RefreshableMode"=@("Update-ODBAutonomousDatabase")
     "S3Access"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
+    "Source"=@("New-ODBAutonomousDatabase")
+    "SourceConfiguration_CloneToRefreshable_CloneType"=@("New-ODBAutonomousDatabase")
+    "SourceConfiguration_CloneToRefreshable_OpenMode"=@("New-ODBAutonomousDatabase")
+    "SourceConfiguration_CloneToRefreshable_RefreshableMode"=@("New-ODBAutonomousDatabase")
+    "SourceConfiguration_CrossRegionDisasterRecovery_RemoteDisasterRecoveryType"=@("New-ODBAutonomousDatabase")
+    "SourceConfiguration_DatabaseClone_CloneType"=@("New-ODBAutonomousDatabase")
+    "SourceConfiguration_PointInTimeRestore_CloneType"=@("New-ODBAutonomousDatabase")
+    "SourceConfiguration_RestoreFromBackup_CloneType"=@("New-ODBAutonomousDatabase")
+    "StandbyAllowlistedIpsSource"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
+    "Status"=@("Get-ODBAutonomousDatabaseBackupList")
     "StsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
+    "Type"=@("Get-ODBAutonomousDatabaseBackupList")
+    "WalletType"=@("New-ODBAutonomousDatabaseWallet")
     "ZeroEtlAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
 }
 
@@ -60591,17 +60777,26 @@ $ODB_SelectCompleters = {
 $ODB_SelectMap = @{
     "Select"=@("Approve-ODBMarketplaceRegistration",
                "Add-ODBIamRoleToResource",
+               "New-ODBAutonomousDatabase",
+               "New-ODBAutonomousDatabaseBackup",
+               "New-ODBAutonomousDatabaseWallet",
                "New-ODBCloudAutonomousVmCluster",
                "New-ODBCloudExadataInfrastructure",
                "New-ODBCloudVmCluster",
                "New-ODBOdbNetwork",
                "New-ODBOdbPeeringConnection",
+               "Remove-ODBAutonomousDatabase",
+               "Remove-ODBAutonomousDatabaseBackup",
                "Remove-ODBCloudAutonomousVmCluster",
                "Remove-ODBCloudExadataInfrastructure",
                "Remove-ODBCloudVmCluster",
                "Remove-ODBOdbNetwork",
                "Remove-ODBOdbPeeringConnection",
                "Remove-ODBIamRoleFromResource",
+               "Start-ODBAutonomousDatabaseFailover",
+               "Get-ODBAutonomousDatabase",
+               "Get-ODBAutonomousDatabaseBackup",
+               "Get-ODBAutonomousDatabaseWalletDetail",
                "Get-ODBCloudAutonomousVmCluster",
                "Get-ODBCloudExadataInfrastructure",
                "Get-ODBCloudExadataInfrastructureUnallocatedResource",
@@ -60612,6 +60807,12 @@ $ODB_SelectMap = @{
                "Get-ODBOdbNetwork",
                "Get-ODBOdbPeeringConnection",
                "Initialize-ODBService",
+               "Get-ODBAutonomousDatabaseBackupList",
+               "Get-ODBAutonomousDatabaseCharacterSetList",
+               "Get-ODBAutonomousDatabaseCloneList",
+               "Get-ODBAutonomousDatabasePeerList",
+               "Get-ODBAutonomousDatabaseList",
+               "Get-ODBAutonomousDatabaseVersionList",
                "Get-ODBAutonomousVirtualMachineList",
                "Get-ODBCloudAutonomousVmClusterList",
                "Get-ODBCloudExadataInfrastructureList",
@@ -60624,11 +60825,19 @@ $ODB_SelectMap = @{
                "Get-ODBOdbPeeringConnectionList",
                "Get-ODBSystemVersionList",
                "Get-ODBResourceTag",
+               "Restart-ODBAutonomousDatabase",
                "Restart-ODBDbNode",
+               "Restore-ODBAutonomousDatabase",
+               "Invoke-ODBAutonomousDatabaseShrink",
+               "Start-ODBAutonomousDatabase",
                "Start-ODBDbNode",
+               "Stop-ODBAutonomousDatabase",
                "Stop-ODBDbNode",
+               "Start-ODBAutonomousDatabaseSwitchover",
                "Add-ODBResourceTag",
                "Remove-ODBResourceTag",
+               "Update-ODBAutonomousDatabase",
+               "Update-ODBAutonomousDatabaseBackup",
                "Update-ODBCloudExadataInfrastructure",
                "Update-ODBOdbNetwork",
                "Update-ODBOdbPeeringConnection")
@@ -62168,6 +62377,13 @@ $OUTP_Completers = {
             break
         }
 
+        # Amazon.Outposts.OutpostGeneration
+        "Get-OUTPOrderableInstanceTypeList/OutpostGenerationFilter"
+        {
+            $v = "GENERATION_1","GENERATION_2"
+            break
+        }
+
         # Amazon.Outposts.PaymentOption
         {
             ($_ -eq "New-OUTPOrder/PaymentOption") -Or
@@ -62278,6 +62494,7 @@ $OUTP_map = @{
     "FiberOpticCableType"=@("Update-OUTPSiteRackPhysicalProperty")
     "MaximumSupportedWeightLb"=@("Update-OUTPSiteRackPhysicalProperty")
     "OpticalStandard"=@("Update-OUTPSiteRackPhysicalProperty")
+    "OutpostGenerationFilter"=@("Get-OUTPOrderableInstanceTypeList")
     "PaymentOption"=@("New-OUTPOrder","New-OUTPRenewal")
     "PaymentTerm"=@("New-OUTPOrder","New-OUTPRenewal")
     "PowerConnector"=@("Update-OUTPSiteRackPhysicalProperty")
@@ -62353,9 +62570,11 @@ $OUTP_SelectMap = @{
                "Stop-OUTPOrder",
                "New-OUTPOrder",
                "New-OUTPOutpost",
+               "New-OUTPQuote",
                "New-OUTPRenewal",
                "New-OUTPSite",
                "Remove-OUTPOutpost",
+               "Remove-OUTPQuote",
                "Remove-OUTPSite",
                "Get-OUTPCapacityTask",
                "Get-OUTPCatalogItem",
@@ -62365,6 +62584,7 @@ $OUTP_SelectMap = @{
                "Get-OUTPOutpostBillingInformation",
                "Get-OUTPOutpostInstanceType",
                "Get-OUTPOutpostSupportedInstanceType",
+               "Get-OUTPQuote",
                "Get-OUTPRenewalPricing",
                "Get-OUTPSite",
                "Get-OUTPSiteAddress",
@@ -62373,8 +62593,10 @@ $OUTP_SelectMap = @{
                "Get-OUTPBlockingInstancesForCapacityTaskList",
                "Get-OUTPCapacityTaskList",
                "Get-OUTPCatalogItemList",
+               "Get-OUTPOrderableInstanceTypeList",
                "Get-OUTPOrderList",
                "Get-OUTPOutpostList",
+               "Get-OUTPQuoteList",
                "Get-OUTPSiteList",
                "Get-OUTPResourceTag",
                "Start-OUTPCapacityTask",
@@ -62383,6 +62605,7 @@ $OUTP_SelectMap = @{
                "Add-OUTPResourceTag",
                "Remove-OUTPResourceTag",
                "Update-OUTPOutpost",
+               "Update-OUTPQuote",
                "Update-OUTPSite",
                "Update-OUTPSiteAddress",
                "Update-OUTPSiteRackPhysicalProperty")

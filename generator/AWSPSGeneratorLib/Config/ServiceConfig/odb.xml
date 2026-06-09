@@ -27,6 +27,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutonomousDatabase" OutputProperty="*" Verb="New" Noun="AutonomousDatabase" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutonomousDatabaseBackup" OutputProperty="*" Verb="New" Noun="AutonomousDatabaseBackup" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutonomousDatabaseWallet" OutputProperty="AutonomousDatabaseWalletFile" Verb="New" Noun="AutonomousDatabaseWallet" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCloudAutonomousVmCluster" OutputProperty="*" Verb="New" Noun="CloudAutonomousVmCluster" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +56,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOdbPeeringConnection" OutputProperty="*" Verb="New" Noun="OdbPeeringConnection" ShouldProcessTarget="OdbNetworkId" PipelineParameter="OdbNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutonomousDatabase" Verb="Remove" Noun="AutonomousDatabase" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutonomousDatabaseBackup" Verb="Remove" Noun="AutonomousDatabaseBackup" ShouldProcessTarget="AutonomousDatabaseBackupId" PipelineParameter="AutonomousDatabaseBackupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -68,6 +88,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateIamRoleFromResource" Verb="Remove" Noun="IamRoleFromResource" ShouldProcessTarget="IamRoleArn,ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="FailoverAutonomousDatabase" OutputProperty="*" Verb="Start" Noun="AutonomousDatabaseFailover" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutonomousDatabase" OutputProperty="AutonomousDatabase" Verb="Get" Noun="AutonomousDatabase" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutonomousDatabaseBackup" OutputProperty="AutonomousDatabaseBackup" Verb="Get" Noun="AutonomousDatabaseBackup" PipelineParameter="AutonomousDatabaseBackupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutonomousDatabaseWalletDetails" OutputProperty="AutonomousDatabaseWalletDetails" Verb="Get" Noun="AutonomousDatabaseWalletDetail" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,6 +144,30 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InitializeService" Verb="Initialize" Noun="Service" ShouldProcessTarget="OciIdentityDomain" PipelineParameter="OciIdentityDomain" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutonomousDatabaseBackups" OutputProperty="AutonomousDatabaseBackups" Verb="Get" Noun="AutonomousDatabaseBackupList" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutonomousDatabaseCharacterSets" OutputProperty="AutonomousDatabaseCharacterSets" Verb="Get" Noun="AutonomousDatabaseCharacterSetList" PipelineParameter="CharacterSetType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutonomousDatabaseClones" OutputProperty="AutonomousDatabaseClones" Verb="Get" Noun="AutonomousDatabaseCloneList" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutonomousDatabasePeers" OutputProperty="AutonomousDatabasePeers" Verb="Get" Noun="AutonomousDatabasePeerList" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutonomousDatabases" OutputProperty="AutonomousDatabases" Verb="Get" Noun="AutonomousDatabaseList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutonomousDatabaseVersions" OutputProperty="AutonomousDatabaseVersions" Verb="Get" Noun="AutonomousDatabaseVersionList" PipelineParameter="DbWorkload" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,7 +219,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RebootAutonomousDatabase" OutputProperty="*" Verb="Restart" Noun="AutonomousDatabase" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RebootDbNode" OutputProperty="*" Verb="Restart" Noun="DbNode" ShouldProcessTarget="DbNodeId" PipelineParameter="DbNodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreAutonomousDatabase" OutputProperty="*" Verb="Restore" Noun="AutonomousDatabase" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ShrinkAutonomousDatabase" OutputProperty="*" Verb="Invoke" Noun="AutonomousDatabaseShrink" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAutonomousDatabase" OutputProperty="*" Verb="Start" Noun="AutonomousDatabase" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -167,7 +243,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopAutonomousDatabase" OutputProperty="*" Verb="Stop" Noun="AutonomousDatabase" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopDbNode" OutputProperty="*" Verb="Stop" Noun="DbNode" ShouldProcessTarget="DbNodeId" PipelineParameter="DbNodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SwitchoverAutonomousDatabase" OutputProperty="*" Verb="Start" Noun="AutonomousDatabaseSwitchover" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -176,6 +260,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutonomousDatabase" OutputProperty="*" Verb="Update" Noun="AutonomousDatabase" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutonomousDatabaseBackup" OutputProperty="*" Verb="Update" Noun="AutonomousDatabaseBackup" ShouldProcessTarget="AutonomousDatabaseBackupId" PipelineParameter="AutonomousDatabaseBackupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

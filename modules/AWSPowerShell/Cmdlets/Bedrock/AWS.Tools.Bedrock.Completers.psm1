@@ -135,6 +135,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.DataRetentionMode
+        "Write-BDRAccountDataRetention/Mode"
+        {
+            $v = "default","inherit","none","provider_data_share"
+            break
+        }
+
         # Amazon.Bedrock.EvaluationJobStatus
         "Get-BDREvaluationJobList/StatusEqual"
         {
@@ -350,6 +357,7 @@ $BDR_map = @{
     "GuardrailInferenceConfig_SelectiveContentGuarding_Message"=@("Write-BDREnforcedGuardrailConfiguration")
     "GuardrailInferenceConfig_SelectiveContentGuarding_System"=@("Write-BDREnforcedGuardrailConfiguration")
     "HyperParameters_ReasoningEffort"=@("New-BDRModelCustomizationJob")
+    "Mode"=@("Write-BDRAccountDataRetention")
     "ModelInvocationType"=@("New-BDRModelInvocationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
@@ -450,6 +458,7 @@ $BDR_SelectMap = @{
                "Remove-BDRResourcePolicy",
                "Unregister-BDRMarketplaceModelEndpoint",
                "Export-BDRAutomatedReasoningPolicyVersion",
+               "Get-BDRAccountDataRetention",
                "Get-BDRAdvancedPromptOptimizationJob",
                "Get-BDRAutomatedReasoningPolicy",
                "Get-BDRAutomatedReasoningPolicyAnnotation",
@@ -498,6 +507,7 @@ $BDR_SelectMap = @{
                "Get-BDRPromptRouterList",
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
+               "Write-BDRAccountDataRetention",
                "Write-BDREnforcedGuardrailConfiguration",
                "Write-BDRModelInvocationLoggingConfiguration",
                "Write-BDRResourcePolicy",

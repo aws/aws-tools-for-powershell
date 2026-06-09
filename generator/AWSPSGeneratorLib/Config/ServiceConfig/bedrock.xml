@@ -222,6 +222,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountDataRetention" OutputProperty="*" Verb="Get" Noun="AccountDataRetention" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAdvancedPromptOptimizationJob" OutputProperty="*" Verb="Get" Noun="AdvancedPromptOptimizationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -411,6 +415,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccountDataRetention" OutputProperty="*" Verb="Write" Noun="AccountDataRetention" ShouldProcessTarget="Mode" PipelineParameter="Mode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

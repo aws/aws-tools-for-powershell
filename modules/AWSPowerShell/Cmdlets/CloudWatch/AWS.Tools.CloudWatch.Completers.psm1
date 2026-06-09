@@ -218,7 +218,8 @@ $CW_SelectCompleters = {
 }
 
 $CW_SelectMap = @{
-    "Select"=@("Remove-CWAlarmMuteRule",
+    "Select"=@("Add-CWDatasetKmsKey",
+               "Remove-CWAlarmMuteRule",
                "Remove-CWAlarm",
                "Remove-CWAnomalyDetector",
                "Remove-CWDashboard",
@@ -232,10 +233,12 @@ $CW_SelectMap = @{
                "Get-CWInsightRule",
                "Disable-CWAlarmAction",
                "Disable-CWInsightRule",
+               "Remove-CWDatasetKmsKey",
                "Enable-CWAlarmAction",
                "Enable-CWInsightRule",
                "Get-CWAlarmMuteRule",
                "Get-CWDashboard",
+               "Get-CWDataset",
                "Get-CWInsightRuleReport",
                "Get-CWMetricData",
                "Get-CWMetricStatistic",

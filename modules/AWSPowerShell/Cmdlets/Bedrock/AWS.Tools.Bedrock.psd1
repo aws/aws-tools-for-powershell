@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-BDRResourceTag', 
         'Export-BDRAutomatedReasoningPolicyVersion', 
+        'Get-BDRAccountDataRetention', 
         'Get-BDRAdvancedPromptOptimizationJob', 
         'Get-BDRAdvancedPromptOptimizationJobList', 
         'Get-BDRAutomatedReasoningPolicy', 
@@ -189,6 +190,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-BDRGuardrail', 
         'Update-BDRMarketplaceModelEndpoint', 
         'Update-BDRProvisionedModelThroughput', 
+        'Write-BDRAccountDataRetention', 
         'Write-BDREnforcedGuardrailConfiguration', 
         'Write-BDRModelInvocationLoggingConfiguration', 
         'Write-BDRResourcePolicy', 

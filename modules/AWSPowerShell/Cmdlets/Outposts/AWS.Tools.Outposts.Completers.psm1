@@ -120,6 +120,13 @@ $OUTP_Completers = {
             break
         }
 
+        # Amazon.Outposts.OutpostGeneration
+        "Get-OUTPOrderableInstanceTypeList/OutpostGenerationFilter"
+        {
+            $v = "GENERATION_1","GENERATION_2"
+            break
+        }
+
         # Amazon.Outposts.PaymentOption
         {
             ($_ -eq "New-OUTPOrder/PaymentOption") -Or
@@ -230,6 +237,7 @@ $OUTP_map = @{
     "FiberOpticCableType"=@("Update-OUTPSiteRackPhysicalProperty")
     "MaximumSupportedWeightLb"=@("Update-OUTPSiteRackPhysicalProperty")
     "OpticalStandard"=@("Update-OUTPSiteRackPhysicalProperty")
+    "OutpostGenerationFilter"=@("Get-OUTPOrderableInstanceTypeList")
     "PaymentOption"=@("New-OUTPOrder","New-OUTPRenewal")
     "PaymentTerm"=@("New-OUTPOrder","New-OUTPRenewal")
     "PowerConnector"=@("Update-OUTPSiteRackPhysicalProperty")
@@ -305,9 +313,11 @@ $OUTP_SelectMap = @{
                "Stop-OUTPOrder",
                "New-OUTPOrder",
                "New-OUTPOutpost",
+               "New-OUTPQuote",
                "New-OUTPRenewal",
                "New-OUTPSite",
                "Remove-OUTPOutpost",
+               "Remove-OUTPQuote",
                "Remove-OUTPSite",
                "Get-OUTPCapacityTask",
                "Get-OUTPCatalogItem",
@@ -317,6 +327,7 @@ $OUTP_SelectMap = @{
                "Get-OUTPOutpostBillingInformation",
                "Get-OUTPOutpostInstanceType",
                "Get-OUTPOutpostSupportedInstanceType",
+               "Get-OUTPQuote",
                "Get-OUTPRenewalPricing",
                "Get-OUTPSite",
                "Get-OUTPSiteAddress",
@@ -325,8 +336,10 @@ $OUTP_SelectMap = @{
                "Get-OUTPBlockingInstancesForCapacityTaskList",
                "Get-OUTPCapacityTaskList",
                "Get-OUTPCatalogItemList",
+               "Get-OUTPOrderableInstanceTypeList",
                "Get-OUTPOrderList",
                "Get-OUTPOutpostList",
+               "Get-OUTPQuoteList",
                "Get-OUTPSiteList",
                "Get-OUTPResourceTag",
                "Start-OUTPCapacityTask",
@@ -335,6 +348,7 @@ $OUTP_SelectMap = @{
                "Add-OUTPResourceTag",
                "Remove-OUTPResourceTag",
                "Update-OUTPOutpost",
+               "Update-OUTPQuote",
                "Update-OUTPSite",
                "Update-OUTPSiteAddress",
                "Update-OUTPSiteRackPhysicalProperty")

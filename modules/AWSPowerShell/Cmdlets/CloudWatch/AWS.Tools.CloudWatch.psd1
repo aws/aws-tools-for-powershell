@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CWDatasetKmsKey', 
         'Add-CWResourceTag', 
         'Disable-CWAlarmAction', 
         'Disable-CWInsightRule', 
@@ -101,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWAnomalyDetector', 
         'Get-CWDashboard', 
         'Get-CWDashboardList', 
+        'Get-CWDataset', 
         'Get-CWInsightRule', 
         'Get-CWInsightRuleReport', 
         'Get-CWManagedInsightRule', 
@@ -116,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CWAlarmMuteRule', 
         'Remove-CWAnomalyDetector', 
         'Remove-CWDashboard', 
+        'Remove-CWDatasetKmsKey', 
         'Remove-CWInsightRule', 
         'Remove-CWMetricStream', 
         'Remove-CWResourceTag', 
