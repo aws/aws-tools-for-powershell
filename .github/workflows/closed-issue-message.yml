@@ -2,14 +2,19 @@ name: Closed Issue Message
 on:
     issues:
        types: [closed]
-permissions:
-  issues: write
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.issue.number }}
 
 jobs:
     auto_comment:
+        name: Auto comment on closed issue
         runs-on: ubuntu-latest
+        permissions:
+          issues: write # to comment on the closed issue
         steps:
-        - uses: aws-actions/closed-issue-message@v1
+        - uses: aws-actions/closed-issue-message@cf797c2463fa6b95a23b2957fe075a3fa9aa8138 # v1
           with:
             # These inputs are both required
             repo-token: "${{ secrets.GITHUB_TOKEN }}"

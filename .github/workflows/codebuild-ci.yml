@@ -3,28 +3,36 @@ name: AWS CodeBuild CI
 on:
   pull_request:
 
-permissions:
-  id-token: write
-  contents: read
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
   build:
+    name: build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # to assume the CI role in AWS via OIDC
+      contents: read # for the CodeBuild action to read the PR source
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838 # v1
         with:
           role-to-assume: ${{ secrets.CI_AWS_ROLE_ARN }}
           aws-region: us-west-2
       - name: Run CodeBuild
         id: codebuild
-        uses: aws-actions/aws-codebuild-run-build@v1.0.3
+        uses: aws-actions/aws-codebuild-run-build@0a2ddc3a24e0f6b41d4a61635d87dcb2482c7b49 # v1.0.3
         with:
           project-name: ${{ secrets.CI_AWS_CODE_BUILD_PROJECT_NAME }}
       - name: Check Breaking Changes
         shell: pwsh
+        env:
+          CODEBUILD_BUILD_ID: ${{ steps.codebuild.outputs.aws-build-id }}
         run: |
-          $buildId = "${{ steps.codebuild.outputs.aws-build-id }}"
+          $buildId = $env:CODEBUILD_BUILD_ID
           $locationArn = aws codebuild batch-get-builds --ids $buildId --query "builds[0].artifacts.location" --output text
           $location = ($locationArn -split ":::")[-1]
           aws s3 cp s3://$location artifact.zip
@@ -39,14 +47,21 @@ jobs:
               Write-Host "No breaking changes detected."
           }
   verify-installer-version:
+    name: verify-installer-version
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # to checkout the repository
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: Verify AWS.Tools.Installer version
         shell: pwsh
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.sha }}
         run: |
-          ./buildtools/Test-InstallerVersion.ps1 -From  ${{ github.event.pull_request.base.sha }} -To ${{ github.sha }}
+          ./buildtools/Test-InstallerVersion.ps1 -From $env:BASE_SHA -To $env:HEAD_SHA
