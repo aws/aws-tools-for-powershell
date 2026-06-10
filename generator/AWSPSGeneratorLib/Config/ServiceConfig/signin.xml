@@ -23,6 +23,34 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConsoleAuthorizationConfiguration" OutputProperty="*" Verb="Remove" Noun="ConsoleAuthorizationConfiguration" ShouldProcessTarget="TargetId" PipelineParameter="TargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePermissionStatement" Verb="Remove" Noun="ResourcePermissionStatement" ShouldProcessTarget="StatementId" PipelineParameter="StatementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConsoleAuthorizationConfiguration" OutputProperty="*" Verb="Get" Noun="ConsoleAuthorizationConfiguration" PipelineParameter="TargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="SigninResourceBasedPolicy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourcePermissionStatements" OutputProperty="PermissionStatements" Verb="Get" Noun="ResourcePermissionStatementList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConsoleAuthorizationConfiguration" OutputProperty="*" Verb="Write" Noun="ConsoleAuthorizationConfiguration" ShouldProcessTarget="TargetId" PipelineParameter="TargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePermissionStatement" OutputProperty="StatementId" Verb="Write" Noun="ResourcePermissionStatement" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

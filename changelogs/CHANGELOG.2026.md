@@ -1,4 +1,22 @@
-﻿### 5.0.230 (2026-06-09 19:39Z)
+﻿### 5.0.231 (2026-06-10 19:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.267.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EC2 Container Service
+    * Modified cmdlet Register-ECSDaemonTaskDefinition: added parameters IpcMode and PidMode.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Dismount-EC2ImageWatermark leveraging the DetachImageWatermark service API.
+    * Added cmdlet Mount-EC2ImageWatermark leveraging the AttachImageWatermark service API.
+  * Amazon Prometheus Service
+    * Modified cmdlet Update-PROMWorkspaceConfiguration: added parameters OutOfOrderTimeWindowInSecond and RuleQueryOffsetInSecond.
+  * Amazon Sign-In Data Plane
+    * Added cmdlet Get-AMSPConsoleAuthorizationConfiguration leveraging the GetConsoleAuthorizationConfiguration service API.
+    * Added cmdlet Get-AMSPResourcePermissionStatementList leveraging the ListResourcePermissionStatements service API.
+    * Added cmdlet Get-AMSPResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-AMSPConsoleAuthorizationConfiguration leveraging the DeleteConsoleAuthorizationConfiguration service API.
+    * Added cmdlet Remove-AMSPResourcePermissionStatement leveraging the DeleteResourcePermissionStatement service API.
+    * Added cmdlet Write-AMSPConsoleAuthorizationConfiguration leveraging the PutConsoleAuthorizationConfiguration service API.
+    * Added cmdlet Write-AMSPResourcePermissionStatement leveraging the PutResourcePermissionStatement service API.
+
+### 5.0.230 (2026-06-09 19:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.266.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Get-BDRAccountDataRetention leveraging the GetAccountDataRetention service API.

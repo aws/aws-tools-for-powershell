@@ -361,12 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <c>CreateEndpoint</c>, <c>UpdateEndpoint</c> requests. For more information, refer
         /// to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">
         /// Using Key Policies in Amazon Web Services KMS </a></para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
-        /// Local storage volumes are encrypted using a hardware module on the instance. You can't
-        /// request a <c>KmsKeyId</c> when using an instance type with local storage. If any of
-        /// the models that you specify in the <c>ProductionVariants</c> parameter use nitro-based
-        /// instances with local storage, do not specify a value for the <c>KmsKeyId</c> parameter.
-        /// If you specify a value for <c>KmsKeyId</c> when using any nitro-based instances with
-        /// local storage, the call to <c>CreateEndpointConfig</c> fails.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
+        /// Local storage volumes are encrypted using a hardware module on the instance. If any
+        /// of the models that you specify in the <c>ProductionVariants</c> parameter use nitro-based
+        /// instances with local storage, the <c>KmsKeyId</c> parameter does not encrypt instance
+        /// local storage.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
         /// Store Volumes</a>.</para><para>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
         /// Instance Store Volumes</a>.</para></note>
         /// </para>

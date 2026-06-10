@@ -216,6 +216,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AttachImageWatermark" OutputProperty="WatermarkKey" Verb="Mount" Noun="ImageWatermark" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AttachInternetGateway" Verb="Add" Noun="InternetGateway" ShouldProcessTarget="VpcId" PositionalParameters="InternetGatewayId" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1945,6 +1949,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetachClassicLinkVpc" OutputProperty="Return" Verb="Dismount" Noun="ClassicLinkVpc" ShouldProcessTarget="VpcId" PositionalParameters="InstanceId" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachImageWatermark" OutputProperty="Return" Verb="Dismount" Noun="ImageWatermark" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

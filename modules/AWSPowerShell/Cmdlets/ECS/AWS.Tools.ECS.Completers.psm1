@@ -167,6 +167,20 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.DaemonIpcMode
+        "Register-ECSDaemonTaskDefinition/IpcMode"
+        {
+            $v = "none","shared"
+            break
+        }
+
+        # Amazon.ECS.DaemonPidMode
+        "Register-ECSDaemonTaskDefinition/PidMode"
+        {
+            $v = "none","shared"
+            break
+        }
+
         # Amazon.ECS.DaemonPropagateTags
         {
             ($_ -eq "New-ECSDaemon/PropagateTag") -Or
@@ -496,7 +510,7 @@ $ECS_map = @{
     "InstanceRequirements_BareMetal"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "InstanceRequirements_BurstablePerformance"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "InstanceRequirements_LocalStorage"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
-    "IpcMode"=@("Register-ECSTaskDefinition")
+    "IpcMode"=@("Register-ECSDaemonTaskDefinition","Register-ECSTaskDefinition")
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask","New-ECSTaskSet")
     "LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
     "ManagedInstancesProvider_AutoRepairConfiguration_ActionsStatus"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
@@ -506,7 +520,7 @@ $ECS_map = @{
     "ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
     "NetworkMode"=@("Register-ECSTaskDefinition")
-    "PidMode"=@("Register-ECSTaskDefinition")
+    "PidMode"=@("Register-ECSDaemonTaskDefinition","Register-ECSTaskDefinition")
     "PropagateTag"=@("New-ECSDaemon","New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSDaemon","Update-ECSService")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
     "ResourceManagementType"=@("Get-ECSClusterService")

@@ -87,7 +87,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'New-AMSPOAuth2Token')
+        'Get-AMSPConsoleAuthorizationConfiguration', 
+        'Get-AMSPResourcePermissionStatementList', 
+        'Get-AMSPResourcePolicy', 
+        'New-AMSPOAuth2Token', 
+        'Remove-AMSPConsoleAuthorizationConfiguration', 
+        'Remove-AMSPResourcePermissionStatement', 
+        'Write-AMSPConsoleAuthorizationConfiguration', 
+        'Write-AMSPResourcePermissionStatement')
 
     # Variables to export from this module
     VariablesToExport = '*'

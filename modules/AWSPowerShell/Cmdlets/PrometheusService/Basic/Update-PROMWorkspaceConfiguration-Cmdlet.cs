@@ -68,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         public Amazon.PrometheusService.Model.LimitsPerLabelSet[] LimitsPerLabelSet { get; set; }
         #endregion
         
+        #region Parameter OutOfOrderTimeWindowInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the time window in seconds for accepting out of order samples. Out of order
+        /// samples older than this window are rejected.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutOfOrderTimeWindowInSeconds")]
+        public System.Int32? OutOfOrderTimeWindowInSecond { get; set; }
+        #endregion
+        
         #region Parameter RetentionPeriodInDay
         /// <summary>
         /// <para>
@@ -77,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetentionPeriodInDays")]
         public System.Int32? RetentionPeriodInDay { get; set; }
+        #endregion
+        
+        #region Parameter RuleQueryOffsetInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the duration in seconds to offset rule evaluation queries into the past.
+        /// This allows ingested samples to be available before rule evaluation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RuleQueryOffsetInSeconds")]
+        public System.Int32? RuleQueryOffsetInSecond { get; set; }
         #endregion
         
         #region Parameter WorkspaceId
@@ -159,7 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             {
                 context.LimitsPerLabelSet = new List<Amazon.PrometheusService.Model.LimitsPerLabelSet>(this.LimitsPerLabelSet);
             }
+            context.OutOfOrderTimeWindowInSecond = this.OutOfOrderTimeWindowInSecond;
             context.RetentionPeriodInDay = this.RetentionPeriodInDay;
+            context.RuleQueryOffsetInSecond = this.RuleQueryOffsetInSecond;
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
             if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
@@ -191,9 +217,17 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             {
                 request.LimitsPerLabelSet = cmdletContext.LimitsPerLabelSet;
             }
+            if (cmdletContext.OutOfOrderTimeWindowInSecond != null)
+            {
+                request.OutOfOrderTimeWindowInSeconds = cmdletContext.OutOfOrderTimeWindowInSecond.Value;
+            }
             if (cmdletContext.RetentionPeriodInDay != null)
             {
                 request.RetentionPeriodInDays = cmdletContext.RetentionPeriodInDay.Value;
+            }
+            if (cmdletContext.RuleQueryOffsetInSecond != null)
+            {
+                request.RuleQueryOffsetInSeconds = cmdletContext.RuleQueryOffsetInSecond.Value;
             }
             if (cmdletContext.WorkspaceId != null)
             {
@@ -256,7 +290,9 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         {
             public System.String ClientToken { get; set; }
             public List<Amazon.PrometheusService.Model.LimitsPerLabelSet> LimitsPerLabelSet { get; set; }
+            public System.Int32? OutOfOrderTimeWindowInSecond { get; set; }
             public System.Int32? RetentionPeriodInDay { get; set; }
+            public System.Int32? RuleQueryOffsetInSecond { get; set; }
             public System.String WorkspaceId { get; set; }
             public System.Func<Amazon.PrometheusService.Model.UpdateWorkspaceConfigurationResponse, UpdatePROMWorkspaceConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Status;

@@ -10959,6 +10959,8 @@ Set-Alias -Name Associate-EC2VpcCidrBlock -Value Register-EC2VpcCidrBlock
 Set-Alias -Name EC2-AssociateVpcCidrBlock -Value Register-EC2VpcCidrBlock
 Set-Alias -Name Attach-EC2ClassicLinkVpc -Value Add-EC2ClassicLinkVpc
 Set-Alias -Name EC2-AttachClassicLinkVpc -Value Add-EC2ClassicLinkVpc
+Set-Alias -Name Attach-EC2ImageWatermark -Value Mount-EC2ImageWatermark
+Set-Alias -Name EC2-AttachImageWatermark -Value Mount-EC2ImageWatermark
 Set-Alias -Name Attach-EC2InternetGateway -Value Add-EC2InternetGateway
 Set-Alias -Name EC2-AttachInternetGateway -Value Add-EC2InternetGateway
 Set-Alias -Name Attach-EC2NetworkInterface -Value Add-EC2NetworkInterface
@@ -11967,6 +11969,8 @@ Set-Alias -Name Describe-EC2VpnGateway -Value Get-EC2VpnGateway
 Set-Alias -Name EC2-DescribeVpnGateways -Value Get-EC2VpnGateway
 Set-Alias -Name Detach-EC2ClassicLinkVpc -Value Dismount-EC2ClassicLinkVpc
 Set-Alias -Name EC2-DetachClassicLinkVpc -Value Dismount-EC2ClassicLinkVpc
+Set-Alias -Name Detach-EC2ImageWatermark -Value Dismount-EC2ImageWatermark
+Set-Alias -Name EC2-DetachImageWatermark -Value Dismount-EC2ImageWatermark
 Set-Alias -Name Detach-EC2InternetGateway -Value Dismount-EC2InternetGateway
 Set-Alias -Name EC2-DetachInternetGateway -Value Dismount-EC2InternetGateway
 Set-Alias -Name Detach-EC2NetworkInterface -Value Dismount-EC2NetworkInterface
@@ -31999,6 +32003,19 @@ Set-Alias -Name SHLD-UpdateSubscription -Value Update-SHLDSubscription
 Set-Alias -Name SGND-GetRevocationStatus -Value Get-SGNDRevocationStatus
 Set-Alias -Name Create-AMSPOAuth2Token -Value New-AMSPOAuth2Token
 Set-Alias -Name AMSP-CreateOAuth2Token -Value New-AMSPOAuth2Token
+Set-Alias -Name Delete-AMSPConsoleAuthorizationConfiguration -Value Remove-AMSPConsoleAuthorizationConfiguration
+Set-Alias -Name AMSP-DeleteConsoleAuthorizationConfiguration -Value Remove-AMSPConsoleAuthorizationConfiguration
+Set-Alias -Name Delete-AMSPResourcePermissionStatement -Value Remove-AMSPResourcePermissionStatement
+Set-Alias -Name AMSP-DeleteResourcePermissionStatement -Value Remove-AMSPResourcePermissionStatement
+Set-Alias -Name AMSP-GetConsoleAuthorizationConfiguration -Value Get-AMSPConsoleAuthorizationConfiguration
+Set-Alias -Name AMSP-GetResourcePolicy -Value Get-AMSPResourcePolicy
+Set-Alias -Name List-AMSPResourcePermissionStatements -Value Get-AMSPResourcePermissionStatementList
+Set-Alias -Name List-AMSPResourcePermissionStatementList -Value Get-AMSPResourcePermissionStatementList
+Set-Alias -Name AMSP-ListResourcePermissionStatements -Value Get-AMSPResourcePermissionStatementList
+Set-Alias -Name Put-AMSPConsoleAuthorizationConfiguration -Value Write-AMSPConsoleAuthorizationConfiguration
+Set-Alias -Name AMSP-PutConsoleAuthorizationConfiguration -Value Write-AMSPConsoleAuthorizationConfiguration
+Set-Alias -Name Put-AMSPResourcePermissionStatement -Value Write-AMSPResourcePermissionStatement
+Set-Alias -Name AMSP-PutResourcePermissionStatement -Value Write-AMSPResourcePermissionStatement
 Set-Alias -Name SDBV2-GetExport -Value Get-SDBV2Export
 Set-Alias -Name List-SDBV2Exports -Value Get-SDBV2ExportList
 Set-Alias -Name List-SDBV2ExportList -Value Get-SDBV2ExportList

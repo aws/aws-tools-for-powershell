@@ -124,6 +124,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Family { get; set; }
         #endregion
         
+        #region Parameter IpcMode
+        /// <summary>
+        /// <para>
+        /// <para>The IPC namespace mode for the daemon. When set to <c>shared</c>, the daemon shares
+        /// the IPC namespace with co-located tasks on the same container instance, allowing communication
+        /// through POSIX shared memory, semaphores, and message queues. When set to <c>none</c>,
+        /// the daemon gets its own isolated IPC namespace. The default is <c>none</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.DaemonIpcMode")]
+        public Amazon.ECS.DaemonIpcMode IpcMode { get; set; }
+        #endregion
+        
         #region Parameter Memory
         /// <summary>
         /// <para>
@@ -133,6 +147,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Memory { get; set; }
+        #endregion
+        
+        #region Parameter PidMode
+        /// <summary>
+        /// <para>
+        /// <para>The process namespace mode for the daemon. When set to <c>shared</c>, the daemon shares
+        /// the PID namespace with co-located tasks on the same container instance, giving the
+        /// daemon visibility into application processes. When set to <c>none</c>, the daemon
+        /// gets its own isolated PID namespace. The default is <c>none</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.DaemonPidMode")]
+        public Amazon.ECS.DaemonPidMode PidMode { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -252,7 +280,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter Family which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IpcMode = this.IpcMode;
             context.Memory = this.Memory;
+            context.PidMode = this.PidMode;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ECS.Model.Tag>(this.Tag);
@@ -294,9 +324,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.Family = cmdletContext.Family;
             }
+            if (cmdletContext.IpcMode != null)
+            {
+                request.IpcMode = cmdletContext.IpcMode;
+            }
             if (cmdletContext.Memory != null)
             {
                 request.Memory = cmdletContext.Memory;
+            }
+            if (cmdletContext.PidMode != null)
+            {
+                request.PidMode = cmdletContext.PidMode;
             }
             if (cmdletContext.Tag != null)
             {
@@ -369,7 +407,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String Cpu { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String Family { get; set; }
+            public Amazon.ECS.DaemonIpcMode IpcMode { get; set; }
             public System.String Memory { get; set; }
+            public Amazon.ECS.DaemonPidMode PidMode { get; set; }
             public List<Amazon.ECS.Model.Tag> Tag { get; set; }
             public System.String TaskRoleArn { get; set; }
             public List<Amazon.ECS.Model.DaemonVolume> Volume { get; set; }
