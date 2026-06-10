@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using Amazon.Util.Internal;
 using Amazon.Runtime.Credentials.Internal;
 using Amazon.Runtime.CredentialManagement;
+using Amazon.Runtime.SharedInterfaces;
 using Amazon.Util;
 using System.Linq;
 using System.Management.Automation;
@@ -56,6 +57,16 @@ namespace Amazon.PowerShell.Common.Internal
         internal static async Task<SsoToken> LoginAsync(CredentialProfileOptions profileOptions, Action<SsoVerificationArguments> ssoVerificationCallback, CancellationToken cancellationToken = default)
         {
             var ssoTokenManagerGetTokenOptions = SSOUtils.BuildSSOTokenManagerGetTokenOptions(profileOptions, supportsGettingNewToken: true, ssoVerificationCallback);
+            return await GetTokenAsync(ssoTokenManagerGetTokenOptions, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Initiates the SSO login flow using the Authorization Code + PKCE grant for a given CredentialProfileOptions.
+        /// The login flow is initiated by using .NET SDK's SSOTokenManager class by setting SSOTokenManagerGetTokenOptions' PkceFlowOptions and supportsGettingNewToken to true.
+        /// </summary>
+        internal static async Task<SsoToken> LoginWithPkceAsync(CredentialProfileOptions profileOptions, PkceFlowOptions pkceFlowOptions, CancellationToken cancellationToken = default)
+        {
+            var ssoTokenManagerGetTokenOptions = SSOUtils.BuildSSOTokenManagerGetTokenOptions(profileOptions, supportsGettingNewToken: true, pkceFlowOptions);
             return await GetTokenAsync(ssoTokenManagerGetTokenOptions, cancellationToken).ConfigureAwait(false);
         }
 
@@ -241,6 +252,23 @@ namespace Amazon.PowerShell.Common.Internal
                 Session = profileOptions.SsoSession,
                 Scopes = profileOptions.SsoRegistrationScopes?.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList(),
                 SsoVerificationCallback = ssoVerificationCallback,
+                SupportsGettingNewToken = supportsGettingNewToken
+            };
+        }
+
+        /// <summary>
+        /// Builds SSOTokenManagerGetTokenOptions using CredentialProfileOptions with PkceFlowOptions for Authorization Code + PKCE flow.
+        /// </summary>
+        internal static SSOTokenManagerGetTokenOptions BuildSSOTokenManagerGetTokenOptions(CredentialProfileOptions profileOptions, bool supportsGettingNewToken, PkceFlowOptions pkceFlowOptions)
+        {
+            return new SSOTokenManagerGetTokenOptions()
+            {
+                ClientName = clientName,
+                Region = profileOptions.SsoRegion,
+                StartUrl = profileOptions.SsoStartUrl,
+                Session = profileOptions.SsoSession,
+                Scopes = profileOptions.SsoRegistrationScopes?.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList(),
+                PkceFlowOptions = pkceFlowOptions,
                 SupportsGettingNewToken = supportsGettingNewToken
             };
         }

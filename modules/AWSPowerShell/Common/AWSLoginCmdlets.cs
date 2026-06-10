@@ -259,20 +259,22 @@ namespace Amazon.PowerShell.Common
                     throw new Exception($"OAuth error: {safeError}");
                 }
 
-                // In case no error is returned from service, send a generic success response to the browser. It's fine if later, auth code or CSRF token validation fails.
-                AWSLoginUtils.SendHtmlResponse(httpListenerContext.Response, null);
-
-                // Validate that the state parameter matches the CSRF token we generated.
+                // Step 2: Validate that the state parameter matches the CSRF token we generated.
                 if (returnedState != csrfState)
                 {
+                    AWSLoginUtils.SendHtmlResponse(httpListenerContext.Response, "State parameter mismatch");
                     throw new Exception($"State parameter {returnedState} does not match expected value {csrfState}.");
                 }
 
                 // Validate the authorization code before attempting to exchange it for a token. We cannot validate for length (e.g. 2048) since RFC https://datatracker.ietf.org/doc/html/rfc6749#page-24 doesn't restrict it to a certain length.
                 if (string.IsNullOrWhiteSpace(authCode))
                 {
+                    AWSLoginUtils.SendHtmlResponse(httpListenerContext.Response, "Authorization code missing");
                     throw new Exception("Authorization code is missing from the OAuth redirect.");
                 }
+
+                // Step 3: Display success page only after validation passes.
+                AWSLoginUtils.SendHtmlResponse(httpListenerContext.Response, null);
             }
 
             // Exchange auth code for token

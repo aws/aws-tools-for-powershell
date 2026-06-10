@@ -18,6 +18,7 @@
 
 using Amazon.Runtime.CredentialManagement;
 using Amazon.Runtime.Internal.Util;
+using Amazon.Runtime.SharedInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,7 +26,9 @@ using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Host;
 using Amazon.Runtime.Credentials.Internal;
+using System.Net;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Text;
 using Amazon.PowerShell.Common.Internal;
 using Amazon.PowerShell.Utils;
@@ -52,7 +55,8 @@ namespace Amazon.PowerShell.Common
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class InvokeAWSSSOLoginCmdlet : BaseCmdlet
     {
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        private const int DefaultExecutionTimeoutMs = 900000; // 15 min.
+        private CancellationTokenSource _cancellationTokenSource;
         private readonly ILogger _logger = Logger.GetLogger(typeof(InvokeAWSSSOLoginCmdlet));
 
         public const string ProfileNameParameterSet = "Profile";
@@ -77,6 +81,26 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter Force { get; set; }
+
+        /// <summary>
+        /// <para>Falls back to the Device Authorization flow instead of the default Authorization Code + PKCE flow.
+        /// Use this when you cannot launch a browser on the device (e.g. over SSH) or are unable to start the local web server required for the authorization code flow.</para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter UseDeviceCode { get; set; }
+
+        /// <summary>
+        /// Execution timeout value in milliseconds. Default is 15 minutes.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, HelpMessage = "ExecutionTimeout (in milliseconds)")]
+        public int? ExecutionTimeout { get; set; }
+
+        protected override void BeginProcessing()
+        {
+            base.BeginProcessing();
+            _cancellationTokenSource = new CancellationTokenSource(ExecutionTimeout ?? DefaultExecutionTimeoutMs);
+            WriteVerbose($"CancellationToken timeout: {ExecutionTimeout ?? DefaultExecutionTimeoutMs}ms");
+        }
 
         protected override void StopProcessing()
         {
@@ -138,7 +162,7 @@ namespace Amazon.PowerShell.Common
 
             if (Force.IsPresent)
             {
-                // Logoff 
+                // Logoff
                 SSOUtils.LogoutAsync(profileOptions, cancellationToken: _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
 
@@ -155,7 +179,31 @@ namespace Amazon.PowerShell.Common
                     Console.WriteLine("Attempting to refresh SSO Token. If the refresh fails, the SSO authorization will be initiated.");
                 }
             }
-            // below Action will be called back by the .NET SDK Login Flow.
+
+            // Authorization Code + PKCE is the default for profiles with sso-session.
+            // Device code if: -UseDeviceCode is set, or legacy profile (no sso-session).
+            bool useAuthCodeFlow = !UseDeviceCode.IsPresent && !string.IsNullOrEmpty(profileOptions.SsoSession);
+
+            SsoToken ssoToken;
+            if (useAuthCodeFlow)
+            {
+                ssoToken = ProcessAuthCodeFlowAsync(profileOptions).GetAwaiter().GetResult();
+            }
+            else
+            {
+                ssoToken = ProcessDeviceCodeFlow(profileOptions);
+            }
+
+            if (ssoToken != null)
+            {
+                string associatedProfileMessage = ProfileName != null ? $" associated with the profile {ProfileName}" : "";
+                Console.WriteLine($"SSO authentication successful for the sso-session {profileOptions.SsoSession}{associatedProfileMessage}.");
+                Console.WriteLine();
+            }
+        }
+
+        private SsoToken ProcessDeviceCodeFlow(CredentialProfileOptions profileOptions)
+        {
             Action<SsoVerificationArguments> ssoVerificationCallback = args =>
             {
                 Console.WriteLine(GetSSOLoginMessage(args.UserCode, args.VerificationUri));
@@ -169,19 +217,109 @@ namespace Amazon.PowerShell.Common
                 }
                 catch (Exception ex)
                 {
-                    // it's safe to ignore the exception since an attempt was made to open the link in the browser.
-                    // the customer has instructions to complete auth flow even when the browser doesn't open automatically.
                     _logger.Error(ex, "Unable to open browser.");
                 }
             };
 
-            var ssoToken = SSOUtils.LoginAsync(profileOptions, ssoVerificationCallback, _cancellationTokenSource.Token).GetAwaiter().GetResult();
-            if (ssoToken != null)
+            return SSOUtils.LoginAsync(profileOptions, ssoVerificationCallback, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+        }
+
+        private async Task<SsoToken> ProcessAuthCodeFlowAsync(CredentialProfileOptions profileOptions)
+        {
+            HttpListenerResult httpListenerResult;
+            try
             {
-                string associatedProfileMessage = ProfileName != null ? $" associated with the profile {ProfileName}" : "";
-                Console.WriteLine($"SSO authentication successful for the sso-session {profileOptions.SsoSession}{associatedProfileMessage}.");
-                Console.WriteLine();
+                httpListenerResult = HttpListenerUtils.StartListenerAsync("/oauth/callback", _cancellationTokenSource.Token);
             }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to start local web server for authorization code flow.");
+                throw new AmazonClientException(
+                    "Failed to start local web server. Use -UseDeviceCode parameter to fall back to the device code authorization flow.", ex);
+            }
+
+            using (httpListenerResult)
+            {
+                // OIDC API will not accept RedirectUri with trailing slash
+                var redirectUri = httpListenerResult.RedirectUri.TrimEnd('/');
+
+                var pkceFlowOptions = new PkceFlowOptions
+                {
+                    RedirectUri = redirectUri,
+                    IssuerUrl = profileOptions.SsoStartUrl,
+                    RetrieveAuthorizationCodeCallbackAsync = async (authorizationUrl, ct) =>
+                    {
+                        return await RetrieveAuthorizationCodeAsync(authorizationUrl, httpListenerResult, ct).ConfigureAwait(false);
+                    }
+                };
+
+                return await SSOUtils.LoginWithPkceAsync(profileOptions, pkceFlowOptions, _cancellationTokenSource.Token).ConfigureAwait(false);
+            }
+        }
+
+        private async Task<string> RetrieveAuthorizationCodeAsync(Uri authorizationUrl, HttpListenerResult httpListenerResult, CancellationToken cancellationToken)
+        {
+            var authUrlString = authorizationUrl.ToString();
+
+            Console.WriteLine();
+            Console.WriteLine("Attempting to open your default browser. If the browser does not open, open the following URL.");
+            Console.WriteLine("If you are unable to open the URL on this device, run this command again with the '-UseDeviceCode' option.");
+            Console.WriteLine();
+            Console.WriteLine(authUrlString);
+            Console.WriteLine();
+
+            // Extract the state parameter from the authorization URL for CSRF validation
+            var expectedState = ExtractQueryParameter(authorizationUrl, "state");
+
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = authUrlString,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Unable to open browser.");
+            }
+
+            // Wait for the authorization callback
+            var context = await httpListenerResult.RequestTask.ConfigureAwait(false);
+
+            var authCode = context.Request.QueryString?["code"];
+            var returnedState = context.Request.QueryString?["state"];
+            var error = context.Request.QueryString?["error"];
+
+            // Step 1: Handle error response from the authorization server (RFC 6749 §4.1.2.1)
+            if (error != null)
+            {
+                if (error.Length > 300 || !System.Text.RegularExpressions.Regex.IsMatch(error, @"^[a-zA-Z0-9_]+$"))
+                {
+                    error = "invalid_error_format";
+                }
+                var safeError = WebUtility.HtmlEncode(error);
+                HttpListenerUtils.SendHtmlResponse(context.Response, safeError);
+                throw new Exception($"SSO authorization error: {safeError}");
+            }
+
+            // Step 2: Validate CSRF state parameter
+            if (!string.IsNullOrEmpty(expectedState) && returnedState != expectedState)
+            {
+                HttpListenerUtils.SendHtmlResponse(context.Response, "State parameter mismatch");
+                throw new Exception($"State parameter mismatch. Expected: {expectedState}, Received: {returnedState}");
+            }
+
+            if (string.IsNullOrWhiteSpace(authCode))
+            {
+                HttpListenerUtils.SendHtmlResponse(context.Response, "Authorization code missing");
+                throw new Exception("Authorization code is missing from the SSO redirect.");
+            }
+
+            // Step 3: Display success page only after validation passes
+            HttpListenerUtils.SendHtmlResponse(context.Response, null);
+
+            return authCode;
         }
 
         private void ValidateSSOOptions(CredentialProfileOptions options)
@@ -203,7 +341,7 @@ namespace Amazon.PowerShell.Common
         {
             var sb = new StringBuilder();
             sb.Append(Environment.NewLine);
-            sb.Append("Attempting to automatically open the SSO authorization page in your default browser.");
+            sb.Append("Attempting to open your default browser.");
             sb.Append(Environment.NewLine);
             sb.Append("If the browser does not open or you wish to use a different device to authorize this request, open the following URL:");
             sb.Append(Environment.NewLine);
@@ -211,13 +349,27 @@ namespace Amazon.PowerShell.Common
             sb.Append($"{verificationUri.TrimEnd('/')}/?user_code={userCode}");
             sb.Append(Environment.NewLine);
             sb.Append(Environment.NewLine);
-            sb.Append("Verification code:");
+            sb.Append("Then enter the code:");
             sb.Append(Environment.NewLine);
             sb.Append(Environment.NewLine);
             sb.Append(userCode);
             sb.Append(Environment.NewLine);
 
             return sb.ToString();
+        }
+
+        private static string ExtractQueryParameter(Uri uri, string parameterName)
+        {
+            var query = uri.Query.TrimStart('?');
+            foreach (var part in query.Split('&'))
+            {
+                var keyValue = part.Split(new[] { '=' }, 2);
+                if (keyValue.Length == 2 && WebUtility.UrlDecode(keyValue[0]) == parameterName)
+                {
+                    return WebUtility.UrlDecode(keyValue[1]);
+                }
+            }
+            return null;
         }
     }
 
@@ -293,6 +445,13 @@ namespace Amazon.PowerShell.Common
         [Parameter(ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]
         public string Region { get; set; }
+
+        /// <summary>
+        /// <para>Falls back to the Device Authorization flow instead of the default Authorization Code + PKCE flow.
+        /// Use this when you cannot launch a browser on the device (e.g. over SSH) or are unable to start the local web server required for the authorization code flow.</para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter UseDeviceCode { get; set; }
 
         protected override void StopProcessing()
         {
@@ -393,7 +552,9 @@ namespace Amazon.PowerShell.Common
             profileOptions.RegisterSsoSession();
 
             WriteVerbose("Calling Invoke-AWSSSOLogin Cmdlet");
-            ScriptBlock.Create("param($Cmdlet, $SessionName) & $Cmdlet -SessionName $SessionName -Force").Invoke("Invoke-AWSSSOLogin", SessionName);
+            var useDeviceCodeFlag = UseDeviceCode.IsPresent ? " -UseDeviceCode" : "";
+            var verboseFlag = MyInvocation.BoundParameters.ContainsKey("Verbose") ? " -Verbose" : "";
+            ScriptBlock.Create($"param($Cmdlet, $SessionName) & $Cmdlet -SessionName $SessionName -Force{useDeviceCodeFlag}{verboseFlag}").Invoke("Invoke-AWSSSOLogin", SessionName);
 
 
             var cachedSsoToken = SSOUtils.GetCachedTokenAsync(profileOptions, _cancellationTokenSource.Token).GetAwaiter().GetResult();

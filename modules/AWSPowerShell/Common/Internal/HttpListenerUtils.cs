@@ -18,7 +18,9 @@
 
 using Amazon.Runtime;
 using System;
+using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -179,6 +181,81 @@ namespace Amazon.PowerShell.Common.Internal
             catch (ObjectDisposedException) when (cancellationToken.IsCancellationRequested)
             {
                 throw new OperationCanceledException("HTTP listener was cancelled.", cancellationToken);
+            }
+        }
+
+        /// <summary>
+        /// Sends an HTML response to the browser after an OAuth callback redirect.
+        /// Attempts to load the embedded AWSLoginPKCEResponse.html resource; falls back to inline HTML.
+        /// </summary>
+        /// <param name="response">The HttpListenerResponse to write to.</param>
+        /// <param name="error">Error text to display, or null for a success response.</param>
+        public static void SendHtmlResponse(HttpListenerResponse response, string error = null)
+        {
+            string html;
+
+            if (string.IsNullOrWhiteSpace(error))
+            {
+                html = "<!DOCTYPE html><html><head><title>AWS Authentication</title>" +
+                          "<style> body { font-family: Arial, sans-serif; text-align: center; padding: 50px; } " +
+                          ".success { color: #28a745; } .hint { color: #545b64; }</style></head>" +
+                          "<body><h1 class='success'>Request approved</h1>" +
+                          "<p>AWS Tools for PowerShell has been given requested permissions.</p>" +
+                          "<p class='hint'>You can close this window and start using the AWS Tools for PowerShell.</p>" +
+                          "</body></html>";
+            }
+            else
+            {
+                html = "<!DOCTYPE html><html><head><title>AWS Authentication</title>" +
+                          "<style> body { font-family: Arial, sans-serif; text-align: center; padding: 50px; } " +
+                          ".error { color: #dc3545; } " +
+                          ".hint { color: #545b64; }</style></head>" +
+                          "<body><h1 class='error'>Request denied</h1>" +
+                          $"<p>{error}</p>" +
+                          "<p class='hint'>You can close this window and re-start the authorization flow.</p>" +
+                          "</body></html>";
+            }
+
+            try
+            {
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                string[] resourceNames = assembly.GetManifestResourceNames();
+
+                foreach (string resourceName in resourceNames)
+                {
+                    if (resourceName.ToLower().EndsWith("awsloginpkceresponse.html"))
+                    {
+                        try
+                        {
+                            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                            {
+                                if (stream != null)
+                                {
+                                    using (StreamReader reader = new StreamReader(stream))
+                                    {
+                                        html = reader.ReadToEnd();
+                                    }
+                                }
+                            }
+                        }
+                        catch { }
+                        break;
+                    }
+                }
+            }
+            catch { }
+
+            var buffer = System.Text.Encoding.UTF8.GetBytes(html);
+            response.ContentLength64 = buffer.Length;
+            response.ContentType = "text/html; charset=utf-8";
+            response.StatusCode = 200;
+            response.KeepAlive = false;
+
+            using (var responseOutput = response.OutputStream)
+            {
+                responseOutput.Write(buffer, 0, buffer.Length);
+                responseOutput.Flush();
+                responseOutput.Close();
             }
         }
     }
