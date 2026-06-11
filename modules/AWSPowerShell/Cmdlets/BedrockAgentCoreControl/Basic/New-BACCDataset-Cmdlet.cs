@@ -30,13 +30,8 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Creates a new Dataset resource asynchronously.
-    /// 
-    ///  
-    /// <para>
-    /// Returns immediately with status CREATING. Poll GetDataset until status transitions
-    /// to ACTIVE or CREATE_FAILED (with failureReason).
-    /// </para>
+    /// Creates a new dataset resource asynchronously. Returns immediately with status CREATING.
+    /// Poll <c>GetDataset</c> until status transitions to ACTIVE or CREATE_FAILED.
     /// </summary>
     [Cmdlet("New", "BACCDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateDatasetResponse")]
@@ -53,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter DatasetName
         /// <summary>
         /// <para>
-        /// <para>Human-readable name for the dataset. Unique within the account (case-insensitive).
-        /// Immutable after creation.</para>
+        /// <para> Human-readable name for the dataset. Must be unique within the account. Immutable
+        /// after creation. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Source_InlineExamples_Example
         /// <summary>
         /// <para>
-        /// <para>Examples to add. Each example is assigned an auto-generated UUID.</para><para />
+        /// <para> Examples to add. Each example is assigned an auto-generated UUID. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -96,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>Optional AWS KMS key ARN for SSE-KMS on service S3 writes.</para>
+        /// <para> Optional KMS key ARN for server-side encryption on service Amazon S3 writes. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Source_S3Source_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 URI of the JSONL file (e.g. s3://my-bucket/path/to/examples.jsonl).</para>
+        /// <para> Amazon S3 URI of the JSONL file (for example, <c>s3://my-bucket/path/to/examples.jsonl</c>).
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter SchemaType
         /// <summary>
         /// <para>
-        /// <para>Versioned schema type governing the structure of examples. Immutable after creation.</para>
+        /// <para> Versioned schema type governing the structure of examples. Immutable after creation.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -148,7 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional idempotency token.</para>
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If you don't specify this field, a value is randomly generated for
+        /// you. If this token matches a previous request, the service ignores the request, but
+        /// doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

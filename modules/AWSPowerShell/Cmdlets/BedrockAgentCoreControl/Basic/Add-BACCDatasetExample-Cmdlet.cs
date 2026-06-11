@@ -30,19 +30,9 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Adds examples to the dataset's DRAFT.
-    /// 
-    ///  
-    /// <para><strong>Validation:</strong> All examples are validated against the dataset's schemaType
-    /// before any writes occur. If any example fails validation, the entire batch is rejected
-    /// with ValidationException — no examples are written (all-or-nothing semantics).
-    /// </para><para><strong>Asynchronous:</strong> Operates in-place on DRAFT. No version bump occurs.
-    /// Use CreateDatasetVersion to publish DRAFT as a new numbered version.
-    /// </para><para><strong>State guard:</strong> Returns ConflictException (DATASET_NOT_READY) if the
-    /// dataset status is not in {DRAFT, ACTIVE}.
-    /// </para><para><strong>Request size limit:</strong> Max 5 MB total request body. Max 1000 examples
-    /// per call.
-    /// </para>
+    /// Adds examples to the dataset's DRAFT. All examples are validated against the dataset's
+    /// schema type before any writes occur. If any example fails validation, the entire batch
+    /// is rejected (all-or-nothing semantics).
     /// </summary>
     [Cmdlet("Add", "BACCDatasetExample", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.AddDatasetExamplesResponse")]
@@ -76,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Source_InlineExamples_Example
         /// <summary>
         /// <para>
-        /// <para>Examples to add. Each example is assigned an auto-generated UUID.</para><para />
+        /// <para> Examples to add. Each example is assigned an auto-generated UUID. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -91,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Source_S3Source_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 URI of the JSONL file (e.g. s3://my-bucket/path/to/examples.jsonl).</para>
+        /// <para> Amazon S3 URI of the JSONL file (for example, <c>s3://my-bucket/path/to/examples.jsonl</c>).
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -31,14 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
     /// Updates a dataset's metadata. Synchronous operation. Only provided fields are updated;
-    /// omitted fields remain unchanged.
-    /// 
-    ///  
-    /// <para>
-    /// To modify dataset content, use AddDatasetExamples, UpdateDatasetExamples, or DeleteDatasetExamples.
-    /// </para><para>
-    /// Cannot update: name, schemaType, kmsKeyArn (immutable after creation).
-    /// </para>
+    /// omitted fields remain unchanged. To modify dataset content, use <c>AddDatasetExamples</c>,
+    /// <c>UpdateDatasetExamples</c>, or <c>DeleteDatasetExamples</c>.
     /// </summary>
     [Cmdlet("Update", "BACCDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdateDatasetResponse")]

@@ -1,4 +1,0 @@
-{
-  "Type": "Patch",
-  "Description": "Modified cmdlets Initialize-AWSSSOConfiguration and Invoke-AWSSSOLogin to make Authorization Code flow (with PKCE) as the default flow since Device Authorization flow is susceptible to remote phishing attacks. Users can fallback to Device Authorization flow using -UseDeviceCode switch parameter."
-}

@@ -196,6 +196,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.SpreadLevel
+        {
+            ($_ -eq "New-EKSCluster/OutpostConfig_ControlPlanePlacement_SpreadLevel") -Or
+            ($_ -eq "New-EKSCluster/OutpostConfig_EtcdPlacement_SpreadLevel")
+        }
+        {
+            $v = "host","rack"
+            break
+        }
+
         # Amazon.EKS.SupportType
         {
             ($_ -eq "New-EKSCluster/UpgradePolicy_SupportType") -Or
@@ -241,6 +251,8 @@ $EKS_map = @{
     "DeletePropagationPolicy"=@("New-EKSCapability","Update-EKSCapability")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster","Update-EKSClusterConfig")
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
+    "OutpostConfig_ControlPlanePlacement_SpreadLevel"=@("New-EKSCluster")
+    "OutpostConfig_EtcdPlacement_SpreadLevel"=@("New-EKSCluster")
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Status"=@("Get-EKSClusterVersion")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")

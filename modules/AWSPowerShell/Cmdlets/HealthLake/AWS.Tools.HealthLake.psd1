@@ -99,7 +99,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AHLFHIRDatastore', 
         'Remove-AHLResourceTag', 
         'Start-AHLFHIRExportJob', 
-        'Start-AHLFHIRImportJob')
+        'Start-AHLFHIRImportJob', 
+        'Update-AHLFHIRDatastore')
 
     # Variables to export from this module
     VariablesToExport = '*'

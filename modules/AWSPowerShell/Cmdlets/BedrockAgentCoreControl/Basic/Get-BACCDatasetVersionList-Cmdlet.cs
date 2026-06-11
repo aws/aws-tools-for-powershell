@@ -31,11 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
     /// Lists all published versions of a dataset, sorted by version number descending (newest
-    /// first). Does not include the DRAFT working copy.
-    /// 
-    ///  
-    /// <para><strong>State guard:</strong> Allowed for all statuses including DELETING.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// first). Does not include the DRAFT working copy.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACCDatasetVersionList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DatasetVersionSummary")]

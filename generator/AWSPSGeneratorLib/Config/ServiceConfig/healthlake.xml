@@ -81,6 +81,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFHIRDatastore" OutputProperty="DatastoreProperties" Verb="Update" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

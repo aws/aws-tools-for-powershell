@@ -175,6 +175,18 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>IPV4</c></b>   –   ( <i>the default</i> ) The DB cluster uses only IPv4 addresses
+        /// for communication.</para></li><li><para><b><c>DUAL</c></b>   –   The DB cluster uses both IPv4 and IPv6 addresses for communication.
+        /// The DB subnet group associated with the cluster must support IPv6.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
+        #endregion
+        
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
@@ -348,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             }
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.KmsKeyId = this.KmsKeyId;
+            context.NetworkType = this.NetworkType;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
             context.RestoreToTime = this.RestoreToTime;
@@ -414,6 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.OptionGroupName != null)
             {
@@ -542,6 +559,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.String NetworkType { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
             public System.DateTime? RestoreToTime { get; set; }

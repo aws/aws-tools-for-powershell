@@ -236,6 +236,17 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>IPV4</c></b>   –   The DB cluster uses only IPv4 addresses for communication.</para></li><li><para><b><c>DUAL</c></b>   –   The DB cluster uses both IPv4 and IPv6 addresses for communication.
+        /// The DB subnet group associated with the cluster must support IPv6.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
+        #endregion
+        
         #region Parameter NewDBClusterIdentifier
         /// <summary>
         /// <para>
@@ -390,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EngineVersion = this.EngineVersion;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.NetworkType = this.NetworkType;
             context.NewDBClusterIdentifier = this.NewDBClusterIdentifier;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
@@ -490,6 +502,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.NewDBClusterIdentifier != null)
             {
@@ -616,6 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.String NetworkType { get; set; }
             public System.String NewDBClusterIdentifier { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }

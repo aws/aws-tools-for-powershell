@@ -30,17 +30,9 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Deletes specific examples by ID from DRAFT.
-    /// 
-    ///  
-    /// <para><strong>Validation:</strong> All example IDs are validated before any deletes occur.
-    /// If any ID does not exist in DRAFT, the entire batch is rejected with ResourceNotFoundException
-    /// — no examples are deleted (all-or-nothing semantics).
-    /// </para><para><strong>Asynchronous:</strong> Operates in-place on DRAFT. No version bump occurs.
-    /// Use CreateDatasetVersion to publish DRAFT as a new numbered version.
-    /// </para><para><strong>State guard:</strong> Returns ConflictException (DATASET_NOT_READY) if the
-    /// dataset status is not in {DRAFT, ACTIVE}.
-    /// </para>
+    /// Deletes specific examples by ID from DRAFT. All example IDs are validated before
+    /// any deletes occur. If any ID does not exist in DRAFT, the entire batch is rejected
+    /// (all-or-nothing semantics).
     /// </summary>
     [Cmdlet("Remove", "BACCDatasetExample", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteDatasetExamplesResponse")]

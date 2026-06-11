@@ -30,22 +30,9 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Updates multiple existing examples in-place on DRAFT.
-    /// 
-    ///  
-    /// <para><strong>Validation:</strong> All examples are validated against the dataset's schemaType
-    /// before any writes occur. If any example fails validation, the entire batch is rejected
-    /// with ValidationException — no examples are updated (all-or-nothing semantics).
-    /// </para><para><strong>Asynchronous:</strong> Operates in-place on DRAFT. No version bump occurs.
-    /// Use CreateDatasetVersion to publish DRAFT as a new numbered version.
-    /// </para><para>
-    /// Fails with ResourceNotFoundException if any exampleId does not exist in DRAFT. To
-    /// add new examples, use AddDatasetExamples instead.
-    /// </para><para><strong>State guard:</strong> Returns ConflictException (DATASET_NOT_READY) if the
-    /// dataset status is not in {DRAFT, ACTIVE}.
-    /// </para><para><strong>Request size limit:</strong> Max 5 MB total request body. Max 1000 examples
-    /// per call.
-    /// </para>
+    /// Updates multiple existing examples in-place on DRAFT. All examples are validated
+    /// against the dataset's schema type before any writes occur. If any example fails validation,
+    /// the entire batch is rejected (all-or-nothing semantics).
     /// </summary>
     [Cmdlet("Update", "BACCDatasetExample", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdateDatasetExamplesResponse")]
@@ -79,11 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Example
         /// <summary>
         /// <para>
-        /// <para>Examples to update. Each element is a JSON object containing a required <c>exampleId</c>
-        /// string field identifying the existing example, plus the replacement fields. The <c>exampleId</c>
-        /// is extracted and removed before persistence; the remaining document is validated against
-        /// the dataset's schemaType. Max 1000 examples per call. Total request body must not
-        /// exceed 5 MB.</para><para />
+        /// <para> Examples to update. Each element is a JSON object containing a required <c>exampleId</c>
+        /// field identifying the existing example, plus the replacement fields. Maximum 1000
+        /// examples per call. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

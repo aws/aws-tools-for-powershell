@@ -106,8 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name for your database of up to 64 alpha-numeric characters. If you do not provide
-        /// a name, Amazon Neptune will not create a database in the DB cluster you are creating.</para>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,6 +290,18 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
+        #endregion
+        
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>IPV4</c></b>   –   ( <i>the default</i> ) The DB cluster uses only IPv4 addresses
+        /// for communication.</para></li><li><para><b><c>DUAL</c></b>   –   The DB cluster uses both IPv4 and IPv6 addresses for communication.
+        /// The DB subnet group associated with the cluster must support IPv6.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
         #endregion
         
         #region Parameter OptionGroupName
@@ -509,6 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             context.KmsKeyId = this.KmsKeyId;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.NetworkType = this.NetworkType;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
@@ -614,6 +626,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.OptionGroupName != null)
             {
@@ -757,6 +773,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.String KmsKeyId { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.String NetworkType { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }

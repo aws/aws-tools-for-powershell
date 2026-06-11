@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.267.0",
-    "CoreVersion"       : "4.0.9.0",
+    "ProductVersion"    : "4.0.268.0",
+    "CoreVersion"       : "4.0.9.1",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
     "PreviewLabel"        : "",
@@ -24,7 +24,7 @@
             "InPreview"               : false
         },
         "AWSSupport"  : {
-            "Version" : "4.0.0.67",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.0"
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.21.1",
+            "Version" : "4.0.21.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.0"
@@ -1060,7 +1060,7 @@
             "InPreview"               : false
         },
         "Neptune"                         : {
-            "Version" : "4.0.6.3",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.0"
@@ -1076,7 +1076,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "4.0.17.6",
+            "Version" : "4.0.18.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.0"
@@ -1860,7 +1860,7 @@
             "InPreview"               : false
         },
         "HealthLake"                      : {
-            "Version" : "4.0.4.6",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.0"
@@ -2444,7 +2444,7 @@
             "InPreview"               : false
         },
         "Omics"                               : {
-            "Version" : "4.0.11.1",
+            "Version" : "4.0.12.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.0"
@@ -3220,7 +3220,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "4.0.27.1",
+            "Version" : "4.0.28.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.0"
@@ -3228,7 +3228,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.40.4",
+            "Version" : "4.0.41.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.0"

@@ -30,16 +30,9 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Returns paginated examples from the dataset.
-    /// 
-    ///  
-    /// <para><strong>Version-pinned pagination:</strong> The server embeds the resolved version
-    /// in the <c>nextToken</c>. Once pagination begins, all subsequent pages are pinned to
-    /// that version regardless of concurrent mutations or whether <c>datasetVersion</c> is
-    /// passed on subsequent requests. The <c>datasetVersion</c> query parameter is only used
-    /// for the first request (when <c>nextToken</c> is absent); if omitted, defaults to DRAFT.
-    /// </para><para><strong>State guard:</strong> Allowed for all statuses including DELETING.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns paginated examples from the dataset. The server embeds the resolved version
+    /// in the pagination token. Once pagination begins, all subsequent pages are pinned to
+    /// that version regardless of concurrent mutations.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACCDatasetExampleList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesResponse")]
@@ -73,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter DatasetVersion
         /// <summary>
         /// <para>
-        /// <para>Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent.
-        /// Only used on the first request (when nextToken is absent). For subsequent pages, the
-        /// version is extracted from the nextToken and this parameter is ignored.</para>
+        /// <para> Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only
+        /// used on the first request; for subsequent pages, the version is extracted from the
+        /// pagination token. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of examples to return per page. Default: 1000. Min: 1, max: 1000. Response
-        /// size is validated against 5 MB limit after reading. For bulk access to all examples,
-        /// use the <c>downloadUrl</c> field from GetDataset.</para>
+        /// <para> Maximum number of examples to return per page. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

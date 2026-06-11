@@ -154,12 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter OutpostConfig_ControlPlaneInstanceType
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster
-        /// on Outposts. Choose an instance type based on the number of nodes that your cluster
-        /// will have. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
-        /// considerations</a> in the <i>Amazon EKS User Guide</i>.</para><para>The instance type that you specify is used for all Kubernetes control plane instances.
-        /// The instance type can't be changed after cluster creation. The control plane is not
-        /// automatically scaled by Amazon EKS.</para>
+        /// <para>The Amazon EC2 instance type for the Kubernetes control plane instances of your local
+        /// Amazon EKS cluster on Amazon Web Services Outposts. This instance type applies to
+        /// all control plane instances and cannot be changed after cluster creation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+        /// considerations</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,6 +237,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.EKS.Model.EncryptionConfig[] EncryptionConfig { get; set; }
+        #endregion
+        
+        #region Parameter OutpostConfig_EtcdInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on
+        /// Amazon Web Services Outposts. This instance type applies to all etcd instances and
+        /// cannot be changed after cluster creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutpostConfig_EtcdInstanceType { get; set; }
         #endregion
         
         #region Parameter ControlPlanePlacement_GroupName
@@ -448,6 +458,31 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }
         #endregion
         
+        #region Parameter OutpostConfig_ControlPlanePlacement_SpreadLevel
+        /// <summary>
+        /// <para>
+        /// <para>Optional parameter to specify the placement group spread level for control plane instances.
+        /// If not provided, Amazon EKS will deploy control plane instances without a placement
+        /// group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.SpreadLevel")]
+        public Amazon.EKS.SpreadLevel OutpostConfig_ControlPlanePlacement_SpreadLevel { get; set; }
+        #endregion
+        
+        #region Parameter OutpostConfig_EtcdPlacement_SpreadLevel
+        /// <summary>
+        /// <para>
+        /// <para>Optional parameter to specify the placement group spread level for etcd instances.
+        /// If not provided, Amazon EKS will deploy etcd instances without a placement group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.SpreadLevel")]
+        public Amazon.EKS.SpreadLevel OutpostConfig_EtcdPlacement_SpreadLevel { get; set; }
+        #endregion
+        
         #region Parameter UpgradePolicy_SupportType
         /// <summary>
         /// <para>
@@ -581,6 +616,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             #endif
             context.OutpostConfig_ControlPlaneInstanceType = this.OutpostConfig_ControlPlaneInstanceType;
             context.ControlPlanePlacement_GroupName = this.ControlPlanePlacement_GroupName;
+            context.OutpostConfig_ControlPlanePlacement_SpreadLevel = this.OutpostConfig_ControlPlanePlacement_SpreadLevel;
+            context.OutpostConfig_EtcdInstanceType = this.OutpostConfig_EtcdInstanceType;
+            context.OutpostConfig_EtcdPlacement_SpreadLevel = this.OutpostConfig_EtcdPlacement_SpreadLevel;
             if (this.OutpostConfig_OutpostArn != null)
             {
                 context.OutpostConfig_OutpostArn = new List<System.String>(this.OutpostConfig_OutpostArn);
@@ -829,6 +867,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.OutpostConfig.ControlPlaneInstanceType = requestOutpostConfig_outpostConfig_ControlPlaneInstanceType;
                 requestOutpostConfigIsNull = false;
             }
+            System.String requestOutpostConfig_outpostConfig_EtcdInstanceType = null;
+            if (cmdletContext.OutpostConfig_EtcdInstanceType != null)
+            {
+                requestOutpostConfig_outpostConfig_EtcdInstanceType = cmdletContext.OutpostConfig_EtcdInstanceType;
+            }
+            if (requestOutpostConfig_outpostConfig_EtcdInstanceType != null)
+            {
+                request.OutpostConfig.EtcdInstanceType = requestOutpostConfig_outpostConfig_EtcdInstanceType;
+                requestOutpostConfigIsNull = false;
+            }
             List<System.String> requestOutpostConfig_outpostConfig_OutpostArn = null;
             if (cmdletContext.OutpostConfig_OutpostArn != null)
             {
@@ -837,6 +885,31 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestOutpostConfig_outpostConfig_OutpostArn != null)
             {
                 request.OutpostConfig.OutpostArns = requestOutpostConfig_outpostConfig_OutpostArn;
+                requestOutpostConfigIsNull = false;
+            }
+            Amazon.EKS.Model.EtcdPlacementRequest requestOutpostConfig_outpostConfig_EtcdPlacement = null;
+            
+             // populate EtcdPlacement
+            var requestOutpostConfig_outpostConfig_EtcdPlacementIsNull = true;
+            requestOutpostConfig_outpostConfig_EtcdPlacement = new Amazon.EKS.Model.EtcdPlacementRequest();
+            Amazon.EKS.SpreadLevel requestOutpostConfig_outpostConfig_EtcdPlacement_outpostConfig_EtcdPlacement_SpreadLevel = null;
+            if (cmdletContext.OutpostConfig_EtcdPlacement_SpreadLevel != null)
+            {
+                requestOutpostConfig_outpostConfig_EtcdPlacement_outpostConfig_EtcdPlacement_SpreadLevel = cmdletContext.OutpostConfig_EtcdPlacement_SpreadLevel;
+            }
+            if (requestOutpostConfig_outpostConfig_EtcdPlacement_outpostConfig_EtcdPlacement_SpreadLevel != null)
+            {
+                requestOutpostConfig_outpostConfig_EtcdPlacement.SpreadLevel = requestOutpostConfig_outpostConfig_EtcdPlacement_outpostConfig_EtcdPlacement_SpreadLevel;
+                requestOutpostConfig_outpostConfig_EtcdPlacementIsNull = false;
+            }
+             // determine if requestOutpostConfig_outpostConfig_EtcdPlacement should be set to null
+            if (requestOutpostConfig_outpostConfig_EtcdPlacementIsNull)
+            {
+                requestOutpostConfig_outpostConfig_EtcdPlacement = null;
+            }
+            if (requestOutpostConfig_outpostConfig_EtcdPlacement != null)
+            {
+                request.OutpostConfig.EtcdPlacement = requestOutpostConfig_outpostConfig_EtcdPlacement;
                 requestOutpostConfigIsNull = false;
             }
             Amazon.EKS.Model.ControlPlanePlacementRequest requestOutpostConfig_outpostConfig_ControlPlanePlacement = null;
@@ -852,6 +925,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestOutpostConfig_outpostConfig_ControlPlanePlacement_controlPlanePlacement_GroupName != null)
             {
                 requestOutpostConfig_outpostConfig_ControlPlanePlacement.GroupName = requestOutpostConfig_outpostConfig_ControlPlanePlacement_controlPlanePlacement_GroupName;
+                requestOutpostConfig_outpostConfig_ControlPlanePlacementIsNull = false;
+            }
+            Amazon.EKS.SpreadLevel requestOutpostConfig_outpostConfig_ControlPlanePlacement_outpostConfig_ControlPlanePlacement_SpreadLevel = null;
+            if (cmdletContext.OutpostConfig_ControlPlanePlacement_SpreadLevel != null)
+            {
+                requestOutpostConfig_outpostConfig_ControlPlanePlacement_outpostConfig_ControlPlanePlacement_SpreadLevel = cmdletContext.OutpostConfig_ControlPlanePlacement_SpreadLevel;
+            }
+            if (requestOutpostConfig_outpostConfig_ControlPlanePlacement_outpostConfig_ControlPlanePlacement_SpreadLevel != null)
+            {
+                requestOutpostConfig_outpostConfig_ControlPlanePlacement.SpreadLevel = requestOutpostConfig_outpostConfig_ControlPlanePlacement_outpostConfig_ControlPlanePlacement_SpreadLevel;
                 requestOutpostConfig_outpostConfig_ControlPlanePlacementIsNull = false;
             }
              // determine if requestOutpostConfig_outpostConfig_ControlPlanePlacement should be set to null
@@ -1058,6 +1141,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String Name { get; set; }
             public System.String OutpostConfig_ControlPlaneInstanceType { get; set; }
             public System.String ControlPlanePlacement_GroupName { get; set; }
+            public Amazon.EKS.SpreadLevel OutpostConfig_ControlPlanePlacement_SpreadLevel { get; set; }
+            public System.String OutpostConfig_EtcdInstanceType { get; set; }
+            public Amazon.EKS.SpreadLevel OutpostConfig_EtcdPlacement_SpreadLevel { get; set; }
             public List<System.String> OutpostConfig_OutpostArn { get; set; }
             public List<Amazon.EKS.Model.RemoteNodeNetwork> RemoteNetworkConfig_RemoteNodeNetwork { get; set; }
             public List<Amazon.EKS.Model.RemotePodNetwork> RemoteNetworkConfig_RemotePodNetwork { get; set; }

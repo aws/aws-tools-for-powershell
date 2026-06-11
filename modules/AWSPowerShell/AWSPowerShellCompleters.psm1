@@ -32547,6 +32547,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.SpreadLevel
+        {
+            ($_ -eq "New-EKSCluster/OutpostConfig_ControlPlanePlacement_SpreadLevel") -Or
+            ($_ -eq "New-EKSCluster/OutpostConfig_EtcdPlacement_SpreadLevel")
+        }
+        {
+            $v = "host","rack"
+            break
+        }
+
         # Amazon.EKS.SupportType
         {
             ($_ -eq "New-EKSCluster/UpgradePolicy_SupportType") -Or
@@ -32592,6 +32602,8 @@ $EKS_map = @{
     "DeletePropagationPolicy"=@("New-EKSCapability","Update-EKSCapability")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster","Update-EKSClusterConfig")
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
+    "OutpostConfig_ControlPlanePlacement_SpreadLevel"=@("New-EKSCluster")
+    "OutpostConfig_EtcdPlacement_SpreadLevel"=@("New-EKSCluster")
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Status"=@("Get-EKSClusterVersion")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
@@ -41098,8 +41110,18 @@ $AHL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.HealthLake.AnalyticsStatus
+        "Update-AHLFHIRDatastore/AnalyticsConfiguration_Status"
+        {
+            $v = "DISABLED","DISABLING","ENABLED","ENABLING","PAUSED","PAUSING"
+            break
+        }
+
         # Amazon.HealthLake.AuthorizationStrategy
-        "New-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy"
+        {
+            ($_ -eq "New-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy") -Or
+            ($_ -eq "Update-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy")
+        }
         {
             $v = "AWS_AUTH","SMART_ON_FHIR","SMART_ON_FHIR_V1"
             break
@@ -41115,7 +41137,7 @@ $AHL_Completers = {
         # Amazon.HealthLake.DatastoreStatus
         "Get-AHLFHIRDatastoreList/Filter_DatastoreStatus"
         {
-            $v = "ACTIVE","CREATE_FAILED","CREATING","DELETED","DELETING"
+            $v = "ACTIVE","CREATE_FAILED","CREATING","DELETED","DELETING","UPDATE_FAILED","UPDATING"
             break
         }
 
@@ -41133,6 +41155,13 @@ $AHL_Completers = {
         }
         {
             $v = "CANCEL_COMPLETED","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_SUBMITTED","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","QUEUED","SUBMITTED"
+            break
+        }
+
+        # Amazon.HealthLake.NlpStatus
+        "Update-AHLFHIRDatastore/NlpConfiguration_Status"
+        {
+            $v = "DISABLED","DISABLING","ENABLED","ENABLING"
             break
         }
 
@@ -41159,11 +41188,13 @@ $AHL_Completers = {
 }
 
 $AHL_map = @{
+    "AnalyticsConfiguration_Status"=@("Update-AHLFHIRDatastore")
     "DatastoreTypeVersion"=@("New-AHLFHIRDatastore")
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
-    "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore")
+    "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
+    "NlpConfiguration_Status"=@("Update-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
     "ValidationLevel"=@("Start-AHLFHIRImportJob")
 }
@@ -41230,7 +41261,8 @@ $AHL_SelectMap = @{
                "Start-AHLFHIRExportJob",
                "Start-AHLFHIRImportJob",
                "Add-AHLResourceTag",
-               "Remove-AHLResourceTag")
+               "Remove-AHLResourceTag",
+               "Update-AHLFHIRDatastore")
 }
 
 _awsArgumentCompleterRegistration $AHL_SelectCompleters $AHL_SelectMap

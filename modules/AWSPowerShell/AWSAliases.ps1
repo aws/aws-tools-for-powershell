@@ -16515,6 +16515,7 @@ Set-Alias -Name AHL-StartFHIRExportJob -Value Start-AHLFHIRExportJob
 Set-Alias -Name AHL-StartFHIRImportJob -Value Start-AHLFHIRImportJob
 Set-Alias -Name AHL-TagResource -Value Add-AHLResourceTag
 Set-Alias -Name AHL-UntagResource -Value Remove-AHLResourceTag
+Set-Alias -Name AHL-UpdateFHIRDatastore -Value Update-AHLFHIRDatastore
 Set-Alias -Name Accept-IAMDelegationRequest -Value Approve-IAMDelegationRequest
 Set-Alias -Name IAM-AcceptDelegationRequest -Value Approve-IAMDelegationRequest
 Set-Alias -Name IAM-AddClientIDToOpenIDConnectProvider -Value Add-IAMClientIDToOpenIDConnectProvider

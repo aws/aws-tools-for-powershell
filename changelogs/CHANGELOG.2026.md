@@ -1,4 +1,20 @@
-﻿### 5.0.231 (2026-06-10 19:57Z)
+﻿### 5.0.232 (2026-06-11 19:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.268.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * 
+    * Modified cmdlet Invoke-AWSSSOLogin: added parameters ExecutionTimeout and UseDeviceCode.
+    * Modified cmdlet Initialize-AWSSSOConfiguration: added parameter UseDeviceCode.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameters OutpostConfig_ControlPlanePlacement_SpreadLevel, OutpostConfig_EtcdInstanceType and OutpostConfig_EtcdPlacement_SpreadLevel.
+  * Amazon HealthLake
+    * Added cmdlet Update-AHLFHIRDatastore leveraging the UpdateFHIRDatastore service API.
+  * Amazon Neptune
+    * Modified cmdlet Edit-NPTDBCluster: added parameter NetworkType.
+    * Modified cmdlet New-NPTDBCluster: added parameter NetworkType.
+    * Modified cmdlet Restore-NPTDBClusterFromSnapshot: added parameter NetworkType.
+    * Modified cmdlet Restore-NPTDBClusterToPointInTime: added parameter NetworkType.
+  * Modified cmdlets Initialize-AWSSSOConfiguration and Invoke-AWSSSOLogin to make Authorization Code flow (with PKCE) as the default flow since Device Authorization flow is susceptible to remote phishing attacks. Users can fallback to Device Authorization flow using -UseDeviceCode switch parameter.
+
+### 5.0.231 (2026-06-10 19:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.267.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EC2 Container Service
     * Modified cmdlet Register-ECSDaemonTaskDefinition: added parameters IpcMode and PidMode.
