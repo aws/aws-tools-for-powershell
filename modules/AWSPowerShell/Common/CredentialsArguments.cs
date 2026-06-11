@@ -74,8 +74,6 @@ namespace Amazon.PowerShell.Common
         internal string ProfileLocation { get; private set; }
         internal string CredentialsFilePath { get; private set; }
         internal DateTime? CredentialsFileLastWriteTimeUtc { get; private set; }
-        private DateTime? lastCheckedAtUtc;
-        private static readonly TimeSpan CheckThrottleInterval = TimeSpan.FromSeconds(2);
 
         public override string ToString()
         {
@@ -114,11 +112,6 @@ namespace Amazon.PowerShell.Common
             var credentialsType = Credentials?.GetType();
             if (credentialsType != typeof(BasicAWSCredentials) && credentialsType != typeof(SessionAWSCredentials))
                 return false;
-
-            var now = DateTime.UtcNow;
-            if (lastCheckedAtUtc != null && (now - lastCheckedAtUtc.Value) < CheckThrottleInterval)
-                return false;
-            lastCheckedAtUtc = now;
 
             var current = SafeGetLastWriteTimeUtc(CredentialsFilePath);
             return current != null && current != CredentialsFileLastWriteTimeUtc;
