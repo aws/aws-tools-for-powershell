@@ -272,6 +272,7 @@ namespace Amazon.PowerShell.Common
                 // OIDC API will not accept RedirectUri with trailing slash
                 var redirectUri = httpListenerResult.RedirectUri.TrimEnd('/');
 
+                // GrantTypes defaults to ["authorization_code", "refresh_token"] in PkceFlowOptions.
                 var pkceFlowOptions = new PkceFlowOptions
                 {
                     RedirectUri = redirectUri,
@@ -549,21 +550,17 @@ namespace Amazon.PowerShell.Common
             WriteVerbose($"Start URL '{resolvedEndpoint.StartUrl}' resolved to '{resolvedEndpoint.ResolvedUrl}'");
             WriteVerbose($"Resolved region: {resolvedEndpoint.Region ?? "(not available from URL)"}");
 
-            // For vanity URLs, reject explicit -SSORegion that conflicts with the URL-derived region.
-            // The resolved region is authoritative for vanity URLs; to pin a region, use a direct AWS-owned URL.
-            // To allow user override instead of rejecting, comment the ThrowTerminatingError block
-            // and uncomment the SSORegion assignment below.
+            // For vanity URLs, the resolved region is authoritative. Override user-provided -SSORegion
+            // and inform the user. To pin a specific region, use a direct AWS-owned URL.
             if (resolvedEndpoint.IsVanityUrl &&
                 !string.IsNullOrEmpty(resolvedEndpoint.Region) &&
                 SSORegion != null &&
                 !string.Equals(SSORegion, resolvedEndpoint.Region, StringComparison.OrdinalIgnoreCase))
             {
-                this.ThrowTerminatingError(new ErrorRecord(
-                    new ArgumentException($"The provided -SSORegion '{SSORegion}' conflicts with the region '{resolvedEndpoint.Region}' " +
-                        "resolved from the vanity URL. Vanity URLs use the region from the redirect target. " +
-                        "To use a specific region, use the direct AWS-owned URL instead."),
-                    "ArgumentException", ErrorCategory.InvalidArgument, this.SSORegion));
-                // SSORegion = resolvedEndpoint.Region;
+                Console.WriteLine($"Note: The provided -SSORegion '{SSORegion}' is overridden by the region '{resolvedEndpoint.Region}' " +
+                    "resolved from the vanity URL. To use a specific region, configure with a direct AWS-owned URL " +
+                    $"(e.g., https://{{instanceId}}.portal.{SSORegion}.app.aws) instead of a vanity URL.");
+                SSORegion = resolvedEndpoint.Region;
             }
 
             // If user didn't provide -SSORegion:
