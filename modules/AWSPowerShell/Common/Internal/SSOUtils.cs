@@ -278,7 +278,12 @@ namespace Amazon.PowerShell.Common.Internal
             return new SSOTokenManagerGetTokenOptions()
             {
                 ClientName = clientName,
-                Region = resolvedEndpoint.Region ?? profileOptions.SsoRegion,
+                // For vanity URLs, use the region resolved from the redirect target so that
+                // DNS failovers are picked up automatically on each login.
+                // For direct AWS-owned URLs, use the profile's sso_region (existing behavior).
+                Region = resolvedEndpoint.IsVanityUrl
+                    ? resolvedEndpoint.Region ?? profileOptions.SsoRegion
+                    : profileOptions.SsoRegion,
                 StartUrl = profileOptions.SsoStartUrl,
                 ResolvedStartUrl = resolvedEndpoint.IsVanityUrl ? resolvedEndpoint.ResolvedUrl : null,
                 IsVanityUrl = resolvedEndpoint.IsVanityUrl,
@@ -299,7 +304,12 @@ namespace Amazon.PowerShell.Common.Internal
             return new SSOTokenManagerGetTokenOptions()
             {
                 ClientName = clientName,
-                Region = resolvedEndpoint.Region ?? profileOptions.SsoRegion,
+                // For vanity URLs, use the region resolved from the redirect target so that
+                // DNS failovers are picked up automatically on each login.
+                // For direct AWS-owned URLs, use the profile's sso_region (existing behavior).
+                Region = resolvedEndpoint.IsVanityUrl
+                    ? resolvedEndpoint.Region ?? profileOptions.SsoRegion
+                    : profileOptions.SsoRegion,
                 StartUrl = profileOptions.SsoStartUrl,
                 ResolvedStartUrl = resolvedEndpoint.IsVanityUrl ? resolvedEndpoint.ResolvedUrl : null,
                 IsVanityUrl = resolvedEndpoint.IsVanityUrl,
