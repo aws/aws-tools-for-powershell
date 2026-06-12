@@ -118,7 +118,7 @@ function Install-AWSToolsModuleV1 {
             }
         } | Sort-Object -Unique
 
-        if ($Name -notlike 'AWS.Tools*') {
+        if ($Name -notlike 'AWS.Tools.*') {
             throw "The Name parameter must contain only AWS.Tools modules."
         }
 
